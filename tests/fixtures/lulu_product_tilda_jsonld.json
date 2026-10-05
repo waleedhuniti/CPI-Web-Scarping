@@ -1,0 +1,73 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://gcc.luluhypermarket.com/en-ae/tilda-pure-original-basmati-rice-1-kg/p/10962/",
+  "name": "Lulu UAE",
+  "alternateName": "Lulu Hypermarket",
+  "potentialAction": {
+   "@type": "SearchAction",
+   "target": {
+    "@type": "EntryPoint",
+    "urlTemplate": "https://gcc.luluhypermarket.com/en-ae/list/?search_text={search_term_string}"
+   },
+   "query-input": "required name=search_term_string"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Tilda Pure Original Basmati Rice 1 kg",
+  "image": [
+   "https://bf1af2.akinoncloudcdn.com/products/2025/12/10/76284/1a295741-dfce-47af-a99c-fd69756a2ecf.jpg",
+   "https://bf1af2.akinoncloudcdn.com/products/2025/12/10/76284/3e88f2e9-077b-4d53-bc2d-01192a5b93c6.jpg",
+   "https://bf1af2.akinoncloudcdn.com/products/2025/12/10/76284/36e53168-c1b6-48a0-9693-1e167b765c34.jpg"
+  ],
+  "sku": "10962",
+  "brand": {
+   "@type": "Brand"
+  },
+  "offers": {
+   "@type": "Offer",
+   "url": "https://gcc.luluhypermarket.com/tilda-pure-original-basmati-rice-1-kg/p/10962/",
+   "priceCurrency": "aed",
+   "price": "16.750",
+   "itemCondition": "https://schema.org/NewCondition",
+   "availability": "https://schema.org/InStock",
+   "itemOffered": {
+    "@type": "Product",
+    "name": "Tilda Pure Original Basmati Rice 1 kg"
+   }
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+   {
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Grocery",
+    "item": "https://gcc.luluhypermarket.com/grocery/"
+   },
+   {
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Food Cupboard",
+    "item": "https://gcc.luluhypermarket.com/grocery-food-cupboard/"
+   },
+   {
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Rice, Pasta & Noodles",
+    "item": "https://gcc.luluhypermarket.com/grocery-food-cupboard-rice-pasta-noodles/"
+   },
+   {
+    "@type": "ListItem",
+    "position": 4,
+    "name": "Rice",
+    "item": "https://gcc.luluhypermarket.com/grocery-food-cupboard-rice-pasta-noodles-rice/"
+   }
+  ]
+ }
+]

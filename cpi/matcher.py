@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 import re
 
 from . import gtin
-from .quantity import Quantity, find_quantity, parse_quantity, same_quantity
+from .quantity import Quantity, all_quantities, find_quantity, pack_count, parse_quantity, same_quantity
 from .text import norm_text
 
 NAME_ACCEPT = 0.60   # fuzzy name+brand score needed to auto-accept when there is no barcode on both sides
@@ -18,13 +18,14 @@ BARCODE_MATCH = "barcode_match"
 BARCODE_QTY_UNVERIFIED = "barcode_match_qty_unverified"
 BARCODE_NAME_CHANGED = "barcode_match_name_changed"
 BARCODE_SEARCH_MATCH = "barcode_search_match"   # retailer search for the barcode returned exactly this product
+BARCODE_UNIT_LABEL = "barcode_match_unit_label"  # barcode equal, same number in another unit (basket 946 g, jar says 946 ml)
 QTY_MISMATCH = "qty_mismatch"
-QTY_UNIT_DIFFERS = "qty_unit_differs"             # barcode equal, size written in another unit (946 g vs 946 ml; 4 pcs vs 330 g): officer confirms
+QTY_UNIT_DIFFERS = "qty_unit_differs"             # barcode equal, size in a unit that cannot be compared (4 pcs vs 330 g): officer confirms
 QTY_TITLE_URL_CONFLICT = "qty_title_url_conflict"  # barcode equal, retailer title says another size than its own URL: officer confirms
 FUZZY_MATCH = "fuzzy_match"
 REVIEW = "review"
 NO_MATCH = "no_match"
-ACCEPTED = {BARCODE_MATCH, BARCODE_NAME_CHANGED, BARCODE_SEARCH_MATCH, FUZZY_MATCH}
+ACCEPTED = {BARCODE_MATCH, BARCODE_NAME_CHANGED, BARCODE_SEARCH_MATCH, BARCODE_UNIT_LABEL, FUZZY_MATCH}
 
 
 @dataclass
@@ -84,6 +85,15 @@ def listing_quantity(listing: Listing) -> Quantity:
     return q if q.ok else find_quantity(listing.title)
 
 
+def listing_quantities(listing: Listing) -> list:
+    """Every size the listing states: the retailer's size field when present, else all sizes in the title."""
+    q = parse_quantity(listing.quantity_text)
+    if q.ok:
+        return [q]
+    main = find_quantity(listing.title)
+    return [main] + [x for x in all_quantities(listing.title) if x != main] if main.ok else []
+
+
 def url_quantity(listing: Listing) -> Quantity:
     """Size written in the product URL slug ('.../president-shrded-mozrela-900gr-200g/p/871986' -> 900 g)."""
     m = re.search(r"/([^/]+)/p/[^/]+/?$", (listing.url or "").split("?")[0])
@@ -105,24 +115,42 @@ def match(item, listing: Listing, aliases=None, qty_tol: float = 0.005) -> Match
             return MatchResult(NO_MATCH, score, ["barcode differs"])
         via_search = search_hit
         if list_q.ok and item_q.ok:
+            note = ""
             if not same_quantity(item_q, list_q, qty_tol):
                 why = f"basket {item_q.total:g}{item_q.unit} vs listing {list_q.total:g}{list_q.unit}"
-                if item_q.unit != list_q.unit:
+                # same barcode, so the same pack: the title may state the size twice ('10pcs 400 g'), or the basket may
+                # give the size of one piece and the piece count in the name ('علبة 24 حبة ...' 18 g -> 24 x 18 g)
+                alt = next((q for q in listing_quantities(listing)[1:] if same_quantity(item_q, q, qty_tol)), None)
+                n = pack_count(item.name_ar)
+                if alt:
+                    note = f"title also states {alt.total:g}{alt.unit}"
+                elif n > 1 and item_q.unit == list_q.unit and \
+                        abs(n * item_q.total - list_q.total) <= qty_tol * list_q.total:
+                    note = f"basket name says {n} pieces x {item_q.total:g}{item_q.unit}"
+                elif item_q.unit != list_q.unit:
                     same_no = item_q.unit in ("g", "ml") and list_q.unit in ("g", "ml") and \
                         abs(item_q.total - list_q.total) <= qty_tol * max(item_q.total, list_q.total)
-                    return MatchResult(QTY_UNIT_DIFFERS, score, [why + (" - same number, different unit label" if same_no else " - units not comparable")])
-                uq = url_quantity(listing)
-                if uq.ok and same_quantity(item_q, uq, qty_tol):
-                    return MatchResult(QTY_TITLE_URL_CONFLICT, score, [why, f"but the product URL says {uq.total:g}{uq.unit}"])
-                return MatchResult(QTY_MISMATCH, score, [why])
+                    if same_no:      # 946 g in the basket, 946 ml on the shelf: the barcode says it is the same jar
+                        return MatchResult(BARCODE_UNIT_LABEL, score,
+                                           [why + " - same number, different unit label; barcode identifies the pack"])
+                    return MatchResult(QTY_UNIT_DIFFERS, score, [why + " - units not comparable"])
+                else:
+                    uq = url_quantity(listing)
+                    if uq.ok and same_quantity(item_q, uq, qty_tol):
+                        return MatchResult(QTY_TITLE_URL_CONFLICT, score, [why, f"but the product URL says {uq.total:g}{uq.unit}"])
+                    return MatchResult(QTY_MISMATCH, score, [why])
+            reasons = ["barcode found via retailer search + quantity equal" if via_search else "barcode + quantity equal"]
+            reasons += [note] if note else []
             if via_search:
-                return MatchResult(BARCODE_SEARCH_MATCH, score, ["barcode found via retailer search + quantity equal"])
-            status = BARCODE_MATCH if score >= NAME_REVIEW else BARCODE_NAME_CHANGED
-            return MatchResult(status, score, ["barcode + quantity equal"])
+                return MatchResult(BARCODE_SEARCH_MATCH, score, reasons)
+            return MatchResult(BARCODE_MATCH if score >= NAME_REVIEW else BARCODE_NAME_CHANGED, score, reasons)
         return MatchResult(BARCODE_QTY_UNVERIFIED, score, ["barcode equal, quantity not readable on listing"])
 
     # no barcode on one side: quantity is still a hard rule, name has to carry the match
     if item_q.ok and list_q.ok and not same_quantity(item_q, list_q, qty_tol):
+        # without a barcode, '200ml 6 pcs' could be six 200 ml packs or one: a second size in the title is only a lead
+        if any(same_quantity(item_q, q, qty_tol) for q in listing_quantities(listing)[1:]) and score >= NAME_REVIEW:
+            return MatchResult(REVIEW, score, ["title gives several sizes; one equals the basket size"])
         return MatchResult(NO_MATCH, score, ["quantity differs"])
     if not (item_q.ok and list_q.ok):
         return MatchResult(REVIEW if score >= NAME_REVIEW else NO_MATCH, score, ["quantity not comparable"])
@@ -133,7 +161,7 @@ def match(item, listing: Listing, aliases=None, qty_tol: float = 0.005) -> Match
 
 def best_match(item, listings, aliases=None, qty_tol: float = 0.005):
     """Return (listing, result) for the best accepted/reviewable listing, or (None, MatchResult(NO_MATCH))."""
-    rank = {BARCODE_MATCH: 6, BARCODE_SEARCH_MATCH: 5, BARCODE_NAME_CHANGED: 4, FUZZY_MATCH: 3, BARCODE_QTY_UNVERIFIED: 2, REVIEW: 1}
+    rank = {BARCODE_MATCH: 6, BARCODE_SEARCH_MATCH: 5, BARCODE_UNIT_LABEL: 4, BARCODE_NAME_CHANGED: 4, FUZZY_MATCH: 3, BARCODE_QTY_UNVERIFIED: 2, REVIEW: 1}
     best = (None, MatchResult(NO_MATCH))
     for lst in listings:
         res = match(item, lst, aliases, qty_tol)

@@ -121,12 +121,33 @@ def test_search_hit_without_readable_size_is_not_silently_accepted():
 
 
 # ---- found in the 2026-10-05 full Carrefour run ---------------------------------------------------------
-def test_same_number_different_unit_label_is_flagged_not_rejected():
-    from cpi.matcher import QTY_UNIT_DIFFERS
+def test_same_number_different_unit_label_is_accepted_on_its_own_status():
+    from cpi.matcher import BARCODE_UNIT_LABEL
     item = Item(gtin="0" + TILDA, qty_raw="946غ", qty_unit="g", qty_total=946.0)        # basket: mayonnaise 946 g
     lst = Listing("carrefour", "Noor Original Thick & Creamy Mayonnaise Jar, 946ml", searched_barcode=TILDA, result_count=1)
     res = match(item, lst)
-    assert res.status == QTY_UNIT_DIFFERS and not res.accepted and "same number" in res.reasons[0]
+    assert res.status == BARCODE_UNIT_LABEL and res.accepted and "same number" in res.reasons[0]
+
+
+def test_title_with_pieces_and_weight_matches_on_the_weight():
+    item = Item(qty_raw="400g", qty_unit="g", qty_total=400.0)                          # Lulu 2026-10-05
+    lst = Listing("lulu", "Switz Puff Pastry Squares 10pcs 400 g", searched_barcode=TILDA, result_count=1)
+    res = match(item, lst)
+    assert res.accepted and "also states 400g" in res.reasons[-1]
+
+
+def test_basket_piece_count_times_piece_size_equals_the_box():
+    item = Item(name_ar="علبة 24 حبة دجاج مكعبات", qty_raw="18 جم", qty_unit="g", qty_total=18.0)
+    lst = Listing("lulu", "Maggi Chicken Stock 24 x 18 g", searched_barcode=TILDA, result_count=1)
+    res = match(item, lst)
+    assert res.accepted and "24 pieces" in res.reasons[-1]
+
+
+def test_second_size_in_title_is_only_a_lead_without_barcode():
+    from cpi.matcher import NO_MATCH
+    item = Item(gtin="", qty_raw="200 مل", qty_unit="ml", qty_total=200.0)
+    lst = Listing("lulu", "Mai Dubai Water 1.5 L 6 pcs")                                # no barcode, sizes differ
+    assert match(item, lst).status in (NO_MATCH, REVIEW) and not match(item, lst).accepted
 
 
 def test_pieces_vs_grams_cannot_be_compared():
@@ -184,3 +205,10 @@ def test_lulu_name_search_page():
     ls = lulu.parse_search_markdown(read("lulu_search_name_tilda_cheerio.md"), "tilda basmati")
     assert len(ls) == 20 and ls[0].result_count == 61
     assert ("Tilda Pure Original Basmati Rice 1 kg", 16.75) in [(l.title, l.price) for l in ls]
+
+
+def test_lulu_product_page_gives_real_eans_price_and_size():
+    p = lulu.parse_product_page(read("lulu_product_tilda_record.txt"),
+                                json.loads(read("lulu_product_tilda_jsonld.json")))
+    assert TILDA in p["eans"] and p["main_ean"] == TILDA and len(p["eans"]) == 3
+    assert p["price"] == 16.75 and p["in_stock"] is True and p["pack_size"] == "1 kg" and p["origin"] == "India"

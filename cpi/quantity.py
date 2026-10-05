@@ -93,19 +93,54 @@ def same_quantity(a: Quantity, b: Quantity, rel_tol: float = 0.005) -> bool:
     return abs(a.total - b.total) <= rel_tol * max(a.total, b.total)
 
 
-def find_quantity(text) -> Quantity:
-    """Pull the pack size out of a free-text retailer title ('Indomie ... 75g Pack of 5', 'Oil 4 Litres', 'Milk, 1L')."""
+_MULTI_EACH_FIRST = re.compile(rf"{_NUM}\s*({_UNIT_RE})\s*(?:pack of|x)\s*{_NUM}(?![\d.])")   # 75g pack of 5 / 30g x 18
+_MULTI_COUNT_FIRST = re.compile(rf"{_NUM}\s*x\s*{_NUM}\s*({_UNIT_RE})\b")                   # 5 x 75 g
+_SINGLE = re.compile(rf"(?<![\w.]){_NUM}\s*({_UNIT_RE})\b")                                 # 1 kg / 1L / 500ml / 10pcs
+
+
+def all_quantities(text) -> list:
+    """Every size written in a free-text title, in reading order, multipacks counted once as their total.
+
+    'Switz Puff Pastry Squares 10pcs 400 g' -> [10 pc, 400 g];  'Maggi Chicken Stock 24 x 18 g' -> [432 g].
+    """
     t = norm_text(text).replace("×", "x").replace("*", "x")
-    m = re.search(rf"{_NUM}\s*({_UNIT_RE})\s*(?:pack of|x)\s*{_NUM}(?![\d.])", t)         # 75g pack of 5 / 30g x 18
-    if m:
-        each, unit, n = _f(m[1]), _UNITS[m[2]], int(_f(m[3]))
-        return Quantity(str(text), unit[0], n * each * unit[1], n)
-    m = re.search(rf"{_NUM}\s*x\s*{_NUM}\s*({_UNIT_RE})\b", t)                              # 5 x 75 g
-    if m:
-        n, each, unit = int(_f(m[1])), _f(m[2]), _UNITS[m[3]]
-        return Quantity(str(text), unit[0], n * each * unit[1], n)
-    m = re.search(rf"(?<![\w.]){_NUM}\s*({_UNIT_RE})\b", t)                                 # 1 kg / 1L / 500ml
-    if m:
-        unit = _UNITS[m[2]]
-        return Quantity(str(text), unit[0], _f(m[1]) * unit[1])
-    return Quantity(str(text), flag="empty")
+    found, taken = [], []
+
+    def free(span):
+        return all(span[1] <= a or span[0] >= b for a, b in taken)
+
+    for m in _MULTI_EACH_FIRST.finditer(t):
+        if free(m.span()):
+            each, unit, n = _f(m[1]), _UNITS[m[2]], int(_f(m[3]))
+            found.append((m.start(), Quantity(str(text), unit[0], n * each * unit[1], n)))
+            taken.append(m.span())
+    for m in _MULTI_COUNT_FIRST.finditer(t):
+        if free(m.span()):
+            n, each, unit = int(_f(m[1])), _f(m[2]), _UNITS[m[3]]
+            found.append((m.start(), Quantity(str(text), unit[0], n * each * unit[1], n)))
+            taken.append(m.span())
+    for m in _SINGLE.finditer(t):
+        if free(m.span()):
+            unit = _UNITS[m[2]]
+            found.append((m.start(), Quantity(str(text), unit[0], _f(m[1]) * unit[1])))
+            taken.append(m.span())
+    return [q for _, q in sorted(found, key=lambda p: p[0])]
+
+
+def find_quantity(text) -> Quantity:
+    """Pull the pack size out of a free-text retailer title ('Indomie ... 75g Pack of 5', 'Oil 4 Litres', 'Milk, 1L').
+
+    A multipack wins over a single size; otherwise the first size in the title.
+    """
+    qs = all_quantities(text)
+    multi = [q for q in qs if q.count > 1]
+    return multi[0] if multi else qs[0] if qs else Quantity(str(text), flag="empty")
+
+
+_PACK_COUNT = re.compile(r"(\d+)\s*(?:حبه|حبات|قطعه|قطع|مكعب|مكعبات|كيس|اكياس|pcs|pieces|cubes)\b")
+
+
+def pack_count(text) -> int:
+    """Number of pieces named in a basket description ('علبة 24 حبة دجاج مكعبات' -> 24), 0 when none."""
+    m = _PACK_COUNT.search(norm_text(text))
+    return int(m[1]) if m else 0

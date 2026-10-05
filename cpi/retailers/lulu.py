@@ -56,6 +56,40 @@ def parse_search_markdown(markdown: str, searched_ean: str) -> list:
     return out
 
 
+def _field(blob: str, key: str) -> str:
+    """Value of `"key":"value"` inside the page's escaped Next.js data (quotes appear as \\")."""
+    m = re.search(r'\\?"' + re.escape(key) + r'\\?"\s*:\s*\\?"([^"\\]*)\\?"', blob)
+    return m.group(1) if m else ""
+
+
+def parse_product_page(html: str, json_ld) -> dict:
+    """Barcodes, price, stock and pack size from a Lulu product page (raw HTML + JSON-LD).
+
+    The page embeds one product record: '"ean":"0000000109628,5011157030920,8901144311002", ... "main_ean":"8901144311002",
+    "content":"1 kg", "product_name":"Tilda Pure Original Basmati Rice 1 kg"'. These are Lulu's real EANs (several per
+    product is normal: old and new packaging, importer codes).
+    """
+    offer, name = {}, ""
+    for block in (json_ld if isinstance(json_ld, list) else [json_ld]):
+        if isinstance(block, dict) and block.get("@type") == "Product":
+            offer, name = block.get("offers") or {}, block.get("name") or ""
+    records = []
+    for m in re.finditer(r'\\?"ean\\?"\s*:\s*\\?"([\d,]*)\\?"', html or ""):
+        blob = html[m.start(): m.start() + 6000]
+        records.append((m.group(1), blob))
+    # the record of THIS product (a page could also carry related products): same product_name as the JSON-LD
+    own = [r for r in records if name and _field(r[1], "product_name") == name] or records[:1]
+    eans, blob = (own[0] if own else ("", ""))
+    price = offer.get("price")
+    return {
+        "name": name, "price": float(price) if price not in (None, "") else 0.0,
+        "in_stock": ("InStock" in str(offer.get("availability"))) if offer.get("availability") else None,
+        "eans": [e for e in eans.split(",") if e], "main_ean": _field(blob, "main_ean"),
+        "pack_size": _field(blob, "content"), "origin": _field(blob, "country_of_origin") or _field(blob, "origin"),
+        "records": len({r[0] for r in records}),
+    }
+
+
 def from_actor_item(item: dict) -> Listing:
     """Row from `boring_internet_explorer/lulu-scraper`. `ean` can hold several comma-separated barcodes."""
     eans = [e.strip() for e in str(item.get("ean") or "").split(",") if e.strip()]

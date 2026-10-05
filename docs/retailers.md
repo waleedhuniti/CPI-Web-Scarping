@@ -112,3 +112,9 @@ page, not only by the search. The Lulu Store actor cannot be used for this: it r
 Crawl settings for those pages: `crawlerType: cheerio`, `saveHtml: true`, `htmlTransformer: none`, and
 `removeElementsCssSelector` must NOT include `script` (the record sits in a script tag). Fetch the dataset 4 items per
 call - each page is ~450 KB of HTML and larger reads drop the Apify connection.
+
+## Crawler settings for search pages (learned the hard way, 2026-10-05)
+`apify/website-content-crawler` must run with `htmlTransformer: "none"` and `readableTextCharThreshold: 0` on Carrefour and
+Lulu search pages. With the default 'readable text' transformer the product grid is removed: most Lulu pages and about one
+Carrefour page in five came back as an empty page shell, which would look like "not sold" when the product is there.
+`scripts/ingest_lulu.py` and `scripts/name_search.py candidates` report such pages as unreadable instead of "not found".

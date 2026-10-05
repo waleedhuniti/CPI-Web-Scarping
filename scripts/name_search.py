@@ -8,7 +8,10 @@ Step 1 - build the search URLs (one per item and retailer, plus an alternative q
   doubts, page-check doubts) and every item without a barcode. Writes <retailer>_name_urls.json (crawler input)
   and name_url_map.json (url -> item code, query).
 
-Step 2 - crawl the URLs with apify/website-content-crawler (cheerio, maxCrawlDepth 0, ignoreCanonicalUrl true).
+Step 2 - crawl the URLs with apify/website-content-crawler: crawlerType cheerio, maxCrawlDepth 0, ignoreCanonicalUrl
+  true, htmlTransformer "none", readableTextCharThreshold 0, removeCookieWarnings false. WITHOUT htmlTransformer "none"
+  the default 'readable text' clean-up throws away the product grid: most Lulu pages and ~20% of Carrefour pages came
+  back as an empty page shell (2026-10-05).
 
 Step 3 - turn the crawled pages into candidate lists:
 

@@ -49,3 +49,33 @@ Spinneys store that delivers your items"). Prices are therefore per delivering s
 
 Nothing exists on the Apify Store. Needs the same inspection as Spinneys (does the site have a barcode search? does it
 need a store/area?) before a plan can be made.
+
+
+## Full barcode runs (2026-10-05) - how they were run and what went wrong
+
+### Carrefour UAE (actor `blackfalcondata/carrefour-maf-scraper`)
+* **Run it in batches of 10 barcodes, never in one big run.** A single run over 384 barcodes (and runs of 33-39) silently
+  returned nothing for most later barcodes: the same 10 barcodes gave 6 hits alone and 1 hit inside a 39-barcode run. The
+  first full run also stalled after ~20 queries. Re-running every missed barcode in batches of 10 gave the real numbers.
+* The free Apify plan allows **5 concurrent runs**; at ~40 s per batch the whole basket takes ~15-20 minutes.
+* Result: **190 of 384 barcodes found (49%)**, 173 accepted on barcode + size. Raw rows: `data/runs/2026-10-05/carrefour_raw.jsonl`,
+  matched: `carrefour_matched.csv` (`python scripts/match_run.py carrefour <raw>`).
+* Searching the 13-digit form of 12-digit UPC codes found nothing extra.
+* Data quirks seen: a title that disagrees with the product URL (mozzarella "1.1kg" vs URL `900gr`; luncheon meat titled
+  "Halawa 1kg" with a luncheon-meat URL; "Green Beans" titled product whose URL says green-peas). The matcher compares the size in
+  the title with the size in the URL and sends conflicts to review (`qty_title_url_conflict`).
+* Real size changes found (not matched on purpose): Lay's 170 g -> 165 g, vinegar 473 -> 453 ml, custard powder 450 -> 400 g.
+
+### Lulu UAE (`apify/website-content-crawler`, no extra Apify permission needed)
+* Search URL per barcode: `https://gcc.luluhypermarket.com/en-ae/list/?search_text=<EAN>`. Use `crawlerType: playwright:firefox`,
+  `maxCrawlDepth: 0`, **`ignoreCanonicalUrl: true`** (without it, the crawler treats all search pages as one page and keeps only the first).
+* It is slow (~10 pages/minute at 4 GB memory, concurrency stuck near 1-3), so 384 pages take about an hour.
+* Ingest with `python scripts/ingest_lulu.py <dataset.json> data/runs/2026-10-05/lulu`; pages that say "No results found" are
+  recorded as searched-and-not-carried, never as errors.
+* **Delivery area:** Lulu's page header showed "Tomorrow - Al Nahyan" (an Abu Dhabi area), not Dubai. We have not tested whether
+  Lulu's prices differ by emirate. Confirm before using Lulu prices as Dubai prices.
+
+### Nesto
+No online grocery shop found: `nestoonline.com` times out, `nestogroup.com` is a corporate site, `nestooffers.com` serves an empty
+page (flyers). Matajar, which was once "Matajar by Nesto", has operated independently since 2022 (per a web search; not verified).
+Needs the real shop address from the user.

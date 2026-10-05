@@ -96,12 +96,22 @@ def page_listings(retailer, markdown, query) -> list:
         card = markdown[m.end():min(end, m.end() + 300)].split("[")[0]       # stop at the next link / image
         card = re.sub(r"\s+", " ", card).strip()
         p = by_url.get(url)
+        # size the price is for: Carrefour prints it on the card ('AED5.00 500g - Approx 6 pieces/KG',
+        # 'AED181.97 2.60KG Min Order 2 kg'), Lulu in the title ('Orange Valencia 2.5 kg')
+        sized = all_quantities(title) or all_quantities(re.sub(r"AED\s?[\d.,]+|per\s+\w+|pieces?/KG", " ", card))
+        price = p.price if p else None
+        per_kg = per_l = None
+        if price and sized and sized[0].unit == "g" and sized[0].total > 0:
+            per_kg = round(price / sized[0].total * 1000, 2)
+        if price and sized and sized[0].unit == "ml" and sized[0].total > 0:
+            per_l = round(price / sized[0].total * 1000, 2)
         out.append({
             "title": title, "url": url, "price": p.price if p else None,
             "regular_price": p.regular_price if p else None,
             "unit_price": (p.extra.get("unit_price") if p else None) or None,
             "unit_basis": (p.extra.get("unit_basis") if p else "") or "",
-            "card": card[:200],
+            "card": card[:200], "priced_size": f"{sized[0].total:g}{sized[0].unit}" if sized else "",
+            "price_per_kg": per_kg, "price_per_l": per_l,
         })
     return out
 

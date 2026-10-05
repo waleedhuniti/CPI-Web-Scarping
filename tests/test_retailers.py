@@ -212,3 +212,13 @@ def test_lulu_product_page_gives_real_eans_price_and_size():
                                 json.loads(read("lulu_product_tilda_jsonld.json")))
     assert TILDA in p["eans"] and p["main_ean"] == TILDA and len(p["eans"]) == 3
     assert p["price"] == 16.75 and p["in_stock"] is True and p["pack_size"] == "1 kg" and p["origin"] == "India"
+
+
+def test_fresh_search_cards_give_price_per_kg():
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+    from name_search import page_listings
+    ls = {x["title"]: x for x in page_listings("carrefour", read("carrefour_search_lamb_leg_cheerio.md"), "lamb leg")}
+    leg = ls["Australian Lamb Leg Import"]                       # 'AED181.97 2.60KG Min Order: 2 kg'
+    assert leg["price"] == 181.97 and leg["priced_size"] == "2600g" and leg["price_per_kg"] == 69.99
+    assert ls["Australian Lamb Leg Deboned Import"]["price_per_kg"] == 88.0   # 'AED44.00 500g - Approx 2 pieces/KG'

@@ -362,11 +362,12 @@ def pagecheck_input(run_dir):
         sel = [r for r in rows if r["retailer"] == retailer and r["decision"] == "name_match" and r["url"]]
         with open(run_dir / f"{retailer}_name_matched.csv", "w", newline="", encoding="utf-8-sig") as f:
             w = csv.DictWriter(f, fieldnames=["item_code", "status", "title", "url", "price", "regular_price", "in_stock",
-                                              "reasons"])
+                                              "reasons", "fresh"])
             w.writeheader()
             for r in sel:
                 w.writerow(dict(item_code=r["item_code"], status="fuzzy_match", title=r["title"], url=r["url"],
-                                price=r["price"], regular_price=r["regular_price"], in_stock="", reasons=r["reason"]))
+                                price=r["price"], regular_price=r["regular_price"], in_stock="", reasons=r["reason"],
+                                fresh=r["fresh"]))
         json.dump([{"url": r["url"]} for r in sel], open(run_dir / f"{retailer}_name_product_urls.json", "w"), indent=0)
         print(f"{retailer}: {len(sel)} name matches to open on the product page")
 
@@ -459,6 +460,36 @@ def finalize(run_dir):
     print("written", dest)
 
 
+def apply_audit(workflow_output, run_dir):
+    """Third, independent check of every accepted name/fresh match: 'wrong' or 'unsure' takes it out of the index."""
+    run_dir = Path(run_dir)
+    raw = open(workflow_output, encoding="utf-8").read()
+    data = json.loads(raw[raw.find("{"):raw.rfind("}") + 1])
+    verdicts = {(v["item_code"], v["retailer"]): v for v in data.get("result", data)["verdicts"]}
+    rows = list(csv.DictReader(open(run_dir / "name_matches.csv", encoding="utf-8-sig")))
+    import collections
+    c = collections.Counter()
+    for r in rows:
+        r.setdefault("audit", "")
+        if r.get("final_decision") != "name_match":
+            continue
+        v = verdicts.get((r["item_code"], r["retailer"]))
+        if v is None:
+            r["audit"], r["final_decision"] = "not audited", "review"
+            c["not audited"] += 1
+            continue
+        r["audit"] = f"{v['verdict']}: {v['why']}"
+        c[v["verdict"]] += 1
+        if v["verdict"] != "correct":
+            r["final_decision"] = "review"
+            r["final_note"] = (r.get("final_note", "") + f"; audit {v['verdict']}").strip("; ")
+    with open(run_dir / "name_matches.csv", "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        w.writeheader()
+        w.writerows(rows)
+    print("audit of accepted name matches:", dict(c))
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "urls":
         build_urls(sys.argv[2], sys.argv[3])
@@ -472,3 +503,5 @@ if __name__ == "__main__":
         pagecheck_input(sys.argv[2])
     elif sys.argv[1] == "finalize":
         finalize(sys.argv[2])
+    elif sys.argv[1] == "audit":
+        apply_audit(sys.argv[2], sys.argv[3])

@@ -74,6 +74,8 @@ def main(retailer, pages_path, matched_path):
         title_bridge = any(same_pack(t) for t in title_qs) and \
             any(same_quantity(q, t) for q in pack_qs for t in title_qs)
         pack_ok = (any(same_pack(q) for q in pack_qs) or title_bridge) if (item_q.ok and pack_qs) else None
+        if r.get("fresh") == "True":
+            pack_ok = None      # loose fresh items are compared per kg, whatever weight step the price is quoted for
         ean_ok = (any(gtin.same_gtin(it.gtin, e) for e in p["eans"]) if p["eans"] else False) \
             if (p.get("eans") is not None and it.gtin) else None
 

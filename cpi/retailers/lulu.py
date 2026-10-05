@@ -1,0 +1,70 @@
+"""Lulu Hypermarket UAE (gcc.luluhypermarket.com/en-ae).
+
+Barcode lookup: the site's own search page takes an EAN and returns exactly the products carrying it
+(or 'No results found'), so a hit is strong barcode evidence:
+
+    https://gcc.luluhypermarket.com/en-ae/list/?search_text=<EAN>
+
+The page is fetched with Apify's `apify/web-fetch` actor (markdown output); `parse_search_markdown` reads it.
+The Store actor `boring_internet_explorer/lulu-scraper` returns real EANs for product / category URLs only (it
+returns nothing for search URLs) - `from_actor_item` maps its rows.
+"""
+import re
+
+from .. import gtin
+from ..matcher import Listing
+from ..quantity import parse_quantity
+
+SEARCH_URL = "https://gcc.luluhypermarket.com/en-ae/list/?search_text={gtin}"
+
+# '[Title](https://gcc.luluhypermarket.com/en-ae/<slug>/p/<id>/?)'  then  price  [was-price]  ['NN% OFF']
+_CARD = re.compile(
+    r"\[([^\]\n]+)\]\((https://gcc\.luluhypermarket\.com/en-ae/[^)\s]*?/p/[^)\s]*?)\)"
+    r"\s*\n\s*\n([\d,]+(?:\.\d+)?)"
+    r"(?:\s*\n\s*\n([\d,]+(?:\.\d+)?))?"
+    r"(?:\s*\n\s*\n(\d+)% OFF)?"
+)
+_COUNT = re.compile(r"All Products \((\d+)\)")
+
+
+def search_url(ean) -> str:
+    return SEARCH_URL.format(gtin=gtin.digits_only(ean))
+
+
+def _num(s):
+    return float(s.replace(",", "")) if s else 0.0
+
+
+def parse_search_markdown(markdown: str, searched_ean: str) -> list:
+    """Listings found on a Lulu search page; [] when Lulu says 'No results found'."""
+    if "No results found" in markdown:
+        return []
+    m = _COUNT.search(markdown)
+    cards = list(_CARD.finditer(markdown))
+    count = int(m.group(1)) if m else len(cards)
+    out = []
+    for c in cards:
+        price, other = _num(c.group(3)), _num(c.group(4))
+        # '105.00 / 238.95 / 56% OFF' -> current price first, then the price before the offer
+        regular = other if other > price else price
+        out.append(Listing(
+            retailer="lulu", title=c.group(1).strip(), price=price, regular_price=regular,
+            searched_barcode=gtin.digits_only(searched_ean), result_count=count,
+            url=c.group(2).split("?")[0], in_stock=None,
+            extra={"discount_pct": int(c.group(5)) if c.group(5) else 0},
+        ))
+    return out
+
+
+def from_actor_item(item: dict) -> Listing:
+    """Row from `boring_internet_explorer/lulu-scraper`. `ean` can hold several comma-separated barcodes."""
+    eans = [e.strip() for e in str(item.get("ean") or "").split(",") if e.strip()]
+    main = str(item.get("mainEan") or (eans[0] if eans else "")).strip()
+    content = item.get("content") or ""
+    return Listing(
+        retailer="lulu", title=item.get("title") or "", brand=item.get("brand") or "",
+        price=float(item.get("price") or 0), regular_price=float(item.get("retailPrice") or item.get("price") or 0),
+        barcode=main, quantity_text=content if parse_quantity(content).ok else "",   # 'content' is sometimes an origin
+        url=item.get("url") or "", in_stock=item.get("inStock"),
+        extra={"all_eans": eans, "sku": item.get("sku")},
+    )

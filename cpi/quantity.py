@@ -9,12 +9,14 @@ from .text import norm_text
 
 # unit token (after norm_text) -> (base unit, factor to base)
 _UNITS = {
-    "kg": ("g", 1000), "كغ": ("g", 1000), "كغم": ("g", 1000), "كجم": ("g", 1000), "كيلو": ("g", 1000),
+    "kg": ("g", 1000), "kgs": ("g", 1000), "kilo": ("g", 1000), "kilogram": ("g", 1000),
+    "كغ": ("g", 1000), "كغم": ("g", 1000), "كجم": ("g", 1000), "كيلو": ("g", 1000),
     "كيلوجرام": ("g", 1000), "كيلوغرام": ("g", 1000),
-    "g": ("g", 1), "gm": ("g", 1), "gr": ("g", 1), "غ": ("g", 1), "غم": ("g", 1), "جم": ("g", 1),
-    "جرام": ("g", 1), "غرام": ("g", 1),
+    "g": ("g", 1), "gm": ("g", 1), "gms": ("g", 1), "gr": ("g", 1), "gram": ("g", 1), "grams": ("g", 1),
+    "غ": ("g", 1), "غم": ("g", 1), "جم": ("g", 1), "جرام": ("g", 1), "غرام": ("g", 1),
     "oz": ("g", 28.3495),
-    "l": ("ml", 1000), "ltr": ("ml", 1000), "لتر": ("ml", 1000),
+    "l": ("ml", 1000), "ltr": ("ml", 1000), "litre": ("ml", 1000), "litres": ("ml", 1000),
+    "liter": ("ml", 1000), "liters": ("ml", 1000), "لتر": ("ml", 1000),
     "ml": ("ml", 1), "مل": ("ml", 1),
     "حبه": ("pc", 1), "حبات": ("pc", 1), "قطعه": ("pc", 1), "بيضه": ("pc", 1), "واحده": ("pc", 1),
     "عدد": ("pc", 1), "pcs": ("pc", 1), "pc": ("pc", 1),
@@ -89,3 +91,21 @@ def same_quantity(a: Quantity, b: Quantity, rel_tol: float = 0.005) -> bool:
     if not (a.ok and b.ok) or a.unit != b.unit:
         return False
     return abs(a.total - b.total) <= rel_tol * max(a.total, b.total)
+
+
+def find_quantity(text) -> Quantity:
+    """Pull the pack size out of a free-text retailer title ('Indomie ... 75g Pack of 5', 'Oil 4 Litres', 'Milk, 1L')."""
+    t = norm_text(text).replace("×", "x").replace("*", "x")
+    m = re.search(rf"{_NUM}\s*({_UNIT_RE})\s*(?:pack of|x)\s*{_NUM}(?![\d.])", t)         # 75g pack of 5 / 30g x 18
+    if m:
+        each, unit, n = _f(m[1]), _UNITS[m[2]], int(_f(m[3]))
+        return Quantity(str(text), unit[0], n * each * unit[1], n)
+    m = re.search(rf"{_NUM}\s*x\s*{_NUM}\s*({_UNIT_RE})\b", t)                              # 5 x 75 g
+    if m:
+        n, each, unit = int(_f(m[1])), _f(m[2]), _UNITS[m[3]]
+        return Quantity(str(text), unit[0], n * each * unit[1], n)
+    m = re.search(rf"(?<![\w.]){_NUM}\s*({_UNIT_RE})\b", t)                                 # 1 kg / 1L / 500ml
+    if m:
+        unit = _UNITS[m[2]]
+        return Quantity(str(text), unit[0], _f(m[1]) * unit[1])
+    return Quantity(str(text), flag="empty")

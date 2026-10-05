@@ -1,0 +1,120 @@
+import json
+from pathlib import Path
+
+import pytest
+
+from cpi.matcher import (BARCODE_QTY_UNVERIFIED, BARCODE_SEARCH_MATCH, QTY_MISMATCH, REVIEW, Listing, match)
+from cpi.quantity import find_quantity
+from cpi.retailers import carrefour, lulu
+
+FX = Path(__file__).parent / "fixtures"
+TILDA = "8901144311002"
+
+
+def read(name):
+    return (FX / name).read_text(encoding="utf-8")
+
+
+class Item:  # minimal stand-in for cpi.basket.BasketItem
+    def __init__(self, **kw):
+        base = dict(name_ar="أرز بسمتي هندي", brand_ar="تلدا", gtin="0" + TILDA, qty_raw="1 كغ",
+                    qty_unit="g", qty_total=1000.0, qty_count=1, qty_flag="")
+        base.update(kw)
+        self.__dict__.update(base)
+
+
+# ---- find_quantity (titles as printed by the retailers in the pilot) -----------------------------------
+@pytest.mark.parametrize("title,unit,total,count", [
+    ("Tilda Pure Original Basmati Rice 1 kg", "g", 1000, 1),
+    ("Tilda Pure Basmati Rice, 1kg", "g", 1000, 1),
+    ("Almarai Full Fat Fresh Milk, 1L", "ml", 1000, 1),
+    ("RS Refined Olive Pomace Oil Blended with Extra Virgin Olive Oil 4 Litres", "ml", 4000, 1),
+    ("Indomie Special Chicken Instant Noodles, 75g Pack of 5", "g", 375, 5),
+    ("Almarai Full Fat Long Life Milk 4 x 1 Litre", "ml", 4000, 4),
+    ("SIS Fine Grain Granulated White Sugar, 2kg", "g", 2000, 1),
+])
+def test_find_quantity_in_titles(title, unit, total, count):
+    q = find_quantity(title)
+    assert (q.unit, q.total, q.count) == (unit, total, count)
+
+
+# ---- Lulu ----------------------------------------------------------------------------------------------
+def test_lulu_search_url():
+    assert lulu.search_url(TILDA) == "https://gcc.luluhypermarket.com/en-ae/list/?search_text=8901144311002"
+
+
+def test_lulu_barcode_hit_parsed():
+    (lst,) = lulu.parse_search_markdown(read("lulu_hit_tilda.md"), TILDA)
+    assert lst.title == "Tilda Pure Original Basmati Rice 1 kg"
+    assert (lst.price, lst.regular_price) == (16.75, 16.75)
+    assert lst.url == "https://gcc.luluhypermarket.com/en-ae/tilda-pure-original-basmati-rice-1-kg/p/10962/"
+    assert lst.searched_barcode == TILDA and lst.result_count == 1 and lst.barcode == ""
+
+
+def test_lulu_promo_keeps_both_prices():
+    (lst,) = lulu.parse_search_markdown(read("lulu_hit_discount_rs_oil.md"), "8420701103077")
+    assert lst.price == 105.00 and lst.regular_price == 238.95 and lst.extra["discount_pct"] == 56
+
+
+def test_lulu_no_results_is_empty_not_error():
+    assert lulu.parse_search_markdown(read("lulu_no_results.md"), "6291038010008") == []
+
+
+def test_lulu_actor_item_splits_multiple_eans_and_ignores_origin_in_content():
+    item = json.loads(read("lulu_actor_item.json"))
+    lst = lulu.from_actor_item(item)
+    assert lst.barcode == "6281007032391" and lst.extra["all_eans"] == ["6281007032391", "6281007054652"]
+    assert (lst.price, lst.regular_price) == (16.5, 19.25)
+    assert lulu.from_actor_item({**item, "content": "Jordan", "title": "Choco 450 g"}).quantity_text == ""
+
+
+# ---- Carrefour -----------------------------------------------------------------------------------------
+def test_carrefour_search_url_and_actor_input():
+    assert carrefour.search_url(TILDA).endswith("search?keyword=8901144311002")
+    inp = carrefour.actor_input([TILDA, "6291038010008"])
+    assert inp["market"] == "mafuae" and json.loads(inp["query"]) == [TILDA, "6291038010008"]
+
+
+def test_carrefour_search_page_parsed():
+    (lst,) = carrefour.parse_search_markdown(read("carrefour_search_tilda.md"), TILDA)
+    assert lst.title == "Tilda Pure Basmati Rice, 1kg" and lst.price == 17.79
+    assert lst.url.endswith("/p/79241") and lst.extra["product_id"] == "79241" and lst.result_count == 1
+
+
+def test_carrefour_internal_id_is_never_used_as_barcode():
+    lst = carrefour.from_actor_item(json.loads(read("carrefour_actor_item.json")))
+    assert lst.barcode == ""                      # item['gtin'] == '79241' is Carrefour's own product id
+    assert lst.searched_barcode == TILDA
+
+
+def test_carrefour_result_counts_per_barcode():
+    a = carrefour.from_actor_item({"title": "A 1kg", "searchQuery": TILDA, "price": 1})
+    b = carrefour.from_actor_item({"title": "B 1kg", "searchQuery": TILDA, "price": 1})
+    c = carrefour.from_actor_item({"title": "C 1kg", "searchQuery": "6291038010008", "price": 1})
+    carrefour.mark_result_counts([a, b, c])
+    assert (a.result_count, b.result_count, c.result_count) == (2, 2, 1)
+
+
+# ---- end to end: basket item vs what the retailers returned --------------------------------------------
+def test_tilda_matches_at_both_retailers_by_barcode_search():
+    (lulu_l,) = lulu.parse_search_markdown(read("lulu_hit_tilda.md"), TILDA)
+    (carr_l,) = carrefour.parse_search_markdown(read("carrefour_search_tilda.md"), TILDA)
+    for lst in (lulu_l, carr_l):
+        res = match(Item(), lst)
+        assert res.status == BARCODE_SEARCH_MATCH and res.accepted
+
+
+def test_search_hit_with_other_size_is_rejected():
+    lst = Listing("carrefour", "Tilda Pure Basmati Rice, 5kg", searched_barcode=TILDA, result_count=1)
+    assert match(Item(), lst).status == QTY_MISMATCH
+
+
+def test_search_returning_several_products_goes_to_review():
+    lst = Listing("carrefour", "Tilda Pure Basmati Rice, 1kg", searched_barcode=TILDA, result_count=3)
+    assert match(Item(), lst).status == REVIEW
+
+
+def test_search_hit_without_readable_size_is_not_silently_accepted():
+    lst = Listing("lulu", "Tilda Pure Basmati Rice", searched_barcode=TILDA, result_count=1)
+    res = match(Item(), lst)
+    assert res.status == BARCODE_QTY_UNVERIFIED and not res.accepted

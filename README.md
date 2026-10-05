@@ -15,6 +15,11 @@ line **barcode first**, then name/description, with **quantity as a hard rule** 
 | `cpi/origin.py` | 78 Arabic spellings of origin -> ISO country |
 | `cpi/matcher.py` | Barcode -> quantity -> name matching of a scraped listing against a basket item |
 | `cpi/pricing.py` | Unit price (AED/kg) and the "same price range" rule for substitute origins |
+| `cpi/retailers/` | Lulu and Carrefour adapters: barcode search URL / actor input, parsers for what comes back |
+| `config/retailers.json` | Scope: Lulu, Carrefour, Spinneys, Nesto - **Dubai only** - and each one's status |
+| `docs/retailers.md` | What works per retailer, pilot findings, what Spinneys and Nesto need |
+| `data/pilot/` | Live pilot results (10 basket barcodes at Carrefour and Lulu) |
+| `actors/lulu_search/` | Page function for Apify's web-scraper (bulk Lulu barcode search) - written, not yet run |
 | `tests/` | `python -m pytest` |
 
 ## Use
@@ -38,5 +43,12 @@ python -m pytest
 
 ## Status
 
-Done: basket loader, GTIN / quantity / origin parsing, matcher, price band, tests (offline - no Apify credits used).
-Next: Apify actors per retailer (Carrefour, Lulu, Talabat Mart first), a pilot run, then scheduling.
+Scope: **Lulu, Carrefour, Spinneys, Nesto - Dubai only.**
+
+* Done and tested offline (72 tests): basket loader, GTIN / quantity / origin parsing, matcher (barcode, incl. barcode
+  found through a retailer's search box, then quantity, then name), price band, Lulu and Carrefour parsers.
+* Live pilot (2026-10-05, 10 basket barcodes): Carrefour found 8, Lulu found 4 of the 8 tried; all matched on barcode
+  and quantity. See `docs/retailers.md`.
+* Blocked / not started: Spinneys (needs a Dubai delivery address + browser actor), Nesto (not inspected).
+* Next: full basket run on Lulu and Carrefour (384 barcodes), then Spinneys and Nesto, then the fresh-food module
+  (329 basket lines with no barcode).

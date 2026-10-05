@@ -1,0 +1,11 @@
+﻿barcode,basket_item,basket_name_ar,basket_brand_ar,basket_qty,carrefour_title,carrefour_price,carrefour_in_stock,carrefour_status,lulu_title,lulu_price,lulu_regular_price,lulu_status
+8901144311002,011110101,أرز بسمتي هندي,تلدا,1 كغ,"Tilda Pure Basmati Rice, 1kg",17.79,True,barcode_search_match,Tilda Pure Original Basmati Rice 1 kg,16.75,16.75,barcode_search_match
+6291038010008,011220502,دجاج طازج,الروضة,1 كغ,Al Rawdah Fresh Whole Chicken 1kg,23.79,True,barcode_search_match,,,,not_found
+6291056004027,011410101,حليب  بقري طازج كامل الدسم,العين,ا لتر,"Al Ain Farms Full Cream Fresh Milk, 1L",6.89,True,barcode_search_match,,,,not_found
+6281007040235,011410102,حليب  بقري طازج كامل الدسم,المراعي,ا لتر,"Almarai Full Fat Fresh Milk, 1L",6.99,True,barcode_search_match,,,,not_found
+8420701103077,011510101,زيت الزيتون,ار . اس,4لتر,"RS Olive Oil Pomace Tin, 4L",289.0,False,barcode_search_match,RS Refined Olive Pomace Oil Blended with Extra Virgin Olive Oil 4 Litres,105.0,238.95,barcode_search_match
+8428483200168,011510102,زيت الزيتون,الوزير,500غ,,,,not_found,,,,not_tested
+3434410048777,011760103,عدس أصفر (moong dal),بايارا,1 كغ,"Bayara Moong Dal, 1kg",16.79,False,barcode_search_match,Bayara Moong Dal 1 kg,17.25,17.25,barcode_search_match
+8888167023023,011810102,سكر ابيض ناعم,اس. أي. اس,2 كغ,"SIS Fine Grain Granulated White Sugar, 2kg",9.89,True,barcode_search_match,SIS Fine Grain White Sugar 2 kg,10.05,10.05,barcode_search_match
+5285000390602,011910101,إندومي نكهة دجاج خاص 5 باكيت Indomie Instant Noodles Special Chicken Flavor - 5 x 75 g,إندومي,5 x 75 g,"Indomie Special Chicken Instant Noodles, 75g Pack of 5",9.29,True,barcode_search_match,,,,not_found
+8888056705108,011910102,"Koka Cup Noodles Chicken, 70g",Koka,70g,,,,not_found,,,,not_tested

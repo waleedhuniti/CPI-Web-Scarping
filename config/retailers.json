@@ -1,0 +1,35 @@
+{
+  "region": "Dubai",
+  "currency": "AED",
+  "notes": "Dubai only. Prices are VAT-inclusive as shown on each site. Record price (what the shopper pays) and regular_price (before offer) separately.",
+  "retailers": {
+    "lulu": {
+      "status": "ready",
+      "barcode_lookup": "search page - returns the product carrying the EAN, or 'No results found'",
+      "search_url": "https://gcc.luluhypermarket.com/en-ae/list/?search_text={gtin}",
+      "fetch_with": "apify/web-fetch (formats: markdown), one URL per run",
+      "parser": "cpi.retailers.lulu.parse_search_markdown",
+      "bulk_actor": "boring_internet_explorer/lulu-scraper (real EANs, but product/category URLs only - not search URLs)",
+      "open_questions": ["Does the Lulu UAE site price differently by delivery location? Confirm it matches Dubai stores."]
+    },
+    "carrefour": {
+      "status": "ready",
+      "barcode_lookup": "keyword search accepts the EAN; the product page itself shows no barcode (only its own product id)",
+      "search_url": "https://www.carrefouruae.com/mafuae/en/search?keyword={gtin}",
+      "bulk_actor": "blackfalcondata/carrefour-maf-scraper",
+      "bulk_input": {"market": "mafuae", "language": "en", "query": "[\"<ean1>\",\"<ean2>\"]", "maxResults": 200},
+      "parser": "cpi.retailers.carrefour.from_actor_item (gtin/sku/productId fields are Carrefour's INTERNAL id, never a barcode)",
+      "open_questions": ["Does Carrefour show different prices per Dubai delivery area?"]
+    },
+    "spinneys": {
+      "status": "blocked",
+      "reason": "Search and category pages return the site shell with no products: Spinneys needs a delivery address (it picks the delivering store) and loads products in the browser. No Apify Store actor exists.",
+      "needs": ["a Dubai delivery address / store to price against", "a browser-based actor (Playwright) that sets that address first"],
+      "category_root": "https://www.spinneys.com/en-ae/catalogue/"
+    },
+    "nesto": {
+      "status": "not_started",
+      "reason": "No Apify Store actor exists; the site has not been inspected yet."
+    }
+  }
+}

@@ -167,8 +167,71 @@ def build_candidates(retailer, dataset_path, run_dir):
     print("written", dest)
 
 
+_WORD = re.compile(r"[a-z0-9]+")
+
+
+def _overlap(words, title) -> float:
+    """Share of the query's key words found in a listing title (English, case-insensitive)."""
+    want = {w for w in _WORD.findall(" ".join(words).lower()) if len(w) > 1}
+    have = set(_WORD.findall(title.lower()))
+    return len(want & have) / len(want) if want else 0.0
+
+
+def build_batches(run_dir, out_dir, per_batch=40):
+    """Judge input: per item and retailer the basket spec, the query spec and a trimmed candidate list.
+
+    Packaged goods: only listings whose title states the basket size (or states no size) can be the item, so items
+    without such a listing are settled here as 'no listing of the basket size' and never reach a judge.
+    """
+    run_dir, out_dir = Path(run_dir), Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    queries = {q["c"]: q for q in json.load(open(run_dir / "name_queries.json", encoding="utf-8"))}
+    records, settled = [], []
+    for retailer in SEARCH:
+        path = run_dir / f"{retailer}_name_candidates.json"
+        if not path.exists():
+            continue
+        for rec in json.load(open(path, encoding="utf-8")):
+            q = queries[rec["item_code"]]
+            key = [q["brand_en"], q["product_en"]] + q["must_have"]
+            for c in rec["candidates"]:
+                c["match_words"] = round(_overlap(key, c["title"]), 2)
+            fresh = bool(q["sold_by_weight"] or rec["fresh_type"])
+            if fresh:
+                keep = sorted(rec["candidates"], key=lambda c: c["match_words"], reverse=True)[:20]
+            else:
+                same = [c for c in rec["candidates"] if c["size_equal"] is True]
+                unknown = [c for c in rec["candidates"] if c["size_equal"] is None]
+                keep = sorted(same, key=lambda c: c["match_words"], reverse=True)[:15] + \
+                    sorted(unknown, key=lambda c: c["match_words"], reverse=True)[:5]
+                if not keep or max(c["match_words"] for c in keep) == 0:
+                    settled.append({"item_code": rec["item_code"], "retailer": retailer, "decision": "no_match",
+                                    "reason": "no listing of the basket size with the brand/product words"
+                                    if rec["candidates"] else "search returned no listings"})
+                    continue
+            records.append({
+                "item_code": rec["item_code"], "retailer": retailer, "fresh": fresh,
+                "basket": {"name_ar": rec["name_ar"], "brand_ar": rec["brand_ar"], "size": rec["qty_raw"],
+                           "origin": rec["origin_raw"], "fresh_type": rec["fresh_type"]},
+                "spec": {k: q[k] for k in ("brand_en", "product_en", "must_have", "must_not", "size", "sold_by_weight", "note")},
+                "searched": [x["query"] for x in rec["queries"]],
+                "candidates": [{k: c[k] for k in ("title", "url", "price", "regular_price", "priced_size", "price_per_kg",
+                                                  "price_per_l", "card", "size_in_title", "size_equal", "match_words")}
+                               for c in keep],
+            })
+    records.sort(key=lambda r: (r["fresh"], r["item_code"], r["retailer"]))
+    batches = [records[i:i + per_batch] for i in range(0, len(records), per_batch)]
+    for i, b in enumerate(batches):
+        json.dump(b, open(out_dir / f"judge_{i:02d}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(settled, open(run_dir / "name_settled_without_judge.json", "w"), indent=0)
+    print(f"{len(records)} item-retailer records to judge in {len(batches)} batches "
+          f"({sum(r['fresh'] for r in records)} fresh) | settled without a judge: {len(settled)}")
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "urls":
         build_urls(sys.argv[2], sys.argv[3])
     elif sys.argv[1] == "candidates":
         build_candidates(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1] == "batches":
+        build_batches(sys.argv[2], sys.argv[3])

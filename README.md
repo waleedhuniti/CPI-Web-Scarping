@@ -51,4 +51,4 @@ Scope: **Lulu, Carrefour, Spinneys, Nesto - Dubai only.**
   and quantity. See `docs/retailers.md`.
 * Blocked / not started: Spinneys (needs a Dubai delivery address + browser actor), Nesto (not inspected).
 * Next: full basket run on Lulu and Carrefour (384 barcodes), then Spinneys and Nesto, then the fresh-food module
-  (329 basket lines with no barcode).
+  (253 basket lines with no usable barcode).

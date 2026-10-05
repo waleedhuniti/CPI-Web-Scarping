@@ -79,3 +79,36 @@ need a store/area?) before a plan can be made.
 No online grocery shop found: `nestoonline.com` times out, `nestogroup.com` is a corporate site, `nestooffers.com` serves an empty
 page (flyers). Matajar, which was once "Matajar by Nesto", has operated independently since 2022 (per a web search; not verified).
 Needs the real shop address from the user.
+
+## Second-source check on every matched price (2026-10-05)
+
+Every accepted barcode match is re-opened on the retailer's own product page (`scripts/verify_pages.py`, cheap cheerio
+crawl, ~$0.03 for 300 pages). A row only goes into the index when the page agrees.
+
+| | Carrefour | Lulu |
+|---|---|---|
+| Product pages read | 190/190 | 109/110 |
+| Search price = page price | 188/190 | 107/109 |
+| Basket barcode printed on the page | (Carrefour pages show no barcode) | 107/109 |
+| Accepted rows whose page size = basket size | 175/178 | 100/102 |
+| Sent back to the officer | 3 | 3 |
+| **Final: accepted, priced, in stock on the page** | **174** | **100** |
+
+What the check caught:
+* **Lulu 'each' vs 'pack' variants.** Lulu sells the same product as a pack (`/p/943568-ch1/`) and as a single unit
+  (`/p/943568-ea/`), with different barcodes. The barcode search card for Almarai milk 4 x 1 L showed 16.50 but linked
+  to the single 1 L (4.95, another barcode); Maggi 24-cube box showed 26.20 but linked to one cube (1.25). Both go to
+  review instead of into the index.
+* **Carrefour page fields that contradict the title.** Del Monte luncheon titled 200 g but page 'Pack Size' 340 g;
+  Emborg green beans titled 900 g but page 450 g (and its URL says green peas); Al Kabeer fries page says '2.5g'.
+* **The Carrefour Store actor's stock flag is unreliable.** It said out-of-stock for 30 products that the product page
+  (Dubai Festival City delivery area) shows in stock. Use the page's JSON-LD `availability`, never the actor's flag.
+* **Price moved between runs** for 1 Carrefour product (Al Ain fresh milk 6.69 -> 6.89 within the morning) and one went
+  out of stock (Almarai laban). Collect all prices for a period within one short window and keep the timestamp.
+
+Lulu product pages embed the product record with its real barcodes (`"ean":"0000000109628,5011157030920,8901144311002"`,
+`"main_ean"`, `"content":"1 kg"`, `"country_of_origin"`), so a Lulu match is now proven by the barcode printed on the
+page, not only by the search. The Lulu Store actor cannot be used for this: it returns nothing for product URLs.
+Crawl settings for those pages: `crawlerType: cheerio`, `saveHtml: true`, `htmlTransformer: none`, and
+`removeElementsCssSelector` must NOT include `script` (the record sits in a script tag). Fetch the dataset 4 items per
+call - each page is ~450 KB of HTML and larger reads drop the Apify connection.

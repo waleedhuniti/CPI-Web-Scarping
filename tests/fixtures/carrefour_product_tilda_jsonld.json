@@ -1,0 +1,26 @@
+[
+ {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Tilda Pure Basmati Rice, 1kg",
+  "image": "https://cdn.mafrservices.com/pim-content/UAE/media/product/79241/1755234604/79241_main.jpg",
+  "description": "",
+  "brand": "food_tilda",
+  "sku": "79241",
+  "productCategory": "f1700000",
+  "offers": {
+   "@type": "Offer",
+   "priceCurrency": "AED",
+   "price": "17.79",
+   "availability": "https://schema.org/InStock",
+   "url": "https://www.carrefouruae.com/mafuae/en/p/79241",
+   "itemCondition": "https://schema.org/NewCondition"
+  },
+  "hasMerchantReturnPolicy": {
+   "@type": "MerchantReturnPolicy",
+   "applicableCountry": "AED",
+   "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+   "merchantReturnDays": 7
+  }
+ }
+]

@@ -151,3 +151,36 @@ def test_genuine_size_change_is_still_rejected():
     lst = Listing("carrefour", "Lay’s Salt Potato Chips 165g", searched_barcode=TILDA, result_count=1,
                   url="https://www.carrefouruae.com/mafuae/en/chips/lay-s-chips-salt-155g/p/6498")
     assert match(item, lst).status == QTY_MISMATCH
+
+
+# ---- cheap-mode (cheerio) pages captured 2026-10-05 -------------------------------------------------------
+def test_carrefour_unit_price_is_not_taken_as_regular_price():
+    ls = carrefour.parse_search_markdown(read("carrefour_search_en_tilda_cheerio.md"), "tilda basmati rice")
+    first = ls[0]
+    assert (first.title, first.price, first.regular_price) == ("Tilda Pure Basmati Rice, 1kg", 17.79, 17.79)
+    steamed = next(l for l in ls if "Steamed" in l.title)
+    assert steamed.price == 11.99 and steamed.regular_price == 11.99          # was wrongly 47.96 (= AED per kg)
+    assert steamed.extra["unit_price"] == 47.96 and steamed.extra["unit_basis"] == "Kilo"
+    assert first.searched_barcode == ""                                         # a text search is not barcode evidence
+
+
+def test_carrefour_offer_price_and_was_price_in_arabic_page():
+    ls = carrefour.parse_search_markdown(read("carrefour_search_ar_rice_cheerio.md"), "تلدا ارز بسمتي")
+    pharoes = ls[0]
+    assert pharoes.title == "فاروس أرز مصري، 5 كلغ"
+    assert (pharoes.price, pharoes.regular_price, pharoes.extra["unit_price"]) == (21.99, 28.99, 4.40)
+    assert find_quantity(pharoes.title).total == 5000
+
+
+def test_carrefour_product_page_price_size_origin():
+    import json as _j
+    info = carrefour.parse_product_page(read("carrefour_product_tilda_cheerio.md"),
+                                        _j.loads(read("carrefour_product_tilda_jsonld.json")))
+    assert (info["price"], info["in_stock"], info["sku"]) == (17.79, True, "79241")
+    assert info["pack_size"] == "1kg" and info["origin"] == "India"
+
+
+def test_lulu_name_search_page():
+    ls = lulu.parse_search_markdown(read("lulu_search_name_tilda_cheerio.md"), "tilda basmati")
+    assert len(ls) == 20 and ls[0].result_count == 61
+    assert ("Tilda Pure Original Basmati Rice 1 kg", 16.75) in [(l.title, l.price) for l in ls]

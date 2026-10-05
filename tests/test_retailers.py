@@ -222,3 +222,11 @@ def test_fresh_search_cards_give_price_per_kg():
     leg = ls["Australian Lamb Leg Import"]                       # 'AED181.97 2.60KG Min Order: 2 kg'
     assert leg["price"] == 181.97 and leg["priced_size"] == "2600g" and leg["price_per_kg"] == 69.99
     assert ls["Australian Lamb Leg Deboned Import"]["price_per_kg"] == 88.0   # 'AED44.00 500g - Approx 2 pieces/KG'
+
+
+def test_lulu_weighed_items_without_slug_are_read():
+    # fresh meat cards link to '.../en-ae/p/154716-ea/?convtobuom=500' (no product name in the URL)
+    ls = lulu.parse_search_markdown(read("lulu_search_mutton_cheerio.md"), "mutton pakistan")
+    first = ls[0]
+    assert first.title == "Pakistani Mutton Cuts Bone In 500 g" and first.price == 27.25
+    assert first.url == "https://gcc.luluhypermarket.com/en-ae/p/154716-ea/"

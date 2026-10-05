@@ -18,8 +18,9 @@ from ..quantity import parse_quantity
 SEARCH_URL = "https://gcc.luluhypermarket.com/en-ae/list/?search_text={gtin}"
 
 # '[Title](https://gcc.luluhypermarket.com/en-ae/<slug>/p/<id>/?)'  then  price  [was-price]  ['NN% OFF']
+# Weighed fresh items have no slug and carry the weight the price is for: '.../en-ae/p/154716-ea/?convtobuom=500'
 _CARD = re.compile(
-    r"\[([^\]\n]+)\]\((https://gcc\.luluhypermarket\.com/en-ae/[^)\s]*?/p/[^)\s]*?)\)"
+    r"\[([^\]\n]+)\]\((https://gcc\.luluhypermarket\.com/en-ae/(?:[^)\s]*?/)?p/[^)\s]*?)\)"
     r"\s*\n\s*\n([\d,]+(?:\.\d+)?)"
     r"(?:\s*\n\s*\n([\d,]+(?:\.\d+)?))?"
     r"(?:\s*\n\s*\n(\d+)% OFF)?"

@@ -1,0 +1,536 @@
+[
+{
+"item_code": "011220503",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011190504",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011150201",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011510102",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011510202",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011510103",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011510602",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011530203",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011110503",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011110901",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "search returned no listings"
+},
+{
+"item_code": "011320105",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011690105",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011850101",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011910202",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011920305",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930301",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930402",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930104",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930603",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930505",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011990402",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011790404",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011890101",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011810103",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011830105",
+"retailer": "carrefour",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011680101",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011680501",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011680601",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011680503",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011690101",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011690103",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011690102",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011760304",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011760305",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011760408",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011790401",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011790702",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011790704",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011810104",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011830105",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011920304",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011920305",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011850103",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930301",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011850105",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011850104",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930303",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011850101",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011850106",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930402",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011930501",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011910201",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011910202",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011990401",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011990402",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011940904",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011990502",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011940602",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011940204",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011130504",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011130506",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011190401",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011190501",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011190508",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011190504",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011130604",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011131001",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011131003",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011131004",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011131005",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011140106",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011110106",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011120103",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011120104",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011130101",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011250601",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011220510",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011220605",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011220607",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011250603",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011340501",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011410104",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011510502",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011520105",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011460401",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011530201",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011530101",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011530203",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+},
+{
+"item_code": "011510102",
+"retailer": "lulu",
+"decision": "no_match",
+"reason": "no listing of the basket size with the brand/product words"
+}
+]

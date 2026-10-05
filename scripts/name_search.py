@@ -20,6 +20,13 @@ Step 3 - turn the crawled pages into candidate lists:
   Writes <retailer>_name_candidates.json: per item, every listing seen on its search pages with the price, the
   size read from the title, whether that size equals the basket size, and a name/brand score. Nothing is accepted
   here; the decision is made in step 4 (judging) and every accepted row keeps the listing URL as evidence.
+
+Step 4 - judge:  python scripts/name_search.py batches <run_dir> <batch_dir>   then the cpi-name-judge workflow
+  (one judge per 30 records, a skeptical challenger for every accepted match), then
+  python scripts/name_search.py apply <workflow_output> <batch_dir> <run_dir>   -> name_matches.csv
+
+Step 5 - second source: python scripts/name_search.py pagecheck-input <run_dir>, crawl <retailer>_name_product_urls.json,
+  python scripts/verify_pages.py <retailer> <pages.json> <run_dir>/<retailer>_name_matched.csv
 """
 import csv
 import json
@@ -43,7 +50,7 @@ SEARCH = {
 QUERY_PARAM = {"carrefour": "keyword", "lulu": "search_text"}
 _PRODUCT_LINK = {
     "carrefour": re.compile(r"\[([^\]\n]{3,})\]\((https://www\.carrefouruae\.com/[^)\s]*?/p/\d+)[^)\s]*\)"),
-    "lulu": re.compile(r"\[([^\]\n]{3,})\]\((https://gcc\.luluhypermarket\.com/en-ae/[^)\s]*?/p/[^)\s/?]+)/?\??\)"),
+    "lulu": re.compile(r"\[([^\]\n]{3,})\]\((https://gcc\.luluhypermarket\.com/en-ae/(?:[^)\s]*?/)?p/[^)\s/?]+)/?(?:\?[^)\s]*)?\)"),
 }
 
 
@@ -191,7 +198,21 @@ def _overlap(words, title) -> float:
     return len(want & have) / len(want) if want else 0.0
 
 
-def build_batches(run_dir, out_dir, per_batch=40):
+def _slim(c, fresh) -> dict:
+    """What a judge needs to see of one listing (the full record stays in <retailer>_name_candidates.json)."""
+    out = {"title": c["title"], "url": c["url"], "price": c["price"]}
+    if c.get("regular_price") and c["price"] and c["regular_price"] > c["price"]:
+        out["was"] = c["regular_price"]
+    if fresh:
+        out.update(priced_size=c["priced_size"], per_kg=c["price_per_kg"])
+        if not c["priced_size"]:
+            out["card"] = c["card"][:80]
+    else:
+        out["size_equal"] = c["size_equal"]
+    return out
+
+
+def build_batches(run_dir, out_dir, per_batch=30):
     """Judge input: per item and retailer the basket spec, the query spec and a trimmed candidate list.
 
     Packaged goods: only listings whose title states the basket size (or states no size) can be the item, so items
@@ -212,12 +233,12 @@ def build_batches(run_dir, out_dir, per_batch=40):
                 c["match_words"] = round(_overlap(key, c["title"]), 2)
             fresh = bool(q["sold_by_weight"] or rec["fresh_type"])
             if fresh:
-                keep = sorted(rec["candidates"], key=lambda c: c["match_words"], reverse=True)[:20]
+                keep = sorted(rec["candidates"], key=lambda c: c["match_words"], reverse=True)[:15]
             else:
                 same = [c for c in rec["candidates"] if c["size_equal"] is True]
                 unknown = [c for c in rec["candidates"] if c["size_equal"] is None]
-                keep = sorted(same, key=lambda c: c["match_words"], reverse=True)[:15] + \
-                    sorted(unknown, key=lambda c: c["match_words"], reverse=True)[:5]
+                keep = sorted(same, key=lambda c: c["match_words"], reverse=True)[:10] + \
+                    sorted(unknown, key=lambda c: c["match_words"], reverse=True)[:3]
                 if not keep or max(c["match_words"] for c in keep) == 0:
                     settled.append({"item_code": rec["item_code"], "retailer": retailer, "decision": "no_match",
                                     "reason": "no listing of the basket size with the brand/product words"
@@ -229,17 +250,125 @@ def build_batches(run_dir, out_dir, per_batch=40):
                            "origin": rec["origin_raw"], "fresh_type": rec["fresh_type"]},
                 "spec": {k: q[k] for k in ("brand_en", "product_en", "must_have", "must_not", "size", "sold_by_weight", "note")},
                 "searched": [x["query"] for x in rec["queries"]],
-                "candidates": [{k: c[k] for k in ("title", "url", "price", "regular_price", "priced_size", "price_per_kg",
-                                                  "price_per_l", "card", "size_in_title", "size_equal", "match_words")}
-                               for c in keep],
+                "candidates": [_slim(c, fresh) for c in keep],
             })
     records.sort(key=lambda r: (r["fresh"], r["item_code"], r["retailer"]))
     batches = [records[i:i + per_batch] for i in range(0, len(records), per_batch)]
     for i, b in enumerate(batches):
-        json.dump(b, open(out_dir / f"judge_{i:02d}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        # the judge sees candidate ids (c0, c1, ...) instead of long URLs; the _full file maps them back
+        json.dump(b, open(out_dir / f"judge_{i:02d}_full.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+        shown = [dict(r, candidates=[dict({"id": f"c{j}"}, **{k: v for k, v in c.items() if k != "url"})
+                                     for j, c in enumerate(r["candidates"])]) for r in b]
+        json.dump(shown, open(out_dir / f"judge_{i:02d}.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     json.dump(settled, open(run_dir / "name_settled_without_judge.json", "w"), indent=0)
     print(f"{len(records)} item-retailer records to judge in {len(batches)} batches "
           f"({sum(r['fresh'] for r in records)} fresh) | settled without a judge: {len(settled)}")
+
+
+def apply_judgements(workflow_output, batch_dir, run_dir):
+    """Turn the judge + challenger verdicts into name_matches.csv.
+
+    match + upheld by the challenger      -> name_match (goes into the index)
+    match but refuted by the challenger    -> review (both reasons kept)
+    review                                 -> review
+    no_match, or no listing of the size    -> no_match
+    For loose fresh items matched at both retailers, prices per kg more than 1.86x apart (i.e. outside +/-30% of
+    their mean) are sent to review: one of the two is probably another grade or a different cut.
+    """
+    run_dir, batch_dir = Path(run_dir), Path(batch_dir)
+    raw = open(workflow_output, encoding="utf-8").read()
+    data = json.loads(raw[raw.find("{"):raw.rfind("}") + 1])
+    data = data.get("result", data)
+    full, cands = {}, {}
+    for f in sorted(batch_dir.glob("judge_??_full.json")):
+        for r in json.load(open(f, encoding="utf-8")):
+            full[(r["item_code"], r["retailer"])] = r
+    for retailer in SEARCH:
+        path = run_dir / f"{retailer}_name_candidates.json"
+        if path.exists():
+            for rec in json.load(open(path, encoding="utf-8")):
+                for c in rec["candidates"]:
+                    cands[(rec["item_code"], retailer, c["url"])] = c
+    rows = {}
+    for b in data["batches"]:
+        verdicts = {(v["item_code"], v["retailer"]): v for v in (b.get("verdicts") or [])}
+        for d in b["decisions"]:
+            key = (d["item_code"], d["retailer"])
+            rec = full.get(key)
+            if not rec:
+                continue
+            chosen = {}
+            if d["candidate_id"].startswith("c") and d["candidate_id"][1:].isdigit():
+                j = int(d["candidate_id"][1:])
+                if j < len(rec["candidates"]):
+                    chosen = cands.get(key + (rec["candidates"][j]["url"],), {})
+            v = verdicts.get(key)
+            decision, checker = {"match": "name_match", "review": "review", "no_match": "no_match"}[d["decision"]], ""
+            if d["decision"] == "match":
+                if v is None:
+                    decision, checker = "review", "not challenged"
+                elif not v["upheld"]:
+                    decision, checker = "review", "refuted: " + v["why"]
+                else:
+                    checker = "upheld: " + v["why"]
+                if v and v.get("better_candidate_id"):
+                    decision, checker = "review", checker + f" | better candidate {v['better_candidate_id']}"
+            if decision != "no_match" and not chosen:
+                decision, checker = "review", (checker + " | chosen id not found").strip(" |")
+            rows[key] = dict(item_code=key[0], retailer=key[1], fresh=rec["fresh"], decision=decision,
+                             title=chosen.get("title", ""), url=chosen.get("url", ""), price=chosen.get("price") or "",
+                             regular_price=chosen.get("regular_price") or "", price_per_kg=chosen.get("price_per_kg") or "",
+                             priced_size=chosen.get("priced_size", ""), origin_seen=d.get("origin_seen", ""),
+                             reason=d["reason"], checker=checker)
+    for key, rec in full.items():
+        if key not in rows:
+            rows[key] = dict(item_code=key[0], retailer=key[1], fresh=rec["fresh"], decision="review", title="", url="",
+                             price="", regular_price="", price_per_kg="", priced_size="", origin_seen="",
+                             reason="not judged (batch failed)", checker="")
+    for st in json.load(open(run_dir / "name_settled_without_judge.json")):
+        rows.setdefault((st["item_code"], st["retailer"]), dict(
+            item_code=st["item_code"], retailer=st["retailer"], fresh=False, decision="no_match", title="", url="",
+            price="", regular_price="", price_per_kg="", priced_size="", origin_seen="", reason=st["reason"], checker=""))
+    # cross-retailer sanity band for loose fresh items
+    by_item = {}
+    for r in rows.values():
+        if r["fresh"] and r["decision"] == "name_match" and r["price_per_kg"]:
+            by_item.setdefault(r["item_code"], []).append(r)
+    for code, rs in by_item.items():
+        if len(rs) == 2:
+            lo, hi = sorted(float(x["price_per_kg"]) for x in rs)
+            if lo > 0 and hi / lo > 1.86:
+                for x in rs:
+                    x["decision"] = "review"
+                    x["checker"] += f" | per-kg prices {lo:.2f} vs {hi:.2f} across retailers: outside +/-30% band"
+    out = sorted(rows.values(), key=lambda r: (r["item_code"], r["retailer"]))
+    dest = run_dir / "name_matches.csv"
+    with open(dest, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=list(out[0]))
+        w.writeheader()
+        w.writerows(out)
+    import collections
+    c = collections.Counter((r["retailer"], r["fresh"], r["decision"]) for r in out)
+    for k in sorted(c):
+        print(f"  {k[0]:10s} {'fresh' if k[1] else 'packaged':9s} {k[2]:12s} {c[k]}")
+    print("written", dest)
+
+
+def pagecheck_input(run_dir):
+    """<retailer>_name_matched.csv in the shape verify_pages.py reads, plus the product URLs to crawl."""
+    run_dir = Path(run_dir)
+    rows = list(csv.DictReader(open(run_dir / "name_matches.csv", encoding="utf-8-sig")))
+    for retailer in SEARCH:
+        sel = [r for r in rows if r["retailer"] == retailer and r["decision"] == "name_match" and r["url"]]
+        with open(run_dir / f"{retailer}_name_matched.csv", "w", newline="", encoding="utf-8-sig") as f:
+            w = csv.DictWriter(f, fieldnames=["item_code", "status", "title", "url", "price", "regular_price", "in_stock",
+                                              "reasons"])
+            w.writeheader()
+            for r in sel:
+                w.writerow(dict(item_code=r["item_code"], status="fuzzy_match", title=r["title"], url=r["url"],
+                                price=r["price"], regular_price=r["regular_price"], in_stock="", reasons=r["reason"]))
+        json.dump([{"url": r["url"]} for r in sel], open(run_dir / f"{retailer}_name_product_urls.json", "w"), indent=0)
+        print(f"{retailer}: {len(sel)} name matches to open on the product page")
 
 
 if __name__ == "__main__":
@@ -249,3 +378,7 @@ if __name__ == "__main__":
         build_candidates(sys.argv[2], sys.argv[3], sys.argv[4])
     elif sys.argv[1] == "batches":
         build_batches(sys.argv[2], sys.argv[3])
+    elif sys.argv[1] == "apply":
+        apply_judgements(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1] == "pagecheck-input":
+        pagecheck_input(sys.argv[2])

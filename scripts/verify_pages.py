@@ -8,6 +8,8 @@
   * Lulu:      price + stock from the JSON-LD offer, the product's REAL barcodes + pack size + origin from the record
                embedded in the HTML (crawl with saveHtml, htmlTransformer none, and do not remove <script>).
 Writes <matched>_page_check.csv with a final_status / final_price / final_in_stock per row and prints agreement rates.
+Name matches are checked the same way (rows with status fuzzy_match, written by `name_search.py pagecheck-input`);
+for them the page barcode is recorded but not required.
 """
 import csv
 import json
@@ -20,7 +22,7 @@ sys.path.insert(0, str(ROOT))
 
 from cpi import gtin  # noqa: E402
 from cpi.basket import load_basket  # noqa: E402
-from cpi.matcher import ACCEPTED, BARCODE_UNIT_LABEL  # noqa: E402
+from cpi.matcher import ACCEPTED, BARCODE_UNIT_LABEL, FUZZY_MATCH  # noqa: E402
 from cpi.quantity import Quantity, all_quantities, pack_count, same_quantity  # noqa: E402
 from cpi.retailers import carrefour, lulu  # noqa: E402
 
@@ -86,8 +88,8 @@ def main(retailer, pages_path, matched_path):
         # what goes forward: the product page is the later, more detailed source. An accepted row is sent back to the
         # officer when the page shows another pack size or (Lulu) does not carry the basket barcode at all.
         final = r["status"]
-        if r["status"] in ACCEPTED and ean_ok is False:
-            final = "review_page_barcode"
+        if r["status"] in ACCEPTED and ean_ok is False and r["status"] != FUZZY_MATCH:
+            final = "review_page_barcode"      # (a name match is not expected to carry the basket barcode)
         elif r["status"] in ACCEPTED and pack_ok is False:
             final = "review_page_pack_size"
         elif ean_ok and r["status"] not in ACCEPTED and pack_ok:

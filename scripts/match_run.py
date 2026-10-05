@@ -25,9 +25,10 @@ def search_form(raw) -> str:
     return "0" + d if len(d) == 11 else d
 
 
-def main(retailer, raw_path):
+def main(retailer, raw_path, searched_path=None):
     items = [i for i in load_basket(ROOT / "data/basket/basket_source.xlsx") if i.barcode_kind == "gtin"]
     raw = [json.loads(line) for line in open(raw_path, encoding="utf-8")]
+    searched = set(json.load(open(searched_path))) if searched_path else None   # None = every barcode was searched
     by_code = collections.defaultdict(dict)                 # searched barcode -> {product_id/url: row}  (de-duplicated)
     for r in raw:
         by_code[r["searched_barcode"]][r.get("product_id") or r["url"]] = r
@@ -36,6 +37,13 @@ def main(retailer, raw_path):
     for it in items:
         code = search_form(it.barcode_raw)
         hits = list(by_code.get(code, {}).values())
+        if searched is not None and code not in searched and not hits:
+            out.append(dict(item_code=it.item_code, group=it.group_code, name_ar=it.name_ar, brand_ar=it.brand_ar,
+                            basket_qty=it.qty_raw, barcode=code, status="not_searched", score="", reasons="search page not read",
+                            title="", price="", regular_price="", in_stock="", url=""))
+            counts["not_searched"] += 1
+            groups[it.group_code]["not_searched"] += 1
+            continue
         base = dict(item_code=it.item_code, group=it.group_code, name_ar=it.name_ar, brand_ar=it.brand_ar,
                     basket_qty=it.qty_raw, barcode=code)
         if not hits:
@@ -45,13 +53,13 @@ def main(retailer, raw_path):
             best = None
             for h in hits:
                 lst = Listing(retailer, h["title"], price=h["price"], regular_price=h["regular_price"],
-                              searched_barcode=code, result_count=len(hits), in_stock=h["in_stock"], url=h["url"])
+                              searched_barcode=code, result_count=len(hits), in_stock=h.get("in_stock"), url=h["url"])
                 res = match(it, lst)
                 if best is None or (res.accepted, res.score) > (best[1].accepted, best[1].score):
                     best = (h, res)
             h, res = best
             row = dict(base, status=res.status, score=round(res.score, 2), reasons="; ".join(res.reasons),
-                       title=h["title"], price=h["price"], regular_price=h["regular_price"], in_stock=h["in_stock"],
+                       title=h["title"], price=h["price"], regular_price=h["regular_price"], in_stock=h.get("in_stock"),
                        url=h["url"])
         out.append(row)
         counts[row["status"]] += 1
@@ -77,4 +85,4 @@ def main(retailer, raw_path):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)

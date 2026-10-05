@@ -63,7 +63,9 @@ def build_urls(queries_path, run_dir):
         for code, q in queries.items():
             if code in done:
                 continue
-            for kind in ("query_en", "query_alt"):
+            # packaged goods: the precise brand + product query; loose fresh items also the query with the origin
+            kinds = ("query_en", "query_alt") if q.get("sold_by_weight") else ("query_en",)
+            for kind in kinds:
                 text = (q.get(kind) or "").strip()
                 if not text:
                     continue

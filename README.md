@@ -29,7 +29,7 @@ Every accepted price has to pass all of these; anything that fails one goes to `
 |---|---:|---:|---:|---:|---:|
 | All 637 basket items | 637 | **315** | 216 | 55 | 44 |
 
-454 accepted retailer prices are in `prices.csv` (`use_in_index = yes`); 366 rows are in `review_queue.csv`. Nesto has no
+451 accepted retailer prices are in `prices.csv` (`use_in_index = yes`); 366 rows are in `review_queue.csv`. Nesto has no
 online shop we could find; Spinneys needs a delivery address and a browser actor (not in this run).
 
 ## Layout

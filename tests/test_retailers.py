@@ -118,3 +118,36 @@ def test_search_hit_without_readable_size_is_not_silently_accepted():
     lst = Listing("lulu", "Tilda Pure Basmati Rice", searched_barcode=TILDA, result_count=1)
     res = match(Item(), lst)
     assert res.status == BARCODE_QTY_UNVERIFIED and not res.accepted
+
+
+# ---- found in the 2026-10-05 full Carrefour run ---------------------------------------------------------
+def test_same_number_different_unit_label_is_flagged_not_rejected():
+    from cpi.matcher import QTY_UNIT_DIFFERS
+    item = Item(gtin="0" + TILDA, qty_raw="946غ", qty_unit="g", qty_total=946.0)        # basket: mayonnaise 946 g
+    lst = Listing("carrefour", "Noor Original Thick & Creamy Mayonnaise Jar, 946ml", searched_barcode=TILDA, result_count=1)
+    res = match(item, lst)
+    assert res.status == QTY_UNIT_DIFFERS and not res.accepted and "same number" in res.reasons[0]
+
+
+def test_pieces_vs_grams_cannot_be_compared():
+    from cpi.matcher import QTY_UNIT_DIFFERS
+    item = Item(qty_raw="4 حبة", qty_unit="pc", qty_total=4.0)
+    lst = Listing("carrefour", "Modern Bakery Sandwich Roll Sesame, 330g", searched_barcode=TILDA, result_count=1)
+    res = match(item, lst)
+    assert res.status == QTY_UNIT_DIFFERS and "not comparable" in res.reasons[0]
+
+
+def test_title_and_url_disagree_on_size_goes_to_review():
+    from cpi.matcher import QTY_TITLE_URL_CONFLICT
+    item = Item(qty_raw="900غ", qty_unit="g", qty_total=900.0)
+    lst = Listing("carrefour", "President Natural Mozzarella Cheese Shredded, 1.1kg", searched_barcode=TILDA, result_count=1,
+                  url="https://www.carrefouruae.com/mafuae/en/shredded-grated-cheese/president-shrded-mozrela-900gr-200g/p/871986")
+    res = match(item, lst)
+    assert res.status == QTY_TITLE_URL_CONFLICT and not res.accepted
+
+
+def test_genuine_size_change_is_still_rejected():
+    item = Item(qty_raw="170جم", qty_unit="g", qty_total=170.0)                          # shrinkflation: 170 g -> 165 g
+    lst = Listing("carrefour", "Lay’s Salt Potato Chips 165g", searched_barcode=TILDA, result_count=1,
+                  url="https://www.carrefouruae.com/mafuae/en/chips/lay-s-chips-salt-155g/p/6498")
+    assert match(item, lst).status == QTY_MISMATCH

@@ -19,6 +19,8 @@ BARCODE_QTY_UNVERIFIED = "barcode_match_qty_unverified"
 BARCODE_NAME_CHANGED = "barcode_match_name_changed"
 BARCODE_SEARCH_MATCH = "barcode_search_match"   # retailer search for the barcode returned exactly this product
 QTY_MISMATCH = "qty_mismatch"
+QTY_UNIT_DIFFERS = "qty_unit_differs"             # barcode equal, size written in another unit (946 g vs 946 ml; 4 pcs vs 330 g): officer confirms
+QTY_TITLE_URL_CONFLICT = "qty_title_url_conflict"  # barcode equal, retailer title says another size than its own URL: officer confirms
 FUZZY_MATCH = "fuzzy_match"
 REVIEW = "review"
 NO_MATCH = "no_match"
@@ -82,6 +84,12 @@ def listing_quantity(listing: Listing) -> Quantity:
     return q if q.ok else find_quantity(listing.title)
 
 
+def url_quantity(listing: Listing) -> Quantity:
+    """Size written in the product URL slug ('.../president-shrded-mozrela-900gr-200g/p/871986' -> 900 g)."""
+    m = re.search(r"/([^/]+)/p/[^/]+/?$", (listing.url or "").split("?")[0])
+    return find_quantity(m.group(1).replace("-", " ")) if m else Quantity(raw="", flag="empty")
+
+
 def match(item, listing: Listing, aliases=None, qty_tol: float = 0.005) -> MatchResult:
     """`item` is a cpi.basket.BasketItem (or any object with the same attributes)."""
     item_q = Quantity(item.qty_raw, item.qty_unit, item.qty_total, item.qty_count, item.qty_flag)
@@ -98,7 +106,15 @@ def match(item, listing: Listing, aliases=None, qty_tol: float = 0.005) -> Match
         via_search = search_hit
         if list_q.ok and item_q.ok:
             if not same_quantity(item_q, list_q, qty_tol):
-                return MatchResult(QTY_MISMATCH, score, [f"basket {item_q.total:g}{item_q.unit} vs listing {list_q.total:g}{list_q.unit}"])
+                why = f"basket {item_q.total:g}{item_q.unit} vs listing {list_q.total:g}{list_q.unit}"
+                if item_q.unit != list_q.unit:
+                    same_no = item_q.unit in ("g", "ml") and list_q.unit in ("g", "ml") and \
+                        abs(item_q.total - list_q.total) <= qty_tol * max(item_q.total, list_q.total)
+                    return MatchResult(QTY_UNIT_DIFFERS, score, [why + (" - same number, different unit label" if same_no else " - units not comparable")])
+                uq = url_quantity(listing)
+                if uq.ok and same_quantity(item_q, uq, qty_tol):
+                    return MatchResult(QTY_TITLE_URL_CONFLICT, score, [why, f"but the product URL says {uq.total:g}{uq.unit}"])
+                return MatchResult(QTY_MISMATCH, score, [why])
             if via_search:
                 return MatchResult(BARCODE_SEARCH_MATCH, score, ["barcode found via retailer search + quantity equal"])
             status = BARCODE_MATCH if score >= NAME_REVIEW else BARCODE_NAME_CHANGED

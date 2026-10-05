@@ -13,7 +13,7 @@ import re
 
 from .. import gtin
 from ..matcher import Listing
-from ..quantity import parse_quantity
+from ..quantity import all_quantities, parse_quantity
 
 SEARCH_URL = "https://gcc.luluhypermarket.com/en-ae/list/?search_text={gtin}"
 
@@ -88,6 +88,27 @@ def parse_product_page(html: str, json_ld) -> dict:
         "eans": [e for e in eans.split(",") if e], "main_ean": _field(blob, "main_ean"),
         "pack_size": _field(blob, "content"), "origin": _field(blob, "country_of_origin") or _field(blob, "origin"),
         "records": len({r[0] for r in records}),
+    }
+
+
+def parse_product_markdown(markdown: str, json_ld) -> dict:
+    """Price, stock, size and origin from a Lulu product page crawled as markdown (no HTML): JSON-LD offer for price and
+    stock, the '# <title>' heading for the size ('Orange Navel South Africa 1 kg'), 'Country of origin: X' for origin.
+    The barcodes are not in the markdown (see parse_product_page for that)."""
+    offer, name = {}, ""
+    for block in (json_ld if isinstance(json_ld, list) else [json_ld]):
+        if isinstance(block, dict) and block.get("@type") == "Product":
+            offer, name = block.get("offers") or {}, block.get("name") or ""
+    h1 = re.search(r"^# (.+)$", markdown or "", re.M)
+    origin = re.search(r"Country of origin:\s*([A-Za-z][A-Za-z .'-]+)", markdown or "")
+    price = offer.get("price")
+    title = name or (h1.group(1).strip() if h1 else "")
+    size = all_quantities(title)
+    return {
+        "name": title, "price": float(price) if price not in (None, "") else 0.0,
+        "in_stock": ("InStock" in str(offer.get("availability"))) if offer.get("availability") else None,
+        "eans": None, "main_ean": "", "pack_size": f"{size[0].total:g} {size[0].unit}" if size else "",
+        "origin": origin.group(1).strip() if origin else "",
     }
 
 

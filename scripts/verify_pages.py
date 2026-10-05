@@ -35,7 +35,9 @@ def pid(url) -> str:
 def read_page(retailer, page) -> dict:
     if retailer == "carrefour":
         return dict(carrefour.parse_product_page(page.get("markdown") or "", page.get("jsonLd")), eans=None)
-    return lulu.parse_product_page(page.get("html") or "", page.get("jsonLd"))
+    if page.get("html"):
+        return lulu.parse_product_page(page["html"], page.get("jsonLd"))
+    return lulu.parse_product_markdown(page.get("markdown") or "", page.get("jsonLd"))
 
 
 def main(retailer, pages_path, matched_path):

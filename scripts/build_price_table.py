@@ -54,12 +54,18 @@ def main(run_dir):
         key = (n["item_code"], n["retailer"])
         if key in rows and rows[key]["use_in_index"] == "yes":
             continue                                  # a proven barcode match always wins over a name match
+        decision = n.get("final_decision") or n["decision"]
+        price = n.get("page_price") or n["price"]      # the product page is the later, more detailed source
+        in_stock = n.get("page_in_stock", "")
+        note = "; ".join(x for x in (n["reason"], n.get("checker", ""), n.get("final_note", "")) if x)
+        if n.get("page_price"):
+            note += f" | product page: price {n['page_price']}, size '{n.get('page_pack_size', '')}', origin '{n.get('page_origin', '')}'"
         rows[key] = dict(
             item_code=n["item_code"], retailer=n["retailer"], method="fresh_spec" if n.get("fresh") == "True" else "name",
-            status=n["decision"], title=n["title"], url=n["url"], price=n["price"], regular_price=n["regular_price"],
-            in_stock="", price_per_kg=n.get("price_per_kg", ""), origin=n.get("origin_seen", ""),
-            evidence=n["reason"] + (f" | checker: {n['checker']}" if n.get("checker") else ""),
-            use_in_index="yes" if n["decision"] == "name_match" and n["price"] not in ("", "0", "0.0") else "no")
+            status=decision, title=n["title"], url=n["url"], price=price, regular_price=n["regular_price"],
+            in_stock=in_stock, price_per_kg=n.get("price_per_kg", ""), origin=n.get("page_origin") or n.get("origin_seen", ""),
+            evidence=note,
+            use_in_index="yes" if decision == "name_match" and price not in ("", "0", "0.0") and in_stock == "True" else "no")
 
     out = []
     for it in basket:
@@ -97,7 +103,10 @@ def main(run_dir):
         lines.append(f"| {g} | {c['items']} | {c['priced']} | {c['by barcode']} | {c['by name']} | {c['fresh spec']} |")
     lines.append(f"| **All** | **{tot['items']}** | **{tot['priced']}** | {tot['by barcode']} | {tot['by name']} | {tot['fresh spec']} |")
     review = sum(1 for o in out if o["status"].startswith("review") or o["status"] in ("qty_unit_differs", "qty_title_url_conflict", "barcode_match_qty_unverified"))
-    lines += ["", f"Rows waiting for the officer (review): {review}. Prices per retailer row: `prices.csv`."]
+    subst = sum(1 for o in out if o["status"] == "substitute_origin")
+    lines += ["", f"Rows waiting for the officer (review): {review}. Fresh items on sale only from another origin "
+              f"(substitute_origin, need last month's price of the basket line for the +/-30% rule): {subst}.",
+              "Prices per retailer row: `prices.csv`."]
     (run_dir / "coverage.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
     print("written", dest)

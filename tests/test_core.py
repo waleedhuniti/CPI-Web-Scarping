@@ -135,3 +135,10 @@ def test_south_africa_orange_at_same_price_is_accepted_but_ten_times_is_not():
 
 def test_missing_anchor_goes_to_review_not_accepted():
     assert not in_price_band(3.0, anchor_price([])).ok
+
+
+def test_english_origin_names_and_africa_rule():
+    from cpi.origin import origin_iso_en, same_origin
+    assert origin_iso_en("Orange Navel South Africa 1 kg") == "ZA"
+    assert origin_iso_en("Lime Egypt 250 g") == "EG" and origin_iso_en("Red Apple 1 kg") == ""
+    assert same_origin("AFRICA", "ZA") and not same_origin("AFRICA", "EG") and not same_origin("EG", "ZA")

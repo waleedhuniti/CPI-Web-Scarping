@@ -371,6 +371,94 @@ def pagecheck_input(run_dir):
         print(f"{retailer}: {len(sel)} name matches to open on the product page")
 
 
+def finalize(run_dir):
+    """Final decision per name match, after the product-page check, the origin check and the duplicate rules.
+
+    * product page shows another size              -> review
+    * product page shows no price (not on sale)     -> review
+    * fresh item, page origin = basket origin       -> name_match
+    * fresh item, page origin differs               -> substitute_origin (allowed by the office's rule only when the
+                                                       price is inside +/-30% of this basket line's own last price;
+                                                       until that anchor is supplied it does not go into the index)
+    * fresh item, no origin on the page or title    -> review_origin_unknown
+    * one listing chosen for several basket lines   -> review for all of them, unless the origin settles it
+    * listing already proven by barcode for another basket line -> review
+    """
+    from cpi.origin import origin_iso_en, same_origin
+    run_dir = Path(run_dir)
+    basket = {i.item_code: i for i in load_basket(ROOT / "data/basket/basket_source.xlsx")}
+    rows = list(csv.DictReader(open(run_dir / "name_matches.csv", encoding="utf-8-sig")))
+    page = {}
+    for retailer in SEARCH:
+        path = run_dir / f"{retailer}_name_matched_page_check.csv"
+        if path.exists():
+            for r in csv.DictReader(open(path, encoding="utf-8-sig")):
+                page[(r["item_code"], retailer)] = r
+    barcode_urls = {}
+    for retailer in SEARCH:
+        path = run_dir / f"{retailer}_matched_page_check.csv"
+        if path.exists():
+            for r in csv.DictReader(open(path, encoding="utf-8-sig")):
+                if r["final_status"] in ACCEPTED:
+                    barcode_urls[(retailer, r["url"].rstrip("/"))] = r["item_code"]
+    for r in rows:
+        r.update(page_price="", page_in_stock="", page_pack_size="", page_origin="", origin_seen_iso="", origin_check="",
+                 final_decision=r["decision"], final_note="")
+        if r["decision"] != "name_match":
+            continue
+        pc = page.get((r["item_code"], r["retailer"]))
+        it = basket[r["item_code"]]
+        if not pc or pc.get("check") == "page_not_read":
+            r["final_decision"], r["final_note"] = "review", "product page not read"
+            continue
+        r.update(page_price=pc.get("page_price", ""), page_in_stock=pc.get("page_in_stock", ""),
+                 page_pack_size=pc.get("page_pack_size", ""), page_origin=pc.get("page_origin", ""))
+        if pc["final_status"].startswith("review"):
+            r["final_decision"], r["final_note"] = "review", pc["check"]
+            continue
+        if not pc.get("final_price"):
+            r["final_decision"], r["final_note"] = "review", "no price on the product page (not on sale)"
+            continue
+        if r["fresh"] == "True" and it.origin_iso:
+            seen = origin_iso_en(pc.get("page_origin", "")) or origin_iso_en(r["title"])
+            r["origin_seen_iso"] = seen
+            if not seen:
+                r["origin_check"], r["final_decision"] = "unknown", "review_origin_unknown"
+                r["final_note"] = "origin shown neither on the product page nor in the title"
+            elif same_origin(it.origin_iso, seen):
+                r["origin_check"] = "same"
+            else:
+                r["origin_check"], r["final_decision"] = "different", "substitute_origin"
+                r["final_note"] = f"basket origin {it.origin_raw} ({it.origin_iso}), on sale from {seen}"
+        clash = barcode_urls.get((r["retailer"], r["url"].rstrip("/")))
+        if clash and clash != r["item_code"]:
+            r["final_decision"] = "review"
+            r["final_note"] = (r["final_note"] + f"; same listing is the barcode match of basket item {clash}").strip("; ")
+    # one listing kept by several basket lines (after the origin check): ambiguous -> review all of them
+    keep = {}
+    for r in rows:
+        if r["final_decision"] == "name_match":
+            keep.setdefault((r["retailer"], r["url"].rstrip("/")), []).append(r)
+    for (_, url), rs in keep.items():
+        if len(rs) > 1:
+            for r in rs:
+                r["final_decision"] = "review"
+                r["final_note"] = (r["final_note"] + "; same listing chosen for basket items "
+                                   + ", ".join(x["item_code"] for x in rs)).strip("; ")
+    dest = run_dir / "name_matches.csv"
+    with open(dest, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        w.writeheader()
+        w.writerows(rows)
+    import collections
+    c = collections.Counter((r["retailer"], "fresh" if r["fresh"] == "True" else "packaged", r["final_decision"])
+                            for r in rows if r["decision"] == "name_match")
+    print("judged name_match ->")
+    for k in sorted(c):
+        print(f"  {k[0]:10s} {k[1]:9s} {k[2]:22s} {c[k]}")
+    print("written", dest)
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "urls":
         build_urls(sys.argv[2], sys.argv[3])
@@ -382,3 +470,5 @@ if __name__ == "__main__":
         apply_judgements(sys.argv[2], sys.argv[3], sys.argv[4])
     elif sys.argv[1] == "pagecheck-input":
         pagecheck_input(sys.argv[2])
+    elif sys.argv[1] == "finalize":
+        finalize(sys.argv[2])

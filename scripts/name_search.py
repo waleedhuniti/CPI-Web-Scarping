@@ -82,9 +82,19 @@ def build_urls(queries_path, run_dir):
     json.dump(url_map, open(run_dir / "name_url_map.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 
 
+_NO_RESULTS = {
+    "lulu": ("No results found",),
+    "carrefour": ("No results found", "no results found", "We couldn't find", "We couldn’t find", "Sorry, no results"),
+}
+
+
+def _says_no_results(retailer, markdown) -> bool:
+    return any(p in markdown for p in _NO_RESULTS[retailer])
+
+
 def page_listings(retailer, markdown, query) -> list:
     """Every product card on a search page: the retailer parser's fields plus the raw card text (for the judge)."""
-    if retailer == "lulu" and "No results found" in markdown:
+    if _says_no_results(retailer, markdown):
         return []
     parsed = (carrefour.parse_search_markdown(markdown, query) if retailer == "carrefour"
               else lulu.parse_search_markdown(markdown, query))
@@ -134,8 +144,8 @@ def build_candidates(retailer, dataset_path, run_dir):
         targets = url_map.get(key) or url_map.get(pg["url"]) or []
         md = pg.get("markdown") or ""
         listings = page_listings(retailer, md, q)
-        if not listings and not (retailer == "lulu" and "No results found" in md) and len(md) < 2000:
-            unread.append(pg["url"])
+        if not listings and not _says_no_results(retailer, md):
+            unread.append(pg["url"])           # neither products nor the site's 'no results' message: page did not render
         for t in targets:
             rec = per_item.setdefault(t["item_code"], {"queries": [], "listings": {}})
             rec["queries"].append({"query": q, "kind": t["kind"], "results": len(listings)})
@@ -167,6 +177,7 @@ def build_candidates(retailer, dataset_path, run_dir):
     with_size = sum(1 for o in out if any(c["size_equal"] for c in o["candidates"]))
     print(f"{retailer}: {len(pages)} pages, {len(out)} items, {sum(1 for o in out if o['candidates'])} with listings, "
           f"{with_size} with a listing of the basket size | pages that did not render: {len(unread)}")
+    json.dump(unread, open(run_dir / f"{retailer}_name_unread.json", "w"), indent=0)
     print("written", dest)
 
 

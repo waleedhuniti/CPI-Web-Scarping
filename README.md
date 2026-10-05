@@ -3,6 +3,35 @@
 Collect online grocery prices for the UAE CPI food basket (COICOP 011), matching each scraped product to a basket
 line **barcode first**, then name/description, with **quantity as a hard rule** (it must never change).
 
+## How a price gets into the index (run 2026-10-05)
+
+Every accepted price has to pass all of these; anything that fails one goes to `review_queue.csv` for the officer.
+
+1. **Barcode first.** The basket barcode is searched on Carrefour and Lulu. A hit counts only if the search returned exactly one
+   product and the pack size equals the basket size (`cpi/matcher.py`). Carrefour: 190 of 384 barcodes found, Lulu: 110.
+2. **Second source: the retailer's own product page.** Every match is re-opened (`scripts/verify_pages.py`): the page price must
+   be within 20% of the search price (a larger gap means the card links to another variant, e.g. Lulu's single bottle under a
+   4-pack card), the page pack size must equal the basket size, and on Lulu the basket barcode must be printed on the page.
+   Stock and price are taken from the page (the Carrefour actor's stock flag was wrong for 30 of 190 products).
+3. **No barcode hit -> name + brand + size** (`scripts/name_search.py`). Queries written from the Arabic basket and checked by
+   a second agent; 1,240 search pages crawled; each item x retailer judged against written rules (`docs/name_matching_rules.md`:
+   brand, product, variant, exact size; fresh: kind, grade, per-kg price, origin), every accepted match challenged by a
+   second agent (26 of 311 refuted), then the product page check of step 2, then an independent audit (177 of 183 passed;
+   the rest went to review).
+4. **Fresh produce, meat and fish** are compared per kg. A listing counts for the basket line of its **own** origin (read
+   from the product page). Other origin lines are `substitute_origin`: under the office's rule they may take that price
+   only when it is inside +/-30% of the line's own last price - that anchor is not available yet, so they wait for the
+   officer (63 rows). Lines whose origin the site does not show go to review (35).
+
+### Result of the 2026-10-05 run (`data/runs/2026-10-05/coverage.md`)
+
+| | Items | Priced | by barcode | by name | fresh by spec |
+|---|---:|---:|---:|---:|---:|
+| All 637 basket items | 637 | **315** | 216 | 55 | 44 |
+
+454 accepted retailer prices are in `prices.csv` (`use_in_index = yes`); 366 rows are in `review_queue.csv`. Nesto has no
+online shop we could find; Spinneys needs a delivery address and a browser actor (not in this run).
+
 ## Layout
 
 | Path | What |
@@ -20,6 +49,12 @@ line **barcode first**, then name/description, with **quantity as a hard rule** 
 | `docs/retailers.md` | What works per retailer, pilot findings, what Spinneys and Nesto need |
 | `data/pilot/` | Live pilot results (10 basket barcodes at Carrefour and Lulu) |
 | `actors/lulu_search/` | Page function for Apify's web-scraper (bulk Lulu barcode search) - written, not yet run |
+| `scripts/match_run.py`, `scripts/ingest_lulu.py` | Barcode results -> matched CSV per retailer |
+| `scripts/verify_pages.py` | Second-source check on the product page (price, stock, size, Lulu barcode, origin) |
+| `scripts/name_search.py` | Name + brand + size search: URLs, candidates, judge batches, apply, finalize, audit |
+| `scripts/build_price_table.py` | `prices.csv`, `coverage.md`, `review_queue.csv` for a run |
+| `data/runs/<date>/` | Everything a run produced; `evidence/` keeps the crawled pages and the judges' verdicts |
+| `docs/june_comparison.md` | June manual-vs-scraped comparison and the class-by-class recommendation |
 | `tests/` | `python -m pytest` |
 
 ## Use
@@ -43,12 +78,9 @@ python -m pytest
 
 ## Status
 
-Scope: **Lulu, Carrefour, Spinneys, Nesto - Dubai only.**
-
-* Done and tested offline (72 tests): basket loader, GTIN / quantity / origin parsing, matcher (barcode, incl. barcode
-  found through a retailer's search box, then quantity, then name), price band, Lulu and Carrefour parsers.
-* Live pilot (2026-10-05, 10 basket barcodes): Carrefour found 8, Lulu found 4 of the 8 tried; all matched on barcode
-  and quantity. See `docs/retailers.md`.
-* Blocked / not started: Spinneys (needs a Dubai delivery address + browser actor), Nesto (not inspected).
-* Next: full basket run on Lulu and Carrefour (384 barcodes), then Spinneys and Nesto, then the fresh-food module
-  (253 basket lines with no usable barcode).
+* 87 offline tests (`python -m pytest`).
+* Run 2026-10-05 done for Carrefour and Lulu (Dubai delivery area for Carrefour; Lulu showed no area in cheap mode and an
+  Abu Dhabi area in browser mode - prices were the same in the cases compared).
+* Next: supply last month's price per basket line (the anchor for the +/-30% origin rule and for a month-on-month
+  plausibility check), let an officer clear `review_queue.csv` once, then repeat monthly in one short collection window.
+* Spinneys and Nesto: not covered (see `docs/retailers.md`).

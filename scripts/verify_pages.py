@@ -92,7 +92,12 @@ def main(retailer, pages_path, matched_path):
         # what goes forward: the product page is the later, more detailed source. An accepted row is sent back to the
         # officer when the page shows another pack size or (Lulu) does not carry the basket barcode at all.
         final = r["status"]
-        if r["status"] in ACCEPTED and ean_ok is False and r["status"] != FUZZY_MATCH:
+        # a large gap between the search card and the page means the card links to another variant (Lulu sells the
+        # 4-pack and the single bottle under one card); a small gap is an ordinary price change, the page price is used
+        price_gap = abs(sp - p["price"]) / p["price"] if p["price"] else 1.0
+        if r["status"] in ACCEPTED and price_gap > 0.20:
+            final = "review_page_price"
+        elif r["status"] in ACCEPTED and ean_ok is False and r["status"] != FUZZY_MATCH:
             final = "review_page_barcode"      # (a name match is not expected to carry the basket barcode)
         elif r["status"] in ACCEPTED and pack_ok is False:
             final = "review_page_pack_size"

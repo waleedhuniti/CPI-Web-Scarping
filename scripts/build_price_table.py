@@ -8,6 +8,7 @@ Inputs in the run folder:
 Output:
   prices.csv    one row per item and retailer: method, status, price, regular price, stock, price per kg, URL, evidence
   coverage.md   how many basket items have an accepted price, by COICOP group and method
+  review_queue.csv  the rows a statistical officer has to decide (with listing, price and the reason)
 Only rows with use_in_index = yes may go into the index; everything else is for the officer.
 """
 import collections
@@ -80,6 +81,17 @@ def main(run_dir):
         w = csv.DictWriter(f, fieldnames=list(out[0]))
         w.writeheader()
         w.writerows(out)
+
+    # the officer's work list: everything that is neither accepted nor a plain 'not sold here'
+    queue = [o for o in out if o["use_in_index"] != "yes" and o["status"] not in ("no_match", "not_found", "not_searched")
+             and o["url"]]
+    order = {"substitute_origin": 0, "review_origin_unknown": 1}
+    queue.sort(key=lambda o: (order.get(o["status"], 2), o["group"], o["item_code"], o["retailer"]))
+    with open(run_dir / "review_queue.csv", "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=list(out[0]))
+        w.writeheader()
+        w.writerows(queue)
+    print(f"review_queue.csv: {len(queue)} rows for the officer")
 
     by_item = collections.defaultdict(set)
     for o in out:

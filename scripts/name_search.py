@@ -180,7 +180,7 @@ def build_candidates(retailer, dataset_path, run_dir):
                     "origin_raw": it.origin_raw, "fresh_type": it.fresh_type, "queries": rec["queries"],
                     "candidates": cands})
     dest = run_dir / f"{retailer}_name_candidates.json"
-    json.dump(out, open(dest, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(out, open(dest, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     with_size = sum(1 for o in out if any(c["size_equal"] for c in o["candidates"]))
     print(f"{retailer}: {len(pages)} pages, {len(out)} items, {sum(1 for o in out if o['candidates'])} with listings, "
           f"{with_size} with a listing of the basket size | pages that did not render: {len(unread)}")

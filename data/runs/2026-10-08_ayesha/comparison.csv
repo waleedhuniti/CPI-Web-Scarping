@@ -1,0 +1,247 @@
+﻿item_code,name_ar,brand_ar,barcode,qty,retailer,ayesha_price,ayesha_note,scraped_price,scraped_title,url,status,note,diff_pct,agree
+011110101,أرز بسمتي هندي,تلدا,8901144311002,1 كغ,carrefour,17.79,,17.79,"Tilda Pure Basmati Rice, 1kg",https://www.carrefouruae.com/mafuae/en/indian-basmati-rice/tilda-basmati-rice-1kg/p/79241,barcode_match,,0.0,yes
+011110101,أرز بسمتي هندي,تلدا,8901144311002,1 كغ,lulu,16.75,,16.75,Tilda Pure Original Basmati Rice 1 kg,https://gcc.luluhypermarket.com/en-ae/tilda-pure-original-basmati-rice-1-kg/p/10962,barcode_match,,0.0,yes
+011110103,أرز بسمتي هندي,انديا جيت,690225101172,1 كغ,carrefour,14.99,,14.99,India Gate Classic Basmati Rice 1kg,https://www.carrefouruae.com/mafuae/en/indian-basmati-rice/india-gate-classic-basmati-rice-1kg/p/663164,barcode_match,,0.0,yes
+011110103,أرز بسمتي هندي,انديا جيت,690225101172,1 كغ,lulu,15.25,,15.25,India Gate Classic Basmati Rice 1 kg,https://gcc.luluhypermarket.com/en-ae/india-gate-classic-basmati-rice-1-kg/p/404467,barcode_match,,0.0,yes
+011110104,أرز بسمتي هندي,شهرزاد,6291100207497,5 كغ,carrefour,,,,,,not_found,,,
+011110104,أرز بسمتي هندي,شهرزاد,6291100207497,5 كغ,lulu,,,,,,not_found,,,
+011110105,أرز بسمتي هندي,أبوكاس,6281100410072,5 كغ,carrefour,,,,,,not_found,,,
+011110105,أرز بسمتي هندي,أبوكاس,6281100410072,5 كغ,lulu,47.95,,47.95,Abu Kass Babaker Indian Mazza Basmati Rice 5 kg,https://gcc.luluhypermarket.com/en-ae/abu-kass-babaker-indian-mazza-basmati-rice-5-kg/p/444455,barcode_match,,0.0,yes
+011110107,أرز بسمتي هندي أبيض حبة طويلة,DAAWAT,8901537071025,5 كغ,carrefour,70.99,,70.99,"Daawat Extra Long Grain White Indian Basmati Rice, 5kg",https://www.carrefouruae.com/mafuae/en/indian-basmati-rice/daawat-e-l-grain-basmati-rice-5kg/p/975937,barcode_match,,0.0,yes
+011110107,أرز بسمتي هندي أبيض حبة طويلة,DAAWAT,8901537071025,5 كغ,lulu,,,,,,not_found,,,
+011110201,أرز باكستاني  حبه بيضاء طويله,سنارة,6294000201053,5 كغ,carrefour,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011110201,أرز باكستاني  حبه بيضاء طويله,سنارة,6294000201053,5 كغ,lulu,38.9,,38.9,Sinnara White Long Grain Basmati Rice 5 kg,https://gcc.luluhypermarket.com/en-ae/sinnara-white-long-grain-basmati-rice-5-kg/p/4900,barcode_match,,0.0,yes
+011110202,أرز باكستاني حبه بيضاء طويله,كرنل مهران,633152002143,5 كغ,carrefour,62.79,,62.79,"Mehran Gold Basmati Rice, 5kg",https://www.carrefouruae.com/mafuae/en/pakistani-basmati/mehran-gold-rice-5kg/p/9027,barcode_match,,0.0,yes
+011110202,أرز باكستاني حبه بيضاء طويله,كرنل مهران,633152002143,5 كغ,lulu,,,,,,not_found,,,
+011110203,أرز باكستاني كيس برتقالي اللون -حبه طويله بيضاء,ممتاز,6291034177729,2 كغ,carrefour,,,,,,not_found,,,
+011110203,أرز باكستاني كيس برتقالي اللون -حبه طويله بيضاء,ممتاز,6291034177729,2 كغ,lulu,,,,,,not_found,,,
+011120101,دقيق القمح (الطحين) رقم 1,البيكر,6291003058134,10 كغ,carrefour,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011120101,دقيق القمح (الطحين) رقم 1,البيكر,6291003058134,10 كغ,lulu,34.95,,34.95,Al Baker All Purpose Flour 10 kg,https://gcc.luluhypermarket.com/en-ae/al-baker-all-purpose-flour-10-kg/p/25043,barcode_match,,0.0,yes
+011120104,دقيق القمح (الطحين) رقم 2,جنان,6291001802135,10كغ,carrefour,,,,,,not_found,,,
+011120104,دقيق القمح (الطحين) رقم 2,جنان,6291001802135,10كغ,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011120106,دقيق القمح (الطحين) متعدد الإستعمالات,دقيق المطاحن الكويتيه,6271003014026,5KG,carrefour,41.49,,41.49,"Kuwait Flour Mills & Bakeries Co. All Purpose Patent Flour, 5kg",https://www.carrefouruae.com/mafuae/en/plain-white-flour/kfmb-patent-flour-5kg/p/1249023,barcode_match,,0.0,yes
+011120106,دقيق القمح (الطحين) متعدد الإستعمالات,دقيق المطاحن الكويتيه,6271003014026,5KG,lulu,41.15,,41.15,KFMB Patent Flour 5 kg,https://gcc.luluhypermarket.com/en-ae/kfmb-patent-flour-5-kg/p/301134,barcode_match,,0.0,yes
+011130201,خبز لبناني ابيض,المخبز الحديث,1110000120123,565 غ,carrefour,,,,,,not_found,,,
+011130201,خبز لبناني ابيض,المخبز الحديث,1110000120123,565 غ,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011130203,خبز لبناني اسمر كبير 5 أرغفة,المخبز الحديث,1110000120000,565 غ,carrefour,,,,,,not_found,,,
+011130203,خبز لبناني اسمر كبير 5 أرغفة,المخبز الحديث,1110000120000,565 غ,lulu,,,,,,not_found,,,
+011130204,خبز لبناني ابيض حجم وسط,مخبز الأرز,6291100800049,190 غ,carrefour,2.19,,2.19,"Al Arz Automatic Bakery Arabic Medium Brown Bread, 200g",https://www.carrefouruae.com/mafuae/en/arabic-bread/alarz-arabic-brown-medium-200g/p/893485,size_differs,basket 190 غ vs listing 200g,0.0,yes
+011130204,خبز لبناني ابيض حجم وسط,مخبز الأرز,6291100800049,190 غ,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011130301,شرائح التوست ( السلايس),المخبز الحديث,6291100800049,500 غ,carrefour,2.19,,2.19,"Al Arz Automatic Bakery Arabic Medium Brown Bread, 200g",https://www.carrefouruae.com/mafuae/en/arabic-bread/alarz-arabic-brown-medium-200g/p/893485,size_differs,basket 500 غ vs listing 200g,0.0,yes
+011130301,شرائح التوست ( السلايس),المخبز الحديث,6291100800049,500 غ,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011130302,شرائح التوست ( السلايس),يومي Yaumi,6291106450002,600 غ,carrefour,,,,,,not_found,,,
+011130302,شرائح التوست ( السلايس),يومي Yaumi,6291106450002,600 غ,lulu,,,,,,not_found,,,
+011130304,شرائح التوست ( السلايس) ابيض كبير  بالحليب,لوزين,6281007036849,600 غ,carrefour,7.29,,7.29,"l’usine Sliced Milk Bread, 600g",https://www.carrefouruae.com/mafuae/en/white-sliced-bread/lusine-milk-bread-600g/p/1228828,barcode_match,,0.0,yes
+011130304,شرائح التوست ( السلايس) ابيض كبير  بالحليب,لوزين,6281007036849,600 غ,lulu,,,,,,not_found,,,
+011130401,خبز صمون بالسمسم,المخبز الحديث,1110000140442,4 حبة,carrefour,2.89,,2.89,"Modern Bakery Sandwich Roll Sesame, 330g",https://www.carrefouruae.com/mafuae/en/classic-burger-buns/m-bakery-roll-sandwich-sesame-330g/p/461689,size_differs,basket 4 حبة vs listing 330g,0.0,yes
+011130401,خبز صمون بالسمسم,المخبز الحديث,1110000140442,4 حبة,lulu,,غير متوفرة بالاونلاين اليوم ,3.0,Modern Bakery Sandwich Roll Sesame 4 pcs,https://gcc.luluhypermarket.com/en-ae/modern-bakery-sandwich-roll-sesame-4-pcs/p/204257,barcode_match,,,
+011130402,خبز صمون,لوزين,6281007042857,4 حبة,carrefour,2.99,,2.99,"l'usine Brown Sandwich Rolls, 200g",https://www.carrefouruae.com/mafuae/en/white-rolls/lusine-sanwich-roll-brown-200g/p/1355467,size_differs,basket 4 حبة vs listing 200g,0.0,yes
+011130402,خبز صمون,لوزين,6281007042857,4 حبة,lulu,3.05,,3.05,Lusine Brown Sandwich Roll 4 pcs 200 g,https://gcc.luluhypermarket.com/en-ae/lusine-brown-sandwich-roll-4-pcs-200-g/p/1059172,barcode_match,,0.0,yes
+011130404,خبز صمون,مخبز الأرز,6291100800094,6 حبات,carrefour,1.69,,1.69,"Al Arz Automatic Bakery Arabic Samoon, 325g",https://www.carrefouruae.com/mafuae/en/arabic-bread/alarz-arabic-samoon-normal-325g/p/893494,size_differs,basket 6 حبات vs listing 325g,0.0,yes
+011130404,خبز صمون,مخبز الأرز,6291100800094,6 حبات,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011220101,لحم غنم باكستاني - طازج محلي مع عظم,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011220101,لحم غنم باكستاني - طازج محلي مع عظم,,,1 كغ,lulu,,لا تتوفر في الموقع ,54.5,Pakistani Mutton Cuts Bone In 500 g,https://gcc.luluhypermarket.com/en-ae/p/154716-ea,fresh_match,origin in title = basket; listed 27.25 for 500g -> per kg 54.5,,
+011220102,لحم غنم هندي طازج,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011220102,لحم غنم هندي طازج,,,1 كغ,lulu,,لا تتوفر في الموقع ,49.9,Indian Mutton Cuts Bone In 500 g,https://gcc.luluhypermarket.com/en-ae/p/40957-ea,fresh_match,origin in title = basket; listed 24.95 for 500g -> per kg 49.9,,
+011220104,خاصره مع العظم -هندي,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011220104,خاصره مع العظم -هندي,,,1 كغ,lulu,,لا تتوفر في الموقع ,58.12,Indian Mutton Loin Chops 400 g,https://gcc.luluhypermarket.com/en-ae/p/41558-ea,fresh_match,"loin, Indian; listed 23.25 for 400g -> per kg 58.12",,
+011220302,بقر محلي - استيك,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011220302,بقر محلي - استيك,,,1 كغ,lulu,,لا تتوفر في الموقع ,,,,not_found,,,
+011220303,شرائح لحم بقر باكستاني بدون عظم,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011220303,شرائح لحم بقر باكستاني بدون عظم,,,1 كغ,lulu,,لا تتوفر في الموقع ,42.2,Pakistani Beef Boneless 500 g,https://gcc.luluhypermarket.com/en-ae/p/195911-ea,fresh_match,origin in title = basket; listed 21.1 for 500g -> per kg 42.2,,
+011220304,لحم بقر باكستاني بالعظم,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011220304,لحم بقر باكستاني بالعظم,,,1 كغ,lulu,,لا تتوفر في الموقع ,30.8,Pakistani Beef Bone In 500 g,https://gcc.luluhypermarket.com/en-ae/p/195912-ea,fresh_match,origin in title = basket; listed 15.4 for 500g -> per kg 30.8,,
+011220502,دجاج طازج,الروضة,6291038010008,1 كغ,carrefour,24.99,,,,,not_found,,,
+011220502,دجاج طازج,الروضة,6291038010008,1 كغ,lulu,,,,,,not_found,,,
+011220509,دجاج طازج,مزارع العين,6291056400577,900 غ,carrefour,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011220509,دجاج طازج,مزارع العين,6291056400577,900 غ,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011220511,فيليه صدور دجاج,اليوم,6281007045544,450 غ,carrefour,,,,,,not_found,,,
+011220511,فيليه صدور دجاج,اليوم,6281007045544,450 غ,lulu,,,,,,not_found,,,
+011220601,دجاج مجمد,الاسلامي,6291002102036,1 كغ,carrefour,,,,,,not_found,,,
+011220601,دجاج مجمد,الاسلامي,6291002102036,1 كغ,lulu,,,,,,not_found,,,
+011220602,دجاج مجمد,ساديا,7893000557949,1 كغ,carrefour,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011220602,دجاج مجمد,ساديا,7893000557949,1 كغ,lulu,,,,,,not_found,,,
+011220611,دجاج مجمد  بدون أحشاء,سيارا,7893000557949,1100 غ,carrefour,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011220611,دجاج مجمد  بدون أحشاء,سيارا,7893000557949,1100 غ,lulu,,,,,,not_found,,,
+011310101,كنعد طازج,,,1 كغ,carrefour,,غير متوفر في الموقع,,,,not_found,,,
+011310101,كنعد طازج,,,1 كغ,lulu,,غير متوفر في الموقع,,,,not_found,,,
+011310102,كنعد طازج,,,1 كغ,carrefour,,غير متوفر في الموقع,,,,not_found,,,
+011310102,كنعد طازج,,,1 كغ,lulu,,غير متوفر في الموقع,,,,not_found,,,
+011310201,هامور طازج,,,1 كغ,carrefour,,,,,,not_found,,,
+011310201,هامور طازج,,,1 كغ,lulu,,,,,,not_found,,,
+011310301,شعري طازج,,,1 كغ,carrefour,,غير متوفر في الموقع,,,,not_found,,,
+011310301,شعري طازج,,,1 كغ,lulu,,غير متوفر في الموقع,35.95,Fresh Sheri Local Whole Cleaned 1 kg,https://gcc.luluhypermarket.com/en-ae/fresh-sheri-local-whole-cleaned-1-kg/p/35640-ea,fresh_match,local = UAE; listed 35.95 for 1000g -> per kg 35.95,,
+011310302,شعري طازج,,,1 كغ,carrefour,,غير متوفر في الموقع,,,,not_found,,,
+011310302,شعري طازج,,,1 كغ,lulu,,غير متوفر في الموقع,,,,not_found,,,
+011310701,سبريم طازج,,,1 كغ,carrefour,,غير متوفر في الموقع,,,,not_found,,,
+011310701,سبريم طازج,,,1 كغ,lulu,,غير متوفر في الموقع,,,,not_found,,,
+011310702,سبريم طازج,,,1 كغ,carrefour,,غير متوفر في الموقع,,,,not_found,,,
+011310702,سبريم طازج,,,1 كغ,lulu,,غير متوفر في الموقع,,,,not_found,,,
+011310801,سلمون طازج,,,1 كغ,carrefour,,غير متوفر في الموقع,100.0,Norwegian Salmon Fillet,https://www.carrefouruae.com/mafuae/en/fish/norwegian-salmon-fillet/p/72891,fresh_match,fillet (basket does not say whole or fillet); listed 50.0 for 500g -> per kg 100.0,,
+011310801,سلمون طازج,,,1 كغ,lulu,,غير متوفر في الموقع,48.9,Fresh Norwegian Salmon Whole Cleaned 2.5 kg,https://gcc.luluhypermarket.com/en-ae/fresh-norwegian-salmon-whole-cleaned-2-5-kg/p/998249-ea,fresh_match,"whole fish, per kg; listed 122.25 for 2500g -> per kg 48.9",,
+011310901,بلطي,,,1 كغ,carrefour,,غير متوفر في الموقع,14.88,Tilapia Fresh,https://www.carrefouruae.com/mafuae/en/fish/tilapia-fresh/p/939008,fresh_match,origin not shown; listed 8.93 for 600g -> per kg 14.88,,
+011310901,بلطي,,,1 كغ,lulu,,غير متوفر في الموقع,15.35,Fresh Tilapia Fish Whole Cleaned 1 kg,https://gcc.luluhypermarket.com/en-ae/p/72192-ea,fresh_match,origin not shown; listed 15.35 for 1000g -> per kg 15.35,,
+011340101,روبيان طازج - كبير,,10,1 كغ,carrefour,129.0,,,,,not_found,,,
+011340101,روبيان طازج - كبير,,10,1 كغ,lulu,,متوفر أنواع كثيرة غير معروفه كمصدر في الموقع ,,,,not_found,,,
+011340102,روبيان طازج - متوسط,,2010,1 كغ,carrefour,69.99,,,,,not_found,"Carrefour sells 20/30 and 30/40 only, not the basket's 10/20 grade -> no match",,
+011340102,روبيان طازج - متوسط,,2010,1 كغ,lulu,,متوفر أنواع كثيرة غير معروفه كمصدر في الموقع ,,,,not_found,,,
+011340103,روبيان طازج - صغير,,4060,1 كغ,carrefour,32.99,,33.0,Fresh Shrimps 40/60,https://www.carrefouruae.com/mafuae/en/fresh-shrimp/fresh-shrimps-40-60/p/1730628,fresh_match,size grade 40/60 = basket; origin not shown; listed 16.5 for 500g -> per kg 33.0,0.0,yes
+011340103,روبيان طازج - صغير,,4060,1 كغ,lulu,,متوفر أنواع كثيرة غير معروفه كمصدر في الموقع ,,,,not_found,,,
+011410101,حليب  بقري طازج كامل الدسم,العين,6291056004027,ا لتر,carrefour,6.89,,6.89,"Al Ain Farms Full Cream Fresh Milk, 1L",https://www.carrefouruae.com/mafuae/en/full-fat-milk/al-ain-milk-full-cream-1l/p/391446,barcode_match,,0.0,yes
+011410101,حليب  بقري طازج كامل الدسم,العين,6291056004027,ا لتر,lulu,,,,,,not_found,,,
+011410102,حليب  بقري طازج كامل الدسم,المراعي,6281007040235,ا لتر,carrefour,6.99,,6.99,"Almarai Full Fat Fresh Milk, 1L",https://www.carrefouruae.com/mafuae/en/full-fat-milk/al-marai-milk-ff-1l/p/11532,barcode_match,,0.0,yes
+011410102,حليب  بقري طازج كامل الدسم,المراعي,6281007040235,ا لتر,lulu,,,,,,not_found,,,
+011410103,حليب  بقري طازج كامل الدسم,الروابي,6291030200032,ا لتر,carrefour,6.99,,6.99,"Al Rawabi Full Fat Milk, 1L",https://www.carrefouruae.com/mafuae/en/full-fat-milk/al-rawabi-milk-ff-1l/p/11509,barcode_match,,0.0,yes
+011410103,حليب  بقري طازج كامل الدسم,الروابي,6291030200032,ا لتر,lulu,,,,,,not_found,,,
+011430201,حليب مجفف,نيدو,7616100011568,2500 غ,carrefour,125.0,,125.0,Nestle Nido Fortified Milk Powder 2500g Tin,https://www.carrefouruae.com/mafuae/en/powdered-milk/nido-milk-powder-2-5kg/p/8239,barcode_match,,0.0,yes
+011430201,حليب مجفف,نيدو,7616100011568,2500 غ,lulu,112.5,,112.5,Nestle Nido FortiGrow Milk Powder Tin 2.5 kg,https://gcc.luluhypermarket.com/en-ae/nestle-nido-fortigrow-milk-powder-tin-2-5-kg/p/3646,barcode_match,,0.0,yes
+011430204,حليب مجفف كامل الدسم,أبو قوس,8716200123419,400 غ,carrefour,,,,,,not_found,,,
+011430204,حليب مجفف كامل الدسم,أبو قوس,8716200123419,400 غ,lulu,,,,,,not_found,,,
+011430205,حليب مدعم مجفف كامل الدسم,أنكور,9415007015741,900 غ,carrefour,44.49,,44.49,"Anchor Fortified Full Cream Milk Powder, 900g",https://www.carrefouruae.com/mafuae/en/powdered-milk/anchor-milk-powder-900g/p/8208,barcode_match,,0.0,yes
+011430205,حليب مدعم مجفف كامل الدسم,أنكور,9415007015741,900 غ,lulu,,,,,,not_found,,,
+011460101,روب كامل الدسم,العين,6291056060009,400غ,carrefour,3.19,,3.19,"Al Ain Farms Full Cream Fresh Yoghurt, 400g",https://www.carrefouruae.com/mafuae/en/full-fat-yogurt/al-ain-yog-plain-ff-400g/p/69250,barcode_match,,0.0,yes
+011460101,روب كامل الدسم,العين,6291056060009,400غ,lulu,3.6,,3.6,Al Ain Farms Fresh Full Cream Yoghurt 400 g,https://gcc.luluhypermarket.com/en-ae/al-ain-farms-fresh-full-cream-yoghurt-400-g/p/7716,barcode_match,,0.0,yes
+011460102,روب كامل الدسم,الروابي,6291030400142,400غ,carrefour,3.19,,3.19,"Al Rawabi Full Fat Plain Yoghurt, 400g",https://www.carrefouruae.com/mafuae/en/full-fat-yogurt/al-rawabi-yog-plain-ff-400g/p/11255,barcode_match,,0.0,yes
+011460102,روب كامل الدسم,الروابي,6291030400142,400غ,lulu,3.6,,3.6,Al Rawabi Full Cream Fresh Yoghurt 400 g,https://gcc.luluhypermarket.com/en-ae/al-rawabi-full-cream-fresh-yoghurt-400-g/p/234662,barcode_match,,0.0,yes
+011460103,روب كامل الدسم,المراعي,6281007063067,1 كغ,carrefour,7.79,,7.79,"Almarai Full Fat Fresh Yoghurt, 1kg",https://www.carrefouruae.com/mafuae/en/full-fat-yogurt/al-marai-yog-plain-ff-1kg/p/783920,barcode_match,,0.0,yes
+011460103,روب كامل الدسم,المراعي,6281007063067,1 كغ,lulu,7.9,,7.9,Almarai Fresh Yoghurt Full Cream 1 kg,https://gcc.luluhypermarket.com/en-ae/almarai-fresh-yoghurt-full-cream-1-kg/p/486998,barcode_match,,0.0,yes
+011460201,شراب اللبن,العين,6291056052004,ا لتر,carrefour,7.49,,7.49,"Al Ain Full Cream Fresh Laban, 1L",https://www.carrefouruae.com/mafuae/en/plain-laban/al-ain-laban-gefilac-ff-1l/p/347449,barcode_match,,0.0,yes
+011460201,شراب اللبن,العين,6291056052004,ا لتر,lulu,7.6,,7.6,Al Ain Farms Full Cream Fresh Laban 1 Litre,https://gcc.luluhypermarket.com/en-ae/al-ain-farms-full-cream-fresh-laban-1-litre/p/179805,barcode_match,,0.0,yes
+011460202,شراب اللبن كامل الدسم,الروابي,6291030300039,ا لتر,carrefour,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011460202,شراب اللبن كامل الدسم,الروابي,6291030300039,ا لتر,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011460203,شراب اللبن كامل الدسم,المراعي,6281007110808,ا لتر,carrefour,7.39,,7.39,"Almarai Full Fat Fresh Laban, 1L",https://www.carrefouruae.com/mafuae/en/plain-laban/al-marai-laban-f-fat-1l/p/11305,barcode_match,,0.0,yes
+011460203,شراب اللبن كامل الدسم,المراعي,6281007110808,ا لتر,lulu,,,,,,not_found,,,
+011480101,بيض متوسط الحجم,صحه,6297000044033,30بيضة,carrefour,22.49,,22.49,Saha Medium White/Brown Eggs 30 PCS,https://www.carrefouruae.com/mafuae/en/white-eggs/saha-eggs-white-medium-x30/p/253894,barcode_match,,0.0,yes
+011480101,بيض متوسط الحجم,صحه,6297000044033,30بيضة,lulu,,,,,,not_found,,,
+011480102,بيض كبير الحجم,الخليج,6291003163135,30بيضة,carrefour,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011480102,بيض كبير الحجم,الخليج,6291003163135,30بيضة,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011480103,البيض الذهبي -اوميغا 3 - حجم وسط,الذهبي,6291100151530,30بيضة,carrefour,38.29,,38.29,"Al Jazira Omega 3 Medium White Eggs, 30 PCS",https://www.carrefouruae.com/mafuae/en/omega-3-eggs/al-jazeera-om3-white-egg-m30/p/1174359,barcode_match,,0.0,yes
+011480103,البيض الذهبي -اوميغا 3 - حجم وسط,الذهبي,6291100151530,30بيضة,lulu,,,,,,not_found,,,
+011480105,بيض كبير الحجم,الجزيرة,6291100151028,عدد 30,carrefour,23.49,,23.49,"Al Jazira Large White Eggs, 30 PCS",https://www.carrefouruae.com/mafuae/en/white-eggs/al-jazira-eggs-white-large-x30/p/114726,barcode_match,,0.0,yes
+011480105,بيض كبير الحجم,الجزيرة,6291100151028,عدد 30,lulu,,,,,,not_found,,,
+011510203,زيــــت الـــذرة,كورولي,6291059028051,1.8 لتر,carrefour,,,,,,not_found,,,
+011510203,زيــــت الـــذرة,كورولي,6291059028051,1.8 لتر,lulu,,,,,,not_found,,,
+011510204,زيــــت الـــذرة,عافية,6281011701863,1.5 لتر,carrefour,25.29,,25.29,"Afia Pure Corn Oil Enriched with Vitamins A, D and E Bottle, 1.5L",https://www.carrefouruae.com/mafuae/en/corn-oil/afia-corn-oil-1-5l/p/1723716,barcode_match,,0.0,yes
+011510204,زيــــت الـــذرة,عافية,6281011701863,1.5 لتر,lulu,25.75,,25.75,Afia Pure Corn Oil Enriched with Vitamins A D & E 1.5 Litres,https://gcc.luluhypermarket.com/en-ae/afia-pure-corn-oil-enriched-with-vitamins-a-d-e-15-litres/p/1671734,barcode_match,,0.0,yes
+011510404,زيت دوار الشمس,عافية,6281011701870,1.5 لتر,carrefour,23.79,,23.79,"Afia Pure Sunflower Oil Enriched with Vitamins A, D and Zinc Bottle, 1.5L",https://www.carrefouruae.com/mafuae/en/sunflower-oil/afia-s-flwr-oil-1-5l/p/1723718,barcode_match,,0.0,yes
+011510404,زيت دوار الشمس,عافية,6281011701870,1.5 لتر,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+011510405,زيت دوار الشمس,نور,6291003304293,1.5 لتر,carrefour,23.49,,23.49,"Noor, Sunflower Oil, 1.5L",https://www.carrefouruae.com/mafuae/en/sunflower-oil/noor-sunflower-oil-1-5l/p/1727637,barcode_match,,0.0,yes
+011510405,زيت دوار الشمس,نور,6291003304293,1.5 لتر,lulu,,غير متوفرة بالاونلاين اليوم ,23.95,Noor Sunflower Oil 1.5 Litres,https://gcc.luluhypermarket.com/en-ae/noor-sunflower-oil-1-5-litres/p/1681165,barcode_match,,,
+011510406,زيت دوار الشمس,الكوزي,6291101138820,1.5 لتر,carrefour,,,,,,not_found,,,
+011510406,زيت دوار الشمس,الكوزي,6291101138820,1.5 لتر,lulu,21.5,,21.5,Alokozay Pure Sunflower Oil 1.5 Litres,https://gcc.luluhypermarket.com/en-ae/alokozay-pure-sunflower-oil-1-5-litres/p/1816752,barcode_match,,0.0,yes
+011610201,موز,شيكيتا,,1 كغ,carrefour,,متوفر في الموقع ولكن منتهية اليوم ,6.99,Chiquita Bananas 1Kg,https://www.carrefouruae.com/mafuae/en/banana/banana-chiquita-1-kg-pp/p/1848631,fresh_match,brand = basket; listed 6.99 for 1000g -> per kg 6.99,,
+011610201,موز,شيكيتا,,1 كغ,lulu,,غير متوفرة في الموقع ,9.95,Banana Chiquita Ecuador 1 kg,https://gcc.luluhypermarket.com/en-ae/p/380260-ea,fresh_match,brand + origin = basket; listed 9.95 for 1000g -> per kg 9.95,,
+011610202,موز,استيرلا,,1 كغ,carrefour,,غير متوفرة في الموقع ,,,,not_found,,,
+011610202,موز,استيرلا,,1 كغ,lulu,,غير متوفرة في الموقع ,,,,not_found,,,
+011610203,موز,دولي,,1 كغ,carrefour,5.89,,,,,not_found,,,
+011610203,موز,دولي,,1 كغ,lulu,,غير متوفرة في الموقع ,,,,not_found,,,
+011620101,برتقال  ابو صرة,,,1 كغ,carrefour,5.69,,,,,not_found,,,
+011620101,برتقال  ابو صرة,,,1 كغ,lulu,,لا تتوفر في الموقع,,,,not_found,,,
+011620102,برتقال  ابو صرة,,,1 كغ,carrefour,,لا تتوفر في الموقع,8.89,Orange Navel,https://www.carrefouruae.com/mafuae/en/orange/orange-navel/p/71069,fresh_match,product page shows South Africa (checked 2026-10-05); listed 8.89 for 1000g -> per kg 8.89,,
+011620102,برتقال  ابو صرة,,,1 كغ,lulu,,لا تتوفر في الموقع,8.95,Orange Navel South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18995-ea,fresh_match,basket Africa; listed 8.95 for 1000g -> per kg 8.95,,
+011620104,برتقال   بلانسيا,,,1 كغ,carrefour,4.19,,,,,not_found,,,
+011620104,برتقال   بلانسيا,,,1 كغ,lulu,3.75,,,,,not_found,,,
+011620105,برتقال   بلانسيا,,,1 كغ,carrefour,,لا تتوفر في الموقع,,,,not_found,,,
+011620105,برتقال   بلانسيا,,,1 كغ,lulu,,لا تتوفر في الموقع,9.65,Orange Valencia South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/1291292-ea,fresh_match,basket Africa; listed 9.65 for 1000g -> per kg 9.65,,
+011630101,تفاح احمر,,,1 كغ,carrefour,9.99,,,,,not_found,,,
+011630101,تفاح احمر,,,1 كغ,lulu,,لا تتوفر في الموقع,,,,not_found,,,
+011630102,تفاح احمر,,,1 كغ,carrefour,9.89,,,,,not_found,,,
+011630102,تفاح احمر,,,1 كغ,lulu,10.95,,18.95,Red Apple USA 1 kg,https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea,fresh_match,origin in title = basket; listed 18.95 for 1000g -> per kg 18.95,73.1,no
+011630104,تفاح اصفر,,,1 كغ,carrefour,9.89,,,,,not_found,,,
+011630104,تفاح اصفر,,,1 كغ,lulu,8.95,,,,,not_found,,,
+011630106,تفاح اخضر,,,1 كغ,carrefour,26.99,,,,,not_found,,,
+011630106,تفاح اخضر,,,1 كغ,lulu,10.95,,,,,not_found,,,
+011670101,تمر - خلاص,,,1 كغ,carrefour,,,,,,not_found,,,
+011670101,تمر - خلاص,,,1 كغ,lulu,,,12.75,Al Momin Royal Khalas Al Ahsa 1 kg,https://gcc.luluhypermarket.com/en-ae/al-momin-royal-khalas-al-ahsa-1-kg/p/976299,fresh_match,"Khalas, Al Ahsa = Saudi Arabia; listed 12.75 for 1000g -> per kg 12.75",,
+011670102,تمر - فرض,,,1 كغ,carrefour,,,,,,not_found,,,
+011670102,تمر - فرض,,,1 كغ,lulu,,,,,,not_found,,,
+011710101,سبانخ,,,حزمة,carrefour,,لا تتوفر في الموقع,,,,not_found,,,
+011710101,سبانخ,,,حزمة,lulu,,لا تتوفر في الموقع,,,,not_found,,,
+011710502,خــــس,,,1 كغ,carrefour,,لا تتوفر في الموقع,,,,not_found,,,
+011710502,خــــس,,,1 كغ,lulu,,لا تتوفر في الموقع,,,,not_found,,,
+011710503,خــــس,,,1 كغ,carrefour,,لا تتوفر في الموقع,,,,not_found,,,
+011710503,خــــس,,,1 كغ,lulu,,لا تتوفر في الموقع,,,,not_found,,,
+011720103,طماطم,,,1 كغ,carrefour,9.99,,,,,not_found,,,
+011720103,طماطم,,,1 كغ,lulu,,Tomato Bunch 500 g / 4.48,,,,not_found,,,
+011720104,طماطم,,,1 كغ,carrefour,,لا تتوفر اونلاين ,,,,not_found,,,
+011720104,طماطم,,,1 كغ,lulu,,لا تتوفر اونلاين ,6.46,Tomato Jordan 500 g,https://gcc.luluhypermarket.com/en-ae/p/372444-ea,fresh_match,origin in title = basket; per kg; listed 3.23 for 500g -> per kg 6.46,,
+011720105,طماطم,,,1 كغ,carrefour,,لا تتوفر اونلاين ,,,,not_found,,,
+011720105,طماطم,,,1 كغ,lulu,,لا تتوفر اونلاين ,,,,not_found,,,
+011720201,خيار قصير,,,1 كغ,carrefour,3.39,,,,,not_found,,,
+011720201,خيار قصير,,,1 كغ,lulu,,Cucumber 500 g / 1.98,,,,not_found,,,
+011720202,خيار قصير,,,1 كغ,carrefour,,لا تتوفر اونلاين,,,,not_found,,,
+011720202,خيار قصير,,,1 كغ,lulu,,لا تتوفر اونلاين,,,,not_found,,,
+011740101,بصل أحمر,,,1 كغ,carrefour,2.89,,,,,not_found,,,
+011740101,بصل أحمر,,,1 كغ,lulu,,Small Onion India 250 g  /   2.49,,,,not_found,,,
+011740103,بصل أصفر,,,1 كغ,carrefour,,لا تتوفر اونلاين,,,,not_found,,,
+011740103,بصل أصفر,,,1 كغ,lulu,,لا تتوفر اونلاين,,,,not_found,,,
+011740104,بصل أبيض,,,1 كغ,carrefour,,لا تتوفر اونلاين,,,,not_found,,,
+011740104,بصل أبيض,,,1 كغ,lulu,,لا تتوفر اونلاين,,,,not_found,,,
+011750101,بطاطس,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011750101,بطاطس,,,1 كغ,lulu,,لا تتوفر في الموقع ,,,,not_found,,,
+011750102,بطاطس,,,1 كغ,carrefour,,لا تتوفر في الموقع ,,,,not_found,,,
+011750102,بطاطس,,,1 كغ,lulu,,لا تتوفر في الموقع ,4.25,Potato Lebanon 1 kg,https://gcc.luluhypermarket.com/en-ae/p/521928-ea,fresh_match,origin in title = basket; listed 4.25 for 1000g -> per kg 4.25,,
+011760105,حمص مفلوق (Chana dal),شان,788821005755,1 كغ,carrefour,10.79,,10.79,"Shan Chana Dal, 1kg",https://www.carrefouruae.com/mafuae/en/lentils/shan-chanadal-1kg/p/1280822,barcode_match,,0.0,yes
+011760105,حمص مفلوق (Chana dal),شان,788821005755,1 كغ,lulu,,,,,,not_found,,,
+011760106,حمص مفلوق (Chana dal),بايارا,3434410048722,1 كغ,carrefour,12.49,,12.49,"Bayara Chana Dal, 1kg",https://www.carrefouruae.com/mafuae/en/lentils/bayara-chana-dal-1kg/p/889126,barcode_match,,0.0,yes
+011760106,حمص مفلوق (Chana dal),بايارا,3434410048722,1 كغ,lulu,14.3,,14.3,Bayara Chana Dal 1 kg,https://gcc.luluhypermarket.com/en-ae/bayara-chana-dal-1-kg/p/1595952,barcode_match,,0.0,yes
+011760107,عدس تور (Toor dal),بايارا,3434410048791,1 كغ,carrefour,17.29,,17.29,"Bayara Toor Dal, 1kg",https://www.carrefouruae.com/mafuae/en/lentils/bayara-toor-dal-1kg/p/889133,barcode_match,,0.0,yes
+011760107,عدس تور (Toor dal),بايارا,3434410048791,1 كغ,lulu,17.45,,17.45,Bayara Toor Dal 1 kg,https://gcc.luluhypermarket.com/en-ae/bayara-toor-dal-1-kg/p/1573087,barcode_match,,0.0,yes
+011810102,سكر ابيض ناعم,اس. أي. اس,8888167023023,2 كغ,carrefour,9.89,,9.89,"SIS Fine Grain Granulated White Sugar, 2kg",https://www.carrefouruae.com/mafuae/en/white-sugar/sis-fine-granulated-sugar-2kg/p/8340,barcode_match,,0.0,yes
+011810102,سكر ابيض ناعم,اس. أي. اس,8888167023023,2 كغ,lulu,10.05,,10.05,SIS Fine Grain White Sugar 2 kg,https://gcc.luluhypermarket.com/en-ae/sis-fine-grain-white-sugar-2-kg/p/17376,barcode_match,,0.0,yes
+011810104,سكر مكعبات -ابيض,ماجستك,6085010580203,400غ,carrefour,13.99,,13.99,"Majestic Wrapped White Sugar Cubes, 400g",https://www.carrefouruae.com/mafuae/en/cubes-sticks-sugar/majestic-wrapped-white-sugar-400g/p/1498077,barcode_match,,0.0,yes
+011810104,سكر مكعبات -ابيض,ماجستك,6085010580203,400غ,lulu,,,,,,not_found,,,
+011810105,سكر ابيض ناعم,الأسرة,6281011411076,5 كغ,carrefour,14.99,,14.99,"Al Osra Fine White Sugar, 5kg",https://www.carrefouruae.com/mafuae/en/white-sugar/al-osra-fine-white-sugar-5kg/p/1275793,barcode_match,,0.0,yes
+011810105,سكر ابيض ناعم,الأسرة,6281011411076,5 كغ,lulu,24.65,,24.65,Al Osra Fine Sugar 5 kg,https://gcc.luluhypermarket.com/en-ae/al-osra-fine-sugar-5-kg/p/448301,barcode_match,,0.0,yes
+011930101,ملح طعام  -علبه ورق,نيزو,87158069,1 كغ,carrefour,4.39,,4.39,"Nezo Fine Table Salt, 1kg",https://www.carrefouruae.com/mafuae/en/salt/nezo-salt-blue-1kg/p/10053,barcode_match,,0.0,yes
+011930101,ملح طعام  -علبه ورق,نيزو,87158069,1 كغ,lulu,4.9,,4.9,Nezo Fine Table Salt 1 kg,https://gcc.luluhypermarket.com/en-ae/nezo-fine-table-salt-1-kg/p/3415,barcode_match,,0.0,yes
+011930103,ملح طعام ناعم,بايارا,6291106440416,1 كغ,carrefour,4.19,,4.19,"Bayara Fine Table Salt, 1kg",https://www.carrefouruae.com/mafuae/en/salt/bayara-fine-table-salt-1kg/p/1303877,barcode_match,,0.0,yes
+011930103,ملح طعام ناعم,بايارا,6291106440416,1 كغ,lulu,,,,,,not_found,,,
+011930104,ملح نقي معالج باليود,نيزو,0000087158304,600 غ,carrefour,,,,,,not_found,,,
+011930104,ملح نقي معالج باليود,نيزو,0000087158304,600 غ,lulu,7.15,,7.15,Nezo Fine Iodized Table Salt 600 g,https://gcc.luluhypermarket.com/en-ae/nezo-fine-iodized-table-salt-600-g/p/23501,barcode_match,,0.0,yes
+041100101,الايجار الشهري المدفوع فعلا,,,1,carrefour,,,,,,not_in_supermarkets,,,
+041100101,الايجار الشهري المدفوع فعلا,,,1,lulu,,,,,,not_in_supermarkets,,,
+056110101,منظف  ومطهر  الاضيات باللافندر,داك,6281031263778,3 لتر,carrefour,,غير متوفرة بالاونلاين اليوم ,36.49,Dac Disinfectant Lavender 3L,https://www.carrefouruae.com/mafuae/en/multi-purpose-cleaner/dac-disinfectant-lavender-3l/p/1363690,barcode_match,,,
+056110101,منظف  ومطهر  الاضيات باللافندر,داك,6281031263778,3 لتر,lulu,,,,,,not_found,,,
+056110105,صابون غسيل الملابس  عادى - Orginal Scent,تايد,5413149811300,3 كغ,carrefour,,,,,,not_found,,,
+056110105,صابون غسيل الملابس  عادى - Orginal Scent,تايد,5413149811300,3 كغ,lulu,,,,,,not_found,,,
+056110107,صابون غسيل الملابس  للغسالات العادية,أريل,5413149809376,3 كغ,carrefour,,,,,,not_found,,,
+056110107,صابون غسيل الملابس  للغسالات العادية,أريل,5413149809376,3 كغ,lulu,,,,,,not_found,,,
+056110109,سائل غسيل الصحون الاصلي من فيري,فيري,8001090242105,400مل,carrefour,9.39,,9.39,Fairy Original Clean Dishwasher Liquid 400ml,https://www.carrefouruae.com/mafuae/en/dishwashing-cleaner/fairy-original-400ml/p/1920090,barcode_match,,0.0,yes
+056110109,سائل غسيل الصحون الاصلي من فيري,فيري,8001090242105,400مل,lulu,9.8,,9.8,Fairy Fruity Green Dishwashing Liquid 400 ml,https://gcc.luluhypermarket.com/en-ae/fairy-fruity-green-dishwashing-liquid-400-ml/p/1918283,barcode_match,,0.0,yes
+056110110,مسحوق غسيل الملابس العادي,أومو,6281006121140,1.5 كج,carrefour,,,,,,not_found,,,
+056110110,مسحوق غسيل الملابس العادي,أومو,6281006121140,1.5 كج,lulu,,,,,,not_found,,,
+056110201,داوني 3 لتر  Downy Dream Garden Regular Fabric Softener 3Litre,داوني,5413149637450,3 لتر,carrefour,,,,,,not_found,,,
+056110201,داوني 3 لتر  Downy Dream Garden Regular Fabric Softener 3Litre,داوني,5413149637450,3 لتر,lulu,,,,,,not_found,,,
+056110202,كمفورت منعم الأقمشة سبرينغ ديو,كومفورت,6281006130449,4 لتر,carrefour,37.29,,37.29,"Comfort Fabric Softener Spring Dew, 4L",https://www.carrefouruae.com/mafuae/en/fabric-softener-dilute/comfort-spring-dew-blue-4l/p/478976,barcode_match,,0.0,yes
+056110202,كمفورت منعم الأقمشة سبرينغ ديو,كومفورت,6281006130449,4 لتر,lulu,39.65,,39.65,Comfort Fabric Softener Spring Dew 4 Litre,https://gcc.luluhypermarket.com/en-ae/comfort-fabric-softener-spring-dew-4-litre/p/304469,barcode_match,,0.0,yes
+056190101,مطهرات,ديتول,6295120005316,3 لتر,carrefour,,,,,,not_found,,,
+056190101,مطهرات,ديتول,6295120005316,3 لتر,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+056190102,مبيد حشري - حشرات زاحفة,بف باف,9300701023287,600 مل,carrefour,29.49,,29.49,Pif Paf Cockroach & Ant Killer Spray 600ml,https://www.carrefouruae.com/mafuae/en/insect-sprays-repellents/pif-paf-cik-power-plus-600ml/p/159331,barcode_match,,0.0,yes
+056190102,مبيد حشري - حشرات زاحفة,بف باف,9300701023287,600 مل,lulu,,,,,,not_found,,,
+056190105,مطهر ومعقم للجراثيم,ديتول,5000158062283,1 لتر,carrefour,32.1,,32.1,Dettol Antiseptic Antibacterial Disinfectant Liquid 1L,https://www.carrefouruae.com/mafuae/en/antiseptic-disinfectant/dettol-antisep-dsin-1l/p/1168,barcode_match,,0.0,yes
+056190105,مطهر ومعقم للجراثيم,ديتول,5000158062283,1 لتر,lulu,,,,,,not_found,,,
+072220101,ممتاز - 98 اوكتــين,,,لتر,carrefour,,,,,,not_in_supermarkets,,,
+072220101,ممتاز - 98 اوكتــين,,,لتر,lulu,,,,,,not_in_supermarkets,,,
+072220102,خصوصي - 95 اوكتـــين,,,لتر,carrefour,,,,,,not_in_supermarkets,,,
+072220102,خصوصي - 95 اوكتـــين,,,لتر,lulu,,,,,,not_in_supermarkets,,,
+131200804,معجون أسنان كلجيت بالنعناع,كلجيت,6281001101116,100 مل,carrefour,,,,,,not_found,,,
+131200804,معجون أسنان كلجيت بالنعناع,كلجيت,6281001101116,100 مل,lulu,,,,,,not_found,,,
+131200806,معجون أسنان سيجنال تو الأزرق,سيجنال,6221155127730,100 مل,carrefour,16.49,,16.49,Signal Center Fresh With Mouthwash Toothpaste Blue 100ml,https://www.carrefouruae.com/mafuae/en/regular-toothpaste/signal-tp-center-fresh-blue-100ml/p/1915223,barcode_match,,0.0,yes
+131200806,معجون أسنان سيجنال تو الأزرق,سيجنال,6221155127730,100 مل,lulu,15.95,,15.95,Signal Center Fresh Blue Toothpaste 100 ml,https://gcc.luluhypermarket.com/en-ae/signal-center-fresh-blue-toothpaste-100-ml/p/2013231,barcode_match,,0.0,yes
+131200807,معجون أسنان الأصلي بعلبة حمراء,سنسوداين,9502930974921,75 مل,carrefour,,,26.0,Sensodyne TP Regular 75ml,https://www.carrefouruae.com/mafuae/en/regular-toothpaste/sensodyne-tp-regular-75ml/p/9502930974921,barcode_match,,,
+131200807,معجون أسنان الأصلي بعلبة حمراء,سنسوداين,9502930974921,75 مل,lulu,,,,,,not_found,,,
+131200901,شامبو صانسيلك لشعر -علبه صفراء -شعر ناعم وانسيابي,صانسيلك,6281006424425,200 مل,carrefour,11.99,,11.99,"SUNSILK Shampoo, Silky Smooth, 200ml",https://www.carrefouruae.com/mafuae/en/shampoos/sunsilk-shamp-soft-smooth-200ml/p/1453200,barcode_match,,0.0,yes
+131200901,شامبو صانسيلك لشعر -علبه صفراء -شعر ناعم وانسيابي,صانسيلك,6281006424425,200 مل,lulu,,,,,,not_found,,,
+131200902,شامبو بانتين لشعر اكثر كثافه - تعزيز لمعان الشعر,بانتين,5410076652471,400 مل,carrefour,,,,,,not_found,,,
+131200902,شامبو بانتين لشعر اكثر كثافه - تعزيز لمعان الشعر,بانتين,5410076652471,400 مل,lulu,,,,,,not_found,,,
+131200903,شامبو هيد اند شولدرز,هيد اند شولدرز,5011321360259,200 مل,carrefour,,,,,,not_found,,,
+131200903,شامبو هيد اند شولدرز,هيد اند شولدرز,5011321360259,200 مل,lulu,,,,,,not_found,,,
+131201001,صابون لوكس بغلاف أبيض,لوكس,6281006584235,120 غرام,carrefour,4.89,,4.89,"Lux Creamy Perfect Soap Bar, 120g",https://www.carrefouruae.com/mafuae/en/bar-soaps/lux-bar-crmy-perfect-120g/p/1388613,barcode_match,,0.0,yes
+131201001,صابون لوكس بغلاف أبيض,لوكس,6281006584235,120 غرام,lulu,5.35,,5.35,Lux Flaw-less Skin Lily Bar Soap 120 g,https://gcc.luluhypermarket.com/en-ae/lux-flaw-less-skin-lily-bar-soap-120-g/p/1927958,barcode_match,,0.0,yes
+131201002,صابون دوف الأبيض,دوف,6281006481336,160 غرام,carrefour,10.99,,10.99,Dove Moisturising Soap Bar Nourishing Formula For All Skin Types Original With ¼ Moisturising Cream 160g,https://www.carrefouruae.com/mafuae/en/bar-soaps/dove-bty-bar-white-160g/p/1139668,barcode_match,,0.0,yes
+131201002,صابون دوف الأبيض,دوف,6281006481336,160 غرام,lulu,11.25,,11.25,Dove White Beauty Cream Bar 160 g,https://gcc.luluhypermarket.com/en-ae/dove-white-beauty-cream-bar-160-g/p/930609,barcode_match,,0.0,yes
+131201003,صابون ديتول الأصلي بغلاف أخضر,ديتول,6001106105747,165 غرام,carrefour,7.19,,7.19,"Dettol Original Bar Soap, Pine Scent, 165g",https://www.carrefouruae.com/mafuae/en/bar-soaps/dettol-soap-original-165g/p/374840,barcode_match,,0.0,yes
+131201003,صابون ديتول الأصلي بغلاف أخضر,ديتول,6001106105747,165 غرام,lulu,,غير متوفرة بالاونلاين اليوم ,,,,not_found,,,
+131201004,صابون غسول الجسم من لايف بوي العناية المتكاملة,لايف بوي,6281006483842,300 مل,carrefour,26.49,,26.49,Lifebuoy Antibacterial Body Wash Total 10 300ml,https://www.carrefouruae.com/mafuae/en/shower-gels/lifebuoy-bw-sil-totla10-300ml/p/1435097,barcode_match,,0.0,yes
+131201004,صابون غسول الجسم من لايف بوي العناية المتكاملة,لايف بوي,6281006483842,300 مل,lulu,25.65,,25.65,Lifebuoy Total 10 Anti-Bacterial Body Wash 300 ml,https://gcc.luluhypermarket.com/en-ae/lifebuoy-total-10-anti-bacterial-body-wash-300-ml/p/1358001,barcode_match,,0.0,yes

@@ -1,0 +1,1841 @@
+[
+{
+"item_code": "011110101",
+"name_ar": "أرز بسمتي هندي",
+"brand_ar": "تلدا",
+"barcode": "8901144311002",
+"barcode_kind": "gtin",
+"origin": "الهند",
+"qty": "1 كغ",
+"ayesha_lulu": 16.75,
+"ayesha_carrefour": 17.79,
+"queries": [
+"8901144311002"
+],
+"ayesha_spinneys": 21.5
+},
+{
+"item_code": "011110103",
+"name_ar": "أرز بسمتي هندي",
+"brand_ar": "انديا جيت",
+"barcode": "690225101172",
+"barcode_kind": "gtin",
+"origin": "الهند",
+"qty": "1 كغ",
+"ayesha_lulu": 15.25,
+"ayesha_carrefour": 14.99,
+"queries": [
+"690225101172"
+],
+"ayesha_spinneys": 18.5
+},
+{
+"item_code": "011110104",
+"name_ar": "أرز بسمتي هندي",
+"brand_ar": "شهرزاد",
+"barcode": "6291100207497",
+"barcode_kind": "gtin",
+"origin": "الهند",
+"qty": "5 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6291100207497"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011110105",
+"name_ar": "أرز بسمتي هندي",
+"brand_ar": "أبوكاس",
+"barcode": "6281100410072",
+"barcode_kind": "gtin",
+"origin": "الهند",
+"qty": "5 كغ",
+"ayesha_lulu": 47.95,
+"ayesha_carrefour": null,
+"queries": [
+"6281100410072"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011110107",
+"name_ar": "أرز بسمتي هندي أبيض حبة طويلة",
+"brand_ar": "DAAWAT",
+"barcode": "8901537071025",
+"barcode_kind": "gtin",
+"origin": "الهند",
+"qty": "5 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 70.99,
+"queries": [
+"8901537071025"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011110201",
+"name_ar": "أرز باكستاني  حبه بيضاء طويله",
+"brand_ar": "سنارة",
+"barcode": "6294000201053",
+"barcode_kind": "gtin",
+"origin": "باكستان",
+"qty": "5 كغ",
+"ayesha_lulu": 38.9,
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"6294000201053"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011110202",
+"name_ar": "أرز باكستاني حبه بيضاء طويله",
+"brand_ar": "كرنل مهران",
+"barcode": "633152002143",
+"barcode_kind": "gtin",
+"origin": "باكستان",
+"qty": "5 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 62.79,
+"queries": [
+"633152002143"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011110203",
+"name_ar": "أرز باكستاني كيس برتقالي اللون -حبه طويله بيضاء",
+"brand_ar": "ممتاز",
+"barcode": "6291034177729",
+"barcode_kind": "gtin",
+"origin": "ياكستان",
+"qty": "2 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6291034177729"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011120101",
+"name_ar": "دقيق القمح (الطحين) رقم 1",
+"brand_ar": "البيكر",
+"barcode": "6291003058134",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "10 كغ",
+"ayesha_lulu": 34.95,
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"6291003058134"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011120104",
+"name_ar": "دقيق القمح (الطحين) رقم 2",
+"brand_ar": "جنان",
+"barcode": "6291001802135",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "10كغ",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": null,
+"queries": [
+"6291001802135"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011120106",
+"name_ar": "دقيق القمح (الطحين) متعدد الإستعمالات",
+"brand_ar": "دقيق المطاحن الكويتيه",
+"barcode": "6271003014026",
+"barcode_kind": "gtin",
+"origin": "الكويت",
+"qty": "5KG",
+"ayesha_lulu": 41.15,
+"ayesha_carrefour": 41.49,
+"queries": [
+"6271003014026"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130201",
+"name_ar": "خبز لبناني ابيض",
+"brand_ar": "المخبز الحديث",
+"barcode": "1110000120123",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "565 غ",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": null,
+"queries": [
+"1110000120123"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130203",
+"name_ar": "خبز لبناني اسمر كبير 5 أرغفة",
+"brand_ar": "المخبز الحديث",
+"barcode": "1110000120000",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "565 غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"1110000120000"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130204",
+"name_ar": "خبز لبناني ابيض حجم وسط",
+"brand_ar": "مخبز الأرز",
+"barcode": "6291100800049",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "190 غ",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": 2.19,
+"queries": [
+"6291100800049"
+],
+"ayesha_spinneys": 3.25
+},
+{
+"item_code": "011130301",
+"name_ar": "شرائح التوست ( السلايس)",
+"brand_ar": "المخبز الحديث",
+"barcode": "6291100800049",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "500 غ",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": 2.19,
+"queries": [
+"6291100800049"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130302",
+"name_ar": "شرائح التوست ( السلايس)",
+"brand_ar": "يومي Yaumi",
+"barcode": "6291106450002",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "600 غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6291106450002"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130304",
+"name_ar": "شرائح التوست ( السلايس) ابيض كبير  بالحليب",
+"brand_ar": "لوزين",
+"barcode": "6281007036849",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "600 غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 7.29,
+"queries": [
+"6281007036849"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130401",
+"name_ar": "خبز صمون بالسمسم",
+"brand_ar": "المخبز الحديث",
+"barcode": "1110000140442",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "4 حبة",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": 2.89,
+"queries": [
+"1110000140442"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130402",
+"name_ar": "خبز صمون",
+"brand_ar": "لوزين",
+"barcode": "6281007042857",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "4 حبة",
+"ayesha_lulu": 3.05,
+"ayesha_carrefour": 2.99,
+"queries": [
+"6281007042857"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011130404",
+"name_ar": "خبز صمون",
+"brand_ar": "مخبز الأرز",
+"barcode": "6291100800094",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "6 حبات",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": 1.69,
+"queries": [
+"6291100800094"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220101",
+"name_ar": "لحم غنم باكستاني - طازج محلي مع عظم",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "باكستان",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"fresh mutton pakistan"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220102",
+"name_ar": "لحم غنم هندي طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الهند",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"fresh mutton india"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220104",
+"name_ar": "خاصره مع العظم -هندي",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الهند",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"mutton loin bone in"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220302",
+"name_ar": "بقر محلي - استيك",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"local beef steak"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220303",
+"name_ar": "شرائح لحم بقر باكستاني بدون عظم",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "باكستان",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"pakistani beef boneless"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220304",
+"name_ar": "لحم بقر باكستاني بالعظم",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "باكستان",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"pakistani beef bone in"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220502",
+"name_ar": "دجاج طازج",
+"brand_ar": "الروضة",
+"barcode": "6291038010008",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 24.99,
+"queries": [
+"6291038010008"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220509",
+"name_ar": "دجاج طازج",
+"brand_ar": "مزارع العين",
+"barcode": "6291056400577",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "900 غ",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"6291056400577"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220511",
+"name_ar": "فيليه صدور دجاج",
+"brand_ar": "اليوم",
+"barcode": "6281007045544",
+"barcode_kind": "gtin",
+"origin": "الامارات",
+"qty": "450 غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6281007045544"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220601",
+"name_ar": "دجاج مجمد",
+"brand_ar": "الاسلامي",
+"barcode": "6291002102036",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6291002102036"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220602",
+"name_ar": "دجاج مجمد",
+"brand_ar": "ساديا",
+"barcode": "7893000557949",
+"barcode_kind": "gtin",
+"origin": "برازيل",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"7893000557949"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011220611",
+"name_ar": "دجاج مجمد  بدون أحشاء",
+"brand_ar": "سيارا",
+"barcode": "7893000557949",
+"barcode_kind": "gtin",
+"origin": "برازيل",
+"qty": "1100 غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"7893000557949"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310101",
+"name_ar": "كنعد طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"kingfish"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310102",
+"name_ar": "كنعد طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "عمان",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"kingfish"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310201",
+"name_ar": "هامور طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"hammour"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310301",
+"name_ar": "شعري طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"sheri fish"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310302",
+"name_ar": "شعري طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "عمان",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"sheri fish"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310701",
+"name_ar": "سبريم طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "امارات",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"sea bream"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310702",
+"name_ar": "سبريم طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "تركيا",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"sea bream"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310801",
+"name_ar": "سلمون طازج",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "نرويج",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"fresh salmon"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011310901",
+"name_ar": "بلطي",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفر في الموقع",
+"ayesha_carrefour": "غير متوفر في الموقع",
+"queries": [
+"tilapia"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011340101",
+"name_ar": "روبيان طازج - كبير",
+"brand_ar": "",
+"barcode": "10",
+"barcode_kind": "store_code",
+"origin": "عمان",
+"qty": "1 كغ",
+"ayesha_lulu": "متوفر أنواع كثيرة غير معروفه كمصدر في الموقع ",
+"ayesha_carrefour": 129,
+"queries": [
+"fresh shrimp"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011340102",
+"name_ar": "روبيان طازج - متوسط",
+"brand_ar": "",
+"barcode": "2010",
+"barcode_kind": "store_code",
+"origin": "عمان",
+"qty": "1 كغ",
+"ayesha_lulu": "متوفر أنواع كثيرة غير معروفه كمصدر في الموقع ",
+"ayesha_carrefour": 69.99,
+"queries": [
+"fresh shrimp"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011340103",
+"name_ar": "روبيان طازج - صغير",
+"brand_ar": "",
+"barcode": "4060",
+"barcode_kind": "store_code",
+"origin": "عمان",
+"qty": "1 كغ",
+"ayesha_lulu": "متوفر أنواع كثيرة غير معروفه كمصدر في الموقع ",
+"ayesha_carrefour": 32.99,
+"queries": [
+"fresh shrimp"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011410101",
+"name_ar": "حليب  بقري طازج كامل الدسم",
+"brand_ar": "العين",
+"barcode": "6291056004027",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "ا لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": 6.89,
+"queries": [
+"6291056004027"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011410102",
+"name_ar": "حليب  بقري طازج كامل الدسم",
+"brand_ar": "المراعي",
+"barcode": "6281007040235",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "ا لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": 6.99,
+"queries": [
+"6281007040235"
+],
+"ayesha_spinneys": 8.5
+},
+{
+"item_code": "011410103",
+"name_ar": "حليب  بقري طازج كامل الدسم",
+"brand_ar": "الروابي",
+"barcode": "6291030200032",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "ا لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": 6.99,
+"queries": [
+"6291030200032"
+],
+"ayesha_spinneys": 8.25
+},
+{
+"item_code": "011430201",
+"name_ar": "حليب مجفف",
+"brand_ar": "نيدو",
+"barcode": "7616100011568",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "2500 غ",
+"ayesha_lulu": 112.5,
+"ayesha_carrefour": 125,
+"queries": [
+"7616100011568"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011430204",
+"name_ar": "حليب مجفف كامل الدسم",
+"brand_ar": "أبو قوس",
+"barcode": "8716200123419",
+"barcode_kind": "gtin",
+"origin": "عمان",
+"qty": "400 غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"8716200123419"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011430205",
+"name_ar": "حليب مدعم مجفف كامل الدسم",
+"brand_ar": "أنكور",
+"barcode": "9415007015741",
+"barcode_kind": "gtin",
+"origin": "هولندا",
+"qty": "900 غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 44.49,
+"queries": [
+"9415007015741"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011460101",
+"name_ar": "روب كامل الدسم",
+"brand_ar": "العين",
+"barcode": "6291056060009",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "400غ",
+"ayesha_lulu": 3.6,
+"ayesha_carrefour": 3.19,
+"queries": [
+"6291056060009"
+],
+"ayesha_spinneys": 4.75
+},
+{
+"item_code": "011460102",
+"name_ar": "روب كامل الدسم",
+"brand_ar": "الروابي",
+"barcode": "6291030400142",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "400غ",
+"ayesha_lulu": 3.6,
+"ayesha_carrefour": 3.19,
+"queries": [
+"6291030400142"
+],
+"ayesha_spinneys": 4.75
+},
+{
+"item_code": "011460103",
+"name_ar": "روب كامل الدسم",
+"brand_ar": "المراعي",
+"barcode": "6281007063067",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "1 كغ",
+"ayesha_lulu": 7.9,
+"ayesha_carrefour": 7.79,
+"queries": [
+"6281007063067"
+],
+"ayesha_spinneys": 9.25
+},
+{
+"item_code": "011460201",
+"name_ar": "شراب اللبن",
+"brand_ar": "العين",
+"barcode": "6291056052004",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "ا لتر",
+"ayesha_lulu": 7.6,
+"ayesha_carrefour": 7.49,
+"queries": [
+"6291056052004"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011460202",
+"name_ar": "شراب اللبن كامل الدسم",
+"brand_ar": "الروابي",
+"barcode": "6291030300039",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "ا لتر",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"6291030300039"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011460203",
+"name_ar": "شراب اللبن كامل الدسم",
+"brand_ar": "المراعي",
+"barcode": "6281007110808",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "ا لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": 7.39,
+"queries": [
+"6281007110808"
+],
+"ayesha_spinneys": 8.75
+},
+{
+"item_code": "011480101",
+"name_ar": "بيض متوسط الحجم",
+"brand_ar": "صحه",
+"barcode": "6297000044033",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "30بيضة",
+"ayesha_lulu": null,
+"ayesha_carrefour": 22.49,
+"queries": [
+"6297000044033"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011480102",
+"name_ar": "بيض كبير الحجم",
+"brand_ar": "الخليج",
+"barcode": "6291003163135",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "30بيضة",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"6291003163135"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011480103",
+"name_ar": "البيض الذهبي -اوميغا 3 - حجم وسط",
+"brand_ar": "الذهبي",
+"barcode": "6291100151530",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "30بيضة",
+"ayesha_lulu": null,
+"ayesha_carrefour": 38.29,
+"queries": [
+"6291100151530"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011480105",
+"name_ar": "بيض كبير الحجم",
+"brand_ar": "الجزيرة",
+"barcode": "6291100151028",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "عدد 30",
+"ayesha_lulu": null,
+"ayesha_carrefour": 23.49,
+"queries": [
+"6291100151028"
+],
+"ayesha_spinneys": 27.5
+},
+{
+"item_code": "011510203",
+"name_ar": "زيــــت الـــذرة",
+"brand_ar": "كورولي",
+"barcode": "6291059028051",
+"barcode_kind": "gtin",
+"origin": "هولندا",
+"qty": "1.8 لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6291059028051"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011510204",
+"name_ar": "زيــــت الـــذرة",
+"brand_ar": "عافية",
+"barcode": "6281011701863",
+"barcode_kind": "gtin",
+"origin": "سعودية",
+"qty": "1.5 لتر",
+"ayesha_lulu": 25.75,
+"ayesha_carrefour": 25.29,
+"queries": [
+"6281011701863"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011510404",
+"name_ar": "زيت دوار الشمس",
+"brand_ar": "عافية",
+"barcode": "6281011701870",
+"barcode_kind": "gtin",
+"origin": "سعودية",
+"qty": "1.5 لتر",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": 23.79,
+"queries": [
+"6281011701870"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011510405",
+"name_ar": "زيت دوار الشمس",
+"brand_ar": "نور",
+"barcode": "6291003304293",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "1.5 لتر",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": 23.49,
+"queries": [
+"6291003304293"
+],
+"ayesha_spinneys": 31.25
+},
+{
+"item_code": "011510406",
+"name_ar": "زيت دوار الشمس",
+"brand_ar": "الكوزي",
+"barcode": "6291101138820",
+"barcode_kind": "gtin",
+"origin": "الإمارات",
+"qty": "1.5 لتر",
+"ayesha_lulu": 21.5,
+"ayesha_carrefour": null,
+"queries": [
+"6291101138820"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011610201",
+"name_ar": "موز",
+"brand_ar": "شيكيتا",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإكوادور",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفرة في الموقع ",
+"ayesha_carrefour": "متوفر في الموقع ولكن منتهية اليوم ",
+"queries": [
+"banana chiquita"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011610202",
+"name_ar": "موز",
+"brand_ar": "استيرلا",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإكوادور",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفرة في الموقع ",
+"ayesha_carrefour": "غير متوفرة في الموقع ",
+"queries": [
+"banana"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011610203",
+"name_ar": "موز",
+"brand_ar": "دولي",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الفلبين",
+"qty": "1 كغ",
+"ayesha_lulu": "غير متوفرة في الموقع ",
+"ayesha_carrefour": 5.89,
+"queries": [
+"banana dole"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011620101",
+"name_ar": "برتقال  ابو صرة",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "مصر",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع",
+"ayesha_carrefour": 5.69,
+"queries": [
+"orange navel"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011620102",
+"name_ar": "برتقال  ابو صرة",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "افريقيا",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع",
+"ayesha_carrefour": "لا تتوفر في الموقع",
+"queries": [
+"orange navel"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011620104",
+"name_ar": "برتقال   بلانسيا",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "مصر",
+"qty": "1 كغ",
+"ayesha_lulu": 3.75,
+"ayesha_carrefour": 4.19,
+"queries": [
+"orange valencia"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011620105",
+"name_ar": "برتقال   بلانسيا",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "افريقيا",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع",
+"ayesha_carrefour": "لا تتوفر في الموقع",
+"queries": [
+"orange valencia"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011630101",
+"name_ar": "تفاح احمر",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "فرنسا",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع",
+"ayesha_carrefour": 9.99,
+"queries": [
+"red apple"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011630102",
+"name_ar": "تفاح احمر",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "امريكا",
+"qty": "1 كغ",
+"ayesha_lulu": 10.95,
+"ayesha_carrefour": 9.89,
+"queries": [
+"red apple"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011630104",
+"name_ar": "تفاح اصفر",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "فرنسا",
+"qty": "1 كغ",
+"ayesha_lulu": 8.95,
+"ayesha_carrefour": 9.89,
+"queries": [
+"golden apple"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011630106",
+"name_ar": "تفاح اخضر",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "امريكا",
+"qty": "1 كغ",
+"ayesha_lulu": 10.95,
+"ayesha_carrefour": 26.99,
+"queries": [
+"green apple"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011670101",
+"name_ar": "تمر - خلاص",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "السعودية",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"khalas dates"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011670102",
+"name_ar": "تمر - فرض",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"fard dates"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011710101",
+"name_ar": "سبانخ",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "حزمة",
+"ayesha_lulu": "لا تتوفر في الموقع",
+"ayesha_carrefour": "لا تتوفر في الموقع",
+"queries": [
+"spinach"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011710502",
+"name_ar": "خــــس",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "ايران",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع",
+"ayesha_carrefour": "لا تتوفر في الموقع",
+"queries": [
+"lettuce"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011710503",
+"name_ar": "خــــس",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الاردن",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع",
+"ayesha_carrefour": "لا تتوفر في الموقع",
+"queries": [
+"lettuce"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011720103",
+"name_ar": "طماطم",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": "Tomato Bunch 500 g / 4.48",
+"ayesha_carrefour": 9.99,
+"queries": [
+"tomato local"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011720104",
+"name_ar": "طماطم",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الاردن",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر اونلاين ",
+"ayesha_carrefour": "لا تتوفر اونلاين ",
+"queries": [
+"tomato jordan"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011720105",
+"name_ar": "طماطم",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "عمان",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر اونلاين ",
+"ayesha_carrefour": "لا تتوفر اونلاين ",
+"queries": [
+"tomato oman"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011720201",
+"name_ar": "خيار قصير",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات",
+"qty": "1 كغ",
+"ayesha_lulu": "Cucumber 500 g / 1.98",
+"ayesha_carrefour": 3.39,
+"queries": [
+"cucumber"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011720202",
+"name_ar": "خيار قصير",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "عمان",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر اونلاين",
+"ayesha_carrefour": "لا تتوفر اونلاين",
+"queries": [
+"cucumber"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011740101",
+"name_ar": "بصل أحمر",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الهند",
+"qty": "1 كغ",
+"ayesha_lulu": "Small Onion India 250 g  /   2.49",
+"ayesha_carrefour": " 2.89",
+"queries": [
+"red onion"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011740103",
+"name_ar": "بصل أصفر",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "اسبانيا",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر اونلاين",
+"ayesha_carrefour": "لا تتوفر اونلاين",
+"queries": [
+"yellow onion"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011740104",
+"name_ar": "بصل أبيض",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "إيران",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر اونلاين",
+"ayesha_carrefour": "لا تتوفر اونلاين",
+"queries": [
+"white onion"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011750101",
+"name_ar": "بطاطس",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "مصر",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"potato"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011750102",
+"name_ar": "بطاطس",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "لبنان",
+"qty": "1 كغ",
+"ayesha_lulu": "لا تتوفر في الموقع ",
+"ayesha_carrefour": "لا تتوفر في الموقع ",
+"queries": [
+"potato"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011760105",
+"name_ar": "حمص مفلوق (Chana dal)",
+"brand_ar": "شان",
+"barcode": "788821005755",
+"barcode_kind": "gtin",
+"origin": "باكستان",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 10.79,
+"queries": [
+"788821005755"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011760106",
+"name_ar": "حمص مفلوق (Chana dal)",
+"brand_ar": "بايارا",
+"barcode": "3434410048722",
+"barcode_kind": "gtin",
+"origin": "الامارات",
+"qty": "1 كغ",
+"ayesha_lulu": 14.3,
+"ayesha_carrefour": 12.49,
+"queries": [
+"3434410048722"
+],
+"ayesha_spinneys": 13
+},
+{
+"item_code": "011760107",
+"name_ar": "عدس تور (Toor dal)",
+"brand_ar": "بايارا",
+"barcode": "3434410048791",
+"barcode_kind": "gtin",
+"origin": "الإمارات ",
+"qty": "1 كغ",
+"ayesha_lulu": 17.45,
+"ayesha_carrefour": 17.29,
+"queries": [
+"3434410048791"
+],
+"ayesha_spinneys": 15.25
+},
+{
+"item_code": "011810102",
+"name_ar": "سكر ابيض ناعم",
+"brand_ar": "اس. أي. اس",
+"barcode": "8888167023023",
+"barcode_kind": "gtin",
+"origin": "استراليا ",
+"qty": "2 كغ",
+"ayesha_lulu": 10.05,
+"ayesha_carrefour": 9.89,
+"queries": [
+"8888167023023"
+],
+"ayesha_spinneys": 11.5
+},
+{
+"item_code": "011810104",
+"name_ar": "سكر مكعبات -ابيض",
+"brand_ar": "ماجستك",
+"barcode": "6085010580203",
+"barcode_kind": "gtin",
+"origin": "الامارات",
+"qty": "400غ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 13.99,
+"queries": [
+"6085010580203"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011810105",
+"name_ar": "سكر ابيض ناعم",
+"brand_ar": "الأسرة",
+"barcode": "6281011411076",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "5 كغ",
+"ayesha_lulu": 24.65,
+"ayesha_carrefour": "14.99 عرض ",
+"queries": [
+"6281011411076"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011930101",
+"name_ar": "ملح طعام  -علبه ورق",
+"brand_ar": "نيزو",
+"barcode": "87158069",
+"barcode_kind": "gtin",
+"origin": "هولندا",
+"qty": "1 كغ",
+"ayesha_lulu": 4.9,
+"ayesha_carrefour": 4.39,
+"queries": [
+"87158069"
+],
+"ayesha_spinneys": 7.5
+},
+{
+"item_code": "011930103",
+"name_ar": "ملح طعام ناعم",
+"brand_ar": "بايارا",
+"barcode": "6291106440416",
+"barcode_kind": "gtin",
+"origin": "الامارات",
+"qty": "1 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": 4.19,
+"queries": [
+"6291106440416"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "011930104",
+"name_ar": "ملح نقي معالج باليود",
+"brand_ar": "نيزو",
+"barcode": "0000087158304",
+"barcode_kind": "gtin",
+"origin": "هولندا",
+"qty": "600 غ",
+"ayesha_lulu": 7.15,
+"ayesha_carrefour": null,
+"queries": [
+"0000087158304"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "041100101",
+"name_ar": "الايجار الشهري المدفوع فعلا",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الامارات",
+"qty": "1",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056110101",
+"name_ar": "منظف  ومطهر  الاضيات باللافندر",
+"brand_ar": "داك",
+"barcode": "6281031263778",
+"barcode_kind": "gtin",
+"origin": "لبنان",
+"qty": "3 لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": "غير متوفرة بالاونلاين اليوم ",
+"queries": [
+"6281031263778"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056110105",
+"name_ar": "صابون غسيل الملابس  عادى - Orginal Scent",
+"brand_ar": "تايد",
+"barcode": "5413149811300",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "3 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"5413149811300"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056110107",
+"name_ar": "صابون غسيل الملابس  للغسالات العادية",
+"brand_ar": "أريل",
+"barcode": "5413149809376",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "3 كغ",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"5413149809376"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056110109",
+"name_ar": "سائل غسيل الصحون الاصلي من فيري",
+"brand_ar": "فيري",
+"barcode": "8001090242105",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "400مل",
+"ayesha_lulu": 9.8,
+"ayesha_carrefour": 9.39,
+"queries": [
+"8001090242105"
+],
+"ayesha_spinneys": 11.75
+},
+{
+"item_code": "056110110",
+"name_ar": "مسحوق غسيل الملابس العادي",
+"brand_ar": "أومو",
+"barcode": "6281006121140",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "1.5 كج",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6281006121140"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056110201",
+"name_ar": "داوني 3 لتر  Downy Dream Garden Regular Fabric Softener 3Litre",
+"brand_ar": "داوني",
+"barcode": "5413149637450",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "3 لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"5413149637450"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056110202",
+"name_ar": "كمفورت منعم الأقمشة سبرينغ ديو",
+"brand_ar": "كومفورت",
+"barcode": "6281006130449",
+"barcode_kind": "gtin",
+"origin": "المملكة المتحدة",
+"qty": "4 لتر",
+"ayesha_lulu": 39.65,
+"ayesha_carrefour": 37.29,
+"queries": [
+"6281006130449"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056190101",
+"name_ar": "مطهرات",
+"brand_ar": "ديتول",
+"barcode": "6295120005316",
+"barcode_kind": "gtin",
+"origin": "البحرين",
+"qty": "3 لتر",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": null,
+"queries": [
+"6295120005316"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "056190102",
+"name_ar": "مبيد حشري - حشرات زاحفة",
+"brand_ar": "بف باف",
+"barcode": "9300701023287",
+"barcode_kind": "gtin",
+"origin": "السعودية",
+"qty": "600 مل",
+"ayesha_lulu": null,
+"ayesha_carrefour": 29.49,
+"queries": [
+"9300701023287"
+],
+"ayesha_spinneys": "غير متوفرة بالاونلاين اليوم "
+},
+{
+"item_code": "056190105",
+"name_ar": "مطهر ومعقم للجراثيم",
+"brand_ar": "ديتول",
+"barcode": "5000158062283",
+"barcode_kind": "gtin",
+"origin": "الامارات",
+"qty": "1 لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": "32.10 عرض",
+"queries": [
+"5000158062283"
+],
+"ayesha_spinneys": "46.25 "
+},
+{
+"item_code": "072220101",
+"name_ar": "ممتاز - 98 اوكتــين",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات ",
+"qty": "لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [],
+"ayesha_spinneys": null
+},
+{
+"item_code": "072220102",
+"name_ar": "خصوصي - 95 اوكتـــين",
+"brand_ar": "",
+"barcode": "",
+"barcode_kind": "none",
+"origin": "الإمارات ",
+"qty": "لتر",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [],
+"ayesha_spinneys": null
+},
+{
+"item_code": "131200804",
+"name_ar": "معجون أسنان كلجيت بالنعناع",
+"brand_ar": "كلجيت",
+"barcode": "6281001101116",
+"barcode_kind": "gtin",
+"origin": "الجزائر",
+"qty": "100 مل",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"6281001101116"
+],
+"ayesha_spinneys": 13.5
+},
+{
+"item_code": "131200806",
+"name_ar": "معجون أسنان سيجنال تو الأزرق",
+"brand_ar": "سيجنال",
+"barcode": "6221155127730",
+"barcode_kind": "gtin",
+"origin": "مصر",
+"qty": "100 مل",
+"ayesha_lulu": 15.95,
+"ayesha_carrefour": 16.49,
+"queries": [
+"6221155127730"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "131200807",
+"name_ar": "معجون أسنان الأصلي بعلبة حمراء",
+"brand_ar": "سنسوداين",
+"barcode": "9502930974921",
+"barcode_kind": "gtin",
+"origin": "مصر",
+"qty": "75 مل",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"9502930974921"
+],
+"ayesha_spinneys": 32.25
+},
+{
+"item_code": "131200901",
+"name_ar": "شامبو صانسيلك لشعر -علبه صفراء -شعر ناعم وانسيابي",
+"brand_ar": "صانسيلك",
+"barcode": "6281006424425",
+"barcode_kind": "gtin",
+"origin": "سعودية",
+"qty": "200 مل",
+"ayesha_lulu": null,
+"ayesha_carrefour": 11.99,
+"queries": [
+"6281006424425"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "131200902",
+"name_ar": "شامبو بانتين لشعر اكثر كثافه - تعزيز لمعان الشعر",
+"brand_ar": "بانتين",
+"barcode": "5410076652471",
+"barcode_kind": "gtin",
+"origin": "بريطانيا",
+"qty": "400 مل",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"5410076652471"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "131200903",
+"name_ar": "شامبو هيد اند شولدرز",
+"brand_ar": "هيد اند شولدرز",
+"barcode": "5011321360259",
+"barcode_kind": "gtin",
+"origin": "سعودية",
+"qty": "200 مل",
+"ayesha_lulu": null,
+"ayesha_carrefour": null,
+"queries": [
+"5011321360259"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "131201001",
+"name_ar": "صابون لوكس بغلاف أبيض",
+"brand_ar": "لوكس",
+"barcode": "6281006584235",
+"barcode_kind": "gtin",
+"origin": "سعودية",
+"qty": "120 غرام",
+"ayesha_lulu": 5.35,
+"ayesha_carrefour": 4.89,
+"queries": [
+"6281006584235"
+],
+"ayesha_spinneys": null
+},
+{
+"item_code": "131201002",
+"name_ar": "صابون دوف الأبيض",
+"brand_ar": "دوف",
+"barcode": "6281006481336",
+"barcode_kind": "gtin",
+"origin": "بريطانيا",
+"qty": "160 غرام",
+"ayesha_lulu": 11.25,
+"ayesha_carrefour": 10.99,
+"queries": [
+"6281006481336"
+],
+"ayesha_spinneys": 14
+},
+{
+"item_code": "131201003",
+"name_ar": "صابون ديتول الأصلي بغلاف أخضر",
+"brand_ar": "ديتول",
+"barcode": "6001106105747",
+"barcode_kind": "gtin",
+"origin": "الهند",
+"qty": "165 غرام",
+"ayesha_lulu": "غير متوفرة بالاونلاين اليوم ",
+"ayesha_carrefour": 7.19,
+"queries": [
+"6001106105747"
+],
+"ayesha_spinneys": "9.50 "
+},
+{
+"item_code": "131201004",
+"name_ar": "صابون غسول الجسم من لايف بوي العناية المتكاملة",
+"brand_ar": "لايف بوي",
+"barcode": "6281006483842",
+"barcode_kind": "gtin",
+"origin": "الامارات",
+"qty": "300 مل",
+"ayesha_lulu": 25.65,
+"ayesha_carrefour": 26.49,
+"queries": [
+"6281006483842"
+],
+"ayesha_spinneys": 30.75
+}
+]

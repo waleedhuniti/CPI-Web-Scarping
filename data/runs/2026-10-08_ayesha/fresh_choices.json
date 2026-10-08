@@ -1,0 +1,165 @@
+{
+ "011220101|lulu": {
+  "title": "Pakistani Mutton Cuts Bone In 500 g",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/154716-ea",
+  "price": 54.5,
+  "listed_price": 27.25,
+  "priced_size": "500g",
+  "note": "origin in title = basket; listed 27.25 for 500g -> per kg 54.5"
+ },
+ "011220102|lulu": {
+  "title": "Indian Mutton Cuts Bone In 500 g",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/40957-ea",
+  "price": 49.9,
+  "listed_price": 24.95,
+  "priced_size": "500g",
+  "note": "origin in title = basket; listed 24.95 for 500g -> per kg 49.9"
+ },
+ "011220104|lulu": {
+  "title": "Indian Mutton Loin Chops 400 g",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/41558-ea",
+  "price": 58.12,
+  "listed_price": 23.25,
+  "priced_size": "400g",
+  "note": "loin, Indian; listed 23.25 for 400g -> per kg 58.12"
+ },
+ "011220303|lulu": {
+  "title": "Pakistani Beef Boneless 500 g",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/195911-ea",
+  "price": 42.2,
+  "listed_price": 21.1,
+  "priced_size": "500g",
+  "note": "origin in title = basket; listed 21.1 for 500g -> per kg 42.2"
+ },
+ "011220304|lulu": {
+  "title": "Pakistani Beef Bone In 500 g",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/195912-ea",
+  "price": 30.8,
+  "listed_price": 15.4,
+  "priced_size": "500g",
+  "note": "origin in title = basket; listed 15.4 for 500g -> per kg 30.8"
+ },
+ "011310301|lulu": {
+  "title": "Fresh Sheri Local Whole Cleaned 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/fresh-sheri-local-whole-cleaned-1-kg/p/35640-ea",
+  "price": 35.95,
+  "listed_price": 35.95,
+  "priced_size": "1000g",
+  "note": "local = UAE; listed 35.95 for 1000g -> per kg 35.95"
+ },
+ "011310801|lulu": {
+  "title": "Fresh Norwegian Salmon Whole Cleaned 2.5 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/fresh-norwegian-salmon-whole-cleaned-2-5-kg/p/998249-ea",
+  "price": 48.9,
+  "listed_price": 122.25,
+  "priced_size": "2500g",
+  "note": "whole fish, per kg; listed 122.25 for 2500g -> per kg 48.9"
+ },
+ "011310801|carrefour": {
+  "title": "Norwegian Salmon Fillet",
+  "url": "https://www.carrefouruae.com/mafuae/en/fish/norwegian-salmon-fillet/p/72891",
+  "price": 100.0,
+  "listed_price": 50.0,
+  "priced_size": "500g",
+  "note": "fillet (basket does not say whole or fillet); listed 50.0 for 500g -> per kg 100.0"
+ },
+ "011310901|lulu": {
+  "title": "Fresh Tilapia Fish Whole Cleaned 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/72192-ea",
+  "price": 15.35,
+  "listed_price": 15.35,
+  "priced_size": "1000g",
+  "note": "origin not shown; listed 15.35 for 1000g -> per kg 15.35"
+ },
+ "011310901|carrefour": {
+  "title": "Tilapia Fresh",
+  "url": "https://www.carrefouruae.com/mafuae/en/fish/tilapia-fresh/p/939008",
+  "price": 14.88,
+  "listed_price": 8.93,
+  "priced_size": "600g",
+  "note": "origin not shown; listed 8.93 for 600g -> per kg 14.88"
+ },
+ "011340103|carrefour": {
+  "title": "Fresh Shrimps 40/60",
+  "url": "https://www.carrefouruae.com/mafuae/en/fresh-shrimp/fresh-shrimps-40-60/p/1730628",
+  "price": 33.0,
+  "listed_price": 16.5,
+  "priced_size": "500g",
+  "note": "size grade 40/60 = basket; origin not shown; listed 16.5 for 500g -> per kg 33.0"
+ },
+ "011340102|carrefour": {
+  "note": "Carrefour sells 20/30 and 30/40 only, not the basket's 10/20 grade -> no match"
+ },
+ "011610201|lulu": {
+  "title": "Banana Chiquita Ecuador 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/380260-ea",
+  "price": 9.95,
+  "listed_price": 9.95,
+  "priced_size": "1000g",
+  "note": "brand + origin = basket; listed 9.95 for 1000g -> per kg 9.95"
+ },
+ "011610201|carrefour": {
+  "title": "Chiquita Bananas 1Kg",
+  "url": "https://www.carrefouruae.com/mafuae/en/banana/banana-chiquita-1-kg-pp/p/1848631",
+  "price": 6.99,
+  "listed_price": 6.99,
+  "priced_size": "1000g",
+  "note": "brand = basket; listed 6.99 for 1000g -> per kg 6.99"
+ },
+ "011620102|lulu": {
+  "title": "Orange Navel South Africa 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/18995-ea",
+  "price": 8.95,
+  "listed_price": 8.95,
+  "priced_size": "1000g",
+  "note": "basket Africa; listed 8.95 for 1000g -> per kg 8.95"
+ },
+ "011620102|carrefour": {
+  "title": "Orange Navel",
+  "url": "https://www.carrefouruae.com/mafuae/en/orange/orange-navel/p/71069",
+  "price": 8.89,
+  "listed_price": 8.89,
+  "priced_size": "1000g",
+  "note": "product page shows South Africa (checked 2026-10-05); listed 8.89 for 1000g -> per kg 8.89"
+ },
+ "011620105|lulu": {
+  "title": "Orange Valencia South Africa 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/1291292-ea",
+  "price": 9.65,
+  "listed_price": 9.65,
+  "priced_size": "1000g",
+  "note": "basket Africa; listed 9.65 for 1000g -> per kg 9.65"
+ },
+ "011630102|lulu": {
+  "title": "Red Apple USA 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea",
+  "price": 18.95,
+  "listed_price": 18.95,
+  "priced_size": "1000g",
+  "note": "origin in title = basket; listed 18.95 for 1000g -> per kg 18.95"
+ },
+ "011670101|lulu": {
+  "title": "Al Momin Royal Khalas Al Ahsa 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/al-momin-royal-khalas-al-ahsa-1-kg/p/976299",
+  "price": 12.75,
+  "listed_price": 12.75,
+  "priced_size": "1000g",
+  "note": "Khalas, Al Ahsa = Saudi Arabia; listed 12.75 for 1000g -> per kg 12.75"
+ },
+ "011720104|lulu": {
+  "title": "Tomato Jordan 500 g",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/372444-ea",
+  "price": 6.46,
+  "listed_price": 3.23,
+  "priced_size": "500g",
+  "note": "origin in title = basket; per kg; listed 3.23 for 500g -> per kg 6.46"
+ },
+ "011750102|lulu": {
+  "title": "Potato Lebanon 1 kg",
+  "url": "https://gcc.luluhypermarket.com/en-ae/p/521928-ea",
+  "price": 4.25,
+  "listed_price": 4.25,
+  "priced_size": "1000g",
+  "note": "origin in title = basket; listed 4.25 for 1000g -> per kg 4.25"
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "carrefour": {
+    "label": "Carrefour UAE",
+    "enabled": true,
+    "actor": "blackfalcondata/carrefour-maf-scraper",
+    "mode": "barcodes",
+    "batch_size": 10,
+    "parallel_runs": 5,
+    "input": {
+      "market": "mafuae",
+      "language": "en",
+      "query": "{barcodes_json}",
+      "maxResults": 200
+    },
+    "parser": "carrefour_actor",
+    "notes": "Batches of 10 barcodes only: bigger runs silently return nothing for later barcodes (docs/retailers.md)."
+  },
+  "lulu": {
+    "label": "Lulu Hypermarket UAE",
+    "enabled": true,
+    "actor": "apify/website-content-crawler",
+    "mode": "search_urls",
+    "url_template": "https://gcc.luluhypermarket.com/en-ae/list/?search_text={barcode}",
+    "batch_size": 50,
+    "parallel_runs": 3,
+    "input": {
+      "startUrls": "{start_urls}",
+      "crawlerType": "playwright:firefox",
+      "maxCrawlDepth": 0,
+      "ignoreCanonicalUrl": true,
+      "htmlTransformer": "none",
+      "readableTextCharThreshold": 0,
+      "saveMarkdown": true
+    },
+    "parser": "lulu_search_markdown",
+    "notes": "ignoreCanonicalUrl must stay true, otherwise every search page counts as one page."
+  }
+}

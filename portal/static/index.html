@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بوابة أسعار CPI</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>بوابة أسعار CPI</h1>
+  <nav>
+    <button data-tab="scrape" class="on">تشغيل السكراب</button>
+    <button data-tab="basket">السلة</button>
+    <button data-tab="actors">الـ Actors</button>
+    <button data-tab="settings">الإعدادات و GitHub</button>
+  </nav>
+</header>
+
+<main>
+<!-- ============ SCRAPE ============ -->
+<section id="tab-scrape" class="tab on">
+  <div class="card">
+    <h2>تشغيل جديد</h2>
+    <div class="row">
+      <div><h3>المتاجر</h3><div id="retailer-picks" class="picks"></div></div>
+      <div><h3>المجموعات (فارغ = الكل)</h3><div id="group-picks" class="picks scroll"></div></div>
+    </div>
+    <label>أكواد أصناف محددة (اختياري، مفصولة بفاصلة أو سطر)
+      <textarea id="item-codes" rows="2" placeholder="011110101, 011110102"></textarea></label>
+    <p class="muted" id="scrape-count"></p>
+    <div class="actions">
+      <button id="btn-scrape" class="primary big">▶ ابدأ السكراب</button>
+      <button id="btn-stop" class="danger" disabled>إيقاف</button>
+    </div>
+  </div>
+
+  <div class="card" id="job-card" hidden>
+    <h2>التقدم <span id="job-status" class="pill"></span></h2>
+    <div id="job-progress"></div>
+    <pre id="job-log"></pre>
+    <div id="job-summary"></div>
+  </div>
+
+  <div class="card">
+    <h2>التشغيلات السابقة</h2>
+    <div id="runs"></div>
+    <div id="run-results"></div>
+  </div>
+</section>
+
+<!-- ============ BASKET ============ -->
+<section id="tab-basket" class="tab">
+  <div class="card">
+    <div class="toolbar">
+      <input id="basket-search" placeholder="ابحث بالاسم أو الماركة أو الباركود أو الكود">
+      <select id="basket-group"><option value="">كل المجموعات</option></select>
+      <button id="btn-add-item">+ صنف جديد</button>
+      <button id="btn-save-basket" class="primary">حفظ السلة</button>
+      <a class="btn" href="/api/basket/download">تنزيل CSV</a>
+      <label class="btn">رفع ملف Excel جديد<input type="file" id="basket-file" accept=".xlsx" hidden></label>
+    </div>
+    <p class="muted" id="basket-info"></p>
+    <div class="table-wrap">
+      <table id="basket-table">
+        <thead><tr><th>الكود</th><th>الصنف</th><th>الماركة</th><th>الباركود</th><th>الكمية</th><th>المنشأ</th><th>المطابقة</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="pager"><button id="pg-prev">السابق</button><span id="pg-info"></span><button id="pg-next">التالي</button></div>
+  </div>
+</section>
+
+<!-- ============ ACTORS ============ -->
+<section id="tab-actors" class="tab">
+  <div class="card">
+    <div class="toolbar">
+      <button id="btn-add-actor">+ متجر / Actor جديد</button>
+      <button id="btn-save-actors" class="primary">حفظ الـ Actors</button>
+    </div>
+    <p class="muted">في حقل الإدخال (input) تُستبدل هذه القيم عند التشغيل:
+      <code>"{barcodes}"</code> قائمة الباركودات، <code>"{barcodes_json}"</code> نفس القائمة كنص JSON،
+      <code>"{barcodes_text}"</code> باركود في كل سطر، <code>"{start_urls}"</code> روابط البحث بصيغة Apify،
+      <code>"{urls}"</code> الروابط كقائمة نصوص.</p>
+    <div id="actor-list"></div>
+  </div>
+  <div class="card">
+    <h2>Page function لـ Lulu (apify/web-scraper)</h2>
+    <p class="muted">يُستخدم مع المحلل <code>lulu_page_function</code>.</p>
+    <textarea id="page-function" class="code" rows="16" dir="ltr" spellcheck="false"></textarea>
+  </div>
+</section>
+
+<!-- ============ SETTINGS ============ -->
+<section id="tab-settings" class="tab">
+  <div class="card">
+    <h2>مفتاح Apify</h2>
+    <p id="token-state" class="muted"></p>
+    <div class="toolbar"><input id="token" type="password" dir="ltr" placeholder="apify_api_…"><button id="btn-token" class="primary">حفظ المفتاح</button></div>
+    <p class="muted">يُحفظ في ملف <code>.env</code> على جهازك فقط ولا يُرفع إلى GitHub.</p>
+  </div>
+  <div class="card">
+    <h2>الرفع إلى GitHub</h2>
+    <p class="muted">يحفظ (commit) السلة وإعدادات الـ Actors ونتائج التشغيلات ثم يرفعها (push) إلى الفرع الحالي.</p>
+    <div class="toolbar"><input id="commit-msg" placeholder="وصف التغيير"><button id="btn-push" class="primary">ارفع إلى GitHub</button></div>
+    <pre id="push-out" hidden></pre>
+  </div>
+</section>
+</main>
+
+<dialog id="item-dialog">
+  <form method="dialog" id="item-form">
+    <h2 id="item-dialog-title">تعديل صنف</h2>
+    <div class="grid2">
+      <label>الكود (9 أرقام)<input name="item_code" required dir="ltr"></label>
+      <label>كود المجموعة<input name="group_code" dir="ltr"></label>
+      <label>اسم المجموعة<input name="group_name"></label>
+      <label>كود الفئة<input name="class_code" dir="ltr"></label>
+      <label>اسم الفئة<input name="class_name"></label>
+      <label>اسم الصنف<input name="name_ar" required></label>
+      <label>الماركة<input name="brand_ar"></label>
+      <label>الباركود<input name="barcode_raw" dir="ltr"></label>
+      <label>الكمية (مثل 1 كغ، 4*1لتر)<input name="qty_raw"></label>
+      <label>المنشأ<input name="origin_raw"></label>
+    </div>
+    <p id="item-preview" class="muted"></p>
+    <div class="actions">
+      <button value="ok" class="primary">تم</button>
+      <button value="cancel" formnovalidate>إلغاء</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" hidden></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

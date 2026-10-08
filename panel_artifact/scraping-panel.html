@@ -1,0 +1,954 @@
+<title>لوحة مشاريع السكراب</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a project shelf on the home view; inside a project, one tab strip (run / basket / actors / results / settings) over a single working column. */
+:root {
+  --bg: #f3f5f4; --surface: #fbfcfb; --sunk: #e9eeec; --line: #d3dbd8;
+  --fg: #17211f; --muted: #5a6764; --accent: #0f6e66; --accent-fg: #f2fbf9;
+  --ok: #2b7a3f; --warn: #94650a; --bad: #b23a2c;
+  --sans: "IBM Plex Sans Arabic", Tahoma, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111816; --surface: #18211f; --sunk: #0d1312; --line: #2b3835;
+  --fg: #e4ece9; --muted: #95a6a1; --accent: #4cc2b5; --accent-fg: #06201d;
+  --ok: #6fca86; --warn: #e2b04f; --bad: #ef8a7c; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #111816; --surface: #18211f; --sunk: #0d1312; --line: #2b3835;
+  --fg: #e4ece9; --muted: #95a6a1; --accent: #4cc2b5; --accent-fg: #06201d;
+  --ok: #6fca86; --warn: #e2b04f; --bad: #ef8a7c; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--sans); padding-inline: 16px; padding-block: 0 48px; }
+.wrap { max-width: 1180px; margin-inline: auto; }
+header.top { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+header.top h1 { font-size: 20px; margin: 0; font-weight: 700; text-wrap: balance; }
+.crumb { color: var(--muted); }
+.crumb button { all: unset; cursor: pointer; color: var(--accent); }
+.crumb button:focus-visible { outline: 2px solid var(--accent); }
+.spacer { flex: 1; }
+.conn { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); display: inline-block; }
+.dot.ok { background: var(--ok); } .dot.bad { background: var(--bad); } .dot.warn { background: var(--warn); }
+h2 { font-size: 17px; margin: 0 0 12px; } h3 { font-size: 14px; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
+.muted { color: var(--muted); font-size: 13px; }
+.mono, code { font-family: var(--mono); font-size: 13px; direction: ltr; unicode-bidi: isolate; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.stack { display: grid; gap: 18px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.row > * { min-width: 0; }
+button, .btn { font: inherit; font-size: 14px; padding: 7px 14px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button:disabled { opacity: .5; cursor: default; }
+button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
+button.danger { color: var(--bad); border-color: var(--bad); background: transparent; }
+button.ghost { border-color: transparent; background: transparent; color: var(--accent); }
+button.big { font-size: 17px; padding: 11px 26px; }
+input, select, textarea { font: inherit; font-size: 14px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); color: var(--fg); width: 100%; min-width: 0; }
+input[type=checkbox] { width: auto; accent-color: var(--accent); }
+textarea.code { font-family: var(--mono); font-size: 12.5px; line-height: 1.5; direction: ltr; text-align: left; }
+label.f { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+label.f > span { font-weight: 500; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px 14px; }
+
+/* home */
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.proj { all: unset; box-sizing: border-box; cursor: pointer; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; align-content: start; min-height: 170px; }
+.proj:hover { border-color: var(--accent); }
+.proj:focus-visible { outline: 2px solid var(--accent); }
+.proj .name { font-size: 19px; font-weight: 700; }
+.proj .desc { color: var(--muted); font-size: 14px; }
+.proj .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.proj.new { border-style: dashed; place-content: center; text-align: center; color: var(--accent); font-weight: 600; }
+.chip { font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.chip.ok { color: var(--ok); border-color: var(--ok); } .chip.warn { color: var(--warn); border-color: var(--warn); } .chip.bad { color: var(--bad); border-color: var(--bad); }
+
+/* tabs */
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+nav.tabs button { border: none; background: none; border-radius: 0; padding: 9px 14px; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.tabs button[aria-selected=true] { color: var(--fg); border-bottom-color: var(--accent); font-weight: 600; }
+.picks { display: flex; flex-wrap: wrap; gap: 6px; }
+.picks label { display: flex; gap: 6px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; font-size: 14px; background: var(--bg); }
+.picks.scroll { max-height: 170px; overflow: auto; }
+.bar { height: 8px; background: var(--sunk); border-radius: 999px; overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--accent); transition: width .4s; }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
+pre.log { margin: 0; background: var(--sunk); border-radius: 8px; padding: 12px; max-height: 240px; overflow: auto; font: 12px/1.5 var(--mono); direction: ltr; text-align: left; white-space: pre-wrap; }
+.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: top; }
+th { background: var(--sunk); color: var(--muted); font-weight: 600; font-size: 13px; position: sticky; top: 0; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+td.num { font-variant-numeric: tabular-nums; direction: ltr; text-align: right; white-space: nowrap; }
+td a { color: var(--accent); }
+.pager { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.actor { border: 1px solid var(--line); border-radius: 9px; padding: 14px; display: grid; gap: 12px; background: var(--bg); }
+.empty { text-align: center; padding: 28px 12px; color: var(--muted); }
+.notice { border: 1px solid var(--warn); color: var(--warn); border-radius: 8px; padding: 10px 14px; font-size: 14px; }
+.notice.bad { border-color: var(--bad); color: var(--bad); }
+.confirm { border: 1px solid var(--bad); border-radius: 8px; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--fg); width: min(720px, 94vw); padding: 20px; }
+dialog::backdrop { background: rgb(0 0 0 / .45); }
+#toast { position: fixed; inset-inline: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); margin-inline: auto; width: fit-content; max-width: 92vw; background: var(--fg); color: var(--bg); padding: 9px 16px; border-radius: 8px; font-size: 14px; z-index: 10; }
+#toast.bad { background: var(--bad); color: #fff; }
+.stat { display: grid; gap: 2px; }
+.stat b { font-size: 22px; font-variant-numeric: tabular-nums; }
+.stats { display: flex; flex-wrap: wrap; gap: 28px; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1 id="title">مشاريع السكراب</h1>
+    <span class="crumb" id="crumb" hidden><button id="go-home">← كل المشاريع</button></span>
+    <span class="spacer"></span>
+    <span class="conn" id="conn"><span class="dot" id="conn-dot"></span><span id="conn-text">جارٍ الاتصال…</span></span>
+  </header>
+
+  <!-- HOME -->
+  <section id="view-home">
+    <div class="shelf" id="shelf">
+      <div class="panel empty" id="shelf-empty">تُحمَّل المشاريع… كل مشروع يظهر هنا كبطاقة، وتدخل إليه لتشغيل السكراب وتعديل السلة والـ Actors.</div>
+    </div>
+  </section>
+
+  <!-- PROJECT -->
+  <section id="view-project" hidden>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="run" aria-selected="true">تشغيل</button>
+      <button role="tab" data-tab="basket" aria-selected="false">السلة</button>
+      <button role="tab" data-tab="actors" aria-selected="false">الـ Actors</button>
+      <button role="tab" data-tab="results" aria-selected="false">النتائج</button>
+      <button role="tab" data-tab="settings" aria-selected="false">إعدادات المشروع</button>
+    </nav>
+
+    <div class="tab stack" id="tab-run">
+      <div class="panel">
+        <h2>تشغيل جديد</h2>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <div><h3>الـ Actors</h3><div class="picks" id="run-actors"></div></div>
+          <div id="run-groups-box"><h3>المجموعات (بدون اختيار = الكل)</h3><div class="picks scroll" id="run-groups"></div></div>
+        </div>
+        <label class="f" id="run-codes-box"><span>أكواد محددة (اختياري)</span><textarea id="run-codes" rows="2" placeholder="011110101, 011110102"></textarea></label>
+        <p class="muted" id="run-count"></p>
+        <div class="row">
+          <button class="primary big" id="btn-run">▶ ابدأ السكراب</button>
+          <button class="danger" id="btn-stop" disabled>إيقاف</button>
+          <span class="muted">أبقِ الصفحة مفتوحة حتى ينتهي التشغيل.</span>
+        </div>
+      </div>
+      <div class="panel" id="sched">
+        <div class="row"><h2 style="margin:0">التشغيل اليومي</h2><span class="chip" id="sched-state">—</span></div>
+        <div id="sched-body" class="muted">يُحمَّل موعد التشغيل…</div>
+      </div>
+      <div class="panel" id="job" hidden>
+        <div class="row"><h2 style="margin:0">التقدم</h2><span class="chip" id="job-state"></span></div>
+        <div id="job-bars" class="stack" style="gap:10px"></div>
+        <pre class="log" id="job-log"></pre>
+        <div id="job-summary"></div>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-basket" hidden>
+      <div class="panel">
+        <div class="row">
+          <input id="b-search" placeholder="ابحث في السلة" style="flex:2 1 220px">
+          <select id="b-group" style="flex:1 1 180px"></select>
+        </div>
+        <div class="row">
+          <button id="b-add">+ صنف</button>
+          <button class="primary" id="b-save">حفظ السلة</button>
+          <button id="b-export">تنزيل CSV</button>
+          <label class="btn" for="b-file" style="cursor:pointer">استيراد CSV</label>
+          <input type="file" id="b-file" accept=".csv,text/csv" hidden>
+          <span class="muted" id="b-info"></span>
+        </div>
+        <div id="b-import-confirm"></div>
+        <div class="tw"><table id="b-table"><thead></thead><tbody></tbody></table></div>
+        <div class="pager"><button id="b-prev">السابق</button><span class="muted" id="b-page"></span><button id="b-next">التالي</button></div>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-actors" hidden>
+      <div class="panel">
+        <div class="row"><button id="a-add">+ Actor</button><button class="primary" id="a-save">حفظ الـ Actors</button></div>
+        <p class="muted">في الإدخال تُستبدل هذه القيم بكل دفعة: <code>"{barcodes}"</code> قائمة، <code>"{barcodes_json}"</code> القائمة كنص JSON، <code>"{barcodes_text}"</code> سطر لكل كود، <code>"{start_urls}"</code> روابط بصيغة Apify، <code>"{urls}"</code> روابط كنصوص. النمط <code>single</code> يشغّل الإدخال كما هو مرة واحدة.</p>
+        <div id="a-list" class="stack"></div>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-results" hidden>
+      <div class="panel">
+        <h2>التشغيلات</h2>
+        <div id="r-list"></div>
+      </div>
+      <div class="panel" id="r-view" hidden>
+        <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل CSV</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
+        <div id="r-del-confirm"></div>
+        <div class="stats" id="r-stats"></div>
+        <div class="row"><input id="r-search" placeholder="فلترة" style="flex:2 1 220px"><select id="r-filter" style="flex:1 1 160px"><option value="">كل الحالات</option><option value="yes">المقبول فقط</option><option value="no">غير المقبول</option></select></div>
+        <div class="tw"><table id="r-table"><thead></thead><tbody></tbody></table></div>
+        <p class="muted" id="r-more"></p>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-settings" hidden>
+      <div class="panel">
+        <div class="grid">
+          <label class="f"><span>اسم المشروع</span><input id="s-name"></label>
+          <label class="f"><span>نوع المطابقة</span><select id="s-kind"><option value="barcode">باركود + حجم (سلة أسعار)</option><option value="list">قائمة عناصر (جدول صفحة)</option><option value="raw">بدون مطابقة (كل الصفوف)</option></select></label>
+        </div>
+        <label class="f"><span>الوصف</span><input id="s-desc"></label>
+        <label class="f"><span>أعمدة السلة (JSON)</span><textarea id="s-cols" class="code" rows="8"></textarea></label>
+        <p class="muted">كل عمود: <code>key</code> و <code>label</code>، و <code>type</code> اختياري (<code>bool</code> أو <code>code</code>). لمطابقة الباركود يلزم <code>barcode_raw</code> و <code>qty_raw</code>، وللقائمة يلزم عمود المفتاح المحدد في <code>list_key</code>.</p>
+        <label class="f"><span>مفتاح القائمة (list_key)</span><input id="s-listkey" class="mono" dir="ltr"></label>
+        <div class="row"><button class="primary" id="s-save">حفظ الإعدادات</button><span class="spacer"></span><button class="danger" id="s-delete">حذف المشروع</button></div>
+        <div id="s-del-confirm"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<dialog id="dlg">
+  <form method="dialog" id="dlg-form" class="stack">
+    <h2 id="dlg-title">صنف</h2>
+    <div class="grid" id="dlg-fields"></div>
+    <p class="muted" id="dlg-preview"></p>
+    <div class="row"><button value="ok" class="primary">تم</button><button value="cancel" formnovalidate>إلغاء</button></div>
+  </form>
+</dialog>
+<div id="toast" hidden></div>
+
+<script>
+"use strict";
+const APIFY = "Apfiy";
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+function toast(msg, bad = false) {
+  const t = $("#toast"); t.textContent = msg; t.className = bad ? "bad" : ""; t.hidden = false;
+  clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), bad ? 8000 : 3000);
+}
+
+let db = null, mcp = null, downloads = null;
+let projects = {};            // id -> project doc
+let current = null;           // project id
+let basket = [], basketDirty = false;
+let job = null;
+
+// ------------------------------------------------------------ quantity, barcode
+const UNITS = [
+  [/^(kg|kgs|kilo|kilos|kilogram|kilograms|كغ|كجم|كيلو|كيلوغرام|كيلوجرام|كلغ)$/, "g", 1000],
+  [/^(g|gm|gms|gr|grm|gram|grams|غ|غم|غرام|جم|جرام|ج)$/, "g", 1],
+  [/^(l|lt|ltr|ltrs|litre|litres|liter|liters|لتر|ل|ليتر)$/, "ml", 1000],
+  [/^(ml|mls|millilitre|milliliter|مل|ملل|مليلتر)$/, "ml", 1],
+  [/^(pc|pcs|piece|pieces|pack|eggs?|حبة|حبه|حبات|بيضة|بيضه|قطعة)$/, "pc", 1],
+];
+const AR_DIGITS = { "٠": 0, "١": 1, "٢": 2, "٣": 3, "٤": 4, "٥": 5, "٦": 6, "٧": 7, "٨": 8, "٩": 9 };
+function unitOf(u) { u = u.toLowerCase(); for (const [re, base, f] of UNITS) if (re.test(u)) return [base, f]; return null; }
+function parseQty(text) {
+  if (!text) return null;
+  let s = String(text).replace(/[٠-٩]/g, (d) => AR_DIGITS[d]).replace(/٫/g, ".").replace(/,(?=\d{3}\b)/g, "").toLowerCase();
+  const N = "(\\d+(?:\\.\\d+)?)", U = "([a-z\\u0600-\\u06ff]+)";
+  let m = s.match(new RegExp(N + "\\s*[x×*]\\s*" + N + "\\s*" + U));       // 4 x 1 litre
+  if (m && unitOf(m[3])) { const [b, f] = unitOf(m[3]); return { unit: b, total: +m[1] * +m[2] * f }; }
+  m = s.match(new RegExp(N + "\\s*" + U + "\\s*[x×*]\\s*" + N));           // 30g x 18
+  if (m && unitOf(m[2])) { const [b, f] = unitOf(m[2]); return { unit: b, total: +m[1] * +m[3] * f }; }
+  for (const mm of s.matchAll(new RegExp(N + "\\s*" + U, "g"))) {
+    const u = unitOf(mm[2]); if (u) return { unit: u[0], total: +mm[1] * u[1] };
+  }
+  return null;
+}
+function digits(x) { return String(x ?? "").replace(/\D/g, ""); }
+function searchForm(raw) { const d = digits(raw); return d.length === 11 ? "0" + d : d; }
+function gtinValid(raw) {
+  let d = digits(raw); if (d.length === 11) d = "0" + d;
+  if (![8, 12, 13, 14].includes(d.length)) return false;
+  const p = d.padStart(14, "0"); let sum = 0;
+  for (let i = 0; i < 13; i++) sum += +p[i] * (i % 2 === 0 ? 3 : 1);
+  return (10 - (sum % 10)) % 10 === +p[13];
+}
+function itemQty(it) { return it.qty_total && it.qty_unit ? { unit: it.qty_unit, total: +it.qty_total } : parseQty(it.qty_raw); }
+
+// ------------------------------------------------------------ parsers: dataset items -> rows
+function num(v) { if (v === null || v === undefined || v === "") return null; const n = parseFloat(String(v).replace(/[,%\s]/g, "")); return isNaN(n) ? null : n; }
+const PARSERS = {
+  carrefour_actor(items, batch) {
+    const rows = items.filter((it) => digits(it.searchQuery).length >= 8).map((it) => ({
+      code: digits(it.searchQuery), title: it.title || "", price: num(it.price), regular_price: num(it.regularPrice) ?? num(it.price),
+      in_stock: it.in_stock ?? null, url: it.url || "" }));
+    return { rows, searched: new Set(batch) };
+  },
+  lulu_search_markdown(items) {
+    const card = /\[([^\]\n]+)\]\((https:\/\/gcc\.luluhypermarket\.com\/en-ae\/(?:[^)\s]*?\/)?p\/[^)\s]*?)\)\s*\n\s*\n([\d,]+(?:\.\d+)?)(?:\s*\n\s*\n([\d,]+(?:\.\d+)?))?(?:\s*\n\s*\n(\d+)% OFF)?/g;
+    const rows = [], searched = new Set();
+    for (const it of items) {
+      let q = ""; try { q = new URL(it.url).searchParams.get("search_text") || ""; } catch (e) {}
+      const md = it.markdown || it.text || "";
+      if (!q || (!md.includes("All Products") && !md.includes("No results found"))) continue;
+      searched.add(q);
+      if (md.includes("No results found")) continue;
+      for (const c of md.matchAll(card)) {
+        const price = num(c[3]), other = num(c[4]);
+        rows.push({ code: q, title: c[1].trim(), price, regular_price: other && other > price ? other : price, in_stock: null, url: c[2].split("?")[0] });
+      }
+    }
+    return { rows, searched };
+  },
+  te_commodities(items) {
+    const html = items[0] && (items[0].html || items[0].body);
+    if (!html) throw new Error("the actor returned no html");
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const KEYS = { price: "price", chg: "change", "%chg": "pct", weekly: "weekly", monthly: "monthly", ytd: "ytd", yoy: "yoy", date: "price_date" };
+    const rows = [];
+    for (const t of doc.querySelectorAll("table")) {
+      const h = [...t.querySelectorAll("thead th")].map((x) => x.textContent.trim());
+      if (h.length < 2 || h[1] !== "Price") continue;
+      for (const tr of t.querySelectorAll("tbody tr")) {
+        const tds = tr.querySelectorAll("td"); const b = tds[0] && tds[0].querySelector("b");
+        if (!b) continue;
+        const r = { category: h[0], commodity: b.textContent.trim(), unit: tds[0].querySelector("div")?.textContent.trim() || "" };
+        h.slice(1).forEach((x, i) => {
+          const k = KEYS[x.toLowerCase()], td = tds[i + 1]; if (!k || !td) return;
+          const txt = td.textContent.replace(/\s+/g, " ").trim();
+          r[k] = k === "price_date" ? txt : num(td.getAttribute("data-value") ?? txt);
+        });
+        rows.push(r);
+      }
+    }
+    if (rows.length < 20) throw new Error(`only ${rows.length} commodity rows found on the page`);
+    return { rows, searched: null };
+  },
+  generic(items, batch, cfg) {
+    const f = cfg.fields || {};
+    const get = (o, p) => String(p || "").split(".").reduce((a, k) => (a && typeof a === "object" ? a[k] : undefined), o) ?? o[p];
+    const rows = items.map((it) => {
+      const r = {}; for (const [k, p] of Object.entries(f)) r[k] = get(it, p);
+      if (r.code !== undefined) r.code = searchForm(r.code);
+      if (r.price !== undefined) r.price = num(r.price);
+      if (r.regular_price !== undefined) r.regular_price = num(r.regular_price);
+      return Object.keys(f).length ? r : it;
+    });
+    return { rows, searched: batch ? new Set(batch) : null };
+  },
+};
+
+// ------------------------------------------------------------ matchers: rows -> results
+const STATUS = {
+  barcode_match: ["مطابق", "ok"], unit_label: ["مطابق (وحدة مكتوبة مختلفة)", "ok"], multiple_results: ["أكثر من منتج", "warn"],
+  size_unverified: ["الحجم غير مؤكد", "warn"], qty_mismatch: ["الحجم مختلف", "bad"], not_found: ["غير موجود", ""],
+  not_searched: ["لم يُبحث", "warn"], error: ["خطأ في التشغيل", "bad"], ok: ["موجود", "ok"], missing: ["غير موجود في الصفحة", "bad"], row: ["صف", ""],
+};
+function matchBarcode(actorKey, label, items, rows, searched, failed) {
+  const byCode = new Map();
+  for (const r of rows) { if (!byCode.has(r.code)) byCode.set(r.code, new Map()); byCode.get(r.code).set(r.url || r.title, r); }
+  const out = [];
+  for (const it of items) {
+    if (!gtinValid(it.barcode_raw)) continue;
+    const code = searchForm(it.barcode_raw);
+    const base = { actor: label, item_code: it.item_code || "", name: it.name_ar || it.name || "", brand: it.brand_ar || "", basket_qty: it.qty_raw || "", barcode: code, title: "", price: "", regular_price: "", url: "", accepted: "no" };
+    const hits = [...(byCode.get(code)?.values() || [])];
+    if (!hits.length) { out.push({ ...base, status: failed.has(code) ? "error" : searched.has(code) ? "not_found" : "not_searched" }); continue; }
+    const want = itemQty(it); let best = null;
+    for (const h of hits) {
+      const got = parseQty(h.title) || parseQty(decodeURIComponent(h.url || "").replace(/[-_/]/g, " "));
+      let status;
+      if (!want || !got) status = "size_unverified";
+      else if (Math.abs(want.total - got.total) <= want.total * 0.005) status = want.unit === got.unit ? (hits.length === 1 ? "barcode_match" : "multiple_results") : (want.unit !== "pc" && got.unit !== "pc" && hits.length === 1 ? "unit_label" : "size_unverified");
+      else status = "qty_mismatch";
+      const rank = { barcode_match: 5, unit_label: 4, multiple_results: 3, size_unverified: 2, qty_mismatch: 1 }[status];
+      if (!best || rank > best.rank) best = { h, status, rank };
+    }
+    out.push({ ...base, status: best.status, accepted: ["barcode_match", "unit_label"].includes(best.status) ? "yes" : "no",
+      title: best.h.title, price: best.h.price ?? "", regular_price: best.h.regular_price ?? "", url: best.h.url });
+  }
+  return out;
+}
+function matchList(label, items, rows, key) {
+  const want = items.filter((i) => i.enabled !== false && i.enabled !== "no");
+  const norm = (s) => String(s ?? "").trim().toLowerCase();
+  const byKey = new Map(rows.map((r) => [norm(r[key]), r]));
+  const out = want.map((i) => { const r = byKey.get(norm(i[key])); return r ? { actor: label, ...r, status: "ok", accepted: "yes" } : { actor: label, [key]: i[key], category: i.category || "", status: "missing", accepted: "no" }; });
+  return want.length ? out : rows.map((r) => ({ actor: label, ...r, status: "ok", accepted: "yes" }));
+}
+
+// ------------------------------------------------------------ Apify through the connector
+function mcpErr(e) {
+  const fix = { needs_reauth: "أعد ربط Apify من إعدادات claude.ai ← Connectors", server_not_connected: "أضف موصل Apify من إعدادات claude.ai ← Connectors",
+    selection_required: "اختر موصل Apify الذي تريده عندما يطلب claude.ai ذلك", not_in_manifest: "لم يُسمح لهذه الصفحة باستخدام Apify؛ أعد فتحها واسمح بالموصل",
+    blocked_by_policy: "سياسة المؤسسة تمنع هذه الأداة", approval_required: "الأداة تحتاج موافقة لكل استدعاء", server_unavailable: "Apify لا يستجيب الآن؛ حاول بعد قليل" }[e?.code];
+  return fix ? `${fix} (${e.code})` : (e?.message || String(e));
+}
+async function apify(tool, input, read = false) {
+  try { return (await mcp.callTool(APIFY, tool, input, { cache: false })).payload; }
+  catch (e) {
+    if (read && e?.retryable) { await sleep((e.retryAfterMs || 1500) + Math.random() * 1000); return (await mcp.callTool(APIFY, tool, input, { cache: false })).payload; }
+    throw e;
+  }
+}
+async function runActor(cfg, input, stopped) {
+  const args = { actor: cfg.actor, input, waitSecs: 0 };
+  if (cfg.call_options && Object.keys(cfg.call_options).length) args.callOptions = cfg.call_options;
+  const start = await apify("call-actor", args);
+  const runId = start.runId; let status = start.status; let dsId = start.storages?.datasets?.default?.id;
+  if (!runId) throw new Error("Apify did not return a run id");
+  while (!["SUCCEEDED", "FAILED", "ABORTED", "TIMED-OUT"].includes(status)) {
+    if (stopped()) throw new Error("stopped");
+    const r = await apify("get-actor-run", { runId, waitSecs: 30 }, true);
+    status = r.status; dsId = r.storages?.datasets?.default?.id || dsId;
+  }
+  if (status !== "SUCCEEDED") throw new Error(`run ${runId} ended ${status}`);
+  const items = []; const limit = 500;
+  for (let offset = 0; ; offset += limit) {
+    const q = { datasetId: dsId, clean: true, limit, offset }; if (cfg.dataset_fields) q.fields = cfg.dataset_fields;
+    const p = await apify("get-dataset-items", q, true);
+    const page = p.items || []; items.push(...page);
+    if (page.length < limit || (p.totalItemCount && items.length >= p.totalItemCount)) break;
+  }
+  return { runId, items };
+}
+function fill(v, subs) {
+  if (Array.isArray(v)) return v.map((x) => fill(x, subs));
+  if (v && typeof v === "object") return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, fill(x, subs)]));
+  if (typeof v === "string") { const m = v.match(/^\{(\w+)\}$/); if (m && m[1] in subs) return subs[m[1]]; }
+  return v;
+}
+function buildRuns(cfg, items) {
+  if (cfg.mode === "single") return [{ batch: null, input: cfg.input }];
+  const codes = [...new Set(items.filter((i) => gtinValid(i.barcode_raw)).map((i) => searchForm(i.barcode_raw)))];
+  const size = Math.max(1, +cfg.batch_size || 10), runs = [];
+  for (let k = 0; k < codes.length; k += size) {
+    const batch = codes.slice(k, k + size);
+    const urls = batch.map((c) => String(cfg.url_template || "").replace("{barcode}", c));
+    runs.push({ batch, input: fill(JSON.parse(JSON.stringify(cfg.input)), {
+      barcodes: batch, barcodes_json: JSON.stringify(batch), barcodes_text: batch.join("\n"),
+      start_urls: batch.map((c, i) => ({ url: urls[i], userData: { ean: c } })), urls }) });
+  }
+  return runs;
+}
+
+// ------------------------------------------------------------ db helpers
+const P = () => projects[current];
+async function loadProjects() {
+  const snap = await db.collection("projects").get();
+  projects = {}; snap.docs.forEach((d) => (projects[d.id] = { ...d.data() }));
+}
+async function loadBasket(pid) {
+  const snap = await db.collection(`projects/${pid}/basket`).get();
+  return snap.docs.sort((a, b) => a.id.localeCompare(b.id)).flatMap((d) => d.data().items || []);
+}
+async function saveChunks(coll, key, list, old) {
+  const chunks = []; let cur = [], size = 0;
+  for (const x of list) { const s = JSON.stringify(x).length; if (size + s > 110000 && cur.length) { chunks.push(cur); cur = []; size = 0; } cur.push(x); size += s; }
+  if (cur.length || !chunks.length) chunks.push(cur);
+  for (let i = 0; i < chunks.length; i++) await db.doc(`${coll}/c${String(i).padStart(3, "0")}`).set({ [key]: chunks[i], i });
+  const prev = old ?? (await db.collection(coll).get()).docs.map((d) => d.id);
+  for (const id of prev) if (+id.slice(1) >= chunks.length) await db.doc(`${coll}/${id}`).delete();
+  return chunks.length;
+}
+async function saveProject(patch) {
+  const p = { ...P(), ...patch, updatedAt: new Date().toISOString() };
+  await db.doc(`projects/${current}`).set(p); projects[current] = p;
+}
+function dbErr(e) { return e?.code === "quota_exceeded" ? "امتلأت قاعدة البيانات؛ احذف تشغيلات قديمة ثم حاول" : e?.code === "revoked" ? "لم تعد لديك صلاحية على هذه الصفحة" : (e?.message || String(e)); }
+
+// ------------------------------------------------------------ home
+function renderHome() {
+  $("#title").textContent = "مشاريع السكراب"; $("#crumb").hidden = true;
+  $("#view-home").hidden = false; $("#view-project").hidden = true;
+  const list = Object.entries(projects).sort((a, b) => (a[1].order ?? 99) - (b[1].order ?? 99));
+  $("#shelf").innerHTML = list.map(([id, p]) => {
+    const lr = p.lastRun; const st = lr ? (lr.status === "done" ? "ok" : lr.status === "error" ? "bad" : "warn") : "";
+    return `<button class="proj" data-open="${esc(id)}"><span class="name">${esc(p.name)}</span><span class="desc">${esc(p.description || "")}</span>
+      <span class="meta"><span class="chip">${p.itemCount ?? 0} عنصر</span><span class="chip">${Object.keys(p.actors || {}).length} Actor</span>
+      ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(lr.at?.slice(0, 10) || "")}${lr.accepted != null ? ` · ${lr.accepted} مقبول` : ""}</span>` : `<span class="chip">لم يُشغّل بعد</span>`}</span></button>`;
+  }).join("") + `<button class="proj new" id="new-proj">+ مشروع جديد</button>`;
+  $$("[data-open]").forEach((b) => b.addEventListener("click", () => openProject(b.dataset.open)));
+  $("#new-proj").addEventListener("click", newProject);
+}
+async function newProject() {
+  let id = "p" + Date.now().toString(36);
+  const p = { name: "مشروع جديد", description: "", kind: "list", list_key: "name", order: Object.keys(projects).length + 1, itemCount: 0,
+    columns: [{ key: "name", label: "الاسم" }, { key: "enabled", label: "مفعّل", type: "bool" }],
+    actors: { main: { label: "Actor", enabled: true, actor: "apify/web-fetch", mode: "single", input: { url: "https://example.com", formats: ["markdown"] }, parser: "generic", fields: {}, dataset_fields: "", batch_size: 10, parallel_runs: 1 } } };
+  try { await db.doc(`projects/${id}`).set(p); projects[id] = p; await openProject(id); switchTab("settings"); toast("أُنشئ المشروع؛ سمّه وعدّل أعمدته"); }
+  catch (e) { toast(dbErr(e), true); }
+}
+async function openProject(id) {
+  if (basketDirty && current && current !== id) { toast("احفظ تعديلات السلة أولاً أو أعد تحميل الصفحة لتجاهلها", true); return; }
+  current = id; basketDirty = false;
+  $("#title").textContent = P().name; $("#crumb").hidden = false;
+  $("#view-home").hidden = true; $("#view-project").hidden = false;
+  try { location.hash = id.replace(/[^\w.~-]/g, ""); } catch (e) {}
+  basket = []; renderBasket(); renderActors(); renderSettings(); renderRunPicks(); renderJob();
+  try { basket = await loadBasket(id); } catch (e) { toast(dbErr(e), true); }
+  bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); loadRuns(); renderSchedule();
+}
+$("#go-home").addEventListener("click", () => { if (basketDirty) return toast("احفظ تعديلات السلة أولاً", true); current = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} renderHome(); });
+
+function switchTab(t) {
+  $$("#tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
+  $$("#view-project .tab").forEach((x) => (x.hidden = x.id !== "tab-" + t));
+}
+$$("#tabs button").forEach((b) => b.addEventListener("click", () => switchTab(b.dataset.tab)));
+
+// ------------------------------------------------------------ run tab
+function hasGroups() { return basket.some((i) => i.group_code); }
+function renderRunPicks() {
+  const p = P(); if (!p) return;
+  $("#run-actors").innerHTML = Object.entries(p.actors || {}).map(([k, a]) => `<label><input type="checkbox" value="${esc(k)}" ${a.enabled ? "checked" : ""}>${esc(a.label || k)}</label>`).join("") || `<span class="muted">لا يوجد Actor؛ أضف واحداً من تبويب الـ Actors.</span>`;
+  const groups = groupsOf(basket);
+  $("#run-groups-box").hidden = !groups.length;
+  $("#run-codes-box").hidden = p.kind !== "barcode";
+  $("#run-groups").innerHTML = groups.map(([c, n]) => `<label><input type="checkbox" value="${esc(c)}">${esc(n)}</label>`).join("");
+  $$("#run-actors input, #run-groups input").forEach((i) => i.addEventListener("change", updateRunCount));
+  updateRunCount();
+}
+function runSelection() {
+  const groups = $$("#run-groups input:checked").map((i) => i.value);
+  const codes = $("#run-codes").value.split(/[\s,،]+/).filter(Boolean);
+  let items = basket;
+  if (groups.length) items = items.filter((i) => groups.includes(i.group_code));
+  if (codes.length && P().kind === "barcode") items = items.filter((i) => codes.includes(i.item_code));
+  return { actors: $$("#run-actors input:checked").map((i) => i.value), items };
+}
+function updateRunCount() {
+  const s = runSelection(), p = P();
+  if (p.kind === "barcode") {
+    const n = s.items.filter((i) => gtinValid(i.barcode_raw)).length;
+    $("#run-count").textContent = `${n} صنف بباركود صالح سيُبحث عنه عبر ${s.actors.length} Actor. الأصناف بدون باركود لا يشملها هذا التشغيل.`;
+  } else if (p.kind === "list") {
+    const n = s.items.filter((i) => i.enabled !== false && i.enabled !== "no").length;
+    $("#run-count").textContent = n ? `${n} عنصر مفعّل سيُستخرج من الصفحة.` : "السلة فارغة: ستُحفظ كل الصفوف التي في الصفحة.";
+  } else $("#run-count").textContent = "ستُحفظ كل الصفوف التي يرجعها الـ Actor.";
+}
+$("#run-codes").addEventListener("input", updateRunCount);
+
+$("#btn-run").addEventListener("click", async () => {
+  if (!mcp) return toast("Apify غير متاح في هذا العرض؛ افتح الصفحة داخل claude.ai مع موصل Apify", true);
+  if (job?.running) return;
+  const sel = runSelection(), p = P();
+  if (!sel.actors.length) return toast("اختر Actor واحداً على الأقل", true);
+  if (p.kind === "barcode" && !sel.items.some((i) => gtinValid(i.barcode_raw))) return toast("لا يوجد صنف بباركود صالح في هذا الاختيار", true);
+  if (basketDirty) toast("التشغيل يستخدم السلة كما تظهر الآن، حتى قبل الحفظ");
+  startJob(current, sel);
+});
+$("#btn-stop").addEventListener("click", () => { if (job) { job.stop = true; log("طُلب الإيقاف: لن تبدأ دفعات جديدة"); } });
+
+function log(m) { if (!job) return; job.log.push(`${new Date().toLocaleTimeString("en-GB")}  ${m}`); renderJob(); }
+function renderJob() {
+  const box = $("#job");
+  if (!job || job.pid !== current) { box.hidden = true; $("#btn-run").disabled = !!job?.running; $("#btn-stop").disabled = true; return; }
+  box.hidden = false;
+  const st = job.running ? ["يعمل", "warn"] : job.status === "done" ? ["انتهى", "ok"] : job.status === "stopped" ? ["أُوقف", "warn"] : ["خطأ", "bad"];
+  $("#job-state").textContent = st[0]; $("#job-state").className = "chip " + st[1];
+  $("#job-bars").innerHTML = Object.entries(job.progress).map(([k, g]) => `<div><div class="row" style="justify-content:space-between"><span>${esc(g.label)}</span><span class="muted mono">${g.done}/${g.total}${g.failed ? ` · ${g.failed} failed` : ""}</span></div><div class="bar"><i style="width:${g.total ? (100 * g.done) / g.total : 0}%"></i></div></div>`).join("");
+  const l = $("#job-log"); l.textContent = job.log.join("\n"); l.scrollTop = l.scrollHeight;
+  $("#job-summary").innerHTML = job.summary ? summaryHtml(job.summary) : "";
+  $("#btn-run").disabled = job.running; $("#btn-stop").disabled = !job.running;
+}
+function summaryHtml(sum) {
+  return `<div class="tw"><table><thead><tr><th>الـ Actor</th><th>صفوف</th><th>مقبول</th><th>التفاصيل</th></tr></thead><tbody>${Object.values(sum).map((v) =>
+    `<tr><td>${esc(v.label)}</td><td class="num">${v.lines}</td><td class="num"><b>${v.accepted}</b></td><td>${Object.entries(v.statuses).map(([s, n]) => `${esc(STATUS[s]?.[0] || s)}: ${n}`).join(" · ")}</td></tr>`).join("")}</tbody></table></div>`;
+}
+
+async function startJob(pid, sel) {
+  const p = projects[pid];
+  job = { pid, running: true, stop: false, status: "running", log: [], progress: {}, summary: null };
+  const runId = new Date().toISOString().replace(/[-:]/g, "").slice(0, 13) + "-" + Math.random().toString(36).slice(2, 6);
+  const startedAt = new Date().toISOString();
+  log(`${p.name}: ${sel.actors.length} Actor`);
+  const results = [], summary = {};
+  try {
+    for (const key of sel.actors) {
+      const cfg = p.actors[key], label = cfg.label || key;
+      const runs = buildRuns(cfg, sel.items);
+      job.progress[key] = { label, done: 0, total: runs.length, failed: 0 };
+      log(`${label}: ${runs.length} run(s) of ${cfg.actor}`);
+      const rows = [], searched = new Set(), failed = new Set(); let nextIdx = 0;
+      const worker = async () => {
+        while (nextIdx < runs.length && !job.stop) {
+          const r = runs[nextIdx++];
+          try {
+            const { runId: rid, items } = await runActor(cfg, r.input, () => job.stop);
+            const parsed = PARSERS[cfg.parser](items, r.batch, cfg);
+            rows.push(...parsed.rows); parsed.searched?.forEach((c) => searched.add(c));
+            log(`${label}: run ${rid} — ${items.length} items, ${parsed.rows.length} rows`);
+          } catch (e) {
+            (r.batch || []).forEach((c) => failed.add(c)); job.progress[key].failed++;
+            log(`${label}: ${r.batch ? r.batch[0] + "…" : "run"} failed: ${mcpErr(e)}`);
+          }
+          job.progress[key].done++; renderJob();
+        }
+      };
+      await Promise.all(Array.from({ length: Math.max(1, Math.min(+cfg.parallel_runs || 1, runs.length)) }, worker));
+      let res;
+      if (p.kind === "barcode") res = matchBarcode(key, label, sel.items, rows, searched, failed);
+      else if (p.kind === "list") res = matchList(label, sel.items, rows, p.list_key || "name");
+      else res = rows.map((r) => ({ actor: label, ...r, status: "row", accepted: "yes" }));
+      if (p.kind !== "barcode" && failed.size === 0 && job.progress[key].failed) res = [];
+      results.push(...res);
+      const statuses = {}; res.forEach((r) => (statuses[r.status] = (statuses[r.status] || 0) + 1));
+      summary[key] = { label, lines: res.length, accepted: res.filter((r) => r.accepted === "yes").length, statuses };
+      log(`${label}: ${summary[key].accepted} of ${res.length} accepted`);
+    }
+    job.status = job.stop ? "stopped" : "done";
+  } catch (e) { job.status = "error"; log("ERROR: " + mcpErr(e)); }
+  job.summary = summary; job.running = false; renderJob();
+  try {
+    const n = await saveChunks(`projects/${pid}/runs/${runId}/rows`, "rows", results, []);
+    const accepted = results.filter((r) => r.accepted === "yes").length;
+    await db.doc(`projects/${pid}/runs/${runId}`).set({ startedAt, finishedAt: new Date().toISOString(), status: job.status, summary, chunks: n, count: results.length, accepted, log: job.log.slice(-200) });
+    projects[pid] = { ...projects[pid], lastRun: { at: startedAt, status: job.status, accepted } };
+    await db.doc(`projects/${pid}`).update({ lastRun: projects[pid].lastRun });
+    log(`saved run ${runId}`); toast("انتهى التشغيل وحُفظت النتائج");
+    if (current === pid) loadRuns();
+  } catch (e) { log("could not save results: " + dbErr(e)); toast(dbErr(e), true); }
+}
+
+// ------------------------------------------------------------ basket tab
+let bPage = 0; const PER = 50;
+function cols() { return P()?.columns || []; }
+function groupsOf(items) { const g = new Map(); items.forEach((i) => i.group_code && g.set(i.group_code, i.group_name || i.group_code)); return [...g].sort(); }
+function fillGroupSelect() {
+  const g = groupsOf(basket); $("#b-group").hidden = !g.length;
+  $("#b-group").innerHTML = `<option value="">كل المجموعات</option>` + g.map(([c, n]) => `<option value="${esc(c)}">${esc(n)}</option>`).join("");
+}
+function filtered() {
+  const q = $("#b-search").value.trim().toLowerCase(), g = $("#b-group").value;
+  return basket.map((it, idx) => ({ it, idx })).filter(({ it }) => (!g || it.group_code === g) && (!q || cols().map((c) => it[c.key]).join(" ").toLowerCase().includes(q)));
+}
+function cell(it, c) {
+  const v = it[c.key];
+  if (c.type === "bool") return `<td><input type="checkbox" data-tog="${esc(c.key)}" ${v !== false && v !== "no" ? "checked" : ""} aria-label="${esc(c.label)}"></td>`;
+  if (c.key === "barcode_raw" && v) return `<td class="num mono">${esc(v)}${gtinValid(v) ? "" : ` <span class="chip warn">غير صالح</span>`}</td>`;
+  if (c.key === "qty_raw" && P().kind === "barcode") return `<td>${esc(v)}${v && !itemQty(it) ? ` <span class="chip warn">لم تُقرأ</span>` : ""}</td>`;
+  return `<td class="${c.type === "code" ? "num mono" : ""}">${esc(v)}</td>`;
+}
+function renderBasket() {
+  const p = P(); if (!p) return;
+  $("#b-table thead").innerHTML = `<tr>${cols().map((c) => `<th>${esc(c.label)}</th>`).join("")}<th></th></tr>`;
+  const rows = filtered(), pages = Math.max(1, Math.ceil(rows.length / PER)); bPage = Math.min(bPage, pages - 1);
+  $("#b-table tbody").innerHTML = rows.length ? rows.slice(bPage * PER, (bPage + 1) * PER).map(({ it, idx }) =>
+    `<tr data-i="${idx}">${cols().map((c) => cell(it, c)).join("")}<td style="white-space:nowrap"><button class="ghost" data-edit>تعديل</button><button class="ghost" data-del style="color:var(--bad)">حذف</button></td></tr>`).join("")
+    : `<tr><td colspan="${cols().length + 1}" class="empty">${basket.length ? "لا نتائج لهذا البحث." : "السلة فارغة. أضف عنصراً أو استورد ملف CSV بأعمدة المشروع."}</td></tr>`;
+  $("#b-page").textContent = `${bPage + 1} / ${pages}`;
+  $("#b-info").textContent = `${basket.length} عنصر${basketDirty ? " · تعديلات غير محفوظة" : ""}`;
+  $$("#b-table [data-edit]").forEach((b) => b.addEventListener("click", () => editItem(+b.closest("tr").dataset.i)));
+  $$("#b-table [data-del]").forEach((b) => b.addEventListener("click", () => { basket.splice(+b.closest("tr").dataset.i, 1); basketDirty = true; renderBasket(); toast("حُذف العنصر؛ احفظ السلة لتثبيت الحذف"); }));
+  $$("#b-table [data-tog]").forEach((b) => b.addEventListener("change", () => { basket[+b.closest("tr").dataset.i][b.dataset.tog] = b.checked; basketDirty = true; renderBasket(); }));
+}
+$("#b-search").addEventListener("input", () => { bPage = 0; renderBasket(); });
+$("#b-group").addEventListener("change", () => { bPage = 0; renderBasket(); });
+$("#b-prev").addEventListener("click", () => { bPage = Math.max(0, bPage - 1); renderBasket(); });
+$("#b-next").addEventListener("click", () => { bPage++; renderBasket(); });
+
+let editing = null;
+function editItem(idx) {
+  editing = idx; const it = idx === null ? {} : basket[idx];
+  $("#dlg-title").textContent = idx === null ? "عنصر جديد" : "تعديل عنصر";
+  $("#dlg-fields").innerHTML = cols().map((c, i) => c.type === "bool"
+    ? `<label class="f"><span>${esc(c.label)}</span><select id="fld-${i}" name="${esc(c.key)}"><option value="yes">نعم</option><option value="no">لا</option></select></label>`
+    : `<label class="f"><span>${esc(c.label)}</span><input id="fld-${i}" name="${esc(c.key)}" ${c.type === "code" ? 'dir="ltr" class="mono"' : ""}></label>`).join("");
+  cols().forEach((c, i) => { const el = $("#fld-" + i); el.value = c.type === "bool" ? (it[c.key] === false || it[c.key] === "no" ? "no" : "yes") : it[c.key] ?? ""; });
+  preview(); $("#dlg").showModal();
+}
+function formItem() {
+  const it = editing === null ? {} : { ...basket[editing] };
+  cols().forEach((c, i) => { const v = $("#fld-" + i).value.trim(); it[c.key] = c.type === "bool" ? v !== "no" : v; });
+  if (P().kind === "barcode") { const q = parseQty(it.qty_raw); it.qty_total = q?.total ?? null; it.qty_unit = q?.unit ?? ""; }
+  return it;
+}
+function preview() {
+  if (P().kind !== "barcode") return ($("#dlg-preview").textContent = "");
+  const it = formItem(), q = itemQty(it);
+  $("#dlg-preview").textContent = `الباركود: ${it.barcode_raw ? (gtinValid(it.barcode_raw) ? "صالح، يُبحث بـ " + searchForm(it.barcode_raw) : "غير صالح، لن يُبحث عنه") : "لا يوجد"} · الحجم: ${q ? q.total + " " + q.unit : "لم يُقرأ، ستذهب النتيجة للمراجعة"}`;
+}
+$("#dlg-form").addEventListener("input", preview);
+$("#dlg").addEventListener("close", () => {
+  if ($("#dlg").returnValue !== "ok") return;
+  const it = formItem();
+  if (editing === null) basket.unshift(it); else basket[editing] = it;
+  basketDirty = true; fillGroupSelect(); renderBasket(); renderRunPicks();
+});
+$("#b-add").addEventListener("click", () => editItem(null));
+$("#b-save").addEventListener("click", async () => {
+  try {
+    await saveChunks(`projects/${current}/basket`, "items", basket);
+    await saveProject({ itemCount: basket.length });
+    basketDirty = false; renderBasket(); renderRunPicks(); toast(`حُفظت السلة (${basket.length} عنصر)`);
+  } catch (e) { toast(dbErr(e), true); }
+});
+
+function toCsv(rows, columns) {
+  const q = (v) => { const s = v === null || v === undefined ? "" : typeof v === "object" ? JSON.stringify(v) : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+  return "﻿" + [columns.join(","), ...rows.map((r) => columns.map((c) => q(r[c])).join(","))].join("\n");
+}
+function parseCsv(text) {
+  const rows = []; let row = [], cur = "", inQ = false;
+  text = text.replace(/^﻿/, "");
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQ) { if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else inQ = false; } else cur += ch; }
+    else if (ch === '"') inQ = true; else if (ch === ",") { row.push(cur); cur = ""; }
+    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && text[i + 1] === "\n") i++; row.push(cur); rows.push(row); row = []; cur = ""; }
+    else cur += ch;
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  const [head, ...body] = rows.filter((r) => r.some((x) => x.trim()));
+  return body.map((r) => Object.fromEntries(head.map((h, i) => [h.trim(), r[i] ?? ""])));
+}
+async function offerFile(filename, text) {
+  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
+  try { await downloads.save({ filename, data: new Blob([text], { type: "text/csv;charset=utf-8" }) }); }
+  catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || "لم يكتمل التنزيل", true); }
+}
+$("#b-export").addEventListener("click", () => {
+  const keys = [...new Set([...cols().map((c) => c.key), ...basket.flatMap((i) => Object.keys(i))])];
+  offerFile(`${P().name}-basket.csv`, toCsv(basket, keys));
+});
+$("#b-file").addEventListener("change", async (ev) => {
+  const f = ev.target.files[0]; ev.target.value = ""; if (!f) return;
+  const items = parseCsv(await f.text());
+  const missing = cols().filter((c) => !(items[0] && c.key in items[0])).map((c) => c.key);
+  $("#b-import-confirm").innerHTML = `<div class="confirm"><span>استبدال السلة (${basket.length} عنصر) بـ ${items.length} عنصر من ${esc(f.name)}؟${missing.length ? ` أعمدة ناقصة: <code>${esc(missing.join(", "))}</code>` : ""}</span><button class="danger" id="imp-yes">استبدال</button><button id="imp-no">إلغاء</button></div>`;
+  $("#imp-no").onclick = () => ($("#b-import-confirm").innerHTML = "");
+  $("#imp-yes").onclick = () => {
+    items.forEach((it) => { cols().filter((c) => c.type === "bool").forEach((c) => (it[c.key] = !/^(no|false|0|لا)$/i.test(String(it[c.key] ?? "").trim())));
+      if (it.qty_total !== undefined && it.qty_total !== "") it.qty_total = +it.qty_total; });
+    basket = items; basketDirty = true; bPage = 0; $("#b-import-confirm").innerHTML = "";
+    fillGroupSelect(); renderBasket(); renderRunPicks(); toast("استُورد الملف؛ اضغط حفظ السلة لتثبيته");
+  };
+});
+
+// ------------------------------------------------------------ actors tab
+const MODES = ["barcodes", "search_urls", "single"];
+let actorsDraft = {};
+function renderActors() {
+  const p = P(); if (!p) return; actorsDraft = JSON.parse(JSON.stringify(p.actors || {}));
+  drawActors();
+}
+function drawActors() {
+  $("#a-list").innerHTML = Object.entries(actorsDraft).map(([k, a]) => `<div class="actor" data-key="${esc(k)}">
+    <div class="row"><b>${esc(a.label || k)}</b><span class="muted mono">${esc(k)}</span><label class="row" style="gap:6px"><input type="checkbox" data-f="enabled" ${a.enabled ? "checked" : ""}> مفعّل</label><span class="spacer"></span><button class="danger" data-rm>حذف</button></div>
+    <div class="grid">
+      <label class="f"><span>الاسم</span><input data-f="label" value="${esc(a.label || "")}"></label>
+      <label class="f"><span>Actor</span><input data-f="actor" class="mono" dir="ltr" value="${esc(a.actor || "")}"></label>
+      <label class="f"><span>النمط</span><select data-f="mode">${MODES.map((m) => `<option ${m === a.mode ? "selected" : ""}>${m}</option>`).join("")}</select></label>
+      <label class="f"><span>المحلل</span><select data-f="parser">${Object.keys(PARSERS).map((m) => `<option ${m === a.parser ? "selected" : ""}>${m}</option>`).join("")}</select></label>
+      <label class="f"><span>أكواد لكل تشغيل</span><input data-f="batch_size" type="number" min="1" value="${esc(a.batch_size ?? 10)}"></label>
+      <label class="f"><span>تشغيلات متوازية</span><input data-f="parallel_runs" type="number" min="1" max="10" value="${esc(a.parallel_runs ?? 1)}"></label>
+    </div>
+    <label class="f"><span>رابط البحث (للنمط search_urls، فيه {barcode})</span><input data-f="url_template" class="mono" dir="ltr" value="${esc(a.url_template || "")}"></label>
+    <label class="f"><span>حقول البيانات المطلوبة من Apify (اختياري، مفصولة بفاصلة)</span><input data-f="dataset_fields" class="mono" dir="ltr" value="${esc(a.dataset_fields || "")}"></label>
+    <label class="f"><span>الإدخال (JSON)</span><textarea data-f="input" class="code" rows="8" spellcheck="false">${esc(JSON.stringify(a.input ?? {}, null, 2))}</textarea></label>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      <label class="f"><span>خيارات التشغيل (JSON: memory, timeout…)</span><textarea data-f="call_options" class="code" rows="3" spellcheck="false">${esc(JSON.stringify(a.call_options ?? {}, null, 2))}</textarea></label>
+      <label class="f"><span>حقول المحلل generic (JSON: اسم العمود ← حقل البيانات)</span><textarea data-f="fields" class="code" rows="3" spellcheck="false">${esc(JSON.stringify(a.fields ?? {}, null, 2))}</textarea></label>
+    </div>
+    <label class="f"><span>ملاحظات</span><input data-f="notes" value="${esc(a.notes || "")}"></label>
+    <div data-confirm></div>
+  </div>`).join("") || `<div class="empty">لا يوجد Actor في هذا المشروع.</div>`;
+  $$("#a-list [data-rm]").forEach((b) => b.addEventListener("click", () => {
+    const box = b.closest(".actor"), k = box.dataset.key;
+    $("[data-confirm]", box).innerHTML = `<div class="confirm"><span>حذف ${esc(k)}؟ يُطبّق عند الحفظ.</span><button class="danger" data-yes>حذف</button><button data-no>إلغاء</button></div>`;
+    $("[data-no]", box).onclick = () => ($("[data-confirm]", box).innerHTML = "");
+    $("[data-yes]", box).onclick = () => { try { collectActors(); } catch (e) {} delete actorsDraft[k]; drawActors(); };
+  }));
+}
+function collectActors() {
+  const out = {};
+  for (const box of $$("#a-list .actor")) {
+    const k = box.dataset.key, a = { ...actorsDraft[k] };
+    for (const el of $$("[data-f]", box)) {
+      const f = el.dataset.f;
+      if (f === "enabled") a.enabled = el.checked;
+      else if (["input", "call_options", "fields"].includes(f)) { try { a[f] = JSON.parse(el.value || "{}"); } catch (e) { throw new Error(`${k}: ${f} ليس JSON صحيحاً (${e.message})`); } }
+      else if (f === "batch_size" || f === "parallel_runs") a[f] = Math.max(1, +el.value || 1);
+      else a[f] = el.value.trim();
+    }
+    if (!/^[\w.-]+[/~][\w.-]+$/.test(a.actor)) throw new Error(`${k}: اكتب الـ Actor بصيغة username/actor-name`);
+    if (a.mode === "search_urls" && !String(a.url_template).includes("{barcode}")) throw new Error(`${k}: رابط البحث يجب أن يحتوي {barcode}`);
+    out[k] = a;
+  }
+  actorsDraft = out; return out;
+}
+$("#a-add").addEventListener("click", () => {
+  try { collectActors(); } catch (e) { return toast(e.message, true); }
+  let k = "actor" + (Object.keys(actorsDraft).length + 1); while (actorsDraft[k]) k += "x";
+  actorsDraft[k] = { label: "Actor جديد", enabled: false, actor: "username/actor-name", mode: P().kind === "barcode" ? "barcodes" : "single", batch_size: 10, parallel_runs: 1, input: P().kind === "barcode" ? { query: "{barcodes_json}" } : {}, parser: "generic", fields: P().kind === "barcode" ? { code: "searchQuery", title: "title", price: "price", regular_price: "regularPrice", url: "url" } : {}, dataset_fields: "", call_options: {}, notes: "" };
+  drawActors();
+});
+$("#a-save").addEventListener("click", async () => {
+  try { await saveProject({ actors: collectActors() }); renderActors(); renderRunPicks(); toast("حُفظت الـ Actors"); }
+  catch (e) { toast(e.code ? dbErr(e) : e.message, true); }
+});
+
+// ------------------------------------------------------------ results tab
+let runs = [], shownRun = null, shownRows = [];
+async function loadRuns() {
+  try {
+    const snap = await db.collection(`projects/${current}/runs`).orderBy("startedAt", "desc").limit(50).get();
+    runs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  } catch (e) { runs = []; }
+  $("#r-list").innerHTML = runs.length ? `<div class="tw"><table><thead><tr><th>التاريخ</th><th>الحالة</th><th>صفوف</th><th>مقبول</th><th></th></tr></thead><tbody>${runs.map((r) => {
+    const st = r.status === "done" ? ["انتهى", "ok"] : r.status === "stopped" ? ["أُوقف", "warn"] : ["خطأ", "bad"];
+    return `<tr><td class="num">${esc((r.startedAt || "").replace("T", " ").slice(0, 16))}</td><td><span class="chip ${st[1]}">${st[0]}</span></td><td class="num">${r.count ?? ""}</td><td class="num">${r.accepted ?? ""}</td><td><button class="ghost" data-run="${esc(r.id)}">عرض</button></td></tr>`;
+  }).join("")}</tbody></table></div>` : `<div class="empty">لا توجد تشغيلات بعد. شغّل السكراب من تبويب «تشغيل» وستظهر نتائجه هنا.</div>`;
+  $$("#r-list [data-run]").forEach((b) => b.addEventListener("click", () => showRun(b.dataset.run)));
+}
+async function showRun(id) {
+  shownRun = runs.find((r) => r.id === id);
+  const snap = await db.collection(`projects/${current}/runs/${id}/rows`).get();
+  shownRows = snap.docs.sort((a, b) => a.id.localeCompare(b.id)).flatMap((d) => d.data().rows || []);
+  $("#r-view").hidden = false; $("#r-del-confirm").innerHTML = "";
+  $("#r-title").textContent = (shownRun.startedAt || "").replace("T", " ").slice(0, 16);
+  $("#r-stats").innerHTML = Object.values(shownRun.summary || {}).map((s) => `<div class="stat"><span class="muted">${esc(s.label)}</span><b>${s.accepted} / ${s.lines}</b><span class="muted">مقبول</span></div>`).join("");
+  drawRun(); $("#r-view").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+}
+function runColumns() {
+  const first = ["actor", "status"], seen = new Set(first);
+  shownRows.forEach((r) => Object.keys(r).forEach((k) => seen.add(k)));
+  return [...seen].filter((k) => k !== "accepted");
+}
+function drawRun() {
+  const q = $("#r-search").value.trim().toLowerCase(), f = $("#r-filter").value;
+  const rows = shownRows.filter((r) => (!f || r.accepted === f) && (!q || Object.values(r).join(" ").toLowerCase().includes(q)));
+  const cs = runColumns();
+  const NUMS = new Set(["price", "regular_price", "change", "pct", "weekly", "monthly", "ytd", "yoy", "barcode", "item_code"]);
+  $("#r-table thead").innerHTML = `<tr>${cs.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>`;
+  $("#r-table tbody").innerHTML = rows.slice(0, 400).map((r) => `<tr>${cs.map((c) => {
+    if (c === "status") { const s = STATUS[r.status] || [r.status, ""]; return `<td><span class="chip ${s[1]}">${esc(s[0])}</span></td>`; }
+    if (c === "url" && r.url) return `<td><a href="${esc(r.url)}" target="_blank" rel="noopener">رابط</a></td>`;
+    const v = r[c]; return `<td class="${NUMS.has(c) ? "num" : ""}">${esc(typeof v === "object" && v !== null ? JSON.stringify(v) : v)}</td>`;
+  }).join("")}</tr>`).join("") || `<tr><td class="empty" colspan="${cs.length}">لا صفوف.</td></tr>`;
+  $("#r-more").textContent = rows.length > 400 ? `يظهر أول 400 من ${rows.length}؛ نزّل CSV لرؤية الكل.` : `${rows.length} صف`;
+}
+$("#r-search").addEventListener("input", drawRun);
+$("#r-filter").addEventListener("change", drawRun);
+$("#r-export").addEventListener("click", () => shownRun && offerFile(`${P().name}-${shownRun.id}.csv`, toCsv(shownRows, [...runColumns(), "accepted"])));
+$("#r-delete").addEventListener("click", () => {
+  $("#r-del-confirm").innerHTML = `<div class="confirm"><span>حذف هذا التشغيل ونتائجه نهائياً؟</span><button class="danger" id="rd-yes">حذف</button><button id="rd-no">إلغاء</button></div>`;
+  $("#rd-no").onclick = () => ($("#r-del-confirm").innerHTML = "");
+  $("#rd-yes").onclick = async () => {
+    try {
+      const rows = await db.collection(`projects/${current}/runs/${shownRun.id}/rows`).get();
+      for (const d of rows.docs) await db.doc(`projects/${current}/runs/${shownRun.id}/rows/${d.id}`).delete();
+      await db.doc(`projects/${current}/runs/${shownRun.id}`).delete();
+      $("#r-view").hidden = true; loadRuns(); toast("حُذف التشغيل");
+    } catch (e) { toast(dbErr(e), true); }
+  };
+});
+
+// ------------------------------------------------------------ settings tab
+function renderSettings() {
+  const p = P(); if (!p) return;
+  $("#s-name").value = p.name || ""; $("#s-desc").value = p.description || ""; $("#s-kind").value = p.kind || "list";
+  $("#s-cols").value = JSON.stringify(p.columns || [], null, 2); $("#s-listkey").value = p.list_key || "";
+  $("#s-del-confirm").innerHTML = "";
+}
+$("#s-save").addEventListener("click", async () => {
+  let columns; try { columns = JSON.parse($("#s-cols").value); if (!Array.isArray(columns) || columns.some((c) => !c.key)) throw new Error("كل عمود يحتاج key"); }
+  catch (e) { return toast("أعمدة السلة: " + e.message, true); }
+  try {
+    await saveProject({ name: $("#s-name").value.trim() || "بدون اسم", description: $("#s-desc").value.trim(), kind: $("#s-kind").value, columns, list_key: $("#s-listkey").value.trim() });
+    $("#title").textContent = P().name; renderBasket(); renderRunPicks(); toast("حُفظت الإعدادات");
+  } catch (e) { toast(dbErr(e), true); }
+});
+$("#s-delete").addEventListener("click", () => {
+  $("#s-del-confirm").innerHTML = `<div class="confirm"><span>حذف مشروع «${esc(P().name)}» مع سلته؟ التشغيلات المحفوظة تُحذف أيضاً.</span><button class="danger" id="sd-yes">حذف المشروع</button><button id="sd-no">إلغاء</button></div>`;
+  $("#sd-no").onclick = () => ($("#s-del-confirm").innerHTML = "");
+  $("#sd-yes").onclick = async () => {
+    try {
+      const pid = current;
+      for (const d of (await db.collection(`projects/${pid}/basket`).get()).docs) await db.doc(`projects/${pid}/basket/${d.id}`).delete();
+      for (const r of (await db.collection(`projects/${pid}/runs`).get()).docs) {
+        for (const d of (await db.collection(`projects/${pid}/runs/${r.id}/rows`).get()).docs) await db.doc(`projects/${pid}/runs/${r.id}/rows/${d.id}`).delete();
+        await db.doc(`projects/${pid}/runs/${r.id}`).delete();
+      }
+      await db.doc(`projects/${pid}`).delete(); delete projects[pid];
+      basketDirty = false; current = null; renderHome(); toast("حُذف المشروع");
+    } catch (e) { toast(dbErr(e), true); }
+  };
+});
+
+// ------------------------------------------------------------ daily schedule (a claude.ai Routine per project)
+const CCR = "Claude Code Remote";
+const TZ_LABEL = { "Asia/Dubai": "توقيت دبي" };
+function parseCron(c) {
+  const m = String(c || "").match(/^(?:CRON_TZ=(\S+)\s+)?(\d{1,2})\s+(\d{1,2})\s+(\S+)\s+(\S+)\s+(\S+)$/);
+  return m ? { tz: m[1] || "UTC", min: +m[2], hour: +m[3], dom: m[4], mon: m[5], dow: m[6] } : null;
+}
+const pad = (n) => String(n).padStart(2, "0");
+function fmtWhen(iso) { if (!iso) return "—"; try { return new Date(iso).toLocaleString("ar", { timeZone: "Asia/Dubai", dateStyle: "medium", timeStyle: "short" }); } catch (e) { return iso; } }
+function schedFail(e) {
+  const fix = { needs_reauth: "أعد ربط Claude Code Remote من إعدادات claude.ai", server_not_connected: "موصل Claude Code Remote غير متاح لهذا الحساب",
+    not_in_manifest: "لم يُسمح للصفحة بإدارة الجدولة؛ أعد فتحها واسمح بالموصل" }[e?.code];
+  return fix || e?.message || String(e);
+}
+async function ccr(tool, input) { return (await mcp.callTool(CCR, tool, input, { cache: false })).payload; }
+async function renderSchedule() {
+  const p = P(), pid = current, body = $("#sched-body"), chip = $("#sched-state");
+  const tid = p?.schedule?.trigger_id;
+  body.className = "muted";
+  if (!tid) { chip.textContent = "غير مجدول"; chip.className = "chip"; body.textContent = "لا يوجد تشغيل يومي لهذا المشروع. اطلب من Claude إنشاء واحد."; return; }
+  if (!mcp) { chip.textContent = "غير متاح"; body.textContent = "إدارة الجدولة تحتاج فتح الصفحة داخل claude.ai."; return; }
+  body.textContent = "يُحمَّل موعد التشغيل…";
+  let t;
+  try { const r = await ccr("get_trigger", { trigger_id: tid }); t = r?.trigger || r?.data || r; }
+  catch (e) { chip.textContent = "تعذّر القراءة"; chip.className = "chip bad"; body.textContent = schedFail(e); return; }
+  if (current !== pid) return;
+  const c = parseCron(t.cron_expression) || { tz: "Asia/Dubai", hour: 8, min: 0 };
+  const lr = t.last_run;
+  const lrTxt = lr ? `${fmtWhen(lr.fired_at)} · ${/SUCCEEDED/.test(lr.status) ? "نجح" : /FAILED/.test(lr.status) ? "فشل" + (lr.failure_reason ? ` (${String(lr.failure_reason).replace("ROUTINE_RUN_FAILURE_REASON_", "").toLowerCase()})` : "") : String(lr.status || "").replace("ROUTINE_RUN_STATUS_", "").toLowerCase()}` : "لم يعمل بعد";
+  chip.textContent = t.enabled ? "مفعّل" : "متوقف"; chip.className = "chip " + (t.enabled ? "ok" : "warn");
+  body.className = ""; body.innerHTML = `
+    <div class="row" style="align-items:end">
+      <label class="f" style="width:150px"><span>الوقت (${esc(TZ_LABEL[c.tz] || c.tz)})</span><input type="time" id="sched-time" value="${pad(c.hour)}:${pad(c.min)}"></label>
+      <label class="row" style="gap:6px;padding-bottom:8px"><input type="checkbox" id="sched-on" ${t.enabled ? "checked" : ""}> يعمل كل يوم</label>
+      <button class="primary" id="sched-save">حفظ الموعد</button>
+      <button id="sched-fire">شغّل الآن</button>
+    </div>
+    <div class="row muted"><span>التشغيل القادم: <b style="color:var(--fg)">${esc(t.enabled ? fmtWhen(t.next_run_at) : "متوقف")}</b></span><span>آخر تشغيل: ${esc(lrTxt)}</span></div>
+    <div id="sched-confirm"></div>`;
+  $("#sched-save").onclick = async () => {
+    const [h, m] = ($("#sched-time").value || "").split(":").map(Number);
+    if (isNaN(h) || isNaN(m)) return toast("اختر وقتاً صحيحاً", true);
+    const cron = `CRON_TZ=${c.tz} ${m} ${h} ${c.dom || "*"} ${c.mon || "*"} ${c.dow && c.dow !== "1-5" ? c.dow : "*"}`;
+    try { await ccr("update_trigger", { trigger_id: tid, cron_expression: cron, enabled: $("#sched-on").checked }); toast(`حُفظ: ${pad(h)}:${pad(m)} ${TZ_LABEL[c.tz] || c.tz}`); renderSchedule(); }
+    catch (e) { toast(schedFail(e), true); }
+  };
+  $("#sched-fire").onclick = () => {
+    $("#sched-confirm").innerHTML = `<div class="confirm"><span>تشغيل المهمة اليومية الآن؟ تعمل في الخلفية وتظهر نتيجتها في تبويب النتائج عند انتهائها.</span><button class="primary" id="sf-yes">شغّل</button><button id="sf-no">إلغاء</button></div>`;
+    $("#sf-no").onclick = () => ($("#sched-confirm").innerHTML = "");
+    $("#sf-yes").onclick = async () => {
+      $("#sched-confirm").innerHTML = "";
+      try { await ccr("fire_trigger", { trigger_id: tid }); toast("بدأ التشغيل في الخلفية"); setTimeout(renderSchedule, 4000); }
+      catch (e) { toast(schedFail(e), true); }
+    };
+  };
+}
+
+// ------------------------------------------------------------ boot
+function setConn(state, text) { $("#conn-dot").className = "dot " + state; $("#conn-text").textContent = text; }
+(async function boot() {
+  const C = window.claude;
+  if (!C?.use) { setConn("bad", "افتح الصفحة من claude.ai"); $("#shelf-empty").textContent = "هذه اللوحة تعمل داخل claude.ai فقط، حيث تُحفظ المشاريع ويتصل Apify."; return; }
+  [db, mcp, downloads] = await Promise.all([C.use("db"), C.use("mcp"), C.use("downloads")]);
+  if (!db) { setConn("bad", "التخزين غير متاح"); $("#shelf-empty").textContent = "لا يمكن قراءة المشاريع في هذا العرض. افتح الصفحة من claude.ai وأنت مسجّل الدخول."; return; }
+  if (!mcp) setConn("warn", "Apify غير متاح: التعديل يعمل، التشغيل لا");
+  else {
+    try {
+      const l = await mcp.listTools(APIFY); const s = l.servers.find((x) => x.server === APIFY);
+      if (!s) setConn("bad", "أضف موصل Apify من إعدادات claude.ai");
+      else if (s.authStatus === "needs_reauth") setConn("bad", "أعد ربط Apify من إعدادات claude.ai");
+      else setConn("ok", "Apify متصل");
+    } catch (e) { setConn("warn", mcpErr(e)); }
+  }
+  try { await loadProjects(); } catch (e) { $("#shelf-empty").textContent = "تعذّر تحميل المشاريع: " + dbErr(e); return; }
+  const want = (location.hash || "").slice(1);
+  if (want && projects[want]) openProject(want); else renderHome();
+  window.addEventListener("beforeunload", (e) => { if (basketDirty || job?.running) e.preventDefault(); });
+})();
+</script>

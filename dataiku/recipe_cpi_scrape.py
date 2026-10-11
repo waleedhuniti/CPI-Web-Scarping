@@ -40,7 +40,22 @@ for f in run_dir.glob("*_matched.csv"):
         "basket_qty": df["basket_qty"], "barcode": df["barcode"], "status": df["status"],
         "accepted": df["status"].isin(ex.ACCEPTED).map({True: "yes", False: "no"}), "title": df["title"],
         "price": pd.to_numeric(df["price"], errors="coerce"), "regular_price": pd.to_numeric(df["regular_price"], errors="coerce"),
+        "unit_price": "", "price_basis": "", "basket_origin": "", "origin_seen": "",
         "currency": "AED", "in_stock": df["in_stock"], "url": df["url"]}))
+
+# non-barcode lines (meat, fish, fruit, vegetables): bulk category crawl + spec matching
+import scrapling_category as sc
+sc.crawl(run_dir, 1.5)
+cat = pd.DataFrame(sc.match(run_dir))
+rows.append(pd.DataFrame({
+    "run_date": run_date, "run_id": run_dir.name, "source": "scrapling-category", "retailer": cat["retailer"],
+    "item_code": cat["item_code"], "group_code": cat["group"], "name_ar": cat["name_ar"], "brand_ar": "",
+    "basket_qty": cat["basket_qty"], "barcode": "", "status": cat["status"], "accepted": cat["accepted"],
+    "title": cat["title"], "price": pd.to_numeric(cat["price"], errors="coerce"),
+    "regular_price": pd.to_numeric(cat["regular_price"], errors="coerce"),
+    "unit_price": pd.to_numeric(cat["unit_price"], errors="coerce"), "price_basis": cat["price_basis"],
+    "basket_origin": cat["basket_origin"], "origin_seen": cat["origin_seen"],
+    "currency": "AED", "in_stock": "", "url": cat["url"]}))
 
 out = pd.concat(rows, ignore_index=True)[ex.COLUMNS]
 dataiku.Dataset("cpi_prices").write_with_schema(out)

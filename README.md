@@ -70,6 +70,16 @@ Full run 2026-10-11 (`data/runs/2026-10-11_scrapling/`): every page read, none f
 barcode lines accepted (Apify 2026-10-05: 173), Lulu **110** (Apify: 110). `python scripts/export_for_dataiku.py`
 writes all runs as one table, `data/exports/cpi_prices_long.csv` (see `docs/dataiku.md`).
 
+### Non-barcode lines: bulk category crawl
+
+Basket lines without a barcode (meat, fish, fruit, vegetables) are priced from whole category listings instead of one
+search per item: `python scripts/scrapling_category.py data/runs/<date>_category` crawls every page of the categories in
+`config/categories.json` (Carrefour and Lulu), opens the product page only for candidates whose title names no origin,
+and matches each line by its English spec, unit (per kg / piece / bunch) and origin. Barcoded lines keep the barcode
+search. Run 2026-10-11: 1,447 products listed; of 214 non-barcode lines in those groups, Carrefour 25 and Lulu 27
+accepted, 90 `substitute_origin` (only another origin on sale: needs last month's price for the +/-30% rule), the rest
+review or not sold online. Results: `data/runs/2026-10-11_category/category_matches.csv`.
+
 ## Layout
 
 | Path | What |
@@ -88,6 +98,7 @@ writes all runs as one table, `data/exports/cpi_prices_long.csv` (see `docs/data
 | `data/pilot/` | Live pilot results (10 basket barcodes at Carrefour and Lulu) |
 | `actors/lulu_search/` | Page function for Apify's web-scraper (bulk Lulu barcode search) - written, not yet run |
 | `scripts/scrapling_search.py` | Barcode search with Scrapling (no Apify) + matching |
+| `scripts/scrapling_category.py` | Bulk category crawl + spec matching for lines without a barcode |
 | `scripts/match_run.py`, `scripts/ingest_lulu.py` | Barcode results -> matched CSV per retailer |
 | `scripts/verify_pages.py` | Second-source check on the product page (price, stock, size, Lulu barcode, origin) |
 | `scripts/name_search.py` | Name + brand + size search: URLs, candidates, judge batches, apply, finalize, audit |

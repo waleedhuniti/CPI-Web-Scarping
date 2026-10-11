@@ -16,7 +16,8 @@ sys.path.insert(0, str(ROOT))
 from cpi.matcher import ACCEPTED  # noqa: E402
 
 COLUMNS = ["run_date", "run_id", "source", "retailer", "item_code", "group_code", "name_ar", "brand_ar", "basket_qty",
-           "barcode", "status", "accepted", "title", "price", "regular_price", "currency", "in_stock", "url"]
+           "barcode", "status", "accepted", "title", "price", "regular_price", "unit_price", "price_basis",
+           "basket_origin", "origin_seen", "currency", "in_stock", "url"]
 
 
 def rows():
@@ -35,12 +36,29 @@ def rows():
                        barcode=r.get("barcode", ""), status=r.get("status", ""),
                        accepted="yes" if r.get("status") in ACCEPTED else "no", title=r.get("title", ""),
                        price=r.get("price", ""), regular_price=r.get("regular_price", ""), currency="AED",
+                       unit_price="", price_basis="", basket_origin="", origin_seen="",
                        in_stock=r.get("in_stock", ""), url=r.get("url", ""))
+
+
+def category_rows():
+    """Non-barcode lines (meat, fish, fruit, vegetables) from the bulk category runs: one row per line x retailer."""
+    for f in sorted(ROOT.glob("data/runs/*/category_matches.csv")):
+        run = f.parent.name
+        m = re.match(r"(\d{4}-\d{2}-\d{2})", run)
+        if not m or "test" in run:
+            continue
+        for r in csv.DictReader(open(f, encoding="utf-8-sig")):
+            yield dict(run_date=m.group(1), run_id=run, source="scrapling-category", retailer=r["retailer"],
+                       item_code=r["item_code"], group_code=r["group"], name_ar=r["name_ar"], brand_ar="",
+                       basket_qty=r["basket_qty"], barcode="", status=r["status"], accepted=r["accepted"],
+                       title=r["title"], price=r["price"], regular_price=r["regular_price"], unit_price=r["unit_price"],
+                       price_basis=r["price_basis"], basket_origin=r["basket_origin"], origin_seen=r["origin_seen"],
+                       currency="AED", in_stock="", url=r["url"])
 
 
 def main(dest=ROOT / "data/exports/cpi_prices_long.csv"):
     dest.parent.mkdir(parents=True, exist_ok=True)
-    out = list(rows())
+    out = list(rows()) + list(category_rows())
     with open(dest, "w", newline="", encoding="utf-8-sig") as fh:
         w = csv.DictWriter(fh, fieldnames=COLUMNS)
         w.writeheader()

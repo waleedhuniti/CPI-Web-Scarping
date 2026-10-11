@@ -347,6 +347,9 @@ const STATUS = {
   barcode_match: ["مطابق", "ok"], unit_label: ["مطابق (وحدة مكتوبة مختلفة)", "ok"], multiple_results: ["أكثر من منتج", "warn"],
   size_unverified: ["الحجم غير مؤكد", "warn"], qty_mismatch: ["الحجم مختلف", "bad"], not_found: ["غير موجود", ""],
   not_searched: ["لم يُبحث", "warn"], error: ["خطأ في التشغيل", "bad"], ok: ["موجود", "ok"], missing: ["غير موجود في الصفحة", "bad"], row: ["صف", ""],
+  match: ["مطابق", "ok"], review_multiple: ["عدة عروض بأسعار مختلفة", "warn"], review_origin: ["المنشأ غير مذكور", "warn"],
+  substitute_origin: ["منشأ بديل", "warn"], no_match: ["غير مطابق", ""], barcode_search_match: ["مطابق", "ok"], barcode_match_unit_label: ["مطابق (وحدة مختلفة)", "ok"],
+  qty_unit_differs: ["وحدة الكمية مختلفة", "warn"], qty_title_url_conflict: ["تعارض الحجم", "warn"], barcode_match_qty_unverified: ["الحجم غير مؤكد", "warn"],
 };
 function matchBarcode(actorKey, label, items, rows, searched, failed) {
   const byCode = new Map();

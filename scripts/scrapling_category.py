@@ -47,7 +47,7 @@ DEMONYMS = {"indian": "IN", "pakistani": "PK", "australian": "AU", "brazilian": 
             "south african": "ZA", "new zealand": "NZ", "norwegian": "NO", "scottish": "GB", "local": "AE", "uae": "AE",
             "emirati": "AE", "yemeni": "YE", "sudanese": "SD", "somali": "SO", "moroccan": "MA", "filipino": "PH",
             "thai": "TH", "vietnamese": "VN", "sri lankan": "LK", "bangladeshi": "BD", "french": "FR", "chilean": "CL"}
-STOP = {"fresh", "loose", "deli", "counter", "per", "kg", "imported", "the", "and", "or", "of", "with", "a"}
+STOP = {"fresh", "loose", "deli", "counter", "per", "kg", "imported", "the", "and", "or", "of", "with", "a", "in"}
 NOT_FRESH = ["organic", "marinated", "ready to cook", "seasoned", "cooked", "smoked", "frozen", "juice", "dried",
              "canned", "puree", "pickled", "stuffed", "nuggets", "burger", "sausage", "kebab", "kofta"]
 
@@ -127,6 +127,42 @@ def crawl(run_dir, delay):
     return out
 
 
+# ---------------------------------------------------------------- origin from the product page (titles often omit it)
+
+def page_origin(retailer, html):
+    """ISO codes of the origin printed on a product page: Carrefour 'Origin | New Zealand, France', Lulu 'Country of origin: India'."""
+    if retailer == "carrefour":
+        m = re.search(r">\s*Origin\s*</[^>]+>\s*(?:<[^>]+>\s*)*([^<]{2,80})<", html)
+    else:
+        m = re.search(r"Country of origin:\s*([A-Za-z][A-Za-z ,.'&-]{1,60}?)\s*(?:\\|\"|<|$)", html)
+    if not m:
+        return ""
+    isos = [origin_of(" " + part.strip() + " ") or origin_iso_en(part) for part in re.split(r",|/| and ", m.group(1))]
+    return ",".join(dict.fromkeys(i for i in isos if i))
+
+
+def enrich_origins(run_dir, rows, delay):
+    """Fill origin_seen for these catalog rows from their product pages (cached in origins.json)."""
+    cache_path = run_dir / "origins.json"
+    cache = json.load(open(cache_path)) if cache_path.exists() else {}
+    todo = [r for r in rows if r["url"] not in cache]
+    if todo:
+        from scrapling.fetchers import FetcherSession
+        with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
+            for n, r in enumerate(todo, 1):
+                try:
+                    p = s.get(r["url"])
+                    html = p.body.decode("utf-8", "ignore") if isinstance(p.body, bytes) else str(p.body)
+                    cache[r["url"]] = page_origin(r["retailer"], html) if p.status == 200 else ""
+                except Exception:
+                    cache[r["url"]] = ""
+                print(f"origin {n}/{len(todo)}: {r['title'][:50]} -> {cache[r['url']] or '?'}", flush=True)
+                time.sleep(delay + random.random())
+        json.dump(cache, open(cache_path, "w"), indent=0)
+    for r in rows:
+        r["origin_seen"] = r["origin_seen"] or cache.get(r["url"], "")
+
+
 # ---------------------------------------------------------------- match
 
 def words(text):
@@ -142,9 +178,9 @@ def phrase_ok(tw, phrase):
     alts = [a for a in re.split(r"\s*/\s*", phrase) if a.strip()]
     for a in alts:
         core = [w for w in words(a) if w not in STOP]
-        if core and all(has_word(tw, w) for w in core):
+        if not core or all(has_word(tw, w) for w in core):   # 'fresh/chilled': 'fresh' is never required
             return True
-    return not any(w not in STOP for a in alts for w in words(a))   # a phrase of stop words only (e.g. 'fresh')
+    return False
 
 
 def basket_basis(item, spec):
@@ -158,14 +194,14 @@ def basket_basis(item, spec):
     return "pc"
 
 
-def match(run_dir, catalog=None):
+def match(run_dir, catalog=None, delay=1.5):
     if catalog is None:
         catalog = list(csv.DictReader(open(run_dir / "catalog.csv", encoding="utf-8-sig")))
     specs = {x["c"]: x for x in json.load(open(SPECS, encoding="utf-8"))}
     basket = json.load(open(ROOT / "data/basket/basket.json", encoding="utf-8"))
     groups = {g for row in catalog for g in str(row["group"]).split(",")}
     items = [i for i in basket if i["match_mode"] == "spec" and i["group_code"] in groups]
-    out = []
+    plan = []
     for it in items:
         spec = specs.get(it["item_code"], {})
         want = basket_basis(it, spec)
@@ -189,9 +225,13 @@ def match(run_dir, catalog=None):
                 if row["price_basis"] != want or not row["unit_price"]:
                     continue
                 cands.append(row)
-            same = [c for c in cands if c["origin_seen"] == it["origin_iso"]]
+            plan.append((it, spec, want, retailer, cands))
+    enrich_origins(run_dir, list({id(c): c for *_, cands in plan for c in cands if not c["origin_seen"]}.values()), delay)
+    out = []
+    for it, spec, want, retailer, cands in plan:
+            same = [c for c in cands if it["origin_iso"] in c["origin_seen"].split(",")]
             unknown = [c for c in cands if not c["origin_seen"]]
-            other = [c for c in cands if c["origin_seen"] and c["origin_seen"] != it["origin_iso"]]
+            other = [c for c in cands if c["origin_seen"] and it["origin_iso"] not in c["origin_seen"].split(",")]
             pick, status = None, "no_match"
             if same:
                 per = sorted(float(c["unit_price"]) for c in same)
@@ -210,7 +250,7 @@ def match(run_dir, catalog=None):
                             regular_price=pick["regular_price"] if pick else "",
                             unit_price=pick["unit_price"] if pick else "", price_basis=want,
                             origin_seen=pick["origin_seen"] if pick else "", n_candidates=len(cands),
-                            other_candidates=" | ".join(f"{c['title']} ({c['unit_price']}/{c['price_basis']})" for c in alts if c is not pick)[:400],
+                            other_candidates=" | ".join(f"{c['title']} [{c['origin_seen'] or '?'}] ({c['unit_price']}/{c['price_basis']})" for c in alts if c is not pick)[:400],
                             url=pick["url"] if pick else ""))
     with open(run_dir / "category_matches.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]))
@@ -242,7 +282,7 @@ def main():
         started = datetime.now(timezone.utc).isoformat(timespec="seconds")
         crawl(run_dir, a.delay)
         (run_dir / "started.txt").write_text(started + "\n")
-    match(run_dir)
+    match(run_dir, delay=a.delay)
 
 
 if __name__ == "__main__":

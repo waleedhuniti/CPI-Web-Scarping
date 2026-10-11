@@ -23,7 +23,7 @@ def rows():
     for f in sorted(ROOT.glob("data/runs/*/*_matched.csv")):
         run = f.parent.name
         m = re.match(r"(\d{4}-\d{2}-\d{2})", run)
-        if not m or f.stem.count("_") != 1:          # carrefour_matched.csv / lulu_matched.csv only (not *_name_matched)
+        if not m or "test" in run or f.stem.count("_") != 1:   # carrefour/lulu_matched.csv of real runs only
             continue
         retailer = f.stem.split("_")[0]
         for r in csv.DictReader(open(f, encoding="utf-8-sig")):

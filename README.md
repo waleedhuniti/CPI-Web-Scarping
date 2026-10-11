@@ -64,7 +64,11 @@ python scripts/scrapling_search.py lulu data/runs/<date>_scrapling --limit 10   
 Plain HTTP with Chrome's TLS fingerprint is enough for both search pages (no browser, no proxy). Test of 10 barcodes on
 2026-10-11 (`data/runs/2026-10-11_scrapling_test/`): 19 of 20 results equal to the Apify run of 2026-10-05; the one
 difference is a Lulu price that changed (Sinnara rice 5 kg, 38.90 -> 43.95). One request at a time, 1.5-2.5 s apart:
-the 384 barcodes take about 12-15 minutes per retailer.
+the 384 barcodes take about 45 minutes per retailer (both run at once).
+
+Full run 2026-10-11 (`data/runs/2026-10-11_scrapling/`): every page read, none failed. Carrefour **186** of 384
+barcode lines accepted (Apify 2026-10-05: 173), Lulu **110** (Apify: 110). `python scripts/export_for_dataiku.py`
+writes all runs as one table, `data/exports/cpi_prices_long.csv` (see `docs/dataiku.md`).
 
 ## Layout
 

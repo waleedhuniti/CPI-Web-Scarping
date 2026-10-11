@@ -1,0 +1,15 @@
+{
+  "notes": "Category listings crawled in bulk for basket lines WITHOUT a barcode (match_mode 'spec'). Barcoded lines keep the barcode search. group = COICOP group the category feeds.",
+  "carrefour": [
+    {"group": "0112", "name": "Meat & Poultry", "url": "https://www.carrefouruae.com/mafuae/en/c/F1670000?currentPage={page0}"},
+    {"group": "0113", "name": "Fish & Seafood", "url": "https://www.carrefouruae.com/mafuae/en/c/F1640000?currentPage={page0}"},
+    {"group": "0116", "name": "Fruits", "url": "https://www.carrefouruae.com/mafuae/en/c/F11660100?currentPage={page0}"},
+    {"group": "0117", "name": "Vegetables", "url": "https://www.carrefouruae.com/mafuae/en/c/F11660500?currentPage={page0}"},
+    {"group": "0117", "name": "Herbs", "url": "https://www.carrefouruae.com/mafuae/en/c/F11660200?currentPage={page0}"}
+  ],
+  "lulu": [
+    {"group": "0112", "name": "Fresh Meat & Poultry", "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-meat-poultry/?page={page1}"},
+    {"group": "0113", "name": "Fresh Fish & Seafood", "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-fish-seafoods/?page={page1}"},
+    {"group": "0116,0117", "name": "Fruits & Vegetables", "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fruits-vegetables/?page={page1}"}
+  ]
+}

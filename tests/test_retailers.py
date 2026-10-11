@@ -250,7 +250,7 @@ def test_scrapling_card_parsers():
     assert rows == [dict(searched_barcode="8901144311002", product_id="79241", title="Tilda Pure Basmati Rice, 1kg",
                          price=17.79, regular_price=17.79, in_stock=None,
                          url="https://www.carrefouruae.com/mafuae/en/rice/tilda-basmati-rice-1kg/p/79241",
-                         unit_price=0.0, size_text="1kg")]
+                         unit_price=0.0, unit_basis="", size_text="1kg")]
     lu = Selector('<div><a href="/en-ae/sinnara-rice-5-kg/p/123-ch1/?">Sinnara Rice 5 kg</a>'
                   '<span data-testid="product-price">38.90 </span><span class="line-through">43.95</span></div>')
     rows = ss.parse_lulu(lu, "6294000201053")

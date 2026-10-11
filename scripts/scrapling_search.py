@@ -65,7 +65,8 @@ def parse_carrefour(page, code):
         for lst in carrefour.parse_search_markdown(f"[{title}]({url}){rest}", code):
             rows.append(dict(searched_barcode=code, product_id=lst.extra["product_id"], title=lst.title, price=lst.price,
                              regular_price=lst.regular_price, in_stock=None, url=lst.url,
-                             unit_price=lst.extra["unit_price"], size_text=lst.extra["size_text"]))
+                             unit_price=lst.extra["unit_price"], unit_basis=lst.extra["unit_basis"],
+                             size_text=lst.extra["size_text"]))
     return list({r["product_id"]: r for r in rows}.values())
 
 

@@ -1,0 +1,249 @@
+"""Bulk category crawl for basket lines WITHOUT a barcode (meat, fish, fruit, vegetables), then spec matching.
+
+    python scripts/scrapling_category.py data/runs/<date>_category            # crawl + match
+    python scripts/scrapling_category.py data/runs/<date>_category --match    # match again from the saved catalog
+
+Barcoded basket lines are not touched here: they keep the barcode search (scripts/scrapling_search.py).
+
+1. Crawl: every page of each category in config/categories.json (Carrefour `currentPage=0,1,..`, Lulu `page=1,2,..`)
+   until a page brings no new product. One request at a time, --delay seconds apart.
+   -> <run_dir>/catalog.csv: retailer, group, category, title, price, regular_price, size, price_per_kg / per unit,
+      origin seen in the title, url.
+2. Match each 'spec' basket line of those groups against its retailer's catalog with the English spec written for it
+   (data/runs/2026-10-05/name_queries.json: must_have / must_not words) and the rules of docs/name_matching_rules.md:
+   same product words, none of the excluded words, no organic / marinated / frozen unless the basket says so, a price
+   that converts to the basket unit (per kg, or per piece / bunch), and the basket origin.
+   -> <run_dir>/category_matches.csv, one row per basket line x retailer:
+      match             one listing (or several within 15% per kg) of the basket origin - accepted
+      review_multiple   several listings of the basket origin with prices that differ by more than 15%
+      review_origin     the product is there but the title names no origin
+      substitute_origin the product is there only from another origin (office rule: +/-30% of last month's price)
+      no_match          nothing fits
+"""
+import argparse
+import csv
+import json
+import random
+import re
+import statistics
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from cpi.origin import origin_iso_en  # noqa: E402
+from cpi.quantity import find_quantity  # noqa: E402
+import scrapling_search as ss  # noqa: E402
+
+CONFIG = ROOT / "config/categories.json"
+SPECS = ROOT / "data/runs/2026-10-05/name_queries.json"
+DEMONYMS = {"indian": "IN", "pakistani": "PK", "australian": "AU", "brazilian": "BR", "kenyan": "KE", "ethiopian": "ET",
+            "saudi": "SA", "omani": "OM", "egyptian": "EG", "jordanian": "JO", "lebanese": "LB", "turkish": "TR",
+            "iranian": "IR", "chinese": "CN", "american": "US", "dutch": "NL", "spanish": "ES", "italian": "IT",
+            "south african": "ZA", "new zealand": "NZ", "norwegian": "NO", "scottish": "GB", "local": "AE", "uae": "AE",
+            "emirati": "AE", "yemeni": "YE", "sudanese": "SD", "somali": "SO", "moroccan": "MA", "filipino": "PH",
+            "thai": "TH", "vietnamese": "VN", "sri lankan": "LK", "bangladeshi": "BD", "french": "FR", "chilean": "CL"}
+STOP = {"fresh", "loose", "deli", "counter", "per", "kg", "imported", "the", "and", "or", "of", "with", "a"}
+NOT_FRESH = ["organic", "marinated", "ready to cook", "seasoned", "cooked", "smoked", "frozen", "juice", "dried",
+             "canned", "puree", "pickled", "stuffed", "nuggets", "burger", "sausage", "kebab", "kofta"]
+
+
+# ---------------------------------------------------------------- crawl
+
+def origin_of(title):
+    t = " " + re.sub(r"[^a-z ]", " ", title.lower()) + " "
+    for k, iso in sorted(DEMONYMS.items(), key=lambda kv: -len(kv[0])):
+        if f" {k} " in t:
+            return iso
+    return origin_iso_en(title)
+
+
+def price_basis(row):
+    """(per-unit price, basis): basis 'kg' / 'l' / 'pc' / 'bunch'; per kg from the card's unit price or the pack size."""
+    title, price = row["title"], row["price"]
+    if row.get("unit_basis", "").lower().startswith("kil") and row.get("unit_price"):
+        return round(row["unit_price"], 2), "kg"
+    t = title.lower()
+    if re.search(r"\bbunch\b", t):
+        return price, "bunch"
+    if re.search(r"\bper\s*kg\b|\b1\s*kg\b", t) and not re.search(r"\d+\s*x", t):
+        q = find_quantity(title)
+        if not q.unit:
+            return price, "kg"
+    q = find_quantity((row.get("size_text") or "") + " " + title)
+    if q.unit == "g" and q.total:
+        return round(price / (q.total / 1000), 2), "kg"
+    if q.unit == "ml" and q.total:
+        return round(price / (q.total / 1000), 2), "l"
+    if q.unit == "pc" and q.total:
+        return round(price / q.total, 2), "pc"
+    if re.search(r"\b(pc|pcs|piece|each|per piece)\b", t):
+        return price, "pc"
+    return None, ""
+
+
+def crawl(run_dir, delay):
+    from scrapling.fetchers import FetcherSession
+    cfg = json.load(open(CONFIG))
+    out, log = [], []
+    with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
+        for retailer in ("carrefour", "lulu"):
+            parse = ss.parse_carrefour if retailer == "carrefour" else ss.parse_lulu
+            for cat in cfg[retailer]:
+                seen, pages = {}, 0
+                for n in range(60):
+                    url = cat["url"].format(page0=n, page1=n + 1)
+                    try:
+                        page = s.get(url)
+                        rows = parse(page, cat["name"]) if page.status == 200 else []
+                    except Exception as e:
+                        log.append(f"{retailer} {cat['name']} page {n}: FAILED {str(e)[:100]}")
+                        print(log[-1]); rows = []
+                    new = [r for r in rows if r["url"] not in seen]
+                    for r in new:
+                        seen[r["url"]] = r
+                    pages += 1
+                    print(f"{retailer} | {cat['name']} | page {n + 1}: {len(rows)} cards, {len(new)} new", flush=True)
+                    time.sleep(delay + random.random())
+                    if not new:
+                        break
+                log.append(f"{retailer} | {cat['name']}: {len(seen)} products from {pages} pages")
+                for r in seen.values():
+                    per, basis = price_basis(r)
+                    out.append(dict(retailer=retailer, group=cat["group"], category=cat["name"], title=r["title"],
+                                    price=r["price"], regular_price=r["regular_price"],
+                                    size=r.get("size_text", ""), unit_price=per if per is not None else "",
+                                    price_basis=basis, origin_seen=origin_of(r["title"]), url=r["url"]))
+    with open(run_dir / "catalog.csv", "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=list(out[0]))
+        w.writeheader()
+        w.writerows(out)
+    (run_dir / "crawl_log.txt").write_text("\n".join(log) + "\n", encoding="utf-8")
+    print("\n".join(log))
+    return out
+
+
+# ---------------------------------------------------------------- match
+
+def words(text):
+    return re.findall(r"[a-z]+", text.lower())
+
+
+def has_word(tw, w):
+    return any(x == w or (len(w) >= 4 and (x.startswith(w) or w.startswith(x) and len(x) >= 4)) for x in tw)
+
+
+def phrase_ok(tw, phrase):
+    """A must_have phrase ('kingfish/kanad', 'whole chicken') holds when one of its alternatives has all its words."""
+    alts = [a for a in re.split(r"\s*/\s*", phrase) if a.strip()]
+    for a in alts:
+        core = [w for w in words(a) if w not in STOP]
+        if core and all(has_word(tw, w) for w in core):
+            return True
+    return not any(w not in STOP for a in alts for w in words(a))   # a phrase of stop words only (e.g. 'fresh')
+
+
+def basket_basis(item, spec):
+    size = (spec or {}).get("size", "").lower()
+    if "bunch" in size or "حزمة" in item["qty_raw"]:
+        return "bunch"
+    if item["qty_unit"] == "g" or "kg" in size:
+        return "kg"
+    if item["qty_unit"] == "ml":
+        return "l"
+    return "pc"
+
+
+def match(run_dir, catalog=None):
+    if catalog is None:
+        catalog = list(csv.DictReader(open(run_dir / "catalog.csv", encoding="utf-8-sig")))
+    specs = {x["c"]: x for x in json.load(open(SPECS, encoding="utf-8"))}
+    basket = json.load(open(ROOT / "data/basket/basket.json", encoding="utf-8"))
+    groups = {g for row in catalog for g in str(row["group"]).split(",")}
+    items = [i for i in basket if i["match_mode"] == "spec" and i["group_code"] in groups]
+    out = []
+    for it in items:
+        spec = specs.get(it["item_code"], {})
+        want = basket_basis(it, spec)
+        frozen_ok = "مجمد" in it["name_ar"] or "frozen" in (spec.get("query_en", "") + spec.get("product_en", "")).lower()
+        musts = [m for m in spec.get("must_have", []) if not re.search(r"\d", m)]
+        nots = spec.get("must_not", [])
+        for retailer in ("carrefour", "lulu"):
+            cands = []
+            for row in catalog:
+                if row["retailer"] != retailer or it["group_code"] not in str(row["group"]).split(","):
+                    continue
+                t, tw = row["title"].lower(), words(row["title"])
+                if not musts and not all(has_word(tw, w) for w in words(spec.get("query_en", "")) if w not in STOP):
+                    continue
+                if musts and not all(phrase_ok(tw, m) for m in musts):
+                    continue
+                if any(phrase_ok(tw, n) and any(w not in STOP for w in words(n)) for n in nots):
+                    continue
+                if any(x in t for x in NOT_FRESH if not (x == "frozen" and frozen_ok)):
+                    continue
+                if row["price_basis"] != want or not row["unit_price"]:
+                    continue
+                cands.append(row)
+            same = [c for c in cands if c["origin_seen"] == it["origin_iso"]]
+            unknown = [c for c in cands if not c["origin_seen"]]
+            other = [c for c in cands if c["origin_seen"] and c["origin_seen"] != it["origin_iso"]]
+            pick, status = None, "no_match"
+            if same:
+                per = sorted(float(c["unit_price"]) for c in same)
+                med = statistics.median(per)
+                pick = min(same, key=lambda c: abs(float(c["unit_price"]) - med))
+                status = "match" if per[-1] <= per[0] * 1.15 else "review_multiple"
+            elif unknown:
+                pick, status = min(unknown, key=lambda c: float(c["unit_price"])), "review_origin"
+            elif other:
+                pick, status = min(other, key=lambda c: float(c["unit_price"])), "substitute_origin"
+            alts = sorted(cands, key=lambda c: float(c["unit_price"]))
+            out.append(dict(item_code=it["item_code"], group=it["group_code"], name_ar=it["name_ar"],
+                            basket_qty=it["qty_raw"], basket_origin=it["origin_iso"], spec_en=spec.get("product_en", ""),
+                            retailer=retailer, status=status, accepted="yes" if status == "match" else "no",
+                            title=pick["title"] if pick else "", price=pick["price"] if pick else "",
+                            regular_price=pick["regular_price"] if pick else "",
+                            unit_price=pick["unit_price"] if pick else "", price_basis=want,
+                            origin_seen=pick["origin_seen"] if pick else "", n_candidates=len(cands),
+                            other_candidates=" | ".join(f"{c['title']} ({c['unit_price']}/{c['price_basis']})" for c in alts if c is not pick)[:400],
+                            url=pick["url"] if pick else ""))
+    with open(run_dir / "category_matches.csv", "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=list(out[0]))
+        w.writeheader()
+        w.writerows(out)
+    for retailer in ("carrefour", "lulu"):
+        mine = [r for r in out if r["retailer"] == retailer]
+        counts = {}
+        for r in mine:
+            counts[r["status"]] = counts.get(r["status"], 0) + 1
+        print(f"{retailer}: {len(mine)} non-barcode basket lines | accepted {counts.get('match', 0)} | {counts}")
+        for g in sorted({r['group'] for r in mine}):
+            gm = [r for r in mine if r["group"] == g]
+            print(f"   {g}: {sum(r['status'] == 'match' for r in gm)}/{len(gm)} accepted, "
+                  f"{sum(r['status'] != 'no_match' for r in gm)} with a candidate")
+    print("written", run_dir / "category_matches.csv")
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("run_dir")
+    ap.add_argument("--match", action="store_true", help="only re-run matching on the saved catalog.csv")
+    ap.add_argument("--delay", type=float, default=1.5)
+    a = ap.parse_args()
+    run_dir = Path(a.run_dir)
+    run_dir.mkdir(parents=True, exist_ok=True)
+    if not a.match:
+        started = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        crawl(run_dir, a.delay)
+        (run_dir / "started.txt").write_text(started + "\n")
+    match(run_dir)
+
+
+if __name__ == "__main__":
+    main()

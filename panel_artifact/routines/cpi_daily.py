@@ -135,27 +135,107 @@ def parse(parser, items, batch, cfg):
     return rows, searched
 
 
-def finish():
-    proj, items = load(); runs = json.load(open(f"{W}/plan.json"))
-    rid = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M") + "-auto"; started = os.environ.get("STARTED") or datetime.now(timezone.utc).isoformat(timespec="seconds")
-    results, summary, log = [], {}, []
+# ---------------------------------------------------------------- Scrapling (no Apify): fetch each search page directly
+CARD = re.compile(r"\s*AED\s?(?P<price>\d[\d,]*\.\d{2})(?:\s+(?P<was>\d[\d,]*\.\d{2})(?=\s|$))?(?:\s*AED\s?(?P<unit>\d[\d,]*\.\d{2})\s*per\s*(?P<per>[A-Za-z]+))?")
+SEARCH = {"carrefour": "https://www.carrefouruae.com/mafuae/en/search?keyword={barcode}",
+          "lulu": "https://gcc.luluhypermarket.com/en-ae/list/?search_text={barcode}"}
+
+
+def _txt(el): return re.sub(r"\s+", " ", el.get_all_text(separator=" ")).strip()
+
+
+def _up(el, test, n=10):
+    for _ in range(n):
+        if el is None or test(el): return el
+        el = el.parent
+
+
+def cards_carrefour(page, code):
+    out = {}
+    for a in page.css('a[href*="/p/"]'):
+        title, href = a.get_all_text(strip=True), a.attrib.get("href", "")
+        m = re.search(r"/p/(\d+)", href)
+        card = _up(a, lambda c: "AED" in c.get_all_text()) if title and m else None
+        if card is None: continue
+        rest = _txt(card); rest = rest[rest.find(title) + len(title):] if title in rest else rest
+        c = CARD.match(rest)
+        if not c: continue
+        price, was = num(c["price"]), num(c["was"]) or 0
+        url = ("https://www.carrefouruae.com" + href if href.startswith("/") else href).split("?")[0]
+        out[m[1]] = dict(code=code, title=title, price=price, regular_price=was if was > price else price, url=url)
+    return list(out.values())
+
+
+def cards_lulu(page, code):
+    out = {}
+    for node in page.css('[data-testid="product-price"]'):
+        card = _up(node, lambda c: bool(c.css('a[href*="/p/"]')))
+        link = next((a for a in card.css('a[href*="/p/"]') if a.get_all_text(strip=True)), None) if card is not None else None
+        if link is None: continue
+        price = num(re.sub(r"[^\d.,]", "", _txt(node))) or 0
+        strike = card.css('[class*="line-through"]')
+        was = num(re.sub(r"[^\d.,]", "", _txt(strike[0]))) if strike else 0
+        href = link.attrib["href"]
+        url = ("https://gcc.luluhypermarket.com" + href if href.startswith("/") else href).split("?")[0]
+        out[url] = dict(code=code, title=link.get_all_text(strip=True), price=price, regular_price=was if was and was > price else price, url=url)
+    return list(out.values())
+
+
+def scrape(limit=0, delay=1.5):
+    import random, time
+    from scrapling.fetchers import FetcherSession
+    proj, items = load()
+    codes = list(dict.fromkeys(sform(i["barcode_raw"]) for i in items if valid(i.get("barcode_raw"))))
+    if limit: codes = codes[:limit]
     for key, a in proj["actors"].items():
-        mine = [r for r in runs if r["key"] == key]
-        if not mine: continue
+        if not a.get("enabled") or key not in SEARCH: continue
+        rows, searched, failed = [], [], []
+        with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
+            for n, code in enumerate(codes, 1):
+                try:
+                    p = s.get(SEARCH[key].format(barcode=code))
+                    html = p.body.decode("utf-8", "ignore") if isinstance(p.body, bytes) else str(p.body)
+                    ok = p.status == 200 and (("Carrefour" in (p.css("title::text").get() or "")) if key == "carrefour" else (len(html) > 100000 and "luluhypermarket" in html))
+                    if not ok: raise RuntimeError(f"HTTP {p.status}, {len(html)} bytes")
+                    rows += cards_carrefour(p, code) if key == "carrefour" else cards_lulu(p, code); searched.append(code)
+                except Exception as e:
+                    failed.append(code); print(f"{key} {code} FAILED {str(e)[:100]}", flush=True)
+                if n % 50 == 0: print(f"{key}: {n}/{len(codes)}", flush=True)
+                time.sleep(delay + random.random())
+        json.dump(dict(rows=rows, searched=searched, failed=failed), open(f"{W}/scr_{key}.json", "w"), ensure_ascii=False)
+        print(f"{key}: {len(searched)} pages read, {len(failed)} failed, {len(rows)} products", flush=True)
+
+
+def finish():
+    proj, items = load()
+    runs = json.load(open(f"{W}/plan.json")) if os.path.exists(f"{W}/plan.json") else []
+    rid = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M") + "-auto"; started = os.environ.get("STARTED") or datetime.now(timezone.utc).isoformat(timespec="seconds")
+    run_date = started[:10]
+    results, summary, log, all_ok = [], {}, [], True
+    for key, a in proj["actors"].items():
         label = a.get("label") or key; rows, searched, failed = [], set(), set()
-        for r in mine:
-            p = f"{W}/ds_{key}_{r['i']}.json"
-            if not os.path.exists(p): failed |= set(r["batch"]); continue
-            rr, s = parse(a.get("parser"), json.load(open(p, encoding="utf-8")), r["batch"], a); rows += rr; searched |= s
-        ok = sum(os.path.exists(f"{W}/ds_{key}_{r['i']}.json") for r in mine)
-        log.append(f"{label}: {ok} of {len(mine)} runs ok, {len(rows)} listings")
+        if os.path.exists(f"{W}/scr_{key}.json"):
+            d = json.load(open(f"{W}/scr_{key}.json", encoding="utf-8"))
+            rows, searched, failed = d["rows"], set(d["searched"]), set(d["failed"])
+            log.append(f"{label} (Scrapling): {len(searched)} pages read, {len(failed)} failed, {len(rows)} listings")
+            all_ok &= not failed
+        else:
+            mine = [r for r in runs if r["key"] == key]
+            if not mine: continue
+            for r in mine:
+                p = f"{W}/ds_{key}_{r['i']}.json"
+                if not os.path.exists(p): failed |= set(r["batch"]); continue
+                rr, s_ = parse(a.get("parser"), json.load(open(p, encoding="utf-8")), r["batch"], a); rows += rr; searched |= s_
+            ok = sum(os.path.exists(f"{W}/ds_{key}_{r['i']}.json") for r in mine)
+            log.append(f"{label} (Apify): {ok} of {len(mine)} runs ok, {len(rows)} listings")
+            all_ok &= ok == len(mine)
         by = {}
         for r in rows: by.setdefault(r["code"], {})[r["url"] or r["title"]] = r
         res = []
         for it in items:
             if not valid(it.get("barcode_raw")): continue
             code = sform(it["barcode_raw"])
-            base = dict(actor=label, item_code=it.get("item_code", ""), name=it.get("name_ar", ""), brand=it.get("brand_ar", ""), basket_qty=it.get("qty_raw", ""), barcode=code, title="", price="", regular_price="", url="", accepted="no")
+            base = dict(run_date=run_date, retailer=key, actor=label, currency="AED", item_code=it.get("item_code", ""), name=it.get("name_ar", ""), brand=it.get("brand_ar", ""), basket_qty=it.get("qty_raw", ""), barcode=code, title="", price="", regular_price="", url="", accepted="no")
             hits = list(by.get(code, {}).values())
             if not hits:
                 res.append(dict(base, status="error" if code in failed else "not_found" if code in searched else "not_searched")); continue
@@ -182,7 +262,7 @@ def finish():
     chunks.append(cur)
     for i, c in enumerate(chunks): json.dump({"rows": c, "i": i}, open(f"{W}/out/c{i:03d}.json", "w"), ensure_ascii=False)
     acc = sum(r["accepted"] == "yes" for r in results)
-    status = "done" if all(os.path.exists(f"{W}/ds_{r['key']}_{r['i']}.json") for r in runs) else "error"
+    status = "done" if all_ok else "error"
     json.dump(dict(startedAt=started, finishedAt=datetime.now(timezone.utc).isoformat(timespec="seconds"), status=status, summary=summary, chunks=len(chunks), count=len(results), accepted=acc, log=log + ["scheduled run"]), open(f"{W}/out/run.json", "w"), ensure_ascii=False)
     json.dump({"lastRun": {"at": started, "status": status, "accepted": acc}}, open(f"{W}/out/last.json", "w"))
     print("RUN_ID", rid, "chunks", len(chunks), "rows", len(results), "accepted", acc, "status", status)
@@ -194,3 +274,4 @@ if __name__ == "__main__":
     if cmd == "plan": plan()
     elif cmd == "ingest": ingest(*sys.argv[2:5])
     elif cmd == "finish": finish()
+    elif cmd == "scrape": scrape(int(sys.argv[2]) if len(sys.argv) > 2 else 0)

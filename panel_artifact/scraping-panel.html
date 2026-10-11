@@ -1,33 +1,40 @@
 <title>لوحة مشاريع السكراب</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: a project shelf on the home view; inside a project, one tab strip (run / basket / actors / results / settings) over a single working column. */
 :root {
-  --bg: #f3f5f4; --surface: #fbfcfb; --sunk: #e9eeec; --line: #d3dbd8;
-  --fg: #17211f; --muted: #5a6764; --accent: #0f6e66; --accent-fg: #f2fbf9;
-  --ok: #2b7a3f; --warn: #94650a; --bad: #b23a2c;
-  --sans: "IBM Plex Sans Arabic", Tahoma, "Segoe UI", sans-serif;
+  /* Digital Dubai palette (digitaldubai.ae): navy #1C2654, cyan #26ADE3, with turquoise, green, yellow, coral and purple accents */
+  --bg: #f3f6f9; --surface: #ffffff; --sunk: #e9eff4; --line: #c6d2db;
+  --fg: #1c2654; --muted: #4f5b7c; --accent: #1c2654; --accent-fg: #ffffff; --cyan: #1d8fc0;
+  --band: #1c2654; --band-fg: #ffffff; --band-muted: #b9c6e4;
+  --ok: #2f7d32; --warn: #9a6a00; --bad: #c2412a;
+  --dd-cyan: #26ade3; --dd-teal: #4cbfbc; --dd-green: #89c440; --dd-yellow: #f4cc1c; --dd-coral: #f15a3b; --dd-purple: #992d8f;
+  --sans: "Dubai", "Dubai W23", "Tajawal", Tahoma, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #111816; --surface: #18211f; --sunk: #0d1312; --line: #2b3835;
-  --fg: #e4ece9; --muted: #95a6a1; --accent: #4cc2b5; --accent-fg: #06201d;
-  --ok: #6fca86; --warn: #e2b04f; --bad: #ef8a7c; color-scheme: dark; } }
+  --bg: #10142c; --surface: #1a2148; --sunk: #0c1024; --line: #2e3866;
+  --fg: #eef2fa; --muted: #a9b4d6; --accent: #26ade3; --accent-fg: #0c1530; --cyan: #5cc4ec;
+  --band: #0c1024; --band-fg: #ffffff; --band-muted: #a9b4d6;
+  --ok: #8ccf6a; --warn: #f1c94a; --bad: #f58a76; color-scheme: dark; } }
 :root[data-theme="dark"] {
-  --bg: #111816; --surface: #18211f; --sunk: #0d1312; --line: #2b3835;
-  --fg: #e4ece9; --muted: #95a6a1; --accent: #4cc2b5; --accent-fg: #06201d;
-  --ok: #6fca86; --warn: #e2b04f; --bad: #ef8a7c; color-scheme: dark; }
+  --bg: #10142c; --surface: #1a2148; --sunk: #0c1024; --line: #2e3866;
+  --fg: #eef2fa; --muted: #a9b4d6; --accent: #26ade3; --accent-fg: #0c1530; --cyan: #5cc4ec;
+  --band: #0c1024; --band-fg: #ffffff; --band-muted: #a9b4d6;
+  --ok: #8ccf6a; --warn: #f1c94a; --bad: #f58a76; color-scheme: dark; }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--sans); padding-inline: 16px; padding-block: 0 48px; }
 .wrap { max-width: 1180px; margin-inline: auto; }
-header.top { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
-header.top h1 { font-size: 20px; margin: 0; font-weight: 700; text-wrap: balance; }
-.crumb { color: var(--muted); }
-.crumb button { all: unset; cursor: pointer; color: var(--accent); }
+header.top { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 16px 20px; margin: 0 -16px 22px; background: var(--band); color: var(--band-fg); position: relative; }
+header.top::after { content: ""; position: absolute; inset-inline: 0; bottom: -4px; height: 4px; background: linear-gradient(90deg, var(--dd-cyan) 0 17%, var(--dd-teal) 17% 34%, var(--dd-green) 34% 50%, var(--dd-yellow) 50% 67%, var(--dd-coral) 67% 84%, var(--dd-purple) 84%); }
+header.top h1 { font-size: 21px; margin: 0; font-weight: 700; text-wrap: balance; }
+header.top .brand { font-size: 12px; letter-spacing: .08em; color: var(--dd-cyan); font-weight: 700; text-transform: uppercase; }
+.crumb { color: var(--band-muted); }
+.crumb button { all: unset; cursor: pointer; color: var(--dd-cyan); }
 .crumb button:focus-visible { outline: 2px solid var(--accent); }
 .spacer { flex: 1; }
-.conn { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+.conn { font-size: 13px; color: var(--band-muted); display: flex; gap: 8px; align-items: center; }
 .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); display: inline-block; }
 .dot.ok { background: var(--ok); } .dot.bad { background: var(--bad); } .dot.warn { background: var(--warn); }
 h2 { font-size: 17px; margin: 0 0 12px; } h3 { font-size: 14px; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
@@ -43,7 +50,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 button:disabled { opacity: .5; cursor: default; }
 button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
 button.danger { color: var(--bad); border-color: var(--bad); background: transparent; }
-button.ghost { border-color: transparent; background: transparent; color: var(--accent); }
+button.ghost { border-color: transparent; background: transparent; color: var(--cyan); }
 button.big { font-size: 17px; padding: 11px 26px; }
 input, select, textarea { font: inherit; font-size: 14px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); color: var(--fg); width: 100%; min-width: 0; }
 input[type=checkbox] { width: auto; accent-color: var(--accent); }
@@ -55,24 +62,28 @@ label.f > span { font-weight: 500; }
 /* home */
 .shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 .proj { all: unset; box-sizing: border-box; cursor: pointer; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; align-content: start; min-height: 170px; }
-.proj:hover { border-color: var(--accent); }
+.proj:hover { border-color: var(--dd-cyan); }
+.proj { border-top: 4px solid var(--dd-cyan); }
+.proj:nth-child(2n) { border-top-color: var(--dd-teal); }
+.proj:nth-child(3n) { border-top-color: var(--dd-purple); }
+.proj.new { border-top-width: 1px; border-top-color: var(--line); }
 .proj:focus-visible { outline: 2px solid var(--accent); }
 .proj .name { font-size: 19px; font-weight: 700; }
 .proj .desc { color: var(--muted); font-size: 14px; }
 .proj .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-.proj.new { border-style: dashed; place-content: center; text-align: center; color: var(--accent); font-weight: 600; }
+.proj.new { border-style: dashed; place-content: center; text-align: center; color: var(--cyan); font-weight: 600; }
 .chip { font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
 .chip.ok { color: var(--ok); border-color: var(--ok); } .chip.warn { color: var(--warn); border-color: var(--warn); } .chip.bad { color: var(--bad); border-color: var(--bad); }
 
 /* tabs */
 nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
 nav.tabs button { border: none; background: none; border-radius: 0; padding: 9px 14px; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; }
-nav.tabs button[aria-selected=true] { color: var(--fg); border-bottom-color: var(--accent); font-weight: 600; }
+nav.tabs button[aria-selected=true] { color: var(--fg); border-bottom-color: var(--dd-cyan); font-weight: 600; }
 .picks { display: flex; flex-wrap: wrap; gap: 6px; }
 .picks label { display: flex; gap: 6px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; font-size: 14px; background: var(--bg); }
 .picks.scroll { max-height: 170px; overflow: auto; }
 .bar { height: 8px; background: var(--sunk); border-radius: 999px; overflow: hidden; }
-.bar > i { display: block; height: 100%; background: var(--accent); transition: width .4s; }
+.bar > i { display: block; height: 100%; background: var(--dd-cyan); transition: width .4s; }
 @media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
 pre.log { margin: 0; background: var(--sunk); border-radius: 8px; padding: 12px; max-height: 240px; overflow: auto; font: 12px/1.5 var(--mono); direction: ltr; text-align: left; white-space: pre-wrap; }
 .tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
@@ -81,7 +92,7 @@ th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: ri
 th { background: var(--sunk); color: var(--muted); font-weight: 600; font-size: 13px; position: sticky; top: 0; white-space: nowrap; }
 tr:last-child td { border-bottom: none; }
 td.num { font-variant-numeric: tabular-nums; direction: ltr; text-align: right; white-space: nowrap; }
-td a { color: var(--accent); }
+td a { color: var(--cyan); }
 .pager { display: flex; gap: 10px; align-items: center; justify-content: center; }
 .actor { border: 1px solid var(--line); border-radius: 9px; padding: 14px; display: grid; gap: 12px; background: var(--bg); }
 .empty { text-align: center; padding: 28px 12px; color: var(--muted); }
@@ -99,7 +110,7 @@ dialog::backdrop { background: rgb(0 0 0 / .45); }
 
 <div class="wrap">
   <header class="top">
-    <h1 id="title">مشاريع السكراب</h1>
+    <div style="display:grid;gap:2px"><span class="brand">Digital Dubai · Data</span><h1 id="title">مشاريع السكراب</h1></div>
     <span class="crumb" id="crumb" hidden><button id="go-home">← كل المشاريع</button></span>
     <span class="spacer"></span>
     <span class="conn" id="conn"><span class="dot" id="conn-dot"></span><span id="conn-text">جارٍ الاتصال…</span></span>
@@ -123,8 +134,14 @@ dialog::backdrop { background: rgb(0 0 0 / .45); }
     </nav>
 
     <div class="tab stack" id="tab-run">
-      <div class="panel">
-        <h2>تشغيل جديد</h2>
+      <div class="panel" id="quick" hidden>
+        <h2>سحب الأسعار الآن</h2>
+        <p class="muted" id="quick-note">يشغّل السحب على خوادم Claude باستخدام Scrapling (بدون رصيد Apify)، ويحفظ النتيجة في قاعدة البيانات. تظهر في تبويب «النتائج» عند انتهائه (حوالي 30 دقيقة لـ CPI).</p>
+        <div class="row"><button class="primary big" id="btn-quick">▶ شغّل السحب الآن</button></div>
+        <div id="quick-confirm"></div>
+      </div>
+      <div class="panel" id="apify-run">
+        <h2 id="apify-title">تشغيل جديد</h2>
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
           <div><h3>الـ Actors</h3><div class="picks" id="run-actors"></div></div>
           <div id="run-groups-box"><h3>المجموعات (بدون اختيار = الكل)</h3><div class="picks scroll" id="run-groups"></div></div>
@@ -179,7 +196,8 @@ dialog::backdrop { background: rgb(0 0 0 / .45); }
 
     <div class="tab stack" id="tab-results" hidden>
       <div class="panel">
-        <h2>التشغيلات</h2>
+        <div class="row"><h2 style="margin:0">التشغيلات</h2><span class="spacer"></span><button id="r-export-all">تنزيل كل البيانات (Dataiku)</button></div>
+        <p class="muted">ملف واحد بكل التشغيلات المحفوظة، صف لكل عنصر في كل تشغيل، بأعمدة ثابتة وتاريخ <code>run_date</code>، جاهز للاستيراد في Dataiku.</p>
         <div id="r-list"></div>
       </div>
       <div class="panel" id="r-view" hidden>
@@ -483,7 +501,7 @@ async function openProject(id) {
   try { location.hash = id.replace(/[^\w.~-]/g, ""); } catch (e) {}
   basket = []; renderBasket(); renderActors(); renderSettings(); renderRunPicks(); renderJob();
   try { basket = await loadBasket(id); } catch (e) { toast(dbErr(e), true); }
-  bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); loadRuns(); renderSchedule();
+  bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); loadRuns(); renderSchedule(); renderQuick();
 }
 $("#go-home").addEventListener("click", () => { if (basketDirty) return toast("احفظ تعديلات السلة أولاً", true); current = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} renderHome(); });
 
@@ -929,6 +947,45 @@ async function renderSchedule() {
     };
   };
 }
+
+
+// ------------------------------------------------------------ quick run through the project's routine (Scrapling, server side)
+function renderQuick() {
+  const p = P(); const on = p?.runner === "routine" && p?.schedule?.trigger_id;
+  $("#quick").hidden = !on;
+  $("#apify-title").textContent = on ? "تشغيل عبر Apify من المتصفح (يستهلك رصيد Apify)" : "تشغيل جديد";
+}
+$("#btn-quick").addEventListener("click", () => {
+  if (!mcp) return toast("التشغيل يحتاج فتح الصفحة داخل claude.ai", true);
+  $("#quick-confirm").innerHTML = `<div class="confirm"><span>بدء سحب كامل لمشروع «${esc(P().name)}» الآن؟</span><button class="primary" id="q-yes">ابدأ</button><button id="q-no">إلغاء</button></div>`;
+  $("#q-no").onclick = () => ($("#quick-confirm").innerHTML = "");
+  $("#q-yes").onclick = async () => {
+    $("#quick-confirm").innerHTML = "";
+    try { await ccr("fire_trigger", { trigger_id: P().schedule.trigger_id }); toast("بدأ السحب؛ النتيجة تظهر في تبويب النتائج عند انتهائه"); setTimeout(renderSchedule, 4000); }
+    catch (e) { toast(schedFail(e), true); }
+  };
+});
+
+// ------------------------------------------------------------ one long table of every saved run (for Dataiku)
+const LEAD = ["run_date", "run_id", "retailer", "actor", "item_code", "barcode", "name", "brand", "basket_qty", "category", "commodity", "unit",
+  "title", "price", "regular_price", "currency", "change", "pct", "weekly", "monthly", "ytd", "yoy", "price_date", "status", "accepted", "url"];
+$("#r-export-all").addEventListener("click", async () => {
+  const btn = $("#r-export-all"); btn.disabled = true; btn.textContent = "يُجمع…";
+  try {
+    const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...d.data() }));
+    const rows = [];
+    for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
+      const chunks = (await db.collection(`projects/${current}/runs/${r.id}/rows`).get()).docs.sort((a, b) => a.id.localeCompare(b.id));
+      for (const c of chunks) for (const x of c.data().rows || [])
+        rows.push({ ...x, run_id: r.id, run_date: x.run_date || String(r.startedAt || "").slice(0, 10) });
+    }
+    if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
+    const seen = new Set(rows.flatMap((x) => Object.keys(x)));
+    const cols = [...LEAD.filter((c) => seen.has(c)), ...[...seen].filter((c) => !LEAD.includes(c)).sort()];
+    await offerFile(`${P().name}-all-runs.csv`, toCsv(rows, cols));
+  } catch (e) { toast(dbErr(e), true); }
+  finally { btn.disabled = false; btn.textContent = "تنزيل كل البيانات (Dataiku)"; }
+});
 
 // ------------------------------------------------------------ boot
 function setConn(state, text) { $("#conn-dot").className = "dot " + state; $("#conn-text").textContent = text; }

@@ -1,18 +1,21 @@
 :root {
-  --bg: #f5f4ef; --card: #fdfcf9; --ink: #1d2433; --muted: #5b6474; --line: #dcd9cf;
-  --accent: #1f5f8b; --accent-ink: #f5f8fb; --ok: #2e7d4f; --bad: #b3412e; --warn: #9a6a00;
+  /* Digital Dubai palette: navy #1C2654, cyan #26ADE3 + turquoise, green, yellow, coral, purple */
+  --bg: #f3f6f9; --card: #ffffff; --ink: #1c2654; --muted: #4f5b7c; --line: #c6d2db;
+  --accent: #1c2654; --accent-ink: #ffffff; --cyan: #1d8fc0; --ok: #2f7d32; --bad: #c2412a; --warn: #9a6a00;
+  --band: #1c2654; --band-ink: #ffffff;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #14181f; --card: #1c222b; --ink: #e6e8ec; --muted: #9aa3b2; --line: #2f3742;
-          --accent: #5aa3d6; --accent-ink: #0d1520; --ok: #6cc28f; --bad: #e98270; --warn: #e0b54a; }
+  :root { --bg: #10142c; --card: #1a2148; --ink: #eef2fa; --muted: #a9b4d6; --line: #2e3866;
+          --accent: #26ade3; --accent-ink: #0c1530; --cyan: #5cc4ec; --ok: #8ccf6a; --bad: #f58a76; --warn: #f1c94a;
+          --band: #0c1024; --band-ink: #ffffff; }
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 "IBM Plex Sans Arabic", Tahoma, sans-serif; }
-header { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 24px; border-bottom: 1px solid var(--line); background: var(--card); position: sticky; top: 0; z-index: 2; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 "Dubai", "Dubai W23", "Tajawal", Tahoma, sans-serif; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 24px; background: var(--band); color: var(--band-ink); position: sticky; top: 0; z-index: 2; border-bottom: 4px solid transparent; border-image: linear-gradient(90deg, #26ade3 0 17%, #4cbfbc 17% 34%, #89c440 34% 50%, #f4cc1c 50% 67%, #f15a3b 67% 84%, #992d8f 84%) 1; }
 header h1 { font-size: 20px; margin: 0 0 0 auto; }
 nav { display: flex; flex-wrap: wrap; gap: 4px; }
-nav button { background: none; border: none; padding: 8px 14px; border-radius: 8px; color: var(--muted); }
-nav button.on { background: var(--accent); color: var(--accent-ink); }
+nav button { background: none; border: none; padding: 8px 14px; border-radius: 8px; color: #b9c6e4; }
+nav button.on { background: #26ade3; color: #0c1530; }
 main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
 .tab { display: none; } .tab.on { display: block; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 20px; }

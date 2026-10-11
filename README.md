@@ -50,6 +50,22 @@ python portal/app.py          # open http://127.0.0.1:5000
 
 The portal searches basket lines that carry a barcode; the name / fresh-produce search stays in `scripts/name_search.py`.
 
+## Scrapling (no Apify)
+
+`scripts/scrapling_search.py` runs the barcode search on Carrefour and Lulu with the free
+[Scrapling](https://scrapling.readthedocs.io) library instead of Apify actors, then the same matching (`match_run.py`).
+
+```bash
+pip install "scrapling[fetchers]"
+python scripts/scrapling_search.py carrefour data/runs/<date>_scrapling            # whole basket
+python scripts/scrapling_search.py lulu data/runs/<date>_scrapling --limit 10      # quick test
+```
+
+Plain HTTP with Chrome's TLS fingerprint is enough for both search pages (no browser, no proxy). Test of 10 barcodes on
+2026-10-11 (`data/runs/2026-10-11_scrapling_test/`): 19 of 20 results equal to the Apify run of 2026-10-05; the one
+difference is a Lulu price that changed (Sinnara rice 5 kg, 38.90 -> 43.95). One request at a time, 1.5-2.5 s apart:
+the 384 barcodes take about 12-15 minutes per retailer.
+
 ## Layout
 
 | Path | What |
@@ -67,6 +83,7 @@ The portal searches basket lines that carry a barcode; the name / fresh-produce 
 | `docs/retailers.md` | What works per retailer, pilot findings, what Spinneys and Nesto need |
 | `data/pilot/` | Live pilot results (10 basket barcodes at Carrefour and Lulu) |
 | `actors/lulu_search/` | Page function for Apify's web-scraper (bulk Lulu barcode search) - written, not yet run |
+| `scripts/scrapling_search.py` | Barcode search with Scrapling (no Apify) + matching |
 | `scripts/match_run.py`, `scripts/ingest_lulu.py` | Barcode results -> matched CSV per retailer |
 | `scripts/verify_pages.py` | Second-source check on the product page (price, stock, size, Lulu barcode, origin) |
 | `scripts/name_search.py` | Name + brand + size search: URLs, candidates, judge batches, apply, finalize, audit |

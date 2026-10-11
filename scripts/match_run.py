@@ -71,7 +71,7 @@ def main(retailer, raw_path, searched_path=None):
         w.writeheader()
         w.writerows(out)
     n = len(out)
-    found = sum(v for k, v in counts.items() if k != "not_found")
+    found = sum(v for k, v in counts.items() if k not in ("not_found", "not_searched"))
     accepted = sum(v for k, v in counts.items() if k in ACCEPTED)
     print(f"{retailer}: {n} barcoded basket lines | found at retailer {found} ({found / n:.0%}) | "
           f"accepted by barcode+size {accepted} ({accepted / n:.0%})")

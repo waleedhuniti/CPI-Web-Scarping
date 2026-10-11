@@ -1,0 +1,304 @@
+[2026-10-11 16:53:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=8901144311002> (referer: https://www.google.com/)
+[1/384] 8901144311002: 1 product(s) - Tilda Pure Basmati Rice, 1kg AED 17.79
+[2026-10-11 16:53:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=8908001361026> (referer: https://www.google.com/)
+[2/384] 8908001361026: 0 product(s)
+[2026-10-11 16:53:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=690225101172> (referer: https://www.google.com/)
+[3/384] 690225101172: 1 product(s) - India Gate Classic Basmati Rice 1kg AED 14.99
+[2026-10-11 16:53:24] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291100207497> (referer: https://www.google.com/)
+[4/384] 6291100207497: 0 product(s)
+[2026-10-11 16:53:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281100410072> (referer: https://www.google.com/)
+[5/384] 6281100410072: 0 product(s)
+[2026-10-11 16:53:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6271024152202> (referer: https://www.google.com/)
+[6/384] 6271024152202: 0 product(s)
+[2026-10-11 16:53:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=8901537071025> (referer: https://www.google.com/)
+[7/384] 8901537071025: 1 product(s) - Daawat Extra Long Grain White Indian Basmati Rice, 5kg AED 70.99
+[2026-10-11 16:53:42] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6294000201053> (referer: https://www.google.com/)
+[8/384] 6294000201053: 0 product(s)
+[2026-10-11 16:53:47] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=633152002143> (referer: https://www.google.com/)
+[9/384] 633152002143: 1 product(s) - Mehran Gold Basmati Rice, 5kg AED 62.79
+[2026-10-11 16:53:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291034177729> (referer: https://www.google.com/)
+[10/384] 6291034177729: 0 product(s)
+[2026-10-11 16:53:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=9310140010533> (referer: https://www.google.com/)
+[11/384] 9310140010533: 0 product(s)
+[2026-10-11 16:53:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291058501036> (referer: https://www.google.com/)
+[12/384] 6291058501036: 0 product(s)
+[2026-10-11 16:54:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=2014224001659> (referer: https://www.google.com/)
+[13/384] 2014224001659: 1 product(s) - Pharoes Egyptian Rice, 2kg AED 12.79
+[2026-10-11 16:54:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=0682858101803> (referer: https://www.google.com/)
+[14/384] 0682858101803: 0 product(s)
+[2026-10-11 16:54:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=3434410049842> (referer: https://www.google.com/)
+[15/384] 3434410049842: 1 product(s) - Bayara Hab Harees, 1kg AED 9.19
+[2026-10-11 16:54:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=717273502482> (referer: https://www.google.com/)
+[16/384] 717273502482: 1 product(s) - American Garden Hot 'N' Spicy Bread Crumbs, 425g AED 13.29
+[2026-10-11 16:54:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281033317011> (referer: https://www.google.com/)
+[17/384] 6281033317011: 1 product(s) - Americana Quality Back Seed & Fennel Rusks, 375g AED 8.19
+[2026-10-11 16:54:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=014796402191> (referer: https://www.google.com/)
+[18/384] 014796402191: 0 product(s)
+[2026-10-11 16:54:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6419950082013> (referer: https://www.google.com/)
+[19/384] 6419950082013: 1 product(s) - Crown Semolina (Suji), 500g AED 5.99
+[2026-10-11 16:54:24] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291003058257> (referer: https://www.google.com/)
+[20/384] 6291003058257: 1 product(s) - Al Baker Roasted Semolina Rava, 1kg AED 6.69
+[2026-10-11 16:54:28] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6290410140098> (referer: https://www.google.com/)
+[21/384] 6290410140098: 0 product(s)
+[2026-10-11 16:54:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=9556183910014> (referer: https://www.google.com/)
+[22/384] 9556183910014: 0 product(s)
+[2026-10-11 16:54:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=617950115021> (referer: https://www.google.com/)
+[23/384] 617950115021: 0 product(s)
+[2026-10-11 16:54:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5000108022824> (referer: https://www.google.com/)
+[24/384] 5000108022824: 1 product(s) - Quaker Quick Cooking White Oats 500g AED 8.19
+[2026-10-11 16:54:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291104691261> (referer: https://www.google.com/)
+[25/384] 6291104691261: 0 product(s)
+[2026-10-11 16:54:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=2961570551379> (referer: https://www.google.com/)
+[26/384] 2961570551379: 1 product(s) - Bayara Fine Burghol, 400g AED 5.19
+[2026-10-11 16:54:47] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=0000000673747> (referer: https://www.google.com/)
+[27/384] 0000000673747: 0 product(s)
+[2026-10-11 16:54:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291003058134> (referer: https://www.google.com/)
+[28/384] 6291003058134: 0 product(s)
+[2026-10-11 16:54:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291003058288> (referer: https://www.google.com/)
+[29/384] 6291003058288: 0 product(s)
+[2026-10-11 16:54:58] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291001802036> (referer: https://www.google.com/)
+[30/384] 6291001802036: 0 product(s)
+[2026-10-11 16:55:02] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291001802135> (referer: https://www.google.com/)
+[31/384] 6291001802135: 0 product(s)
+[2026-10-11 16:55:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6271003014019> (referer: https://www.google.com/)
+[32/384] 6271003014019: 0 product(s)
+[2026-10-11 16:55:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6271003014026> (referer: https://www.google.com/)
+[33/384] 6271003014026: 1 product(s) - Kuwait Flour Mills & Bakeries Co. All Purpose Patent Flour, 5kg AED 41.29
+[2026-10-11 16:55:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=014796202135> (referer: https://www.google.com/)
+[34/384] 014796202135: 0 product(s)
+[2026-10-11 16:55:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5352101708640> (referer: https://www.google.com/)
+[35/384] 5352101708640: 1 product(s) - Foster Clark's Corn Flour, 400g AED 9.19
+[2026-10-11 16:55:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=1110000120123> (referer: https://www.google.com/)
+[36/384] 1110000120123: 0 product(s)
+[2026-10-11 16:55:20] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291100800018> (referer: https://www.google.com/)
+[37/384] 6291100800018: 1 product(s) - Al Arz Automatic Bakery Arabic Large Bread, 540g AED 3.49
+[2026-10-11 16:55:24] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=1110000120000> (referer: https://www.google.com/)
+[38/384] 1110000120000: 0 product(s)
+[2026-10-11 16:55:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291100800049> (referer: https://www.google.com/)
+[39/384] 6291100800049: 1 product(s) - Al Arz Automatic Bakery Arabic Medium Brown Bread, 200g AED 1.89
+[2026-10-11 16:55:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=1110000130191> (referer: https://www.google.com/)
+[40/384] 1110000130191: 1 product(s) - Modern Bakery Sandwich Bread White Medium, 500g AED 5.49
+[2026-10-11 16:55:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291106450002> (referer: https://www.google.com/)
+[41/384] 6291106450002: 0 product(s)
+[2026-10-11 16:55:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281007036849> (referer: https://www.google.com/)
+[42/384] 6281007036849: 1 product(s) - l’usine Sliced Milk Bread, 600g AED 7.39
+[2026-10-11 16:55:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6295134131001> (referer: https://www.google.com/)
+[43/384] 6295134131001: 1 product(s) - Royal Bakers Sliced Bread White, Large, 600g AED 4.89
+[2026-10-11 16:55:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291106450019> (referer: https://www.google.com/)
+[44/384] 6291106450019: 0 product(s)
+[2026-10-11 16:55:47] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=1110000140442> (referer: https://www.google.com/)
+[45/384] 1110000140442: 1 product(s) - Modern Bakery Sandwich Roll Sesame, 330g AED 2.89
+[2026-10-11 16:55:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281007042857> (referer: https://www.google.com/)
+[46/384] 6281007042857: 1 product(s) - l'usine Brown Sandwich Rolls, 200g AED 2.99
+[2026-10-11 16:55:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291100800094> (referer: https://www.google.com/)
+[47/384] 6291100800094: 1 product(s) - Al Arz Automatic Bakery Arabic Samoon, 325g AED 1.69
+[2026-10-11 16:55:55] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281007044080> (referer: https://www.google.com/)
+[48/384] 6281007044080: 1 product(s) - L'usine Vanilla Cupcake, 30g Pack of 18 AED 15.99
+[2026-10-11 16:55:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7622300661106> (referer: https://www.google.com/)
+[49/384] 7622300661106: 0 product(s)
+[2026-10-11 16:56:02] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291003000010> (referer: https://www.google.com/)
+[50/384] 6291003000010: 1 product(s) - Tiffany Glucose Milk and Honey Biscuits, 40g AED 0.79
+[2026-10-11 16:56:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=8690504011101> (referer: https://www.google.com/)
+[51/384] 8690504011101: 1 product(s) - Ulker Petit Beurre Biscuits with Fresh Milk, 175g AED 4.89
+[2026-10-11 16:56:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291003000119> (referer: https://www.google.com/)
+[52/384] 6291003000119: 1 product(s) - Tiffany Marie Biscuits, 200g AED 2.89
+[2026-10-11 16:56:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7622210642301> (referer: https://www.google.com/)
+[53/384] 7622210642301: 0 product(s)
+[2026-10-11 16:56:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=1110000870011> (referer: https://www.google.com/)
+[54/384] 1110000870011: 0 product(s)
+[2026-10-11 16:56:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291062101444> (referer: https://www.google.com/)
+[55/384] 6291062101444: 0 product(s)
+[2026-10-11 16:56:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291062101369> (referer: https://www.google.com/)
+[56/384] 6291062101369: 1 product(s) - Golden Loaf Soup Sticks, 250g AED 4.39
+[2026-10-11 16:56:24] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281183000023> (referer: https://www.google.com/)
+[57/384] 6281183000023: 1 product(s) - 7 Days Croissant With Chocolate Filling, 55g AED 1.89
+[2026-10-11 16:56:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281100084013> (referer: https://www.google.com/)
+[58/384] 6281100084013: 0 product(s)
+[2026-10-11 16:56:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7613031370641> (referer: https://www.google.com/)
+[59/384] 7613031370641: 1 product(s) - Nestle Lion Caramel and Chocolate Breakfast Cereal, 400g AED 25.79
+[2026-10-11 16:56:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5053827185806> (referer: https://www.google.com/)
+[60/384] 5053827185806: 1 product(s) - Kellogg's The Original Corn Flakes, 375g AED 16.99
+[2026-10-11 16:56:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5010029000023> (referer: https://www.google.com/)
+[61/384] 5010029000023: 1 product(s) - Weetabix Cereal Biscuit, 430g AED 20.79
+[2026-10-11 16:56:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=4003994150245> (referer: https://www.google.com/)
+[62/384] 4003994150245: 0 product(s)
+[2026-10-11 16:56:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=617950300557> (referer: https://www.google.com/)
+[63/384] 617950300557: 0 product(s)
+[2026-10-11 16:56:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291013000024> (referer: https://www.google.com/)
+[64/384] 6291013000024: 0 product(s)
+[2026-10-11 16:56:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=3038351161306> (referer: https://www.google.com/)
+[65/384] 3038351161306: 1 product(s) - Panzani Macaroni Vermicelli, 500g AED 11.49
+[2026-10-11 16:56:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=617950300014> (referer: https://www.google.com/)
+[66/384] 617950300014: 0 product(s)
+[2026-10-11 16:56:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291013400091> (referer: https://www.google.com/)
+[67/384] 6291013400091: 0 product(s)
+[2026-10-11 16:56:57] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=617950300236> (referer: https://www.google.com/)
+[68/384] 617950300236: 0 product(s)
+[2026-10-11 16:57:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291013000109> (referer: https://www.google.com/)
+[69/384] 6291013000109: 0 product(s)
+[2026-10-11 16:57:04] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281073110146> (referer: https://www.google.com/)
+[70/384] 6281073110146: 1 product(s) - Sunbulah Low Fat Puff Pastry Sheets 400g AED 13.79
+[2026-10-11 16:57:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=9501100600967> (referer: https://www.google.com/)
+[71/384] 9501100600967: 0 product(s)
+[2026-10-11 16:57:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=732542000254> (referer: https://www.google.com/)
+[72/384] 732542000254: 0 product(s)
+[2026-10-11 16:57:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281073110467> (referer: https://www.google.com/)
+[73/384] 6281073110467: 1 product(s) - Sunbulah Frozen Konafah Dough, 500g AED 12.29
+[2026-10-11 16:57:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281073110504> (referer: https://www.google.com/)
+[74/384] 6281073110504: 1 product(s) - Sunbulah Frozen Baklawa Pastry (Filo), 500g AED 10.79
+[2026-10-11 16:57:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712160057> (referer: https://www.google.com/)
+[75/384] 5033712160057: 1 product(s) - Al Kabeer Chicken Samosas, 240g AED 12.99
+[2026-10-11 16:57:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281123031025> (referer: https://www.google.com/)
+[76/384] 6281123031025: 1 product(s) - Switz Sambosa Sheets, 500g AED 7.29
+[2026-10-11 16:57:28] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281073110429> (referer: https://www.google.com/)
+[77/384] 6281073110429: 0 product(s)
+[2026-10-11 16:57:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=617950200529> (referer: https://www.google.com/)
+[78/384] 617950200529: 1 product(s) - Al Alali Custard Powder, 400g AED 9.79
+[2026-10-11 16:57:35] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5352101542893> (referer: https://www.google.com/)
+[79/384] 5352101542893: 1 product(s) - Foster Clark's Custard Powder, 450g AED 8.99
+[2026-10-11 16:57:38] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291104690462> (referer: https://www.google.com/)
+[80/384] 6291104690462: 0 product(s)
+[2026-10-11 16:57:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=617950701460> (referer: https://www.google.com/)
+[81/384] 617950701460: 0 product(s)
+[2026-10-11 16:57:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=028190063070> (referer: https://www.google.com/)
+[82/384] 028190063070: 0 product(s)
+[2026-10-11 16:57:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=017273550309> (referer: https://www.google.com/)
+[83/384] 017273550309: 0 product(s)
+[2026-10-11 16:57:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291107610023> (referer: https://www.google.com/)
+[84/384] 6291107610023: 1 product(s) - Bayara Popcorn, 1kg AED 11.79
+[2026-10-11 16:57:55] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=0682858101919> (referer: https://www.google.com/)
+[85/384] 0682858101919: 0 product(s)
+[2026-10-11 16:57:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712115019> (referer: https://www.google.com/)
+[86/384] 5033712115019: 0 product(s)
+[2026-10-11 16:58:02] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291038010008> (referer: https://www.google.com/)
+[87/384] 6291038010008: 1 product(s) - Al Rawdah Fresh Whole Chicken 1kg AED 21.99
+[2026-10-11 16:58:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281007028561> (referer: https://www.google.com/)
+[88/384] 6281007028561: 0 product(s)
+[2026-10-11 16:58:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291038002034> (referer: https://www.google.com/)
+[89/384] 6291038002034: 1 product(s) - Al Rawdah Fresh Boneless Skinless Chicken Breast 500g AED 28.99
+[2026-10-11 16:58:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6297000102283> (referer: https://www.google.com/)
+[90/384] 6297000102283: 0 product(s)
+[2026-10-11 16:58:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291038002010> (referer: https://www.google.com/)
+[91/384] 6291038002010: 1 product(s) - Al Rawdah Chicken Legs 500g AED 15.99
+[2026-10-11 16:58:20] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291056400577> (referer: https://www.google.com/)
+[92/384] 6291056400577: 1 product(s) - Al Ain Fresh Chicken 900g AED 19.99
+[2026-10-11 16:58:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281101340699> (referer: https://www.google.com/)
+[93/384] 6281101340699: 1 product(s) - Alyoum Fresh Whole Chicken 1200g AED 32.99
+[2026-10-11 16:58:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281007045544> (referer: https://www.google.com/)
+[94/384] 6281007045544: 0 product(s)
+[2026-10-11 16:58:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002102036> (referer: https://www.google.com/)
+[95/384] 6291002102036: 0 product(s)
+[2026-10-11 16:58:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7893000557949> (referer: https://www.google.com/)
+[96/384] 7893000557949: 0 product(s)
+[2026-10-11 16:58:35] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002102524> (referer: https://www.google.com/)
+[97/384] 6291002102524: 0 product(s)
+[2026-10-11 16:58:39] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6297000173443> (referer: https://www.google.com/)
+[98/384] 6297000173443: 1 product(s) - Sadia Frozen Tender Chicken Breasts Boneless Skinless, 1kg AED 25.29
+[2026-10-11 16:58:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002102876> (referer: https://www.google.com/)
+[99/384] 6291002102876: 0 product(s)
+[2026-10-11 16:58:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7893000457645> (referer: https://www.google.com/)
+[100/384] 7893000457645: 1 product(s) - Sadia Chicken Thighs, 900g AED 18.99
+[2026-10-11 16:58:47] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002101060> (referer: https://www.google.com/)
+[101/384] 6291002101060: 0 product(s)
+[2026-10-11 16:58:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712161115> (referer: https://www.google.com/)
+[102/384] 5033712161115: 1 product(s) - Al Kabeer Spicy Breaded Chicken Fillet, 330g AED 13.29
+[2026-10-11 16:58:53] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712160514> (referer: https://www.google.com/)
+[103/384] 5033712160514: 1 product(s) - Al Kabeer Minced Chicken, 400g AED 9.19
+[2026-10-11 16:58:57] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002100056> (referer: https://www.google.com/)
+[104/384] 6291002100056: 1 product(s) - Al Islami Chicken Mince, 400g AED 13.29
+[2026-10-11 16:59:00] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7894904052677> (referer: https://www.google.com/)
+[105/384] 7894904052677: 0 product(s)
+[2026-10-11 16:59:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002100018> (referer: https://www.google.com/)
+[106/384] 6291002100018: 1 product(s) - Al Islami Ground Beef, 400g AED 12.29
+[2026-10-11 16:59:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002100124> (referer: https://www.google.com/)
+[107/384] 6291002100124: 1 product(s) - Al Islami Mutton Minced 400g AED 14.99
+[2026-10-11 16:59:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281050116017> (referer: https://www.google.com/)
+[108/384] 6281050116017: 1 product(s) - Americana Original Minced Mutton, 400g AED 12.29
+[2026-10-11 16:59:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=8714555000058> (referer: https://www.google.com/)
+[109/384] 8714555000058: 1 product(s) - Zwan Luncheon Meat, 850g AED 37.99
+[2026-10-11 16:59:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=8714555000188> (referer: https://www.google.com/)
+[110/384] 8714555000188: 1 product(s) - Zwan Luncheon Meat Chicken 850g AED 37.99
+[2026-10-11 16:59:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6251661531912> (referer: https://www.google.com/)
+[111/384] 6251661531912: 1 product(s) - Del Monte Meat Luncheon, 200g AED 8.69
+[2026-10-11 16:59:22] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291003293115> (referer: https://www.google.com/)
+[112/384] 6291003293115: 1 product(s) - Al Khazna, Chicken, Fresh Chicken Wings, 500g AED 9.29
+[2026-10-11 16:59:24] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712465015> (referer: https://www.google.com/)
+[113/384] 5033712465015: 0 product(s)
+[2026-10-11 16:59:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6297000102344> (referer: https://www.google.com/)
+[114/384] 6297000102344: 0 product(s)
+[2026-10-11 16:59:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291038003017> (referer: https://www.google.com/)
+[115/384] 6291038003017: 1 product(s) - Al Rawdah Fresh Chicken Liver 500g AED 9.79
+[2026-10-11 16:59:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002120269> (referer: https://www.google.com/)
+[116/384] 6291002120269: 0 product(s)
+[2026-10-11 16:59:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7893000463615> (referer: https://www.google.com/)
+[117/384] 7893000463615: 1 product(s) - Sadia Chicken Livers, 450g AED 6.49
+[2026-10-11 16:59:39] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7893000461246> (referer: https://www.google.com/)
+[118/384] 7893000461246: 0 product(s)
+[2026-10-11 16:59:42] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002107512> (referer: https://www.google.com/)
+[119/384] 6291002107512: 1 product(s) - Al Islami 10 Chicken Franks, 400g AED 9.29
+[2026-10-11 16:59:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002107529> (referer: https://www.google.com/)
+[120/384] 6291002107529: 1 product(s) - Al Islami Beef Franks, 340g AED 10.29
+[2026-10-11 16:59:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712110083> (referer: https://www.google.com/)
+[121/384] 5033712110083: 1 product(s) - Al Kabeer Beef Franks, 454g AED 15.49
+[2026-10-11 16:59:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7893000817289> (referer: https://www.google.com/)
+[122/384] 7893000817289: 1 product(s) - Sadia Hot and Spicy Chicken Franks, 340g AED 6.89
+[2026-10-11 16:59:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7893000452848> (referer: https://www.google.com/)
+[123/384] 7893000452848: 1 product(s) - Sadia Chicken Burger Patties, 1344g AED 34.29
+[2026-10-11 16:59:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002100612> (referer: https://www.google.com/)
+[124/384] 6291002100612: 1 product(s) - Al Islami 24 Chicken Burger, 1.2kg AED 35.99
+[2026-10-11 17:00:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=7893000452503> (referer: https://www.google.com/)
+[125/384] 7893000452503: 1 product(s) - Sadia Frozen Beef Burger Arabic Spices, 1344g AED 36.79
+[2026-10-11 17:00:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002100520> (referer: https://www.google.com/)
+[126/384] 6291002100520: 1 product(s) - Al Islami 24 Beef Burger, 1.2kg AED 37.99
+[2026-10-11 17:00:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002100230> (referer: https://www.google.com/)
+[127/384] 6291002100230: 0 product(s)
+[2026-10-11 17:00:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712150027> (referer: https://www.google.com/)
+[128/384] 5033712150027: 0 product(s)
+[2026-10-11 17:00:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=019766300217> (referer: https://www.google.com/)
+[129/384] 019766300217: 0 product(s)
+[2026-10-11 17:00:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5601019400598> (referer: https://www.google.com/)
+[130/384] 5601019400598: 1 product(s) - Heinz Corned Beef 340g AED 16.29
+[2026-10-11 17:00:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712160019> (referer: https://www.google.com/)
+[131/384] 5033712160019: 1 product(s) - Al Kabeer Chicken Seekh Kebab, 320g AED 14.79
+[2026-10-11 17:00:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281050114303> (referer: https://www.google.com/)
+[132/384] 6281050114303: 1 product(s) - Americana Shish Taouk 400g AED 23.79
+[2026-10-11 17:00:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5033712160071> (referer: https://www.google.com/)
+[133/384] 5033712160071: 1 product(s) - Al Kabeer Chicken Nuggets, 270g AED 14.79
+[2026-10-11 17:00:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002705923> (referer: https://www.google.com/)
+[134/384] 6291002705923: 1 product(s) - Al Islami Squid Rings, 500g AED 27.79
+[2026-10-11 17:00:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5285000831242> (referer: https://www.google.com/)
+[135/384] 5285000831242: 1 product(s) - Siblou Calamare Rings, 250g AED 20.29
+[2026-10-11 17:00:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=8004030022010> (referer: https://www.google.com/)
+[136/384] 8004030022010: 1 product(s) - Rio Mare Salatuna Maize with Peas Carrots and Olives, 160g AED 15.79
+[2026-10-11 17:00:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=0032894030955> (referer: https://www.google.com/)
+[137/384] 0032894030955: 0 product(s)
+[2026-10-11 17:00:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=617950145387> (referer: https://www.google.com/)
+[138/384] 617950145387: 0 product(s)
+[2026-10-11 17:00:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=748485200033> (referer: https://www.google.com/)
+[139/384] 748485200033: 0 product(s)
+[2026-10-11 17:00:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291010902345> (referer: https://www.google.com/)
+[140/384] 6291010902345: 0 product(s)
+[2026-10-11 17:00:53] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291002101831> (referer: https://www.google.com/)
+[141/384] 6291002101831: 0 product(s)
+[2026-10-11 17:00:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=5285000830566> (referer: https://www.google.com/)
+[142/384] 5285000830566: 0 product(s)
+[2026-10-11 17:00:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291056004027> (referer: https://www.google.com/)
+[143/384] 6291056004027: 1 product(s) - Al Ain Farms Full Cream Fresh Milk, 1L AED 6.69
+[2026-10-11 17:01:02] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281007040235> (referer: https://www.google.com/)
+[144/384] 6281007040235: 1 product(s) - Almarai Full Fat Fresh Milk, 1L AED 6.99
+[2026-10-11 17:01:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291030200032> (referer: https://www.google.com/)
+[145/384] 6291030200032: 1 product(s) - Al Rawabi Full Fat Milk, 1L AED 6.99
+[2026-10-11 17:01:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291115000014> (referer: https://www.google.com/)
+[146/384] 6291115000014: 1 product(s) - Camelicious Camel Milk, 1L AED 21.79
+[2026-10-11 17:01:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=0745604632119> (referer: https://www.google.com/)
+[147/384] 0745604632119: 0 product(s)
+[2026-10-11 17:01:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281057010011> (referer: https://www.google.com/)
+[148/384] 6281057010011: 0 product(s)
+[2026-10-11 17:01:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291056200504> (referer: https://www.google.com/)
+[149/384] 6291056200504: 1 product(s) - Al Ain Long Life Low Fat Milk 1L AED 4.99
+[2026-10-11 17:01:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6291016011218> (referer: https://www.google.com/)
+[150/384] 6291016011218: 1 product(s) - Lacnor UHT Full Fat Milk, 1L Pack of 4 AED 17.29
+[2026-10-11 17:01:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281022180336> (referer: https://www.google.com/)
+[151/384] 6281022180336: 0 product(s)
+[2026-10-11 17:01:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=6281007032391> (referer: https://www.google.com/)
+[152/384] 6281007032391: 1 product(s) - Almarai UHT Full Fat Milk 1L Pack of 4 AED 15.79

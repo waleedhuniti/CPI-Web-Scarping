@@ -1,0 +1,241 @@
+carrefour | food | beef: 0 products
+carrefour | food | bread: 60 products
+carrefour | food | chicken: 61 products
+carrefour | food | eggs: 62 products
+carrefour | food | fish: 68 products
+carrefour | food | flour: 60 products
+carrefour | food | fruit: 59 products
+carrefour | food | lamb: 51 products
+carrefour | food | milk: 67 products
+carrefour | food | oil: 60 products
+carrefour | food | rice: 61 products
+carrefour | food | salt: 60 products
+carrefour | food | sugar: 66 products
+carrefour | food | vegetables: 57 products
+carrefour | food | yoghurt: 61 products
+carrefour | food | cheese: 61 products
+carrefour | food | butter: 61 products
+carrefour | food | pasta: 58 products
+carrefour | food | dates: 0 products
+carrefour | food | nuts: 60 products
+carrefour | food | honey: 60 products
+carrefour | food | tea: 69 products
+carrefour | food | coffee: 69 products
+carrefour | food | water: 60 products
+carrefour | food | juice: 60 products
+carrefour | food | soft drinks: 77 products
+carrefour | household | detergent: 70 products
+carrefour | household | dishwashing: 59 products
+carrefour | household | cleaning: 60 products
+carrefour | household | tissue: 67 products
+carrefour | household | air freshener: 70 products
+carrefour | household | insecticide: 55 products
+carrefour | household | cookware: 59 products
+carrefour | household | plates: 60 products
+carrefour | household | bedsheet: 59 products
+carrefour | household | towel: 59 products
+carrefour | household | light bulb: 57 products
+carrefour | household | batteries: 50 products
+carrefour | household | kettle: 57 products
+carrefour | household | iron: 58 products
+carrefour | household | blender: 60 products
+carrefour | household | vacuum cleaner: 61 products
+carrefour | household | fan: 54 products
+carrefour | household | washing machine: 60 products
+carrefour | household | refrigerator: 60 products
+carrefour | household | air conditioner: 65 products
+carrefour | personal | shampoo: 61 products
+carrefour | personal | soap: 58 products
+carrefour | personal | toothpaste: 67 products
+carrefour | personal | deodorant: 70 products
+carrefour | personal | diapers: 68 products
+carrefour | personal | razor: 109 products
+carrefour | personal | sanitary pads: 60 products
+carrefour | personal | body lotion: 59 products
+carrefour | personal | hair dryer: 57 products
+carrefour | personal | perfume: 59 products
+carrefour | personal | paracetamol: 58 products
+carrefour | personal | vitamins: 60 products
+carrefour | personal | first aid: 97 products
+carrefour | personal | thermometer: 72 products
+carrefour | personal | face mask: 87 products
+carrefour | electronics | mobile phone: 91 products
+carrefour | electronics | phone case: 55 products
+carrefour | electronics | screen protector: 49 products
+carrefour | electronics | charger: 0 products
+carrefour | electronics | usb cable: 0 products
+carrefour | electronics | power bank: 0 products
+carrefour | electronics | earphones: 0 products
+carrefour | electronics | laptop: 0 products
+carrefour | electronics | tablet: 0 products
+carrefour | electronics | router: 0 products
+carrefour | electronics | smart watch: 0 products
+carrefour | electronics | television: 60 products
+carrefour | electronics | speaker: 53 products
+carrefour | electronics | headphones: 60 products
+carrefour | electronics | gaming console: 55 products
+carrefour | electronics | camera: 58 products
+carrefour | clothing | men t-shirt: 53 products
+carrefour | clothing | women dress: 40 products
+carrefour | clothing | jeans: 2 products
+carrefour | clothing | kids clothing: 100 products
+carrefour | clothing | socks: 63 products
+carrefour | clothing | underwear: 55 products
+carrefour | clothing | shoes: 0 products
+carrefour | clothing | sandals: 59 products
+carrefour | clothing | sports shoes: 55 products
+carrefour | other | engine oil: 0 products
+carrefour | other | car accessories: 0 products
+carrefour | other | car battery: 0 products
+carrefour | other | bicycle: 56 products
+carrefour | other | toys: 60 products
+carrefour | other | books: 61 products
+carrefour | other | video games: 46 products
+carrefour | other | pet food: 70 products
+carrefour | other | garden: 0 products
+carrefour | other | notebook: 60 products
+carrefour | other | pens: 60 products
+carrefour | other | school bag: 60 products
+carrefour | other | stationery: 40 products
+lulu | food | beef: 60 products
+lulu | food | bread: 60 products
+lulu | food | chicken: 41 products
+lulu | food | eggs: 60 products
+lulu | food | fish: 60 products
+lulu | food | flour: 60 products
+lulu | food | fruit: 60 products
+lulu | food | lamb: 58 products
+lulu | food | milk: 60 products
+lulu | food | oil: 60 products
+lulu | food | rice: 60 products
+lulu | food | salt: 60 products
+lulu | food | sugar: 59 products
+lulu | food | vegetables: 60 products
+lulu | food | yoghurt: 60 products
+lulu | food | cheese: 60 products
+lulu | food | butter: 49 products
+lulu | food | pasta: 60 products
+lulu | food | dates: 59 products
+lulu | food | nuts: 60 products
+lulu | food | honey: 60 products
+lulu | food | tea: 60 products
+lulu | food | coffee: 59 products
+lulu | food | water: 60 products
+lulu | food | juice: 59 products
+lulu | food | soft drinks: 58 products
+lulu | household | detergent: 60 products
+lulu | household | dishwashing: 59 products
+lulu | household | cleaning: 33 products
+lulu | household | tissue: 60 products
+lulu | household | air freshener: 60 products
+lulu | household | insecticide: 29 products
+lulu | household | cookware: 60 products
+lulu | household | plates: 60 products
+lulu | household | bedsheet: 60 products
+lulu | household | towel: 57 products
+lulu | household | light bulb: 55 products
+lulu | household | batteries: 60 products
+lulu | household | kettle: 59 products
+lulu | household | iron: 59 products
+lulu | household | blender: 60 products
+lulu | household | vacuum cleaner: 60 products
+lulu | household | fan: 60 products
+lulu | household | washing machine: 60 products
+lulu | household | refrigerator: 60 products
+lulu | household | air conditioner: 60 products
+lulu | personal | shampoo: 58 products
+lulu | personal | soap: 55 products
+lulu | personal | toothpaste: 56 products
+lulu | personal | deodorant: 58 products
+lulu | personal | diapers: 60 products
+lulu | personal | razor: 60 products
+lulu | personal | sanitary pads: 59 products
+lulu | personal | body lotion: 60 products
+lulu | personal | hair dryer: 57 products
+lulu | personal | perfume: 60 products
+lulu | personal | paracetamol: 2 products
+lulu | personal | vitamins: 49 products
+lulu | personal | first aid: 57 products
+lulu | personal | thermometer: 13 products
+lulu | personal | face mask: 58 products
+lulu | electronics | mobile phone: 60 products
+lulu | electronics | phone case: 58 products
+lulu | electronics | screen protector: 45 products
+lulu | electronics | charger: 57 products
+lulu | electronics | usb cable: 53 products
+lulu | electronics | power bank: 58 products
+lulu | electronics | earphones: 59 products
+lulu | electronics | laptop: 59 products
+lulu | electronics | tablet: 47 products
+lulu | electronics | router: 51 products
+lulu | electronics | smart watch: 60 products
+lulu | electronics | television: 56 products
+lulu | electronics | speaker: 60 products
+lulu | electronics | headphones: 59 products
+lulu | electronics | gaming console: 50 products
+lulu | electronics | camera: 60 products
+lulu | clothing | men t-shirt: 44 products
+lulu | clothing | women dress: 33 products
+lulu | clothing | jeans: 20 products
+lulu | clothing | kids clothing: 46 products
+lulu | clothing | socks: 12 products
+lulu | clothing | underwear: 38 products
+lulu | clothing | shoes: 58 products
+lulu | clothing | sandals: 57 products
+lulu | clothing | sports shoes: 30 products
+lulu | other | engine oil: 1 products
+lulu | other | car accessories: 58 products
+lulu | other | car battery: 26 products
+lulu | other | bicycle: 58 products
+lulu | other | toys: 57 products
+lulu | other | books: 60 products
+lulu | other | video games: 29 products
+lulu | other | pet food: 53 products
+lulu | other | garden: 49 products
+lulu | other | notebook: 46 products
+lulu | other | pens: 60 products
+lulu | other | school bag: 60 products
+lulu | other | stationery: 56 products
+lulu | food | fresh food dairy eggs cheese eggs: 0 products
+lulu | food | fresh food dairy eggs cheese fresh milk: 19 products
+lulu | food | fresh food dairy eggs cheese yoghurt chilled desserts: 16 products
+lulu | food | fresh food fresh fish seafoods: 3 products
+lulu | food | fresh food fresh meat poultry fresh beef veal: 23 products
+lulu | food | fresh food fresh meat poultry fresh chicken: 0 products
+lulu | food | fresh food fruits vegetables: 23 products
+lulu | food | grocery food cupboard cooking ingredients: 19 products
+lulu | food | grocery food cupboard frozen food: 44 products
+lulu | food | grocery food cupboard home baking sweeteners: 21 products
+lulu | food | grocery food cupboard rice pasta noodles: 16 products
+lulu | food | grocery food cupboard: 13 products
+lulu | household | grocery household cleaning essentials: 47 products
+lulu | household | grocery household dishwashing liquids tablets: 5 products
+lulu | household | grocery household laundry essentials: 22 products
+lulu | household | grocery household: 1 products
+sharafdg | electronics | Mobiles & Tablets > Mobiles: 60 products
+sharafdg | electronics | Mobiles & Tablets > Mobile Accessories: 60 products
+sharafdg | electronics | Mobiles & Tablets > Tablets: 59 products
+sharafdg | electronics | Mobiles & Tablets > Tablet Accessories: 60 products
+sharafdg | electronics | Computing > Laptops: 60 products
+sharafdg | electronics | Computing > Computing Accessories: 60 products
+sharafdg | electronics | Computing > Printers & Ink: 60 products
+sharafdg | electronics | Computing > Networking & Wireless: 60 products
+sharafdg | electronics | Computing > Monitors: 60 products
+sharafdg | electronics | Computing > Storage: 60 products
+sharafdg | electronics | Wearables & Smartwatches > Smartwatches: 60 products
+sharafdg | electronics | TV, Video & Audio > TVs: 60 products
+sharafdg | electronics | TV, Video & Audio > Audio: 59 products
+sharafdg | electronics | TV, Video & Audio > Home Cinema & Soundbars: 48 products
+sharafdg | electronics | Cameras & Camcorders > Digital Cameras: 60 products
+sharafdg | electronics | Gaming > Gaming Consoles: 55 products
+sharafdg | electronics | Gaming > Games: 58 products
+sharafdg | electronics | Gaming > Gaming Accessories: 60 products
+sharafdg | household | Home Appliances > Small Appliances: 59 products
+sharafdg | household | Home Appliances > Cooking: 60 products
+sharafdg | household | Home Appliances > Fridges & Freezers: 57 products
+sharafdg | household | Home Appliances > Laundry: 59 products
+sharafdg | household | Home Appliances > Cooling & Heating: 56 products
+sharafdg | household | Home Appliances > Floorcare: 58 products
+sharafdg | household | Home Appliances > Dishwashers: 57 products
+sharafdg | personal | Health, Fitness & Beauty > Grooming Appliances: 59 products
+sharafdg | personal | Health, Fitness & Beauty > Fragrances: 60 products

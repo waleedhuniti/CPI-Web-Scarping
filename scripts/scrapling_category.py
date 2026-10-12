@@ -117,7 +117,8 @@ def crawl(run_dir, delay):
                     out.append(dict(retailer=retailer, group=cat["group"], category=cat["name"], title=r["title"],
                                     price=r["price"], regular_price=r["regular_price"],
                                     size=r.get("size_text", ""), unit_price=per if per is not None else "",
-                                    price_basis=basis, origin_seen=origin_of(r["title"]), url=r["url"]))
+                                    price_basis=basis, origin_seen=origin_of(r["title"]), url=r["url"],
+                                    photo_url=r.get("photo", "")))
     with open(run_dir / "catalog.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]))
         w.writeheader()

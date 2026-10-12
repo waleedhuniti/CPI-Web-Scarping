@@ -49,9 +49,39 @@ def _card(el, needle, levels=10):
     return None
 
 
+_C_IMG = re.compile(r"https://cdn\.mafrservices\.com/[^\"'\s\\]+?/(\d+)_main\.(?:jpg|jpeg|png|webp)")
+_L_IMG = re.compile(r"https://[a-z0-9.-]+/products/[^\"'\s\\]+?\.(?:jpg|jpeg|png|webp)")
+
+
+def _html(sel):
+    b = getattr(sel, "body", None)
+    if isinstance(b, bytes):
+        return b.decode("utf-8", "ignore")
+    return str(getattr(sel, "html_content", "") or b or "")
+
+
+def carrefour_photos(page):
+    """Carrefour product id -> photo URL, from the image links on the page (the file name is '<id>_main.jpg')."""
+    return {m.group(1): m.group(0) for m in _C_IMG.finditer(_html(page))}
+
+
+def lulu_photo(page_html, href):
+    """The product photo nearest to the product's link on a Lulu page (photo and link sit in the same card;
+    the smallest rendition '..._size256x..._cropCenter.jpg' when present)."""
+    best = ""
+    for pos in [m.start() for m in re.finditer(re.escape(href), page_html)][:3]:
+        imgs = [(abs(m.start() - pos), m.group(0)) for m in _L_IMG.finditer(page_html, max(0, pos - 6000), pos + 6000)]
+        if imgs:
+            d = min(i[0] for i in imgs)
+            near = [u for dist, u in imgs if dist <= d + 1500]
+            best = next((u for u in near if "_size256" in u), near[0])
+            break
+    return best
+
+
 def parse_carrefour(page, code):
     """Product cards on a Carrefour search page -> raw rows (reuses the card regex of cpi.retailers.carrefour)."""
-    rows = []
+    rows, photos = [], carrefour_photos(page)
     for a in page.css('a[href*="/p/"]'):
         title = a.get_all_text(strip=True)
         if not title or not re.search(r"/p/\d+", a.attrib.get("href", "")):
@@ -66,14 +96,14 @@ def parse_carrefour(page, code):
             rows.append(dict(searched_barcode=code, product_id=lst.extra["product_id"], title=lst.title, price=lst.price,
                              regular_price=lst.regular_price, in_stock=None, url=lst.url,
                              unit_price=lst.extra["unit_price"], unit_basis=lst.extra["unit_basis"],
-                             size_text=lst.extra["size_text"]))
+                             size_text=lst.extra["size_text"], photo=photos.get(lst.extra["product_id"], "")))
     return list({r["product_id"]: r for r in rows}.values())
 
 
 def parse_lulu(page, code):
     """Product cards on a Lulu search page: each price node, climbed to the card that holds its product link."""
     num = lambda t: float(m.group(0)) if (m := re.search(r"\d+(?:\.\d+)?", (t or "").replace(",", ""))) else 0.0
-    rows = []
+    rows, page_html = [], _html(page)
     for node in page.css('[data-testid="product-price"]'):
         card = _card(node, lambda c: bool(c.css('a[href*="/p/"]')))
         if card is None:
@@ -87,7 +117,7 @@ def parse_lulu(page, code):
         url = (LULU_HOST + href if href.startswith("/") else href).split("?")[0]
         rows.append(dict(searched_barcode=code, product_id=re.sub(r".*/p/([^/]+)/?$", r"\1", url),
                          title=link.get_all_text(strip=True), price=price, regular_price=was if was > price else price,
-                         in_stock=None, url=url))
+                         in_stock=None, url=url, photo=lulu_photo(page_html, href)))
     return list({r["url"]: r for r in rows}.values())
 
 

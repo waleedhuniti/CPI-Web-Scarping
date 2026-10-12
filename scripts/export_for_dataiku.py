@@ -20,17 +20,27 @@ COLUMNS = ["run_date", "run_id", "source", "retailer", "item_code", "group_code"
            "basket_origin", "origin_seen", "currency", "in_stock", "url"]
 
 
+def source_of(run, default):
+    return "catalogue" if "catalogue" in run else default
+
+
+def superseded(run):
+    """A partial run of a day that also has a combined *_full run (the full run already carries its rows)."""
+    day = run[:10]
+    return not run.endswith("_full") and (ROOT / "data/runs" / f"{day}_full").exists()
+
+
 def rows():
     for f in sorted(ROOT.glob("data/runs/*/*_matched.csv")):
         run = f.parent.name
         m = re.match(r"(\d{4}-\d{2}-\d{2})", run)
-        if not m or "test" in run or f.stem.count("_") != 1:   # carrefour/lulu_matched.csv of real runs only
+        if not m or "test" in run or superseded(run) or f.stem.count("_") != 1:   # carrefour/lulu_matched.csv of real runs only
             continue
         retailer = f.stem.split("_")[0]
         for r in csv.DictReader(open(f, encoding="utf-8-sig")):
             if r.get("status") == "not_searched":
                 continue
-            yield dict(run_date=m.group(1), run_id=run, source="scrapling" if "scrapling" in run else "apify",
+            yield dict(run_date=m.group(1), run_id=run, source=source_of(run, "scrapling" if "scrapling" in run or run.endswith("_full") else "apify"),
                        retailer=retailer, item_code=r.get("item_code", ""), group_code=r.get("group", ""),
                        name_ar=r.get("name_ar", ""), brand_ar=r.get("brand_ar", ""), basket_qty=r.get("basket_qty", ""),
                        barcode=r.get("barcode", ""), status="found" if barcode_found(r.get("status", "")) else "not_found",
@@ -47,7 +57,7 @@ def category_rows():
     for f in sorted(ROOT.glob("data/runs/*/category_matches.csv")):
         run = f.parent.name
         m = re.match(r"(\d{4}-\d{2}-\d{2})", run)
-        if not m or "test" in run:
+        if not m or "test" in run or superseded(run):
             continue
         crows = list(csv.DictReader(open(f, encoding="utf-8-sig")))
         lines = {}
@@ -56,7 +66,7 @@ def category_rows():
         for r in crows:
             ok = category_found(r["status"], len(lines[(r["retailer"], r["name_ar"])]) == 1)
             keep = (lambda v: v) if ok else (lambda v: "")
-            yield dict(run_date=m.group(1), run_id=run, source="scrapling-category", retailer=r["retailer"],
+            yield dict(run_date=m.group(1), run_id=run, source=source_of(run, "scrapling-category"), retailer=r["retailer"],
                        item_code=r["item_code"], group_code=r["group"], name_ar=r["name_ar"], brand_ar="",
                        basket_qty=r["basket_qty"], barcode="", status="found" if ok else "not_found",
                        detail=r["status"], accepted="yes" if ok else "no", title=keep(r["title"]),

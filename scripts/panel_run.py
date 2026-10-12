@@ -27,8 +27,21 @@ def num(v):
         return ""
 
 
+def photos(run_dir):
+    """Product URL -> photo URL: data/photos.json plus the run's own catalog.csv photo_url column."""
+    f = ROOT / "data/photos.json"
+    cache = json.loads(f.read_text()) if f.exists() else {}
+    cat = run_dir / "catalog.csv"
+    if cat.exists():
+        for r in csv.DictReader(open(cat, encoding="utf-8-sig")):
+            if r.get("photo_url"):
+                cache[r["url"]] = r["photo_url"]
+    return cache
+
+
 def main(run_dir, started):
     run_dir = Path(run_dir)
+    pics = photos(run_dir)
     rows, summary, log = [], {}, []
     for retailer in LABEL:
         f = run_dir / f"{retailer}_matched.csv"
@@ -45,7 +58,7 @@ def main(run_dir, started):
                             status="found" if ok else "not_found", detail=r["status"],
                             accepted="yes" if ok else "no", title=r["title"] if ok else "",
                             price=num(r["price"]) if ok else "", regular_price=num(r["regular_price"]) if ok else "",
-                            currency="AED", url=r["url"] if ok else ""))
+                            currency="AED", url=r["url"] if ok else "", photo=pics.get(r["url"], "") if ok else ""))
         failed = json.loads((run_dir / f"{retailer}_failed.json").read_text()) if (run_dir / f"{retailer}_failed.json").exists() else []
         searched = json.loads((run_dir / f"{retailer}_searched.json").read_text()) if (run_dir / f"{retailer}_searched.json").exists() else []
         log.append(f"{LABEL[retailer]} barcode: {len(searched)} pages read, {len(failed)} failed")
@@ -65,7 +78,8 @@ def main(run_dir, started):
                              title=r["title"] if ok else "", price=num(r["price"]) if ok else "",
                              regular_price=num(r["regular_price"]) if ok else "", unit_price=num(r["unit_price"]) if ok else "",
                              price_basis=r["price_basis"], basket_origin=r["basket_origin"],
-                             origin_seen=r["origin_seen"] if ok else "", currency="AED", url=r["url"] if ok else ""))
+                             origin_seen=r["origin_seen"] if ok else "", currency="AED", url=r["url"] if ok else "",
+                             photo=pics.get(r["url"], "") if ok else ""))
         cl = run_dir / "crawl_log.txt"
         if cl.exists():
             log += cl.read_text(encoding="utf-8").strip().splitlines()

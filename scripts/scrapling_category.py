@@ -280,15 +280,17 @@ def main():
     ap.add_argument("run_dir")
     ap.add_argument("--match", action="store_true", help="only re-run matching on the saved catalog.csv")
     ap.add_argument("--delay", type=float, default=1.5)
-    ap.add_argument("--only", help="comma-separated category names to crawl (default: all)")
+    ap.add_argument("--crawl-only", action="store_true", help="crawl without matching (merge later with combine_run.py)")
+    ap.add_argument("--only", help="category names to crawl, separated by ';' (default: all)")
     a = ap.parse_args()
     run_dir = Path(a.run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
     if not a.match:
         started = datetime.now(timezone.utc).isoformat(timespec="seconds")
-        crawl(run_dir, a.delay, set(a.only.split(",")) if a.only else None)
+        crawl(run_dir, a.delay, set(a.only.split(";")) if a.only else None)
         (run_dir / "started.txt").write_text(started + "\n")
-    match(run_dir, delay=a.delay)
+    if not a.crawl_only:
+        match(run_dir, delay=a.delay)
 
 
 if __name__ == "__main__":

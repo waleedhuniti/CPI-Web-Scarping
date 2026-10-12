@@ -1,0 +1,507 @@
+﻿item_code,group,name_ar,basket_qty,basket_origin,spec_en,retailer,status,accepted,title,price,regular_price,unit_price,price_basis,origin_seen,n_candidates,other_candidates,url
+011110503,0111,هريس,1 كغ,SA,"harees (hulled whole wheat), from a roastery",carrefour,no_match,no,,,,,kg,,0,,
+011110503,0111,هريس,1 كغ,SA,"harees (hulled whole wheat), from a roastery",lulu,review_origin,no,Al Fares Harees (Peeled Wheat) 2 kg,15.35,15.35,7.67,kg,,3,LuLu Whole Wheat ( Harees Grain ) 1 kg [AE] (3.85/kg) | Bake Art LuLu Hareesa With Coconut 500 g [?] (29.96/kg),https://gcc.luluhypermarket.com/en-ae/al-fares-harees-peeled-wheat-2-kg/p/470888/
+011130101,0111,براتا هندي,حبة,AE,"Indian paratha, fresh, single piece",carrefour,no_match,no,,,,,pc,,0,,
+011130101,0111,براتا هندي,حبة,AE,"Indian paratha, fresh, single piece",lulu,no_match,no,,,,,pc,,0,,
+011130102,0111,خبز تنور باكستاني,حبة,AE,"Pakistani tandoor bread, single piece",carrefour,no_match,no,,,,,pc,,0,,
+011130102,0111,خبز تنور باكستاني,حبة,AE,"Pakistani tandoor bread, single piece",lulu,no_match,no,,,,,pc,,0,,
+011130103,0111,خبز تنور ايراني الرحال,حبة,AE,"Iranian tandoor bread, single piece",carrefour,no_match,no,,,,,pc,,0,,
+011130103,0111,خبز تنور ايراني الرحال,حبة,AE,"Iranian tandoor bread, single piece",lulu,no_match,no,,,,,pc,,0,,
+011130504,0111,كيك جاتوه فانيلا,1 كيلو,AE,vanilla gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130504,0111,كيك جاتوه فانيلا,1 كيلو,AE,vanilla gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130505,0111,كيك جاتوه فانيلا,1 كيلو,AE,vanilla gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130505,0111,كيك جاتوه فانيلا,1 كيلو,AE,vanilla gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130506,0111,كيك جاتوه فانيلا,1 كيلو,AE,vanilla gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130506,0111,كيك جاتوه فانيلا,1 كيلو,AE,vanilla gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130507,0111,كيك جاتوه شكولاتة,1 كيلو,AE,chocolate gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130507,0111,كيك جاتوه شكولاتة,1 كيلو,AE,chocolate gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130508,0111,كيك جاتوه شكولاتة,1 كيلو,AE,chocolate gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130508,0111,كيك جاتوه شكولاتة,1 كيلو,AE,chocolate gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130509,0111,كيك جاتوه شكولاتة,1 كيلو,AE,chocolate gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130509,0111,كيك جاتوه شكولاتة,1 كيلو,AE,chocolate gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130510,0111,كيك جاتوه فراولة,1 كيلو,AE,strawberry gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130510,0111,كيك جاتوه فراولة,1 كيلو,AE,strawberry gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130511,0111,كيك جاتوه فراولة,1 كيلو,AE,strawberry gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130511,0111,كيك جاتوه فراولة,1 كيلو,AE,strawberry gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130512,0111,كيك جاتوه فراولة,1 كيلو,AE,strawberry gateau cake,carrefour,no_match,no,,,,,kg,,0,,
+011130512,0111,كيك جاتوه فراولة,1 كيلو,AE,strawberry gateau cake,lulu,no_match,no,,,,,kg,,0,,
+011130801,0111,بقلاوة بالجوز,1 كغم,AE,walnut baklava,carrefour,no_match,no,,,,,kg,,0,,
+011130801,0111,بقلاوة بالجوز,1 كغم,AE,walnut baklava,lulu,no_match,no,,,,,kg,,0,,
+011130802,0111,بقلاوة بالكاشو,1 كغم,AE,cashew baklava,carrefour,no_match,no,,,,,kg,,0,,
+011130802,0111,بقلاوة بالكاشو,1 كغم,AE,cashew baklava,lulu,no_match,no,,,,,kg,,0,,
+011130803,0111,بقلاوة بالفستق الحلبي,1 كغم,AE,pistachio baklava,carrefour,no_match,no,,,,,kg,,0,,
+011130803,0111,بقلاوة بالفستق الحلبي,1 كغم,AE,pistachio baklava,lulu,no_match,no,,,,,kg,,0,,
+011130901,0111,كنافة بالجبنة (طلبية),1 كغم,AE,kunafa with cheese (made to order),carrefour,no_match,no,,,,,kg,,0,,
+011130901,0111,كنافة بالجبنة (طلبية),1 كغم,AE,kunafa with cheese (made to order),lulu,no_match,no,,,,,kg,,0,,
+011130902,0111,كنافة بالقشطة (طلبية),1 كغم,AE,"kunafa with cream (ashta, made to order)",carrefour,no_match,no,,,,,kg,,0,,
+011130902,0111,كنافة بالقشطة (طلبية),1 كغم,AE,"kunafa with cream (ashta, made to order)",lulu,no_match,no,,,,,kg,,0,,
+011131001,0111,فطائر الجبن,144 غرام لكل قطعه,AE,"cheese fatayer (cheese pie), single piece",carrefour,no_match,no,,,,,kg,,0,,
+011131001,0111,فطائر الجبن,144 غرام لكل قطعه,AE,"cheese fatayer (cheese pie), single piece",lulu,no_match,no,,,,,kg,,0,,
+011131002,0111,فطائر زعتر,148 غرام لكل قطعه,AE,"zaatar fatayer (zaatar pie), single piece",carrefour,no_match,no,,,,,kg,,0,,
+011131002,0111,فطائر زعتر,148 غرام لكل قطعه,AE,"zaatar fatayer (zaatar pie), single piece",lulu,no_match,no,,,,,kg,,0,,
+011131003,0111,كرواسون سادة,102 غرام,AE,plain croissant,carrefour,review_multiple,no,"Golden Loaf Croissant Twist Roll, 70g",4.29,4.29,61.29,kg,AE,8,"Lusine Butter Croissant, 85g, Pack of 3 [SA] (25.45/kg) | Al Rawabi Bakerz Plain Croissant, 50g [AE] (29.0/kg) | 7 Days Duet Filling Vanilla And Strawberry Croissant, 55g [SA] (34.36/kg) | Butter Croissant 1 Piece [AE] (66.5/kg) | St Pierre Vegan Croissants, 240g [IN] (81.21/kg) | Bakemart Gluten-Free Plain Croissant 3X75g [AE] (118.89/kg) | St Pierre Butter Croissant, 55g [IN] (232.55/kg)",https://www.carrefouruae.com/mafuae/en/plain-croissants/g-loaf-roll-twist/p/177585
+011131003,0111,كرواسون سادة,102 غرام,AE,plain croissant,lulu,review_origin,no,LuLu Strawberry Croissant 2 x 330 g,14.5,14.5,21.97,kg,,20,Tom And Jerry Caramel Croissant 6 x 55 g [?] (26.52/kg) | LuLu Croissant With Strawberry Filling 55 g [?] (27.27/kg) | 7 Days Croissant With Cocoa Cream Filling 6 x 55 g [?] (28.79/kg) | 7 Days Croissant With Strawberry Filling 6 x 55 g [?] (28.79/kg) | Tom And Jerry Butter Croissant 6 x 50 g [?] (29.17/kg) | Lusine Butter Croissant 3 x 85 g [?] (31.18/kg) | Tom And Jerry Honey Croissant 55 g [?] ,https://gcc.luluhypermarket.com/en-ae/lulu-strawberry-croissant-2-330-g/p/1692067/
+011210301,0112,خروف حي نعيمي - صغير - 8-10 كغ,واحدة,AE,"Live Naimi sheep, small (8-10 kg)",carrefour,no_match,no,,,,,pc,,0,,
+011210301,0112,خروف حي نعيمي - صغير - 8-10 كغ,واحدة,AE,"Live Naimi sheep, small (8-10 kg)",lulu,no_match,no,,,,,pc,,0,,
+011210302,0112,خروف حي نعيمي - وسط - 11-13 كغ,واحدة,AE,"Live Naimi sheep, medium (11-13 kg)",carrefour,no_match,no,,,,,pc,,0,,
+011210302,0112,خروف حي نعيمي - وسط - 11-13 كغ,واحدة,AE,"Live Naimi sheep, medium (11-13 kg)",lulu,no_match,no,,,,,pc,,0,,
+011210303,0112,ماعز حي جزيري - وسط - 8-11 كغ,واحدة,AE,"Live Jazeeri goat, medium (8-11 kg)",carrefour,no_match,no,,,,,pc,,0,,
+011210303,0112,ماعز حي جزيري - وسط - 8-11 كغ,واحدة,AE,"Live Jazeeri goat, medium (8-11 kg)",lulu,no_match,no,,,,,pc,,0,,
+011220101,0112,لحم غنم باكستاني - طازج محلي مع عظم,1 كغ,PK,"Fresh Pakistani mutton, bone-in",carrefour,no_match,no,,,,,kg,,0,,
+011220101,0112,لحم غنم باكستاني - طازج محلي مع عظم,1 كغ,PK,"Fresh Pakistani mutton, bone-in",lulu,no_match,no,,,,,kg,,0,,
+011220102,0112,لحم غنم هندي طازج,1 كغ,IN,Fresh Indian mutton,carrefour,review_multiple,no,Indian Mutton Ribs,28.5,28.5,57.0,kg,IN,5,Indian Whole Mutton [IN] (36.99/kg) | Syrian Awassi Mutton Caracass [?] (89.99/kg) | Syrian Awassi Mutton Lea Fat [?] (90.0/kg) | Australian Mutton Tenderloin Import [AU] (139.0/kg),https://www.carrefouruae.com/mafuae/en/mutton/ind-mutton-ribs-dc-tr-/p/69116
+011220102,0112,لحم غنم هندي طازج,1 كغ,IN,Fresh Indian mutton,lulu,review_multiple,no,Indian Mutton Rib Chops 200 g,11.4,11.4,57.0,kg,IN,7,Indian Mutton Neck 350 g [IN] (49.86/kg) | Indian Mutton Hind Quarter 1kg [IN] (50.4/kg) | Pakistani Mutton Forequarter 500 g [PK] (52.96/kg) | Pakistani Mutton Shoulder Cuts 500 g [PK] (56.96/kg) | Indian Mutton Loin Chops 400 g [IN] (58.12/kg) | Pakistani Mutton Loin Chops 400 g [PK] (64.88/kg),https://gcc.luluhypermarket.com/en-ae/p/41556-ea/
+011220103,0112,لحم غنم أثيوبي طازج,1 كغ,ET,Fresh Ethiopian mutton,carrefour,review_origin,no,Syrian Awassi Mutton Caracass,1619.82,1619.82,89.99,kg,,5,Indian Whole Mutton [IN] (36.99/kg) | Indian Mutton Ribs [IN] (57.0/kg) | Syrian Awassi Mutton Lea Fat [?] (90.0/kg) | Australian Mutton Tenderloin Import [AU] (139.0/kg),https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-carcass-dc-/p/2288871
+011220103,0112,لحم غنم أثيوبي طازج,1 كغ,ET,Fresh Ethiopian mutton,lulu,substitute_origin,no,Indian Mutton Neck 350 g,17.45,17.45,49.86,kg,IN,7,Indian Mutton Hind Quarter 1kg [IN] (50.4/kg) | Pakistani Mutton Forequarter 500 g [PK] (52.96/kg) | Pakistani Mutton Shoulder Cuts 500 g [PK] (56.96/kg) | Indian Mutton Rib Chops 200 g [IN] (57.0/kg) | Indian Mutton Loin Chops 400 g [IN] (58.12/kg) | Pakistani Mutton Loin Chops 400 g [PK] (64.88/kg),https://gcc.luluhypermarket.com/en-ae/p/41562-ea/
+011220104,0112,خاصره مع العظم -هندي,1 كغ,IN,Fresh mutton loin with bone,carrefour,no_match,no,,,,,kg,,0,,
+011220104,0112,خاصره مع العظم -هندي,1 كغ,IN,Fresh mutton loin with bone,lulu,no_match,no,,,,,kg,,0,,
+011220105,0112,لحم خروف هندي بدون عظم,1 كغ,IN,Fresh boneless lamb/mutton,carrefour,no_match,no,,,,,kg,,0,,
+011220105,0112,لحم خروف هندي بدون عظم,1 كغ,IN,Fresh boneless lamb/mutton,lulu,no_match,no,,,,,kg,,0,,
+011220201,0112,غنم استرالي مجمد,1 كغ,AU,Frozen lamb,carrefour,no_match,no,,,,,kg,,0,,
+011220201,0112,غنم استرالي مجمد,1 كغ,AU,Frozen lamb,lulu,no_match,no,,,,,kg,,0,,
+011220202,0112,غنم نيوزلندا مجمد,1 كغ,NZ,Frozen lamb,carrefour,no_match,no,,,,,kg,,0,,
+011220202,0112,غنم نيوزلندا مجمد,1 كغ,NZ,Frozen lamb,lulu,no_match,no,,,,,kg,,0,,
+011220203,0112,غنم هندي مجمد,1 كغ,IN,Frozen mutton,carrefour,no_match,no,,,,,kg,,0,,
+011220203,0112,غنم هندي مجمد,1 كغ,IN,Frozen mutton,lulu,no_match,no,,,,,kg,,0,,
+011220301,0112,بتلو محلي - استيك,1 كغ,AE,Fresh local veal steak,carrefour,substitute_origin,no,Dutch Veal Topside Steak Import,44.0,44.0,88.0,kg,NL,4,Dutch Veal Knuckle Steak Import [NL] (90.0/kg) | Dutch Veal Striploin Steak Import [NL] (100.0/kg) | Dutch Veal Tenderloin Steak Import [NL] (169.0/kg),https://www.carrefouruae.com/mafuae/en/holand-veal/dutch-veal-topside-steak-di/p/2288360
+011220301,0112,بتلو محلي - استيك,1 كغ,AE,Fresh local veal steak,lulu,substitute_origin,no,Indian Veal Steak 300 g,13.75,13.75,45.83,kg,IN,1,,https://gcc.luluhypermarket.com/en-ae/indian-veal-steak-300-g/p/365778-ea/
+011220302,0112,بقر محلي - استيك,1 كغ,AE,Fresh local beef steak,carrefour,substitute_origin,no,Brazilian Beef Striploin Steak,30.0,30.0,60.0,kg,BR,39,Brazilian Topside Steak Beef [BR] (60.0/kg) | Brazilian Beef Knuckle Steak [BR] (62.0/kg) | South African Beef Knuckle Steak Import [ZA] (66.0/kg) | NewZealand Beef Pepper Steak [NZ] (70.0/kg) | USA Hereford Beef Topside Steak [US] (78.0/kg) | Australian Beef Topside Steak [AU] (80.0/kg) | Australian Beef Rump Steak [AU] (80.0/kg) | New Zealand Beef Topside Steak [NZ] (88.0/kg) | Australian Thin-C,https://www.carrefouruae.com/mafuae/en/brazilian-beef/braz-beef-striploin-steak-dc-/p/399008
+011220302,0112,بقر محلي - استيك,1 كغ,AE,Fresh local beef steak,lulu,review_origin,no,Pryme Grass Fed Beef Ribeye Steak 250 g,55.1,55.1,220.4,kg,,15,Pakistan Beef Topside Steak 300 g [PK] (46.33/kg) | South Africa Beef Sirloin Steak 300 g [ZA] (79.33/kg) | Australian Beef Topside Steak 300 g [AU] (80.33/kg) | Australian Beef Minute Steak 350 g [AU] (81.29/kg) | Australian Beef Breakfast Steak 300 g [AU] (81.33/kg) | New Zealand Beef Topside Steak 300 g [NZ] (86.5/kg) | New Zealand Beef Breakfast Steak 350 g [NZ] (87.43/kg) | New Zealand Beef M,https://gcc.luluhypermarket.com/en-ae/pryme-grass-fed-beef-ribeye-steak-250-g/p/2581409/
+011220303,0112,شرائح لحم بقر باكستاني بدون عظم,1 كغ,PK,Fresh boneless beef slices,carrefour,no_match,no,,,,,kg,,0,,
+011220303,0112,شرائح لحم بقر باكستاني بدون عظم,1 كغ,PK,Fresh boneless beef slices,lulu,no_match,no,,,,,kg,,0,,
+011220304,0112,لحم بقر باكستاني بالعظم,1 كغ,PK,Fresh beef with bone,carrefour,no_match,no,,,,,kg,,0,,
+011220304,0112,لحم بقر باكستاني بالعظم,1 كغ,PK,Fresh beef with bone,lulu,review_origin,no,Fresh Beef Bones 500 g,4.05,4.05,8.1,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/40678-ea/
+011220401,0112,لحم بقري مجمد مستورد - استيك,1 كغ,BR,Frozen imported beef steak,carrefour,no_match,no,,,,,kg,,0,,
+011220401,0112,لحم بقري مجمد مستورد - استيك,1 كغ,BR,Frozen imported beef steak,lulu,no_match,no,,,,,kg,,0,,
+011220402,0112,لحم بقري مجمد مستورد - قطع,1 كغ,BR,Frozen imported beef cubes/pieces,carrefour,no_match,no,,,,,kg,,0,,
+011220402,0112,لحم بقري مجمد مستورد - قطع,1 كغ,BR,Frozen imported beef cubes/pieces,lulu,no_match,no,,,,,kg,,0,,
+011220403,0112,لحم بقري مجمد مستورد - استيك,1 كغ,PK,Frozen imported beef steak,carrefour,no_match,no,,,,,kg,,0,,
+011220403,0112,لحم بقري مجمد مستورد - استيك,1 كغ,PK,Frozen imported beef steak,lulu,no_match,no,,,,,kg,,0,,
+011220404,0112,لحم بقري مجمد مستورد - قطع,1 كغ,PK,Frozen imported beef cubes/pieces,carrefour,no_match,no,,,,,kg,,0,,
+011220404,0112,لحم بقري مجمد مستورد - قطع,1 كغ,PK,Frozen imported beef cubes/pieces,lulu,no_match,no,,,,,kg,,0,,
+011220701,0112,مفروم بقر طازج - محلي,1 كغ,AE,Fresh local minced beef,carrefour,substitute_origin,no,Brazilian Low-Fat Beef Mince,26.0,26.0,52.0,kg,BR,10,South African Beef Mince Low Fat Import [ZA] (60.0/kg) | Australian Beef Mince [AU] (70.0/kg) | Australian Low Fat Beef Mince [AU] (70.0/kg) | USA Hereford Beef Mince [US] (70.0/kg) | USA Hereford Beef Mince Low-Fat Import [US] (74.0/kg) | New Zealand Beef Mince [NZ] (76.0/kg) | Australian Angus Beef Mince [AU] (80.0/kg) | New Zealand Low-Fat Beef Mince [NZ] (85.0/kg) | Australian Wagyu Beef Mince,https://www.carrefouruae.com/mafuae/en/minced-meat/braz-beef-mince-meat-low-fat-dc-/p/909666
+011220701,0112,مفروم بقر طازج - محلي,1 كغ,AE,Fresh local minced beef,lulu,substitute_origin,no,South African Minced Beef 500 g,19.98,19.98,39.96,kg,ZA,5,Pakistani Beef Mince 500 g [PK] (42.2/kg) | Australian Beef Mince 500 g [AU] (61.96/kg) | New Zealand Beef Mince 500 g [NZ] (69.0/kg) | Australian Beef Steak Mince 500 g [AU] (76.2/kg),https://gcc.luluhypermarket.com/en-ae/south-african-minced-beef-500-g/p/521036-ea/
+011220702,0112,مفروم غنم طازج - مستورد,1 كغ,AU,Fresh imported minced lamb/mutton,carrefour,match,yes,Australian Lamb Mince Import,40.0,40.0,80.0,kg,AU,1,,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-meat-minced-dc-/p/2258105
+011220702,0112,مفروم غنم طازج - مستورد,1 كغ,AU,Fresh imported minced lamb/mutton,lulu,match,yes,Australian Lamb Mince 300 g,24.7,24.7,82.33,kg,AU,2,Indian Mutton Mince 500 g [IN] (71.5/kg),https://gcc.luluhypermarket.com/en-ae/p/41661-ea/
+011220703,0112,مفروم بقر باكستاني,1 كغ,PK,Fresh Pakistani minced beef,carrefour,substitute_origin,no,Brazilian Low-Fat Beef Mince,26.0,26.0,52.0,kg,BR,10,South African Beef Mince Low Fat Import [ZA] (60.0/kg) | Australian Beef Mince [AU] (70.0/kg) | Australian Low Fat Beef Mince [AU] (70.0/kg) | USA Hereford Beef Mince [US] (70.0/kg) | USA Hereford Beef Mince Low-Fat Import [US] (74.0/kg) | New Zealand Beef Mince [NZ] (76.0/kg) | Australian Angus Beef Mince [AU] (80.0/kg) | New Zealand Low-Fat Beef Mince [NZ] (85.0/kg) | Australian Wagyu Beef Mince,https://www.carrefouruae.com/mafuae/en/minced-meat/braz-beef-mince-meat-low-fat-dc-/p/909666
+011220703,0112,مفروم بقر باكستاني,1 كغ,PK,Fresh Pakistani minced beef,lulu,match,yes,Pakistani Beef Mince 500 g,21.1,21.1,42.2,kg,PK,5,South African Minced Beef 500 g [ZA] (39.96/kg) | Australian Beef Mince 500 g [AU] (61.96/kg) | New Zealand Beef Mince 500 g [NZ] (69.0/kg) | Australian Beef Steak Mince 500 g [AU] (76.2/kg),https://gcc.luluhypermarket.com/en-ae/p/195922-ea/
+011220704,0112,مفروم خروف هندي,1 كغ,IN,Fresh Indian minced mutton,carrefour,no_match,no,,,,,kg,,0,,
+011220704,0112,مفروم خروف هندي,1 كغ,IN,Fresh Indian minced mutton,lulu,match,yes,Indian Mutton Mince 500 g,35.75,35.75,71.5,kg,IN,1,,https://gcc.luluhypermarket.com/en-ae/p/41565-ea/
+011220901,0112,Wait Rose Belly B/L,1 kg,GB,Boneless pork belly,carrefour,no_match,no,,,,,kg,,0,,
+011220901,0112,Wait Rose Belly B/L,1 kg,GB,Boneless pork belly,lulu,no_match,no,,,,,kg,,0,,
+011220902,0112,BRIT PORK LOIN B/LSS,1 kg,GB,Boneless British pork loin,carrefour,no_match,no,,,,,kg,,0,,
+011220902,0112,BRIT PORK LOIN B/LSS,1 kg,GB,Boneless British pork loin,lulu,no_match,no,,,,,kg,,0,,
+011220903,0112,BRIT PORK SP. RIBS,1 kg,GB,British pork spare ribs,carrefour,no_match,no,,,,,kg,,0,,
+011220903,0112,BRIT PORK SP. RIBS,1 kg,GB,British pork spare ribs,lulu,no_match,no,,,,,kg,,0,,
+011220904,0112,BRIT PORK LEG B/LSS,1 kg,GB,Boneless British pork leg,carrefour,no_match,no,,,,,kg,,0,,
+011220904,0112,BRIT PORK LEG B/LSS,1 kg,GB,Boneless British pork leg,lulu,no_match,no,,,,,kg,,0,,
+011230104,0112,مرتديلا دجاج,1 كجم,AE,Chicken mortadella (deli counter),carrefour,no_match,no,,,,,kg,,0,,
+011230104,0112,مرتديلا دجاج,1 كجم,AE,Chicken mortadella (deli counter),lulu,no_match,no,,,,,kg,,0,,
+011230105,0112,مرتديلا بقري سائب - سادة,1كغ,AE,"Plain beef mortadella, loose (deli counter)",carrefour,no_match,no,,,,,kg,,0,,
+011230105,0112,مرتديلا بقري سائب - سادة,1كغ,AE,"Plain beef mortadella, loose (deli counter)",lulu,no_match,no,,,,,kg,,0,,
+011230106,0112,مرتديلا بقري سائب,1كغ,JO,"Beef mortadella, loose from the deli counter",carrefour,no_match,no,,,,,kg,,0,,
+011230106,0112,مرتديلا بقري سائب,1كغ,JO,"Beef mortadella, loose from the deli counter",lulu,no_match,no,,,,,kg,,0,,
+011250101,0112,كبدة غنم طازج استرالي,1 كغ,AU,Fresh lamb (mutton) liver,carrefour,review_multiple,no,Australian Lamb Carcass Neck Import,36.0,36.0,72.0,kg,AU,27,Australian Lamb Fat Import [AU] (10.0/kg) | Australian Lamb Bones Import [AU] (10.0/kg) | Lamb Fat [?] (13.0/kg) | South African Dorper Lamb Carcass Import [ZA] (48.99/kg) | South African Dorper Lamb Shoulder Import [ZA] (50.0/kg) | South African Dorper Lamb Ribs Import [ZA] (53.99/kg) | South African Dorper Lamb Shortloin Import [ZA] (54.0/kg) | Australian Lamb Shoulder Slice Import [AU] (55.0/kg,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-carcass-neck-dc-tr-/p/2258128
+011250101,0112,كبدة غنم طازج استرالي,1 كغ,AU,Fresh lamb (mutton) liver,lulu,review_multiple,no,Australian Lamb Shank 500 g,33.45,33.45,66.9,kg,AU,19,Kenyan Lamb Cuts Bone In 500 g [KE] (42.2/kg) | Australian Lamb Kidney 500 g [AU] (48.3/kg) | Australian Lamb Forequarter 1 kg [AU] (53.5/kg) | Australian Lamb Forequarter Cuts 500 g [AU] (58.7/kg) | Australian Lamb Biryani Cuts 500 g [AU] (58.7/kg) | New Zealand Lamb Forequarter 500 g [NZ] (60.7/kg) | Australian Lamb Forequarter Chops 350 g [AU] (61.71/kg) | Local UAE Lamb Cuts Bone In 500 g [AE],https://gcc.luluhypermarket.com/en-ae/p/137776-ea/
+011250102,0112,كبدة بقري طازج,1 كغ,PK,Fresh beef liver,carrefour,no_match,no,,,,,kg,,0,,
+011250102,0112,كبدة بقري طازج,1 كغ,PK,Fresh beef liver,lulu,no_match,no,,,,,kg,,0,,
+011310101,0113,كنعد طازج,1 كغ,AE,Fresh kingfish (kanad),carrefour,review_multiple,no,Fresh Kingfish Steak,35.0,35.0,70.0,kg,AE,5,Fresh King Fish Small [AE] (47.99/kg) | Fresh Kingfish [AE] (70.0/kg) | Oceano Fresh King Fish Steak 200g [AE] (139.95/kg) | Asmak Chilled Kingfish Steak 200g [AE] (139.95/kg),https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521
+011310101,0113,كنعد طازج,1 كغ,AE,Fresh kingfish (kanad),lulu,review_origin,no,Fresh King Fish Steak Large 500 g,30.85,30.85,61.7,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/16884-ea/
+011310102,0113,كنعد طازج,1 كغ,OM,Fresh kingfish (kanad),carrefour,substitute_origin,no,Fresh King Fish Small,95.98,95.98,47.99,kg,AE,5,Fresh Kingfish Steak [AE] (70.0/kg) | Fresh Kingfish [AE] (70.0/kg) | Oceano Fresh King Fish Steak 200g [AE] (139.95/kg) | Asmak Chilled Kingfish Steak 200g [AE] (139.95/kg),https://www.carrefouruae.com/mafuae/en/fish/king-fish-s-/p/261953
+011310102,0113,كنعد طازج,1 كغ,OM,Fresh kingfish (kanad),lulu,review_origin,no,Fresh King Fish Steak Large 500 g,30.85,30.85,61.7,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/16884-ea/
+011310201,0113,هامور طازج,1 كغ,AE,Fresh hammour (grouper),carrefour,match,yes,Grouper Half Spotty,24.0,24.0,48.0,kg,AE,1,,https://www.carrefouruae.com/mafuae/en/fish/grouper-half-spotty/p/318301
+011310201,0113,هامور طازج,1 كغ,AE,Fresh hammour (grouper),lulu,no_match,no,,,,,kg,,0,,
+011310301,0113,شعري طازج,1 كغ,AE,Fresh shaari (emperor fish),carrefour,no_match,no,,,,,kg,,0,,
+011310301,0113,شعري طازج,1 كغ,AE,Fresh shaari (emperor fish),lulu,no_match,no,,,,,kg,,0,,
+011310302,0113,شعري طازج,1 كغ,OM,Fresh shaari (emperor fish),carrefour,no_match,no,,,,,kg,,0,,
+011310302,0113,شعري طازج,1 كغ,OM,Fresh shaari (emperor fish),lulu,no_match,no,,,,,kg,,0,,
+011310401,0113,صافي طازج,1 كغ,AE,Fresh safi (rabbitfish),carrefour,no_match,no,,,,,kg,,0,,
+011310401,0113,صافي طازج,1 كغ,AE,Fresh safi (rabbitfish),lulu,no_match,no,,,,,kg,,0,,
+011310402,0113,صافي طازج,1 كغ,OM,Fresh safi (rabbitfish),carrefour,no_match,no,,,,,kg,,0,,
+011310402,0113,صافي طازج,1 كغ,OM,Fresh safi (rabbitfish),lulu,no_match,no,,,,,kg,,0,,
+011310501,0113,سلطان ابراهيم طازج,1 كغ,AE,Fresh sultan ibrahim (red mullet/goatfish),carrefour,match,yes,Fresh Local Sultan Ibrahim,22.0,22.0,44.0,kg,AE,2,Fresh Sultan Ibrahim (Oman) [OM] (34.0/kg),https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-local/p/72782
+011310501,0113,سلطان ابراهيم طازج,1 كغ,AE,Fresh sultan ibrahim (red mullet/goatfish),lulu,no_match,no,,,,,kg,,0,,
+011310502,0113,سلطان ابراهيم طازج,1 كغ,OM,Fresh sultan ibrahim (red mullet/goatfish),carrefour,match,yes,Fresh Sultan Ibrahim (Oman),17.0,17.0,34.0,kg,OM,2,Fresh Local Sultan Ibrahim [AE] (44.0/kg),https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-omani/p/334469
+011310502,0113,سلطان ابراهيم طازج,1 كغ,OM,Fresh sultan ibrahim (red mullet/goatfish),lulu,no_match,no,,,,,kg,,0,,
+011310601,0113,جش أبيض طازج,1 كغ,AE,Fresh white jesh (trevally),carrefour,no_match,no,,,,,kg,,0,,
+011310601,0113,جش أبيض طازج,1 كغ,AE,Fresh white jesh (trevally),lulu,no_match,no,,,,,kg,,0,,
+011310602,0113,جش أبيض طازج,1 كغ,OM,Fresh white jesh (trevally),carrefour,no_match,no,,,,,kg,,0,,
+011310602,0113,جش أبيض طازج,1 كغ,OM,Fresh white jesh (trevally),lulu,no_match,no,,,,,kg,,0,,
+011310701,0113,سبريم طازج,1 كغ,AE,Fresh sea bream,carrefour,no_match,no,,,,,kg,,0,,
+011310701,0113,سبريم طازج,1 كغ,AE,Fresh sea bream,lulu,no_match,no,,,,,kg,,0,,
+011310702,0113,سبريم طازج,1 كغ,TR,Fresh sea bream,carrefour,no_match,no,,,,,kg,,0,,
+011310702,0113,سبريم طازج,1 كغ,TR,Fresh sea bream,lulu,no_match,no,,,,,kg,,0,,
+011310801,0113,سلمون طازج - كامل,1 كغ,NO,Fresh whole salmon,carrefour,no_match,no,,,,,kg,,0,,
+011310801,0113,سلمون طازج - كامل,1 كغ,NO,Fresh whole salmon,lulu,match,yes,Norwegian Salmon Whole Superior 4.5 kg,296.0,296.0,65.78,kg,NO,3,Fresh Norwegian Salmon Whole Cleaned 2.5 kg [NO] (59.9/kg) | Scottish Whole Salmon Gutted 4 kg to 5 kg [GB] (102.88/kg),https://gcc.luluhypermarket.com/en-ae/p/760321-ea/
+011310901,0113,بلطي,1 كغ,AE,Fresh tilapia,carrefour,substitute_origin,no,Tilapia Fresh,8.93,8.93,14.88,kg,EG,1,,https://www.carrefouruae.com/mafuae/en/fish/tilapia-fresh/p/939008
+011310901,0113,بلطي,1 كغ,AE,Fresh tilapia,lulu,review_origin,no,Fresh Tilapia Fish Whole Cleaned 1 kg,15.35,15.35,15.35,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/72192-ea/
+011340101,0113,روبيان طازج - كبير - مقاس U10,1 كغ,OM,"Fresh large/jumbo shrimp, U10 grade",carrefour,no_match,no,,,,,kg,,0,,
+011340101,0113,روبيان طازج - كبير - مقاس U10,1 كغ,OM,"Fresh large/jumbo shrimp, U10 grade",lulu,review_origin,no,Fresh Farmed Prawns Large Head On Fully Cleaned 500 g,20.55,20.55,41.1,kg,,3,Fresh Farmed Prawns Large Tail On Fully Cleaned 500 g [?] (41.1/kg) | Fresh Farmed Prawns Large Not Cleaned 500 g [?] (41.1/kg),https://gcc.luluhypermarket.com/en-ae/fresh-farmed-prawns-large-head-on-fully-cleaned-500-g/p/1401115-yhc/
+011340102,0113,روبيان طازج - متوسط - مقاس 20/10,1 كغ,OM,"Fresh medium shrimp, 10/20 grade",carrefour,no_match,no,,,,,kg,,0,,
+011340102,0113,روبيان طازج - متوسط - مقاس 20/10,1 كغ,OM,"Fresh medium shrimp, 10/20 grade",lulu,review_origin,no,Fresh Prawns Farmed Medium 350 g,9.0,9.0,25.71,kg,,2,Fresh Prawns Medium 40/50 350 g [?] (33.91/kg),https://gcc.luluhypermarket.com/en-ae/p/78785-ea/
+011340103,0113,روبيان طازج - صغير - مقاس 40/60,1 كغ,OM,"Fresh small shrimp, 40/60 grade",carrefour,no_match,no,,,,,kg,,0,,
+011340103,0113,روبيان طازج - صغير - مقاس 40/60,1 كغ,OM,"Fresh small shrimp, 40/60 grade",lulu,review_origin,no,Fresh Farmed Prawns Small 500 g,20.55,20.55,41.1,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/1036033-ea/
+011340201,0113,أم الروبيان طازجة,1 كغ,PK,Fresh um al-rubyan (slipper/flathead lobster),carrefour,match,yes,Fresh Lobster,50.0,50.0,100.0,kg,"OM,PK,IN",2,Fresh Lobster [?] (159.0/kg),https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster-100-300g/p/2140266
+011340201,0113,أم الروبيان طازجة,1 كغ,PK,Fresh um al-rubyan (slipper/flathead lobster),lulu,no_match,no,,,,,kg,,0,,
+011340202,0113,أم الروبيان طازجة,1 كغ,OM,Fresh um al-rubyan (slipper/flathead lobster),carrefour,match,yes,Fresh Lobster,50.0,50.0,100.0,kg,"OM,PK,IN",2,Fresh Lobster [?] (159.0/kg),https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster-100-300g/p/2140266
+011340202,0113,أم الروبيان طازجة,1 كغ,OM,Fresh um al-rubyan (slipper/flathead lobster),lulu,no_match,no,,,,,kg,,0,,
+011340301,0113,قباقب طازجة,1 كغ,AE,Fresh whole crab,carrefour,no_match,no,,,,,kg,,0,,
+011340301,0113,قباقب طازجة,1 كغ,AE,Fresh whole crab,lulu,no_match,no,,,,,kg,,0,,
+011340401,0113,حبار طازج,1 كغ,AE,Fresh whole squid,carrefour,review_multiple,no,Fresh Squid,10.0,15.5,20.0,kg,AE,2,Le Poissonnier Gyros Squid 300g [AE] (49.97/kg),https://www.carrefouruae.com/mafuae/en/shellfish-molluscs/squid-fresh/p/981472
+011340401,0113,حبار طازج,1 كغ,AE,Fresh whole squid,lulu,review_origin,no,Fresh Squid Whole Not Cleaned 500 g,16.95,16.95,33.9,kg,,2,Fresh Squid Whole Cleaned 500 g [?] (33.9/kg),https://gcc.luluhypermarket.com/en-ae/fresh-squid-whole-not-cleaned-500-g/p/1583012-ync/
+011450301,0114,جبن ابيض سائب - جبنة بيضاء,1كغ,EG,Loose Egyptian white cheese (deli counter),carrefour,no_match,no,,,,,kg,,0,,
+011450301,0114,جبن ابيض سائب - جبنة بيضاء,1كغ,EG,Loose Egyptian white cheese (deli counter),lulu,review_multiple,no,Egyptian Old White Cheese 300 g,8.39,8.39,27.97,kg,EG,26,Saudi Badr White Cheese 300 g [SA] (18.9/kg) | Egyptian Alexandria White Cheese 300 g [EG] (19.9/kg) | The Three Cows Full Fat White Cheese 500 g [?] (23.0/kg) | The Three Cows Light White Cheese 500 g [?] (26.3/kg) | White Cheese Makdous 300 g [?] (26.5/kg) | The Three Cows Full Fat White Cheese 200 g [?] (30.5/kg) | Kiri White Cheese Glass Jar Value Pack 2 x 500 g [?] (30.8/kg) | The Three Cows ,https://gcc.luluhypermarket.com/en-ae/egyptian-old-white-cheese-300-g/p/2576709-ea/
+011450302,0114,جبن ابيض سائب - حلومي,1كغ,AE,Loose halloumi cheese (deli counter),carrefour,no_match,no,,,,,kg,,0,,
+011450302,0114,جبن ابيض سائب - حلومي,1كغ,AE,Loose halloumi cheese (deli counter),lulu,review_origin,no,Halloumi With Habat Baraka 250 g,11.23,11.23,44.92,kg,,17,Fresh Halloumi Cheese 450 g [?] (46.91/kg) | Sparta Halloumi Cheese 250 g [?] (53.4/kg) | Pittas Halloumi Cheese Value Pack 200 g [?] (58.25/kg) | Arden Hellim Halloumi Cheese 225 g [?] (59.33/kg) | Chtoora Halloumi Cheese 250 g [?] (62.2/kg) | Al Rawabi Full Fat Halloumi Cheese 250 g [?] (69.6/kg) | Balade Farms Original Halloumi Cheese 250 g [?] (72.0/kg) | Almarai Halloumi Cheese Full Fat 200 g,https://gcc.luluhypermarket.com/en-ae/p/325657-ea/
+011450303,0114,جبن ابيض سائب - عكاوي,1كغ,CZ,Loose akkawi cheese (deli counter),carrefour,no_match,no,,,,,kg,,0,,
+011450303,0114,جبن ابيض سائب - عكاوي,1كغ,CZ,Loose akkawi cheese (deli counter),lulu,review_origin,no,Fresh Akkawi Cheese 450 g,21.11,21.11,46.91,kg,,2,Czech Akkawi Cheese 250 g [?] (64.92/kg),https://gcc.luluhypermarket.com/en-ae/p/39793-ea/
+011610101,0116,بلح طازج,1 كغ,AE,"Fresh dates (balah / khalal), loose",carrefour,review_multiple,no,Kingdom Dates With Nuts 300g,16.99,16.99,56.63,kg,AE,44,Khadri Dates Vacuum 1kg [?] (8.99/kg) | Kingdom Dates Saudi Dates 500g Buy 2 Get 1 Free [SA] (11.99/kg) | Khatt Fresh Dates 650g [AE] (16.75/kg) | Khatt Sukkary Dates 500G X2 Get 1 Free [AE] (17.33/kg) | Kingdom Dates Syrup Dates 1Kg [AE] (17.49/kg) | Kingdom Dates Khalas 1kg [AE] (17.99/kg) | Kingdom Dates Sukari Dates 500g x3 [AE] (18.19/kg) | Kingdom Dates Royal 400g [AE] (19.98/kg) | Sultan Ma,https://www.carrefouruae.com/mafuae/en/dates/dates-with-nuts-kd/p/1450698
+011610101,0116,بلح طازج,1 كغ,AE,"Fresh dates (balah / khalal), loose",lulu,match,yes,Dates UAE 250 g,6.95,6.95,27.8,kg,AE,3,Dates 1 kg [?] (8.95/kg) | Amal Dates Iran 550 g [IR] (16.27/kg),https://gcc.luluhypermarket.com/en-ae/dates-uae-250-g/p/1218785/
+011610102,0116,بلح طازج - صفري,1 كغ,SA,"Fresh Safri (Sifri) dates, loose",carrefour,no_match,no,,,,,kg,,0,,
+011610102,0116,بلح طازج - صفري,1 كغ,SA,"Fresh Safri (Sifri) dates, loose",lulu,no_match,no,,,,,kg,,0,,
+011610201,0116,موز,1 كغ,EC,Chiquita banana,carrefour,match,yes,Chiquita Banana,4.95,4.95,9.9,kg,EC,1,,https://www.carrefouruae.com/mafuae/en/banana/banana-chiquita/p/1078988
+011610201,0116,موز,1 كغ,EC,Chiquita banana,lulu,match,yes,Banana Chiquita Ecuador 1 kg,9.95,9.95,9.95,kg,EC,1,,https://gcc.luluhypermarket.com/en-ae/p/380260-ea/
+011610202,0116,موز,1 كغ,EC,Banana (Estrella brand),carrefour,match,yes,Chiquita Banana,4.95,4.95,9.9,kg,EC,2,Banana Flower [IN] (9.99/kg),https://www.carrefouruae.com/mafuae/en/banana/banana-chiquita/p/1078988
+011610202,0116,موز,1 كغ,EC,Banana (Estrella brand),lulu,review_multiple,no,Banana Ecuador 1 kg,6.95,6.95,6.95,kg,EC,10,Banana Blossom Oman 500 g [OM] (4.96/kg) | Green Banana Local Oman 1 kg [AE] (5.65/kg) | Mountain Banana 1 kg [?] (6.95/kg) | Banana Chiquita Ecuador 1 kg [EC] (9.95/kg) | Banana Mysore 500 g [?] (9.96/kg) | Banana Poovan Oman 500 g [OM] (10.96/kg) | Banana Yellow India 1 kg [IN] (12.95/kg) | Green Banana India 500 g [IN] (12.96/kg) | Banana Poovan Sri Lanka 500 g [LK] (21.96/kg),https://gcc.luluhypermarket.com/en-ae/p/1085177-ea/
+011610203,0116,موز,1 كغ,PH,Dole banana,carrefour,no_match,no,,,,,kg,,0,,
+011610203,0116,موز,1 كغ,PH,Dole banana,lulu,no_match,no,,,,,kg,,0,,
+011610301,0116,مانجو,1 كغ,IN,Fresh mango,carrefour,review_multiple,no,Mango Alphonso,11.35,11.35,22.7,kg,IN,13,Mango Kesar Premuim [?] (9.99/kg) | Mango Ngowe Long [KE] (11.99/kg) | Mango Green [IN] (15.0/kg) | Round Mango [KE] (17.0/kg) | Sweet Mango [BR] (17.98/kg) | Mango Alphonso Premium [ID] (25.0/kg) | Mango Palmer Import [BR] (30.0/kg) | Mango Yellow [TH] (46.0/kg) | Mango R2E2 [AU] (49.99/kg) | Mango Elephant Yellow [VN] (49.99/kg) | Mango Cubes With Masala 250g [AE] (79.96/kg) | Hello Fruits Mango,https://www.carrefouruae.com/mafuae/en/mango/mango-alphonso/p/446964
+011610301,0116,مانجو,1 كغ,IN,Fresh mango,lulu,match,yes,Green Mango India 500 g,8.48,8.48,16.96,kg,IN,7,Mango Keit 1 kg [EG] (9.95/kg) | Mango Kent 500 g [?] (12.96/kg) | Kenya Mangoes Round Kenya 1 kg [KE] (19.95/kg) | Mango Long Kenya 1 kg [KE] (19.95/kg) | Mango Sliced 250 g [?] (32.52/kg) | Mango Colombia 1 kg [CO] (66.95/kg),https://gcc.luluhypermarket.com/en-ae/p/40421-ea/
+011610302,0116,مانجو,1 كغ,KE,Fresh mango,carrefour,review_multiple,no,Round Mango,8.5,8.5,17.0,kg,KE,13,Mango Kesar Premuim [?] (9.99/kg) | Mango Ngowe Long [KE] (11.99/kg) | Mango Green [IN] (15.0/kg) | Sweet Mango [BR] (17.98/kg) | Mango Alphonso [IN] (22.7/kg) | Mango Alphonso Premium [ID] (25.0/kg) | Mango Palmer Import [BR] (30.0/kg) | Mango Yellow [TH] (46.0/kg) | Mango R2E2 [AU] (49.99/kg) | Mango Elephant Yellow [VN] (49.99/kg) | Mango Cubes With Masala 250g [AE] (79.96/kg) | Hello Fruits Ma,https://www.carrefouruae.com/mafuae/en/mango/mango-round/p/421991
+011610302,0116,مانجو,1 كغ,KE,Fresh mango,lulu,match,yes,Kenya Mangoes Round Kenya 1 kg,19.95,19.95,19.95,kg,KE,7,Mango Keit 1 kg [EG] (9.95/kg) | Mango Kent 500 g [?] (12.96/kg) | Green Mango India 500 g [IN] (16.96/kg) | Mango Long Kenya 1 kg [KE] (19.95/kg) | Mango Sliced 250 g [?] (32.52/kg) | Mango Colombia 1 kg [CO] (66.95/kg),https://gcc.luluhypermarket.com/en-ae/p/19016-ea/
+011610303,0116,مانجو,1 كغ,PK,Fresh mango,carrefour,review_origin,no,Mango Kesar Premuim,6.99,6.99,9.99,kg,,13,Mango Ngowe Long [KE] (11.99/kg) | Mango Green [IN] (15.0/kg) | Round Mango [KE] (17.0/kg) | Sweet Mango [BR] (17.98/kg) | Mango Alphonso [IN] (22.7/kg) | Mango Alphonso Premium [ID] (25.0/kg) | Mango Palmer Import [BR] (30.0/kg) | Mango Yellow [TH] (46.0/kg) | Mango R2E2 [AU] (49.99/kg) | Mango Elephant Yellow [VN] (49.99/kg) | Mango Cubes With Masala 250g [AE] (79.96/kg) | Hello Fruits Mango Chu,https://www.carrefouruae.com/mafuae/en/mango/mango-naomi/p/1435400
+011610303,0116,مانجو,1 كغ,PK,Fresh mango,lulu,review_origin,no,Mango Kent 500 g,6.48,6.48,12.96,kg,,7,Mango Keit 1 kg [EG] (9.95/kg) | Green Mango India 500 g [IN] (16.96/kg) | Kenya Mangoes Round Kenya 1 kg [KE] (19.95/kg) | Mango Long Kenya 1 kg [KE] (19.95/kg) | Mango Sliced 250 g [?] (32.52/kg) | Mango Colombia 1 kg [CO] (66.95/kg),https://gcc.luluhypermarket.com/en-ae/mango-kent-500-g/p/1090755-ea/
+011610401,0116,جوافة,1 كغ,EG,Fresh guava,carrefour,match,yes,Guava,8.5,8.5,17.0,kg,EG,1,,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902
+011610401,0116,جوافة,1 كغ,EG,Fresh guava,lulu,match,yes,Guava Egypt 500 g,6.95,6.95,13.9,kg,EG,2,Guava Big India 1 kg [IN] (24.95/kg),https://gcc.luluhypermarket.com/en-ae/p/383762-ea/
+011610402,0116,جوافة,1 كغ,PK,Fresh guava,carrefour,substitute_origin,no,Guava,8.5,8.5,17.0,kg,EG,1,,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902
+011610402,0116,جوافة,1 كغ,PK,Fresh guava,lulu,substitute_origin,no,Guava Egypt 500 g,6.95,6.95,13.9,kg,EG,2,Guava Big India 1 kg [IN] (24.95/kg),https://gcc.luluhypermarket.com/en-ae/p/383762-ea/
+011610403,0116,جوافة,1 كغ,TH,Fresh guava,carrefour,substitute_origin,no,Guava,8.5,8.5,17.0,kg,EG,1,,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902
+011610403,0116,جوافة,1 كغ,TH,Fresh guava,lulu,substitute_origin,no,Guava Egypt 500 g,6.95,6.95,13.9,kg,EG,2,Guava Big India 1 kg [IN] (24.95/kg),https://gcc.luluhypermarket.com/en-ae/p/383762-ea/
+011610501,0116,تين طازج,1 كغ,BR,Fresh figs,carrefour,substitute_origin,no,Fresh Figs,4.75,4.75,19.0,kg,EG,1,,https://www.carrefouruae.com/mafuae/en/exotic-fruit/fig-fresh/p/446889
+011610501,0116,تين طازج,1 كغ,BR,Fresh figs,lulu,no_match,no,,,,,kg,,0,,
+011610601,0116,اناناس  كبير,حبة,TH,"Fresh pineapple, large, whole (per piece)",carrefour,no_match,no,,,,,pc,,0,,
+011610601,0116,اناناس  كبير,حبة,TH,"Fresh pineapple, large, whole (per piece)",lulu,substitute_origin,no,Coconut Whole India 1 pc,3.5,3.5,3.5,pc,IN,1,,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/
+011610602,0116,اناناس  كبير,حبة,PH,"Fresh pineapple, large, whole (per piece)",carrefour,no_match,no,,,,,pc,,0,,
+011610602,0116,اناناس  كبير,حبة,PH,"Fresh pineapple, large, whole (per piece)",lulu,substitute_origin,no,Coconut Whole India 1 pc,3.5,3.5,3.5,pc,IN,1,,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/
+011610603,0116,اناناس  صغير,حبة,TH,"Fresh pineapple, small, whole (per piece)",carrefour,no_match,no,,,,,pc,,0,,
+011610603,0116,اناناس  صغير,حبة,TH,"Fresh pineapple, small, whole (per piece)",lulu,substitute_origin,no,Coconut Whole India 1 pc,3.5,3.5,3.5,pc,IN,1,,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/
+011610604,0116,اناناس  صغير,حبة,PH,"Fresh pineapple, small, whole (per piece)",carrefour,no_match,no,,,,,pc,,0,,
+011610604,0116,اناناس  صغير,حبة,PH,"Fresh pineapple, small, whole (per piece)",lulu,substitute_origin,no,Coconut Whole India 1 pc,3.5,3.5,3.5,pc,IN,1,,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/
+011610701,0116,بابايا,1 كغ,IN,Fresh papaya,carrefour,substitute_origin,no,Solo Papaya,22.49,22.49,24.99,kg,TH,1,,https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-solo/p/446974
+011610701,0116,بابايا,1 كغ,IN,Fresh papaya,lulu,match,yes,Papaya Fruit India 1.5 kg,22.43,22.43,14.95,kg,IN,3,Green Papaya 700 g - 900 g [?] (7.94/kg) | Papaya Sri Lanka 900 g - 1.1 kg [LK] (16.61/kg),https://gcc.luluhypermarket.com/en-ae/p/18671-ea/
+011610702,0116,بابايا,1 كغ,TH,Fresh Solo papaya,carrefour,match,yes,Solo Papaya,22.49,22.49,24.99,kg,TH,1,,https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-solo/p/446974
+011610702,0116,بابايا,1 كغ,TH,Fresh Solo papaya,lulu,no_match,no,,,,,kg,,0,,
+011610801,0116,ثمرة جوز الهند,حبة,IN,Whole coconut fruit (per piece),carrefour,no_match,no,,,,,pc,,0,,
+011610801,0116,ثمرة جوز الهند,حبة,IN,Whole coconut fruit (per piece),lulu,match,yes,Coconut Whole India 1 pc,3.5,3.5,3.5,pc,IN,1,,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/
+011610802,0116,ثمرة جوز الهند,حبة,MY,Whole coconut fruit (per piece),carrefour,no_match,no,,,,,pc,,0,,
+011610802,0116,ثمرة جوز الهند,حبة,MY,Whole coconut fruit (per piece),lulu,substitute_origin,no,Coconut Whole India 1 pc,3.5,3.5,3.5,pc,IN,1,,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/
+011610803,0116,ثمرة جوز الهند,حبة,TH,Whole coconut fruit (per piece),carrefour,no_match,no,,,,,pc,,0,,
+011610803,0116,ثمرة جوز الهند,حبة,TH,Whole coconut fruit (per piece),lulu,substitute_origin,no,Coconut Whole India 1 pc,3.5,3.5,3.5,pc,IN,1,,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/
+011610901,0116,أفوكادو,1 كغ,MX,Fresh avocado,carrefour,substitute_origin,no,Avocado Hass,11.39,11.39,18.98,kg,KE,2,Avocado Hass Premium [AU] (46.0/kg),https://www.carrefouruae.com/mafuae/en/avocado/avocado-hass/p/450535
+011610901,0116,أفوكادو,1 كغ,MX,Fresh avocado,lulu,match,yes,Avocado Hass Mexico 500 g,17.48,17.48,34.96,kg,MX,2,Avocado Kenya 1 kg [KE] (16.95/kg),https://gcc.luluhypermarket.com/en-ae/p/1113595-ea/
+011610902,0116,أفوكادو,1 كغ,KE,"Avocado, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011610902,0116,أفوكادو,1 كغ,KE,"Avocado, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011620101,0116,برتقال  ابو صرة,1 كغ,EG,"Navel orange, fresh, loose",carrefour,substitute_origin,no,Carrefour Navel Oranges 3Kg,24.69,24.69,8.23,kg,ZA,2,Orange Navel Premium [AU] (30.0/kg),https://www.carrefouruae.com/mafuae/en/orange/crf-orange-navel-3kg/p/2175462
+011620101,0116,برتقال  ابو صرة,1 كغ,EG,"Navel orange, fresh, loose",lulu,review_origin,no,Orange Navel Net Bag 2.5 kg,23.5,23.5,9.4,kg,,3,Orange Navel South Africa 1 kg [ZA] (8.95/kg) | Orange Navel Australia 1 kg [AU] (8.95/kg),https://gcc.luluhypermarket.com/en-ae/orange-navel-net-bag-2-5-kg/p/736733/
+011620102,0116,برتقال  ابو صرة,1 كغ,AFRICA,"Navel orange, fresh, loose",carrefour,substitute_origin,no,Carrefour Navel Oranges 3Kg,24.69,24.69,8.23,kg,ZA,2,Orange Navel Premium [AU] (30.0/kg),https://www.carrefouruae.com/mafuae/en/orange/crf-orange-navel-3kg/p/2175462
+011620102,0116,برتقال  ابو صرة,1 كغ,AFRICA,"Navel orange, fresh, loose",lulu,review_origin,no,Orange Navel Net Bag 2.5 kg,23.5,23.5,9.4,kg,,3,Orange Navel South Africa 1 kg [ZA] (8.95/kg) | Orange Navel Australia 1 kg [AU] (8.95/kg),https://gcc.luluhypermarket.com/en-ae/orange-navel-net-bag-2-5-kg/p/736733/
+011620103,0116,برتقال  ابو صرة,1 كغ,CN,"Navel orange, fresh, loose",carrefour,substitute_origin,no,Carrefour Navel Oranges 3Kg,24.69,24.69,8.23,kg,ZA,2,Orange Navel Premium [AU] (30.0/kg),https://www.carrefouruae.com/mafuae/en/orange/crf-orange-navel-3kg/p/2175462
+011620103,0116,برتقال  ابو صرة,1 كغ,CN,"Navel orange, fresh, loose",lulu,review_origin,no,Orange Navel Net Bag 2.5 kg,23.5,23.5,9.4,kg,,3,Orange Navel South Africa 1 kg [ZA] (8.95/kg) | Orange Navel Australia 1 kg [AU] (8.95/kg),https://gcc.luluhypermarket.com/en-ae/orange-navel-net-bag-2-5-kg/p/736733/
+011620104,0116,برتقال   بلانسيا,1 كغ,EG,"Valencia orange, fresh, loose",carrefour,substitute_origin,no,Carrefour Valencia Oranges 3Kg,25.89,25.89,8.63,kg,ZA,2,Orange Valencia [ZA] (8.89/kg),https://www.carrefouruae.com/mafuae/en/orange/crf-orange-valencia-3kg/p/2175463
+011620104,0116,برتقال   بلانسيا,1 كغ,EG,"Valencia orange, fresh, loose",lulu,review_origin,no,Orange Valencia 2.5 kg,25.0,25.0,10.0,kg,,2,Orange Valencia South Africa 1 kg [ZA] (9.65/kg),https://gcc.luluhypermarket.com/en-ae/orange-valencia-2-5-kg/p/736734/
+011620105,0116,برتقال   بلانسيا,1 كغ,AFRICA,"Valencia orange, fresh, loose",carrefour,substitute_origin,no,Carrefour Valencia Oranges 3Kg,25.89,25.89,8.63,kg,ZA,2,Orange Valencia [ZA] (8.89/kg),https://www.carrefouruae.com/mafuae/en/orange/crf-orange-valencia-3kg/p/2175463
+011620105,0116,برتقال   بلانسيا,1 كغ,AFRICA,"Valencia orange, fresh, loose",lulu,review_origin,no,Orange Valencia 2.5 kg,25.0,25.0,10.0,kg,,2,Orange Valencia South Africa 1 kg [ZA] (9.65/kg),https://gcc.luluhypermarket.com/en-ae/orange-valencia-2-5-kg/p/736734/
+011620201,0116,ليمون صغير,1 كغ,IN,"Small lemon (lime), fresh, loose",carrefour,match,yes,Yellow Lime,3.7,3.7,7.4,kg,"IN,EG",2,Green Lime [VN] (9.0/kg),https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440
+011620201,0116,ليمون صغير,1 كغ,IN,"Small lemon (lime), fresh, loose",lulu,substitute_origin,no,Lime Egypt 250 g,1.99,1.99,7.96,kg,EG,3,Lime Seedless Vietnam 250 g [VN] (9.96/kg) | Lime Leaves Thailand pkt 100 g [TH] (55.0/kg),https://gcc.luluhypermarket.com/en-ae/lime-egypt-250-g/p/36388-ea/
+011620202,0116,ليمون صغير,1 كغ,EG,"Small lemon (Egyptian baladi lime), fresh, loose",carrefour,match,yes,Yellow Lime,3.7,3.7,7.4,kg,"IN,EG",2,Green Lime [VN] (9.0/kg),https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440
+011620202,0116,ليمون صغير,1 كغ,EG,"Small lemon (Egyptian baladi lime), fresh, loose",lulu,match,yes,Lime Egypt 250 g,1.99,1.99,7.96,kg,EG,3,Lime Seedless Vietnam 250 g [VN] (9.96/kg) | Lime Leaves Thailand pkt 100 g [TH] (55.0/kg),https://gcc.luluhypermarket.com/en-ae/lime-egypt-250-g/p/36388-ea/
+011620203,0116,ليمون كبير,1 كغ,AFRICA,"Large lemon, fresh, loose",carrefour,substitute_origin,no,Carrefour Lemons 2Kg,13.99,13.99,7.0,kg,ZA,2,Lemon [ZA] (7.18/kg),https://www.carrefouruae.com/mafuae/en/lemon-lime/crf-lemon-bag-2kg/p/2175743
+011620203,0116,ليمون كبير,1 كغ,AFRICA,"Large lemon, fresh, loose",lulu,review_origin,no,Lemon Bag 2 kg,16.95,16.95,8.47,kg,,2,Lemon Grass Thailand 100 g [TH] (44.0/kg),https://gcc.luluhypermarket.com/en-ae/lemon-bag-2-kg/p/795633/
+011620204,0116,ليمون كبير,1 كغ,TR,"Large lemon, fresh, loose",carrefour,substitute_origin,no,Carrefour Lemons 2Kg,13.99,13.99,7.0,kg,ZA,2,Lemon [ZA] (7.18/kg),https://www.carrefouruae.com/mafuae/en/lemon-lime/crf-lemon-bag-2kg/p/2175743
+011620204,0116,ليمون كبير,1 كغ,TR,"Large lemon, fresh, loose",lulu,review_origin,no,Lemon Bag 2 kg,16.95,16.95,8.47,kg,,2,Lemon Grass Thailand 100 g [TH] (44.0/kg),https://gcc.luluhypermarket.com/en-ae/lemon-bag-2-kg/p/795633/
+011620301,0116,جريب فروت,1 كغ,ZA,"Grapefruit, fresh, loose",carrefour,match,yes,Grapefruit Star Ruby,5.39,5.39,8.98,kg,ZA,1,,https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417
+011620301,0116,جريب فروت,1 كغ,ZA,"Grapefruit, fresh, loose",lulu,review_origin,no,Grapefruit 1 kg,7.95,7.95,7.95,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/19000-ea/
+011620302,0116,جريب فروت,1 كغ,TR,"Grapefruit, Star Ruby (red flesh), fresh, loose",carrefour,substitute_origin,no,Grapefruit Star Ruby,5.39,5.39,8.98,kg,ZA,1,,https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417
+011620302,0116,جريب فروت,1 كغ,TR,"Grapefruit, Star Ruby (red flesh), fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011620401,0116,يوسفى - سنترة,1 كغ,LB,"Mandarin (tangerine), fresh, loose",carrefour,substitute_origin,no,Mandarine Nadorcott,3.4,6.5,6.8,kg,ZA,2,Carrefour Mandarin Nadorcott [AR] (10.0/kg),https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mandarine-nadorcott/p/425383
+011620401,0116,يوسفى - سنترة,1 كغ,LB,"Mandarin (tangerine), fresh, loose",lulu,substitute_origin,no,Mandarin Tango South Africa 1 kg,9.95,9.95,9.95,kg,ZA,5,Nadorcott Mandarin South Africa 1 kg [ZA] (9.95/kg) | Mandarin Leanri South Africa 1 kg [ZA] (9.95/kg) | Mandarin Honey Murcot Australia 1 kg [AU] (10.95/kg) | Mandarin Australia 1 kg [AU] (14.95/kg),https://gcc.luluhypermarket.com/en-ae/mandarin-tango-south-africa-1-kg/p/1869489-ea/
+011620402,0116,يوسفى - سنترة,1 كغ,PK,"Mandarin (kinnow), fresh, loose",carrefour,substitute_origin,no,Mandarine Nadorcott,3.4,6.5,6.8,kg,ZA,2,Carrefour Mandarin Nadorcott [AR] (10.0/kg),https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mandarine-nadorcott/p/425383
+011620402,0116,يوسفى - سنترة,1 كغ,PK,"Mandarin (kinnow), fresh, loose",lulu,substitute_origin,no,Mandarin Tango South Africa 1 kg,9.95,9.95,9.95,kg,ZA,5,Nadorcott Mandarin South Africa 1 kg [ZA] (9.95/kg) | Mandarin Leanri South Africa 1 kg [ZA] (9.95/kg) | Mandarin Honey Murcot Australia 1 kg [AU] (10.95/kg) | Mandarin Australia 1 kg [AU] (14.95/kg),https://gcc.luluhypermarket.com/en-ae/mandarin-tango-south-africa-1-kg/p/1869489-ea/
+011620403,0116,يوسفى - سنترة,1 كغ,EG,"Mandarin (tangerine), fresh, loose",carrefour,substitute_origin,no,Mandarine Nadorcott,3.4,6.5,6.8,kg,ZA,2,Carrefour Mandarin Nadorcott [AR] (10.0/kg),https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mandarine-nadorcott/p/425383
+011620403,0116,يوسفى - سنترة,1 كغ,EG,"Mandarin (tangerine), fresh, loose",lulu,substitute_origin,no,Mandarin Tango South Africa 1 kg,9.95,9.95,9.95,kg,ZA,5,Nadorcott Mandarin South Africa 1 kg [ZA] (9.95/kg) | Mandarin Leanri South Africa 1 kg [ZA] (9.95/kg) | Mandarin Honey Murcot Australia 1 kg [AU] (10.95/kg) | Mandarin Australia 1 kg [AU] (14.95/kg),https://gcc.luluhypermarket.com/en-ae/mandarin-tango-south-africa-1-kg/p/1869489-ea/
+011630101,0116,تفاح احمر,1 كغ,FR,"Red apple, fresh, loose",carrefour,substitute_origin,no,Red Apple,6.0,6.0,12.0,kg,"DE,ZA",1,,https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442
+011630101,0116,تفاح احمر,1 كغ,FR,"Red apple, fresh, loose",lulu,review_origin,no,Red Apple Azerbaijan 1 kg,7.95,7.95,7.95,kg,,3,Red Apple USA 1 kg [US] (18.95/kg) | Red Apple 1 kg [?] (18.95/kg),https://gcc.luluhypermarket.com/en-ae/red-apple-azerbaijan-1-kg/p/1248480-ea/
+011630102,0116,تفاح احمر,1 كغ,US,"Red apple (Red Delicious), fresh, loose",carrefour,substitute_origin,no,Red Apple,6.0,6.0,12.0,kg,"DE,ZA",1,,https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442
+011630102,0116,تفاح احمر,1 كغ,US,"Red apple (Red Delicious), fresh, loose",lulu,match,yes,Red Apple USA 1 kg,18.95,18.95,18.95,kg,US,3,Red Apple Azerbaijan 1 kg [?] (7.95/kg) | Red Apple 1 kg [?] (18.95/kg),https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea/
+011630103,0116,تفاح رويال,1 كغ,US,"Royal Gala apple, fresh, loose",carrefour,review_origin,no,Royal Gala Apple,5.33,5.33,8.88,kg,,4,Royal Gala Apple [ZA] (9.88/kg) | Royal Gala Apples 1.5 Kg [ZA] (10.66/kg) | Apple Royal Gala Premium [NZ] (15.0/kg),https://www.carrefouruae.com/mafuae/en/apple/apple-royal-gala-ep/p/1551790
+011630103,0116,تفاح رويال,1 كغ,US,"Royal Gala apple, fresh, loose",lulu,review_origin,no,Royal Gala Apple 1 kg,12.95,12.95,12.95,kg,,5,Royal Gala Baby Apple France 1 kg [FR] (7.65/kg) | Royal Gala Apple France 1 kg [FR] (8.95/kg) | Royal Gala Apple Turkey 1 kg [TR] (9.95/kg) | Royal Gala Apple New Zealand 1 kg [NZ] (13.95/kg),https://gcc.luluhypermarket.com/en-ae/royal-gala-apple-1-kg/p/797574/
+011630104,0116,تفاح اصفر,1 كغ,FR,"Yellow (Golden Delicious) apple, fresh, loose",carrefour,substitute_origin,no,Yellow Lime,3.7,3.7,7.4,kg,"IN,EG",8,"Golden Apple [IT] (12.0/kg) | Yellow Plantain Banana [IN] (16.99/kg) | Pineapple Gold Whole Fruit [PH,KE] (28.32/kg) | Mango Yellow [TH] (46.0/kg) | Mango Elephant Yellow [VN] (49.99/kg) | Golden Berries [CO] (64.65/kg) | Phithaya Yellow [CO] (70.0/kg)",https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440
+011630104,0116,تفاح اصفر,1 كغ,FR,"Yellow (Golden Delicious) apple, fresh, loose",lulu,review_origin,no,Golden Apple 1 kg,11.95,11.95,11.95,kg,,7,Banana Yellow India 1 kg [IN] (12.95/kg) | Golden Apple 1 kg [?] (14.5/kg) | Capsicum Yellow 500 g [?] (14.96/kg) | Kiwi Gold New Zealand 500 g [NZ] (39.96/kg) | Yellow Courgette Holland 500 g [NL] (46.96/kg) | Tomato Cherry Yellow Holland 250 g [NL] (74.0/kg),https://gcc.luluhypermarket.com/en-ae/golden-apple-1-kg/p/19110-ea/
+011630105,0116,تفاح اصفر,1 كغ,IR,"Yellow (Golden Delicious) apple, fresh, loose",carrefour,substitute_origin,no,Yellow Lime,3.7,3.7,7.4,kg,"IN,EG",8,"Golden Apple [IT] (12.0/kg) | Yellow Plantain Banana [IN] (16.99/kg) | Pineapple Gold Whole Fruit [PH,KE] (28.32/kg) | Mango Yellow [TH] (46.0/kg) | Mango Elephant Yellow [VN] (49.99/kg) | Golden Berries [CO] (64.65/kg) | Phithaya Yellow [CO] (70.0/kg)",https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440
+011630105,0116,تفاح اصفر,1 كغ,IR,"Yellow (Golden Delicious) apple, fresh, loose",lulu,review_origin,no,Golden Apple 1 kg,11.95,11.95,11.95,kg,,7,Banana Yellow India 1 kg [IN] (12.95/kg) | Golden Apple 1 kg [?] (14.5/kg) | Capsicum Yellow 500 g [?] (14.96/kg) | Kiwi Gold New Zealand 500 g [NZ] (39.96/kg) | Yellow Courgette Holland 500 g [NL] (46.96/kg) | Tomato Cherry Yellow Holland 250 g [NL] (74.0/kg),https://gcc.luluhypermarket.com/en-ae/golden-apple-1-kg/p/19110-ea/
+011630106,0116,تفاح اخضر,1 كغ,US,"Green apple (Granny Smith), fresh, loose",carrefour,substitute_origin,no,Green Watermelon Long,11.96,11.96,2.99,kg,OM,6,"Green Lime [VN] (9.0/kg) | Green Apple [ZA,FR] (12.48/kg) | Green Apple Jumbo [NZ] (13.0/kg) | Apple Green Bag 900g [ZA] (14.43/kg) | Mango Green [IN] (15.0/kg)",https://www.carrefouruae.com/mafuae/en/melon/watermelon-long-green/p/489894
+011630106,0116,تفاح اخضر,1 كغ,US,"Green apple (Granny Smith), fresh, loose",lulu,review_origin,no,Green Papaya 700 g - 900 g,5.56,5.56,7.94,kg,,13,Green Banana Local Oman 1 kg [AE] (5.65/kg) | Capsicum Green 500 g [?] (9.96/kg) | Long Chilli Green 150 g [?] (12.93/kg) | Green Apple 1 kg [?] (12.95/kg) | Green Banana India 500 g [IN] (12.96/kg) | Green Chilli India 100 g [IN] (14.0/kg) | Green Mango India 500 g [IN] (16.96/kg) | Bitter Gourd Green Bangladesh 500 g [BD] (16.96/kg) | Courgette Green Local 500 g [AE] (19.96/kg) | Courgettes Gree,https://gcc.luluhypermarket.com/en-ae/p/18706-ea/
+011630107,0116,تفاح اخضر,1 كغ,FR,"Green apple (Granny Smith), fresh, loose",carrefour,match,yes,Green Apple,7.49,7.49,12.48,kg,"ZA,FR",6,Green Watermelon Long [OM] (2.99/kg) | Green Lime [VN] (9.0/kg) | Green Apple Jumbo [NZ] (13.0/kg) | Apple Green Bag 900g [ZA] (14.43/kg) | Mango Green [IN] (15.0/kg),https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385
+011630107,0116,تفاح اخضر,1 كغ,FR,"Green apple (Granny Smith), fresh, loose",lulu,review_origin,no,Green Papaya 700 g - 900 g,5.56,5.56,7.94,kg,,13,Green Banana Local Oman 1 kg [AE] (5.65/kg) | Capsicum Green 500 g [?] (9.96/kg) | Long Chilli Green 150 g [?] (12.93/kg) | Green Apple 1 kg [?] (12.95/kg) | Green Banana India 500 g [IN] (12.96/kg) | Green Chilli India 100 g [IN] (14.0/kg) | Green Mango India 500 g [IN] (16.96/kg) | Bitter Gourd Green Bangladesh 500 g [BD] (16.96/kg) | Courgette Green Local 500 g [AE] (19.96/kg) | Courgettes Gree,https://gcc.luluhypermarket.com/en-ae/p/18706-ea/
+011630201,0116,مشمش,1 كغ,LB,"Apricot, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630201,0116,مشمش,1 كغ,LB,"Apricot, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630202,0116,مشمش,1 كغ,IR,"Apricot, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630202,0116,مشمش,1 كغ,IR,"Apricot, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630301,0116,خوخ ( دراق ) أصفر,1 كغ,LB,"Yellow peach, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630301,0116,خوخ ( دراق ) أصفر,1 كغ,LB,"Yellow peach, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630302,0116,خوخ ( دراق ) أصفر,1 كغ,AFRICA,"Yellow peach, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630302,0116,خوخ ( دراق ) أصفر,1 كغ,AFRICA,"Yellow peach, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630303,0116,خوخ ( دراق ) أصفر,1 كغ,AU,"Yellow peach, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630303,0116,خوخ ( دراق ) أصفر,1 كغ,AU,"Yellow peach, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630401,0116,برقوق,1 كغ,AFRICA,"Plum, Angeleno variety, fresh, loose",carrefour,review_origin,no,Plum Black,7.99,7.99,15.98,kg,,4,Red Plum 500g [ZA] (8.88/kg) | Plum Red Import [CN] (15.0/kg) | Plum Black [IT] (16.0/kg),https://www.carrefouruae.com/mafuae/en/apricot-plums/plum-black-pp/p/1269459
+011630401,0116,برقوق,1 كغ,AFRICA,"Plum, Angeleno variety, fresh, loose",lulu,review_origin,no,Plums Angelino 500 g,6.48,6.48,12.96,kg,,3,Plums Spain 500 g [ES] (13.96/kg) | Plums Egypt 900 g [EG] (19.94/kg),https://gcc.luluhypermarket.com/en-ae/p/982754-ea/
+011630402,0116,برقوق أسود,1 كغ,AU,"Black plum, fresh, loose",carrefour,review_origin,no,Plum Black,7.99,7.99,15.98,kg,,2,Plum Black [IT] (16.0/kg),https://www.carrefouruae.com/mafuae/en/apricot-plums/plum-black-pp/p/1269459
+011630402,0116,برقوق أسود,1 كغ,AU,"Black plum, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630501,0116,كرز,1 كغ,US,"Cherries, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630501,0116,كرز,1 كغ,US,"Cherries, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630502,0116,كرز,1 كغ,LB,"Cherries, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630502,0116,كرز,1 كغ,LB,"Cherries, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630503,0116,كرز,1 كغ,AT,"Cherries, fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011630503,0116,كرز,1 كغ,AT,"Cherries, fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011630601,0116,كمثرى ( أجاص ),1 كغ,CL,"Pear, fresh, loose",carrefour,substitute_origin,no,Vermont Beauty Pear,5.45,5.45,10.9,kg,ZA,4,"Pear Forelle [ZA] (11.0/kg) | Nashi Pear [CN] (13.0/kg) | Pear Conference [BE,NL] (17.0/kg)",https://www.carrefouruae.com/mafuae/en/pears/pear-vermont-beauty/p/71628
+011630601,0116,كمثرى ( أجاص ),1 كغ,CL,"Pear, fresh, loose",lulu,substitute_origin,no,Vermonte Beauty Pears South Africa 500 g,6.83,6.83,13.66,kg,ZA,4,Pears Forelle South Africa 500 g [ZA] (13.66/kg) | Pears Turkey 500 g [TR] (13.96/kg) | Pears Nashi 1 kg [CN] (14.95/kg),https://gcc.luluhypermarket.com/en-ae/p/382137-ea/
+011630602,0116,كمثرى ( أجاص ),1 كغ,AFRICA,"Pear, fresh, loose",carrefour,substitute_origin,no,Vermont Beauty Pear,5.45,5.45,10.9,kg,ZA,4,"Pear Forelle [ZA] (11.0/kg) | Nashi Pear [CN] (13.0/kg) | Pear Conference [BE,NL] (17.0/kg)",https://www.carrefouruae.com/mafuae/en/pears/pear-vermont-beauty/p/71628
+011630602,0116,كمثرى ( أجاص ),1 كغ,AFRICA,"Pear, fresh, loose",lulu,substitute_origin,no,Vermonte Beauty Pears South Africa 500 g,6.83,6.83,13.66,kg,ZA,4,Pears Forelle South Africa 500 g [ZA] (13.66/kg) | Pears Turkey 500 g [TR] (13.96/kg) | Pears Nashi 1 kg [CN] (14.95/kg),https://gcc.luluhypermarket.com/en-ae/p/382137-ea/
+011630603,0116,كمثرى ( أجاص ),1 كغ,US,"Pear, fresh, loose",carrefour,substitute_origin,no,Vermont Beauty Pear,5.45,5.45,10.9,kg,ZA,4,"Pear Forelle [ZA] (11.0/kg) | Nashi Pear [CN] (13.0/kg) | Pear Conference [BE,NL] (17.0/kg)",https://www.carrefouruae.com/mafuae/en/pears/pear-vermont-beauty/p/71628
+011630603,0116,كمثرى ( أجاص ),1 كغ,US,"Pear, fresh, loose",lulu,substitute_origin,no,Vermonte Beauty Pears South Africa 500 g,6.83,6.83,13.66,kg,ZA,4,Pears Forelle South Africa 500 g [ZA] (13.66/kg) | Pears Turkey 500 g [TR] (13.96/kg) | Pears Nashi 1 kg [CN] (14.95/kg),https://gcc.luluhypermarket.com/en-ae/p/382137-ea/
+011640101,0116,فراولة,1 كغ,US,"Strawberries, fresh",carrefour,match,yes,Strawberry 250g,19.89,19.89,79.56,kg,US,1,,https://www.carrefouruae.com/mafuae/en/berries/strawberry-250g-pp/p/425359
+011640101,0116,فراولة,1 كغ,US,"Strawberries, fresh",lulu,review_origin,no,Fresh Cut Strawberry 250g,15.98,15.98,63.92,kg,,5,Strawberry South Africa 250 g [ZA] (66.0/kg) | Driscoll's Strawberry South Africa 250 g [ZA] (74.0/kg) | Driscolls Strawberry 250 g [?] (79.8/kg) | Driscolls Strawberry UK 250 g [GB] (83.8/kg),https://gcc.luluhypermarket.com/en-ae/p/1055561-ea/
+011640102,0116,فراولة,250 غ,EG,"Strawberries, fresh, punnet",carrefour,substitute_origin,no,Strawberry 250g,19.89,19.89,79.56,kg,US,1,,https://www.carrefouruae.com/mafuae/en/berries/strawberry-250g-pp/p/425359
+011640102,0116,فراولة,250 غ,EG,"Strawberries, fresh, punnet",lulu,review_origin,no,Fresh Cut Strawberry 250g,15.98,15.98,63.92,kg,,5,Strawberry South Africa 250 g [ZA] (66.0/kg) | Driscoll's Strawberry South Africa 250 g [ZA] (74.0/kg) | Driscolls Strawberry 250 g [?] (79.8/kg) | Driscolls Strawberry UK 250 g [GB] (83.8/kg),https://gcc.luluhypermarket.com/en-ae/p/1055561-ea/
+011650101,0116,عنب احمر,1 كغ,LB,"Red grapes, fresh, loose",carrefour,match,yes,Red Grapes 500g,9.79,9.79,19.58,kg,"EG,LB",3,Red Grapes Globe Import [CN] (20.0/kg) | Red Seedless Grapes Import [IT] (30.0/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-pp-ep/p/1545702
+011650101,0116,عنب احمر,1 كغ,LB,"Red grapes, fresh, loose",lulu,match,yes,Grapes Red Globe Lebanon 500 g,8.48,8.48,16.96,kg,LB,2,Grapes Red Small Egypt 500 g [EG] (19.96/kg),https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/
+011650102,0116,عنب احمر,1 كغ,US,"Red grapes, fresh, loose",carrefour,substitute_origin,no,Red Grapes 500g,9.79,9.79,19.58,kg,"EG,LB",3,Red Grapes Globe Import [CN] (20.0/kg) | Red Seedless Grapes Import [IT] (30.0/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-pp-ep/p/1545702
+011650102,0116,عنب احمر,1 كغ,US,"Red grapes, fresh, loose",lulu,substitute_origin,no,Grapes Red Globe Lebanon 500 g,8.48,8.48,16.96,kg,LB,2,Grapes Red Small Egypt 500 g [EG] (19.96/kg),https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/
+011650103,0116,عنب احمر,1 كغ,AFRICA,"Red grapes, fresh, loose",carrefour,substitute_origin,no,Red Grapes 500g,9.79,9.79,19.58,kg,"EG,LB",3,Red Grapes Globe Import [CN] (20.0/kg) | Red Seedless Grapes Import [IT] (30.0/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-pp-ep/p/1545702
+011650103,0116,عنب احمر,1 كغ,AFRICA,"Red grapes, fresh, loose",lulu,substitute_origin,no,Grapes Red Globe Lebanon 500 g,8.48,8.48,16.96,kg,LB,2,Grapes Red Small Egypt 500 g [EG] (19.96/kg),https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/
+011650104,0116,عنب  أبيض,1 كغ,LB,"White (green) grapes, fresh, loose",carrefour,match,yes,White Grapes 500g,8.49,8.49,16.98,kg,"EG,LB",2,White Seedless Grapes Import [IT] (30.0/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-white-pp-ep/p/1490826
+011650104,0116,عنب  أبيض,1 كغ,LB,"White (green) grapes, fresh, loose",lulu,match,yes,White Grapes Lebanon 500 g,8.98,8.98,17.96,kg,LB,4,Grapes White Turkey 500 g [TR] (13.96/kg) | Grapes White Small Egypt 500 g [EG] (19.96/kg) | Grapes White Italy 500 g [IT] (34.96/kg),https://gcc.luluhypermarket.com/en-ae/p/372683-ea/
+011650105,0116,عنب  أبيض,1 كغ,US,"White (green) grapes, fresh, loose",carrefour,substitute_origin,no,White Grapes 500g,8.49,8.49,16.98,kg,"EG,LB",2,White Seedless Grapes Import [IT] (30.0/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-white-pp-ep/p/1490826
+011650105,0116,عنب  أبيض,1 كغ,US,"White (green) grapes, fresh, loose",lulu,substitute_origin,no,Grapes White Turkey 500 g,6.98,6.98,13.96,kg,TR,4,White Grapes Lebanon 500 g [LB] (17.96/kg) | Grapes White Small Egypt 500 g [EG] (19.96/kg) | Grapes White Italy 500 g [IT] (34.96/kg),https://gcc.luluhypermarket.com/en-ae/p/377386-ea/
+011650106,0116,عنب  أبيض,1 كغ,AFRICA,"White (green) grapes, fresh, loose",carrefour,substitute_origin,no,White Grapes 500g,8.49,8.49,16.98,kg,"EG,LB",2,White Seedless Grapes Import [IT] (30.0/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-white-pp-ep/p/1490826
+011650106,0116,عنب  أبيض,1 كغ,AFRICA,"White (green) grapes, fresh, loose",lulu,substitute_origin,no,Grapes White Turkey 500 g,6.98,6.98,13.96,kg,TR,4,White Grapes Lebanon 500 g [LB] (17.96/kg) | Grapes White Small Egypt 500 g [EG] (19.96/kg) | Grapes White Italy 500 g [IT] (34.96/kg),https://gcc.luluhypermarket.com/en-ae/p/377386-ea/
+011650107,0116,عنب  أسود,1 كغ,LB,"Black grapes, fresh, loose",carrefour,substitute_origin,no,Black Grapes Ponet,8.99,8.99,17.98,kg,EG,2,Grapes Black Seedles (Candy Dreams) [ES] (74.97/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-black-pp-ep/p/901008
+011650107,0116,عنب  أسود,1 كغ,LB,"Black grapes, fresh, loose",lulu,substitute_origin,no,Grapes Black Italy 500 g,12.98,12.98,25.96,kg,IT,1,,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/
+011650108,0116,عنب  أسود,1 كغ,US,"Black grapes, fresh, loose",carrefour,substitute_origin,no,Black Grapes Ponet,8.99,8.99,17.98,kg,EG,2,Grapes Black Seedles (Candy Dreams) [ES] (74.97/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-black-pp-ep/p/901008
+011650108,0116,عنب  أسود,1 كغ,US,"Black grapes, fresh, loose",lulu,substitute_origin,no,Grapes Black Italy 500 g,12.98,12.98,25.96,kg,IT,1,,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/
+011650109,0116,عنب  أسود,1 كغ,AFRICA,"Black grapes, fresh, loose",carrefour,substitute_origin,no,Black Grapes Ponet,8.99,8.99,17.98,kg,EG,2,Grapes Black Seedles (Candy Dreams) [ES] (74.97/kg),https://www.carrefouruae.com/mafuae/en/grapes/grapes-black-pp-ep/p/901008
+011650109,0116,عنب  أسود,1 كغ,AFRICA,"Black grapes, fresh, loose",lulu,substitute_origin,no,Grapes Black Italy 500 g,12.98,12.98,25.96,kg,IT,1,,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/
+011650201,0116,بطيخ ( جح ),1 كغ,IR,"Watermelon, whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650201,0116,بطيخ ( جح ),1 كغ,IR,"Watermelon, whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650202,0116,بطيخ ( جح ),1 كغ,OM,"Watermelon, whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650202,0116,بطيخ ( جح ),1 كغ,OM,"Watermelon, whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650203,0116,بطيخ ( جح ),1 كغ,IN,"Watermelon, whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650203,0116,بطيخ ( جح ),1 كغ,IN,"Watermelon, whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650301,0116,شمام,1 كغ,JO,"Sweet melon (rock melon), whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650301,0116,شمام,1 كغ,JO,"Sweet melon (rock melon), whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650302,0116,شمام,1 كغ,OM,"Sweet melon (rock melon), whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650302,0116,شمام,1 كغ,OM,"Sweet melon (rock melon), whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650303,0116,شمام,1 كغ,AE,"Sweet melon (rock melon), whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650303,0116,شمام,1 كغ,AE,"Sweet melon (rock melon), whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650401,0116,كيوي,1 كغ,IT,"Kiwi fruit (green), fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011650401,0116,كيوي,1 كغ,IT,"Kiwi fruit (green), fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011650402,0116,كيوي,1 كغ,IR,"Kiwi fruit (green), fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011650402,0116,كيوي,1 كغ,IR,"Kiwi fruit (green), fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011650403,0116,كيوي,1 كغ,NZ,"Kiwi fruit (green), fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
+011650403,0116,كيوي,1 كغ,NZ,"Kiwi fruit (green), fresh, loose",lulu,no_match,no,,,,,kg,,0,,
+011650501,0116,رمان أحمر,1 كغ,IN,"Red pomegranate, whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650501,0116,رمان أحمر,1 كغ,IN,"Red pomegranate, whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650502,0116,رمان أحمر,1 كغ,CN,"Red pomegranate, whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650502,0116,رمان أحمر,1 كغ,CN,"Red pomegranate, whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011650503,0116,رمان أصفر,1 كغ,IN,"Yellow pomegranate, whole, fresh",carrefour,no_match,no,,,,,kg,,0,,
+011650503,0116,رمان أصفر,1 كغ,IN,"Yellow pomegranate, whole, fresh",lulu,no_match,no,,,,,kg,,0,,
+011670101,0116,تمر - خلاص,1 كغ,SA,"Khalas dates, loose",carrefour,substitute_origin,no,Kingdom Dates Khalas 1kg,17.99,17.99,17.99,kg,AE,3,Kingdom Dates Khalas Al Qaseem Dates 1kg [DE] (32.29/kg) | Dates Crown Khalas Gift Pack 350g [AE] (131.4/kg),https://www.carrefouruae.com/mafuae/en/dates/dates-khlas-kg-v03-kd/p/181570
+011670101,0116,تمر - خلاص,1 كغ,SA,"Khalas dates, loose",lulu,no_match,no,,,,,kg,,0,,
+011670102,0116,تمر - فرض,1 كغ,AE,"Fard dates, loose",carrefour,no_match,no,,,,,kg,,0,,
+011670102,0116,تمر - فرض,1 كغ,AE,"Fard dates, loose",lulu,no_match,no,,,,,kg,,0,,
+011670201,0116,زبيب,1 كغ,US,"Raisins (dark), loose",carrefour,no_match,no,,,,,kg,,0,,
+011670201,0116,زبيب,1 كغ,US,"Raisins (dark), loose",lulu,no_match,no,,,,,kg,,0,,
+011670202,0116,زبيب,1 كغ,IR,"Raisins, loose",carrefour,no_match,no,,,,,kg,,0,,
+011670202,0116,زبيب,1 كغ,IR,"Raisins, loose",lulu,no_match,no,,,,,kg,,0,,
+011670301,0116,تين مجفف,1 كغ,AF,"Dried figs, loose",carrefour,no_match,no,,,,,kg,,0,,
+011670301,0116,تين مجفف,1 كغ,AF,"Dried figs, loose",lulu,no_match,no,,,,,kg,,0,,
+011670302,0116,تين مجفف,1 كغ,TR,"Dried figs, loose",carrefour,no_match,no,,,,,kg,,0,,
+011670302,0116,تين مجفف,1 كغ,TR,"Dried figs, loose",lulu,no_match,no,,,,,kg,,0,,
+011680103,0116,لوز محمص,1 كغ,US,"Roasted almonds, loose",carrefour,no_match,no,,,,,kg,,0,,
+011680103,0116,لوز محمص,1 كغ,US,"Roasted almonds, loose",lulu,no_match,no,,,,,kg,,0,,
+011680201,0116,فستق محمص,1 كغ,IR,"Roasted pistachios in shell, loose",carrefour,no_match,no,,,,,kg,,0,,
+011680201,0116,فستق محمص,1 كغ,IR,"Roasted pistachios in shell, loose",lulu,no_match,no,,,,,kg,,0,,
+011680301,0116,كاجو محمص,1 كغ,US,"Roasted cashew nuts, loose",carrefour,no_match,no,,,,,kg,,0,,
+011680301,0116,كاجو محمص,1 كغ,US,"Roasted cashew nuts, loose",lulu,no_match,no,,,,,kg,,0,,
+011680402,0116,جوز محمص,1 كغ,US,"Roasted walnuts, loose",carrefour,no_match,no,,,,,kg,,0,,
+011680402,0116,جوز محمص,1 كغ,US,"Roasted walnuts, loose",lulu,no_match,no,,,,,kg,,0,,
+011680403,0116,جوز محمص,1 كغ,CN,"Roasted walnuts, loose",carrefour,no_match,no,,,,,kg,,0,,
+011680403,0116,جوز محمص,1 كغ,CN,"Roasted walnuts, loose",lulu,no_match,no,,,,,kg,,0,,
+011680701,0116,صنوبر,1 كغ,TR,"Pine nuts, loose",carrefour,no_match,no,,,,,kg,,0,,
+011680701,0116,صنوبر,1 كغ,TR,"Pine nuts, loose",lulu,no_match,no,,,,,kg,,0,,
+011680702,0116,صنوبر,1 كغ,PK,"Pine nuts, loose (Pakistani chilgoza type)",carrefour,no_match,no,,,,,kg,,0,,
+011680702,0116,صنوبر,1 كغ,PK,"Pine nuts, loose (Pakistani chilgoza type)",lulu,no_match,no,,,,,kg,,0,,
+011680801,0116,مكسرات مشكلة (حب ابيض، كاجو، لوز، حمص، فول، كريكر),1 كغ,US,"Arabic mixed nuts, loose (white seeds, cashew, almond, chickpeas, broad beans, crackers)",carrefour,no_match,no,,,,,kg,,0,,
+011680801,0116,مكسرات مشكلة (حب ابيض، كاجو، لوز، حمص، فول، كريكر),1 كغ,US,"Arabic mixed nuts, loose (white seeds, cashew, almond, chickpeas, broad beans, crackers)",lulu,no_match,no,,,,,kg,,0,,
+011710101,0117,سبانخ,حزمة,AE,Fresh spinach bunch,carrefour,no_match,no,,,,,bunch,,0,,
+011710101,0117,سبانخ,حزمة,AE,Fresh spinach bunch,lulu,no_match,no,,,,,bunch,,0,,
+011710201,0117,ملفوف,1 كغ,AE,Fresh cabbage (white/green),carrefour,match,yes,Cabbage White Flat,2.75,2.75,5.5,kg,AE,3,White Round Cabbage [EG] (6.0/kg) | Spring Cabbage [NL] (34.99/kg),https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-flat/p/472448
+011710201,0117,ملفوف,1 كغ,AE,Fresh cabbage (white/green),lulu,review_origin,no,Cabbage White 1 kg,4.45,4.45,4.45,kg,,3,Cabbage White 500 g [?] (5.96/kg) | Cabbage 2kg [?] (6.95/kg),https://gcc.luluhypermarket.com/en-ae/cabbage-white-1-kg/p/1965482/
+011710202,0117,ملفوف,1 كغ,JO,Fresh cabbage (white/green),carrefour,substitute_origin,no,Cabbage White Flat,2.75,2.75,5.5,kg,AE,3,White Round Cabbage [EG] (6.0/kg) | Spring Cabbage [NL] (34.99/kg),https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-flat/p/472448
+011710202,0117,ملفوف,1 كغ,JO,Fresh cabbage (white/green),lulu,review_origin,no,Cabbage White 1 kg,4.45,4.45,4.45,kg,,3,Cabbage White 500 g [?] (5.96/kg) | Cabbage 2kg [?] (6.95/kg),https://gcc.luluhypermarket.com/en-ae/cabbage-white-1-kg/p/1965482/
+011710203,0117,ملفوف,1 كغ,OM,Fresh cabbage (white/green),carrefour,substitute_origin,no,Cabbage White Flat,2.75,2.75,5.5,kg,AE,3,White Round Cabbage [EG] (6.0/kg) | Spring Cabbage [NL] (34.99/kg),https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-flat/p/472448
+011710203,0117,ملفوف,1 كغ,OM,Fresh cabbage (white/green),lulu,review_origin,no,Cabbage White 1 kg,4.45,4.45,4.45,kg,,3,Cabbage White 500 g [?] (5.96/kg) | Cabbage 2kg [?] (6.95/kg),https://gcc.luluhypermarket.com/en-ae/cabbage-white-1-kg/p/1965482/
+011710301,0117,زهرة ( قرنبيط ),1 كغ,AE,Fresh cauliflower,carrefour,match,yes,Barakat Broccoli Carrot & Cauliflower 350g,6.99,6.99,19.97,kg,AE,2,Cauliflower [JO] (11.9/kg),https://www.carrefouruae.com/mafuae/en/cut-vegetables/broccolli-carot-cauliflower-350g-bk/p/1887016
+011710301,0117,زهرة ( قرنبيط ),1 كغ,AE,Fresh cauliflower,lulu,substitute_origin,no,Cauliflower Holland 800 g,19.16,19.16,23.95,kg,NL,1,,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/
+011710302,0117,زهرة ( قرنبيط ),1 كغ,OM,Fresh cauliflower,carrefour,substitute_origin,no,Cauliflower,5.95,5.95,11.9,kg,JO,2,Barakat Broccoli Carrot & Cauliflower 350g [AE] (19.97/kg),https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043
+011710302,0117,زهرة ( قرنبيط ),1 كغ,OM,Fresh cauliflower,lulu,substitute_origin,no,Cauliflower Holland 800 g,19.16,19.16,23.95,kg,NL,1,,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/
+011710303,0117,زهرة ( قرنبيط ),1 كغ,IR,Fresh cauliflower,carrefour,substitute_origin,no,Cauliflower,5.95,5.95,11.9,kg,JO,2,Barakat Broccoli Carrot & Cauliflower 350g [AE] (19.97/kg),https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043
+011710303,0117,زهرة ( قرنبيط ),1 كغ,IR,Fresh cauliflower,lulu,substitute_origin,no,Cauliflower Holland 800 g,19.16,19.16,23.95,kg,NL,1,,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/
+011710304,0117,زهرة ( قرنبيط ),1 كغ,JO,Fresh cauliflower,carrefour,match,yes,Cauliflower,5.95,5.95,11.9,kg,JO,2,Barakat Broccoli Carrot & Cauliflower 350g [AE] (19.97/kg),https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043
+011710304,0117,زهرة ( قرنبيط ),1 كغ,JO,Fresh cauliflower,lulu,substitute_origin,no,Cauliflower Holland 800 g,19.16,19.16,23.95,kg,NL,1,,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/
+011710401,0117,جرجير,حزمة,AE,Fresh rocket (arugula/jarjeer) bunch,carrefour,no_match,no,,,,,bunch,,0,,
+011710401,0117,جرجير,حزمة,AE,Fresh rocket (arugula/jarjeer) bunch,lulu,review_origin,no,Arugula Leaves (Gerger) 1 Bunch,1.0,1.0,1.0,bunch,,2,Premium Arugula (Gerger) Leaves 1 Bunch [?] (2.95/bunch),https://gcc.luluhypermarket.com/en-ae/arugula-leaves-gerger-1-bunch/p/2502795/
+011710501,0117,خــــس,1 كغ,NL,Fresh lettuce,carrefour,no_match,no,,,,,kg,,0,,
+011710501,0117,خــــس,1 كغ,NL,Fresh lettuce,lulu,no_match,no,,,,,kg,,0,,
+011710502,0117,خــــس,1 كغ,IR,Fresh lettuce,carrefour,no_match,no,,,,,kg,,0,,
+011710502,0117,خــــس,1 كغ,IR,Fresh lettuce,lulu,no_match,no,,,,,kg,,0,,
+011710503,0117,خــــس,1 كغ,JO,Fresh lettuce,carrefour,no_match,no,,,,,kg,,0,,
+011710503,0117,خــــس,1 كغ,JO,Fresh lettuce,lulu,no_match,no,,,,,kg,,0,,
+011710601,0117,نعناع,حزمة,AE,Fresh mint bunch,carrefour,substitute_origin,no,Mint Import Bunch 100g,0.89,0.89,0.89,bunch,LB,1,,https://www.carrefouruae.com/mafuae/en/fresh-herbs/fresh-mint-import/p/70820
+011710601,0117,نعناع,حزمة,AE,Fresh mint bunch,lulu,review_origin,no,Mint Leaves 1 Bunch,1.0,1.0,1.0,bunch,,3,Premium Mint Leaves 1 Bunch [?] (2.95/bunch) | Farm Fresh Mint Leaves 1 Bunch [?] (4.25/bunch),https://gcc.luluhypermarket.com/en-ae/mint-leaves-1-bunch/p/2502794/
+011720101,0117,طماطم حزم,1 كغ,AE,Truss/vine tomatoes (bunch tomatoes),carrefour,no_match,no,,,,,kg,,0,,
+011720101,0117,طماطم حزم,1 كغ,AE,Truss/vine tomatoes (bunch tomatoes),lulu,no_match,no,,,,,kg,,0,,
+011720103,0117,طماطم,1 كغ,AE,"Fresh tomato, loose",carrefour,review_multiple,no,Tomato Heirloom,20.0,20.0,40.0,kg,AE,7,"Tomato [JO,SY] (6.2/kg) | Tomato Round Selected [SA] (8.4/kg) | Carrefour Red Candy Tomato 500g [AE] (29.4/kg) | Carrefour Mix Color Candy Tomato 500g [AE] (39.98/kg) | Pure Harvest Candy Tomatoes 350g [AE] (42.83/kg) | Pure Harvest Mix Candy Tomatoes 300g [AE] (49.97/kg)",https://www.carrefouruae.com/mafuae/en/tomato/tomato-heirloom-kg/p/1809327
+011720103,0117,طماطم,1 كغ,AE,"Fresh tomato, loose",lulu,review_origin,no,Tomato 5 kg,31.0,31.0,6.2,kg,,3,Tomato Jordan 500 g [JO] (6.46/kg) | Tomato 1.5 kg [?] (7.0/kg),https://gcc.luluhypermarket.com/en-ae/tomato-5-kg/p/1382441/
+011720104,0117,طماطم,1 كغ,JO,"Fresh tomato, loose",carrefour,match,yes,Tomato,3.1,3.1,6.2,kg,"JO,SY",7,Tomato Round Selected [SA] (8.4/kg) | Carrefour Red Candy Tomato 500g [AE] (29.4/kg) | Carrefour Mix Color Candy Tomato 500g [AE] (39.98/kg) | Tomato Heirloom [AE] (40.0/kg) | Pure Harvest Candy Tomatoes 350g [AE] (42.83/kg) | Pure Harvest Mix Candy Tomatoes 300g [AE] (49.97/kg),https://www.carrefouruae.com/mafuae/en/tomato/tomato-ep/p/1767482
+011720104,0117,طماطم,1 كغ,JO,"Fresh tomato, loose",lulu,match,yes,Tomato Jordan 500 g,3.23,3.23,6.46,kg,JO,3,Tomato 5 kg [?] (6.2/kg) | Tomato 1.5 kg [?] (7.0/kg),https://gcc.luluhypermarket.com/en-ae/p/372444-ea/
+011720105,0117,طماطم,1 كغ,OM,"Fresh tomato, loose",carrefour,substitute_origin,no,Tomato,3.1,3.1,6.2,kg,"JO,SY",7,Tomato Round Selected [SA] (8.4/kg) | Carrefour Red Candy Tomato 500g [AE] (29.4/kg) | Carrefour Mix Color Candy Tomato 500g [AE] (39.98/kg) | Tomato Heirloom [AE] (40.0/kg) | Pure Harvest Candy Tomatoes 350g [AE] (42.83/kg) | Pure Harvest Mix Candy Tomatoes 300g [AE] (49.97/kg),https://www.carrefouruae.com/mafuae/en/tomato/tomato-ep/p/1767482
+011720105,0117,طماطم,1 كغ,OM,"Fresh tomato, loose",lulu,review_origin,no,Tomato 5 kg,31.0,31.0,6.2,kg,,3,Tomato Jordan 500 g [JO] (6.46/kg) | Tomato 1.5 kg [?] (7.0/kg),https://gcc.luluhypermarket.com/en-ae/tomato-5-kg/p/1382441/
+011720201,0117,خيار قصير,1 كغ,AE,Short cucumber,carrefour,no_match,no,,,,,kg,,0,,
+011720201,0117,خيار قصير,1 كغ,AE,Short cucumber,lulu,no_match,no,,,,,kg,,0,,
+011720202,0117,خيار قصير,1 كغ,OM,Short cucumber,carrefour,no_match,no,,,,,kg,,0,,
+011720202,0117,خيار قصير,1 كغ,OM,Short cucumber,lulu,no_match,no,,,,,kg,,0,,
+011720203,0117,خيار طويل,1 كغ,NL,Long (English) cucumber,carrefour,match,yes,Long Cucumber,9.5,9.5,19.0,kg,NL,1,,https://www.carrefouruae.com/mafuae/en/cucumber/cucumber-long/p/70658
+011720203,0117,خيار طويل,1 كغ,NL,Long (English) cucumber,lulu,no_match,no,,,,,kg,,0,,
+011720301,0117,كوسة,1 كغ,AE,Fresh zucchini (kousa),carrefour,substitute_origin,no,Zucchini Green Import,32.99,32.99,32.99,kg,"NL,ES",1,,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345
+011720301,0117,كوسة,1 كغ,AE,Fresh zucchini (kousa),lulu,no_match,no,,,,,kg,,0,,
+011720302,0117,كوسة,1 كغ,JO,Fresh zucchini (kousa),carrefour,substitute_origin,no,Zucchini Green Import,32.99,32.99,32.99,kg,"NL,ES",1,,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345
+011720302,0117,كوسة,1 كغ,JO,Fresh zucchini (kousa),lulu,no_match,no,,,,,kg,,0,,
+011720303,0117,كوسة,1 كغ,OM,Fresh zucchini (kousa),carrefour,substitute_origin,no,Zucchini Green Import,32.99,32.99,32.99,kg,"NL,ES",1,,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345
+011720303,0117,كوسة,1 كغ,OM,Fresh zucchini (kousa),lulu,no_match,no,,,,,kg,,0,,
+011720401,0117,باذنجان,1 كغ,AE,Fresh eggplant (aubergine),carrefour,no_match,no,,,,,kg,,0,,
+011720401,0117,باذنجان,1 كغ,AE,Fresh eggplant (aubergine),lulu,no_match,no,,,,,kg,,0,,
+011720402,0117,باذنجان,1 كغ,OM,Fresh eggplant (aubergine),carrefour,no_match,no,,,,,kg,,0,,
+011720402,0117,باذنجان,1 كغ,OM,Fresh eggplant (aubergine),lulu,no_match,no,,,,,kg,,0,,
+011720403,0117,باذنجان,1 كغ,IR,Fresh eggplant (aubergine),carrefour,no_match,no,,,,,kg,,0,,
+011720403,0117,باذنجان,1 كغ,IR,Fresh eggplant (aubergine),lulu,no_match,no,,,,,kg,,0,,
+011720501,0117,قرع (يقطين) reel pumpkins,1 كغ,TN,Fresh pumpkin (red/orange),carrefour,substitute_origin,no,Ash Pumpkin (Kaddoo),1.75,1.75,3.5,kg,"OM,IN",3,Red Baby Pumpkin [IN] (9.0/kg) | Assorted Pumpkin Decorations [ES] (48.99/kg),https://www.carrefouruae.com/mafuae/en/pumpkin-squash/pumpkin-ash/p/406650
+011720501,0117,قرع (يقطين) reel pumpkins,1 كغ,TN,Fresh pumpkin (red/orange),lulu,review_origin,no,Red Pumpkin 1 kg,6.65,6.65,6.65,kg,,3,Long White Pumpkin 1 kg [?] (6.95/kg) | Red Pumpkin India 1 kg [IN] (10.95/kg),https://gcc.luluhypermarket.com/en-ae/p/18625-ea/
+011720601,0117,فلفل حار,1 كغ,IN,Fresh hot chilli pepper,carrefour,match,yes,Green Bird's Eye Chillies,2.54,2.54,12.7,kg,IN,2,Thai Red Chillies 125g [TH] (47.92/kg),https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-green-bird/p/327895
+011720601,0117,فلفل حار,1 كغ,IN,Fresh hot chilli pepper,lulu,match,yes,Green Chilli India 100 g,1.4,1.4,14.0,kg,IN,5,Chilli Oman 150 g [OM] (10.93/kg) | Long Chilli Green 150 g [?] (12.93/kg) | Fry Chilli Local 250 g [AE] (17.96/kg) | Broad Chilli Sri Lanka 250 g [LK] (29.96/kg),https://gcc.luluhypermarket.com/en-ae/p/373185-ea/
+011720602,0117,فلفل حار,1 كغ,OM,Fresh hot chilli pepper,carrefour,substitute_origin,no,Green Bird's Eye Chillies,2.54,2.54,12.7,kg,IN,2,Thai Red Chillies 125g [TH] (47.92/kg),https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-green-bird/p/327895
+011720602,0117,فلفل حار,1 كغ,OM,Fresh hot chilli pepper,lulu,match,yes,Chilli Oman 150 g,1.64,1.64,10.93,kg,OM,5,Long Chilli Green 150 g [?] (12.93/kg) | Green Chilli India 100 g [IN] (14.0/kg) | Fry Chilli Local 250 g [AE] (17.96/kg) | Broad Chilli Sri Lanka 250 g [LK] (29.96/kg),https://gcc.luluhypermarket.com/en-ae/p/18563-ea/
+011720701,0117,فلفل اخضر بارد,1 كغ,AE,Green bell pepper (capsicum),carrefour,match,yes,Green Capsicum,4.95,4.95,9.9,kg,AE,1,,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966
+011720701,0117,فلفل اخضر بارد,1 كغ,AE,Green bell pepper (capsicum),lulu,review_origin,no,Capsicum Green 500 g,4.98,4.98,9.96,kg,,2,Capsicum Green Import 500 g [?] (39.96/kg),https://gcc.luluhypermarket.com/en-ae/p/18558-ea/
+011720702,0117,فلفل اخضر بارد,1 كغ,OM,Green bell pepper (capsicum),carrefour,substitute_origin,no,Green Capsicum,4.95,4.95,9.9,kg,AE,1,,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966
+011720702,0117,فلفل اخضر بارد,1 كغ,OM,Green bell pepper (capsicum),lulu,review_origin,no,Capsicum Green 500 g,4.98,4.98,9.96,kg,,2,Capsicum Green Import 500 g [?] (39.96/kg),https://gcc.luluhypermarket.com/en-ae/p/18558-ea/
+011720703,0117,فلفل احمر بارد,1 كغ,EG,Red bell pepper (capsicum),carrefour,substitute_origin,no,Red Capsicum,8.0,8.0,16.0,kg,AE,1,,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-red/p/490008
+011720703,0117,فلفل احمر بارد,1 كغ,EG,Red bell pepper (capsicum),lulu,review_origin,no,Capsicum Red 500 g,7.48,7.48,14.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/372374-ea/
+011720704,0117,فلفل احمر بارد,1 كغ,NL,Red bell pepper (capsicum),carrefour,substitute_origin,no,Red Capsicum,8.0,8.0,16.0,kg,AE,1,,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-red/p/490008
+011720704,0117,فلفل احمر بارد,1 كغ,NL,Red bell pepper (capsicum),lulu,review_origin,no,Capsicum Red 500 g,7.48,7.48,14.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/372374-ea/
+011720801,0117,بامية,1 كغ,AE,Fresh okra (ladies finger),carrefour,substitute_origin,no,Long Okra (Bhindi),6.5,6.5,13.0,kg,IN,1,,https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577
+011720801,0117,بامية,1 كغ,AE,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/
+011720802,0117,بامية,1 كغ,OM,Fresh okra (ladies finger),carrefour,substitute_origin,no,Long Okra (Bhindi),6.5,6.5,13.0,kg,IN,1,,https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577
+011720802,0117,بامية,1 كغ,OM,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/
+011720803,0117,بامية,1 كغ,IN,Fresh okra (ladies finger),carrefour,match,yes,Long Okra (Bhindi),6.5,6.5,13.0,kg,IN,1,,https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577
+011720803,0117,بامية,1 كغ,IN,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/
+011730101,0117,فاصولياء خضراء,1 كغ,AE,Fresh green beans,carrefour,no_match,no,,,,,kg,,0,,
+011730101,0117,فاصولياء خضراء,1 كغ,AE,Fresh green beans,lulu,no_match,no,,,,,kg,,0,,
+011730102,0117,فاصولياء خضراء,1 كغ,EG,Fresh green beans,carrefour,no_match,no,,,,,kg,,0,,
+011730102,0117,فاصولياء خضراء,1 كغ,EG,Fresh green beans,lulu,no_match,no,,,,,kg,,0,,
+011730103,0117,فاصولياء خضراء,1 كغ,OM,Fresh green beans,carrefour,no_match,no,,,,,kg,,0,,
+011730103,0117,فاصولياء خضراء,1 كغ,OM,Fresh green beans,lulu,no_match,no,,,,,kg,,0,,
+011730201,0117,بازلاء خضراء,1 كغ,PK,Fresh green peas (in pod),carrefour,no_match,no,,,,,kg,,0,,
+011730201,0117,بازلاء خضراء,1 كغ,PK,Fresh green peas (in pod),lulu,no_match,no,,,,,kg,,0,,
+011740101,0117,بصل أحمر,1 كغ,IN,Red onion,carrefour,substitute_origin,no,Red Onion,2.5,2.5,5.0,kg,EG,4,Red Onions 3Kg [EG] (5.23/kg) | Barakat Red Onion Chopped 250g [AE] (13.96/kg) | Onion Pearl Red Import [US] (46.26/kg),https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-red-ep/p/447550
+011740101,0117,بصل أحمر,1 كغ,IN,Red onion,lulu,review_origin,no,Barakat Fresh Red Onion Chopped 250 g,3.25,3.25,13.0,kg,,4,Onion Red Egyptian 1 kg [EG] (4.25/kg) | Onion Red Egypt 1 kg [EG] (6.95/kg) | Red Onion Sliced 250 g [?] (16.0/kg),https://gcc.luluhypermarket.com/en-ae/barakat-fresh-red-onion-chopped-250-g/p/457071/
+011740102,0117,بصل أحمر,1 كغ,PK,Red onion,carrefour,substitute_origin,no,Red Onion,2.5,2.5,5.0,kg,EG,4,Red Onions 3Kg [EG] (5.23/kg) | Barakat Red Onion Chopped 250g [AE] (13.96/kg) | Onion Pearl Red Import [US] (46.26/kg),https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-red-ep/p/447550
+011740102,0117,بصل أحمر,1 كغ,PK,Red onion,lulu,review_origin,no,Barakat Fresh Red Onion Chopped 250 g,3.25,3.25,13.0,kg,,4,Onion Red Egyptian 1 kg [EG] (4.25/kg) | Onion Red Egypt 1 kg [EG] (6.95/kg) | Red Onion Sliced 250 g [?] (16.0/kg),https://gcc.luluhypermarket.com/en-ae/barakat-fresh-red-onion-chopped-250-g/p/457071/
+011740103,0117,بصل أصفر,1 كغ,ES,Yellow onion,carrefour,no_match,no,,,,,kg,,0,,
+011740103,0117,بصل أصفر,1 كغ,ES,Yellow onion,lulu,no_match,no,,,,,kg,,0,,
+011740104,0117,بصل أبيض,1 كغ,IR,White onion,carrefour,substitute_origin,no,White Onions 1.5Kg,11.69,11.69,7.79,kg,"AU,ES",3,"White Onion [AU,ES] (8.0/kg) | Onion Pearl White Import [US] (46.26/kg)",https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-white-bag-1-5kg-pp/p/351847
+011740104,0117,بصل أبيض,1 كغ,IR,White onion,lulu,substitute_origin,no,Onion White China 1 kg,5.95,5.95,5.95,kg,CN,1,,https://gcc.luluhypermarket.com/en-ae/onion-white-china-1-kg/p/2589862-ea/
+011740201,0117,شمندر,1 كغ,IR,Fresh beetroot,carrefour,substitute_origin,no,Beetroot,5.17,5.17,6.89,kg,"AE,OM",2,Barakat Finely-Cut Beetroot 150g [AE] (15.27/kg),https://www.carrefouruae.com/mafuae/en/root-vegetables/beetroot/p/71561
+011740201,0117,شمندر,1 كغ,IR,Fresh beetroot,lulu,review_origin,no,Beetroot 500 g,3.48,3.48,6.96,kg,,2,Barakat Beetroot Fine Cut 150 g [?] (16.67/kg),https://gcc.luluhypermarket.com/en-ae/p/40192-ea/
+011740301,0117,جزر,1 كغ,AU,Fresh carrots,carrefour,match,yes,Carrots Bag 1kg,8.79,8.79,8.79,kg,AU,4,Carrot [AU] (8.9/kg) | Barakat Broccoli Carrot & Cauliflower 350g [AE] (19.97/kg) | Carrot Strips 150g [AE] (21.93/kg),https://www.carrefouruae.com/mafuae/en/carrot/carrot-bag-1-kg/p/70943
+011740301,0117,جزر,1 كغ,AU,Fresh carrots,lulu,match,yes,Carrots Australia 500 g,4.85,4.85,9.7,kg,AU,5,Carrots 500 g [?] (8.96/kg) | Fresh Carrots 1 kg [?] (10.5/kg) | Carrots Stripped 250 g [?] (16.0/kg) | Barakat Carrot Strips 150 g [?] (21.67/kg),https://gcc.luluhypermarket.com/en-ae/p/18892-ea/
+011740302,0117,جزر,1 كغ,CN,Fresh carrots,carrefour,substitute_origin,no,Carrots Bag 1kg,8.79,8.79,8.79,kg,AU,4,Carrot [AU] (8.9/kg) | Barakat Broccoli Carrot & Cauliflower 350g [AE] (19.97/kg) | Carrot Strips 150g [AE] (21.93/kg),https://www.carrefouruae.com/mafuae/en/carrot/carrot-bag-1-kg/p/70943
+011740302,0117,جزر,1 كغ,CN,Fresh carrots,lulu,review_origin,no,Carrots 500 g,4.48,4.48,8.96,kg,,5,Carrots Australia 500 g [AU] (9.7/kg) | Fresh Carrots 1 kg [?] (10.5/kg) | Carrots Stripped 250 g [?] (16.0/kg) | Barakat Carrot Strips 150 g [?] (21.67/kg),https://gcc.luluhypermarket.com/en-ae/p/303991-ea/
+011740303,0117,جزر,1 كغ,PK,Fresh carrots,carrefour,substitute_origin,no,Carrots Bag 1kg,8.79,8.79,8.79,kg,AU,4,Carrot [AU] (8.9/kg) | Barakat Broccoli Carrot & Cauliflower 350g [AE] (19.97/kg) | Carrot Strips 150g [AE] (21.93/kg),https://www.carrefouruae.com/mafuae/en/carrot/carrot-bag-1-kg/p/70943
+011740303,0117,جزر,1 كغ,PK,Fresh carrots,lulu,review_origin,no,Carrots 500 g,4.48,4.48,8.96,kg,,5,Carrots Australia 500 g [AU] (9.7/kg) | Fresh Carrots 1 kg [?] (10.5/kg) | Carrots Stripped 250 g [?] (16.0/kg) | Barakat Carrot Strips 150 g [?] (21.67/kg),https://gcc.luluhypermarket.com/en-ae/p/303991-ea/
+011740501,0117,زنجبيل طازج,1 كغ,IN,Fresh ginger root,carrefour,substitute_origin,no,Ginger,4.77,4.77,15.9,kg,CN,1,,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854
+011740501,0117,زنجبيل طازج,1 كغ,IN,Fresh ginger root,lulu,match,yes,Ginger India 200 g,3.33,3.33,16.65,kg,IN,2,Ginger China 250 g [CN] (15.96/kg),https://gcc.luluhypermarket.com/en-ae/p/363130-ea/
+011740502,0117,زنجبيل طازج,1 كغ,CN,Fresh ginger root,carrefour,match,yes,Ginger,4.77,4.77,15.9,kg,CN,1,,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854
+011740502,0117,زنجبيل طازج,1 كغ,CN,Fresh ginger root,lulu,match,yes,Ginger China 250 g,3.99,3.99,15.96,kg,CN,2,Ginger India 200 g [IN] (16.65/kg),https://gcc.luluhypermarket.com/en-ae/p/18660-ea/
+011740601,0117,فجل ( رويد ) حزمة,حزمة 100 جرام,AE,Fresh radish bunch (rweed),carrefour,no_match,no,,,,,bunch,,0,,
+011740601,0117,فجل ( رويد ) حزمة,حزمة 100 جرام,AE,Fresh radish bunch (rweed),lulu,review_origin,no,Radish Leaves 1 Bunch,1.0,1.0,1.0,bunch,,1,,https://gcc.luluhypermarket.com/en-ae/radish-leaves-1-bunch/p/2502809/
+011740602,0117,فجل ( رويد ),1 كغ,AE,Fresh radish (rweed),carrefour,substitute_origin,no,White Radish,5.0,5.0,10.0,kg,"IN,CN",4,Radish Red Round 125g [NL] (47.92/kg) | Red Radish Shaker 250g [NL] (59.96/kg) | Leto Red Radish 125g [NL] (119.92/kg),https://www.carrefouruae.com/mafuae/en/root-vegetables/radish-white/p/70642
+011740602,0117,فجل ( رويد ),1 كغ,AE,Fresh radish (rweed),lulu,match,yes,Local White Radish 1 kg,4.95,4.95,4.95,kg,AE,2,Red Radish Holland 125 g [NL] (47.6/kg),https://gcc.luluhypermarket.com/en-ae/p/18650-ea/
+011740701,0117,ثوم,1 كغ,CN,Fresh garlic bulbs,carrefour,no_match,no,,,,,kg,,0,,
+011740701,0117,ثوم,1 كغ,CN,Fresh garlic bulbs,lulu,no_match,no,,,,,kg,,0,,
+011750101,0117,بطاطس,1 كغ,EG,Fresh potatoes,carrefour,match,yes,Potato,2.1,2.1,4.2,kg,EG,4,Potato Idaho USA [US] (20.0/kg) | Potato Red Cocktails 500g [AU] (25.98/kg) | Potato Medley 680g [US] (44.1/kg),https://www.carrefouruae.com/mafuae/en/potato/potato-ep/p/1552234
+011750101,0117,بطاطس,1 كغ,EG,Fresh potatoes,lulu,review_origin,no,Potato Bag 10 kg,39.95,39.95,4.0,kg,,4,Potato Bag 5 kg [?] (4.2/kg) | Potato Lebanon 1 kg [LB] (4.25/kg) | Potato 2.5 kg [?] (4.6/kg),https://gcc.luluhypermarket.com/en-ae/potato-bag-10-kg/p/991528/
+011750102,0117,بطاطس,1 كغ,LB,Fresh potatoes,carrefour,substitute_origin,no,Potato,2.1,2.1,4.2,kg,EG,4,Potato Idaho USA [US] (20.0/kg) | Potato Red Cocktails 500g [AU] (25.98/kg) | Potato Medley 680g [US] (44.1/kg),https://www.carrefouruae.com/mafuae/en/potato/potato-ep/p/1552234
+011750102,0117,بطاطس,1 كغ,LB,Fresh potatoes,lulu,match,yes,Potato Lebanon 1 kg,4.25,4.25,4.25,kg,LB,4,Potato Bag 10 kg [?] (4.0/kg) | Potato Bag 5 kg [?] (4.2/kg) | Potato 2.5 kg [?] (4.6/kg),https://gcc.luluhypermarket.com/en-ae/p/521928-ea/
+011750201,0117,بطاطا حلوة بيضاء,1 كغ,EG,White sweet potato,carrefour,no_match,no,,,,,kg,,0,,
+011750201,0117,بطاطا حلوة بيضاء,1 كغ,EG,White sweet potato,lulu,no_match,no,,,,,kg,,0,,
+011750202,0117,بطاطا حلوة بيضاء,1 كغ,OM,White sweet potato,carrefour,no_match,no,,,,,kg,,0,,
+011750202,0117,بطاطا حلوة بيضاء,1 كغ,OM,White sweet potato,lulu,no_match,no,,,,,kg,,0,,
+011760201,0117,حمص جاف,1 كغ,TR,"Dry chickpeas, loose",carrefour,no_match,no,,,,,kg,,0,,
+011760201,0117,حمص جاف,1 كغ,TR,"Dry chickpeas, loose",lulu,no_match,no,,,,,kg,,0,,
+011760202,0117,حمص جاف,1 كغ,MX,"Dried chickpeas (kabuli), loose",carrefour,no_match,no,,,,,kg,,0,,
+011760202,0117,حمص جاف,1 كغ,MX,"Dried chickpeas (kabuli), loose",lulu,no_match,no,,,,,kg,,0,,
+011760403,0117,فاصوليا جافة - بيضاء من المحمصة,1kg,AR,"Dried white beans, loose from roastery",carrefour,no_match,no,,,,,kg,,0,,
+011760403,0117,فاصوليا جافة - بيضاء من المحمصة,1kg,AR,"Dried white beans, loose from roastery",lulu,no_match,no,,,,,kg,,0,,
+011760405,0117,فاصوليا بيضاء - جافه,1 كغ,TR,"Dried white beans, loose",carrefour,no_match,no,,,,,kg,,0,,
+011760405,0117,فاصوليا بيضاء - جافه,1 كغ,TR,"Dried white beans, loose",lulu,no_match,no,,,,,kg,,0,,
+011790701,0117,زيتون أخضر  سائب,1 كغ,LB,Loose green olives,carrefour,no_match,no,,,,,kg,,0,,
+011790701,0117,زيتون أخضر  سائب,1 كغ,LB,Loose green olives,lulu,no_match,no,,,,,kg,,0,,
+011790703,0117,زيتون اسود سائب,1 كغ,EG,Loose black olives,carrefour,no_match,no,,,,,kg,,0,,
+011790703,0117,زيتون اسود سائب,1 كغ,EG,Loose black olives,lulu,no_match,no,,,,,kg,,0,,
+011790801,0117,مخلل مشكل ساده,1 كغ,EG,"Loose mixed pickles, plain",carrefour,no_match,no,,,,,kg,,0,,
+011790801,0117,مخلل مشكل ساده,1 كغ,EG,"Loose mixed pickles, plain",lulu,no_match,no,,,,,kg,,0,,
+011790802,0117,مخلل البصل ساده,1 كغ,EG,"Loose pickled onions, plain",carrefour,no_match,no,,,,,kg,,0,,
+011790802,0117,مخلل البصل ساده,1 كغ,EG,"Loose pickled onions, plain",lulu,no_match,no,,,,,kg,,0,,
+011790803,0117,مخلل مشكل ساده,1 كغ,LB,"Loose mixed pickles, plain",carrefour,no_match,no,,,,,kg,,0,,
+011790803,0117,مخلل مشكل ساده,1 كغ,LB,"Loose mixed pickles, plain",lulu,no_match,no,,,,,kg,,0,,
+011890101,0118,حلوى عمانية سلطانية سوداء,1 كغم,AE,"Omani halwa, Sultani black",carrefour,no_match,no,,,,,kg,,0,,
+011890101,0118,حلوى عمانية سلطانية سوداء,1 كغم,AE,"Omani halwa, Sultani black",lulu,no_match,no,,,,,kg,,0,,
+011890102,0118,حلوى عمانية سوداء بالعسل,1 كغم,AE,"Omani halwa, black with honey",carrefour,no_match,no,,,,,kg,,0,,
+011890102,0118,حلوى عمانية سوداء بالعسل,1 كغم,AE,"Omani halwa, black with honey",lulu,no_match,no,,,,,kg,,0,,
+011940101,0119,فلفل أسود حب,1 كغ,IN,Whole black peppercorns (loose),carrefour,match,yes,"Bayara Whole Black Pepper, 200g",16.39,21.79,81.95,kg,IN,6,Al Zahraa Black Pepper Whole 200g [AE] (59.95/kg) | Carrefour Whole Black Pepper 500g [AE] (83.98/kg) | Carrefour Black Pepper Whole 200g [AE] (87.45/kg) | Carrefour Whole Black Pepper 170g [AE] (119.35/kg) | Cape Foods Whole Black Peppercorns With Grinder 50g [ZA] (349.8/kg),https://www.carrefouruae.com/mafuae/en/black-pepper/bayara-black-pepper-whole-200gr/p/69431
+011940101,0119,فلفل أسود حب,1 كغ,IN,Whole black peppercorns (loose),lulu,review_origin,no,LuLu Black Pepper Whole 200 g,11.2,11.2,56.0,kg,,8,LuLu Black Pepper Whole 220 g [?] (88.64/kg) | Eastern Black Pepper Whole 200 g [?] (90.0/kg) | Shan Black Pepper Whole 200 g [?] (93.75/kg) | Bayara Black Pepper Whole 500 g [?] (106.3/kg) | Bayara Black Pepper Whole 200 g [?] (116.25/kg) | Bayara Black Pepper Whole 170 g [?] (148.53/kg) | Bayara Black Pepper Whole 40 g [?] (431.25/kg),https://gcc.luluhypermarket.com/en-ae/lulu-black-pepper-whole-200-g/p/67415/
+011940102,0119,فلفل أسود حب,1 كغ,VN,Whole black peppercorns (loose),carrefour,substitute_origin,no,Al Zahraa Black Pepper Whole 200g,11.99,11.99,59.95,kg,AE,6,"Bayara Whole Black Pepper, 200g [IN] (81.95/kg) | Carrefour Whole Black Pepper 500g [AE] (83.98/kg) | Carrefour Black Pepper Whole 200g [AE] (87.45/kg) | Carrefour Whole Black Pepper 170g [AE] (119.35/kg) | Cape Foods Whole Black Peppercorns With Grinder 50g [ZA] (349.8/kg)",https://www.carrefouruae.com/mafuae/en/black-pepper/lp-al-zahraa-blck-pepper-whle-200g/p/1939002
+011940102,0119,فلفل أسود حب,1 كغ,VN,Whole black peppercorns (loose),lulu,review_origin,no,LuLu Black Pepper Whole 200 g,11.2,11.2,56.0,kg,,8,LuLu Black Pepper Whole 220 g [?] (88.64/kg) | Eastern Black Pepper Whole 200 g [?] (90.0/kg) | Shan Black Pepper Whole 200 g [?] (93.75/kg) | Bayara Black Pepper Whole 500 g [?] (106.3/kg) | Bayara Black Pepper Whole 200 g [?] (116.25/kg) | Bayara Black Pepper Whole 170 g [?] (148.53/kg) | Bayara Black Pepper Whole 40 g [?] (431.25/kg),https://gcc.luluhypermarket.com/en-ae/lulu-black-pepper-whole-200-g/p/67415/
+011940103,0119,فلفل أسود مطحون,1 كغ,IN,Ground black pepper (loose),carrefour,substitute_origin,no,Al Zahraa Black Pepper Powder 200g,7.99,7.99,39.95,kg,AE,10,"Los Pinos Black Pepper Powder [VN] (59.0/kg) | Bayara Black Pepper Powder, 200g [VN] (81.95/kg) | Carrefour Black Pepper Powder 500g [AE] (83.98/kg) | Carrefour Black Pepper Powder 200g [AE] (87.45/kg) | Shan Black Pepper Powder 200g [PK] (98.95/kg) | Shan Black Pepper Powder 200g [PK] (113.95/kg) | Carrefour Black Pepper Powder 185g [AE] (117.78/kg) | Carrefour Black Pepper Powder 75g [AE] (126.5",https://www.carrefouruae.com/mafuae/en/spices/lp-al-zahraa-black-pepper-pwdr-200g/p/1938998
+011940103,0119,فلفل أسود مطحون,1 كغ,IN,Ground black pepper (loose),lulu,review_origin,no,LuLu Black Pepper Powder 200 g,7.6,7.6,38.0,kg,,15,LuLu Black Pepper Powder 200 g [VN] (46.25/kg) | Shan Black Pepper Powder 200 g [?] (90.5/kg) | LuLu Black Pepper Powder 220 g [?] (93.41/kg) | Reema Black Pepper Powder 100 g [?] (105.5/kg) | Bayara Black Pepper Powder 500 g [?] (105.6/kg) | Snapin Black Pepper Powder 120 g [?] (111.25/kg) | Al Fares Black Pepper Powder 250 g [?] (113.2/kg) | Bayara Black Pepper Powder 200 g [?] (116.25/kg) | Eas,https://gcc.luluhypermarket.com/en-ae/lulu-black-pepper-powder-200-g/p/67341/
+011940104,0119,فلفل أسود مطحون,1 كغ,VN,Ground black pepper (loose),carrefour,review_multiple,no,Los Pinos Black Pepper Powder,11.8,11.8,59.0,kg,VN,10,"Al Zahraa Black Pepper Powder 200g [AE] (39.95/kg) | Bayara Black Pepper Powder, 200g [VN] (81.95/kg) | Carrefour Black Pepper Powder 500g [AE] (83.98/kg) | Carrefour Black Pepper Powder 200g [AE] (87.45/kg) | Shan Black Pepper Powder 200g [PK] (98.95/kg) | Shan Black Pepper Powder 200g [PK] (113.95/kg) | Carrefour Black Pepper Powder 185g [AE] (117.78/kg) | Carrefour Black Pepper Powder 75g [AE] ",https://www.carrefouruae.com/mafuae/en/spices/vn-black-pepper-powder/p/1778427
+011940104,0119,فلفل أسود مطحون,1 كغ,VN,Ground black pepper (loose),lulu,match,yes,LuLu Black Pepper Powder 200 g,9.25,9.25,46.25,kg,VN,15,LuLu Black Pepper Powder 200 g [?] (38.0/kg) | Shan Black Pepper Powder 200 g [?] (90.5/kg) | LuLu Black Pepper Powder 220 g [?] (93.41/kg) | Reema Black Pepper Powder 100 g [?] (105.5/kg) | Bayara Black Pepper Powder 500 g [?] (105.6/kg) | Snapin Black Pepper Powder 120 g [?] (111.25/kg) | Al Fares Black Pepper Powder 250 g [?] (113.2/kg) | Bayara Black Pepper Powder 200 g [?] (116.25/kg) | Easte,https://gcc.luluhypermarket.com/en-ae/lulu-black-pepper-powder-200-g/p/1803911-ea/
+011940303,0119,كمون مطحون بودرة من المطحنة,1 كغ,IN,"Ground cumin, freshly milled (loose)",carrefour,review_multiple,no,"Bayara Cumin Powder, 500g",24.99,24.99,49.98,kg,IN,9,"Al Zahraa Cumin Powder 200g [AE] (29.95/kg) | Ruh Soul Satisfying Cumin Powder (Jeera), 200g [AE] (32.45/kg) | Los Pinos Cumin Powder [IN] (38.5/kg) | Carrefour Cumin Powder 500g [AE] (39.98/kg) | Shan Cumin Powder (Jeera) 200g [PK] (40.95/kg) | Bayara Cumin Powder (Jeera), 200g [IN] (53.95/kg) | Abido Cumin Powder, 50g [LB] (210.4/kg) | Sapora Cumin Powder (Jeera), 50g [AE] (305.8/kg)",https://www.carrefouruae.com/mafuae/en/spices/bayara-cumin-powder-500gr/p/69478
+011940303,0119,كمون مطحون بودرة من المطحنة,1 كغ,IN,"Ground cumin, freshly milled (loose)",lulu,review_origin,no,LuLu Cumin Powder 200 g,5.1,5.1,25.5,kg,,6,Shan Cumin Powder 200 g [?] (39.75/kg) | Cumin Powder 150 g [?] (50.33/kg) | Bayara Cumin Powder 200 g [?] (55.25/kg) | Bayara Cumin Powder 155 g [?] (76.45/kg) | Al Fares Cumin Powder 250 g [?] (82.0/kg),https://gcc.luluhypermarket.com/en-ae/lulu-cumin-powder-200-g/p/67224/
+011940501,0119,هيل كبير,1 كغ,US,"Whole green cardamom, large/bold grade (loose)",carrefour,no_match,no,,,,,kg,,0,,
+011940501,0119,هيل كبير,1 كغ,US,"Whole green cardamom, large/bold grade (loose)",lulu,no_match,no,,,,,kg,,0,,
+011940502,0119,هيل متوسط,1 كغ,US,"Whole green cardamom, medium grade (loose)",carrefour,no_match,no,,,,,kg,,0,,
+011940502,0119,هيل متوسط,1 كغ,US,"Whole green cardamom, medium grade (loose)",lulu,no_match,no,,,,,kg,,0,,
+011940701,0119,زنجبيل مطحون,1 كغ,CN,Ground dried ginger (loose),carrefour,no_match,no,,,,,kg,,0,,
+011940701,0119,زنجبيل مطحون,1 كغ,CN,Ground dried ginger (loose),lulu,no_match,no,,,,,kg,,0,,
+011940702,0119,زنجبيل مطحون,1 كغ,IN,Ground dried ginger (loose),carrefour,no_match,no,,,,,kg,,0,,
+011940702,0119,زنجبيل مطحون,1 كغ,IN,Ground dried ginger (loose),lulu,no_match,no,,,,,kg,,0,,
+011941001,0119,بزار (بهارات مشكلة) عادية,1 كغ,IN,"Mixed spice blend (bezar), regular (loose)",carrefour,no_match,no,,,,,kg,,0,,
+011941001,0119,بزار (بهارات مشكلة) عادية,1 كغ,IN,"Mixed spice blend (bezar), regular (loose)",lulu,review_origin,no,Bab Elsham Mixed Meat Spices 190 g,22.6,22.6,118.95,kg,,3,Budallah Bahrain Mixed Curry Spices 200 g [BH] (105.5/kg) | Bab Elsham Mixed Meat Spices Jar 50 g [?] (164.0/kg),https://gcc.luluhypermarket.com/en-ae/bab-elsham-mixed-meat-spices-190-g/p/2526713/
+011941002,0119,بهارات شاورما حارة,1 كغ,IN,Hot shawarma spice mix (loose),carrefour,no_match,no,,,,,kg,,0,,
+011941002,0119,بهارات شاورما حارة,1 كغ,IN,Hot shawarma spice mix (loose),lulu,no_match,no,,,,,kg,,0,,
+011941101,0119,كزبرة,حزمة,AE,Fresh coriander bunch,carrefour,match,yes,Fresh Coriander Bunch,0.99,0.99,0.99,bunch,AE,1,,https://www.carrefouruae.com/mafuae/en/fresh-herbs/coriander-fresh-bunche/p/1264804
+011941101,0119,كزبرة,حزمة,AE,Fresh coriander bunch,lulu,review_origin,no,Premium Coriander Leaves 1 Bunch,2.95,2.95,2.95,bunch,,1,,https://gcc.luluhypermarket.com/en-ae/premium-coriander-leaves-1-bunch/p/2593654/
+011941201,0119,بقدونس,حزمة,AE,Fresh parsley bunch,carrefour,substitute_origin,no,Parsley Import Bunch 100g,0.89,0.89,0.89,bunch,LB,1,,https://www.carrefouruae.com/mafuae/en/fresh-herbs/fresh-parsley-import/p/447432
+011941201,0119,بقدونس,حزمة,AE,Fresh parsley bunch,lulu,review_origin,no,Parsley Leaves 1 Bunch,1.0,1.0,1.0,bunch,,2,Premium Parsley Leaves 1 Bunch [?] (2.95/bunch),https://gcc.luluhypermarket.com/en-ae/parsley-leaves-1-bunch/p/2502792/

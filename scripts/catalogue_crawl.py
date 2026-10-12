@@ -79,8 +79,13 @@ def zara(s, src):
                 if c.get("type") != "Product" or not c.get("price") or c.get("priceUnavailable"):
                     continue
                 colors = (c.get("detail") or {}).get("colors") or [{}]
-                x = (colors[0].get("xmedia") or c.get("xmedia") or [{}])[0]
-                photo = f"https://static.zara.net{x['path']}/{x['name']}.jpg?ts={x.get('timestamp', '')}&w=300" if x.get("path") else ""
+                media = colors[0].get("xmedia") or c.get("xmedia") or [{}]
+                # product shots are named ...-p / -e1 / -f1 / -a1; "double" collages and unnamed entries are not real files
+                import re
+                shot = lambda m: m.get("path") and m.get("name") and re.search(r"-(p|e1|f1|a1)$", m["name"])
+                x = (next((m for m in media if shot(m)), None)
+                     or next((m for m in media if m.get("path") and m.get("name") and m.get("kind") != "double"), media[0]))
+                photo = f"https://static.zara.net{x['path'].rstrip('/')}/{x['name']}.jpg?ts={x.get('timestamp', '')}&w=300" if x.get("path") else ""
                 seo = c.get("seo") or {}
                 old = c.get("oldPrice") or colors[0].get("oldPrice")
                 colour = colors[0].get("name", "")
@@ -115,6 +120,8 @@ def landmark(src):
         except (TypeError, ValueError):
             continue
         concept = ((h.get("concept") or {}).get("en") or "").title().replace("Shoemart", "Shoe Mart")
+        if concept and concept.lower() not in LANDMARK_OWN:
+            continue
         colour = (h.get("color") or {}).get("en", "")
         out.append(dict(title=((h.get("name") or {}).get("en") or h.get("title", "")) + (f" ({colour})" if colour else ""),
                         price=price, regular_price=max(price, was), size_text="",
@@ -141,6 +148,16 @@ def row_for(src, r, collected):
                 size=size, unit_price=per if per is not None else "", price_basis=basis, brand=r.get("brand", ""),
                 retailer_id=rid, availability="Out of stock" if r.get("in_stock") is False else "Available",
                 url=r["url"], photo_url=r.get("photo", ""), collected=collected, notes=" · ".join(notes))
+
+
+# Landmark Group's own stores; Centrepoint's site also lists third-party marketplace sellers (Styli, Koton ...) - not kept
+LANDMARK_OWN = {"splash", "shoe mart", "shoemart", "babyshop", "centrepoint", "lifestyle", "max", "home centre", "shoexpress",
+                "sportsone", "sports one", "lifestyle home"}
+
+
+def own_store(outlet):
+    name = outlet.split(" (")[0].strip().lower()
+    return "(centrepoint)" not in outlet.lower() or name in LANDMARK_OWN
 
 
 def save_rows(path, rows):
@@ -192,6 +209,7 @@ def merge(out_dir):
     parts = {p.stem[5:]: list(csv.DictReader(open(p, encoding="utf-8-sig"))) for p in sorted(out_dir.glob("part_*.csv"))}
     old = [r for r in csv.DictReader(open(out_dir / "catalog.csv", encoding="utf-8-sig"))] if (out_dir / "catalog.csv").exists() else []
     rows = [r for r in old if r["store"] not in parts] + [r for rs in parts.values() for r in rs]
+    rows = [r for r in rows if own_store(r["outlet"])]
     save_rows(out_dir / "catalog.csv", rows)
     by = {}
     for r in rows:

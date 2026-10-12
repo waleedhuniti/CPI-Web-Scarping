@@ -74,6 +74,11 @@ def session():
 
 def get_one(url):
     from PIL import Image
+    try:
+        import pillow_heif
+        pillow_heif.register_heif_opener()      # some Carrefour pictures come as AVIF
+    except ImportError:
+        pass
     out = thumb_path(url)
     if out.exists():
         return True

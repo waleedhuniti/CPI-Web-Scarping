@@ -154,17 +154,18 @@ def main(run_dir, started):
         size += n
     if cur:
         tchunks.append(cur)
-    for i, c in enumerate(tchunks):
-        (out / f"t{i:03d}.json").write_text(json.dumps({"pairs": c, "i": i}), encoding="utf-8")
+    # one file, uploaded as an artifact asset (the panel database is capped at 100 MB); the run document then gets
+    # {"thumbs_asset": <asset id>}
+    (out / "thumbs.json").write_text(json.dumps({"pairs": pairs}), encoding="utf-8")
     acc = sum(r["accepted"] == "yes" for r in rows)
     failed_any = any("failed" in line and not line.endswith(" 0 failed") for line in log if "barcode" in line)
     status = "error" if failed_any else "done"
     (out / "run.json").write_text(json.dumps(dict(
         startedAt=started, finishedAt=datetime.now(timezone.utc).isoformat(timespec="seconds"), status=status,
-        summary=summary, chunks=len(chunks), thumbs=len(tchunks), count=len(rows), accepted=acc, log=log), ensure_ascii=False), encoding="utf-8")
+        summary=summary, chunks=len(chunks), count=len(rows), accepted=acc, log=log), ensure_ascii=False), encoding="utf-8")
     (out / "last.json").write_text(json.dumps({"lastRun": {"at": started, "status": status, "accepted": acc}}))
     run_id = datetime.fromisoformat(started).strftime("%Y%m%dT%H%M") + "-auto"
-    print("RUN_ID", run_id, "chunks", len(chunks), "thumbs", len(tchunks), "rows", len(rows), "accepted", acc, "status", status)
+    print("RUN_ID", run_id, "chunks", len(chunks), "photos", len(pairs), "rows", len(rows), "accepted", acc, "status", status)
     for v in summary.values():
         print(" ", v["label"], v["accepted"], "/", v["lines"])
 

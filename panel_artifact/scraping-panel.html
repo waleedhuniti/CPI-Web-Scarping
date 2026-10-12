@@ -580,7 +580,13 @@ async function rowDocs(pid, run) {
 // product thumbnails saved with each run (projects/<p>/runs/<id>/thumbs/tNNN: {pairs: [[photo url, base64 jpeg]]})
 const thumbs = new Map(); const thumbRuns = new Set();
 async function loadThumbs(pid, run) {
-  if (!run?.thumbs || thumbRuns.has(pid + "/" + run.id)) return;
+  if (!run || thumbRuns.has(pid + "/" + run.id)) return;
+  if (run.thumbs_asset) {          // the run's pictures as one uploaded file
+    thumbRuns.add(pid + "/" + run.id);
+    try { for (const [u, b] of (await (await fetch("/_blob/" + run.thumbs_asset)).json()).pairs || []) thumbs.set(u, b); } catch (e) {}
+    return;
+  }
+  if (!run.thumbs) return;
   thumbRuns.add(pid + "/" + run.id);
   for (let i = 0; i < run.thumbs; i++) {
     try {

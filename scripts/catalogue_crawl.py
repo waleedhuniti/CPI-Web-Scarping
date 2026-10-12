@@ -83,15 +83,12 @@ def row_for(src, r, collected):
                 url=r["url"], photo_url=r.get("photo", ""), collected=collected, notes=" · ".join(notes))
 
 
-def main(out_dir, delay=1.2):
+def crawl_store(store, sources, collected, delay, progress):
+    """One store's sources, one request at a time; Carrefour, Lulu and Sharaf DG run side by side."""
     from scrapling.fetchers import FetcherSession
-    cfg = json.load(open(CONFIG, encoding="utf-8"))
-    out_dir = Path(out_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    collected = (datetime.now(timezone.utc) + timedelta(hours=4)).strftime("%Y-%m-%d %H:%M")
     rows, seen, log = [], set(), []
     with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
-        for n, src in enumerate(cfg["sources"], 1):
+        for src in sources:
             got = []
             try:
                 if src["kind"] == "algolia":
@@ -102,17 +99,41 @@ def main(out_dir, delay=1.2):
                         got += parse(page, src.get("query", src["category"])) if page.status == 200 else []
                         time.sleep(delay + random.random())
             except Exception as e:
-                log.append(f"{src['store']} | {src['category']}: FAILED {str(e)[:120]}")
+                log.append(f"{store} | {src['category']}: FAILED {str(e)[:120]}")
             new = 0
             for r in got:
-                key = (src["store"], r["url"])
-                if not r.get("url") or not r.get("title") or key in seen:
+                key = r.get("url")
+                if not key or not r.get("title") or key in seen:
                     continue
                 seen.add(key)
                 rows.append(row_for(src, r, collected))
                 new += 1
-            log.append(f"{src['store']} | {src['group']} | {src['category']}: {new} products")
-            print(f"[{n}/{len(cfg['sources'])}] {log[-1]}", flush=True)
+            log.append(f"{store} | {src['group']} | {src['category']}: {new} products")
+            progress(log[-1])
+    return rows, log
+
+
+def main(out_dir, delay=1.0):
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    cfg = json.load(open(CONFIG, encoding="utf-8"))
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    collected = (datetime.now(timezone.utc) + timedelta(hours=4)).strftime("%Y-%m-%d %H:%M")
+    stores = {}
+    for src in cfg["sources"]:
+        stores.setdefault(src["store"], []).append(src)
+    lock, done = threading.Lock(), [0]
+
+    def progress(line):
+        with lock:
+            done[0] += 1
+            print(f"[{done[0]}/{len(cfg['sources'])}] {line}", flush=True)
+
+    with ThreadPoolExecutor(len(stores)) as ex:
+        results = list(ex.map(lambda kv: crawl_store(kv[0], kv[1], collected, delay, progress), stores.items()))
+    rows = [r for rs, _ in results for r in rs]
+    log = [line for _, ls in results for line in ls]
     with open(out_dir / "catalog.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()

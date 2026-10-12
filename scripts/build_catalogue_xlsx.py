@@ -38,7 +38,7 @@ def image_formula(url):
     return None
 
 
-def embed_photo(ws, url, cell, px=72):
+def embed_photo(ws, url, cell, px=56):
     """Embed the product picture (data/thumbs, scripts/fetch_thumbs.py) over the cell, like the original catalogue."""
     import hashlib
     from openpyxl.drawing.image import Image as XLImage
@@ -47,10 +47,13 @@ def embed_photo(ws, url, cell, px=72):
     f = ROOT / "data/thumbs" / (hashlib.sha1(url.encode()).hexdigest() + ".jpg")
     if not f.exists():
         return False
-    img = XLImage(str(f))
-    scale = px / max(img.width, img.height)
-    img.width, img.height = int(img.width * scale), int(img.height * scale)
-    ws.add_image(img, cell)
+    import io
+    from PIL import Image
+    im = Image.open(f).convert("RGB")
+    im.thumbnail((px, px))
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=55, optimize=True)      # small enough to keep the workbook under ~25 MB
+    ws.add_image(XLImage(io.BytesIO(buf.getvalue())), cell)
     return True
 
 

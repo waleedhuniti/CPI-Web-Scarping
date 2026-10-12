@@ -34,8 +34,24 @@ def photo_cache():
 
 
 def image_formula(url):
-    """Excel 365 / Excel for the web show the picture from its link; other spreadsheet programs show the formula."""
-    return f'=_xlfn.IMAGE("{url}")' if url else None
+    """The Photo cell itself stays empty: the picture is embedded over it (see embed_photo)."""
+    return None
+
+
+def embed_photo(ws, url, cell, px=72):
+    """Embed the product picture (data/thumbs, scripts/fetch_thumbs.py) over the cell, like the original catalogue."""
+    import hashlib
+    from openpyxl.drawing.image import Image as XLImage
+    if not url:
+        return False
+    f = ROOT / "data/thumbs" / (hashlib.sha1(url.encode()).hexdigest() + ".jpg")
+    if not f.exists():
+        return False
+    img = XLImage(str(f))
+    scale = px / max(img.width, img.height)
+    img.width, img.height = int(img.width * scale), int(img.height * scale)
+    ws.add_image(img, cell)
+    return True
 
 
 def toks(text):
@@ -180,11 +196,13 @@ def main(dest, run_dirs):
                 "'Price is for' is the quantity the shown price buys; 'Unit price' converts it to per kg / litre / piece",
                 heads, [7.8, 10.6, 40, 12, 10.2, 14, 11.5, 9, 7, 15, 11.7, 12, 24, 46.7, 30, 16, 18, 40])
     for r in rows:
-        ws.append(["No", r["outlet"], r["name"], image_formula(r["photo_url"]),
+        ws.append(["No", r["outlet"], r["name"], None,
                    float(r["price"]) if r["price"] not in ("", None) else None,
                    r["price_for"], float(r["unit_price"]) if r["unit_price"] not in ("", None) else None, r["unit"],
                    r["origin"], r["barcode"], r["retailer_id"], r["availability"], r["category"], r["url"],
                    r["photo_url"], r["collected"], r["source"], r["note"]])
+    pics = sum(embed_photo(ws, r["photo_url"], f"D{i}") for i, r in enumerate(rows, 6))
+    print(f"Catalogue: {pics:,} of {len(rows):,} photos embedded")
     for row in ws.iter_rows(min_row=6, min_col=5, max_col=7):
         for c in row:
             if c.column in (5, 7):
@@ -211,12 +229,14 @@ def main(dest, run_dirs):
                 "barcoded lines priced per pack, lines without a barcode per kg / piece / bunch",
                 heads2, [12, 12, 16, 22, 30, 14, 10, 10, 12, 15, 11, 22] + [11] * len(ds) + [10, 10, 40] + [11] * len(ds) + [10, 10, 40])
     for r in brows:
-        vals = [r["item_code"], image_formula(r["photo"]), r["photo_is"], r["group"], r["name_ar"], r["brand_ar"], r["qty"],
+        vals = [r["item_code"], None, r["photo_is"], r["group"], r["name_ar"], r["brand_ar"], r["qty"],
                 r["origin"], r["method"], r["barcode"], r["latest"], r["latest_from"]]
         for retailer in ("carrefour", "lulu"):
             vals += [r[f"{retailer}|{d}"] for d in ds]
             vals += [r[f"{retailer}|unit"], r[f"{retailer}|chg"], r[f"{retailer}|{ds[-1]}|t"]]
         ws2.append(vals)
+    pics = sum(embed_photo(ws2, r["photo"], f"B{i}") for i, r in enumerate(brows, 6))
+    print(f"Basket prices: {pics} of {len(brows)} photos embedded")
     n = len(ds)
     for row in ws2.iter_rows(min_row=6):
         for c in row:
@@ -256,8 +276,8 @@ def main(dest, run_dirs):
                          "first on the same date) and where it came from, so a line priced only on 8 Oct still has a price."),
         ("Change", "Change is (latest - first) / first for the same retailer and the same unit; blank when the line "
                    "was not found on one of the dates."),
-        ("Photos", "The Photo column shows each product's picture from its link (Excel 365 / Excel for the web; "
-                   "other programs show the formula). In Basket prices a line without a found product shows the most "
+        ("Photos", "Each product's picture is embedded in the Photo column; 'Photo URL' links to the full-size picture. "
+                   "In Basket prices a line without a found product shows the most "
                    "similar product's photo, marked 'similar product (illustration)'."),
         ("Scope", "Public UAE retailer websites (Carrefour, Lulu); no delivery address selected. Spinneys blocks "
                   "automated access and is only present in the 8 Oct source where it supplied prices."),

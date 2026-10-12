@@ -577,6 +577,19 @@ async function rowDocs(pid, run) {
   }
   return [...(await db.collection(base).limit(200).get()).docs].sort((a, b) => a.id.localeCompare(b.id));
 }
+// product thumbnails saved with each run (projects/<p>/runs/<id>/thumbs/tNNN: {pairs: [[photo url, base64 jpeg]]})
+const thumbs = new Map(); const thumbRuns = new Set();
+async function loadThumbs(pid, run) {
+  if (!run?.thumbs || thumbRuns.has(pid + "/" + run.id)) return;
+  thumbRuns.add(pid + "/" + run.id);
+  for (let i = 0; i < run.thumbs; i++) {
+    try {
+      const snap = await db.doc(`projects/${pid}/runs/${run.id}/thumbs/t${String(i).padStart(3, "0")}`).get();
+      if (snap.exists) for (const [u, b] of plain(snap).pairs || []) thumbs.set(u, b);
+    } catch (e) { /* a missing thumbnail only leaves the photo cell empty */ }
+  }
+}
+const photoSrc = (u) => (thumbs.has(u) ? "data:image/jpeg;base64," + thumbs.get(u) : u);
 function dbErr(e) { return e?.code === "quota_exceeded" ? "امتلأت قاعدة البيانات؛ احذف تشغيلات قديمة ثم حاول" : e?.code === "revoked" ? "لم تعد لديك صلاحية على هذه الصفحة" : (e?.message || String(e)); }
 
 // ------------------------------------------------------------ home
@@ -768,6 +781,8 @@ async function loadOvRows(runIds, sources) {
   } catch (e) { if (current === pid) $("#ov-rows").innerHTML = `<tr><td colspan="7">${esc(dbErr(e))}</td></tr>`; return; }
   if (current !== pid) return;
   ovRows = out; drawOvRows();
+  for (const id of runIds) await loadThumbs(pid, runs.find((r) => r.id === id));
+  if (current === pid) drawOvRows();
 }
 function dubaiDay(iso) {
   if (!iso) return "";
@@ -779,7 +794,7 @@ function drawOvRows() {
   const rows = ovRows.filter((r) => (!src || r.kind === src) && (!ret || r.ret === ret) && (!q || [r.name, r.name_ar, r.title, r.item_code, r.commodity].join(" ").toLowerCase().includes(q)));
   const basis = { kg: "/كغ", l: "/لتر", pc: "/حبة", bunch: "/حزمة" };
   $("#ov-rows").innerHTML = rows.slice(0, 300).map((r) => `<tr>
-    <td>${r.photo ? `<img class="thumb" src="${esc(r.photo)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>
+    <td>${r.photo ? `<img class="thumb" src="${esc(photoSrc(r.photo))}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>
     <td>${esc(r.name || r.name_ar || r.commodity || "")} <span class="muted mono">${esc(r.item_code || "")}</span></td>
     <td>${r.ret === "carrefour" ? "Carrefour" : r.ret === "lulu" ? "Lulu" : esc(r.ret || "")}</td>
     <td><span class="chip">${r.kind === "category" ? "مسح شامل" : "باركود"}</span></td>
@@ -1095,7 +1110,7 @@ async function offerXlsx(filename, sheet) {
   const ws = wb.addWorksheet(sheet.photoCol ? "Catalogue" : "Prices", { views: [{ state: "frozen", ySplit: 5 }] });
   ws.getCell("A2").value = sheet.title; ws.getCell("A2").font = { size: 16, bold: true, color: { argb: "FF173653" } };
   ws.getCell("A3").value = sheet.subtitle; ws.getCell("A3").font = { size: 10, color: { argb: "FF627184" } };
-  const head = ws.getRow(5); head.height = 32;
+  const head = ws.getRow(5); head.height = 32; const imgIds = new Map();
   sheet.headers.forEach((h, i) => {
     const c = head.getCell(i + 1); c.value = h;
     c.font = { bold: true, color: { argb: "FFFFFFFF" } };
@@ -1107,8 +1122,13 @@ async function offerXlsx(filename, sheet) {
     const row = ws.getRow(6 + k);
     vals.forEach((v, i) => {
       const c = row.getCell(i + 1);
-      if (sheet.photoCol === i + 1) c.value = v ? { formula: `_xlfn.IMAGE("${String(v).replace(/"/g, "")}")` } : null;
-      else c.value = v === "" ? null : v;
+      if (sheet.photoCol === i + 1) {
+        c.value = null;
+        if (v && thumbs.has(v)) {
+          if (!imgIds.has(v)) imgIds.set(v, wb.addImage({ base64: thumbs.get(v), extension: "jpeg" }));
+          ws.addImage(imgIds.get(v), { tl: { col: i + 0.1, row: 5 + k + 0.1 }, ext: { width: 72, height: 72 } });
+        }
+      } else c.value = v === "" ? null : v;
       c.alignment = { vertical: "middle", wrapText: i === 2 };
       if (sheet.priceCols.includes(i + 1)) c.numFmt = "#,##0.00";
       if (sheet.select && i === 0) c.dataValidation = { type: "list", allowBlank: false, formulae: ['"No,Yes"'] };
@@ -1248,7 +1268,7 @@ $("#r-filter").addEventListener("change", drawRun);
 $("#r-export").addEventListener("click", async () => {
   if (!shownRun) return;
   const btn = $("#r-export"); btn.disabled = true; btn.textContent = "يُجهَّز…";
-  try { await offerXlsx(`${P().name} ${shownRun.id}.xlsx`, sheetFor(shownRows.map((x) => ({ ...x, run_date: x.run_date || dubaiDay(shownRun.startedAt) })))); }
+  try { await loadThumbs(current, shownRun); await offerXlsx(`${P().name} ${shownRun.id}.xlsx`, sheetFor(shownRows.map((x) => ({ ...x, run_date: x.run_date || dubaiDay(shownRun.startedAt) })))); }
   catch (e) { toast(e?.message || String(e), true); }
   finally { btn.disabled = false; btn.textContent = "تنزيل Excel"; }
 });
@@ -1387,6 +1407,7 @@ $("#r-export-all").addEventListener("click", async () => {
         rows.push({ ...x, run_id: r.id, run_date: x.run_date || dubaiDay(r.startedAt) });
     }
     if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
+    for (const r of all) await loadThumbs(current, r);
     await offerXlsx(`${P().name} - all prices.xlsx`, sheetFor(rows));
   } catch (e) { toast(dbErr(e), true); }
   finally { btn.disabled = false; btn.textContent = "تنزيل كل الأسعار (Excel)"; }

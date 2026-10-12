@@ -5,3 +5,4 @@ __pycache__/
 .env
 storage/
 apify_storage/
+data/thumbs/

@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FILES = sorted(str(p.relative_to(ROOT)) for p in (ROOT / "cpi").rglob("*.py")) + [
     "scripts/scrapling_search.py", "scripts/scrapling_category.py", "scripts/match_run.py", "scripts/panel_run.py",
-    "scripts/name_fallback.py", "scripts/combine_run.py", "config/categories.json", "data/basket/specs_en.json",
+    "scripts/name_fallback.py", "scripts/combine_run.py", "scripts/fetch_thumbs.py", "config/categories.json", "data/basket/specs_en.json",
 ]
 
 

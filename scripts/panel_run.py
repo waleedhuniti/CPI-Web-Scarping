@@ -133,15 +133,38 @@ def main(run_dir, started):
     chunks.append(cur)
     for i, c in enumerate(chunks):
         (out / f"c{i:03d}.json").write_text(json.dumps({"rows": c, "i": i}, ensure_ascii=False), encoding="utf-8")
+    # thumbnails of the found products (data/thumbs, scripts/fetch_thumbs.py) for the panel's Excel download
+    import base64
+    import hashlib
+    pairs, seen = [], set()
+    for r in rows:
+        u = r.get("photo")
+        if r["accepted"] == "yes" and u and u not in seen:
+            seen.add(u)
+            f = ROOT / "data/thumbs" / (hashlib.sha1(u.encode()).hexdigest() + ".jpg")
+            if f.exists():
+                pairs.append([u, base64.b64encode(f.read_bytes()).decode()])
+    tchunks, cur, size = [], [], 0
+    for pr in pairs:
+        n = len(pr[0]) + len(pr[1]) + 8
+        if size + n > 200_000 and cur:
+            tchunks.append(cur)
+            cur, size = [], 0
+        cur.append(pr)
+        size += n
+    if cur:
+        tchunks.append(cur)
+    for i, c in enumerate(tchunks):
+        (out / f"t{i:03d}.json").write_text(json.dumps({"pairs": c, "i": i}), encoding="utf-8")
     acc = sum(r["accepted"] == "yes" for r in rows)
     failed_any = any("failed" in line and not line.endswith(" 0 failed") for line in log if "barcode" in line)
     status = "error" if failed_any else "done"
     (out / "run.json").write_text(json.dumps(dict(
         startedAt=started, finishedAt=datetime.now(timezone.utc).isoformat(timespec="seconds"), status=status,
-        summary=summary, chunks=len(chunks), count=len(rows), accepted=acc, log=log), ensure_ascii=False), encoding="utf-8")
+        summary=summary, chunks=len(chunks), thumbs=len(tchunks), count=len(rows), accepted=acc, log=log), ensure_ascii=False), encoding="utf-8")
     (out / "last.json").write_text(json.dumps({"lastRun": {"at": started, "status": status, "accepted": acc}}))
     run_id = datetime.fromisoformat(started).strftime("%Y%m%dT%H%M") + "-auto"
-    print("RUN_ID", run_id, "chunks", len(chunks), "rows", len(rows), "accepted", acc, "status", status)
+    print("RUN_ID", run_id, "chunks", len(chunks), "thumbs", len(tchunks), "rows", len(rows), "accepted", acc, "status", status)
     for v in summary.values():
         print(" ", v["label"], v["accepted"], "/", v["lines"])
 

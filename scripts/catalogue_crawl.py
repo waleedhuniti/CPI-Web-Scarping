@@ -2,6 +2,8 @@
 
     python scripts/catalogue_crawl.py data/catalogue/2026-10-12
     python scripts/catalogue_crawl.py data/catalogue/2026-10-12 --stores=zara,max --append   # add stores to the day
+    python scripts/catalogue_crawl.py <dir> --stores=max --part-only   # one store per process, then:
+    python scripts/catalogue_crawl.py <dir> --merge
 
 Stores selling their own goods only (no marketplaces / resellers): Carrefour and Lulu (search pages and the 8 Oct Lulu
 category pages, with Scrapling's Chrome fingerprint) and Sharaf DG (its public product search, the same one its
@@ -141,7 +143,14 @@ def row_for(src, r, collected):
                 url=r["url"], photo_url=r.get("photo", ""), collected=collected, notes=" · ".join(notes))
 
 
-def crawl_store(store, sources, collected, delay, progress):
+def save_rows(path, rows):
+    with open(path, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w.writeheader()
+        w.writerows(rows)
+
+
+def crawl_store(store, sources, collected, delay, progress, part=None):
     """One store's sources, one request at a time; Carrefour, Lulu and Sharaf DG run side by side."""
     from scrapling.fetchers import FetcherSession
     rows, seen, log = [], set(), []
@@ -172,10 +181,25 @@ def crawl_store(store, sources, collected, delay, progress):
                 new += 1
             log.append(f"{store} | {src['group']} | {src['category']}: {new} products")
             progress(log[-1])
+            if part:                       # keep what is done so a stop or a hang loses nothing
+                save_rows(part, rows)
     return rows, log
 
 
-def main(out_dir, delay=1.0, only=None, append=False):
+def merge(out_dir):
+    """Put the part_<store>.csv files of a day into catalog.csv (a store's part replaces its old rows)."""
+    out_dir = Path(out_dir)
+    parts = {p.stem[5:]: list(csv.DictReader(open(p, encoding="utf-8-sig"))) for p in sorted(out_dir.glob("part_*.csv"))}
+    old = [r for r in csv.DictReader(open(out_dir / "catalog.csv", encoding="utf-8-sig"))] if (out_dir / "catalog.csv").exists() else []
+    rows = [r for r in old if r["store"] not in parts] + [r for rs in parts.values() for r in rs]
+    save_rows(out_dir / "catalog.csv", rows)
+    by = {}
+    for r in rows:
+        by[r["store"]] = by.get(r["store"], 0) + 1
+    print(f"{len(rows)} products in {out_dir / 'catalog.csv'}  {by}")
+
+
+def main(out_dir, delay=1.0, only=None, append=False, part_only=False):
     import threading
     from concurrent.futures import ThreadPoolExecutor
     cfg = json.load(open(CONFIG, encoding="utf-8"))
@@ -195,9 +219,13 @@ def main(out_dir, delay=1.0, only=None, append=False):
             print(f"[{done[0]}/{total}] {line}", flush=True)
 
     with ThreadPoolExecutor(len(stores)) as ex:
-        results = list(ex.map(lambda kv: crawl_store(kv[0], kv[1], collected, delay, progress), stores.items()))
+        results = list(ex.map(lambda kv: crawl_store(kv[0], kv[1], collected, delay, progress,
+                                                     out_dir / f"part_{kv[0]}.csv"), stores.items()))
     rows = [r for rs, _ in results for r in rs]
     log = [line for _, ls in results for line in ls]
+    if part_only:                                           # one store per process; merge() combines them
+        print(f"{len(rows)} products in the part file")
+        return
     if append and (out_dir / "catalog.csv").exists():      # add these stores to the day's catalogue
         old = [r for r in csv.DictReader(open(out_dir / "catalog.csv", encoding="utf-8-sig")) if r["store"] not in stores]
         rows = old + rows
@@ -216,4 +244,7 @@ def main(out_dir, delay=1.0, only=None, append=False):
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--stores=")), None)
-    main(args[0], only=only, append="--append" in sys.argv)
+    if "--merge" in sys.argv:
+        merge(args[0])
+    else:
+        main(args[0], only=only, append="--append" in sys.argv, part_only="--part-only" in sys.argv)

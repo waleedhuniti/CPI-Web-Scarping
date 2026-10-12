@@ -6,17 +6,17 @@
 011110105,0111,أرز بسمتي هندي,أبوكاس,5 كغ,6281100410072,not_found,,no product for this barcode,,,,,
 011110106,0111,أرز بسمتي هندي,كنتري إكس إل,20 كغ,6271024152202,not_found,,no product for this barcode,,,,,
 011110107,0111,أرز بسمتي هندي أبيض حبة طويلة,DAAWAT,5 كغ,8901537071025,barcode_search_match,0.14,barcode found via retailer search + quantity equal,"Daawat Extra Long Grain White Indian Basmati Rice, 5kg",70.99,70.99,,https://www.carrefouruae.com/mafuae/en/indian-basmati-rice/daawat-e-l-grain-basmati-rice-5kg/p/975937
-011110201,0111,أرز باكستاني  حبه بيضاء طويله,سنارة,5 كغ,6294000201053,not_found,,no product for this barcode,,,,,
+011110201,0111,أرز باكستاني  حبه بيضاء طويله,سنارة,5 كغ,6294000201053,name_match,,found by name search: Sinnara White Basmati Rice,Sinnara Gold Extra Extra Large Extra Classic 1121 Steam White Long Grain Indian Basmati Rice 5kg,48.29,48.29,,https://www.carrefouruae.com/mafuae/en/pakistani-basmati/sinnara-gld-1121steam-basmati-5kg/p/1349089
 011110202,0111,أرز باكستاني حبه بيضاء طويله,كرنل مهران,5 كغ,633152002143,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Mehran Gold Basmati Rice, 5kg",62.79,62.79,,https://www.carrefouruae.com/mafuae/en/pakistani-basmati/mehran-gold-rice-5kg/p/9027
 011110203,0111,أرز باكستاني كيس برتقالي اللون -حبه طويله بيضاء,ممتاز,2 كغ,6291034177729,not_found,,no product for this barcode,,,,,
 011110401,0111,أرز مصري (حبة قصيرة),صن وايت,2 كغ,9310140010533,not_found,,no product for this barcode,,,,,
-011110402,0111,أرز مصري (حبة قصيرة),كليوباترا,5 كغ,6291058501036,not_found,,no product for this barcode,,,,,
+011110402,0111,أرز مصري (حبة قصيرة),كليوباترا,5 كغ,6291058501036,name_match,,found by name search: Cleopatra Egyptian rice,"Cleopatra Egyptian Rice, 5kg",20.0,30.99,,https://www.carrefouruae.com/mafuae/en/australian-egyptian-rice/cleopatra-egyprice-5kg-pro/p/1054884
 011110403,0111,أرز مصري (حبة قصيرة),الفراعنة,2 كغ,2014224001659,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Pharoes Egyptian Rice, 2kg",12.79,12.79,,https://www.carrefouruae.com/mafuae/en/australian-egyptian-rice/pharoes-egyptian-rice-2kg/p/1074562
 011110504,0111,هريس,بوابة ليوا,1 كغ,0682858101803,not_found,,no product for this barcode,,,,,
 011110505,0111,حب الهريس,بايارا,1 كغ,3434410049842,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara Hab Harees, 1kg",9.19,9.19,,https://www.carrefouruae.com/mafuae/en/black-eyed-peas/bayara-hab-haris-1kg/p/1247957
 011110601,0111,بقسماط حار,امريكان جاردن,425 g,717273502482,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"American Garden Hot 'N' Spicy Bread Crumbs, 425g",13.29,13.29,,https://www.carrefouruae.com/mafuae/en/breadcrumbs/american-g-crumbs-hot-spicy-425g/p/830341
 011110602,0111,الشابوره بحبة البركه والشمر,أمريكانا,375 غ,6281033317011,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Americana Quality Back Seed & Fennel Rusks, 375g",8.19,8.19,,https://www.carrefouruae.com/mafuae/en/rusk/americana-rusks-brown-375g/p/81304
-011110701,0111,سميد,صفا,500 غ,014796402191,not_found,,no product for this barcode,,,,,
+011110701,0111,سميد,صفا,500 غ,014796402191,name_match,,found by name search: Safa semolina,"Safa Premium Quality Semolina (Suji), 500g",6.39,6.39,,https://www.carrefouruae.com/mafuae/en/semolina/safa-semolina-500gr/p/8733
 011110702,0111,سميد,Crown,500 غ,6419950082013,barcode_search_match,0.5,barcode found via retailer search + quantity equal,"Crown Semolina (Suji), 500g",5.99,5.99,,https://www.carrefouruae.com/mafuae/en/semolina/crown-semolina-500gr/p/1872610
 011110703,0111,سميد,البيكر,1كغ,6291003058257,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Al Baker Roasted Semolina Rava, 1kg",6.69,6.69,,https://www.carrefouruae.com/mafuae/en/semolina/al-baker-roasted-semolina-1kg/p/1716251
 011110801,0111,الشوفان,Oats pouch Jenan,500 g,6290410140098,not_found,,no product for this barcode,,,,,
@@ -26,8 +26,8 @@
 011110901,0111,برغل خشن,منى,1 kg,6291104691261,not_found,,no product for this barcode,,,,,
 011110902,0111,برغل ناعم,بايارا,400 g,2961570551379,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara Fine Burghol, 400g",5.19,5.19,,https://www.carrefouruae.com/mafuae/en/sri-lankan-rice/bayara-burghol-fine-400g/p/822338
 011110904,0111,برغل أبيض,لولو,500 g,0000000673747,not_found,,no product for this barcode,,,,,
-011120101,0111,دقيق القمح (الطحين) رقم 1,البيكر,10 كغ,6291003058134,not_found,,no product for this barcode,,,,,
-011120102,0111,دقيق القمح (الطحين) رقم 2,البيكر,10 كغ,6291003058288,not_found,,no product for this barcode,,,,,
+011120101,0111,دقيق القمح (الطحين) رقم 1,البيكر,10 كغ,6291003058134,name_match,,found by name search: Al Baker Flour No.1,"Al Baker, All Purpose Patent Flour, 10kg",40.49,40.49,,https://www.carrefouruae.com/mafuae/en/plain-white-flour/al-baker-patent-flour-10kg/p/1514590
+011120102,0111,دقيق القمح (الطحين) رقم 2,البيكر,10 كغ,6291003058288,name_match,,found by name search: Al Baker Flour No.2,"Al Baker, All Purpose Patent Flour, 10kg",40.49,40.49,,https://www.carrefouruae.com/mafuae/en/plain-white-flour/al-baker-patent-flour-10kg/p/1514590
 011120103,0111,دقيق القمح (الطحين) رقم 1,جنان,10كغ,6291001802036,not_found,,no product for this barcode,,,,,
 011120104,0111,دقيق القمح (الطحين) رقم 2,جنان,10كغ,6291001802135,not_found,,no product for this barcode,,,,,
 011120105,0111,دقيق القمح (الطحين) متعدد الإستعمالات,دقيق المطاحن الكويتيه,1KG,6271003014019,not_found,,no product for this barcode,,,,,
@@ -47,7 +47,7 @@
 011130402,0111,خبز صمون,لوزين,4 حبة,6281007042857,qty_unit_differs,0.0,basket 4pc vs listing 200g - units not comparable,"l'usine Brown Sandwich Rolls, 200g",2.99,2.99,,https://www.carrefouruae.com/mafuae/en/white-rolls/lusine-sanwich-roll-brown-200g/p/1355467
 011130404,0111,خبز صمون,مخبز الأرز,6 حبات,6291100800094,qty_unit_differs,0.0,basket 6pc vs listing 325g - units not comparable,"Al Arz Automatic Bakery Arabic Samoon, 325g",1.69,1.69,,https://www.carrefouruae.com/mafuae/en/arabic-bread/alarz-arabic-samoon-normal-325g/p/893494
 011130513,0111,علبة كب كيك بنكهة الفانيلا,لوزين,30gx18,6281007044080,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"L'usine Vanilla Cupcake, 30g Pack of 18",15.99,15.99,,https://www.carrefouruae.com/mafuae/en/sweet-snack-cakes/lusine-vanilla-cupcake-30gx18/p/1452886
-011130514,0111,كيك مع حشوة الشكولاتة,بارني,30 غ,7622300661106,not_found,,no product for this barcode,,,,,
+011130514,0111,كيك مع حشوة الشكولاتة,بارني,30 غ,7622300661106,name_match,,found by name search: Barni chocolate cake,"Barni Chocolate Cake Biscuits, 30g",2.19,2.19,,https://www.carrefouruae.com/mafuae/en/baby-biscuit-rusks/barni-cake-with-chocolate-30g/p/1035826
 011130601,0111,بسكويت جليكوز,تيفاني,40 غ,6291003000010,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Tiffany Glucose Milk and Honey Biscuits, 40g",0.79,0.79,,https://www.carrefouruae.com/mafuae/en/assorted-tins/tiffany-glucose-40g/p/5671
 011130602,0111,بسكويت,أولكر,175 غ,8690504011101,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Ulker Petit Beurre Biscuits with Fresh Milk, 175g",4.89,4.89,,https://www.carrefouruae.com/mafuae/en/assorted-tins/ulker-petit-beurre-175gr/p/201768
 011130603,0111,بسكويت ماري,تيفاني,200 غ,6291003000119,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Tiffany Marie Biscuits, 200g",2.89,2.89,,https://www.carrefouruae.com/mafuae/en/assorted-tins/tiffany-marie-rich-tea-biscuit-200g/p/5673
@@ -81,7 +81,7 @@
 011190501,0111,ذرة جافة من محمصة ألوان دبي,ألوان دبي,1 kg,6291104690462,not_found,,no product for this barcode,,,,,
 011190502,0111,ذرة جافة,Al Alali Whole kernal Corn,425g,617950701460,not_found,,no product for this barcode,,,,,
 011190504,0111,ذرة جافة,jollytime American Best,30oz,028190063070,not_found,,no product for this barcode,,,,,
-011190505,0111,ذرة جافة - فشار عادي,american garden,273 g,017273550309,not_found,,no product for this barcode,,,,,
+011190505,0111,ذرة جافة - فشار عادي,american garden,273 g,017273550309,name_match,,found by name search: American Garden microwave popcorn natural,"American Garden Gluten-Free Microwave Natural Popcorn 3 Bags, 273g",11.79,11.79,,https://www.carrefouruae.com/mafuae/en/pop-corn/american-g-popcorn-natural-273g/p/541370
 011190507,0111,ذرة جافة,بايارا,1 كغ,6291107610023,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara Popcorn, 1kg",11.79,11.79,,https://www.carrefouruae.com/mafuae/en/black-eyed-peas/bayara-popcorn-1kg/p/1503890
 011190508,0111,ذرة جافة,بوابة ليوا,500g,0682858101919,not_found,,no product for this barcode,,,,,
 011220405,0112,لحم مجمد جاموس  مستورد بدون عظم,الكبير,903غ,5033712115019,not_found,,no product for this barcode,,,,,
@@ -135,7 +135,7 @@
 011311001,0113,حبار,الاسلامي,500 غ,6291002705923,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Al Islami Squid Rings, 500g",27.79,27.79,,https://www.carrefouruae.com/mafuae/en/sea-food-shelfish/al-islami-squid-rings-500g/p/1135814
 011311002,0113,حلقات حبار  قطع كلماري,سبلوه,250غ,5285000831242,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Siblou Calamare Rings, 250g",20.29,20.29,,https://www.carrefouruae.com/mafuae/en/sea-food-shelfish/siblou-calamari-rings-plain-250g/p/515152
 011320101,0113,تونا بيضاء-خلطة الذرة,ريوماري,160 غ,8004030022010,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Rio Mare Salatuna Maize with Peas Carrots and Olives, 160g",15.79,15.79,,https://www.carrefouruae.com/mafuae/en/ready-to-eat/rio-tuna-salad-vegetable-160g/p/546657
-011320102,0113,تونه خفيفه في ماء,حدائق كاليفورنيا,185غ,0032894030955,not_found,,no product for this barcode,,,,,
+011320102,0113,تونه خفيفه في ماء,حدائق كاليفورنيا,185غ,0032894030955,name_match,,found by name search: California Garden light tuna in water,"California Garden Light Chunk Tuna in Water and Salt, 185g",10.79,10.79,,https://www.carrefouruae.com/mafuae/en/tuna/california-g-tuna-meat-water-185g/p/116189
 011320104,0113,سردين بزيت دوار الشمس مع ملح  -علبه صفراء,العلالي,100غ,617950145387,not_found,,no product for this barcode,,,,,
 011320105,0113,سردين مطبوخ بالزيت الطبيعي,555,155 غ,748485200033,not_found,,no product for this barcode,,,,,
 011340501,0113,روبيان مجمد صغير الحجم مقشر,ارتيك جولد,1 كغ,6291010902345,not_found,,no product for this barcode,,,,,
@@ -145,7 +145,7 @@
 011410102,0114,حليب  بقري طازج كامل الدسم,المراعي,ا لتر,6281007040235,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Almarai Full Fat Fresh Milk, 1L",6.99,6.99,,https://www.carrefouruae.com/mafuae/en/full-fat-milk/al-marai-milk-ff-1l/p/11532
 011410103,0114,حليب  بقري طازج كامل الدسم,الروابي,ا لتر,6291030200032,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Al Rawabi Full Fat Milk, 1L",6.99,6.99,,https://www.carrefouruae.com/mafuae/en/full-fat-milk/al-rawabi-milk-ff-1l/p/11509
 011410104,0114,حليب نوق طازج,كامليشن,ا لتر,6291115000014,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Camelicious Camel Milk, 1L",21.79,21.79,,https://www.carrefouruae.com/mafuae/en/camel-milk/camelicious-camel-milk-1l/p/1013710
-011410105,0114,حليب بقري طازج عضوي كامل الدسم,مليحة,2 لتر,0745604632119,not_found,,no product for this barcode,,,,,
+011410105,0114,حليب بقري طازج عضوي كامل الدسم,مليحة,2 لتر,0745604632119,name_match,,found by name search: Meliha organic full fat milk,"Meliha Fresh Organic Full Fat Milk, 2L",18.29,18.29,,https://www.carrefouruae.com/mafuae/en/organic-milk/meliha-fresh-organic-milk-2l/p/2219587
 011410201,0114,Nadec Full Fat Long Life Milk 1L,نادك,ا لتر,6281057010011,not_found,,no product for this barcode,,,,,
 011410202,0114,Al Ain Long Life Low Fat Milk 1L,العين,ا لتر,6291056200504,barcode_search_match,0.89,barcode found via retailer search + quantity equal,Al Ain Long Life Low Fat Milk 1L,4.99,4.99,,https://www.carrefouruae.com/mafuae/en/uht-milk-low-fat/al-ain-uht-milk-low-fat-1l/p/184621
 011410203,0114,حليب طويل الأجل كامل الدسم,لاكنور,4*1لتر,6291016011218,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Lacnor UHT Full Fat Milk, 1L Pack of 4",17.29,17.29,,https://www.carrefouruae.com/mafuae/en/uht-milk-full-fat/lacnor-uht-milk-full-fat-1lx4/p/104222
@@ -201,7 +201,7 @@
 011510404,0115,زيت دوار الشمس,عافية,1.5 لتر,6281011701870,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Afia Pure Sunflower Oil Enriched with Vitamins A, D and Zinc Bottle, 1.5L",23.79,23.79,,https://www.carrefouruae.com/mafuae/en/sunflower-oil/afia-s-flwr-oil-1-5l/p/1723718
 011510405,0115,زيت دوار الشمس,نور,1.5 لتر,6291003304293,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Noor, Sunflower Oil, 1.5L",23.49,23.49,,https://www.carrefouruae.com/mafuae/en/sunflower-oil/noor-sunflower-oil-1-5l/p/1727637
 011510406,0115,زيت دوار الشمس,الكوزي,1.5 لتر,6291101138820,not_found,,no product for this barcode,,,,,
-011510407,0115,زيت دوار الشمس,صن فلو,1.5 لتر,6291003304835,not_found,,no product for this barcode,,,,,
+011510407,0115,زيت دوار الشمس,صن فلو,1.5 لتر,6291003304835,name_match,,found by name search: Sunflow sunflower oil,Carrefour Double Refined Sunflower Oil 1.5L,21.29,21.29,,https://www.carrefouruae.com/mafuae/en/sunflower-oil/crf-sunflower-oil-1-5l/p/1848018
 011510501,0115,زيت النخيل,اولين حياة,1.5لتر,6291003304255,not_found,,no product for this barcode,,,,,
 011510502,0115,زيت النخيل,اوكي,10 لتر,8888168300819,not_found,,no product for this barcode,,,,,
 011510602,0115,زيت جوز الهند,CBC,680 g,8888011050052,not_found,,no product for this barcode,,,,,
@@ -218,7 +218,7 @@
 011530102,0115,Nawar Spreadable Margarine Trans Fat Free 250g,نوار,250 gm,6291113105384,barcode_search_match,0.75,barcode found via retailer search + quantity equal,Nawar Sunflower Trans Fat Free Margarine 250g,7.59,7.59,,https://www.carrefouruae.com/mafuae/en/table-margarine/nawar-margarine-250g/p/1703744
 011530201,0115,سمن نباتــــــي,دلدا,2000 غ,8901030000836,not_found,,no product for this barcode,,,,,
 011530203,0115,سمن نباتــــــي,حياة,2.5كغ,6291003054310,not_found,,no product for this barcode,,,,,
-011530204,0115,سمن نباتــــــي,اصيل,1 لتر,6291113003659,not_found,,no product for this barcode,,,,,
+011530204,0115,سمن نباتــــــي,اصيل,1 لتر,6291113003659,name_match,,found by name search: Aseel vegetable ghee,"Aseel Vegetable Ghee, 500ml Pack of 2",15.99,15.99,,https://www.carrefouruae.com/mafuae/en/vegetable-ghee/aseel-vegetable-ghee-2x500-ml/p/1809435
 011670203,0116,زبيب ذهبي,جيما,1 كغ,3434410004155,not_found,,no product for this barcode,,,,,
 011680101,0116,لوز محمص,بايارا,1 كغ,3434410003769,not_found,,no product for this barcode,,,,,
 011680102,0116,لوز محمص جمبو -كيس بلاستيك احمر,بايارا,400 غ,6291106448603,barcode_search_match,0.0,barcode found via retailer search + quantity equal,Bayara Shelled Almonds 400g,29.99,29.99,,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-almonds-shelled-400g-promo/p/1407736
@@ -227,7 +227,7 @@
 011680203,0116,فستق محمص مملح جامبو,جايما,400 غ,3434410005282,barcode_search_match,0.0,barcode found via retailer search + quantity equal,Bayara Pistachios Salted Jumbo 400g,43.89,43.89,,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-pistachios-r-s-400gr/p/966760
 011680204,0116,فستق غير محمص حبات,بيارا,400جم,3434410057069,barcode_search_match,0.0,barcode found via retailer search + quantity equal,Bayara Pistachio Kernels Jumbo 400g,59.99,59.99,,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-pistachios-kernels-400gr/p/966759
 011680205,0116,فستق محمص مملح -علبة خضراء,بست,400 غ,6291014101751,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Best Salted Pistachios Can, 400g",47.99,47.99,,https://www.carrefouruae.com/mafuae/en/pistachios/best-pista-can-400g/p/6420
-011680302,0116,كاجو محمص,جايما,400 غ,3434410005299,not_found,,no product for this barcode,,,,,
+011680302,0116,كاجو محمص,جايما,400 غ,3434410005299,name_match,,found by name search: Bayara cashew kernels,Bayara Jumbo Cashew Kernels 400g,35.99,35.99,,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-cashew-k-jumbo-400g-spcl-of/p/1504544
 011680303,0116,كاجو مملح,بست,110 غ,6291014101430,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Best Salted Cashews, 110g",18.49,18.49,,https://www.carrefouruae.com/mafuae/en/cashew/best-cashew-can-110g/p/6411
 011680401,0116,انصاف الجوز  المحمص,بيارا,400غ,6291106448788,barcode_search_match,0.0,barcode found via retailer search + quantity equal,Bayara Halved Walnuts 400g,29.99,29.99,,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-walnuts-halves-400g-promo/p/1407737
 011680404,0116,أنصاف الجوز غير محمص,بيارا,400جم,3434410057823,barcode_search_match,0.0,barcode found via retailer search + quantity equal,Bayara Walnuts Halves 400g,37.99,37.99,,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-walnuts-halves-400gr/p/966766
@@ -253,12 +253,12 @@
 011760302,0117,لوبيا جافة,بايارا,400g,2961570551263,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara Black Eye Beans (Lobia), 400g",5.89,5.89,,https://www.carrefouruae.com/mafuae/en/beans/bayara-black-eye-beans-400g/p/773248
 011760304,0117,لوبيا جافة,شان,1kg,0788821005984,not_found,,no product for this barcode,,,,,
 011760305,0117,لوبيا جافة,منى,1kg,6291104690325,not_found,,no product for this barcode,,,,,
-011760407,0117,فاصوليا حمراء داكنة,حدائق كاليفورنيا,400 غ,0032894010278,not_found,,no product for this barcode,,,,,
+011760407,0117,فاصوليا حمراء داكنة,حدائق كاليفورنيا,400 غ,0032894010278,name_match,,found by name search: California Garden red kidney beans,"California Garden Dark Red Kidney Beans, 400g",5.19,5.19,,https://www.carrefouruae.com/mafuae/en/baked-beans/california-gred-kidney-bean-400-g/p/10655
 011760408,0117,فاصوليا حمراء داكنة,العملاق الأخضر,420 غ,5203912821007,not_found,,no product for this barcode,,,,,
 011760409,0117,فاصوليا بيضاء,بايارا,400 غ,2961570551232,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara White Beans, 400g",7.69,7.69,,https://www.carrefouruae.com/mafuae/en/beans/bayara-white-beans-400g/p/773245
 011760410,0117,فاصوليا حمراء,بايارا,400 غ,2961570551249,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara Red Kidney Beans (Rajma), 400g",9.79,9.79,,https://www.carrefouruae.com/mafuae/en/beans/bayara-red-kidney-beans-400g/p/773246
 011780101,0117,بازلاء مجمدة,إمبورغ,900 غ,5701215058538,not_found,,no product for this barcode,,,,,
-011780102,0117,بازلاء مجمدة,العملاق الاخضر,900 غ,5203912721109,not_found,,no product for this barcode,,,,,
+011780102,0117,بازلاء مجمدة,العملاق الاخضر,900 غ,5203912721109,name_match,,found by name search: Green Giant frozen peas,Green Giant Frozen Garden Peas 900g,19.79,19.79,,https://www.carrefouruae.com/mafuae/en/green-peas/green-giant-garden-peas-900gr/p/66780
 011780201,0117,فاصوليا خضراء مجمدة,إمبورغ,900 غ,5701215058576,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Emborg Cut Green Beans, 900g",19.79,19.79,,https://www.carrefouruae.com/mafuae/en/beans/emborg-cut-green-peas-900g/p/75505
 011780202,0117,فاصوليا خضراء مجمدة,العملاق الاخضر,900 غ,5203912390800,not_found,,no product for this barcode,,,,,
 011780301,0117,خضار مشكل مجمدة,العملاق الاخضر,900 غ,5203912722205,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Green Giant Frozen Mixed Vegetables without Corn, 900g",21.29,21.29,,https://www.carrefouruae.com/mafuae/en/mix-vegetable/gg-mixed-veg-w-o-corn-900gr/p/1051147
@@ -266,7 +266,7 @@
 011780303,0117,سبانخ مجمدة,بسمه,400 غ,6223000370353,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Basma Frozen Green Cut Spinach, 400g",5.99,5.99,,https://www.carrefouruae.com/mafuae/en/spinach/basma-spinach-400gr/p/232573
 011780304,0117,ملوخية  ناعمه مفرومه مجمدة,العين,400 غ,6291100002085,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Al Ain Finely Chopped Molokhia, 400g",5.19,5.19,,https://www.carrefouruae.com/mafuae/en/molokhia/al-ain-molokhia-400g/p/1031100
 011780305,0117,ملوخية مجمدة,السنبلة,400 غ,6281073150869,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Sunbulah Frozen Molokhia, 400g",3.49,3.49,,https://www.carrefouruae.com/mafuae/en/molokhia/sunbulah-mulokhia-400gm/p/1220863
-011780306,0117,بامية مجمدة حجم 2,بسمه,400 غ,6223000370087,not_found,,no product for this barcode,,,,,
+011780306,0117,بامية مجمدة حجم 2,بسمه,400 غ,6223000370087,name_match,,found by name search: Basma frozen okra,Basma Frozen Green Okra 400g,7.49,7.49,,https://www.carrefouruae.com/mafuae/en/okra/basma-okra-a-400g/p/1584831
 011780307,0117,بامية مجمدة,الاسلامي,400 غ,6291002110024,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Al Islami Okra Fine, 400g",5.99,5.99,,https://www.carrefouruae.com/mafuae/en/okra/al-islami-okra-fine-400gr/p/673069
 011780308,0117,بروكلي مجمدة,العملاق الاخضر,450 غ,5203912790198,not_found,,no product for this barcode,,,,,
 011780309,0117,بروكلي مجمدة,إمبورغ,450 غ,5701215058453,not_found,,no product for this barcode,,,,,
@@ -302,7 +302,7 @@
 011810105,0118,سكر ابيض ناعم,الأسرة,5 كغ,6281011411076,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Al Osra Fine White Sugar, 5kg",23.29,23.29,,https://www.carrefouruae.com/mafuae/en/white-sugar/al-osra-fine-white-sugar-5kg/p/1275793
 011820101,0118,تمر قابل للدهن,غودي,400 غ,6281014302388,not_found,,no product for this barcode,,,,,
 011820103,0118,دبس تمور السعوديه,جمارة,400 غ,6281101691111,not_found,,no product for this barcode,,,,,
-011820104,0118,دبس تمر فاخر,بايارا,1كغ,2961570555339,not_found,,no product for this barcode,,,,,
+011820104,0118,دبس تمر فاخر,بايارا,1كغ,2961570555339,name_match,,found by name search: Bayara date syrup,Bayara Premium Date Syrup 1kg,19.99,19.99,,https://www.carrefouruae.com/mafuae/en/dates/bayara-prm-date-syrup1kg-spcal-off/p/1504548
 011830101,0118,عسل نحل,الشفاء,500 غ,6281073210181,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Al Shifa Natural Honey, 500g",32.79,32.79,,https://www.carrefouruae.com/mafuae/en/natural-honey/al-shifa-honey-natural-jar-500g/p/10301
 011830104,0118,عسل سمر,يمني,1 كغ,6679589261399,not_found,,no product for this barcode,,,,,
 011830105,0118,عسل نحل,هيرو,365 غ,6221024270208,not_found,,no product for this barcode,,,,,
@@ -326,15 +326,15 @@
 011860102,0118,ايس كريم بارلاين اند كريم,لندن دياري,125 غ,6291003096181,barcode_match_unit_label,0.0,"basket 125g vs listing 125ml - same number, different unit label; barcode identifies the pack","London Dairy Premium Pralines and Cream Ice Cream, 125ml",6.69,6.69,,https://www.carrefouruae.com/mafuae/en/cups-pots/london-dairy-pral-cream-cup-125ml/p/283791
 011910101,0119,إندومي نكهة دجاج خاص 5 باكيت Indomie Instant Noodles Special Chicken Flavor - 5 x 75 g,إندومي,5 x 75 g,5285000390602,barcode_search_match,0.45,barcode found via retailer search + quantity equal,"Indomie Special Chicken Instant Noodles, 75g Pack of 5",9.29,9.29,,https://www.carrefouruae.com/mafuae/en/packet-noodles/indomie-special-chicken-75grx5/p/184601
 011910102,0119,"Koka Cup Noodles Chicken, 70g",Koka,70g,8888056705108,not_found,,no product for this barcode,,,,,
-011910201,0119,شوربة فورية -شوربة دجاج مع الذره,ماجي,47غ,8690632008769,not_found,,no product for this barcode,,,,,
+011910201,0119,شوربة فورية -شوربة دجاج مع الذره,ماجي,47غ,8690632008769,name_match,,found by name search: Maggi chicken corn soup,Nestle Maggi Excellence Chicken with Corn Soup 47g,7.49,7.49,,https://www.carrefouruae.com/mafuae/en/desiccated-soups/maggi-soup-chicken-with-corn-47g/p/957983
 011910202,0119,شوربة فورية,كنور,500 غ,6281006794405,not_found,,no product for this barcode,,,,,
 011920101,0119,بسكويت للأطفال بالبرتقال,فارليز,300 غ,6290090002013,barcode_search_match,0.0,barcode found via retailer search + quantity equal,Farley's Original Rusks 300g,29.99,29.99,,https://www.carrefouruae.com/mafuae/en/baby-biscuit-rusks/farleys-rusks-original-300gr/p/11071
-011920103,0119,سيريلاك بالقمح والعسل من 6 شهور,سيريلاك,400غ,6294003557300,not_found,,no product for this barcode,,,,,
+011920103,0119,سيريلاك بالقمح والعسل من 6 شهور,سيريلاك,400غ,6294003557300,name_match,,found by name search: Cerelac wheat honey,"Nestle Cerelac Infant Cereal, Wheat and Honey, from 6 Months, 400g",34.49,34.49,,https://www.carrefouruae.com/mafuae/en/flours-cereals-rice/cerelac-honey-400g/p/11078
 011920105,0119,أرز مع الدجاج للأطفال من 9 شهور,هيرو,120 غ,8690504551041,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Hero Baby Rice and Chicken, 120g",6.59,6.59,,https://www.carrefouruae.com/mafuae/en/mashmeals-soups/hb-rice-chicken-120g/p/1188460
 011920106,0119,طعام أطفال من 6 أشهر عضوي قمح وشوفان وفانيلا,Gerber,200 غ,7613039371671,barcode_search_match,0.11,barcode found via retailer search + quantity equal,"Gerber Organic Cereals Wheat, Oats and Vanilla, 200g",26.49,26.49,,https://www.carrefouruae.com/mafuae/en/organic-cereals-rusks/gerber-org-cer-wheat-oat-vanla-200g/p/1746224
-011920301,0119,Pediasure Complete 2+ Vanilla 400g,بيدياشور,400غ,8886451002921,not_found,,no product for this barcode,,,,,
+011920301,0119,Pediasure Complete 2+ Vanilla 400g,بيدياشور,400غ,8886451002921,name_match,,found by name search: PediaSure Complete vanilla,"Pediasure Peptigro System Complete Balanced Nutrition, Vanilla, 1-10 Years, 400g",47.79,47.79,,https://www.carrefouruae.com/mafuae/en/baby-formula-1-6-years-/pediasure-peptigro-vanilla-400-gm/p/2169571
 011920302,0119,سيميلاك  Similac total comfort 1,سيميلاك,820غ,8427030007731,barcode_search_match,0.75,barcode found via retailer search + quantity equal,"Similac Total Comfort Gold HMO 2'-FL Infant Formula Milk Powder, Stage 1, from Birth to 6 Months, 820g",93.49,93.49,,https://www.carrefouruae.com/mafuae/en/baby-formula-1-6-years-/similac-total-comfort-stage1-820g/p/1827129
-011920303,0119,حليب مجفف للأطفال من 1 إلى 3 سنوات أبتاميل أدفانس جونيور 3,أبتاميل,400 غ,8718117609963,not_found,,no product for this barcode,,,,,
+011920303,0119,حليب مجفف للأطفال من 1 إلى 3 سنوات أبتاميل أدفانس جونيور 3,أبتاميل,400 غ,8718117609963,name_match,,found by name search: Aptamil Advance Junior 3,"Aptamil Advance Junior 3 Growing Up Formula Milk From 1-3 Years, Easy To Use Pack, 400g",48.49,48.49,,https://www.carrefouruae.com/mafuae/en/baby-formula-1-6-years-/aptamil-advance-junior-pof-3-400g/p/2150760
 011920304,0119,بيبيلاك جونيور 4 تركيبة للأطفال في طور النمو من 3 إلى 6 سنوات مشتقة من حليب الأبقار,بيبيلاك,400 غ,5900852050787,not_found,,no product for this barcode,,,,,
 011920305,0119,حليب مجفف للرضع من الولادة حتى 6 أشهر  رقم 1 تعتمد على حليب الابقار,S-26 GOLD,900 غ,8886472105922,not_found,,no product for this barcode,,,,,
 011930101,0119,ملح طعام  -علبه ورق,نيزو,1 كغ,87158069,not_found,,no product for this barcode,,,,,
@@ -350,10 +350,10 @@
 011930402,0119,مايونيز  لايت -علبه بلاستيك خضراء ذات غطاء ازرق دائري,كنور,946غ,6281006793279,not_found,,no product for this barcode,,,,,
 011930403,0119,المايونيز الأصلي -علبه بلاستيك ذات غطاء فضي -لايت,هانز,940غ,6290090009005,not_found,,no product for this barcode,,,,,
 011930501,0119,شطة بالخل الطبيعي,العلالي,473غ,617950131601,barcode_match_unit_label,0.0,"basket 473g vs listing 473ml - same number, different unit label; barcode identifies the pack","Al Alali Hot Sauce with Natural Vinegar, 473ml",5.99,5.99,,https://www.carrefouruae.com/mafuae/en/hot-sauces/al-alali-hot-sauce-473ml/p/153603
-011930504,0119,شطة حارة,إيكسلانس,88 مل,0087034040011,not_found,,no product for this barcode,,,,,
+011930504,0119,شطة حارة,إيكسلانس,88 مل,0087034040011,name_match,,found by name search: Excellence hot sauce,"Excellence Hot Sauce, 88ml",4.79,4.79,,https://www.carrefouruae.com/mafuae/en/hot-sauces/excellence-hot-sauce-86g/p/273994
 011930505,0119,شطة صلصه الفلفل الحار-  إكسترا حار,إندوفود,340غ,0089686400861,not_found,,no product for this barcode,,,,,
 011930601,0119,صلصة الصويا,kikkoman,150 ml,4901515118968,barcode_search_match,0.33,barcode found via retailer search + quantity equal,"Kikkoman Naturally Brewed Soy Sauce, 150ml",12.49,12.49,,https://www.carrefouruae.com/mafuae/en/soya-sauce/kikkoman-soya-sauce-150ml/p/8556
-011930602,0119,صلصة الصويا حلوه,اندفود,340 ml,0089686420654,not_found,,no product for this barcode,,,,,
+011930602,0119,صلصة الصويا حلوه,اندفود,340 ml,0089686420654,name_match,,found by name search: Indofood sweet soy sauce,Indofood Sweet Soy Sauce 340ml,9.19,9.19,,https://www.carrefouruae.com/mafuae/en/soya-sauce/indofood-sweet-soy-sauce-340ml/p/501944
 011930603,0119,صلصة الصويا الكلاسيكية,أميريكان جاردن,295 ml,717273501874,not_found,,no product for this barcode,,,,,
 011940201,0119,مسحوق فلفل حار كشمي,كشمي,200 جم,2961570552758,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara Kashmiri Chili Powder, 200g",10.49,10.49,,https://www.carrefouruae.com/mafuae/en/spices/bayara-kashmiri-chilli-powder-200gr/p/956925
 011940202,0119,مسحوق الفلفل الاحمر بيارا,بيارا,500 جم,3434410002793,barcode_search_match,0.0,barcode found via retailer search + quantity equal,"Bayara Chili Powder, 500g",16.99,16.99,,https://www.carrefouruae.com/mafuae/en/spices/bayara-chilli-powder-500gr/p/69470
@@ -371,7 +371,7 @@
 011940901,0119,مدراس كاري بودر,MOTHERS RECIPE,600g,8906001051169,not_found,,no product for this barcode,,,,,
 011940902,0119,كاري بودر,MEHRAN,250g,633152001856,barcode_search_match,0.33,barcode found via retailer search + quantity equal,"Mehran Curry Powder, 250g",12.79,12.79,,https://www.carrefouruae.com/mafuae/en/masala-and-mix/mehran-curry-powder-250g/p/176895
 011940904,0119,مسحوق الكاري,بايارا,330 جم,2961570550334,barcode_match_unit_label,0.0,"basket 330g vs listing 330ml - same number, different unit label; barcode identifies the pack","Bayara Curry Powder, 330ml",11.79,11.79,,https://www.carrefouruae.com/mafuae/en/masala-and-mix/bayara-curry-powder-330ml/p/708544
-011990101,0119,تتبيلة السلطة (رانش),أميريكان جاردن,473ml,0717273504790,not_found,,no product for this barcode,,,,,
+011990101,0119,تتبيلة السلطة (رانش),أميريكان جاردن,473ml,0717273504790,name_match,,found by name search: American Garden ranch dressing,"American Garden Ranch Dressing and Dip, 473ml",23.79,23.79,,https://www.carrefouruae.com/mafuae/en/salad-dressings/american-g-ranch-dressing-454g/p/997218
 011990102,0119,Ina Paarman's Herbs Salad Dressing 300ml,إنا بارمان,300ml,6003105002652,barcode_search_match,0.5,barcode found via retailer search + quantity equal,Ina Paarman's Dressing Herb 300ml,19.99,19.99,,https://www.carrefouruae.com/mafuae/en/salad-dressings/inaparman-dressing-herb-300ml/p/799443
 011990201,0119,علبة 24 حبة دجاج مكعبات,ماجي,18 جم,6294017116593,qty_mismatch,0.0,basket 18g vs listing 480g,Nestle Maggi Chicken Stock Bouillon Cubes With Herbs 20g Pack of 24,19.34,25.79,,https://www.carrefouruae.com/mafuae/en/chicken-cubes/maggi-chicken-stock-w-herbs-20gx24/p/1648847
 011990202,0119,دجاج مكعبات,العلالي,20*24,617950192411,barcode_match_qty_unverified,0.0,"barcode equal, quantity not readable on listing","Al Alali Rich Flavour Chicken Stock, 22g Pack of 24",19.79,19.79,,https://www.carrefouruae.com/mafuae/en/chicken-cubes/al-alali-stock-chicken-22gx24/p/9179

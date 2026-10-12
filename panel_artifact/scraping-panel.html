@@ -293,7 +293,7 @@ button.primary { background: var(--navy); border-color: var(--navy); }
         <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل Excel</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
         <div id="r-del-confirm"></div>
         <div class="stats" id="r-stats"></div>
-        <div class="row"><input id="r-search" placeholder="فلترة" style="flex:2 1 220px"><select id="r-filter" style="flex:1 1 160px"><option value="">كل الحالات</option><option value="yes">الموجود فقط</option><option value="no">غير الموجود</option></select></div>
+        <div class="row"><input id="r-search" placeholder="ابحث باسم المنتج أو المتجر أو القسم" style="flex:2 1 220px"><select id="r-filter" hidden><option value=""></option></select></div>
         <div class="tw"><table id="r-table"><thead></thead><tbody></tbody></table></div>
         <p class="muted" id="r-more"></p>
       </div>
@@ -1307,11 +1307,11 @@ async function loadRuns() {
 async function showRun(id) {
   shownRun = runs.find((r) => r.id === id);
   $("#r-view").hidden = false; $("#r-more").textContent = "تُحمَّل الصفوف…";
-  try { shownRows = (await rowDocs(current, shownRun)).flatMap((d) => plain(d).rows || []); }
+  try { shownRows = (await rowDocs(current, shownRun)).flatMap((d) => plain(d).rows || []); await loadThumbs(current, shownRun); }
   catch (e) { shownRows = []; $("#r-more").textContent = ""; toast("تعذّر تحميل صفوف التشغيل: " + dbErr(e), true); return; }
   $("#r-view").hidden = false; $("#r-del-confirm").innerHTML = "";
   $("#r-title").textContent = (shownRun.startedAt || "").replace("T", " ").slice(0, 16);
-  $("#r-stats").innerHTML = Object.values(shownRun.summary || {}).map((s) => `<div class="stat"><span class="muted">${esc(s.label)}</span><b>${s.accepted} / ${s.lines}</b><span class="muted">مقبول</span></div>`).join("");
+  $("#r-stats").innerHTML = Object.values(shownRun.summary || {}).map((s) => `<div class="stat"><span class="muted">${esc(s.label)}</span><b>${s.accepted} / ${s.lines}</b><span class="muted">موجود</span></div>`).join("");
   drawRun(); $("#r-view").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 }
 function runColumns() {
@@ -1320,17 +1320,21 @@ function runColumns() {
   return [...seen].filter((k) => k !== "accepted");
 }
 function drawRun() {
-  const q = $("#r-search").value.trim().toLowerCase(), f = $("#r-filter").value;
-  const rows = shownRows.filter((r) => (!f || r.accepted === f) && (!q || Object.values(r).join(" ").toLowerCase().includes(q)));
-  const cs = runColumns();
-  const NUMS = new Set(["price", "regular_price", "change", "pct", "weekly", "monthly", "ytd", "yoy", "barcode", "item_code"]);
-  $("#r-table thead").innerHTML = `<tr>${cs.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>`;
-  $("#r-table tbody").innerHTML = rows.slice(0, 400).map((r) => `<tr>${cs.map((c) => {
-    if (c === "status") { const s = STATUS[r.status] || [r.status, ""]; return `<td><span class="chip ${s[1]}">${esc(s[0])}</span></td>`; }
-    if (c === "url" && r.url) return `<td><a href="${esc(r.url)}" target="_blank" rel="noopener">رابط</a></td>`;
-    const v = r[c]; return `<td class="${NUMS.has(c) ? "num" : ""}">${esc(typeof v === "object" && v !== null ? JSON.stringify(v) : v)}</td>`;
-  }).join("")}</tr>`).join("") || `<tr><td class="empty" colspan="${cs.length}">لا صفوف.</td></tr>`;
-  $("#r-more").textContent = rows.length > 400 ? `يظهر أول 400 من ${rows.length}؛ نزّل CSV لرؤية الكل.` : `${rows.length} صف`;
+  // the same columns as the Excel download (catalogue layout), without the Select and Photo URL helpers
+  const q = $("#r-search").value.trim().toLowerCase();
+  const sheet = sheetFor(shownRows.map((x) => ({ ...x, run_date: x.run_date || dubaiDay(shownRun?.startedAt) })));
+  const keep = sheet.headers.map((h, i) => i).filter((i) => !["Select", "Photo URL"].includes(sheet.headers[i]));
+  const rows = sheet.rows.filter((r) => !q || r.join(" ").toLowerCase().includes(q));
+  const URLS = new Set(["Product URL"]), PHOTO = sheet.photoCol ? sheet.photoCol - 1 : -1;
+  $("#r-table thead").innerHTML = `<tr>${keep.map((i) => `<th>${esc(sheet.headers[i])}</th>`).join("")}</tr>`;
+  $("#r-table tbody").innerHTML = rows.slice(0, 400).map((r) => `<tr>${keep.map((i) => {
+    const v = r[i], h = sheet.headers[i];
+    if (i === PHOTO) return `<td>${v ? `<img class="thumb" src="${esc(photoSrc(v))}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>`;
+    if (URLS.has(h)) return v ? `<td><a href="${esc(v)}" target="_blank" rel="noopener">فتح</a></td>` : "<td></td>";
+    if (sheet.priceCols.includes(i + 1) && typeof v === "number") return `<td class="num"><b>${v.toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b></td>`;
+    return `<td>${esc(v ?? "")}</td>`;
+  }).join("")}</tr>`).join("") || `<tr><td class="empty" colspan="${keep.length}">لا أسعار.</td></tr>`;
+  $("#r-more").textContent = rows.length > 400 ? `يظهر أول 400 من ${rows.length}؛ نزّل Excel لرؤية الكل.` : `${rows.length} سعر`;
 }
 $("#r-search").addEventListener("input", drawRun);
 $("#r-filter").addEventListener("change", drawRun);

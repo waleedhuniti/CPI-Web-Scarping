@@ -550,7 +550,7 @@ async function loadBasket(pid) {
 }
 async function saveChunks(coll, key, list, old) {
   const chunks = []; let cur = [], size = 0;
-  for (const x of list) { const s = JSON.stringify(x).length; if (size + s > 110000 && cur.length) { chunks.push(cur); cur = []; size = 0; } cur.push(x); size += s; }
+  for (const x of list) { const s = JSON.stringify(x).length; if (size + s > 40000 && cur.length) { chunks.push(cur); cur = []; size = 0; } cur.push(x); size += s; }
   if (cur.length || !chunks.length) chunks.push(cur);
   for (let i = 0; i < chunks.length; i++) await db.doc(`${coll}/c${String(i).padStart(3, "0")}`).set({ [key]: chunks[i], i });
   const prev = old ?? (await db.collection(coll).get()).docs.map((d) => d.id);
@@ -691,7 +691,8 @@ function renderOverview() {
   const L = latestBySource(runs);
   const bc = L.sources.filter((v) => v.kind === "barcode"), cat = L.sources.filter((v) => v.kind === "category");
   const sum = (xs, f) => xs.reduce((n, v) => n + (v[f] || 0), 0);
-  const nBarcode = basket.filter((i) => gtinValid(i.barcode_raw)).length, nSpec = basket.length - nBarcode;
+  const nBarcode = basket.length ? basket.filter((i) => gtinValid(i.barcode_raw)).length : (p.barcodeCount ?? 0);
+  const nSpec = basket.length ? basket.length - nBarcode : (p.specCount ?? 0);
   const accBc = sum(bc, "accepted"), accCat = sum(cat, "accepted");
   const lastAt = L.sources.map((v) => v.startedAt).sort().pop();
   const legend = `<div class="legend"><span style="--c:${BAR_COLORS.accepted}">مقبول</span><span style="--c:${BAR_COLORS.review}">للمراجعة</span><span style="--c:${BAR_COLORS.other}">غير موجود في المصدر</span></div>`;
@@ -778,7 +779,7 @@ async function openProject(id) {
   switchTab("overview"); runs = []; renderOverview();
   try { location.hash = id.replace(/[^\w.~-]/g, ""); } catch (e) {}
   basket = []; renderBasket(); renderActors(); renderSettings(); renderRunPicks(); renderJob();
-  try { basket = await loadBasket(id); } catch (e) { toast(dbErr(e), true); }
+  try { basket = await loadBasket(id); } catch (e) { toast("تعذّر تحميل السلة: " + dbErr(e), true); }
   bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); renderQuick();
   if (!isPlanned(P())) { await loadRuns(); renderOverview(); renderSchedule(); }
 }
@@ -973,7 +974,8 @@ $("#b-add").addEventListener("click", () => editItem(null));
 $("#b-save").addEventListener("click", async () => {
   try {
     await saveChunks(`projects/${current}/basket`, "items", basket);
-    await saveProject({ itemCount: basket.length });
+    const nb = basket.filter((i) => gtinValid(i.barcode_raw)).length;
+    await saveProject({ itemCount: basket.length, barcodeCount: nb, specCount: basket.length - nb });
     basketDirty = false; renderBasket(); renderRunPicks(); toast(`حُفظت السلة (${basket.length} عنصر)`);
   } catch (e) { toast(dbErr(e), true); }
 });

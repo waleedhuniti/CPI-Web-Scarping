@@ -561,6 +561,19 @@ async function saveProject(patch) {
   const p = { ...P(), ...patch, updatedAt: new Date().toISOString() };
   await db.doc(`projects/${current}`).set(p); projects[current] = p;
 }
+// rows of a run: one document at a time (a whole-collection read of large chunks can fail), in chunk order
+async function rowDocs(pid, run) {
+  const base = `projects/${pid}/runs/${run.id}/rows`;
+  if (Number.isInteger(run.chunks) && run.chunks > 0) {
+    const out = [];
+    for (let i = 0; i < run.chunks; i++) {
+      const snap = await db.doc(`${base}/c${String(i).padStart(3, "0")}`).get();
+      if (snap.exists) out.push(snap);
+    }
+    if (out.length) return out;
+  }
+  return (await db.collection(base).limit(200).get()).docs.sort((a, b) => a.id.localeCompare(b.id));
+}
 function dbErr(e) { return e?.code === "quota_exceeded" ? "امتلأت قاعدة البيانات؛ احذف تشغيلات قديمة ثم حاول" : e?.code === "revoked" ? "لم تعد لديك صلاحية على هذه الصفحة" : (e?.message || String(e)); }
 
 // ------------------------------------------------------------ home
@@ -718,36 +731,47 @@ function renderOverview() {
     </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
     <div class="panel">
       <div class="bar-title navy">الأسعار</div>
-      <div class="row"><input id="ov-q" placeholder="ابحث باسم الصنف أو المنتج" style="flex:2 1 220px">
+      ${isCpi ? `<div class="row"><input id="ov-q" placeholder="ابحث باسم الصنف أو المنتج" style="flex:2 1 220px">
         <select id="ov-src" style="flex:1 1 160px"><option value="">كل المصادر</option><option value="barcode">بحث بالباركود</option><option value="category">مسح شامل</option></select>
         <select id="ov-ret" style="flex:1 1 140px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
         <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
-      <div class="tw"><table><thead><tr><th>الصنف</th><th>المتجر</th><th>المصدر</th><th>المنتج في المتجر</th><th>السعر (درهم)</th><th>سعر الوحدة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>
+      <div class="tw"><table><thead><tr><th>الصنف</th><th>المتجر</th><th>المصدر</th><th>المنتج في المتجر</th><th>السعر (درهم)</th><th>سعر الوحدة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`
+      : `<div class="row"><input id="ov-q" placeholder="ابحث باسم السلعة أو الفئة" style="flex:2 1 220px">
+        <select id="ov-date" style="flex:1 1 160px"></select>
+        <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
+      <div class="tw"><table><thead><tr><th>السلعة</th><th>الفئة</th><th>السعر</th><th>الوحدة</th><th>التغير اليومي</th><th>منذ بداية السنة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`}
       <p class="muted" id="ov-count"></p>
     </div>`;
   $("#ov-dl").onclick = () => $("#r-export-all").click();
-  ["#ov-q", "#ov-src", "#ov-ret"].forEach((s) => $(s).addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
-  loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
+  ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
+  if (isCpi) loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
+  else loadOvRows(runs.map((r) => r.id), null);   // global prices: every saved day, newest first
 }
 async function loadOvRows(runIds, sources) {
   const pid = current; const out = [];
   try {
     for (const id of runIds) {
-      const chunks = (await db.collection(`projects/${pid}/runs/${id}/rows`).get()).docs;
+      const chunks = await rowDocs(pid, runs.find((r) => r.id === id) || { id });
       for (const c of chunks) for (const r of c.data().rows || []) {
         const kind = r.source === "category" || isCat(r.actor) ? "category" : "barcode";
         const ret = r.retailer || (/lulu/i.test(r.actor) ? "lulu" : /carrefour/i.test(r.actor) ? "carrefour" : r.actor);
         // keep a row only from the run that is the latest for its source
-        if (!sources.some((v) => v.runId === id && v.kind === kind && (!v.label || String(v.label).toLowerCase().includes(String(ret).toLowerCase().slice(0, 4))))) continue;
+        if (sources && !sources.some((v) => v.runId === id && v.kind === kind && (!v.label || String(v.label).toLowerCase().includes(String(ret).toLowerCase().slice(0, 4))))) continue;
         if (r.accepted !== "yes") continue;
-        out.push({ ...r, kind, ret });
+        const run = runs.find((x) => x.id === id);
+        out.push({ ...r, kind, ret, run_date: r.run_date || dubaiDay(run?.startedAt) });
       }
     }
   } catch (e) { if (current === pid) $("#ov-rows").innerHTML = `<tr><td colspan="7">${esc(dbErr(e))}</td></tr>`; return; }
   if (current !== pid) return;
   ovRows = out; drawOvRows();
 }
+function dubaiDay(iso) {
+  if (!iso) return "";
+  try { return new Date(iso).toLocaleDateString("en-CA", { timeZone: "Asia/Dubai" }); } catch (e) { return String(iso).slice(0, 10); }
+}
 function drawOvRows() {
+  if (P()?.kind !== "barcode") return drawGlobalRows();
   const q = ($("#ov-q")?.value || "").trim().toLowerCase(), src = $("#ov-src")?.value, ret = $("#ov-ret")?.value;
   const rows = ovRows.filter((r) => (!src || r.kind === src) && (!ret || r.ret === ret) && (!q || [r.name, r.name_ar, r.title, r.item_code, r.commodity].join(" ").toLowerCase().includes(q)));
   const basis = { kg: "/كغ", l: "/لتر", pc: "/حبة", bunch: "/حزمة" };
@@ -760,6 +784,25 @@ function drawOvRows() {
     <td class="num">${r.unit_price ? esc(r.unit_price) + (basis[r.price_basis] || "") : ""}</td>
     <td class="num">${esc(fmtDate(r.run_date))}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">لا أسعار مطابقة.</td></tr>`;
   $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر${rows.length > 300 ? " · يظهر أول 300؛ نزّل الملف لرؤية الكل" : ""}`;
+}
+
+function drawGlobalRows() {
+  const sel = $("#ov-date"); if (!sel) return;
+  const days = [...new Set(ovRows.map((r) => r.run_date).filter(Boolean))].sort().reverse();
+  if (sel.options.length !== days.length + 1) {
+    const keep = sel.value || days[0] || "";
+    sel.innerHTML = days.map((d) => `<option value="${esc(d)}">${esc(d)}</option>`).join("") + `<option value="">كل الأيام (${days.length})</option>`;
+    sel.value = keep;
+  }
+  const q = ($("#ov-q")?.value || "").trim().toLowerCase(), day = sel.value;
+  const rows = ovRows.filter((r) => (!day || r.run_date === day) && (!q || [r.commodity, r.category, r.name].join(" ").toLowerCase().includes(q)))
+    .sort((a, b) => String(b.run_date).localeCompare(String(a.run_date)) || String(a.category).localeCompare(String(b.category)));
+  $("#ov-rows").innerHTML = rows.slice(0, 400).map((r) => `<tr>
+    <td>${esc(r.commodity || r.name || "")}</td><td>${esc(r.category || "")}</td>
+    <td class="num"><b>${esc(r.price ?? "")}</b></td><td>${esc(r.unit || "")}</td>
+    <td class="num">${esc(r.pct ?? "")}</td><td class="num">${esc(r.ytd ?? "")}</td>
+    <td class="num">${esc(r.run_date || "")}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">لا أسعار مطابقة.</td></tr>`;
+  $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر · ${days.length} يوماً محفوظاً (${days[days.length - 1] || ""} إلى ${days[0] || ""})${rows.length > 400 ? " · يظهر أول 400؛ نزّل الملف لرؤية الكل" : ""}`;
 }
 
 async function newProject() {
@@ -1099,8 +1142,9 @@ async function loadRuns() {
 }
 async function showRun(id) {
   shownRun = runs.find((r) => r.id === id);
-  const snap = await db.collection(`projects/${current}/runs/${id}/rows`).get();
-  shownRows = snap.docs.sort((a, b) => a.id.localeCompare(b.id)).flatMap((d) => d.data().rows || []);
+  $("#r-view").hidden = false; $("#r-more").textContent = "تُحمَّل الصفوف…";
+  try { shownRows = (await rowDocs(current, shownRun)).flatMap((d) => d.data().rows || []); }
+  catch (e) { shownRows = []; $("#r-more").textContent = ""; toast("تعذّر تحميل صفوف التشغيل: " + dbErr(e), true); return; }
   $("#r-view").hidden = false; $("#r-del-confirm").innerHTML = "";
   $("#r-title").textContent = (shownRun.startedAt || "").replace("T", " ").slice(0, 16);
   $("#r-stats").innerHTML = Object.values(shownRun.summary || {}).map((s) => `<div class="stat"><span class="muted">${esc(s.label)}</span><b>${s.accepted} / ${s.lines}</b><span class="muted">مقبول</span></div>`).join("");
@@ -1257,7 +1301,7 @@ $("#r-export-all").addEventListener("click", async () => {
     const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...d.data() }));
     const rows = [];
     for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
-      const chunks = (await db.collection(`projects/${current}/runs/${r.id}/rows`).get()).docs.sort((a, b) => a.id.localeCompare(b.id));
+      const chunks = await rowDocs(current, r);
       for (const c of chunks) for (const x of c.data().rows || [])
         rows.push({ ...x, run_id: r.id, run_date: x.run_date || String(r.startedAt || "").slice(0, 10) });
     }

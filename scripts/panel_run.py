@@ -96,7 +96,7 @@ def main(run_dir, started):
     chunks, cur, size = [], [], 0
     for r in rows:
         s = len(json.dumps(r, ensure_ascii=False))
-        if size + s > 110_000 and cur:
+        if size + s > 40_000 and cur:
             chunks.append(cur)
             cur, size = [], 0
         cur.append(r)

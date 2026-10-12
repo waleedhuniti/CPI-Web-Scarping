@@ -86,9 +86,11 @@ def price_basis(row):
     return None, ""
 
 
-def crawl(run_dir, delay):
+def crawl(run_dir, delay, only=None):
     from scrapling.fetchers import FetcherSession
     cfg = json.load(open(CONFIG))
+    if only:                                                   # crawl just these category names
+        cfg = {r: [c for c in cfg[r] if c["name"] in only] for r in ("carrefour", "lulu")}
     out, log = [], []
     with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
         for retailer in ("carrefour", "lulu"):
@@ -278,12 +280,13 @@ def main():
     ap.add_argument("run_dir")
     ap.add_argument("--match", action="store_true", help="only re-run matching on the saved catalog.csv")
     ap.add_argument("--delay", type=float, default=1.5)
+    ap.add_argument("--only", help="comma-separated category names to crawl (default: all)")
     a = ap.parse_args()
     run_dir = Path(a.run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
     if not a.match:
         started = datetime.now(timezone.utc).isoformat(timespec="seconds")
-        crawl(run_dir, a.delay)
+        crawl(run_dir, a.delay, set(a.only.split(",")) if a.only else None)
         (run_dir / "started.txt").write_text(started + "\n")
     match(run_dir, delay=a.delay)
 

@@ -117,6 +117,14 @@ def basket_rows(run_dirs, catalogue=(), cache=None):
                 vals.append(row[f"{retailer}|{date}"])
             first, last = vals[0], vals[-1]
             row[f"{retailer}|chg"] = (last - first) / first if first and last else None
+        # latest price: the most recent date with a price, Carrefour first on the same date
+        row["latest"], row["latest_from"] = None, ""
+        for date in reversed(dates):
+            for retailer in ("carrefour", "lulu"):
+                v = row[f"{retailer}|{date}"]
+                if v is not None and row["latest"] is None:
+                    row["latest"] = v
+                    row["latest_from"] = f"{RETAILERS[retailer]} {datetime.fromisoformat(date).strftime('%-d %b')} ({row[f'{retailer}|unit']})"
         # photo: the matched product (latest date first), else the most similar listing in the catalogue
         row["photo"], row["photo_is"] = "", ""
         for date in reversed(dates):
@@ -191,18 +199,20 @@ def main(dest, run_dirs):
     # ---------------- Basket prices
     ws2 = wb.create_sheet("Basket prices")
     brows, ds = basket_rows(run_dirs, rows, cache)
-    heads2 = ["Item code", "Photo", "Photo is", "Group", "Arabic item name", "Brand", "Basket size", "Origin", "Method", "Barcode"]
+    heads2 = ["Item code", "Photo", "Photo is", "Group", "Arabic item name", "Brand", "Basket size", "Origin", "Method", "Barcode",
+              "Latest price (AED)", "Latest from"]
     for retailer in ("carrefour", "lulu"):
         heads2 += [f"{RETAILERS[retailer]} {datetime.fromisoformat(d).strftime('%-d %b')}" for d in ds]
         heads2 += [f"{RETAILERS[retailer]} unit", f"{RETAILERS[retailer]} change", f"{RETAILERS[retailer]} product (latest)"]
     found = sum(1 for r in brows if r.get(f"carrefour|{ds[-1]}") is not None or r.get(f"lulu|{ds[-1]}") is not None)
+    anyd = sum(1 for r in brows if r["latest"] is not None)
     style_sheet(ws2, "Basket prices",
-                f"{len(brows)} basket lines • {found} with a price on {ds[-1]} • blank = not found (no review states) • "
+                f"{len(brows)} basket lines • {anyd} with a price ({found} on {ds[-1]}) • blank = not found (no review states) • "
                 "barcoded lines priced per pack, lines without a barcode per kg / piece / bunch",
-                heads2, [12, 12, 16, 22, 30, 14, 10, 10, 12, 15] + [11] * len(ds) + [10, 10, 40] + [11] * len(ds) + [10, 10, 40])
+                heads2, [12, 12, 16, 22, 30, 14, 10, 10, 12, 15, 11, 22] + [11] * len(ds) + [10, 10, 40] + [11] * len(ds) + [10, 10, 40])
     for r in brows:
         vals = [r["item_code"], image_formula(r["photo"]), r["photo_is"], r["group"], r["name_ar"], r["brand_ar"], r["qty"],
-                r["origin"], r["method"], r["barcode"]]
+                r["origin"], r["method"], r["barcode"], r["latest"], r["latest_from"]]
         for retailer in ("carrefour", "lulu"):
             vals += [r[f"{retailer}|{d}"] for d in ds]
             vals += [r[f"{retailer}|unit"], r[f"{retailer}|chg"], r[f"{retailer}|{ds[-1]}|t"]]
@@ -210,8 +220,10 @@ def main(dest, run_dirs):
     n = len(ds)
     for row in ws2.iter_rows(min_row=6):
         for c in row:
-            k = c.column - 11
-            if 0 <= k < n or n + 3 <= k < 2 * n + 3:
+            k = c.column - 13
+            if c.column == 11:
+                c.number_format = "#,##0.00"
+            elif 0 <= k < n or n + 3 <= k < 2 * n + 3:
                 c.number_format = "#,##0.00"
             elif k in (n + 1, 2 * n + 4):
                 c.number_format = "+0.0%;-0.0%;0.0%"
@@ -235,8 +247,13 @@ def main(dest, run_dirs):
                               "the basket origin. Anything else is not found. There are no review states."),
         ("Barcoded lines", "Barcode search on each retailer's site, then a name search (brand + exact size) for barcodes "
                            "the retailer does not list. The 8 Oct source has no barcodes, so that date uses the name rule only."),
-        ("Lines without a barcode", "Whole category listings are collected (meat, fish, fruit, vegetables, bakery, "
-                                    "cheese, cooking ingredients ...) and matched by product words, unit and origin."),
+        ("Lines without a barcode", "Whole category listings are collected (meat, fish, fruit, vegetables, bakery, dairy "
+                                    "and eggs, rice and pasta, baking and sugar, nuts and dates, spreads, tins, frozen, "
+                                    "sauces, cereals, biscuits, cooking ingredients ...) and matched by product words, "
+                                    "unit and origin. Barcoded lines the searches miss also get a last chance in these "
+                                    "listings (same brand, product and exact size)."),
+        ("Latest price", "Basket prices shows each line's most recent price from any date and retailer (Carrefour "
+                         "first on the same date) and where it came from, so a line priced only on 8 Oct still has a price."),
         ("Change", "Change is (latest - first) / first for the same retailer and the same unit; blank when the line "
                    "was not found on one of the dates."),
         ("Photos", "The Photo column shows each product's picture from its link (Excel 365 / Excel for the web; "
@@ -253,7 +270,7 @@ def main(dest, run_dirs):
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)
     wb.save(dest)
-    print(f"{dest}: {len(rows):,} catalogue rows, {len(brows)} basket lines ({found} priced on {ds[-1]})")
+    print(f"{dest}: {len(rows):,} catalogue rows, {len(brows)} basket lines ({anyd} with a price, {found} priced on {ds[-1]})")
 
 
 if __name__ == "__main__":

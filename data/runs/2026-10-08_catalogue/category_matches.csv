@@ -102,7 +102,7 @@
 011230106,0112,مرتديلا بقري سائب,1كغ,JO,"Beef mortadella, loose from the deli counter",carrefour,no_match,no,,,,,kg,,0,,
 011230106,0112,مرتديلا بقري سائب,1كغ,JO,"Beef mortadella, loose from the deli counter",lulu,no_match,no,,,,,kg,,0,,
 011250101,0112,كبدة غنم طازج استرالي,1 كغ,AU,Fresh lamb (mutton) liver,carrefour,review_multiple,no,Australian Lamb Shoulder Boneless Import,79.99,79.99,79.99,kg,AU,27,Australian Lamb Bones Import [AU] (10.0/kg) | Australian Lamb Fat Import [AU] (10.0/kg) | South African Dorper Lamb Carcass Import [ZA] (34.99/kg) | Australian Lamb Forequarter Import [AU] (49.49/kg) | South African Dorper Lamb Shoulder Import [ZA] (50.0/kg) | South African Dorper Lamb Shortloin Import [ZA] (54.0/kg) | Australian Lamb Stew Import [AU] (55.0/kg) | South African Dorper Lamb Cubes Bo,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-shoulder-bless-dc-/p/2258145
-011250101,0112,كبدة غنم طازج استرالي,1 كغ,AU,Fresh lamb (mutton) liver,lulu,review_origin,no,Miratorg Dumplings Lamb Dorper 700 g,41.1,41.1,58.71,kg,,1,,https://gcc.luluhypermarket.com/en-ae/miratorg-dumplings-lamb-dorper-700-g/p/1933321/
+011250101,0112,كبدة غنم طازج استرالي,1 كغ,AU,Fresh lamb (mutton) liver,lulu,no_match,no,,,,,kg,,0,,
 011250102,0112,كبدة بقري طازج,1 كغ,PK,Fresh beef liver,carrefour,no_match,no,,,,,kg,,0,,
 011250102,0112,كبدة بقري طازج,1 كغ,PK,Fresh beef liver,lulu,no_match,no,,,,,kg,,0,,
 011310101,0113,كنعد طازج,1 كغ,AE,Fresh kingfish (kanad),carrefour,review_multiple,no,Fresh Kingfish Steak,39,39,78.0,kg,AE,2,Fresh King Fish Small [AE] (47.99/kg),https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521
@@ -236,9 +236,9 @@
 011630103,0116,تفاح رويال,1 كغ,US,"Royal Gala apple, fresh, loose",carrefour,substitute_origin,no,Royal Gala Apple,5.93,5.93,9.88,kg,ZA,1,,https://www.carrefouruae.com/mafuae/en/apple/apple-royal-gala/p/638657
 011630103,0116,تفاح رويال,1 كغ,US,"Royal Gala apple, fresh, loose",lulu,substitute_origin,no,Royal Gala Baby Apple South Africa 1 kg,8.95,8.95,8.95,kg,ZA,2,Royal Gala Apple France 1 kg [FR] (9.95/kg),https://gcc.luluhypermarket.com/en-ae/royal-gala-baby-apple-south-africa-1-kg/p/1816617-ea/?convtobuom=1000
 011630104,0116,تفاح اصفر,1 كغ,FR,"Yellow (Golden Delicious) apple, fresh, loose",carrefour,review_origin,no,Kiwi Zespri Gold,19.5,19.5,39.0,kg,,1,,https://www.carrefouruae.com/mafuae/en/kiwi/kiwi-zespri-gold/p/1137680
-011630104,0116,تفاح اصفر,1 كغ,FR,"Yellow (Golden Delicious) apple, fresh, loose",lulu,review_origin,no,Lipton Yellow Label Black Loose Tea 400 g,24.65,24.65,61.62,kg,,2,Banana Yellow India 1 kg [IN] (12.95/kg),https://gcc.luluhypermarket.com/en-ae/lipton-yellow-label-black-loose-tea-400-g/p/791545/
+011630104,0116,تفاح اصفر,1 كغ,FR,"Yellow (Golden Delicious) apple, fresh, loose",lulu,substitute_origin,no,Banana Yellow India 1 kg,12.95,12.95,12.95,kg,IN,1,,https://gcc.luluhypermarket.com/en-ae/banana-yellow-india-1-kg/p/18621-ea/?convtobuom=1000
 011630105,0116,تفاح اصفر,1 كغ,IR,"Yellow (Golden Delicious) apple, fresh, loose",carrefour,review_origin,no,Kiwi Zespri Gold,19.5,19.5,39.0,kg,,1,,https://www.carrefouruae.com/mafuae/en/kiwi/kiwi-zespri-gold/p/1137680
-011630105,0116,تفاح اصفر,1 كغ,IR,"Yellow (Golden Delicious) apple, fresh, loose",lulu,review_origin,no,Lipton Yellow Label Black Loose Tea 400 g,24.65,24.65,61.62,kg,,2,Banana Yellow India 1 kg [IN] (12.95/kg),https://gcc.luluhypermarket.com/en-ae/lipton-yellow-label-black-loose-tea-400-g/p/791545/
+011630105,0116,تفاح اصفر,1 كغ,IR,"Yellow (Golden Delicious) apple, fresh, loose",lulu,substitute_origin,no,Banana Yellow India 1 kg,12.95,12.95,12.95,kg,IN,1,,https://gcc.luluhypermarket.com/en-ae/banana-yellow-india-1-kg/p/18621-ea/?convtobuom=1000
 011630106,0116,تفاح اخضر,1 كغ,US,"Green apple (Granny Smith), fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
 011630106,0116,تفاح اخضر,1 كغ,US,"Green apple (Granny Smith), fresh, loose",lulu,review_origin,no,Capsicum Green 500 g,5.98,5.98,11.96,kg,,3,Green Apple 1 kg [?] (12.65/kg) | Green Chilli India 100 g [IN] (14.0/kg),https://gcc.luluhypermarket.com/en-ae/p/18558-ea/?convtobuom=500
 011630107,0116,تفاح اخضر,1 كغ,FR,"Green apple (Granny Smith), fresh, loose",carrefour,no_match,no,,,,,kg,,0,,
@@ -410,11 +410,11 @@
 011720704,0117,فلفل احمر بارد,1 كغ,NL,Red bell pepper (capsicum),carrefour,substitute_origin,no,Red Capsicum,8,8,16.0,kg,AE,1,,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-red/p/490008
 011720704,0117,فلفل احمر بارد,1 كغ,NL,Red bell pepper (capsicum),lulu,no_match,no,,,,,kg,,0,,
 011720801,0117,بامية,1 كغ,AE,Fresh okra (ladies finger),carrefour,substitute_origin,no,Long Okra (Bhindi),6.5,6.5,13.0,kg,IN,1,,https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577
-011720801,0117,بامية,1 كغ,AE,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,2,Sadia Okra Zero 400 g [?] (17.25/kg),https://gcc.luluhypermarket.com/en-ae/p/386248-ea/?convtobuom=250
+011720801,0117,بامية,1 كغ,AE,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/?convtobuom=250
 011720802,0117,بامية,1 كغ,OM,Fresh okra (ladies finger),carrefour,substitute_origin,no,Long Okra (Bhindi),6.5,6.5,13.0,kg,IN,1,,https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577
-011720802,0117,بامية,1 كغ,OM,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,2,Sadia Okra Zero 400 g [?] (17.25/kg),https://gcc.luluhypermarket.com/en-ae/p/386248-ea/?convtobuom=250
+011720802,0117,بامية,1 كغ,OM,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/?convtobuom=250
 011720803,0117,بامية,1 كغ,IN,Fresh okra (ladies finger),carrefour,match,yes,Long Okra (Bhindi),6.5,6.5,13.0,kg,IN,1,,https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577
-011720803,0117,بامية,1 كغ,IN,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,2,Sadia Okra Zero 400 g [?] (17.25/kg),https://gcc.luluhypermarket.com/en-ae/p/386248-ea/?convtobuom=250
+011720803,0117,بامية,1 كغ,IN,Fresh okra (ladies finger),lulu,review_origin,no,Okra 250 g,3.49,3.49,13.96,kg,,1,,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/?convtobuom=250
 011730101,0117,فاصولياء خضراء,1 كغ,AE,Fresh green beans,carrefour,no_match,no,,,,,kg,,0,,
 011730101,0117,فاصولياء خضراء,1 كغ,AE,Fresh green beans,lulu,no_match,no,,,,,kg,,0,,
 011730102,0117,فاصولياء خضراء,1 كغ,EG,Fresh green beans,carrefour,no_match,no,,,,,kg,,0,,

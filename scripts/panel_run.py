@@ -18,6 +18,27 @@ sys.path.insert(0, str(ROOT))
 from cpi.decision import barcode_found, category_found  # noqa: E402
 
 LABEL = {"carrefour": "Carrefour UAE", "lulu": "Lulu Hypermarket UAE"}
+GROUP = {"0111": "Bread & cereals", "0112": "Meat", "0113": "Fish & seafood", "0114": "Milk, cheese & eggs",
+         "0115": "Oils & fats", "0116": "Fruit & nuts", "0117": "Vegetables", "0118": "Sugar, jam, honey & sweets",
+         "0119": "Other food products"}
+BASIS = {"kg": "kg", "l": "litre", "pc": "piece", "bunch": "bunch"}
+
+
+def listing_info(run_dir):
+    """Product URL -> pack size and retailer section from the run's catalog.csv (bulk listings)."""
+    info = {}
+    cat = run_dir / "catalog.csv"
+    if cat.exists():
+        for r in csv.DictReader(open(cat, encoding="utf-8-sig")):
+            info[r["url"]] = dict(size=(r.get("size") or "").split(" - ")[0], section=r.get("category", ""),
+                                  note=r.get("price_note", ""))
+    return info
+
+
+def retailer_id(url):
+    import re
+    m = re.search(r"/p/([^/?]+)", url or "")
+    return m.group(1).strip("/") if m else ""
 
 
 def num(v):
@@ -42,6 +63,7 @@ def photos(run_dir):
 def main(run_dir, started):
     run_dir = Path(run_dir)
     pics = photos(run_dir)
+    info = listing_info(run_dir)
     rows, summary, log = [], {}, []
     for retailer in LABEL:
         f = run_dir / f"{retailer}_matched.csv"
@@ -58,7 +80,9 @@ def main(run_dir, started):
                             status="found" if ok else "not_found", detail=r["status"],
                             accepted="yes" if ok else "no", title=r["title"] if ok else "",
                             price=num(r["price"]) if ok else "", regular_price=num(r["regular_price"]) if ok else "",
-                            currency="AED", url=r["url"] if ok else "", photo=pics.get(r["url"], "") if ok else ""))
+                            currency="AED", url=r["url"] if ok else "", photo=pics.get(r["url"], "") if ok else "",
+                            size=r["basket_qty"] if ok else "", group_name=GROUP.get(r.get("group", ""), ""),
+                            retailer_id=retailer_id(r["url"]) if ok else "", in_stock=r.get("in_stock", "") if ok else ""))
         failed = json.loads((run_dir / f"{retailer}_failed.json").read_text()) if (run_dir / f"{retailer}_failed.json").exists() else []
         searched = json.loads((run_dir / f"{retailer}_searched.json").read_text()) if (run_dir / f"{retailer}_searched.json").exists() else []
         log.append(f"{LABEL[retailer]} barcode: {len(searched)} pages read, {len(failed)} failed")
@@ -79,7 +103,12 @@ def main(run_dir, started):
                              regular_price=num(r["regular_price"]) if ok else "", unit_price=num(r["unit_price"]) if ok else "",
                              price_basis=r["price_basis"], basket_origin=r["basket_origin"],
                              origin_seen=r["origin_seen"] if ok else "", currency="AED", url=r["url"] if ok else "",
-                             photo=pics.get(r["url"], "") if ok else ""))
+                             photo=pics.get(r["url"], "") if ok else "",
+                             size=info.get(r["url"], {}).get("size", "") if ok else "",
+                             group_name=GROUP.get(r["group"], ""), section=info.get(r["url"], {}).get("section", "") if ok else "",
+                             retailer_id=retailer_id(r["url"]) if ok else "",
+                             note=(f"AED {r['unit_price']} per {BASIS.get(r['price_basis'], r['price_basis'])}"
+                                   + (f" · {info[r['url']]['note']}" if info.get(r["url"], {}).get("note") else "")) if ok and r["unit_price"] else ""))
         cl = run_dir / "crawl_log.txt"
         if cl.exists():
             log += cl.read_text(encoding="utf-8").strip().splitlines()

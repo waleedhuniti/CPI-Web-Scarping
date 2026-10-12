@@ -3174,7 +3174,7 @@
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011230106,0112,مرتديلا بقري سائب,,1كغ,,not_found,no_match,no,,,,,kg,JO,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,lulu,011230106,0112,مرتديلا بقري سائب,,1كغ,,not_found,no_match,no,,,,,kg,JO,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011250101,0112,كبدة غنم طازج استرالي,,1 كغ,,found,review_multiple,yes,Australian Lamb Shoulder Boneless Import,79.99,79.99,79.99,kg,AU,AU,AED,,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-shoulder-bless-dc-/p/2258145
-2026-10-08,2026-10-08_catalogue,catalogue,lulu,011250101,0112,كبدة غنم طازج استرالي,,1 كغ,,found,review_origin,yes,Miratorg Dumplings Lamb Dorper 700 g,41.1,41.1,58.71,kg,AU,,AED,,https://gcc.luluhypermarket.com/en-ae/miratorg-dumplings-lamb-dorper-700-g/p/1933321/
+2026-10-08,2026-10-08_catalogue,catalogue,lulu,011250101,0112,كبدة غنم طازج استرالي,,1 كغ,,not_found,no_match,no,,,,,kg,AU,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011250102,0112,كبدة بقري طازج,,1 كغ,,not_found,no_match,no,,,,,kg,PK,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,lulu,011250102,0112,كبدة بقري طازج,,1 كغ,,not_found,no_match,no,,,,,kg,PK,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011310101,0113,كنعد طازج,,1 كغ,,found,review_multiple,yes,Fresh Kingfish Steak,39,39,78.0,kg,AE,AE,AED,,https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521
@@ -3308,9 +3308,9 @@
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011630103,0116,تفاح رويال,,1 كغ,,not_found,substitute_origin,no,,,,,kg,US,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,lulu,011630103,0116,تفاح رويال,,1 كغ,,not_found,substitute_origin,no,,,,,kg,US,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011630104,0116,تفاح اصفر,,1 كغ,,not_found,review_origin,no,,,,,kg,FR,,AED,,
-2026-10-08,2026-10-08_catalogue,catalogue,lulu,011630104,0116,تفاح اصفر,,1 كغ,,not_found,review_origin,no,,,,,kg,FR,,AED,,
+2026-10-08,2026-10-08_catalogue,catalogue,lulu,011630104,0116,تفاح اصفر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,FR,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011630105,0116,تفاح اصفر,,1 كغ,,not_found,review_origin,no,,,,,kg,IR,,AED,,
-2026-10-08,2026-10-08_catalogue,catalogue,lulu,011630105,0116,تفاح اصفر,,1 كغ,,not_found,review_origin,no,,,,,kg,IR,,AED,,
+2026-10-08,2026-10-08_catalogue,catalogue,lulu,011630105,0116,تفاح اصفر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,IR,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011630106,0116,تفاح اخضر,,1 كغ,,not_found,no_match,no,,,,,kg,US,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,lulu,011630106,0116,تفاح اخضر,,1 كغ,,not_found,review_origin,no,,,,,kg,US,,AED,,
 2026-10-08,2026-10-08_catalogue,catalogue,carrefour,011630107,0116,تفاح اخضر,,1 كغ,,not_found,no_match,no,,,,,kg,FR,,AED,,
@@ -4008,7 +4008,7 @@
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011110503,0111,هريس,,1 كغ,,not_found,substitute_origin,no,,,,,kg,SA,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011110503,0111,هريس,,1 كغ,,found,review_origin,yes,Al Fares Harees (Peeled Wheat) 2 kg,15.35,15.35,7.67,kg,SA,,AED,,https://gcc.luluhypermarket.com/en-ae/al-fares-harees-peeled-wheat-2-kg/p/470888/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011130101,0111,براتا هندي,,حبة,,not_found,no_match,no,,,,,pc,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011130101,0111,براتا هندي,,حبة,,found,review_origin,yes,LuLu Malabar Paratha 5 pcs 350 g,4.65,4.65,0.93,pc,AE,,AED,,https://gcc.luluhypermarket.com/en-ae/lulu-malabar-paratha-5-pcs-350-g/p/937035/
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011130101,0111,براتا هندي,,حبة,,not_found,no_match,no,,,,,pc,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011130102,0111,خبز تنور باكستاني,,حبة,,not_found,no_match,no,,,,,pc,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011130102,0111,خبز تنور باكستاني,,حبة,,not_found,no_match,no,,,,,pc,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011130103,0111,خبز تنور ايراني الرحال,,حبة,,not_found,no_match,no,,,,,pc,AE,,AED,,
@@ -4058,7 +4058,7 @@
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220102,0112,لحم غنم هندي طازج,,1 كغ,,found,review_multiple,yes,Indian Mutton Ribs,28.5,28.5,57.0,kg,IN,IN,AED,,https://www.carrefouruae.com/mafuae/en/mutton/ind-mutton-ribs-dc-tr-/p/69116
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011220102,0112,لحم غنم هندي طازج,,1 كغ,,found,review_multiple,yes,Indian Mutton Rib Chops 200 g,11.4,11.4,57.0,kg,IN,IN,AED,,https://gcc.luluhypermarket.com/en-ae/p/41556-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220103,0112,لحم غنم أثيوبي طازج,,1 كغ,,found,review_origin,yes,Syrian Awassi Mutton Caracass,1619.82,1619.82,89.99,kg,ET,,AED,,https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-carcass-dc-/p/2288871
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011220103,0112,لحم غنم أثيوبي طازج,,1 كغ,,found,review_origin,yes,Al Kabeer Mutton Samosas 240 g,14.1,14.1,58.75,kg,ET,,AED,,https://gcc.luluhypermarket.com/en-ae/al-kabeer-mutton-samosas-240-g/p/6653/
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011220103,0112,لحم غنم أثيوبي طازج,,1 كغ,,not_found,substitute_origin,no,,,,,kg,ET,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220104,0112,خاصره مع العظم -هندي,,1 كغ,,not_found,no_match,no,,,,,kg,IN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011220104,0112,خاصره مع العظم -هندي,,1 كغ,,not_found,no_match,no,,,,,kg,IN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220105,0112,لحم خروف هندي بدون عظم,,1 كغ,,not_found,no_match,no,,,,,kg,IN,,AED,,
@@ -4086,12 +4086,12 @@
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220404,0112,لحم بقري مجمد مستورد - قطع,,1 كغ,,not_found,no_match,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011220404,0112,لحم بقري مجمد مستورد - قطع,,1 كغ,,not_found,no_match,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220701,0112,مفروم بقر طازج - محلي,,1 كغ,,not_found,substitute_origin,no,,,,,kg,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011220701,0112,مفروم بقر طازج - محلي,,1 كغ,,found,review_origin,yes,Seara Round Minced Beef 350 g,8.5,8.5,24.29,kg,AE,,AED,,https://gcc.luluhypermarket.com/en-ae/seara-round-minced-beef-350-g/p/1985397/
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011220701,0112,مفروم بقر طازج - محلي,,1 كغ,,not_found,substitute_origin,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220702,0112,مفروم غنم طازج - مستورد,,1 كغ,,found,match,yes,Australian Lamb Mince Import,40.0,40.0,80.0,kg,AU,AU,AED,,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-meat-minced-dc-/p/2258105
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011220702,0112,مفروم غنم طازج - مستورد,,1 كغ,,found,match,yes,Australian Lamb Mince 300 g,24.7,24.7,82.33,kg,AU,AU,AED,,https://gcc.luluhypermarket.com/en-ae/p/41661-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220703,0112,مفروم بقر باكستاني,,1 كغ,,not_found,substitute_origin,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011220703,0112,مفروم بقر باكستاني,,1 كغ,,found,match,yes,Pakistani Beef Mince 500 g,21.1,21.1,42.2,kg,PK,PK,AED,,https://gcc.luluhypermarket.com/en-ae/p/195922-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220704,0112,مفروم خروف هندي,,1 كغ,,found,review_origin,yes,"Nissin Cup Noodles Rogan Josh Rich Mutton Curry Instant Noodles with Minced Mutton, 70g, Pack of 3",12.34,12.34,58.76,kg,IN,,AED,,https://www.carrefouruae.com/mafuae/en/cup-noodles/nissin-rogan-josh-70gx3-sp/p/2311602
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220704,0112,مفروم خروف هندي,,1 كغ,,not_found,no_match,no,,,,,kg,IN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011220704,0112,مفروم خروف هندي,,1 كغ,,found,match,yes,Indian Mutton Mince 500 g,35.75,35.75,71.5,kg,IN,IN,AED,,https://gcc.luluhypermarket.com/en-ae/p/41565-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011220901,0112,Wait Rose Belly B/L,,1 kg,,not_found,no_match,no,,,,,kg,GB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011220901,0112,Wait Rose Belly B/L,,1 kg,,not_found,no_match,no,,,,,kg,GB,,AED,,
@@ -4121,10 +4121,10 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011310301,0113,شعري طازج,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310302,0113,شعري طازج,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011310302,0113,شعري طازج,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310401,0113,صافي طازج,,1 كغ,,not_found,substitute_origin,no,,,,,kg,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011310401,0113,صافي طازج,,1 كغ,,not_found,review_origin,no,,,,,kg,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310402,0113,صافي طازج,,1 كغ,,not_found,substitute_origin,no,,,,,kg,OM,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011310402,0113,صافي طازج,,1 كغ,,not_found,review_origin,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310401,0113,صافي طازج,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011310401,0113,صافي طازج,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310402,0113,صافي طازج,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011310402,0113,صافي طازج,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310501,0113,سلطان ابراهيم طازج,,1 كغ,,found,match,yes,Fresh Local Sultan Ibrahim,22.0,22.0,44.0,kg,AE,AE,AED,,https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-local/p/72782
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011310501,0113,سلطان ابراهيم طازج,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310502,0113,سلطان ابراهيم طازج,,1 كغ,,found,match,yes,Fresh Sultan Ibrahim (Oman),17.0,17.0,34.0,kg,OM,OM,AED,,https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-omani/p/334469
@@ -4141,9 +4141,9 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011310801,0113,سلمون طازج - كامل,,1 كغ,,found,match,yes,Norwegian Salmon Whole Superior 4.5 kg,296.0,296.0,65.78,kg,NO,NO,AED,,https://gcc.luluhypermarket.com/en-ae/p/760321-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011310901,0113,بلطي,,1 كغ,,not_found,substitute_origin,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011310901,0113,بلطي,,1 كغ,,found,review_origin,yes,Fresh Tilapia Fish Whole Cleaned 1 kg,15.35,15.35,15.35,kg,AE,,AED,,https://gcc.luluhypermarket.com/en-ae/p/72192-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011340101,0113,روبيان طازج - كبير - مقاس U10,,1 كغ,,not_found,substitute_origin,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011340101,0113,روبيان طازج - كبير - مقاس U10,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011340101,0113,روبيان طازج - كبير - مقاس U10,,1 كغ,,found,review_origin,yes,Fresh Farmed Prawns Large Head On Fully Cleaned 500 g,20.55,20.55,41.1,kg,OM,,AED,,https://gcc.luluhypermarket.com/en-ae/fresh-farmed-prawns-large-head-on-fully-cleaned-500-g/p/1401115-yhc/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011340102,0113,روبيان طازج - متوسط - مقاس 20/10,,1 كغ,,not_found,substitute_origin,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011340102,0113,روبيان طازج - متوسط - مقاس 20/10,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011340102,0113,روبيان طازج - متوسط - مقاس 20/10,,1 كغ,,found,review_origin,yes,Fresh Prawns Farmed Medium 350 g,9.0,9.0,25.71,kg,OM,,AED,,https://gcc.luluhypermarket.com/en-ae/p/78785-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011340103,0113,روبيان طازج - صغير - مقاس 40/60,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011340103,0113,روبيان طازج - صغير - مقاس 40/60,,1 كغ,,found,review_origin,yes,Fresh Farmed Prawns Small 500 g,20.55,20.55,41.1,kg,OM,,AED,,https://gcc.luluhypermarket.com/en-ae/p/1036033-ea/
@@ -4154,7 +4154,7 @@
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011340301,0113,قباقب طازجة,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011340301,0113,قباقب طازجة,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011340401,0113,حبار طازج,,1 كغ,,found,review_multiple,yes,Fresh Squid,10.0,15.5,20.0,kg,AE,AE,AED,,https://www.carrefouruae.com/mafuae/en/shellfish-molluscs/squid-fresh/p/981472
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011340401,0113,حبار طازج,,1 كغ,,found,review_origin,yes,PFP Chikuwa Imitation Squid Roll 480 g,14.95,14.95,31.15,kg,AE,,AED,,https://gcc.luluhypermarket.com/en-ae/pfp-chikuwa-imitation-squid-roll-480-g/p/2083936/
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011340401,0113,حبار طازج,,1 كغ,,found,review_origin,yes,Fresh Squid Whole Not Cleaned 500 g,16.95,16.95,33.9,kg,AE,,AED,,https://gcc.luluhypermarket.com/en-ae/fresh-squid-whole-not-cleaned-500-g/p/1583012-ync/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011450301,0114,جبن ابيض سائب - جبنة بيضاء,,1كغ,,found,review_origin,yes,Kaval White Bulgarian Cow Cheese,12.3,12.3,61.5,kg,EG,,AED,,https://www.carrefouruae.com/mafuae/en/feta-white-cheese/kaval-white-bulgarian-cows/p/2130280
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011450301,0114,جبن ابيض سائب - جبنة بيضاء,,1كغ,,found,review_multiple,yes,Egyptian Old White Cheese 300 g,8.39,8.39,27.97,kg,EG,EG,AED,,https://gcc.luluhypermarket.com/en-ae/egyptian-old-white-cheese-300-g/p/2576709-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011450302,0114,جبن ابيض سائب - حلومي,,1كغ,,found,review_multiple,yes,"Chtoora Full Fat Fresh Halloumi Cheese, 250g",13.79,13.79,55.16,kg,AE,AE,AED,,https://www.carrefouruae.com/mafuae/en/halloumi-akawi-kashkawal/chtoora-fresh-halloumi-250g/p/1087774
@@ -4162,7 +4162,7 @@
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011450303,0114,جبن ابيض سائب - عكاوي,,1كغ,,not_found,substitute_origin,no,,,,,kg,CZ,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011450303,0114,جبن ابيض سائب - عكاوي,,1كغ,,found,review_origin,yes,Fresh Akkawi Cheese 450 g,21.11,21.11,46.91,kg,CZ,,AED,,https://gcc.luluhypermarket.com/en-ae/p/39793-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610101,0116,بلح طازج,,1 كغ,,found,review_multiple,yes,Kingdom Dates With Nuts 300g,16.99,16.99,56.63,kg,AE,AE,AED,,https://www.carrefouruae.com/mafuae/en/dates/dates-with-nuts-kd/p/1450698
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011610101,0116,بلح طازج,,1 كغ,,found,review_multiple,yes,Emirates Mixed Nuts Dates 400 g,15.25,15.25,38.12,kg,AE,AE,AED,,https://gcc.luluhypermarket.com/en-ae/emirates-mixed-nuts-dates-400-g/p/118891/
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011610101,0116,بلح طازج,,1 كغ,,found,match,yes,Dates UAE 250 g,6.95,6.95,27.8,kg,AE,AE,AED,,https://gcc.luluhypermarket.com/en-ae/dates-uae-250-g/p/1218785/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610102,0116,بلح طازج - صفري,,1 كغ,,not_found,no_match,no,,,,,kg,SA,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610102,0116,بلح طازج - صفري,,1 كغ,,not_found,no_match,no,,,,,kg,SA,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610201,0116,موز,,1 كغ,,found,match,yes,Chiquita Banana,4.95,4.95,9.9,kg,EC,EC,AED,,https://www.carrefouruae.com/mafuae/en/banana/banana-chiquita/p/1078988
@@ -4171,20 +4171,20 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610202,0116,موز,,1 كغ,,found,review_multiple,yes,Banana Ecuador 1 kg,6.95,6.95,6.95,kg,EC,EC,AED,,https://gcc.luluhypermarket.com/en-ae/p/1085177-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610203,0116,موز,,1 كغ,,not_found,no_match,no,,,,,kg,PH,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610203,0116,موز,,1 كغ,,not_found,no_match,no,,,,,kg,PH,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610301,0116,مانجو,,1 كغ,,found,review_multiple,yes,"Priya Cut Mango Pickle, 300g",6.69,6.69,22.3,kg,IN,IN,AED,,https://www.carrefouruae.com/mafuae/en/gherkins-pickles/priya-cut-mango-pickle-300g/p/1099874
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610301,0116,مانجو,,1 كغ,,found,review_multiple,yes,Mango Alphonso,11.35,11.35,22.7,kg,IN,IN,AED,,https://www.carrefouruae.com/mafuae/en/mango/mango-alphonso/p/446964
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610301,0116,مانجو,,1 كغ,,found,match,yes,Green Mango India 500 g,8.48,8.48,16.96,kg,IN,IN,AED,,https://gcc.luluhypermarket.com/en-ae/p/40421-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610302,0116,مانجو,,1 كغ,,found,review_multiple,yes,Round Mango,8.5,8.5,17.0,kg,KE,KE,AED,,https://www.carrefouruae.com/mafuae/en/mango/mango-round/p/421991
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610302,0116,مانجو,,1 كغ,,found,match,yes,Kenya Mangoes Round Kenya 1 kg,19.95,19.95,19.95,kg,KE,KE,AED,,https://gcc.luluhypermarket.com/en-ae/p/19016-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610303,0116,مانجو,,1 كغ,,found,review_multiple,yes,"Mehran Mango Pickle, 340g",11.29,11.29,33.21,kg,PK,PK,AED,,https://www.carrefouruae.com/mafuae/en/gherkins-pickles/mehran-pickle-mango-340g/p/146692
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610303,0116,مانجو,,1 كغ,,not_found,review_origin,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610303,0116,مانجو,,1 كغ,,not_found,review_origin,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610401,0116,جوافة,,1 كغ,,found,match,yes,Guava,8.5,8.5,17.0,kg,EG,EG,AED,,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610401,0116,جوافة,,1 كغ,,found,match,yes,Guava Egypt 500 g,6.95,6.95,13.9,kg,EG,EG,AED,,https://gcc.luluhypermarket.com/en-ae/p/383762-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610402,0116,جوافة,,1 كغ,,not_found,substitute_origin,no,,,,,kg,PK,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011610402,0116,جوافة,,1 كغ,,not_found,review_origin,no,,,,,kg,PK,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011610402,0116,جوافة,,1 كغ,,not_found,substitute_origin,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610403,0116,جوافة,,1 كغ,,not_found,substitute_origin,no,,,,,kg,TH,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011610403,0116,جوافة,,1 كغ,,not_found,review_origin,no,,,,,kg,TH,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011610403,0116,جوافة,,1 كغ,,not_found,substitute_origin,no,,,,,kg,TH,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610501,0116,تين طازج,,1 كغ,,not_found,substitute_origin,no,,,,,kg,BR,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011610501,0116,تين طازج,,1 كغ,,found,review_origin,yes,Bayara Figs Jumbo 400 g,37.8,37.8,94.5,kg,BR,,AED,,https://gcc.luluhypermarket.com/en-ae/bayara-figs-jumbo-400-g/p/189505/
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011610501,0116,تين طازج,,1 كغ,,not_found,no_match,no,,,,,kg,BR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610601,0116,اناناس  كبير,,حبة,,not_found,no_match,no,,,,,pc,TH,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011610601,0116,اناناس  كبير,,حبة,,not_found,substitute_origin,no,,,,,pc,TH,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011610602,0116,اناناس  كبير,,حبة,,not_found,no_match,no,,,,,pc,PH,,AED,,
@@ -4221,9 +4221,9 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011620201,0116,ليمون صغير,,1 كغ,,not_found,substitute_origin,no,,,,,kg,IN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011620202,0116,ليمون صغير,,1 كغ,,found,match,yes,Yellow Lime,3.7,3.7,7.4,kg,EG,"IN,EG",AED,,https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011620202,0116,ليمون صغير,,1 كغ,,found,match,yes,Lime Egypt 250 g,1.99,1.99,7.96,kg,EG,EG,AED,,https://gcc.luluhypermarket.com/en-ae/lime-egypt-250-g/p/36388-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011620203,0116,ليمون كبير,,1 كغ,,not_found,review_origin,no,,,,,kg,AFRICA,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011620203,0116,ليمون كبير,,1 كغ,,not_found,substitute_origin,no,,,,,kg,AFRICA,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011620203,0116,ليمون كبير,,1 كغ,,not_found,review_origin,no,,,,,kg,AFRICA,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011620204,0116,ليمون كبير,,1 كغ,,not_found,review_origin,no,,,,,kg,TR,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011620204,0116,ليمون كبير,,1 كغ,,not_found,substitute_origin,no,,,,,kg,TR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011620204,0116,ليمون كبير,,1 كغ,,not_found,review_origin,no,,,,,kg,TR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011620301,0116,جريب فروت,,1 كغ,,found,match,yes,Grapefruit Star Ruby,5.39,5.39,8.98,kg,ZA,ZA,AED,,https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011620301,0116,جريب فروت,,1 كغ,,not_found,review_origin,no,,,,,kg,ZA,,AED,,
@@ -4244,15 +4244,15 @@
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630104,0116,تفاح اصفر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,FR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011630104,0116,تفاح اصفر,,1 كغ,,not_found,review_origin,no,,,,,kg,FR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630105,0116,تفاح اصفر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,IR,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630105,0116,تفاح اصفر,,1 كغ,,found,match,yes,LuLu Iranian Raisins Golden 250 g,5.9,5.9,23.6,kg,IR,IR,AED,,https://gcc.luluhypermarket.com/en-ae/lulu-iranian-raisins-golden-250-g/p/55089/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630106,0116,تفاح اخضر,,1 كغ,,found,review_multiple,yes,"Green Giant Original Sweet Corn, 150g Pack of 3",16.99,16.99,37.76,kg,US,US,AED,,https://www.carrefouruae.com/mafuae/en/corn/green-giant-sp-sweet-corn-150gx3/p/1156782
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630105,0116,تفاح اصفر,,1 كغ,,not_found,review_origin,no,,,,,kg,IR,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630106,0116,تفاح اخضر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,US,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011630106,0116,تفاح اخضر,,1 كغ,,not_found,review_origin,no,,,,,kg,US,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630107,0116,تفاح اخضر,,1 كغ,,found,review_multiple,yes,"Carrefour Classic Whole Green Olives, 200g",6.49,6.49,32.45,kg,FR,FR,AED,,https://www.carrefouruae.com/mafuae/en/green-olives/crf-green-olives-200g/p/1236210
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630107,0116,تفاح اخضر,,1 كغ,,found,match,yes,Green Apple,7.49,7.49,12.48,kg,FR,"ZA,FR",AED,,https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011630107,0116,تفاح اخضر,,1 كغ,,not_found,review_origin,no,,,,,kg,FR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630201,0116,مشمش,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630201,0116,مشمش,,1 كغ,,not_found,review_origin,no,,,,,kg,LB,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630201,0116,مشمش,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630202,0116,مشمش,,1 كغ,,not_found,no_match,no,,,,,kg,IR,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630202,0116,مشمش,,1 كغ,,not_found,review_origin,no,,,,,kg,IR,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630202,0116,مشمش,,1 كغ,,not_found,no_match,no,,,,,kg,IR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630301,0116,خوخ ( دراق ) أصفر,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011630301,0116,خوخ ( دراق ) أصفر,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630302,0116,خوخ ( دراق ) أصفر,,1 كغ,,not_found,no_match,no,,,,,kg,AFRICA,,AED,,
@@ -4264,17 +4264,17 @@
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630402,0116,برقوق أسود,,1 كغ,,found,review_origin,yes,Plum Black,7.99,7.99,15.98,kg,AU,,AED,,https://www.carrefouruae.com/mafuae/en/apricot-plums/plum-black-pp/p/1269459
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011630402,0116,برقوق أسود,,1 كغ,,not_found,no_match,no,,,,,kg,AU,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630501,0116,كرز,,1 كغ,,not_found,no_match,no,,,,,kg,US,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630501,0116,كرز,,1 كغ,,not_found,review_origin,no,,,,,kg,US,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630501,0116,كرز,,1 كغ,,not_found,no_match,no,,,,,kg,US,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630502,0116,كرز,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630502,0116,كرز,,1 كغ,,not_found,review_origin,no,,,,,kg,LB,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630502,0116,كرز,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630503,0116,كرز,,1 كغ,,not_found,no_match,no,,,,,kg,AT,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630503,0116,كرز,,1 كغ,,not_found,review_origin,no,,,,,kg,AT,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630503,0116,كرز,,1 كغ,,not_found,no_match,no,,,,,kg,AT,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630601,0116,كمثرى ( أجاص ),,1 كغ,,not_found,substitute_origin,no,,,,,kg,CL,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630601,0116,كمثرى ( أجاص ),,1 كغ,,not_found,review_origin,no,,,,,kg,CL,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630601,0116,كمثرى ( أجاص ),,1 كغ,,not_found,substitute_origin,no,,,,,kg,CL,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630602,0116,كمثرى ( أجاص ),,1 كغ,,not_found,substitute_origin,no,,,,,kg,AFRICA,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630602,0116,كمثرى ( أجاص ),,1 كغ,,not_found,review_origin,no,,,,,kg,AFRICA,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630602,0116,كمثرى ( أجاص ),,1 كغ,,not_found,substitute_origin,no,,,,,kg,AFRICA,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011630603,0116,كمثرى ( أجاص ),,1 كغ,,not_found,substitute_origin,no,,,,,kg,US,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011630603,0116,كمثرى ( أجاص ),,1 كغ,,not_found,review_origin,no,,,,,kg,US,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011630603,0116,كمثرى ( أجاص ),,1 كغ,,not_found,substitute_origin,no,,,,,kg,US,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011640101,0116,فراولة,,1 كغ,,found,match,yes,Strawberry 250g,19.89,19.89,79.56,kg,US,US,AED,,https://www.carrefouruae.com/mafuae/en/berries/strawberry-250g-pp/p/425359
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011640101,0116,فراولة,,1 كغ,,not_found,review_origin,no,,,,,kg,US,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011640102,0116,فراولة,,250 غ,,not_found,substitute_origin,no,,,,,kg,EG,,AED,,
@@ -4377,11 +4377,11 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011710601,0117,نعناع,,حزمة,,found,review_origin,yes,Mint Leaves 1 Bunch,1.0,1.0,1.0,bunch,AE,,AED,,https://gcc.luluhypermarket.com/en-ae/mint-leaves-1-bunch/p/2502794/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720101,0117,طماطم حزم,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720101,0117,طماطم حزم,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720103,0117,طماطم,,1 كغ,,found,review_multiple,yes,Carrefour Red Candy Tomato 500g,19.99,19.99,29.4,kg,AE,AE,AED,,https://www.carrefouruae.com/mafuae/en/tomato/mf-red-candy-tomato-500g/p/1801435
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720103,0117,طماطم,,1 كغ,,found,review_multiple,yes,Tomato Heirloom,20.0,20.0,40.0,kg,AE,AE,AED,,https://www.carrefouruae.com/mafuae/en/tomato/tomato-heirloom-kg/p/1809327
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720103,0117,طماطم,,1 كغ,,not_found,review_origin,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720104,0117,طماطم,,1 كغ,,found,match,yes,Tomato,3.1,3.1,6.2,kg,JO,"JO,SY",AED,,https://www.carrefouruae.com/mafuae/en/tomato/tomato-ep/p/1767482
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720104,0117,طماطم,,1 كغ,,found,match,yes,Tomato Jordan 500 g,3.23,3.23,6.46,kg,JO,JO,AED,,https://gcc.luluhypermarket.com/en-ae/p/372444-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720105,0117,طماطم,,1 كغ,,not_found,review_origin,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720105,0117,طماطم,,1 كغ,,not_found,substitute_origin,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720105,0117,طماطم,,1 كغ,,not_found,review_origin,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720201,0117,خيار قصير,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720201,0117,خيار قصير,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
@@ -4403,7 +4403,7 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720403,0117,باذنجان,,1 كغ,,not_found,no_match,no,,,,,kg,IR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720501,0117,قرع (يقطين) reel pumpkins,,1 كغ,,not_found,substitute_origin,no,,,,,kg,TN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720501,0117,قرع (يقطين) reel pumpkins,,1 كغ,,found,review_origin,yes,Red Pumpkin 1 kg,6.65,6.65,6.65,kg,TN,,AED,,https://gcc.luluhypermarket.com/en-ae/p/18625-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720601,0117,فلفل حار,,1 كغ,,found,review_multiple,yes,"Priya Red Chillies Pickle in Oil, 300g",6.69,6.69,22.3,kg,IN,IN,AED,,https://www.carrefouruae.com/mafuae/en/gherkins-pickles/priya-red-chilli-pickle-300g/p/1099884
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720601,0117,فلفل حار,,1 كغ,,found,match,yes,Green Bird's Eye Chillies,2.54,2.54,12.7,kg,IN,IN,AED,,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-green-bird/p/327895
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720601,0117,فلفل حار,,1 كغ,,found,match,yes,Green Chilli India 100 g,1.4,1.4,14.0,kg,IN,IN,AED,,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720602,0117,فلفل حار,,1 كغ,,not_found,substitute_origin,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720602,0117,فلفل حار,,1 كغ,,found,match,yes,Chilli Oman 150 g,1.64,1.64,10.93,kg,OM,OM,AED,,https://gcc.luluhypermarket.com/en-ae/p/18563-ea/
@@ -4415,20 +4415,20 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720703,0117,فلفل احمر بارد,,1 كغ,,not_found,review_origin,no,,,,,kg,EG,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720704,0117,فلفل احمر بارد,,1 كغ,,not_found,substitute_origin,no,,,,,kg,NL,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720704,0117,فلفل احمر بارد,,1 كغ,,not_found,review_origin,no,,,,,kg,NL,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720801,0117,بامية,,1 كغ,,not_found,review_origin,no,,,,,kg,AE,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720801,0117,بامية,,1 كغ,,not_found,substitute_origin,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720801,0117,بامية,,1 كغ,,not_found,review_origin,no,,,,,kg,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720802,0117,بامية,,1 كغ,,not_found,review_origin,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720802,0117,بامية,,1 كغ,,not_found,substitute_origin,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720802,0117,بامية,,1 كغ,,not_found,review_origin,no,,,,,kg,OM,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011720803,0117,بامية,,1 كغ,,found,match,yes,Long Okra (Bhindi),6.5,6.5,13.0,kg,IN,IN,AED,,https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011720803,0117,بامية,,1 كغ,,not_found,review_origin,no,,,,,kg,IN,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730101,0117,فاصولياء خضراء,,1 كغ,,not_found,substitute_origin,no,,,,,kg,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011730101,0117,فاصولياء خضراء,,1 كغ,,not_found,review_origin,no,,,,,kg,AE,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730102,0117,فاصولياء خضراء,,1 كغ,,not_found,substitute_origin,no,,,,,kg,EG,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011730102,0117,فاصولياء خضراء,,1 كغ,,not_found,review_origin,no,,,,,kg,EG,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730103,0117,فاصولياء خضراء,,1 كغ,,not_found,substitute_origin,no,,,,,kg,OM,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011730103,0117,فاصولياء خضراء,,1 كغ,,not_found,review_origin,no,,,,,kg,OM,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730201,0117,بازلاء خضراء,,1 كغ,,found,review_origin,yes,"Hortex Green Peas, 400g, Pack of 2",16.79,16.79,20.99,kg,PK,,AED,,https://www.carrefouruae.com/mafuae/en/green-peas/hortex-green-peas-400g-x-2/p/2318321
-2026-10-12,2026-10-12_full,scrapling-category,lulu,011730201,0117,بازلاء خضراء,,1 كغ,,found,review_origin,yes,LuLu Green Peas Can 400 g,3.35,3.35,8.38,kg,PK,,AED,,https://gcc.luluhypermarket.com/en-ae/lulu-green-peas-can-400-g/p/2110153/
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730101,0117,فاصولياء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011730101,0117,فاصولياء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,AE,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730102,0117,فاصولياء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011730102,0117,فاصولياء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730103,0117,فاصولياء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011730103,0117,فاصولياء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,OM,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011730201,0117,بازلاء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,PK,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,lulu,011730201,0117,بازلاء خضراء,,1 كغ,,not_found,no_match,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740101,0117,بصل أحمر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,IN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740101,0117,بصل أحمر,,1 كغ,,not_found,review_origin,no,,,,,kg,IN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740102,0117,بصل أحمر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,PK,,AED,,
@@ -4441,13 +4441,13 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740201,0117,شمندر,,1 كغ,,found,review_origin,yes,Beetroot 500 g,3.48,3.48,6.96,kg,IR,,AED,,https://gcc.luluhypermarket.com/en-ae/p/40192-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740301,0117,جزر,,1 كغ,,found,match,yes,Carrots Bag 1kg,8.79,8.79,8.79,kg,AU,AU,AED,,https://www.carrefouruae.com/mafuae/en/carrot/carrot-bag-1-kg/p/70943
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740301,0117,جزر,,1 كغ,,found,match,yes,Carrots Australia 500 g,4.85,4.85,9.7,kg,AU,AU,AED,,https://gcc.luluhypermarket.com/en-ae/p/18892-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740302,0117,جزر,,1 كغ,,not_found,review_origin,no,,,,,kg,CN,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740302,0117,جزر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,CN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740302,0117,جزر,,1 كغ,,not_found,review_origin,no,,,,,kg,CN,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740303,0117,جزر,,1 كغ,,found,match,yes,"Shan Carrot Pickle (Achar), 300g",6.49,6.49,216.33,kg,PK,PK,AED,,https://www.carrefouruae.com/mafuae/en/gherkins-pickles/shan-carrot-pickle-30g/p/1131814
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740303,0117,جزر,,1 كغ,,not_found,substitute_origin,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740303,0117,جزر,,1 كغ,,not_found,review_origin,no,,,,,kg,PK,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740501,0117,زنجبيل طازج,,1 كغ,,not_found,substitute_origin,no,,,,,kg,IN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740501,0117,زنجبيل طازج,,1 كغ,,found,match,yes,Ginger India 200 g,3.33,3.33,16.65,kg,IN,IN,AED,,https://gcc.luluhypermarket.com/en-ae/p/363130-ea/
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740502,0117,زنجبيل طازج,,1 كغ,,found,review_multiple,yes,Ginger,4.77,4.77,15.9,kg,CN,CN,AED,,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740502,0117,زنجبيل طازج,,1 كغ,,found,match,yes,Ginger,4.77,4.77,15.9,kg,CN,CN,AED,,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740502,0117,زنجبيل طازج,,1 كغ,,found,match,yes,Ginger China 250 g,3.99,3.99,15.96,kg,CN,CN,AED,,https://gcc.luluhypermarket.com/en-ae/p/18660-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011740601,0117,فجل ( رويد ) حزمة,,حزمة 100 جرام,,not_found,no_match,no,,,,,bunch,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740601,0117,فجل ( رويد ) حزمة,,حزمة 100 جرام,,found,review_origin,yes,Radish Leaves 1 Bunch,1.0,1.0,1.0,bunch,AE,,AED,,https://gcc.luluhypermarket.com/en-ae/radish-leaves-1-bunch/p/2502809/
@@ -4457,7 +4457,7 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011740701,0117,ثوم,,1 كغ,,not_found,no_match,no,,,,,kg,CN,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011750101,0117,بطاطس,,1 كغ,,found,match,yes,Potato,2.1,2.1,4.2,kg,EG,EG,AED,,https://www.carrefouruae.com/mafuae/en/potato/potato-ep/p/1552234
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011750101,0117,بطاطس,,1 كغ,,not_found,review_origin,no,,,,,kg,EG,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011750102,0117,بطاطس,,1 كغ,,not_found,review_origin,no,,,,,kg,LB,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011750102,0117,بطاطس,,1 كغ,,not_found,substitute_origin,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011750102,0117,بطاطس,,1 كغ,,found,match,yes,Potato Lebanon 1 kg,4.25,4.25,4.25,kg,LB,LB,AED,,https://gcc.luluhypermarket.com/en-ae/p/521928-ea/
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011750201,0117,بطاطا حلوة بيضاء,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011750201,0117,بطاطا حلوة بيضاء,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
@@ -4471,15 +4471,15 @@
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011760403,0117,فاصوليا جافة - بيضاء من المحمصة,,1kg,,not_found,no_match,no,,,,,kg,AR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011760405,0117,فاصوليا بيضاء - جافه,,1 كغ,,not_found,no_match,no,,,,,kg,TR,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011760405,0117,فاصوليا بيضاء - جافه,,1 كغ,,not_found,no_match,no,,,,,kg,TR,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790701,0117,زيتون أخضر  سائب,,1 كغ,,not_found,substitute_origin,no,,,,,kg,LB,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790701,0117,زيتون أخضر  سائب,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011790701,0117,زيتون أخضر  سائب,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790703,0117,زيتون اسود سائب,,1 كغ,,found,review_origin,yes,"Torrent Whole Black Olive, 440g Pack of 2",15.0,28.99,17.05,kg,EG,,AED,,https://www.carrefouruae.com/mafuae/en/black-olives/torrent-whole-black-olive-440gx2/p/1634160
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790703,0117,زيتون اسود سائب,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011790703,0117,زيتون اسود سائب,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790801,0117,مخلل مشكل ساده,,1 كغ,,not_found,review_origin,no,,,,,kg,EG,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790801,0117,مخلل مشكل ساده,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011790801,0117,مخلل مشكل ساده,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790802,0117,مخلل البصل ساده,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011790802,0117,مخلل البصل ساده,,1 كغ,,not_found,no_match,no,,,,,kg,EG,,AED,,
-2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790803,0117,مخلل مشكل ساده,,1 كغ,,not_found,review_origin,no,,,,,kg,LB,,AED,,
+2026-10-12,2026-10-12_full,scrapling-category,carrefour,011790803,0117,مخلل مشكل ساده,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011790803,0117,مخلل مشكل ساده,,1 كغ,,not_found,no_match,no,,,,,kg,LB,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,carrefour,011890101,0118,حلوى عمانية سلطانية سوداء,,1 كغم,,not_found,no_match,no,,,,,kg,AE,,AED,,
 2026-10-12,2026-10-12_full,scrapling-category,lulu,011890101,0118,حلوى عمانية سلطانية سوداء,,1 كغم,,not_found,no_match,no,,,,,kg,AE,,AED,,

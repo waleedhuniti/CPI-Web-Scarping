@@ -180,6 +180,7 @@ nav.tabs button[aria-selected=true] { color: #fff; background: var(--bar-cyan); 
 .plan-grid .panel:nth-child(4) h3 { background: var(--navy); }
 footer.foot { margin-top: 36px; background: var(--navy); color: #fff; border-radius: 10px; padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; font-size: 13px; }
 button.primary { background: var(--navy); border-color: var(--navy); }
+  img.thumb { width: 44px; height: 44px; object-fit: contain; border-radius: 6px; background: #fff; border: 1px solid var(--line, #dde3ea); display: block; }
 </style>
 
 <div class="wrap">
@@ -284,12 +285,12 @@ button.primary { background: var(--navy); border-color: var(--navy); }
 
     <div class="tab stack" id="tab-results" hidden>
       <div class="panel">
-        <div class="row"><h2 style="margin:0">التشغيلات</h2><span class="spacer"></span><button id="r-export-all">تنزيل كل البيانات (Dataiku)</button></div>
+        <div class="row"><h2 style="margin:0">التشغيلات</h2><span class="spacer"></span><button id="r-export-all">تنزيل كل الأسعار (Excel)</button></div>
         <p class="muted">ملف واحد بكل التشغيلات المحفوظة، صف لكل عنصر في كل تشغيل، بأعمدة ثابتة وتاريخ <code>run_date</code>، جاهز للاستيراد في Dataiku.</p>
         <div id="r-list"></div>
       </div>
       <div class="panel" id="r-view" hidden>
-        <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل CSV</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
+        <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل Excel</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
         <div id="r-del-confirm"></div>
         <div class="stats" id="r-stats"></div>
         <div class="row"><input id="r-search" placeholder="فلترة" style="flex:2 1 220px"><select id="r-filter" style="flex:1 1 160px"><option value="">كل الحالات</option><option value="yes">الموجود فقط</option><option value="no">غير الموجود</option></select></div>
@@ -737,7 +738,7 @@ function renderOverview() {
         <select id="ov-src" style="flex:1 1 160px"><option value="">كل المصادر</option><option value="barcode">بحث بالباركود</option><option value="category">مسح شامل</option></select>
         <select id="ov-ret" style="flex:1 1 140px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
         <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
-      <div class="tw"><table><thead><tr><th>الصنف</th><th>المتجر</th><th>المصدر</th><th>المنتج في المتجر</th><th>السعر (درهم)</th><th>سعر الوحدة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`
+      <div class="tw"><table><thead><tr><th>صورة</th><th>الصنف</th><th>المتجر</th><th>المصدر</th><th>المنتج في المتجر</th><th>السعر (درهم)</th><th>سعر الوحدة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="8" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`
       : `<div class="row"><input id="ov-q" placeholder="ابحث باسم السلعة أو الفئة" style="flex:2 1 220px">
         <select id="ov-date" style="flex:1 1 160px"></select>
         <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
@@ -778,13 +779,14 @@ function drawOvRows() {
   const rows = ovRows.filter((r) => (!src || r.kind === src) && (!ret || r.ret === ret) && (!q || [r.name, r.name_ar, r.title, r.item_code, r.commodity].join(" ").toLowerCase().includes(q)));
   const basis = { kg: "/كغ", l: "/لتر", pc: "/حبة", bunch: "/حزمة" };
   $("#ov-rows").innerHTML = rows.slice(0, 300).map((r) => `<tr>
+    <td>${r.photo ? `<img class="thumb" src="${esc(r.photo)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>
     <td>${esc(r.name || r.name_ar || r.commodity || "")} <span class="muted mono">${esc(r.item_code || "")}</span></td>
     <td>${r.ret === "carrefour" ? "Carrefour" : r.ret === "lulu" ? "Lulu" : esc(r.ret || "")}</td>
     <td><span class="chip">${r.kind === "category" ? "مسح شامل" : "باركود"}</span></td>
     <td>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title || "")}</a>` : esc(r.title || r.commodity || "")}</td>
     <td class="num"><b>${esc(r.price ?? "")}</b></td>
     <td class="num">${r.unit_price ? esc(r.unit_price) + (basis[r.price_basis] || "") : ""}</td>
-    <td class="num">${esc(fmtDate(r.run_date))}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">لا أسعار مطابقة.</td></tr>`;
+    <td class="num">${esc(fmtDate(r.run_date))}</td></tr>`).join("") || `<tr><td colspan="8" class="empty">لا أسعار مطابقة.</td></tr>`;
   $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر${rows.length > 300 ? " · يظهر أول 300؛ نزّل الملف لرؤية الكل" : ""}`;
 }
 
@@ -1048,6 +1050,77 @@ async function offerFile(filename, text) {
   try { await downloads.save({ filename, data: new Blob([text], { type: "text/csv;charset=utf-8" }) }); }
   catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || "لم يكتمل التنزيل", true); }
 }
+// ------------------------------------------------------------ Excel download in the catalogue layout (navy header, white rows, photos)
+const EXCELJS = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js";
+let excelLib = null;
+function loadExcel() {
+  return excelLib ??= new Promise((ok, fail) => {
+    const s = document.createElement("script"); s.src = EXCELJS;
+    s.onload = () => ok(window.ExcelJS); s.onerror = () => { excelLib = null; fail(new Error("تعذّر تحميل مكتبة Excel")); };
+    document.head.appendChild(s);
+  });
+}
+const OUTLET = { carrefour: "Carrefour", lulu: "Lulu", spinneys: "Spinneys" };
+function catalogueSheet(rows) {
+  const found = rows.filter((r) => r.accepted === "yes" && r.title)
+    .sort((a, b) => String(b.run_date).localeCompare(String(a.run_date)) || String(a.group_code).localeCompare(String(b.group_code)) || String(a.retailer).localeCompare(String(b.retailer)));
+  return {
+    title: "Dubai bulk product catalogue",
+    subtitle: `${found.length.toLocaleString("en")} prices • ${[...new Set(found.map((r) => r.run_date))].sort().join(", ")} • Choose Yes in the first column, then filter`,
+    headers: ["Select", "Outlet", "Product name", "Photo", "Price (AED)", "Pack / size", "Brand", "Retailer ID", "Availability", "Category", "Product URL", "Photo URL", "Collected (Dubai)", "Notes"],
+    widths: [8, 11, 42, 13, 11, 14, 14, 12, 12, 24, 46, 30, 16, 46],
+    photoCol: 4, priceCols: [5], select: true,
+    rows: found.map((r) => ["No", OUTLET[r.retailer] || r.retailer || "", r.title, r.photo || "", r.price === "" ? null : Number(r.price),
+      r.size || r.basket_qty || "", r.brand || "", r.retailer_id || (String(r.url || "").match(/\/p\/([^/?]+)/) || [])[1] || "", "Available",
+      [r.group_name, r.section].filter(Boolean).join(" · "), r.url || "", r.photo || "", r.run_date || "",
+      [r.note, `Basket item: ${r.name || ""} (${r.item_code || ""})`].filter(Boolean).join(" · ")]),
+  };
+}
+function globalSheet(rows) {
+  const ok = rows.filter((r) => r.accepted === "yes").sort((a, b) => String(b.run_date).localeCompare(String(a.run_date)) || String(a.category).localeCompare(String(b.category)));
+  const num = (v) => (v === "" || v == null || isNaN(Number(String(v).replace(/[%,]/g, ""))) ? (v ?? "") : Number(String(v).replace(/[%,]/g, "")));
+  return {
+    title: "Global commodity prices",
+    subtitle: `${ok.length.toLocaleString("en")} prices • ${[...new Set(ok.map((r) => r.run_date))].length} days • Trading Economics`,
+    headers: ["Commodity", "Category", "Price", "Unit", "Change", "Change %", "Weekly %", "Monthly %", "YTD %", "YoY %", "Price date", "Collected (Dubai)"],
+    widths: [30, 16, 12, 18, 10, 10, 10, 10, 10, 10, 14, 16], priceCols: [3, 5],
+    rows: ok.map((r) => [r.commodity || r.name || "", r.category || "", num(r.price), r.unit || "", num(r.change), r.pct ?? "", r.weekly ?? "", r.monthly ?? "", r.ytd ?? "", r.yoy ?? "", r.price_date || "", r.run_date || ""]),
+  };
+}
+async function offerXlsx(filename, sheet) {
+  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
+  if (!sheet.rows.length) return toast("لا توجد أسعار للتنزيل", true);
+  const ExcelJS = await loadExcel();
+  const wb = new ExcelJS.Workbook();
+  const ws = wb.addWorksheet(sheet.photoCol ? "Catalogue" : "Prices", { views: [{ state: "frozen", ySplit: 5 }] });
+  ws.getCell("A2").value = sheet.title; ws.getCell("A2").font = { size: 16, bold: true, color: { argb: "FF173653" } };
+  ws.getCell("A3").value = sheet.subtitle; ws.getCell("A3").font = { size: 10, color: { argb: "FF627184" } };
+  const head = ws.getRow(5); head.height = 32;
+  sheet.headers.forEach((h, i) => {
+    const c = head.getCell(i + 1); c.value = h;
+    c.font = { bold: true, color: { argb: "FFFFFFFF" } };
+    c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF223F62" } };
+    c.alignment = { horizontal: "center", vertical: "middle", wrapText: true };
+  });
+  sheet.widths.forEach((w, i) => (ws.getColumn(i + 1).width = w));
+  sheet.rows.forEach((vals, k) => {
+    const row = ws.getRow(6 + k);
+    vals.forEach((v, i) => {
+      const c = row.getCell(i + 1);
+      if (sheet.photoCol === i + 1) c.value = v ? { formula: `_xlfn.IMAGE("${String(v).replace(/"/g, "")}")` } : null;
+      else c.value = v === "" ? null : v;
+      c.alignment = { vertical: "middle", wrapText: i === 2 };
+      if (sheet.priceCols.includes(i + 1)) c.numFmt = "#,##0.00";
+      if (sheet.select && i === 0) c.dataValidation = { type: "list", allowBlank: false, formulae: ['"No,Yes"'] };
+    });
+    if (sheet.photoCol) row.height = 60;
+  });
+  ws.autoFilter = { from: { row: 5, column: 1 }, to: { row: 5 + sheet.rows.length, column: sheet.headers.length } };
+  const buf = await wb.xlsx.writeBuffer();
+  try { await downloads.save({ filename, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) }); }
+  catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || "لم يكتمل التنزيل", true); }
+}
+const sheetFor = (rows) => (P()?.kind === "barcode" ? catalogueSheet(rows) : globalSheet(rows));
 $("#b-export").addEventListener("click", () => {
   const keys = [...new Set([...cols().map((c) => c.key), ...basket.flatMap((i) => Object.keys(i))])];
   offerFile(`${P().name}-basket.csv`, toCsv(basket, keys));
@@ -1172,7 +1245,13 @@ function drawRun() {
 }
 $("#r-search").addEventListener("input", drawRun);
 $("#r-filter").addEventListener("change", drawRun);
-$("#r-export").addEventListener("click", () => shownRun && offerFile(`${P().name}-${shownRun.id}.csv`, toCsv(shownRows, [...runColumns(), "accepted"])));
+$("#r-export").addEventListener("click", async () => {
+  if (!shownRun) return;
+  const btn = $("#r-export"); btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try { await offerXlsx(`${P().name} ${shownRun.id}.xlsx`, sheetFor(shownRows.map((x) => ({ ...x, run_date: x.run_date || dubaiDay(shownRun.startedAt) })))); }
+  catch (e) { toast(e?.message || String(e), true); }
+  finally { btn.disabled = false; btn.textContent = "تنزيل Excel"; }
+});
 $("#r-delete").addEventListener("click", () => {
   $("#r-del-confirm").innerHTML = `<div class="confirm"><span>حذف هذا التشغيل ونتائجه نهائياً؟</span><button class="danger" id="rd-yes">حذف</button><button id="rd-no">إلغاء</button></div>`;
   $("#rd-no").onclick = () => ($("#r-del-confirm").innerHTML = "");
@@ -1305,14 +1384,12 @@ $("#r-export-all").addEventListener("click", async () => {
     for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
       const chunks = await rowDocs(current, r);
       for (const c of chunks) for (const x of plain(c).rows || [])
-        rows.push({ ...x, run_id: r.id, run_date: x.run_date || String(r.startedAt || "").slice(0, 10) });
+        rows.push({ ...x, run_id: r.id, run_date: x.run_date || dubaiDay(r.startedAt) });
     }
     if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
-    const seen = new Set(rows.flatMap((x) => Object.keys(x)));
-    const cols = [...LEAD.filter((c) => seen.has(c)), ...[...seen].filter((c) => !LEAD.includes(c)).sort()];
-    await offerFile(`${P().name}-all-runs.csv`, toCsv(rows, cols));
+    await offerXlsx(`${P().name} - all prices.xlsx`, sheetFor(rows));
   } catch (e) { toast(dbErr(e), true); }
-  finally { btn.disabled = false; btn.textContent = "تنزيل كل البيانات (Dataiku)"; }
+  finally { btn.disabled = false; btn.textContent = "تنزيل كل الأسعار (Excel)"; }
 });
 
 // ------------------------------------------------------------ boot

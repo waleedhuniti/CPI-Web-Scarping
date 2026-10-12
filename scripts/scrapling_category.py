@@ -48,6 +48,9 @@ DEMONYMS = {"indian": "IN", "pakistani": "PK", "australian": "AU", "brazilian": 
             "emirati": "AE", "yemeni": "YE", "sudanese": "SD", "somali": "SO", "moroccan": "MA", "filipino": "PH",
             "thai": "TH", "vietnamese": "VN", "sri lankan": "LK", "bangladeshi": "BD", "french": "FR", "chilean": "CL"}
 STOP = {"fresh", "loose", "deli", "counter", "per", "kg", "imported", "the", "and", "or", "of", "with", "a", "in"}
+# fresh meat, fish, fruit and vegetable lines are priced only from fresh sections (not tins, pickles, frozen, nuts)
+FRESH_SECTION = re.compile(r"^(?!.*(dried|nuts|tins|canned|frozen|jars|pickle)).*(fresh|meat|poultry|fish|seafood|fruit|vegetable|herb|beef|chicken|lamb)", re.I)
+NOT_FRESH_LINE = re.compile(r"محمص|مكسرات|تمر|مجفف|زبيب|مجمد|معلب")
 NOT_FRESH = ["organic", "marinated", "ready to cook", "seasoned", "cooked", "smoked", "frozen", "juice", "dried",
              "canned", "puree", "pickled", "stuffed", "nuggets", "burger", "sausage", "kebab", "kofta"]
 
@@ -210,6 +213,7 @@ def match(run_dir, catalog=None, delay=1.5):
     for it in items:
         spec = specs.get(it["item_code"], {})
         want = basket_basis(it, spec)
+        fresh_line = it["group_code"] in ("0112", "0113", "0116", "0117") and not NOT_FRESH_LINE.search(it["name_ar"])
         frozen_ok = "مجمد" in it["name_ar"] or "frozen" in (spec.get("query_en", "") + spec.get("product_en", "")).lower()
         musts = [m for m in spec.get("must_have", []) if not re.search(r"\d", m)]
         nots = spec.get("must_not", [])
@@ -226,6 +230,10 @@ def match(run_dir, catalog=None, delay=1.5):
                 if any(phrase_ok(tw, n) and any(w not in STOP for w in words(n)) for n in nots):
                     continue
                 if any(x in t for x in NOT_FRESH if not (x == "frozen" and frozen_ok)):
+                    continue
+                if "frozen" in str(row.get("category", "")).lower() and not frozen_ok:   # frozen section, title may not say so
+                    continue
+                if fresh_line and not FRESH_SECTION.search(str(row.get("category", ""))):   # no pickles, tins, dried fruit
                     continue
                 if row["price_basis"] != want or not row["unit_price"]:
                     continue

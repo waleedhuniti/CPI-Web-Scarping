@@ -1,15 +1,97 @@
 {
-  "notes": "Category listings crawled in bulk for basket lines WITHOUT a barcode (match_mode 'spec'). Barcoded lines keep the barcode search. group = COICOP group the category feeds.",
+  "notes": "Category listings crawled in bulk for ALL basket lines WITHOUT a barcode (match_mode 'spec'). Barcoded lines keep the barcode search. group = COICOP group(s) the category feeds.",
   "carrefour": [
-    {"group": "0112", "name": "Meat & Poultry", "url": "https://www.carrefouruae.com/mafuae/en/c/F1670000?currentPage={page0}"},
-    {"group": "0113", "name": "Fish & Seafood", "url": "https://www.carrefouruae.com/mafuae/en/c/F1640000?currentPage={page0}"},
-    {"group": "0116", "name": "Fruits", "url": "https://www.carrefouruae.com/mafuae/en/c/F11660100?currentPage={page0}"},
-    {"group": "0117", "name": "Vegetables", "url": "https://www.carrefouruae.com/mafuae/en/c/F11660500?currentPage={page0}"},
-    {"group": "0117", "name": "Herbs", "url": "https://www.carrefouruae.com/mafuae/en/c/F11660200?currentPage={page0}"}
+    {
+      "group": "0112",
+      "name": "Meat & Poultry",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F1670000?currentPage={page0}"
+    },
+    {
+      "group": "0113",
+      "name": "Fish & Seafood",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F1640000?currentPage={page0}"
+    },
+    {
+      "group": "0116",
+      "name": "Fruits",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F11660100?currentPage={page0}"
+    },
+    {
+      "group": "0117",
+      "name": "Vegetables",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F11660500?currentPage={page0}"
+    },
+    {
+      "group": "0117,0119",
+      "name": "Herbs",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F11660200?currentPage={page0}"
+    },
+    {
+      "group": "0111,0118",
+      "name": "Bakery",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/bakery?currentPage={page0}"
+    },
+    {
+      "group": "0114",
+      "name": "Chilled Food Counter",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F1620000?currentPage={page0}"
+    },
+    {
+      "group": "0111,0118",
+      "name": "Food To Go",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F1650000?currentPage={page0}"
+    },
+    {
+      "group": "0119,0111",
+      "name": "Cooking Ingredients",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F1760000?currentPage={page0}"
+    },
+    {
+      "group": "0118,0111",
+      "name": "World Specialities",
+      "url": "https://www.carrefouruae.com/mafuae/en/c/F1790000?currentPage={page0}"
+    }
   ],
   "lulu": [
-    {"group": "0112", "name": "Fresh Meat & Poultry", "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-meat-poultry/?page={page1}"},
-    {"group": "0113", "name": "Fresh Fish & Seafood", "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-fish-seafoods/?page={page1}"},
-    {"group": "0116,0117", "name": "Fruits & Vegetables", "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fruits-vegetables/?page={page1}"}
+    {
+      "group": "0112",
+      "name": "Fresh Meat & Poultry",
+      "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-meat-poultry/?page={page1}"
+    },
+    {
+      "group": "0113",
+      "name": "Fresh Fish & Seafood",
+      "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-fish-seafoods/?page={page1}"
+    },
+    {
+      "group": "0116,0117,0119",
+      "name": "Fruits & Vegetables",
+      "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fruits-vegetables/?page={page1}"
+    },
+    {
+      "group": "0111,0118",
+      "name": "Bakery",
+      "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-bakery/?page={page1}"
+    },
+    {
+      "group": "0114",
+      "name": "Cheese",
+      "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-dairy-eggs-cheese-cheese/?page={page1}"
+    },
+    {
+      "group": "0114,0111,0118",
+      "name": "Deli",
+      "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-deli/?page={page1}"
+    },
+    {
+      "group": "0119,0111",
+      "name": "Cooking Ingredients",
+      "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-cooking-ingredients/?page={page1}"
+    },
+    {
+      "group": "0118,0111,0119",
+      "name": "World Foods",
+      "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-world-foods/?page={page1}"
+    }
   ]
 }

@@ -198,7 +198,9 @@ def match(run_dir, catalog=None, delay=1.5):
     if catalog is None:
         catalog = list(csv.DictReader(open(run_dir / "catalog.csv", encoding="utf-8-sig")))
     specs = {x["c"]: x for x in json.load(open(SPECS, encoding="utf-8"))}
-    basket = json.load(open(ROOT / "data/basket/basket.json", encoding="utf-8"))
+    from dataclasses import asdict
+    from cpi.basket import load_basket_any
+    basket = [asdict(i) for i in load_basket_any(ROOT)]
     groups = {g for row in catalog for g in str(row["group"]).split(",")}
     items = [i for i in basket if i["match_mode"] == "spec" and i["group_code"] in groups]
     plan = []

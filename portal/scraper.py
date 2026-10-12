@@ -21,7 +21,7 @@ from urllib.parse import parse_qs, urlparse
 import requests
 
 from cpi import gtin
-from cpi.basket import FRESH_GROUPS, BasketItem
+from cpi.basket import BasketItem, item_from_fields
 from cpi.matcher import ACCEPTED, Listing, match
 from cpi.origin import origin_iso
 from cpi.quantity import parse_quantity
@@ -43,21 +43,7 @@ EDITABLE = ["item_code", "class_code", "class_name", "group_code", "group_name",
 
 def normalize_item(d: dict) -> dict:
     """A basket line with its derived fields (GTIN, quantity, origin, match mode) recomputed from the editable ones."""
-    e = {k: str(d.get(k) or "").strip() for k in EDITABLE}
-    if not re.fullmatch(r"\d{4,12}", e["item_code"]):
-        raise ValueError(f"item_code must be digits: {e['item_code']!r}")
-    e["group_code"] = e["group_code"] or e["item_code"][:4]
-    e["class_code"] = e["class_code"] or e["item_code"][:7]
-    q = parse_quantity(e["qty_raw"])
-    kind = gtin.classify_barcode(e["barcode_raw"]) if e["barcode_raw"] else "none"
-    item = BasketItem(
-        **e, gtin=gtin.canonical(e["barcode_raw"]) if kind == "gtin" else "", barcode_kind=kind,
-        origin_iso=origin_iso(e["origin_raw"]) if e["origin_raw"] else "",
-        qty_unit=q.unit, qty_total=q.total, qty_count=q.count, qty_flag=q.flag,
-        match_mode="barcode" if kind == "gtin" else "spec",
-        fresh_type=FRESH_GROUPS.get(e["group_code"], "") if kind != "gtin" else "",
-    )
-    return asdict(item)
+    return asdict(item_from_fields(d))
 
 
 def load_basket(path=BASKET_JSON) -> list:

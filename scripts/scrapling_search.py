@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from cpi.basket import load_basket  # noqa: E402
+from cpi.basket import load_basket_any  # noqa: E402
 from cpi.retailers import carrefour, lulu  # noqa: E402
 import match_run  # noqa: E402
 
@@ -116,7 +116,7 @@ def main():
     if a.codes:
         codes = [match_run.search_form(c) for c in json.load(open(a.codes))]
     else:
-        items = [i for i in load_basket(ROOT / "data/basket/basket_source.xlsx") if i.barcode_kind == "gtin"]
+        items = [i for i in load_basket_any(ROOT) if i.barcode_kind == "gtin"]
         codes = list(dict.fromkeys(match_run.search_form(i.barcode_raw) for i in items))
     if a.limit:
         codes = codes[:a.limit]

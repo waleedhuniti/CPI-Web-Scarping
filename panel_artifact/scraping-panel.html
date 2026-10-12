@@ -745,6 +745,7 @@ function renderOverview() {
         ${legend}<div class="srcbars">${srcBars(cat) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
         <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
     </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
+    ${isCpi ? `<div class="panel" id="cat-panel"><div class="bar-title navy">كتالوج المنتجات اليومي · كل أقسام CPI</div><div id="cat-body" class="muted">يُحمَّل…</div></div>` : ""}
     <div class="panel">
       <div class="bar-title navy">الأسعار</div>
       ${isCpi ? `<div class="row"><input id="ov-q" placeholder="ابحث باسم الصنف أو المنتج" style="flex:2 1 220px">
@@ -760,6 +761,7 @@ function renderOverview() {
     </div>`;
   $("#ov-dl").onclick = () => $("#r-export-all").click();
   ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
+  if (isCpi) loadCatalogue();
   if (isCpi) loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
   else loadOvRows(runs.map((r) => r.id), null);   // global prices: every saved day, newest first
 }
@@ -1139,6 +1141,67 @@ async function offerXlsx(filename, sheet) {
   const buf = await wb.xlsx.writeBuffer();
   try { await downloads.save({ filename, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) }); }
   catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || "لم يكتمل التنزيل", true); }
+}
+// ------------------------------------------------------------ daily product catalogue (all CPI divisions), Excel per group
+const GROUP_AR = { all: "كل الأقسام", food: "الأغذية والبقالة", household: "المنزل والتنظيف", personal: "العناية الشخصية والصحة",
+  electronics: "الإلكترونيات والهواتف والإكسسوارات", clothing: "الملابس والأحذية", other: "النقل والترفيه والتعليم" };
+let catDoc = null, catData = null, catThumbs = null;
+async function loadCatalogue() {
+  const pid = current;
+  try { const snap = await db.doc(`projects/${pid}/catalogue/latest`).get(); catDoc = snap.exists ? plain(snap) : null; }
+  catch (e) { catDoc = null; }
+  if (current !== pid || !$("#cat-body")) return;
+  if (!catDoc) { $("#cat-body").innerHTML = "لا يوجد كتالوج بعد؛ يُنشأ مع التشغيل اليومي."; return; }
+  const c = catDoc.counts || {}, keys = ["all", ...Object.keys(catDoc.groups || {})];
+  $("#cat-body").innerHTML = `
+    <p style="margin:0 0 10px">آخر كتالوج <b>${esc(catDoc.date)}</b> · <b>${(catDoc.rows || 0).toLocaleString("en")}</b> منتجاً مع صورها من
+      ${Object.entries(catDoc.stores || {}).map(([s, n]) => `${esc(s)} (${n.toLocaleString("en")})`).join("، ")}. اختر القسم الذي تريده:</p>
+    <div class="row" style="flex-wrap:wrap;gap:8px">${keys.map((k) => `<button class="${k === "all" ? "primary" : "ghost"}" data-cat="${esc(k)}">
+      ${esc(GROUP_AR[k] || catDoc.groups?.[k] || k)} <span class="muted">(${(k === "all" ? catDoc.rows : c[k] || 0).toLocaleString("en")})</span></button>`).join("")}</div>
+    <p class="muted" style="margin:8px 0 0">ملف Excel بنفس تنسيق كتالوجك: الصورة، السعر، الحجم، الماركة، المتجر، الرابط، تاريخ الجمع.</p>`;
+  $$("#cat-body [data-cat]").forEach((b) => b.addEventListener("click", () => downloadCatalogue(b.dataset.cat, b)));
+}
+async function downloadCatalogue(group, btn) {
+  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
+  const old = btn.innerHTML; btn.disabled = true; btn.textContent = "يُجهَّز الملف…";
+  try {
+    if (!catData) catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json();
+    if (!catThumbs && catDoc.thumbs_asset) catThumbs = (await (await fetch("/_blob/" + catDoc.thumbs_asset)).json()).thumbs || {};
+    const ix = Object.fromEntries(catData.cols.map((c, i) => [c, i]));
+    const rows = catData.rows.filter((r) => group === "all" || r[ix.group] === group);
+    const label = group === "all" ? "All groups" : catData.groups[group] || group;
+    const ExcelJS = await loadExcel();
+    const wb = new ExcelJS.Workbook();
+    const ws = wb.addWorksheet("Catalogue", { views: [{ state: "frozen", ySplit: 5 }] });
+    const heads = ["Select", "Outlet", "Product name", "Photo", "Price (AED)", "Pack / size", "Brand", "Retailer ID", "Availability",
+      "Category", "CPI division", "Product URL", "Photo URL", "Collected (Dubai)", "Notes"];
+    const widths = [7.8, 10.6, 44, 12, 10.2, 13, 14, 13, 12, 22, 26, 46.7, 30, 16, 50];
+    ws.getCell("A2").value = "Dubai bulk product catalogue" + (group === "all" ? "" : " · " + label);
+    ws.getCell("A2").font = { size: 16, bold: true, color: { argb: "FF173653" } };
+    const stores = [...new Set(rows.map((r) => r[ix.outlet]))].join(", ");
+    ws.getCell("A3").value = `${rows.length.toLocaleString("en")} listings • ${catData.date} • ${stores} • Choose Yes in the first column, then filter`;
+    ws.getCell("A3").font = { size: 10, color: { argb: "FF627184" } };
+    const head = ws.getRow(5); head.height = 32;
+    heads.forEach((h, i) => { const c = head.getCell(i + 1); c.value = h; c.font = { bold: true, color: { argb: "FFFFFFFF" } };
+      c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF223F62" } }; c.alignment = { horizontal: "center", vertical: "middle", wrapText: true }; });
+    widths.forEach((w, i) => (ws.getColumn(i + 1).width = w));
+    const ids = new Map();
+    rows.forEach((r, k) => {
+      const row = ws.getRow(6 + k); row.height = 52;
+      const v = ["No", r[ix.outlet], r[ix.title], null, r[ix.price] === "" ? null : Number(r[ix.price]), r[ix.size] || null, r[ix.brand] || null,
+        r[ix.retailer_id] || null, r[ix.availability], r[ix.category], r[ix.division], r[ix.url], r[ix.photo_url] || null, r[ix.collected], r[ix.notes]];
+      v.forEach((x, i) => { const c = row.getCell(i + 1); c.value = x; c.alignment = { vertical: "middle", wrapText: i === 2 }; });
+      row.getCell(5).numFmt = "#,##0.00";
+      row.getCell(1).dataValidation = { type: "list", allowBlank: false, formulae: ['"No,Yes"'] };
+      const u = r[ix.photo_url], b = u && catThumbs?.[u];
+      if (b) { if (!ids.has(u)) ids.set(u, wb.addImage({ base64: b, extension: "jpeg" }));
+        ws.addImage(ids.get(u), { tl: { col: 3.1, row: 5 + k + 0.1 }, ext: { width: 60, height: 60 } }); }
+    });
+    ws.autoFilter = { from: { row: 5, column: 1 }, to: { row: 5 + rows.length, column: heads.length } };
+    const buf = await wb.xlsx.writeBuffer();
+    await downloads.save({ filename: `Dubai_Catalogue_${catData.date}_${group}.xlsx`, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) });
+  } catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.innerHTML = old; }
 }
 const sheetFor = (rows) => (P()?.kind === "barcode" ? catalogueSheet(rows) : globalSheet(rows));
 $("#b-export").addEventListener("click", () => {

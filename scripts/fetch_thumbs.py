@@ -27,7 +27,7 @@ def thumb_path(url):
     return THUMBS / (hashlib.sha1(url.encode()).hexdigest() + ".jpg")
 
 
-def photo_links(run_dirs, found_only=False):
+def photo_links(run_dirs, found_only=False):  # noqa: C901
     cache = json.loads((ROOT / "data/photos.json").read_text()) if (ROOT / "data/photos.json").exists() else {}
     urls = set()
     for d in run_dirs:
@@ -53,6 +53,16 @@ def fetch_url(url):
 
 
 _local = threading.local()
+CF = {}   # Cloudflare pass for Sharaf DG's image server: {"cookies": {...}, "ua": "..."}
+
+
+def cloudflare_pass(sample_url):
+    """One stealth-browser visit (Scrapling) to Sharaf DG's image server; its cookies and user agent then let the
+    fast fetcher download the rest."""
+    from scrapling.fetchers import StealthyFetcher
+    p = StealthyFetcher.fetch(sample_url, headless=True, solve_cloudflare=True, timeout=90000)
+    CF["cookies"] = {c["name"]: c["value"] for c in (p.cookies or [])}
+    CF["ua"] = (getattr(p, "request_headers", None) or {}).get("user-agent")
 
 
 def session():
@@ -68,7 +78,11 @@ def get_one(url):
     if out.exists():
         return True
     try:
-        p = session().get(fetch_url(url), headers={"Referer": "https://www.carrefouruae.com/"} if "mafrservices" in url else None)
+        if "sharafdg.com" in url and CF:
+            hdr = {"Referer": "https://uae.sharafdg.com/", **({"User-Agent": CF["ua"]} if CF.get("ua") else {})}
+            p = session().get(url, cookies=CF["cookies"], headers=hdr)
+        else:
+            p = session().get(fetch_url(url), headers={"Referer": "https://www.carrefouruae.com/"} if "mafrservices" in url else None)
         body = p.body if isinstance(p.body, bytes) else bytes(p.body)
         if p.status != 200 or len(body) < 200:
             return False
@@ -84,6 +98,12 @@ def main(run_dirs, workers=8, found_only=False):
     THUMBS.mkdir(parents=True, exist_ok=True)
     urls = sorted(u for u in photo_links(run_dirs, found_only) if not thumb_path(u).exists())
     print(f"{len(urls)} pictures to fetch", flush=True)
+    sdg = [u for u in urls if "sharafdg.com" in u]
+    if sdg:
+        try:
+            cloudflare_pass(sdg[0])
+        except Exception as e:
+            print("Sharaf DG pictures: no Cloudflare pass", str(e)[:100])
     ok = 0
     with ThreadPoolExecutor(workers) as ex:
         for n, res in enumerate(ex.map(get_one, urls), 1):

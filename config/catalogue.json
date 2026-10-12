@@ -1,0 +1,2182 @@
+{
+ "notes": "Daily product catalogue in the layout of Dubai_Bulk_Product_Catalogue.xlsx: every CPI division, stores selling their own goods (no marketplaces, no resellers). Carrefour: first search page (~60). Lulu: 3 search pages (~60) and the 8 Oct category pages (50). Sharaf DG: top 60 of each category from its public product search.",
+ "groups": {
+  "food": "Food & groceries",
+  "household": "Household & cleaning",
+  "personal": "Personal care & health",
+  "electronics": "Electronics, phones & accessories",
+  "clothing": "Clothing & shoes",
+  "other": "Transport, recreation & education"
+ },
+ "sources": [
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "beef",
+   "kind": "search",
+   "query": "beef",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "beef",
+   "kind": "search",
+   "query": "beef",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "bread",
+   "kind": "search",
+   "query": "bread",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "bread",
+   "kind": "search",
+   "query": "bread",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "chicken",
+   "kind": "search",
+   "query": "chicken",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "chicken",
+   "kind": "search",
+   "query": "chicken",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "eggs",
+   "kind": "search",
+   "query": "eggs",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "eggs",
+   "kind": "search",
+   "query": "eggs",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fish",
+   "kind": "search",
+   "query": "fish",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fish",
+   "kind": "search",
+   "query": "fish",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "flour",
+   "kind": "search",
+   "query": "flour",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "flour",
+   "kind": "search",
+   "query": "flour",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fruit",
+   "kind": "search",
+   "query": "fruit",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fruit",
+   "kind": "search",
+   "query": "fruit",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "lamb",
+   "kind": "search",
+   "query": "lamb",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "lamb",
+   "kind": "search",
+   "query": "lamb",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "milk",
+   "kind": "search",
+   "query": "milk",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "milk",
+   "kind": "search",
+   "query": "milk",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "oil",
+   "kind": "search",
+   "query": "oil",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "oil",
+   "kind": "search",
+   "query": "oil",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "rice",
+   "kind": "search",
+   "query": "rice",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "rice",
+   "kind": "search",
+   "query": "rice",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "salt",
+   "kind": "search",
+   "query": "salt",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "salt",
+   "kind": "search",
+   "query": "salt",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "sugar",
+   "kind": "search",
+   "query": "sugar",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "sugar",
+   "kind": "search",
+   "query": "sugar",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "vegetables",
+   "kind": "search",
+   "query": "vegetables",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "vegetables",
+   "kind": "search",
+   "query": "vegetables",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "yoghurt",
+   "kind": "search",
+   "query": "yoghurt",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "yoghurt",
+   "kind": "search",
+   "query": "yoghurt",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "cheese",
+   "kind": "search",
+   "query": "cheese",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "cheese",
+   "kind": "search",
+   "query": "cheese",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "butter",
+   "kind": "search",
+   "query": "butter",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "butter",
+   "kind": "search",
+   "query": "butter",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "pasta",
+   "kind": "search",
+   "query": "pasta",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "pasta",
+   "kind": "search",
+   "query": "pasta",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "dates",
+   "kind": "search",
+   "query": "dates",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "dates",
+   "kind": "search",
+   "query": "dates",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "nuts",
+   "kind": "search",
+   "query": "nuts",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "nuts",
+   "kind": "search",
+   "query": "nuts",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "honey",
+   "kind": "search",
+   "query": "honey",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "honey",
+   "kind": "search",
+   "query": "honey",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "tea",
+   "kind": "search",
+   "query": "tea",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "tea",
+   "kind": "search",
+   "query": "tea",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "coffee",
+   "kind": "search",
+   "query": "coffee",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "coffee",
+   "kind": "search",
+   "query": "coffee",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "water",
+   "kind": "search",
+   "query": "water",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "water",
+   "kind": "search",
+   "query": "water",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "juice",
+   "kind": "search",
+   "query": "juice",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "juice",
+   "kind": "search",
+   "query": "juice",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "soft drinks",
+   "kind": "search",
+   "query": "soft drinks",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "soft drinks",
+   "kind": "search",
+   "query": "soft drinks",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "detergent",
+   "kind": "search",
+   "query": "detergent",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "detergent",
+   "kind": "search",
+   "query": "detergent",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "dishwashing",
+   "kind": "search",
+   "query": "dishwashing",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "dishwashing",
+   "kind": "search",
+   "query": "dishwashing",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "cleaning",
+   "kind": "search",
+   "query": "cleaning",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "cleaning",
+   "kind": "search",
+   "query": "cleaning",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "tissue",
+   "kind": "search",
+   "query": "tissue",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "tissue",
+   "kind": "search",
+   "query": "tissue",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "air freshener",
+   "kind": "search",
+   "query": "air freshener",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "air freshener",
+   "kind": "search",
+   "query": "air freshener",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "insecticide",
+   "kind": "search",
+   "query": "insecticide",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "insecticide",
+   "kind": "search",
+   "query": "insecticide",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "cookware",
+   "kind": "search",
+   "query": "cookware",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "cookware",
+   "kind": "search",
+   "query": "cookware",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "plates",
+   "kind": "search",
+   "query": "plates",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "plates",
+   "kind": "search",
+   "query": "plates",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "bedsheet",
+   "kind": "search",
+   "query": "bedsheet",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "bedsheet",
+   "kind": "search",
+   "query": "bedsheet",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "towel",
+   "kind": "search",
+   "query": "towel",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "towel",
+   "kind": "search",
+   "query": "towel",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "light bulb",
+   "kind": "search",
+   "query": "light bulb",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "light bulb",
+   "kind": "search",
+   "query": "light bulb",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "batteries",
+   "kind": "search",
+   "query": "batteries",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "batteries",
+   "kind": "search",
+   "query": "batteries",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "kettle",
+   "kind": "search",
+   "query": "kettle",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "kettle",
+   "kind": "search",
+   "query": "kettle",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "iron",
+   "kind": "search",
+   "query": "iron",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "iron",
+   "kind": "search",
+   "query": "iron",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "blender",
+   "kind": "search",
+   "query": "blender",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "blender",
+   "kind": "search",
+   "query": "blender",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "vacuum cleaner",
+   "kind": "search",
+   "query": "vacuum cleaner",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "vacuum cleaner",
+   "kind": "search",
+   "query": "vacuum cleaner",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "fan",
+   "kind": "search",
+   "query": "fan",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "fan",
+   "kind": "search",
+   "query": "fan",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "washing machine",
+   "kind": "search",
+   "query": "washing machine",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "washing machine",
+   "kind": "search",
+   "query": "washing machine",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "refrigerator",
+   "kind": "search",
+   "query": "refrigerator",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "refrigerator",
+   "kind": "search",
+   "query": "refrigerator",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "air conditioner",
+   "kind": "search",
+   "query": "air conditioner",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "air conditioner",
+   "kind": "search",
+   "query": "air conditioner",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "shampoo",
+   "kind": "search",
+   "query": "shampoo",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "shampoo",
+   "kind": "search",
+   "query": "shampoo",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "soap",
+   "kind": "search",
+   "query": "soap",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "soap",
+   "kind": "search",
+   "query": "soap",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "toothpaste",
+   "kind": "search",
+   "query": "toothpaste",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "toothpaste",
+   "kind": "search",
+   "query": "toothpaste",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "deodorant",
+   "kind": "search",
+   "query": "deodorant",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "deodorant",
+   "kind": "search",
+   "query": "deodorant",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "diapers",
+   "kind": "search",
+   "query": "diapers",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "diapers",
+   "kind": "search",
+   "query": "diapers",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "razor",
+   "kind": "search",
+   "query": "razor",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "razor",
+   "kind": "search",
+   "query": "razor",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "sanitary pads",
+   "kind": "search",
+   "query": "sanitary pads",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "sanitary pads",
+   "kind": "search",
+   "query": "sanitary pads",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "body lotion",
+   "kind": "search",
+   "query": "body lotion",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "body lotion",
+   "kind": "search",
+   "query": "body lotion",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "hair dryer",
+   "kind": "search",
+   "query": "hair dryer",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "hair dryer",
+   "kind": "search",
+   "query": "hair dryer",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "perfume",
+   "kind": "search",
+   "query": "perfume",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "perfume",
+   "kind": "search",
+   "query": "perfume",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "paracetamol",
+   "kind": "search",
+   "query": "paracetamol",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "paracetamol",
+   "kind": "search",
+   "query": "paracetamol",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "vitamins",
+   "kind": "search",
+   "query": "vitamins",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "vitamins",
+   "kind": "search",
+   "query": "vitamins",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "first aid",
+   "kind": "search",
+   "query": "first aid",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "first aid",
+   "kind": "search",
+   "query": "first aid",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "thermometer",
+   "kind": "search",
+   "query": "thermometer",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "thermometer",
+   "kind": "search",
+   "query": "thermometer",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "face mask",
+   "kind": "search",
+   "query": "face mask",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "personal",
+   "division": "06 Health / 13 Personal care",
+   "category": "face mask",
+   "kind": "search",
+   "query": "face mask",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "mobile phone",
+   "kind": "search",
+   "query": "mobile phone",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "mobile phone",
+   "kind": "search",
+   "query": "mobile phone",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "phone case",
+   "kind": "search",
+   "query": "phone case",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "phone case",
+   "kind": "search",
+   "query": "phone case",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "screen protector",
+   "kind": "search",
+   "query": "screen protector",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "screen protector",
+   "kind": "search",
+   "query": "screen protector",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "charger",
+   "kind": "search",
+   "query": "charger",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "charger",
+   "kind": "search",
+   "query": "charger",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "usb cable",
+   "kind": "search",
+   "query": "usb cable",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "usb cable",
+   "kind": "search",
+   "query": "usb cable",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "power bank",
+   "kind": "search",
+   "query": "power bank",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "power bank",
+   "kind": "search",
+   "query": "power bank",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "earphones",
+   "kind": "search",
+   "query": "earphones",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "earphones",
+   "kind": "search",
+   "query": "earphones",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "laptop",
+   "kind": "search",
+   "query": "laptop",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "laptop",
+   "kind": "search",
+   "query": "laptop",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "tablet",
+   "kind": "search",
+   "query": "tablet",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "tablet",
+   "kind": "search",
+   "query": "tablet",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "router",
+   "kind": "search",
+   "query": "router",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "router",
+   "kind": "search",
+   "query": "router",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "smart watch",
+   "kind": "search",
+   "query": "smart watch",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "smart watch",
+   "kind": "search",
+   "query": "smart watch",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "television",
+   "kind": "search",
+   "query": "television",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "television",
+   "kind": "search",
+   "query": "television",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "speaker",
+   "kind": "search",
+   "query": "speaker",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "speaker",
+   "kind": "search",
+   "query": "speaker",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "headphones",
+   "kind": "search",
+   "query": "headphones",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "headphones",
+   "kind": "search",
+   "query": "headphones",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "gaming console",
+   "kind": "search",
+   "query": "gaming console",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "gaming console",
+   "kind": "search",
+   "query": "gaming console",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "camera",
+   "kind": "search",
+   "query": "camera",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "camera",
+   "kind": "search",
+   "query": "camera",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men t-shirt",
+   "kind": "search",
+   "query": "men t-shirt",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men t-shirt",
+   "kind": "search",
+   "query": "men t-shirt",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women dress",
+   "kind": "search",
+   "query": "women dress",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women dress",
+   "kind": "search",
+   "query": "women dress",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "jeans",
+   "kind": "search",
+   "query": "jeans",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "jeans",
+   "kind": "search",
+   "query": "jeans",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "kids clothing",
+   "kind": "search",
+   "query": "kids clothing",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "kids clothing",
+   "kind": "search",
+   "query": "kids clothing",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "socks",
+   "kind": "search",
+   "query": "socks",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "socks",
+   "kind": "search",
+   "query": "socks",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "underwear",
+   "kind": "search",
+   "query": "underwear",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "underwear",
+   "kind": "search",
+   "query": "underwear",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "shoes",
+   "kind": "search",
+   "query": "shoes",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "shoes",
+   "kind": "search",
+   "query": "shoes",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "sandals",
+   "kind": "search",
+   "query": "sandals",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "sandals",
+   "kind": "search",
+   "query": "sandals",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "sports shoes",
+   "kind": "search",
+   "query": "sports shoes",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "sports shoes",
+   "kind": "search",
+   "query": "sports shoes",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "engine oil",
+   "kind": "search",
+   "query": "engine oil",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "engine oil",
+   "kind": "search",
+   "query": "engine oil",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "car accessories",
+   "kind": "search",
+   "query": "car accessories",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "car accessories",
+   "kind": "search",
+   "query": "car accessories",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "car battery",
+   "kind": "search",
+   "query": "car battery",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "car battery",
+   "kind": "search",
+   "query": "car battery",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "bicycle",
+   "kind": "search",
+   "query": "bicycle",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "07 Transport",
+   "category": "bicycle",
+   "kind": "search",
+   "query": "bicycle",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "toys",
+   "kind": "search",
+   "query": "toys",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "toys",
+   "kind": "search",
+   "query": "toys",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "books",
+   "kind": "search",
+   "query": "books",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "books",
+   "kind": "search",
+   "query": "books",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "video games",
+   "kind": "search",
+   "query": "video games",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "video games",
+   "kind": "search",
+   "query": "video games",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "pet food",
+   "kind": "search",
+   "query": "pet food",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "pet food",
+   "kind": "search",
+   "query": "pet food",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "garden",
+   "kind": "search",
+   "query": "garden",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "09 Recreation & culture",
+   "category": "garden",
+   "kind": "search",
+   "query": "garden",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "10 Education",
+   "category": "notebook",
+   "kind": "search",
+   "query": "notebook",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "10 Education",
+   "category": "notebook",
+   "kind": "search",
+   "query": "notebook",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "10 Education",
+   "category": "pens",
+   "kind": "search",
+   "query": "pens",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "10 Education",
+   "category": "pens",
+   "kind": "search",
+   "query": "pens",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "10 Education",
+   "category": "school bag",
+   "kind": "search",
+   "query": "school bag",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "10 Education",
+   "category": "school bag",
+   "kind": "search",
+   "query": "school bag",
+   "pages": 3
+  },
+  {
+   "store": "carrefour",
+   "group": "other",
+   "division": "10 Education",
+   "category": "stationery",
+   "kind": "search",
+   "query": "stationery",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "other",
+   "division": "10 Education",
+   "category": "stationery",
+   "kind": "search",
+   "query": "stationery",
+   "pages": 3
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fresh food dairy eggs cheese eggs",
+   "kind": "lulu_category",
+   "slug": "fresh-food-dairy-eggs-cheese-eggs",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fresh food dairy eggs cheese fresh milk",
+   "kind": "lulu_category",
+   "slug": "fresh-food-dairy-eggs-cheese-fresh-milk",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fresh food dairy eggs cheese yoghurt chilled desserts",
+   "kind": "lulu_category",
+   "slug": "fresh-food-dairy-eggs-cheese-yoghurt-chilled-desserts",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fresh food fresh fish seafoods",
+   "kind": "lulu_category",
+   "slug": "fresh-food-fresh-fish-seafoods",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fresh food fresh meat poultry fresh beef veal",
+   "kind": "lulu_category",
+   "slug": "fresh-food-fresh-meat-poultry-fresh-beef-veal",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fresh food fresh meat poultry fresh chicken",
+   "kind": "lulu_category",
+   "slug": "fresh-food-fresh-meat-poultry-fresh-chicken",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "fresh food fruits vegetables",
+   "kind": "lulu_category",
+   "slug": "fresh-food-fruits-vegetables",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "grocery food cupboard cooking ingredients",
+   "kind": "lulu_category",
+   "slug": "grocery-food-cupboard-cooking-ingredients",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "grocery food cupboard frozen food",
+   "kind": "lulu_category",
+   "slug": "grocery-food-cupboard-frozen-food",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "grocery food cupboard home baking sweeteners",
+   "kind": "lulu_category",
+   "slug": "grocery-food-cupboard-home-baking-sweeteners",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "grocery food cupboard rice pasta noodles",
+   "kind": "lulu_category",
+   "slug": "grocery-food-cupboard-rice-pasta-noodles",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "food",
+   "division": "01 Food & non-alcoholic beverages",
+   "category": "grocery food cupboard",
+   "kind": "lulu_category",
+   "slug": "grocery-food-cupboard",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "grocery household cleaning essentials",
+   "kind": "lulu_category",
+   "slug": "grocery-household-cleaning-essentials",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "grocery household dishwashing liquids tablets",
+   "kind": "lulu_category",
+   "slug": "grocery-household-dishwashing-liquids-tablets",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "grocery household laundry essentials",
+   "kind": "lulu_category",
+   "slug": "grocery-household-laundry-essentials",
+   "pages": 1
+  },
+  {
+   "store": "lulu",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "grocery household",
+   "kind": "lulu_category",
+   "slug": "grocery-household",
+   "pages": 1
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Mobiles & Tablets > Mobiles",
+   "kind": "algolia",
+   "facet": "Mobiles & Tablets > Mobiles",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Mobiles & Tablets > Mobile Accessories",
+   "kind": "algolia",
+   "facet": "Mobiles & Tablets > Mobile Accessories",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Mobiles & Tablets > Tablets",
+   "kind": "algolia",
+   "facet": "Mobiles & Tablets > Tablets",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Mobiles & Tablets > Tablet Accessories",
+   "kind": "algolia",
+   "facet": "Mobiles & Tablets > Tablet Accessories",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Computing > Laptops",
+   "kind": "algolia",
+   "facet": "Computing > Laptops",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Computing > Computing Accessories",
+   "kind": "algolia",
+   "facet": "Computing > Computing Accessories",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Computing > Printers & Ink",
+   "kind": "algolia",
+   "facet": "Computing > Printers & Ink",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Computing > Networking & Wireless",
+   "kind": "algolia",
+   "facet": "Computing > Networking & Wireless",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Computing > Monitors",
+   "kind": "algolia",
+   "facet": "Computing > Monitors",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Computing > Storage",
+   "kind": "algolia",
+   "facet": "Computing > Storage",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "08 Information & communication",
+   "category": "Wearables & Smartwatches > Smartwatches",
+   "kind": "algolia",
+   "facet": "Wearables & Smartwatches > Smartwatches",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "TV, Video & Audio > TVs",
+   "kind": "algolia",
+   "facet": "TV, Video & Audio > TVs",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "TV, Video & Audio > Audio",
+   "kind": "algolia",
+   "facet": "TV, Video & Audio > Audio",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "TV, Video & Audio > Home Cinema & Soundbars",
+   "kind": "algolia",
+   "facet": "TV, Video & Audio > Home Cinema & Soundbars",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "Cameras & Camcorders > Digital Cameras",
+   "kind": "algolia",
+   "facet": "Cameras & Camcorders > Digital Cameras",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "Gaming > Gaming Consoles",
+   "kind": "algolia",
+   "facet": "Gaming > Gaming Consoles",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "Gaming > Games",
+   "kind": "algolia",
+   "facet": "Gaming > Games",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "electronics",
+   "division": "09 Recreation (audio-visual)",
+   "category": "Gaming > Gaming Accessories",
+   "kind": "algolia",
+   "facet": "Gaming > Gaming Accessories",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "Home Appliances > Small Appliances",
+   "kind": "algolia",
+   "facet": "Home Appliances > Small Appliances",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "Home Appliances > Cooking",
+   "kind": "algolia",
+   "facet": "Home Appliances > Cooking",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "Home Appliances > Fridges & Freezers",
+   "kind": "algolia",
+   "facet": "Home Appliances > Fridges & Freezers",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "Home Appliances > Laundry",
+   "kind": "algolia",
+   "facet": "Home Appliances > Laundry",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "Home Appliances > Cooling & Heating",
+   "kind": "algolia",
+   "facet": "Home Appliances > Cooling & Heating",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "Home Appliances > Floorcare",
+   "kind": "algolia",
+   "facet": "Home Appliances > Floorcare",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "household",
+   "division": "05 Furnishings & household",
+   "category": "Home Appliances > Dishwashers",
+   "kind": "algolia",
+   "facet": "Home Appliances > Dishwashers",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "personal",
+   "division": "13 Personal care",
+   "category": "Health, Fitness & Beauty > Grooming Appliances",
+   "kind": "algolia",
+   "facet": "Health, Fitness & Beauty > Grooming Appliances",
+   "per_page": 60
+  },
+  {
+   "store": "sharafdg",
+   "group": "personal",
+   "division": "13 Personal care",
+   "category": "Health, Fitness & Beauty > Fragrances",
+   "kind": "algolia",
+   "facet": "Health, Fitness & Beauty > Fragrances",
+   "per_page": 60
+  }
+ ]
+}

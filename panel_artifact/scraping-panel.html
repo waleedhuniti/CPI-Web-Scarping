@@ -542,11 +542,11 @@ function buildRuns(cfg, items) {
 const P = () => projects[current];
 async function loadProjects() {
   const snap = await db.collection("projects").get();
-  projects = {}; snap.docs.forEach((d) => (projects[d.id] = { ...d.data() }));
+  projects = {}; snap.docs.forEach((d) => (projects[d.id] = { ...plain(d) }));
 }
 async function loadBasket(pid) {
   const snap = await db.collection(`projects/${pid}/basket`).get();
-  return snap.docs.sort((a, b) => a.id.localeCompare(b.id)).flatMap((d) => d.data().items || []);
+  return [...snap.docs].sort((a, b) => a.id.localeCompare(b.id)).flatMap((d) => plain(d).items || []);
 }
 async function saveChunks(coll, key, list, old) {
   const chunks = []; let cur = [], size = 0;
@@ -561,6 +561,8 @@ async function saveProject(patch) {
   const p = { ...P(), ...patch, updatedAt: new Date().toISOString() };
   await db.doc(`projects/${current}`).set(p); projects[current] = p;
 }
+// the store hands back frozen data; work on a plain copy
+const plain = (snap) => JSON.parse(JSON.stringify(snap.data() ?? {}));
 // rows of a run: one document at a time (a whole-collection read of large chunks can fail), in chunk order
 async function rowDocs(pid, run) {
   const base = `projects/${pid}/runs/${run.id}/rows`;
@@ -572,7 +574,7 @@ async function rowDocs(pid, run) {
     }
     if (out.length) return out;
   }
-  return (await db.collection(base).limit(200).get()).docs.sort((a, b) => a.id.localeCompare(b.id));
+  return [...(await db.collection(base).limit(200).get()).docs].sort((a, b) => a.id.localeCompare(b.id));
 }
 function dbErr(e) { return e?.code === "quota_exceeded" ? "امتلأت قاعدة البيانات؛ احذف تشغيلات قديمة ثم حاول" : e?.code === "revoked" ? "لم تعد لديك صلاحية على هذه الصفحة" : (e?.message || String(e)); }
 
@@ -622,7 +624,7 @@ async function loadHomeFigures() {
   for (const [id, p] of Object.entries(projects)) {
     if (isPlanned(p)) continue;
     try {
-      const list = (await db.collection(`projects/${id}/runs`).orderBy("startedAt", "desc").limit(20).get()).docs.map((d) => ({ id: d.id, ...d.data() }));
+      const list = (await db.collection(`projects/${id}/runs`).orderBy("startedAt", "desc").limit(20).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
       if (!list.length) continue;
       const L = latestBySource(list);
       homeAcc[id] = L.sources.reduce((n, v) => n + (v.accepted || 0), 0);
@@ -752,7 +754,7 @@ async function loadOvRows(runIds, sources) {
   try {
     for (const id of runIds) {
       const chunks = await rowDocs(pid, runs.find((r) => r.id === id) || { id });
-      for (const c of chunks) for (const r of c.data().rows || []) {
+      for (const c of chunks) for (const r of plain(c).rows || []) {
         const kind = r.source === "category" || isCat(r.actor) ? "category" : "barcode";
         const ret = r.retailer || (/lulu/i.test(r.actor) ? "lulu" : /carrefour/i.test(r.actor) ? "carrefour" : r.actor);
         // keep a row only from the run that is the latest for its source
@@ -1132,7 +1134,7 @@ let runs = [], shownRun = null, shownRows = [];
 async function loadRuns() {
   try {
     const snap = await db.collection(`projects/${current}/runs`).orderBy("startedAt", "desc").limit(50).get();
-    runs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    runs = snap.docs.map((d) => ({ id: d.id, ...plain(d) }));
   } catch (e) { runs = []; }
   $("#r-list").innerHTML = runs.length ? `<div class="tw"><table><thead><tr><th>التاريخ</th><th>الحالة</th><th>صفوف</th><th>مقبول</th><th></th></tr></thead><tbody>${runs.map((r) => {
     const st = r.status === "done" ? ["انتهى", "ok"] : r.status === "stopped" ? ["أُوقف", "warn"] : ["خطأ", "bad"];
@@ -1143,7 +1145,7 @@ async function loadRuns() {
 async function showRun(id) {
   shownRun = runs.find((r) => r.id === id);
   $("#r-view").hidden = false; $("#r-more").textContent = "تُحمَّل الصفوف…";
-  try { shownRows = (await rowDocs(current, shownRun)).flatMap((d) => d.data().rows || []); }
+  try { shownRows = (await rowDocs(current, shownRun)).flatMap((d) => plain(d).rows || []); }
   catch (e) { shownRows = []; $("#r-more").textContent = ""; toast("تعذّر تحميل صفوف التشغيل: " + dbErr(e), true); return; }
   $("#r-view").hidden = false; $("#r-del-confirm").innerHTML = "";
   $("#r-title").textContent = (shownRun.startedAt || "").replace("T", " ").slice(0, 16);
@@ -1298,11 +1300,11 @@ const LEAD = ["run_date", "run_id", "retailer", "actor", "item_code", "barcode",
 $("#r-export-all").addEventListener("click", async () => {
   const btn = $("#r-export-all"); btn.disabled = true; btn.textContent = "يُجمع…";
   try {
-    const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...d.data() }));
+    const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
     const rows = [];
     for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
       const chunks = await rowDocs(current, r);
-      for (const c of chunks) for (const x of c.data().rows || [])
+      for (const c of chunks) for (const x of plain(c).rows || [])
         rows.push({ ...x, run_id: r.id, run_date: x.run_date || String(r.startedAt || "").slice(0, 10) });
     }
     if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);

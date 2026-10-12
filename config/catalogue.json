@@ -1,5 +1,5 @@
 {
- "notes": "Daily product catalogue in the layout of Dubai_Bulk_Product_Catalogue.xlsx: every CPI division, stores selling their own goods (no marketplaces, no resellers). Carrefour: first search page (~60). Lulu: 3 search pages (~60) and the 8 Oct category pages (50). Sharaf DG: top 60 of each category from its public product search.",
+ "notes": "Daily product catalogue in the layout of Dubai_Bulk_Product_Catalogue.xlsx: every CPI division, stores selling their own goods (no marketplaces, no resellers). Carrefour: first search page (~60). Lulu: 3 search pages (~60) and the 8 Oct category pages (50). Sharaf DG: top 60 of each category from its public product search. Clothing & footwear also from the brands' own stores: Zara (its category feed), Centrepoint (Splash, Shoe Mart, Babyshop, Lifestyle) and Max (search pages through Scrapling's stealth browser).",
  "groups": {
   "food": "Food & groceries",
   "household": "Household & cleaning",
@@ -2177,6 +2177,467 @@
    "kind": "algolia",
    "facet": "Health, Fitness & Beauty > Fragrances",
    "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > T-shirts",
+   "kind": "zara",
+   "category_id": "2420416",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > Shirts",
+   "kind": "zara",
+   "category_id": "2420368",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > Jeans",
+   "kind": "zara",
+   "category_id": "2419242",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > Trousers",
+   "kind": "zara",
+   "category_id": "2420794",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > Dresses",
+   "kind": "zara",
+   "category_id": "2420895",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > Knitwear",
+   "kind": "zara",
+   "category_id": "2420293",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > Jackets",
+   "kind": "zara",
+   "category_id": "2417770",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Women > Shoes",
+   "kind": "zara",
+   "category_id": "2419159",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Men > T-shirts",
+   "kind": "zara",
+   "category_id": "2432040",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Men > Shirts",
+   "kind": "zara",
+   "category_id": "2431993",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Men > Jeans",
+   "kind": "zara",
+   "category_id": "2432130",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Men > Trousers",
+   "kind": "zara",
+   "category_id": "2432095",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Men > Suits",
+   "kind": "zara",
+   "category_id": "2432191",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Men > Jackets",
+   "kind": "zara",
+   "category_id": "2537410",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Men > Shoes",
+   "kind": "zara",
+   "category_id": "2436372",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Girls > T-shirts",
+   "kind": "zara",
+   "category_id": "2426140",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Girls > Dresses",
+   "kind": "zara",
+   "category_id": "2427560",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Girls > Jeans",
+   "kind": "zara",
+   "category_id": "2426261",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Girls > Shoes",
+   "kind": "zara",
+   "category_id": "2427563",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Boys > T-shirts",
+   "kind": "zara",
+   "category_id": "2426650",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Boys > Jeans",
+   "kind": "zara",
+   "category_id": "2426737",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Boys > Shoes",
+   "kind": "zara",
+   "category_id": "2428521",
+   "per_page": 60
+  },
+  {
+   "store": "zara",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "Baby > T-shirts",
+   "kind": "zara",
+   "category_id": "2428149",
+   "per_page": 60
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men t-shirts",
+   "kind": "landmark",
+   "query": "men t-shirts"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men shirts",
+   "kind": "landmark",
+   "query": "men shirts"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men jeans",
+   "kind": "landmark",
+   "query": "men jeans"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men trousers",
+   "kind": "landmark",
+   "query": "men trousers"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women dresses",
+   "kind": "landmark",
+   "query": "women dresses"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women tops",
+   "kind": "landmark",
+   "query": "women tops"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women jeans",
+   "kind": "landmark",
+   "query": "women jeans"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "abaya",
+   "kind": "landmark",
+   "query": "abaya"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "kids clothing",
+   "kind": "landmark",
+   "query": "kids clothing"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "baby clothing",
+   "kind": "landmark",
+   "query": "baby clothing"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men shoes",
+   "kind": "landmark",
+   "query": "men shoes"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women shoes",
+   "kind": "landmark",
+   "query": "women shoes"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "kids shoes",
+   "kind": "landmark",
+   "query": "kids shoes"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "sandals",
+   "kind": "landmark",
+   "query": "sandals"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "sports shoes",
+   "kind": "landmark",
+   "query": "sports shoes"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "socks",
+   "kind": "landmark",
+   "query": "socks"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "underwear",
+   "kind": "landmark",
+   "query": "underwear"
+  },
+  {
+   "store": "centrepoint",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "school uniform",
+   "kind": "landmark",
+   "query": "school uniform"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men t-shirts",
+   "kind": "landmark",
+   "query": "men t-shirts",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men shirts",
+   "kind": "landmark",
+   "query": "men shirts",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men jeans",
+   "kind": "landmark",
+   "query": "men jeans",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women dresses",
+   "kind": "landmark",
+   "query": "women dresses",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women tops",
+   "kind": "landmark",
+   "query": "women tops",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women jeans",
+   "kind": "landmark",
+   "query": "women jeans",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "kids clothing",
+   "kind": "landmark",
+   "query": "kids clothing",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "baby clothing",
+   "kind": "landmark",
+   "query": "baby clothing",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "men shoes",
+   "kind": "landmark",
+   "query": "men shoes",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "women shoes",
+   "kind": "landmark",
+   "query": "women shoes",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
+  },
+  {
+   "store": "max",
+   "group": "clothing",
+   "division": "03 Clothing & footwear",
+   "category": "kids shoes",
+   "kind": "landmark",
+   "query": "kids shoes",
+   "site": "https://www.maxfashion.com/ae/en",
+   "outlet": "Max"
   }
  ]
 }

@@ -1,6 +1,7 @@
 """Daily product catalogue for every CPI division (config/catalogue.json), in the layout of the 8 Oct catalogue.
 
     python scripts/catalogue_crawl.py data/catalogue/2026-10-12
+    python scripts/catalogue_crawl.py data/catalogue/2026-10-12 --stores=zara,max --append   # add stores to the day
 
 Stores selling their own goods only (no marketplaces / resellers): Carrefour and Lulu (search pages and the 8 Oct Lulu
 category pages, with Scrapling's Chrome fingerprint) and Sharaf DG (its public product search, the same one its
@@ -25,7 +26,7 @@ import scrapling_search as ss  # noqa: E402
 from scrapling_category import price_basis  # noqa: E402
 
 CONFIG = ROOT / "config/catalogue.json"
-OUTLET = {"carrefour": "Carrefour", "lulu": "Lulu", "sharafdg": "Sharaf DG"}
+OUTLET = {"carrefour": "Carrefour", "lulu": "Lulu", "sharafdg": "Sharaf DG", "zara": "Zara", "centrepoint": "Centrepoint", "max": "Max"}
 SDG_SEARCH = "https://9khjlg93j1-dsn.algolia.net/1/indexes/products_index/query"
 SDG_HEADERS = {"X-Algolia-Application-Id": "9KHJLG93J1", "X-Algolia-API-Key": "e81d5b30a712bb28f0f1d2a52fc92dd0",
                "Content-Type": "application/json", "Origin": "https://uae.sharafdg.com", "Referer": "https://uae.sharafdg.com/"}
@@ -66,6 +67,63 @@ def sharafdg(s, src):
     return out
 
 
+def zara(s, src):
+    """Zara's own category feed (the one its pages load): prices are in fils, one row per product (first colour)."""
+    p = s.get(f"https://www.zara.com/ae/en/category/{src['category_id']}/products?ajax=true")
+    out = []
+    for g in json.loads(p.body).get("productGroups", []):
+        for e in g.get("elements", []):
+            for c in e.get("commercialComponents") or []:
+                if c.get("type") != "Product" or not c.get("price") or c.get("priceUnavailable"):
+                    continue
+                colors = (c.get("detail") or {}).get("colors") or [{}]
+                x = (colors[0].get("xmedia") or c.get("xmedia") or [{}])[0]
+                photo = f"https://static.zara.net{x['path']}/{x['name']}.jpg?ts={x.get('timestamp', '')}&w=300" if x.get("path") else ""
+                seo = c.get("seo") or {}
+                old = c.get("oldPrice") or colors[0].get("oldPrice")
+                colour = colors[0].get("name", "")
+                out.append(dict(title=c["name"].title() + (f" ({colour.title()})" if colour else ""), price=c["price"] / 100,
+                                regular_price=(old or c["price"]) / 100, size_text="",
+                                url=f"https://www.zara.com/ae/en/{seo.get('keyword', '')}-p{seo.get('seoProductId', '')}.html",
+                                photo=photo, brand="Zara", retailer_id=seo.get("seoProductId", ""),
+                                in_stock=c.get("availability", "in_stock") == "in_stock"))
+                if len(out) >= src.get("per_page", 60):
+                    return out
+    return out
+
+
+def landmark(src):
+    """Centrepoint (Landmark: Splash, Shoe Mart, Babyshop, Lifestyle, Max ...) search page through Scrapling's stealth
+    browser (Cloudflare); the products are in the page's state (__NEXT_DATA__ -> initialState, base64 JSON)."""
+    import base64
+    import re
+    from scrapling.fetchers import StealthyFetcher
+    q = urllib.parse.quote(src["query"])
+    site = src.get("site", "https://www.centrepointstores.com/ae/en")
+    p = StealthyFetcher.fetch(f"{site}/search?q={q}", headless=True,
+                              solve_cloudflare=True, network_idle=True, timeout=120000)
+    m = re.search(r'__NEXT_DATA__" type="application/json">(.*?)</script>', p.html_content, re.S)
+    if not m:
+        return []
+    state = json.loads(base64.b64decode(json.loads(m.group(1))["props"]["initialState"] + "==").decode("utf-8", "ignore"))
+    out = []
+    for h in ((state.get("algoliaProductReducer") or {}).get("data") or {}).get("hits", []):
+        try:
+            price, was = float(h.get("price") or h.get("sale_price")), float(h.get("wasPrice") or h.get("price"))
+        except (TypeError, ValueError):
+            continue
+        concept = ((h.get("concept") or {}).get("en") or "").title().replace("Shoemart", "Shoe Mart")
+        colour = (h.get("color") or {}).get("en", "")
+        out.append(dict(title=((h.get("name") or {}).get("en") or h.get("title", "")) + (f" ({colour})" if colour else ""),
+                        price=price, regular_price=max(price, was), size_text="",
+                        url=site + (h.get("url") or h.get("uri") or ""),
+                        photo=h.get("thumbnailImg") or h.get("thumb_image") or "",
+                        brand=(h.get("brandDisplayValue") or {}).get("en") or h.get("brand", ""), retailer_id=h.get("sku", ""),
+                        in_stock=str(h.get("inStock")) == "1",
+                        outlet=src.get("outlet") or (f"{concept} (Centrepoint)" if concept else "Centrepoint")))
+    return out
+
+
 def row_for(src, r, collected):
     per, basis = price_basis(dict(title=r["title"], price=float(r["price"]), size_text=r.get("size_text", "")))
     size = (r.get("size_text") or "").split(" - ")[0].strip()
@@ -76,7 +134,7 @@ def row_for(src, r, collected):
         notes.append(f"Was AED {r['regular_price']}")
     notes.append("Public UAE listing; Dubai branch availability not confirmed")
     rid = r.get("retailer_id") or ((urllib.parse.urlparse(r["url"]).path.rstrip("/").split("/p/") + [""])[1].split("/")[0])
-    return dict(outlet=OUTLET[src["store"]], store=src["store"], group=src["group"], division=src["division"],
+    return dict(outlet=r.get("outlet") or OUTLET[src["store"]], store=src["store"], group=src["group"], division=src["division"],
                 category=src["category"], title=r["title"], price=r["price"], regular_price=r.get("regular_price", ""),
                 size=size, unit_price=per if per is not None else "", price_basis=basis, brand=r.get("brand", ""),
                 retailer_id=rid, availability="Out of stock" if r.get("in_stock") is False else "Available",
@@ -93,6 +151,10 @@ def crawl_store(store, sources, collected, delay, progress):
             try:
                 if src["kind"] == "algolia":
                     got = sharafdg(s, src)
+                elif src["kind"] == "zara":
+                    got = zara(s, src)
+                elif src["kind"] == "landmark":
+                    got = landmark(src)
                 else:
                     for parse, url in listing_pages(s, src):
                         page = s.get(url)
@@ -113,7 +175,7 @@ def crawl_store(store, sources, collected, delay, progress):
     return rows, log
 
 
-def main(out_dir, delay=1.0):
+def main(out_dir, delay=1.0, only=None, append=False):
     import threading
     from concurrent.futures import ThreadPoolExecutor
     cfg = json.load(open(CONFIG, encoding="utf-8"))
@@ -122,18 +184,24 @@ def main(out_dir, delay=1.0):
     collected = (datetime.now(timezone.utc) + timedelta(hours=4)).strftime("%Y-%m-%d %H:%M")
     stores = {}
     for src in cfg["sources"]:
-        stores.setdefault(src["store"], []).append(src)
+        if not only or src["store"] in only:
+            stores.setdefault(src["store"], []).append(src)
+    total = sum(len(v) for v in stores.values())
     lock, done = threading.Lock(), [0]
 
     def progress(line):
         with lock:
             done[0] += 1
-            print(f"[{done[0]}/{len(cfg['sources'])}] {line}", flush=True)
+            print(f"[{done[0]}/{total}] {line}", flush=True)
 
     with ThreadPoolExecutor(len(stores)) as ex:
         results = list(ex.map(lambda kv: crawl_store(kv[0], kv[1], collected, delay, progress), stores.items()))
     rows = [r for rs, _ in results for r in rs]
     log = [line for _, ls in results for line in ls]
+    if append and (out_dir / "catalog.csv").exists():      # add these stores to the day's catalogue
+        old = [r for r in csv.DictReader(open(out_dir / "catalog.csv", encoding="utf-8-sig")) if r["store"] not in stores]
+        rows = old + rows
+        log = (out_dir / "crawl_log.txt").read_text(encoding="utf-8").splitlines() + log
     with open(out_dir / "catalog.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
@@ -146,4 +214,6 @@ def main(out_dir, delay=1.0):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--stores=")), None)
+    main(args[0], only=only, append="--append" in sys.argv)

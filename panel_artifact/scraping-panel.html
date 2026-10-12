@@ -1,15 +1,17 @@
-<title>لوحة مشاريع السكراب</title>
+<title>منصة جمع الأسعار</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: a project shelf on the home view; inside a project, one tab strip (run / basket / actors / results / settings) over a single working column. */
 :root {
-  /* Digital Dubai palette (digitaldubai.ae): navy #1C2654, cyan #26ADE3, with turquoise, green, yellow, coral and purple accents */
-  --bg: #ffffff; --surface: #ffffff; --sunk: #f3f6f9; --line: #c6d2db;
-  --fg: #1c2654; --muted: #4f5b7c; --accent: #1c2654; --accent-fg: #ffffff; --cyan: #1d8fc0;
-  --band: #ffffff; --band-fg: #1c2654; --band-muted: #4f5b7c;
+  /* Palette taken from the office's presentation (DG meeting deck): white page, cyan titles and section bars,
+     mid-blue and navy bars, navy table headers, light-grey zebra rows, blue figures, amber for a second figure. */
+  --bg: #ffffff; --surface: #ffffff; --sunk: #f2f2f2; --line: #d9dee6;
+  --fg: #14264b; --muted: #5a6478; --accent: #14264b; --accent-fg: #ffffff; --cyan: #1a8fd1;
+  --band: #ffffff; --band-fg: #14264b; --band-muted: #5a6478;
+  --title: #1ea5e0; --bar-cyan: #1ea5e0; --bar-blue: #1678be; --bar-steel: #2e88c2; --navy: #14264b; --amber: #c98d22;
   --ok: #2f7d32; --warn: #9a6a00; --bad: #c2412a;
-  --dd-cyan: #26ade3; --dd-teal: #4cbfbc; --dd-green: #89c440; --dd-yellow: #f4cc1c; --dd-coral: #f15a3b; --dd-purple: #992d8f;
-  --sans: "Dubai", "Dubai W23", "Tajawal", Tahoma, "Segoe UI", sans-serif;
+  --dd-cyan: #1ea5e0; --dd-teal: #2e88c2; --dd-green: #1678be; --dd-yellow: #d9a43a; --dd-coral: #14264b; --dd-purple: #2e88c2;
+  --sans: "Dubai", "Dubai W23", "Tajawal", Arial, Tahoma, sans-serif;
   --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
@@ -96,11 +98,93 @@ dialog::backdrop { background: rgb(0 0 0 / .45); }
 .stat { display: grid; gap: 2px; }
 .stat b { font-size: 22px; font-variant-numeric: tabular-nums; }
 .stats { display: flex; flex-wrap: wrap; gap: 28px; }
+
+/* presentation layer: hero, KPI tiles, sections, status chips, overview */
+.hero { display: grid; gap: 18px; padding-block: 8px 26px; }
+.hero h2 { font-size: 30px; line-height: 1.25; margin: 0; text-wrap: balance; }
+.hero p { margin: 0; color: var(--muted); max-width: 70ch; font-size: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.kpi { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px; background: var(--surface); position: relative; overflow: hidden; }
+.kpi::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: 4px; background: var(--kc, var(--dd-cyan)); }
+.kpi .v { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.kpi .l { color: var(--muted); font-size: 13px; }
+.sec-h { display: flex; align-items: baseline; gap: 10px; margin: 28px 0 12px; }
+.sec-h h2 { margin: 0; font-size: 19px; }
+.sec-h .muted { font-size: 13px; }
+.proj .icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-weight: 700; font-size: 15px; color: #fff; background: var(--pc, var(--dd-cyan)); }
+.proj .top { display: flex; align-items: center; gap: 12px; }
+.proj.planned { background: var(--sunk); border-style: dashed; border-top-style: solid; }
+.chip.live { color: #fff; background: var(--ok); border-color: var(--ok); }
+.chip.planned { color: #fff; background: var(--dd-purple); border-color: var(--dd-purple); }
+.chip.sched { color: var(--cyan); border-color: var(--cyan); }
+.ov-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.ov-head p { margin: 0; color: var(--muted); flex-basis: 100%; }
+.srcbars { display: grid; gap: 12px; }
+.srcbar { display: grid; grid-template-columns: minmax(150px, 230px) 1fr 110px; gap: 12px; align-items: center; }
+.srcbar .track { height: 14px; background: var(--sunk); border-radius: 999px; overflow: hidden; display: flex; }
+.srcbar .track i { display: block; height: 100%; }
+.srcbar .n { font-variant-numeric: tabular-nums; text-align: left; direction: ltr; font-size: 13px; color: var(--muted); }
+@media (max-width: 640px) { .srcbar { grid-template-columns: 1fr; gap: 4px; } .srcbar .n { text-align: right; } }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 6px; background: var(--c); vertical-align: middle; }
+.plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.plan-grid .panel h3 { color: var(--fg); font-size: 15px; }
+.plan-grid ul, .plan-grid ol { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
+.steps li.done { color: var(--ok); }
+details.adv > summary { cursor: pointer; font-weight: 600; padding: 4px 0; color: var(--muted); }
+details.adv[open] > summary { margin-bottom: 12px; }
+
+/* ===== presentation style (DG deck) ===== */
+[hidden] { display: none !important; }
+.kpi .v.txt { font-size: 19px; line-height: 1.35; padding-block: 18px; }
+header.top { border-bottom: none; padding: 22px 4px 8px; margin: 0 0 14px; align-items: flex-end; }
+header.top::after { display: none; }
+header.top .brand { color: var(--fg); font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 700; }
+header.top h1 { color: var(--title); font-size: 30px; font-weight: 700; }
+.crumb button { color: var(--title); }
+.sec-h { margin: 26px 0 12px; padding: 10px 16px; background: var(--bar-cyan); color: #fff; justify-content: center; border-radius: 0; }
+.sec-h h2 { color: #fff; font-size: 18px; }
+.sec-h .muted { color: rgba(255,255,255,.85); }
+.sec-h.navy { background: var(--navy); }
+.hero h2 { color: var(--fg); font-size: 22px; }
+.kpis { gap: 14px; }
+.kpi { padding: 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.08); overflow: hidden; text-align: center; gap: 0; }
+.kpi::before { display: none; }
+.kpi .l { order: -1; background: var(--kc, var(--bar-cyan)); color: #fff; font-weight: 700; font-size: 14px; padding: 10px 12px; }
+.kpi .v { color: var(--fg); font-size: 30px; padding: 16px 12px 18px; }
+.panel { border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.06); }
+.panel > h2:first-child, .panel > .row > h2 { color: var(--fg); }
+.bar-title { margin: -18px -18px 4px; padding: 11px 16px; background: var(--bar-cyan); color: #fff; font-weight: 700; font-size: 16px; border-radius: 10px 10px 0 0; text-align: center; }
+.bar-title.navy { background: var(--navy); } .bar-title.blue { background: var(--bar-blue); }
+th { background: var(--navy); color: #fff; font-weight: 700; }
+tbody tr:nth-child(even) td { background: var(--sunk); }
+td.num b, td.num { color: var(--fg); }
+td.num b { color: var(--cyan); }
+.tw { border-color: var(--line); border-radius: 6px; }
+nav.tabs { border-bottom: 2px solid var(--line); }
+nav.tabs button[aria-selected=true] { color: #fff; background: var(--bar-cyan); border-bottom-color: var(--bar-cyan); border-radius: 8px 8px 0 0; }
+.proj { padding: 0; border: 1px solid var(--line); border-top: none; border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.08); overflow: hidden; gap: 0; }
+.proj .top { background: var(--pc, var(--bar-cyan)); color: #fff; padding: 14px 16px; }
+.proj .top .name { color: #fff; font-size: 18px; }
+.proj .icon { background: rgba(255,255,255,.18); width: 36px; height: 36px; font-size: 13px; }
+.proj .desc { padding: 14px 16px 0; }
+.proj .meta { padding: 12px 16px 16px; }
+.proj.planned { background: var(--surface); border-style: solid; }
+.proj.new { padding: 20px; border: 1px dashed var(--line); box-shadow: none; color: var(--cyan); }
+.chip.live { background: var(--bar-blue); border-color: var(--bar-blue); }
+.chip.planned { background: var(--navy); border-color: var(--navy); }
+.srcbar .n { color: var(--cyan); font-weight: 700; }
+.plan-grid .panel h3 { margin: -18px -18px 4px; padding: 10px 14px; background: var(--bar-blue); color: #fff; border-radius: 10px 10px 0 0; text-align: center; }
+.plan-grid .panel:nth-child(2) h3 { background: var(--bar-steel); }
+.plan-grid .panel:nth-child(3) h3 { background: var(--bar-cyan); }
+.plan-grid .panel:nth-child(4) h3 { background: var(--navy); }
+footer.foot { margin-top: 36px; background: var(--navy); color: #fff; border-radius: 10px; padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; font-size: 13px; }
+button.primary { background: var(--navy); border-color: var(--navy); }
 </style>
 
 <div class="wrap">
   <header class="top">
-    <div style="display:grid;gap:2px"><span class="brand">Digital Dubai · Data</span><h1 id="title">مشاريع السكراب</h1></div>
+    <div style="display:grid;gap:2px"><span class="brand" id="eyebrow">Digital Dubai · بيانات الأسعار</span><h1 id="title">منصة جمع الأسعار</h1></div>
     <span class="crumb" id="crumb" hidden><button id="go-home">← كل المشاريع</button></span>
     <span class="spacer"></span>
     <span class="conn" id="conn"><span class="dot" id="conn-dot"></span><span id="conn-text">جارٍ الاتصال…</span></span>
@@ -108,30 +192,44 @@ dialog::backdrop { background: rgb(0 0 0 / .45); }
 
   <!-- HOME -->
   <section id="view-home">
-    <div class="shelf" id="shelf">
-      <div class="panel empty" id="shelf-empty">تُحمَّل المشاريع… كل مشروع يظهر هنا كبطاقة، وتدخل إليه لتشغيل السكراب وتعديل السلة والـ Actors.</div>
+    <div class="hero">
+      <h2>أسعار من المتاجر والمواقع، تُجمع آلياً كل يوم</h2>
+      <p>كل مشروع يجمع أسعاره من مصادره على الإنترنت حسب جدول، ويطابقها مع سلته، ويحفظ النتائج جاهزة للتنزيل والتحليل في Dataiku.</p>
+      <div class="kpis" id="home-kpis"></div>
     </div>
+    <div class="sec-h"><h2>المشاريع الفعّالة</h2><span class="muted">تعمل وتُحدَّث تلقائياً</span></div>
+    <div class="shelf" id="shelf">
+      <div class="panel empty" id="shelf-empty">تُحمَّل المشاريع…</div>
+    </div>
+    <div class="sec-h navy"><h2>المشاريع القادمة</h2><span class="muted">قيد التخطيط</span></div>
+    <div class="shelf" id="shelf-planned"></div>
   </section>
 
   <!-- PROJECT -->
   <section id="view-project" hidden>
     <nav class="tabs" role="tablist" id="tabs">
-      <button role="tab" data-tab="run" aria-selected="true">تشغيل</button>
+      <button role="tab" data-tab="overview" aria-selected="true">نظرة عامة</button>
+      <button role="tab" data-tab="run" aria-selected="false">تشغيل</button>
       <button role="tab" data-tab="basket" aria-selected="false">السلة</button>
       <button role="tab" data-tab="actors" aria-selected="false">الـ Actors</button>
       <button role="tab" data-tab="results" aria-selected="false">النتائج</button>
       <button role="tab" data-tab="settings" aria-selected="false">إعدادات المشروع</button>
     </nav>
 
-    <div class="tab stack" id="tab-run">
+    <div class="tab stack" id="tab-overview">
+      <div class="panel"><div class="ov-head" id="ov-head"></div></div>
+      <div id="ov-body" class="stack"></div>
+    </div>
+
+    <div class="tab stack" id="tab-run" hidden>
       <div class="panel" id="quick" hidden>
         <h2>سحب الأسعار الآن</h2>
         <p class="muted" id="quick-note">يشغّل السحب على خوادم Claude باستخدام Scrapling (بدون رصيد Apify)، ويحفظ النتيجة في قاعدة البيانات. تظهر في تبويب «النتائج» عند انتهائه (حوالي 30 دقيقة لـ CPI).</p>
         <div class="row"><button class="primary big" id="btn-quick">▶ شغّل السحب الآن</button></div>
         <div id="quick-confirm"></div>
       </div>
-      <div class="panel" id="apify-run">
-        <h2 id="apify-title">تشغيل جديد</h2>
+      <details class="panel adv" id="apify-run">
+        <summary id="apify-title">متقدم: تشغيل عبر Apify من المتصفح</summary>
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
           <div><h3>الـ Actors</h3><div class="picks" id="run-actors"></div></div>
           <div id="run-groups-box"><h3>المجموعات (بدون اختيار = الكل)</h3><div class="picks scroll" id="run-groups"></div></div>
@@ -143,7 +241,7 @@ dialog::backdrop { background: rgb(0 0 0 / .45); }
           <button class="danger" id="btn-stop" disabled>إيقاف</button>
           <span class="muted">أبقِ الصفحة مفتوحة حتى ينتهي التشغيل.</span>
         </div>
-      </div>
+      </details>
       <div class="panel" id="sched">
         <div class="row"><h2 style="margin:0">التشغيل اليومي</h2><span class="chip" id="sched-state">—</span></div>
         <div id="sched-body" class="muted">يُحمَّل موعد التشغيل…</div>
@@ -215,6 +313,7 @@ dialog::backdrop { background: rgb(0 0 0 / .45); }
       </div>
     </div>
   </section>
+  <footer class="foot"><span>منصة جمع الأسعار · Digital Dubai</span><span>البيانات تُجمع من مصادر عامة على الإنترنت وتُراجع قبل الاستخدام</span></footer>
 </div>
 
 <dialog id="dlg">
@@ -465,19 +564,106 @@ async function saveProject(patch) {
 function dbErr(e) { return e?.code === "quota_exceeded" ? "امتلأت قاعدة البيانات؛ احذف تشغيلات قديمة ثم حاول" : e?.code === "revoked" ? "لم تعد لديك صلاحية على هذه الصفحة" : (e?.message || String(e)); }
 
 // ------------------------------------------------------------ home
+const PCOLORS = ["var(--bar-cyan)", "var(--bar-blue)", "var(--bar-steel)", "var(--navy)"];
+const isPlanned = (p) => p?.status === "planned";
+function initials(name) { const w = String(name || "?").replace(/[·|()]/g, " ").trim().split(/\s+/); return (w[0] || "?").slice(0, 4).toUpperCase(); }
+function fmtDate(iso) { if (!iso) return "—"; try { return new Date(iso).toLocaleDateString("ar", { timeZone: "Asia/Dubai", day: "numeric", month: "short" }); } catch (e) { return String(iso).slice(0, 10); } }
 function renderHome() {
-  $("#title").textContent = "مشاريع السكراب"; $("#crumb").hidden = true;
+  $("#title").textContent = "منصة جمع الأسعار"; $("#eyebrow").textContent = "Digital Dubai · بيانات الأسعار"; $("#crumb").hidden = true;
   $("#view-home").hidden = false; $("#view-project").hidden = true;
   const list = Object.entries(projects).sort((a, b) => (a[1].order ?? 99) - (b[1].order ?? 99));
-  $("#shelf").innerHTML = list.map(([id, p]) => {
+  const live = list.filter(([, p]) => !isPlanned(p)), planned = list.filter(([, p]) => isPlanned(p));
+  const accepted = live.reduce((n, [, p]) => n + (p.lastRun?.accepted || 0), 0);
+  const items = live.reduce((n, [, p]) => n + (p.itemCount || 0), 0);
+  const latest = live.map(([, p]) => p.lastRun?.at).filter(Boolean).sort().pop();
+  $("#home-kpis").innerHTML = [
+    ["var(--bar-cyan)", live.length, "مشاريع فعّالة"],
+    ["var(--bar-steel)", planned.length, "مشاريع قادمة"],
+    ["var(--bar-blue)", items.toLocaleString("en"), "عنصر تُتابَع أسعاره"],
+    ["var(--bar-cyan)", accepted.toLocaleString("en"), "سعر مقبول في آخر التشغيلات"],
+    ["var(--navy)", fmtDate(latest), "آخر تحديث"],
+  ].map(([c, v, l]) => `<div class="kpi" style="--kc:${c}"><span class="v">${esc(v)}</span><span class="l">${esc(l)}</span></div>`).join("");
+  const card = ([id, p], i) => {
     const lr = p.lastRun; const st = lr ? (lr.status === "done" ? "ok" : lr.status === "error" ? "bad" : "warn") : "";
-    return `<button class="proj" data-open="${esc(id)}"><span class="name">${esc(p.name)}</span><span class="desc">${esc(p.description || "")}</span>
-      <span class="meta"><span class="chip">${p.itemCount ?? 0} عنصر</span><span class="chip">${Object.keys(p.actors || {}).length} Actor</span>
-      ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(lr.at?.slice(0, 10) || "")}${lr.accepted != null ? ` · ${lr.accepted} مقبول` : ""}</span>` : `<span class="chip">لم يُشغّل بعد</span>`}</span></button>`;
-  }).join("") + `<button class="proj new" id="new-proj">+ مشروع جديد</button>`;
+    const color = p.color || PCOLORS[i % PCOLORS.length];
+    const meta = isPlanned(p)
+      ? `<span class="chip planned">قيد التخطيط</span>${p.plan?.frequency ? `<span class="chip">${esc(p.plan.frequency)}</span>` : ""}`
+      : `<span class="chip live">فعّال</span><span class="chip">${(p.itemCount ?? 0).toLocaleString("en")} عنصر</span>
+         ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))}${lr.accepted != null ? ` · ${lr.accepted} مقبول` : ""}</span>` : `<span class="chip">لم يُشغّل بعد</span>`}`;
+    return `<button class="proj ${isPlanned(p) ? "planned" : ""}" data-open="${esc(id)}" style="border-top-color:${color}">
+      <span class="top"><span class="icon" style="--pc:${color}">${esc(p.short || initials(p.name))}</span><span class="name">${esc(p.name)}</span></span>
+      <span class="desc">${esc(p.description || "")}</span><span class="meta">${meta}</span></button>`;
+  };
+  $("#shelf").innerHTML = live.map(card).join("") || `<div class="panel empty">لا توجد مشاريع فعّالة بعد.</div>`;
+  $("#shelf-planned").innerHTML = planned.map((x, i) => card(x, i + live.length)).join("") + `<button class="proj new" id="new-proj">+ مشروع جديد</button>`;
   $$("[data-open]").forEach((b) => b.addEventListener("click", () => openProject(b.dataset.open)));
   $("#new-proj").addEventListener("click", newProject);
 }
+
+// ------------------------------------------------------------ overview tab
+function renderOverviewHead() {
+  const p = P(); if (!p) return;
+  const lr = p.lastRun;
+  $("#ov-head").innerHTML = `<h2 style="margin:0">${esc(p.name)}</h2>
+    ${isPlanned(p) ? `<span class="chip planned">قيد التخطيط</span>` : `<span class="chip live">فعّال</span>`}
+    ${p.schedule?.trigger_id && !isPlanned(p) ? `<span class="chip sched">تشغيل يومي</span>` : ""}
+    ${lr ? `<span class="chip">آخر تشغيل ${esc(fmtDate(lr.at))}</span>` : ""}
+    <p>${esc(p.description || "")}</p>`;
+}
+function renderPlan(p) {
+  const pl = p.plan || {};
+  const li = (xs) => (xs || []).map((x) => `<li>${esc(x)}</li>`).join("");
+  $("#ov-body").innerHTML = `
+    <div class="kpis">
+      <div class="kpi" style="--kc:var(--dd-purple)"><span class="v">${esc(pl.stage || "تخطيط")}</span><span class="l">المرحلة</span></div>
+      <div class="kpi" style="--kc:var(--dd-cyan)"><span class="v">${esc(pl.frequency || "—")}</span><span class="l">تكرار الجمع المقترح</span></div>
+      <div class="kpi" style="--kc:var(--dd-teal)"><span class="v">${esc((pl.sources || []).length)}</span><span class="l">مصادر مقترحة</span></div>
+      <div class="kpi" style="--kc:var(--dd-coral)"><span class="v txt">${esc(pl.target || "—")}</span><span class="l">الهدف</span></div>
+    </div>
+    <div class="plan-grid">
+      <div class="panel"><h3>ماذا نقيس</h3><ul>${li(pl.measures)}</ul></div>
+      <div class="panel"><h3>المصادر المقترحة</h3><ul>${li(pl.sources)}</ul></div>
+      <div class="panel"><h3>طريقة الجمع</h3><ul>${li(pl.method)}</ul></div>
+      <div class="panel"><h3>المخرجات</h3><ul>${li(pl.outputs)}</ul></div>
+    </div>
+    <div class="panel"><h3 style="color:var(--fg)">خطة العمل</h3><ol class="steps">${(pl.steps || []).map((x) => `<li class="${x.done ? "done" : ""}">${x.done ? "✓ " : ""}${esc(x.text || x)}</li>`).join("")}</ol>
+      ${pl.notes ? `<p class="muted">${esc(pl.notes)}</p>` : ""}</div>`;
+}
+const BAR_COLORS = { accepted: "#1ea5e0", review: "#d9a43a", other: "#d9dee6" };
+function renderOverview() {
+  const p = P(); if (!p) return;
+  renderOverviewHead();
+  if (isPlanned(p)) return renderPlan(p);
+  const run = runs[0];
+  if (!run) { $("#ov-body").innerHTML = `<div class="panel empty">لم يُحفظ أي تشغيل بعد. شغّل السحب من تبويب «تشغيل» وستظهر النتائج هنا.</div>`; return; }
+  const sum = Object.values(run.summary || {});
+  const lines = sum.reduce((n, v) => n + v.lines, 0), acc = sum.reduce((n, v) => n + v.accepted, 0);
+  const REVIEW = /review|substitute|multiple|unverified|differs|conflict|mismatch|size_|unit/;
+  $("#ov-body").innerHTML = `
+    <div class="kpis">
+      <div class="kpi" style="--kc:var(--dd-green)"><span class="v">${acc.toLocaleString("en")}</span><span class="l">سعراً مقبولاً في آخر تشغيل</span></div>
+      <div class="kpi" style="--kc:var(--dd-cyan)"><span class="v">${lines ? Math.round((100 * acc) / lines) : 0}%</span><span class="l">نسبة القبول (${lines.toLocaleString("en")} سطراً)</span></div>
+      <div class="kpi" style="--kc:var(--dd-teal)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصراً في السلة</span></div>
+      <div class="kpi" style="--kc:var(--dd-coral)"><span class="v">${esc(fmtDate(run.startedAt))}</span><span class="l">تاريخ آخر تشغيل</span></div>
+    </div>
+    <div class="panel">
+      <div class="row"><h2 style="margin:0">النتائج حسب المصدر</h2><span class="spacer"></span><button id="ov-open">عرض التفاصيل</button><button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
+      <div class="legend"><span style="--c:${BAR_COLORS.accepted}">مقبول</span><span style="--c:${BAR_COLORS.review}">للمراجعة</span><span style="--c:${BAR_COLORS.other}">غير موجود في المصدر</span></div>
+      <div class="srcbars">${sum.map((v) => {
+        const review = Object.entries(v.statuses || {}).filter(([k]) => REVIEW.test(k)).reduce((n, [, c]) => n + c, 0);
+        const rest = Math.max(0, v.lines - v.accepted - review), pct = (x) => (v.lines ? (100 * x) / v.lines : 0);
+        return `<div class="srcbar"><span>${esc(v.label)}</span>
+          <span class="track" role="img" aria-label="${v.accepted} مقبول، ${review} للمراجعة، ${rest} غير موجود من ${v.lines}">
+            <i style="width:${pct(v.accepted)}%;background:${BAR_COLORS.accepted}"></i><i style="width:${pct(review)}%;background:${BAR_COLORS.review}"></i><i style="width:${pct(rest)}%;background:${BAR_COLORS.other}"></i></span>
+          <span class="n">${v.accepted} / ${v.lines}</span></div>`;
+      }).join("")}</div>
+    </div>
+    ${runs.length > 1 ? `<div class="panel"><h3 style="color:var(--fg)">آخر التشغيلات</h3><div class="tw"><table><thead><tr><th>التاريخ</th><th>مقبول</th><th>أسطر</th><th>الحالة</th></tr></thead><tbody>${runs.slice(0, 6).map((r) =>
+      `<tr><td class="num">${esc((r.startedAt || "").replace("T", " ").slice(0, 16))}</td><td class="num"><b>${r.accepted ?? ""}</b></td><td class="num">${r.count ?? ""}</td><td><span class="chip ${r.status === "done" ? "ok" : "warn"}">${r.status === "done" ? "انتهى" : esc(r.status)}</span></td></tr>`).join("")}</tbody></table></div></div>` : ""}`;
+  $("#ov-open").onclick = () => { switchTab("results"); showRun(run.id); };
+  $("#ov-dl").onclick = () => $("#r-export-all").click();
+}
+
 async function newProject() {
   let id = "p" + Date.now().toString(36);
   const p = { name: "مشروع جديد", description: "", kind: "list", list_key: "name", order: Object.keys(projects).length + 1, itemCount: 0,
@@ -489,12 +675,15 @@ async function newProject() {
 async function openProject(id) {
   if (basketDirty && current && current !== id) { toast("احفظ تعديلات السلة أولاً أو أعد تحميل الصفحة لتجاهلها", true); return; }
   current = id; basketDirty = false;
-  $("#title").textContent = P().name; $("#crumb").hidden = false;
+  $("#title").textContent = P().name; $("#eyebrow").textContent = isPlanned(P()) ? "مشروع قادم · قيد التخطيط" : "مشروع فعّال · منصة جمع الأسعار"; $("#crumb").hidden = false;
   $("#view-home").hidden = true; $("#view-project").hidden = false;
+  $$("#tabs button").forEach((b) => (b.hidden = isPlanned(P()) && !["overview", "settings"].includes(b.dataset.tab)));
+  switchTab("overview"); runs = []; renderOverview();
   try { location.hash = id.replace(/[^\w.~-]/g, ""); } catch (e) {}
   basket = []; renderBasket(); renderActors(); renderSettings(); renderRunPicks(); renderJob();
   try { basket = await loadBasket(id); } catch (e) { toast(dbErr(e), true); }
-  bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); loadRuns(); renderSchedule(); renderQuick();
+  bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); renderQuick();
+  if (!isPlanned(P())) { await loadRuns(); renderOverview(); renderSchedule(); }
 }
 $("#go-home").addEventListener("click", () => { if (basketDirty) return toast("احفظ تعديلات السلة أولاً", true); current = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} renderHome(); });
 
@@ -946,7 +1135,8 @@ async function renderSchedule() {
 function renderQuick() {
   const p = P(); const on = p?.runner === "routine" && p?.schedule?.trigger_id;
   $("#quick").hidden = !on;
-  $("#apify-title").textContent = on ? "تشغيل عبر Apify من المتصفح (يستهلك رصيد Apify)" : "تشغيل جديد";
+  $("#apify-title").textContent = on ? "متقدم: تشغيل عبر Apify من المتصفح (يستهلك رصيد Apify)" : "تشغيل عبر Apify من المتصفح";
+  $("#apify-run").open = !on;
 }
 $("#btn-quick").addEventListener("click", () => {
   if (!mcp) return toast("التشغيل يحتاج فتح الصفحة داخل claude.ai", true);

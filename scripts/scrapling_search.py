@@ -107,6 +107,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="search only the first N barcodes")
     ap.add_argument("--codes", help="JSON list of barcodes to search instead of the whole basket")
     ap.add_argument("--delay", type=float, default=1.5, help="seconds between requests (a random 0-1 s is added)")
+    ap.add_argument("--no-names", action="store_true", help="skip the name search for barcodes not found")
     a = ap.parse_args()
 
     from scrapling.fetchers import FetcherSession   # imported here so --help works without Scrapling installed
@@ -147,6 +148,9 @@ def main():
     print(f"\n{a.retailer}: {len(codes)} barcodes, {len(searched)} pages read, {len(failed)} failed, {len(raw)} product rows")
     if raw:
         match_run.main(a.retailer, raw_path, run_dir / f"{a.retailer}_searched.json")
+        if not a.no_names and not a.limit:
+            import name_fallback                                  # barcodes not found: same brand + size by name
+            name_fallback.run(a.retailer, run_dir, a.delay)
 
 
 if __name__ == "__main__":

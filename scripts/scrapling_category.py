@@ -40,7 +40,7 @@ from cpi.quantity import find_quantity  # noqa: E402
 import scrapling_search as ss  # noqa: E402
 
 CONFIG = ROOT / "config/categories.json"
-SPECS = ROOT / "data/runs/2026-10-05/name_queries.json"
+SPECS = ROOT / "data/basket/specs_en.json"   # English spec per basket line (from data/runs/2026-10-05/name_queries.json)
 DEMONYMS = {"indian": "IN", "pakistani": "PK", "australian": "AU", "brazilian": "BR", "kenyan": "KE", "ethiopian": "ET",
             "saudi": "SA", "omani": "OM", "egyptian": "EG", "jordanian": "JO", "lebanese": "LB", "turkish": "TR",
             "iranian": "IR", "chinese": "CN", "american": "US", "dutch": "NL", "spanish": "ES", "italian": "IT",

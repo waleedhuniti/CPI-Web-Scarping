@@ -15,23 +15,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FILES = sorted(str(p.relative_to(ROOT)) for p in (ROOT / "cpi").rglob("*.py")) + [
     "scripts/scrapling_search.py", "scripts/scrapling_category.py", "scripts/match_run.py", "scripts/panel_run.py",
-    "config/categories.json",
+    "scripts/name_fallback.py", "config/categories.json", "data/basket/specs_en.json",
 ]
-
-
-def specs_for_spec_lines():
-    """The English specs, only for lines without a barcode (the category matcher needs nothing else)."""
-    basket = json.loads((ROOT / "data/basket/basket.json").read_text(encoding="utf-8"))
-    spec_codes = {i["item_code"] for i in basket if i["match_mode"] == "spec"}
-    specs = json.loads((ROOT / "data/runs/2026-10-05/name_queries.json").read_text(encoding="utf-8"))
-    return json.dumps([s for s in specs if s["c"] in spec_codes], ensure_ascii=False)
 
 
 def main(out_dir):
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     files = {f: (ROOT / f).read_text(encoding="utf-8") for f in FILES}
-    files["data/runs/2026-10-05/name_queries.json"] = specs_for_spec_lines()
     docs, cur, size = [], {}, 0
     for path, text in files.items():
         n = len(text.encode("utf-8"))

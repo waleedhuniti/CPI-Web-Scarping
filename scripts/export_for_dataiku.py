@@ -13,10 +13,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from cpi.matcher import ACCEPTED  # noqa: E402
+from cpi.decision import barcode_found, category_found  # noqa: E402
 
 COLUMNS = ["run_date", "run_id", "source", "retailer", "item_code", "group_code", "name_ar", "brand_ar", "basket_qty",
-           "barcode", "status", "accepted", "title", "price", "regular_price", "unit_price", "price_basis",
+           "barcode", "status", "detail", "accepted", "title", "price", "regular_price", "unit_price", "price_basis",
            "basket_origin", "origin_seen", "currency", "in_stock", "url"]
 
 
@@ -33,11 +33,13 @@ def rows():
             yield dict(run_date=m.group(1), run_id=run, source="scrapling" if "scrapling" in run else "apify",
                        retailer=retailer, item_code=r.get("item_code", ""), group_code=r.get("group", ""),
                        name_ar=r.get("name_ar", ""), brand_ar=r.get("brand_ar", ""), basket_qty=r.get("basket_qty", ""),
-                       barcode=r.get("barcode", ""), status=r.get("status", ""),
-                       accepted="yes" if r.get("status") in ACCEPTED else "no", title=r.get("title", ""),
-                       price=r.get("price", ""), regular_price=r.get("regular_price", ""), currency="AED",
-                       unit_price="", price_basis="", basket_origin="", origin_seen="",
-                       in_stock=r.get("in_stock", ""), url=r.get("url", ""))
+                       barcode=r.get("barcode", ""), status="found" if barcode_found(r.get("status", "")) else "not_found",
+                       detail=r.get("status", ""), accepted="yes" if barcode_found(r.get("status", "")) else "no",
+                       title=r.get("title", "") if barcode_found(r.get("status", "")) else "",
+                       price=r.get("price", "") if barcode_found(r.get("status", "")) else "",
+                       regular_price=r.get("regular_price", "") if barcode_found(r.get("status", "")) else "",
+                       currency="AED", unit_price="", price_basis="", basket_origin="", origin_seen="",
+                       in_stock=r.get("in_stock", ""), url=r.get("url", "") if barcode_found(r.get("status", "")) else "")
 
 
 def category_rows():
@@ -47,13 +49,20 @@ def category_rows():
         m = re.match(r"(\d{4}-\d{2}-\d{2})", run)
         if not m or "test" in run:
             continue
-        for r in csv.DictReader(open(f, encoding="utf-8-sig")):
+        crows = list(csv.DictReader(open(f, encoding="utf-8-sig")))
+        lines = {}
+        for r in crows:
+            lines.setdefault((r["retailer"], r["name_ar"]), set()).add(r["item_code"])
+        for r in crows:
+            ok = category_found(r["status"], len(lines[(r["retailer"], r["name_ar"])]) == 1)
+            keep = (lambda v: v) if ok else (lambda v: "")
             yield dict(run_date=m.group(1), run_id=run, source="scrapling-category", retailer=r["retailer"],
                        item_code=r["item_code"], group_code=r["group"], name_ar=r["name_ar"], brand_ar="",
-                       basket_qty=r["basket_qty"], barcode="", status=r["status"], accepted=r["accepted"],
-                       title=r["title"], price=r["price"], regular_price=r["regular_price"], unit_price=r["unit_price"],
-                       price_basis=r["price_basis"], basket_origin=r["basket_origin"], origin_seen=r["origin_seen"],
-                       currency="AED", in_stock="", url=r["url"])
+                       basket_qty=r["basket_qty"], barcode="", status="found" if ok else "not_found",
+                       detail=r["status"], accepted="yes" if ok else "no", title=keep(r["title"]),
+                       price=keep(r["price"]), regular_price=keep(r["regular_price"]), unit_price=keep(r["unit_price"]),
+                       price_basis=r["price_basis"], basket_origin=r["basket_origin"], origin_seen=keep(r["origin_seen"]),
+                       currency="AED", in_stock="", url=keep(r["url"]))
 
 
 def main(dest=ROOT / "data/exports/cpi_prices_long.csv"):

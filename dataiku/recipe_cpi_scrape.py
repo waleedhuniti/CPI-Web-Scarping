@@ -37,8 +37,9 @@ for f in run_dir.glob("*_matched.csv"):
     rows.append(pd.DataFrame({
         "run_date": run_date, "run_id": run_dir.name, "source": "scrapling", "retailer": f.stem.split("_")[0],
         "item_code": df["item_code"], "group_code": df["group"], "name_ar": df["name_ar"], "brand_ar": df["brand_ar"],
-        "basket_qty": df["basket_qty"], "barcode": df["barcode"], "status": df["status"],
-        "accepted": df["status"].isin(ex.ACCEPTED).map({True: "yes", False: "no"}), "title": df["title"],
+        "basket_qty": df["basket_qty"], "barcode": df["barcode"],
+        "status": df["status"].map(lambda s: "found" if ex.barcode_found(s) else "not_found"),
+        "detail": df["status"], "accepted": df["status"].map(lambda s: "yes" if ex.barcode_found(s) else "no"), "title": df["title"],
         "price": pd.to_numeric(df["price"], errors="coerce"), "regular_price": pd.to_numeric(df["regular_price"], errors="coerce"),
         "unit_price": "", "price_basis": "", "basket_origin": "", "origin_seen": "",
         "currency": "AED", "in_stock": df["in_stock"], "url": df["url"]}))
@@ -47,10 +48,14 @@ for f in run_dir.glob("*_matched.csv"):
 import scrapling_category as sc
 sc.crawl(run_dir, 1.5)
 cat = pd.DataFrame(sc.match(run_dir))
+single = cat.groupby(["retailer", "name_ar"])["item_code"].transform("nunique") == 1
+cat["accepted"] = [("yes" if ex.category_found(st, one) else "no") for st, one in zip(cat["status"], single)]
+cat["detail"], cat["status"] = cat["status"], cat["accepted"].map({"yes": "found", "no": "not_found"})
 rows.append(pd.DataFrame({
     "run_date": run_date, "run_id": run_dir.name, "source": "scrapling-category", "retailer": cat["retailer"],
     "item_code": cat["item_code"], "group_code": cat["group"], "name_ar": cat["name_ar"], "brand_ar": "",
-    "basket_qty": cat["basket_qty"], "barcode": "", "status": cat["status"], "accepted": cat["accepted"],
+    "basket_qty": cat["basket_qty"], "barcode": "", "status": cat["status"], "detail": cat["detail"],
+    "accepted": cat["accepted"],
     "title": cat["title"], "price": pd.to_numeric(cat["price"], errors="coerce"),
     "regular_price": pd.to_numeric(cat["regular_price"], errors="coerce"),
     "unit_price": pd.to_numeric(cat["unit_price"], errors="coerce"), "price_basis": cat["price_basis"],

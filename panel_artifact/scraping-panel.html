@@ -292,7 +292,7 @@ button.primary { background: var(--navy); border-color: var(--navy); }
         <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل CSV</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
         <div id="r-del-confirm"></div>
         <div class="stats" id="r-stats"></div>
-        <div class="row"><input id="r-search" placeholder="فلترة" style="flex:2 1 220px"><select id="r-filter" style="flex:1 1 160px"><option value="">كل الحالات</option><option value="yes">المقبول فقط</option><option value="no">غير المقبول</option></select></div>
+        <div class="row"><input id="r-search" placeholder="فلترة" style="flex:2 1 220px"><select id="r-filter" style="flex:1 1 160px"><option value="">كل الحالات</option><option value="yes">الموجود فقط</option><option value="no">غير الموجود</option></select></div>
         <div class="tw"><table id="r-table"><thead></thead><tbody></tbody></table></div>
         <p class="muted" id="r-more"></p>
       </div>
@@ -446,7 +446,7 @@ const STATUS = {
   barcode_match: ["مطابق", "ok"], unit_label: ["مطابق (وحدة مكتوبة مختلفة)", "ok"], multiple_results: ["أكثر من منتج", "warn"],
   size_unverified: ["الحجم غير مؤكد", "warn"], qty_mismatch: ["الحجم مختلف", "bad"], not_found: ["غير موجود", ""],
   not_searched: ["لم يُبحث", "warn"], error: ["خطأ في التشغيل", "bad"], ok: ["موجود", "ok"], missing: ["غير موجود في الصفحة", "bad"], row: ["صف", ""],
-  match: ["مطابق", "ok"], review_multiple: ["عدة عروض بأسعار مختلفة", "warn"], review_origin: ["المنشأ غير مذكور", "warn"],
+  found: ["موجود", "ok"], match: ["مطابق", "ok"], review_multiple: ["عدة عروض بأسعار مختلفة", "warn"], review_origin: ["المنشأ غير مذكور", "warn"],
   substitute_origin: ["منشأ بديل", "warn"], no_match: ["غير مطابق", ""], barcode_search_match: ["مطابق", "ok"], barcode_match_unit_label: ["مطابق (وحدة مختلفة)", "ok"],
   qty_unit_differs: ["وحدة الكمية مختلفة", "warn"], qty_title_url_conflict: ["تعارض الحجم", "warn"], barcode_match_qty_unverified: ["الحجم غير مؤكد", "warn"],
 };
@@ -581,7 +581,7 @@ function renderHome() {
     ["var(--bar-cyan)", live.length, "مشاريع فعّالة"],
     ["var(--bar-steel)", planned.length, "مشاريع قادمة"],
     ["var(--bar-blue)", items.toLocaleString("en"), "عنصر تُتابَع أسعاره"],
-    ["var(--bar-cyan)", accepted.toLocaleString("en"), "سعر مقبول في آخر التشغيلات"],
+    ["var(--bar-cyan)", accepted.toLocaleString("en"), "سعر موجود في آخر التشغيلات"],
     ["var(--bar-steel)", scraped.toLocaleString("en"), "منتج مسحوب في المسح الشامل"],
     ["var(--navy)", fmtDate(latest), "آخر تحديث"],
   ].map(([c, v, l]) => `<div class="kpi" style="--kc:${c}"><span class="v">${esc(v)}</span><span class="l">${esc(l)}</span></div>`).join("");
@@ -591,7 +591,7 @@ function renderHome() {
     const meta = isPlanned(p)
       ? `<span class="chip planned">قيد التخطيط</span>${p.plan?.frequency ? `<span class="chip">${esc(p.plan.frequency)}</span>` : ""}`
       : `<span class="chip live">فعّال</span><span class="chip">${(p.itemCount ?? 0).toLocaleString("en")} عنصر</span>
-         ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))} · ${(homeAcc[id] ?? lr.accepted ?? 0).toLocaleString("en")} سعر مقبول</span>` : `<span class="chip">لم يُشغّل بعد</span>`}
+         ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))} · ${(homeAcc[id] ?? lr.accepted ?? 0).toLocaleString("en")} سعر</span>` : `<span class="chip">لم يُشغّل بعد</span>`}
          ${homeProducts[id] ? `<span class="chip">${homeProducts[id].toLocaleString("en")} منتج في المسح الشامل</span>` : ""}`;
     return `<button class="proj ${isPlanned(p) ? "planned" : ""}" data-open="${esc(id)}" style="border-top-color:${color}">
       <span class="top"><span class="icon" style="--pc:${color}">${esc(p.short || initials(p.name))}</span><span class="name">${esc(p.name)}</span></span>
@@ -648,7 +648,7 @@ function renderPlan(p) {
     <div class="panel"><h3 style="color:var(--fg)">خطة العمل</h3><ol class="steps">${(pl.steps || []).map((x) => `<li class="${x.done ? "done" : ""}">${x.done ? "✓ " : ""}${esc(x.text || x)}</li>`).join("")}</ol>
       ${pl.notes ? `<p class="muted">${esc(pl.notes)}</p>` : ""}</div>`;
 }
-const BAR_COLORS = { accepted: "#1ea5e0", review: "#d9a43a", other: "#d9dee6" };
+const BAR_COLORS = { accepted: "#1ea5e0", review: "#d9a43a", other: "#d9dee6" };   // review stays for runs saved before the yes/no rule
 const REVIEW_RE = /review|substitute|multiple|unverified|differs|conflict|mismatch|size_|unit_label_x/;
 const isCat = (label) => /category|\(category\)/i.test(label || "");
 
@@ -695,11 +695,11 @@ function renderOverview() {
   const nSpec = basket.length ? basket.length - nBarcode : (p.specCount ?? 0);
   const accBc = sum(bc, "accepted"), accCat = sum(cat, "accepted");
   const lastAt = L.sources.map((v) => v.startedAt).sort().pop();
-  const legend = `<div class="legend"><span style="--c:${BAR_COLORS.accepted}">مقبول</span><span style="--c:${BAR_COLORS.review}">للمراجعة</span><span style="--c:${BAR_COLORS.other}">غير موجود في المصدر</span></div>`;
+  const legend = `<div class="legend"><span style="--c:${BAR_COLORS.accepted}">موجود (بسعر)</span><span style="--c:${BAR_COLORS.other}">غير موجود</span></div>`;
   const isCpi = p.kind === "barcode";
   $("#ov-body").innerHTML = `
     <div class="kpis">
-      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر مقبول (آخر نتيجة لكل مصدر)</span></div>
+      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
       ${isCpi ? `<div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${nBarcode.toLocaleString("en")}</span><span class="l">صنف بباركود · بحث بالباركود</span></div>
       <div class="kpi" style="--kc:var(--bar-steel)"><span class="v">${nSpec.toLocaleString("en")}</span><span class="l">صنف بدون باركود · مسح شامل</span></div>
       <div class="kpi" style="--kc:var(--navy)"><span class="v">${L.products.toLocaleString("en")}</span><span class="l">منتج مسحوب في المسح الشامل (${L.categories} قسماً)</span></div>`
@@ -708,16 +708,16 @@ function renderOverview() {
     </div>
     ${isCpi ? `<div class="plan-grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
       <div class="panel"><h3>الأصناف بباركود (${nBarcode}) · بحث بالباركود</h3>
-        <p class="muted" style="margin:0">كل باركود يُبحث عنه في كارفور ولولو، ويُقبل السعر عندما يرجع منتج واحد بنفس الحجم.</p>
+        <p class="muted" style="margin:0">كل باركود يُبحث عنه في كارفور ولولو؛ وإن لم يظهر يُبحث بالاسم. يُعدّ موجوداً عندما يكون نفس المنتج (الماركة والنوع) وبنفس الحجم بالضبط.</p>
         ${legend}<div class="srcbars">${srcBars(bc) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
-        <p class="muted" style="margin:0">مقبول: <b style="color:var(--cyan)">${accBc}</b> سعراً · ${bc[0] ? "آخر تشغيل " + esc(fmtDate(bc[0].startedAt)) : ""}</p></div>
+        <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accBc}</b> سعراً · ${bc[0] ? "آخر تشغيل " + esc(fmtDate(bc[0].startedAt)) : ""}</p></div>
       <div class="panel"><h3>الأصناف بدون باركود (${nSpec}) · مسح شامل للأقسام</h3>
         <p class="muted" style="margin:0">تُسحب أقسام كاملة (لحوم، أسماك، فواكه، خضار، مخبوزات، أجبان، بهارات) ${L.products ? `<b>${L.products.toLocaleString("en")}</b> منتجاً من ${L.categories} قسماً` : ""}، ويُطابق كل صنف بالنوع والقطعة والمنشأ والسعر للكيلو.</p>
         ${legend}<div class="srcbars">${srcBars(cat) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
-        <p class="muted" style="margin:0">مقبول: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
+        <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
     </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
     <div class="panel">
-      <div class="bar-title navy">الأسعار المقبولة</div>
+      <div class="bar-title navy">الأسعار</div>
       <div class="row"><input id="ov-q" placeholder="ابحث باسم الصنف أو المنتج" style="flex:2 1 220px">
         <select id="ov-src" style="flex:1 1 160px"><option value="">كل المصادر</option><option value="barcode">بحث بالباركود</option><option value="category">مسح شامل</option></select>
         <select id="ov-ret" style="flex:1 1 140px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
@@ -759,7 +759,7 @@ function drawOvRows() {
     <td class="num"><b>${esc(r.price ?? "")}</b></td>
     <td class="num">${r.unit_price ? esc(r.unit_price) + (basis[r.price_basis] || "") : ""}</td>
     <td class="num">${esc(fmtDate(r.run_date))}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">لا أسعار مطابقة.</td></tr>`;
-  $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر مقبول${rows.length > 300 ? " · يظهر أول 300؛ نزّل الملف لرؤية الكل" : ""}`;
+  $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر${rows.length > 300 ? " · يظهر أول 300؛ نزّل الملف لرؤية الكل" : ""}`;
 }
 
 async function newProject() {

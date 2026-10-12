@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from cpi.matcher import ACCEPTED  # noqa: E402
+from cpi.decision import barcode_found, category_found  # noqa: E402
 
 LABEL = {"carrefour": "Carrefour UAE", "lulu": "Lulu Hypermarket UAE"}
 
@@ -38,25 +38,34 @@ def main(run_dir, started):
         for r in csv.DictReader(open(f, encoding="utf-8-sig")):
             if r["status"] == "not_searched":
                 continue
+            ok = barcode_found(r["status"])
             res.append(dict(run_date=started[:10], source="barcode", retailer=retailer, actor=LABEL[retailer],
                             item_code=r["item_code"], group_code=r.get("group", ""), name=r["name_ar"],
-                            brand=r["brand_ar"], basket_qty=r["basket_qty"], barcode=r["barcode"], status=r["status"],
-                            accepted="yes" if r["status"] in ACCEPTED else "no", title=r["title"],
-                            price=num(r["price"]), regular_price=num(r["regular_price"]), currency="AED", url=r["url"]))
+                            brand=r["brand_ar"], basket_qty=r["basket_qty"], barcode=r["barcode"],
+                            status="found" if ok else "not_found", detail=r["status"],
+                            accepted="yes" if ok else "no", title=r["title"] if ok else "",
+                            price=num(r["price"]) if ok else "", regular_price=num(r["regular_price"]) if ok else "",
+                            currency="AED", url=r["url"] if ok else ""))
         failed = json.loads((run_dir / f"{retailer}_failed.json").read_text()) if (run_dir / f"{retailer}_failed.json").exists() else []
         searched = json.loads((run_dir / f"{retailer}_searched.json").read_text()) if (run_dir / f"{retailer}_searched.json").exists() else []
         log.append(f"{LABEL[retailer]} barcode: {len(searched)} pages read, {len(failed)} failed")
         rows += res
     cat = run_dir / "category_matches.csv"
     if cat.exists():
-        for r in csv.DictReader(open(cat, encoding="utf-8-sig")):
+        crows = list(csv.DictReader(open(cat, encoding="utf-8-sig")))
+        lines = {}
+        for r in crows:
+            lines.setdefault((r["retailer"], r["name_ar"]), set()).add(r["item_code"])
+        for r in crows:
+            ok = category_found(r["status"], len(lines[(r["retailer"], r["name_ar"])]) == 1)
             rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],
                              actor=LABEL[r["retailer"]] + " (category)", item_code=r["item_code"],
                              group_code=r["group"], name=r["name_ar"], brand="", basket_qty=r["basket_qty"], barcode="",
-                             status=r["status"], accepted=r["accepted"], title=r["title"], price=num(r["price"]),
-                             regular_price=num(r["regular_price"]), unit_price=num(r["unit_price"]),
+                             status="found" if ok else "not_found", detail=r["status"], accepted="yes" if ok else "no",
+                             title=r["title"] if ok else "", price=num(r["price"]) if ok else "",
+                             regular_price=num(r["regular_price"]) if ok else "", unit_price=num(r["unit_price"]) if ok else "",
                              price_basis=r["price_basis"], basket_origin=r["basket_origin"],
-                             origin_seen=r["origin_seen"], currency="AED", url=r["url"]))
+                             origin_seen=r["origin_seen"] if ok else "", currency="AED", url=r["url"] if ok else ""))
         cl = run_dir / "crawl_log.txt"
         if cl.exists():
             log += cl.read_text(encoding="utf-8").strip().splitlines()

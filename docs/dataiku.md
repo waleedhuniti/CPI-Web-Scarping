@@ -40,6 +40,23 @@ Needs the CSV to be committed after each run (a GitHub Actions job or the daily 
 Then the claude.ai routine and the panel become optional (useful for edits and quick checks); Dataiku owns the
 schedule, the history and the governance.
 
+## Direct, without downloading files (what to use)
+
+Two ways, both with no manual file step:
+
+**A. The scraper runs inside Dataiku (recommended).** `dataiku/recipe_cpi_scrape.py` (the basket) and
+`dataiku/recipe_catalogue.py` (all CPI divisions: food, household, personal care, electronics, clothing ...) are Python
+recipes; a scenario runs them daily and they write `cpi_prices` / `cpi_catalogue` datasets. Dataiku then owns the
+schedule and the history. Needs: outbound internet from the Dataiku server to the shops, a code environment with
+`scrapling[fetchers]`, and this repository imported as a project library.
+
+**B. The scraper stays where it is and pushes to Dataiku.** A step after each run calls the Dataiku API
+(`dataikuapi`, a personal API key) and appends the rows to a dataset. Needs a Dataiku URL that the scraper's machine can
+reach and an API key; it cannot work from the claude.ai cloud routine when Dataiku is inside the company network.
+
+Photos are not loaded into Dataiku: the datasets carry `photo_url` (a link); the Excel files from the panel keep the
+embedded pictures for people.
+
 ## Basket and actor changes
 
 The basket lives in `data/basket/basket_source.xlsx` (and the panel's copy). If the basket is maintained in Dataiku,

@@ -1172,7 +1172,12 @@ async function downloadCatalogue(group, btn) {
   const old = btn.innerHTML; btn.disabled = true; btn.textContent = "يُجهَّز الملف…";
   try {
     if (!catData) catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json();
-    if (!catThumbs && catDoc.thumbs_asset) catThumbs = (await (await fetch("/_blob/" + catDoc.thumbs_asset)).json()).thumbs || {};
+    catThumbs ??= {};
+    for (const [g, id] of Object.entries(catDoc.thumbs_assets || {}))      // pictures per group, only the ones needed
+      if ((group === "all" || g === group) && !catThumbs.__got?.[g]) {
+        Object.assign(catThumbs, (await (await fetch("/_blob/" + id)).json()).thumbs || {});
+        (catThumbs.__got ??= {})[g] = 1;
+      }
     const ix = Object.fromEntries(catData.cols.map((c, i) => [c, i]));
     const rows = catData.rows.filter((r) => group === "all" || r[ix.group] === group);
     const label = group === "all" ? "All groups" : catData.groups[group] || group;

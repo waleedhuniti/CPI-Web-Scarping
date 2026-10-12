@@ -573,7 +573,8 @@ function renderHome() {
   $("#view-home").hidden = false; $("#view-project").hidden = true;
   const list = Object.entries(projects).sort((a, b) => (a[1].order ?? 99) - (b[1].order ?? 99));
   const live = list.filter(([, p]) => !isPlanned(p)), planned = list.filter(([, p]) => isPlanned(p));
-  const accepted = live.reduce((n, [, p]) => n + (p.lastRun?.accepted || 0), 0);
+  const accepted = live.reduce((n, [id, p]) => n + (homeAcc[id] ?? p.lastRun?.accepted ?? 0), 0);
+  const scraped = Object.values(homeProducts).reduce((n, x) => n + x, 0);
   const items = live.reduce((n, [, p]) => n + (p.itemCount || 0), 0);
   const latest = live.map(([, p]) => p.lastRun?.at).filter(Boolean).sort().pop();
   $("#home-kpis").innerHTML = [
@@ -581,6 +582,7 @@ function renderHome() {
     ["var(--bar-steel)", planned.length, "مشاريع قادمة"],
     ["var(--bar-blue)", items.toLocaleString("en"), "عنصر تُتابَع أسعاره"],
     ["var(--bar-cyan)", accepted.toLocaleString("en"), "سعر مقبول في آخر التشغيلات"],
+    ["var(--bar-steel)", scraped.toLocaleString("en"), "منتج مسحوب في المسح الشامل"],
     ["var(--navy)", fmtDate(latest), "آخر تحديث"],
   ].map(([c, v, l]) => `<div class="kpi" style="--kc:${c}"><span class="v">${esc(v)}</span><span class="l">${esc(l)}</span></div>`).join("");
   const card = ([id, p], i) => {
@@ -589,7 +591,8 @@ function renderHome() {
     const meta = isPlanned(p)
       ? `<span class="chip planned">قيد التخطيط</span>${p.plan?.frequency ? `<span class="chip">${esc(p.plan.frequency)}</span>` : ""}`
       : `<span class="chip live">فعّال</span><span class="chip">${(p.itemCount ?? 0).toLocaleString("en")} عنصر</span>
-         ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))}${lr.accepted != null ? ` · ${lr.accepted} مقبول` : ""}</span>` : `<span class="chip">لم يُشغّل بعد</span>`}`;
+         ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))} · ${(homeAcc[id] ?? lr.accepted ?? 0).toLocaleString("en")} سعر مقبول</span>` : `<span class="chip">لم يُشغّل بعد</span>`}
+         ${homeProducts[id] ? `<span class="chip">${homeProducts[id].toLocaleString("en")} منتج في المسح الشامل</span>` : ""}`;
     return `<button class="proj ${isPlanned(p) ? "planned" : ""}" data-open="${esc(id)}" style="border-top-color:${color}">
       <span class="top"><span class="icon" style="--pc:${color}">${esc(p.short || initials(p.name))}</span><span class="name">${esc(p.name)}</span></span>
       <span class="desc">${esc(p.description || "")}</span><span class="meta">${meta}</span></button>`;
@@ -600,6 +603,22 @@ function renderHome() {
   $("#new-proj").addEventListener("click", newProject);
 }
 
+// home figures per project from its runs (latest result per source), filled after load
+const homeAcc = {}, homeProducts = {};
+async function loadHomeFigures() {
+  for (const [id, p] of Object.entries(projects)) {
+    if (isPlanned(p)) continue;
+    try {
+      const list = (await db.collection(`projects/${id}/runs`).orderBy("startedAt", "desc").limit(20).get()).docs.map((d) => ({ id: d.id, ...d.data() }));
+      if (!list.length) continue;
+      const L = latestBySource(list);
+      homeAcc[id] = L.sources.reduce((n, v) => n + (v.accepted || 0), 0);
+      homeProducts[id] = L.products;
+    } catch (e) {}
+  }
+  if (!current) renderHome();
+}
+
 // ------------------------------------------------------------ overview tab
 function renderOverviewHead() {
   const p = P(); if (!p) return;
@@ -607,7 +626,7 @@ function renderOverviewHead() {
   $("#ov-head").innerHTML = `<h2 style="margin:0">${esc(p.name)}</h2>
     ${isPlanned(p) ? `<span class="chip planned">قيد التخطيط</span>` : `<span class="chip live">فعّال</span>`}
     ${p.schedule?.trigger_id && !isPlanned(p) ? `<span class="chip sched">تشغيل يومي</span>` : ""}
-    ${lr ? `<span class="chip">آخر تشغيل ${esc(fmtDate(lr.at))}</span>` : ""}
+    ${lr || runs[0] ? `<span class="chip">آخر تشغيل ${esc(fmtDate(runs[0]?.startedAt || lr.at))}</span>` : ""}
     <p>${esc(p.description || "")}</p>`;
 }
 function renderPlan(p) {
@@ -630,38 +649,116 @@ function renderPlan(p) {
       ${pl.notes ? `<p class="muted">${esc(pl.notes)}</p>` : ""}</div>`;
 }
 const BAR_COLORS = { accepted: "#1ea5e0", review: "#d9a43a", other: "#d9dee6" };
+const REVIEW_RE = /review|substitute|multiple|unverified|differs|conflict|mismatch|size_|unit_label_x/;
+const isCat = (label) => /category|\(category\)/i.test(label || "");
+
+/* The latest result per source (retailer x barcode/category), taken from the newest run that has it: a daily run
+   holds both parts, the runs saved by hand hold one part each. Also the size of the latest bulk catalogue. */
+function latestBySource(list) {
+  const seen = new Map(); let products = 0, categories = 0, catRun = null;
+  for (const r of [...list].sort((a, b) => String(b.startedAt).localeCompare(String(a.startedAt)))) {
+    for (const [k, v] of Object.entries(r.summary || {})) {
+      const kind = isCat(v.label) || /_category$/.test(k) ? "category" : "barcode";
+      const key = kind + "|" + String(v.label).replace(/\s*\((category|barcode)\)\s*/i, "");
+      if (!seen.has(key)) seen.set(key, { ...v, kind, runId: r.id, startedAt: r.startedAt });
+    }
+    if (!catRun && (r.log || []).some((l) => / products from \d+ pages/.test(l))) {
+      catRun = r;
+      for (const l of r.log) { const m = l.match(/:\s*(\d+) products from/); if (m) { products += +m[1]; categories++; } }
+    }
+  }
+  return { sources: [...seen.values()], products, categories };
+}
+
+function srcBars(list) {
+  return list.map((v) => {
+    const review = Object.entries(v.statuses || {}).filter(([k]) => REVIEW_RE.test(k)).reduce((n, [, c]) => n + c, 0);
+    const rest = Math.max(0, v.lines - v.accepted - review), pct = (x) => (v.lines ? (100 * x) / v.lines : 0);
+    return `<div class="srcbar"><span>${esc(String(v.label).replace(/\s*\((category|barcode)\)/i, ""))}</span>
+      <span class="track" role="img" aria-label="${v.accepted} مقبول، ${review} للمراجعة، ${rest} غير موجود من ${v.lines}">
+        <i style="width:${pct(v.accepted)}%;background:${BAR_COLORS.accepted}"></i><i style="width:${pct(review)}%;background:${BAR_COLORS.review}"></i><i style="width:${pct(rest)}%;background:${BAR_COLORS.other}"></i></span>
+      <span class="n">${v.accepted} / ${v.lines}</span></div>`;
+  }).join("");
+}
+
+let ovRows = [];
 function renderOverview() {
   const p = P(); if (!p) return;
   renderOverviewHead();
   if (isPlanned(p)) return renderPlan(p);
-  const run = runs[0];
-  if (!run) { $("#ov-body").innerHTML = `<div class="panel empty">لم يُحفظ أي تشغيل بعد. شغّل السحب من تبويب «تشغيل» وستظهر النتائج هنا.</div>`; return; }
-  const sum = Object.values(run.summary || {});
-  const lines = sum.reduce((n, v) => n + v.lines, 0), acc = sum.reduce((n, v) => n + v.accepted, 0);
-  const REVIEW = /review|substitute|multiple|unverified|differs|conflict|mismatch|size_|unit/;
+  renderOverviewHead();
+  if (!runs.length) { $("#ov-body").innerHTML = `<div class="panel empty">لم يُحفظ أي تشغيل بعد. شغّل السحب من تبويب «تشغيل» وستظهر النتائج هنا.</div>`; return; }
+  const L = latestBySource(runs);
+  const bc = L.sources.filter((v) => v.kind === "barcode"), cat = L.sources.filter((v) => v.kind === "category");
+  const sum = (xs, f) => xs.reduce((n, v) => n + (v[f] || 0), 0);
+  const nBarcode = basket.filter((i) => gtinValid(i.barcode_raw)).length, nSpec = basket.length - nBarcode;
+  const accBc = sum(bc, "accepted"), accCat = sum(cat, "accepted");
+  const lastAt = L.sources.map((v) => v.startedAt).sort().pop();
+  const legend = `<div class="legend"><span style="--c:${BAR_COLORS.accepted}">مقبول</span><span style="--c:${BAR_COLORS.review}">للمراجعة</span><span style="--c:${BAR_COLORS.other}">غير موجود في المصدر</span></div>`;
+  const isCpi = p.kind === "barcode";
   $("#ov-body").innerHTML = `
     <div class="kpis">
-      <div class="kpi" style="--kc:var(--dd-green)"><span class="v">${acc.toLocaleString("en")}</span><span class="l">سعراً مقبولاً في آخر تشغيل</span></div>
-      <div class="kpi" style="--kc:var(--dd-cyan)"><span class="v">${lines ? Math.round((100 * acc) / lines) : 0}%</span><span class="l">نسبة القبول (${lines.toLocaleString("en")} سطراً)</span></div>
-      <div class="kpi" style="--kc:var(--dd-teal)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصراً في السلة</span></div>
-      <div class="kpi" style="--kc:var(--dd-coral)"><span class="v">${esc(fmtDate(run.startedAt))}</span><span class="l">تاريخ آخر تشغيل</span></div>
+      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر مقبول (آخر نتيجة لكل مصدر)</span></div>
+      ${isCpi ? `<div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${nBarcode.toLocaleString("en")}</span><span class="l">صنف بباركود · بحث بالباركود</span></div>
+      <div class="kpi" style="--kc:var(--bar-steel)"><span class="v">${nSpec.toLocaleString("en")}</span><span class="l">صنف بدون باركود · مسح شامل</span></div>
+      <div class="kpi" style="--kc:var(--navy)"><span class="v">${L.products.toLocaleString("en")}</span><span class="l">منتج مسحوب في المسح الشامل (${L.categories} قسماً)</span></div>`
+      : `<div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
+      <div class="kpi" style="--kc:var(--navy)"><span class="v">${esc(fmtDate(lastAt))}</span><span class="l">آخر تحديث</span></div>`}
     </div>
+    ${isCpi ? `<div class="plan-grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+      <div class="panel"><h3>الأصناف بباركود (${nBarcode}) · بحث بالباركود</h3>
+        <p class="muted" style="margin:0">كل باركود يُبحث عنه في كارفور ولولو، ويُقبل السعر عندما يرجع منتج واحد بنفس الحجم.</p>
+        ${legend}<div class="srcbars">${srcBars(bc) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
+        <p class="muted" style="margin:0">مقبول: <b style="color:var(--cyan)">${accBc}</b> سعراً · ${bc[0] ? "آخر تشغيل " + esc(fmtDate(bc[0].startedAt)) : ""}</p></div>
+      <div class="panel"><h3>الأصناف بدون باركود (${nSpec}) · مسح شامل للأقسام</h3>
+        <p class="muted" style="margin:0">تُسحب أقسام كاملة (لحوم، أسماك، فواكه، خضار، مخبوزات، أجبان، بهارات) ${L.products ? `<b>${L.products.toLocaleString("en")}</b> منتجاً من ${L.categories} قسماً` : ""}، ويُطابق كل صنف بالنوع والقطعة والمنشأ والسعر للكيلو.</p>
+        ${legend}<div class="srcbars">${srcBars(cat) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
+        <p class="muted" style="margin:0">مقبول: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
+    </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
     <div class="panel">
-      <div class="row"><h2 style="margin:0">النتائج حسب المصدر</h2><span class="spacer"></span><button id="ov-open">عرض التفاصيل</button><button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
-      <div class="legend"><span style="--c:${BAR_COLORS.accepted}">مقبول</span><span style="--c:${BAR_COLORS.review}">للمراجعة</span><span style="--c:${BAR_COLORS.other}">غير موجود في المصدر</span></div>
-      <div class="srcbars">${sum.map((v) => {
-        const review = Object.entries(v.statuses || {}).filter(([k]) => REVIEW.test(k)).reduce((n, [, c]) => n + c, 0);
-        const rest = Math.max(0, v.lines - v.accepted - review), pct = (x) => (v.lines ? (100 * x) / v.lines : 0);
-        return `<div class="srcbar"><span>${esc(v.label)}</span>
-          <span class="track" role="img" aria-label="${v.accepted} مقبول، ${review} للمراجعة، ${rest} غير موجود من ${v.lines}">
-            <i style="width:${pct(v.accepted)}%;background:${BAR_COLORS.accepted}"></i><i style="width:${pct(review)}%;background:${BAR_COLORS.review}"></i><i style="width:${pct(rest)}%;background:${BAR_COLORS.other}"></i></span>
-          <span class="n">${v.accepted} / ${v.lines}</span></div>`;
-      }).join("")}</div>
-    </div>
-    ${runs.length > 1 ? `<div class="panel"><h3 style="color:var(--fg)">آخر التشغيلات</h3><div class="tw"><table><thead><tr><th>التاريخ</th><th>مقبول</th><th>أسطر</th><th>الحالة</th></tr></thead><tbody>${runs.slice(0, 6).map((r) =>
-      `<tr><td class="num">${esc((r.startedAt || "").replace("T", " ").slice(0, 16))}</td><td class="num"><b>${r.accepted ?? ""}</b></td><td class="num">${r.count ?? ""}</td><td><span class="chip ${r.status === "done" ? "ok" : "warn"}">${r.status === "done" ? "انتهى" : esc(r.status)}</span></td></tr>`).join("")}</tbody></table></div></div>` : ""}`;
-  $("#ov-open").onclick = () => { switchTab("results"); showRun(run.id); };
+      <div class="bar-title navy">الأسعار المقبولة</div>
+      <div class="row"><input id="ov-q" placeholder="ابحث باسم الصنف أو المنتج" style="flex:2 1 220px">
+        <select id="ov-src" style="flex:1 1 160px"><option value="">كل المصادر</option><option value="barcode">بحث بالباركود</option><option value="category">مسح شامل</option></select>
+        <select id="ov-ret" style="flex:1 1 140px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
+        <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
+      <div class="tw"><table><thead><tr><th>الصنف</th><th>المتجر</th><th>المصدر</th><th>المنتج في المتجر</th><th>السعر (درهم)</th><th>سعر الوحدة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>
+      <p class="muted" id="ov-count"></p>
+    </div>`;
   $("#ov-dl").onclick = () => $("#r-export-all").click();
+  ["#ov-q", "#ov-src", "#ov-ret"].forEach((s) => $(s).addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
+  loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
+}
+async function loadOvRows(runIds, sources) {
+  const pid = current; const out = [];
+  try {
+    for (const id of runIds) {
+      const chunks = (await db.collection(`projects/${pid}/runs/${id}/rows`).get()).docs;
+      for (const c of chunks) for (const r of c.data().rows || []) {
+        const kind = r.source === "category" || isCat(r.actor) ? "category" : "barcode";
+        const ret = r.retailer || (/lulu/i.test(r.actor) ? "lulu" : /carrefour/i.test(r.actor) ? "carrefour" : r.actor);
+        // keep a row only from the run that is the latest for its source
+        if (!sources.some((v) => v.runId === id && v.kind === kind && (!v.label || String(v.label).toLowerCase().includes(String(ret).toLowerCase().slice(0, 4))))) continue;
+        if (r.accepted !== "yes") continue;
+        out.push({ ...r, kind, ret });
+      }
+    }
+  } catch (e) { if (current === pid) $("#ov-rows").innerHTML = `<tr><td colspan="7">${esc(dbErr(e))}</td></tr>`; return; }
+  if (current !== pid) return;
+  ovRows = out; drawOvRows();
+}
+function drawOvRows() {
+  const q = ($("#ov-q")?.value || "").trim().toLowerCase(), src = $("#ov-src")?.value, ret = $("#ov-ret")?.value;
+  const rows = ovRows.filter((r) => (!src || r.kind === src) && (!ret || r.ret === ret) && (!q || [r.name, r.name_ar, r.title, r.item_code, r.commodity].join(" ").toLowerCase().includes(q)));
+  const basis = { kg: "/كغ", l: "/لتر", pc: "/حبة", bunch: "/حزمة" };
+  $("#ov-rows").innerHTML = rows.slice(0, 300).map((r) => `<tr>
+    <td>${esc(r.name || r.name_ar || r.commodity || "")} <span class="muted mono">${esc(r.item_code || "")}</span></td>
+    <td>${r.ret === "carrefour" ? "Carrefour" : r.ret === "lulu" ? "Lulu" : esc(r.ret || "")}</td>
+    <td><span class="chip">${r.kind === "category" ? "مسح شامل" : "باركود"}</span></td>
+    <td>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title || "")}</a>` : esc(r.title || r.commodity || "")}</td>
+    <td class="num"><b>${esc(r.price ?? "")}</b></td>
+    <td class="num">${r.unit_price ? esc(r.unit_price) + (basis[r.price_basis] || "") : ""}</td>
+    <td class="num">${esc(fmtDate(r.run_date))}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">لا أسعار مطابقة.</td></tr>`;
+  $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر مقبول${rows.length > 300 ? " · يظهر أول 300؛ نزّل الملف لرؤية الكل" : ""}`;
 }
 
 async function newProject() {
@@ -1189,6 +1286,7 @@ function setConn(state, text) { $("#conn-dot").className = "dot " + state; $("#c
   try { await loadProjects(); } catch (e) { $("#shelf-empty").textContent = "تعذّر تحميل المشاريع: " + dbErr(e); return; }
   const want = (location.hash || "").slice(1);
   if (want && projects[want]) openProject(want); else renderHome();
+  loadHomeFigures();
   window.addEventListener("beforeunload", (e) => { if (basketDirty || job?.running) e.preventDefault(); });
 })();
 </script>

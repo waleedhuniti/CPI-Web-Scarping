@@ -76,7 +76,7 @@ Basket lines without a barcode (meat, fish, fruit, vegetables) are priced from w
 search per item: `python scripts/scrapling_category.py data/runs/<date>_category` crawls every page of the categories in
 `config/categories.json` (Carrefour and Lulu), opens the product page only for candidates whose title names no origin,
 and matches each line by its English spec, unit (per kg / piece / bunch) and origin. Barcoded lines keep the barcode
-search. Run 2026-10-12 (all 18 categories, `data/runs/2026-10-12_category/`): 9,372 products listed; of all 253 non-barcode
+search. Run 2026-10-12 (all 18 categories, `data/runs/2026-10-12_category/`): 7,971 products listed; of all 253 non-barcode
 lines, Carrefour 30 and Lulu 25 accepted, 97 `substitute_origin` (only another origin on sale: needs last month's price
 for the +/-30% rule), the rest review or not sold online (live sheep, tandoor bread, made-to-order kunafa ...).
 

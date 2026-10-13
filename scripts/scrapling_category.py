@@ -23,6 +23,7 @@ Barcoded basket lines are not touched here: they keep the barcode search (script
 import argparse
 import csv
 import json
+import os
 import random
 import re
 import statistics
@@ -53,6 +54,28 @@ FRESH_SECTION = re.compile(r"^(?!.*(dried|nuts|tins|canned|frozen|jars|pickle)).
 NOT_FRESH_LINE = re.compile(r"محمص|مكسرات|تمر|مجفف|زبيب|مجمد|معلب")
 NOT_FRESH = ["organic", "marinated", "ready to cook", "seasoned", "cooked", "smoked", "frozen", "juice", "dried",
              "canned", "puree", "pickled", "stuffed", "nuggets", "burger", "sausage", "kebab", "kofta"]
+
+
+# ---------------------------------------------------------------- pinned reference products
+# A basket line without a barcode is matched to one listing; without a memory the pick changes day to day (the median
+# listing moves when the candidates move), which looks like inflation. The first accepted listing of a line at a
+# retailer is pinned (CPI_PINS=<json file>) and priced on the following days by its URL, so the same product is compared.
+# If the pinned listing is gone from the catalogue the line is "not found" that day; after PIN_MAX_MISS days in a row a
+# new listing is chosen and pinned (the officer should link the old and new price then).
+PIN_MAX_MISS = 3
+
+
+def load_pins():
+    f = os.environ.get("CPI_PINS")
+    if f and Path(f).exists():
+        return json.load(open(f, encoding="utf-8"))
+    return {}
+
+
+def save_pins(pins):
+    f = os.environ.get("CPI_PINS")
+    if f:
+        json.dump(pins, open(f, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
 
 # ---------------------------------------------------------------- crawl
@@ -240,13 +263,25 @@ def match(run_dir, catalog=None, delay=1.5):
                 cands.append(row)
             plan.append((it, spec, want, retailer, cands))
     enrich_origins(run_dir, list({id(c): c for *_, cands in plan for c in cands if not c["origin_seen"]}.values()), delay)
+    pins = load_pins()
+    today = run_dir.name[:10]
+    by_url = {(r["retailer"], r["url"]): r for r in catalog}
     out = []
     for it, spec, want, retailer, cands in plan:
             same = [c for c in cands if it["origin_iso"] in c["origin_seen"].split(",")]
             unknown = [c for c in cands if not c["origin_seen"]]
             other = [c for c in cands if c["origin_seen"] and it["origin_iso"] not in c["origin_seen"].split(",")]
-            pick, status = None, "no_match"
-            if same:
+            pick, status, pin_state = None, "no_match", ""
+            key = f"{it['item_code']}|{retailer}"
+            pin = pins.get(key)
+            cur = by_url.get((retailer, pin["url"])) if pin else None
+            if cur is not None and (cur["price_basis"] != want or not cur["unit_price"]):
+                cur = None
+            if pin and cur is not None:                      # the same listing as before
+                pick, status, pin_state = cur, "match", "pinned"
+            elif pin and pin.get("miss", 0) + (pin.get("last") != today) < PIN_MAX_MISS:   # gone today: not found, wait
+                pin_state = "pinned_missing"
+            elif same:
                 per = sorted(float(c["unit_price"]) for c in same)
                 med = statistics.median(per)
                 pick = min(same, key=lambda c: abs(float(c["unit_price"]) - med))
@@ -255,6 +290,8 @@ def match(run_dir, catalog=None, delay=1.5):
                 pick, status = min(unknown, key=lambda c: float(c["unit_price"])), "review_origin"
             elif other:
                 pick, status = min(other, key=lambda c: float(c["unit_price"])), "substitute_origin"
+            if pin_state == "" and pin:
+                pin_state = "repinned"
             alts = sorted(cands, key=lambda c: float(c["unit_price"]))
             out.append(dict(item_code=it["item_code"], group=it["group_code"], name_ar=it["name_ar"],
                             basket_qty=it["qty_raw"], basket_origin=it["origin_iso"], spec_en=spec.get("product_en", ""),
@@ -264,7 +301,16 @@ def match(run_dir, catalog=None, delay=1.5):
                             unit_price=pick["unit_price"] if pick else "", price_basis=want,
                             origin_seen=pick["origin_seen"] if pick else "", n_candidates=len(cands),
                             other_candidates=" | ".join(f"{c['title']} [{c['origin_seen'] or '?'}] ({c['unit_price']}/{c['price_basis']})" for c in alts if c is not pick)[:400],
-                            url=pick["url"] if pick else ""))
+                            url=pick["url"] if pick else "", pin_state=pin_state))
+            if pin_state == "pinned_missing":
+                if pin.get("last") != today:
+                    pin["miss"], pin["last"] = pin.get("miss", 0) + 1, today
+            elif status in ("match", "review_multiple") and pick is not None:
+                if pin_state == "pinned":
+                    pin["miss"], pin["last"] = 0, today
+                else:
+                    pins[key] = {"url": pick["url"], "title": pick["title"], "since": today, "last": today, "miss": 0}
+    save_pins(pins)
     with open(run_dir / "category_matches.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]))
         w.writeheader()

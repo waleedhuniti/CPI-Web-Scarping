@@ -1638,22 +1638,16 @@ async function chBuild() {
 function chSeries(metric, store) {
   const { obs, days } = chData, out = [];
   for (const [g, perDay] of Object.entries(obs)) {
-    // a product counts only while it is the same product: a different listing under the same basket line (a swap) is ignored
-    const stable = new Set();
-    if (metric === "avg") {
-      const first = days.map((d) => perDay[d]).find(Boolean) || new Map();
-      for (const [k, v] of first) if (days.every((d) => perDay[d]?.get(k)?.[2] === v[2])) stable.add(k);
-    }
-    const pts = []; let idx = 100, prev = null;
+    // chained index on the same product only (a listing swapped by the matcher is ignored); the average price is the first
+    // day's average level moved by that index, so it does not jump when products come or go
+    const pts = []; let idx = 100, prev = null, base = null;
     for (const d of days) {
       const m = perDay[d]; if (!m) { pts.push(null); continue; }
-      const cur = new Map([...m].filter(([k, v]) => (!store || String(v[1]).toLowerCase().startsWith(store)) && (metric !== "avg" || stable.has(k))));
+      const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
       if (!cur.size) { pts.push(null); continue; }
-      if (metric === "avg") pts.push(+([...cur.values()].reduce((a, v) => a + v[0], 0) / cur.size).toFixed(2));
-      else {
-        if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) { const q = prev.get(k); if (q && q[2] === v[2]) { ls += Math.log(v[0] / q[0]); n++; } } if (n) idx *= Math.exp(ls / n); }
-        pts.push(+idx.toFixed(2));
-      }
+      if (base === null) base = [...cur.values()].reduce((a, v) => a + v[0], 0) / cur.size;
+      if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) { const q = prev.get(k); if (q && q[2] === v[2]) { ls += Math.log(v[0] / q[0]); n++; } } if (n) idx *= Math.exp(ls / n); }
+      pts.push(+(metric === "avg" ? base * idx / 100 : idx).toFixed(2));
       prev = cur;
     }
     out.push({ g, pts, n: Math.max(...days.map((d) => (perDay[d] || new Map()).size)) });
@@ -1670,7 +1664,7 @@ function chDraw() {
       plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
       scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
   $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
-    + (metric === "avg" ? " متوسط السعر هنا يخص المنتجات التي بقيت هي نفسها وظهرت في كل الأيام فقط (تُستبعد المنتجات التي استبدلها المطابق بمنتج آخر)؛ ويتأثر بحجم العبوات، فالرقم القياسي أدق." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج (بنفس العنوان) في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
+    + (metric === "avg" ? " متوسط السعر هنا = متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها؛ ويتأثر بحجم العبوات، فالرقم القياسي أدق." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج (بنفس العنوان) في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
 }
 async function loadCharts() {
   const pid = current;

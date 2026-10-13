@@ -751,6 +751,9 @@ function renderOverview() {
         ${legend}<div class="srcbars">${srcBars(cat) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
         <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
     </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
+    <div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
+      <p class="muted" style="margin:0 0 10px">ملفات نصية بسيطة (UTF-8، بدون صور أو تنسيق) فيها كل ما جُمع: كل التشغيلات وكل الأسطر، الموجود وغير الموجود، مع أعمدة السلة. لتقرر Dataiku كيف يُحسب الرقم القياسي.</p>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button>` : ""}</div></div>
     ${isCpi ? `<div class="panel" id="cat-panel"><div class="bar-title navy">كتالوج المنتجات اليومي · كل أقسام CPI</div><div id="cat-body" class="muted">يُحمَّل…</div></div>` : ""}
     <div class="panel">
       <div class="bar-title navy">الأسعار</div>
@@ -766,6 +769,8 @@ function renderOverview() {
       <p class="muted" id="ov-count"></p>
     </div>`;
   $("#ov-dl").onclick = () => $("#r-export-all").click();
+  $("#dk-runs").onclick = (e) => dataikuRuns(e.currentTarget);
+  if ($("#dk-cat")) $("#dk-cat").onclick = (e) => dataikuCatalogue(e.currentTarget);
   ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
   if (isCpi) loadCatalogue();
   if (isCpi) loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
@@ -1529,6 +1534,45 @@ $("#r-export-all").addEventListener("click", async () => {
   } catch (e) { toast(dbErr(e), true); }
   finally { btn.disabled = false; btn.textContent = "تنزيل كل الأسعار (Excel)"; }
 });
+
+// ------------------------------------------------------------ raw CSV for Dataiku (every field, no photos, no styling)
+function plainCsv(rows, cols) {
+  const q = (v) => { const t = v === null || v === undefined ? "" : typeof v === "object" ? JSON.stringify(v) : String(v); return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; };
+  return [cols.join(","), ...rows.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
+}
+async function dataikuRuns(btn) {
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجمع…";
+  try {
+    const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
+    const meta = new Map((basket || []).map((i) => [String(i.item_code), i]));
+    const rows = [];
+    for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
+      for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
+        const m = meta.get(String(x.item_code)) || {};
+        const o = { run_id: r.id, run_date: x.run_date || dubaiDay(r.startedAt), ...x };
+        for (const k of ["class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar", "barcode_raw", "gtin", "qty_raw", "qty_unit", "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"])
+          if (o[k] === undefined && m[k] !== undefined) o[k] = m[k];
+        delete o.thumb; rows.push(o);
+      }
+    }
+    if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
+    const cols = [...LEAD.filter((k) => rows.some((r) => r[k] !== undefined)), ...[...new Set(rows.flatMap((r) => Object.keys(r)))].filter((k) => !LEAD.includes(k))];
+    await offerFile(`${P().name}_all_runs.csv`, plainCsv(rows, cols));
+    toast(`${rows.length.toLocaleString("en")} سطراً · ${cols.length} عموداً`);
+  } catch (e) { toast(dbErr(e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
+async function dataikuCatalogue(btn) {
+  if (!catDoc) return toast("لا يوجد كتالوج بعد", true);
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try {
+    if (!catData) { catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json(); catIx = Object.fromEntries(catData.cols.map((c, i) => [c, i])); }
+    const rows = catData.rows.map((r) => Object.fromEntries(catData.cols.map((c, i) => [c, r[i]])));
+    await offerFile(`catalogue_${catData.date}.csv`, plainCsv(rows, catData.cols));
+    toast(`${rows.length.toLocaleString("en")} منتجاً`);
+  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
 
 // ------------------------------------------------------------ boot
 function setConn(state, text) { $("#conn-dot").className = "dot " + state; $("#conn-text").textContent = text; }

@@ -1611,14 +1611,14 @@ const CH_COLORS = ["#223f62", "#e07a1f", "#1b998b", "#c0392b", "#6c5ce7", "#2e86
 async function chBuild() {
   // obs[group][day] = Map(key -> [price, store])
   const obs = {}, days = new Set();
-  const put = (g, d, k, price, store) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store]); };
+  const put = (g, d, k, price, store, title) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store, String(title || "")]); };
   const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
   const byDay = new Map();                                       // one run per day: the latest
   for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
   for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
     const price = Number(x.price);
     if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
-    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, price, x.retailer);
+    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, price, x.retailer, x.title);
   }
   try {
     const cat = await db.doc(`projects/${current}/catalogue/latest`).get();
@@ -1629,7 +1629,7 @@ async function chBuild() {
         const g = CH_NONFOOD.find((x) => x.re.test(p.c || ""));
         if (!g) continue;
         let last = null, e = 0; const store = String(p.o).split(" ")[0].toLowerCase();
-        h.days.forEach((d, i) => { while (e < p.h.length && p.h[e][0] <= i) { last = p.h[e][1]; e++; } if (last) put(g.name, d, k, last, store); });
+        h.days.forEach((d, i) => { while (e < p.h.length && p.h[e][0] <= i) { last = p.h[e][1]; e++; } if (last) put(g.name, d, k, last, store, p.t); });
       }
     }
   } catch (e) { /* the non-food lines appear once a price history exists */ }
@@ -1638,14 +1638,20 @@ async function chBuild() {
 function chSeries(metric, store) {
   const { obs, days } = chData, out = [];
   for (const [g, perDay] of Object.entries(obs)) {
+    // a product counts only while it is the same product: a different listing under the same basket line (a swap) is ignored
+    const stable = new Set();
+    if (metric === "avg") {
+      const first = days.map((d) => perDay[d]).find(Boolean) || new Map();
+      for (const [k, v] of first) if (days.every((d) => perDay[d]?.get(k)?.[2] === v[2])) stable.add(k);
+    }
     const pts = []; let idx = 100, prev = null;
     for (const d of days) {
       const m = perDay[d]; if (!m) { pts.push(null); continue; }
-      const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
+      const cur = new Map([...m].filter(([k, v]) => (!store || String(v[1]).toLowerCase().startsWith(store)) && (metric !== "avg" || stable.has(k))));
       if (!cur.size) { pts.push(null); continue; }
       if (metric === "avg") pts.push(+([...cur.values()].reduce((a, v) => a + v[0], 0) / cur.size).toFixed(2));
       else {
-        if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) if (prev.has(k)) { ls += Math.log(v[0] / prev.get(k)[0]); n++; } if (n) idx *= Math.exp(ls / n); }
+        if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) { const q = prev.get(k); if (q && q[2] === v[2]) { ls += Math.log(v[0] / q[0]); n++; } } if (n) idx *= Math.exp(ls / n); }
         pts.push(+idx.toFixed(2));
       }
       prev = cur;
@@ -1664,7 +1670,7 @@ function chDraw() {
       plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
       scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
   $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
-    + (metric === "avg" ? " متوسط السعر يتأثر بحجم العبوات وبالمنتجات التي وُجدت كل يوم؛ الرقم القياسي أدق لأنه يقارن نفس المنتج بين يومين متتاليين." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
+    + (metric === "avg" ? " متوسط السعر هنا يخص المنتجات التي بقيت هي نفسها وظهرت في كل الأيام فقط (تُستبعد المنتجات التي استبدلها المطابق بمنتج آخر)؛ ويتأثر بحجم العبوات، فالرقم القياسي أدق." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج (بنفس العنوان) في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
 }
 async function loadCharts() {
   const pid = current;

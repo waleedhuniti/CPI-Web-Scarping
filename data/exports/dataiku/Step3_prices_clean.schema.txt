@@ -1,0 +1,2 @@
+month text (YYYY-MM) | obs_date text (YYYY-MM-DD) | item_code text (9 digits, keep leading zero) | retailer text | observed_price double (per unit) | unit text | pack_price double | quality_flag text | source_type text | product_title text | product_url text
+UTF-8, comma, header row, quoted text.

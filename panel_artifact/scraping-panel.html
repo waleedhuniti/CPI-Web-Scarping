@@ -751,6 +751,11 @@ function renderOverview() {
         ${legend}<div class="srcbars">${srcBars(cat) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
         <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
     </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
+    ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر (درهم)</option></select>
+        <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select></div>
+      <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
+      <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
     <div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
       <p class="muted" style="margin:0 0 10px">ملفات نصية بسيطة (UTF-8، بدون صور أو تنسيق) فيها كل ما جُمع: كل التشغيلات وكل الأسطر، الموجود وغير الموجود، مع أعمدة السلة. لتقرر Dataiku كيف يُحسب الرقم القياسي.</p>
       <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button>` : ""}</div></div>
@@ -774,6 +779,7 @@ function renderOverview() {
   if ($("#dk-hist")) $("#dk-hist").onclick = (e) => dataikuHistory(e.currentTarget);
   ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
   if (isCpi) loadCatalogue();
+  if (isCpi) loadCharts();
   if (isCpi) loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
   else loadOvRows(runs.map((r) => r.id), null);   // global prices: every saved day, newest first
 }
@@ -1588,6 +1594,87 @@ async function dataikuHistory(btn) {
     toast(`${h.days.length} يوماً · ${rows.length.toLocaleString("en")} تغييراً مسجّلاً`);
   } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
   finally { btn.disabled = false; btn.textContent = old; }
+}
+
+// ------------------------------------------------------------ price charts by CPI group (index or average price over the days)
+const CH_LIB = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js";
+let chLib = null, chChart = null, chData = null;
+const loadChartLib = () => window.Chart ? Promise.resolve(window.Chart) : (chLib ??= new Promise((ok, fail) => {
+  const el = document.createElement("script"); el.src = CH_LIB; el.onload = () => ok(window.Chart);
+  el.onerror = () => { chLib = null; fail(new Error("تعذّر تحميل مكتبة الرسوم")); }; document.head.appendChild(el); }));
+// the two non-food groups come from the daily catalogue history (our category -> the CPI group name)
+const CH_NONFOOD = [
+  { name: "السلع المنزلية غير المعمرة", re: /^(air freshener|batteries|cleaning|detergent|dishwashing|insecticide|light bulb|tissue|grocery household)/i },
+  { name: "أجهزة أخرى (غير كهربائية) وأصناف ومنتجات معدة للعناية الشخصية", re: /^(body lotion|deodorant|perfume|razor|shampoo|soap|toothpaste|sanitary pads|diapers|face mask|health, fitness & beauty > fragrances)/i },
+];
+const CH_COLORS = ["#223f62", "#e07a1f", "#1b998b", "#c0392b", "#6c5ce7", "#2e86de", "#8d6e63", "#d4a017", "#e84393", "#00a8a8", "#7f8c8d"];
+async function chBuild() {
+  // obs[group][day] = Map(key -> [price, store])
+  const obs = {}, days = new Set();
+  const put = (g, d, k, price, store) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store]); };
+  const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
+  const byDay = new Map();                                       // one run per day: the latest
+  for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
+  for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
+    const price = Number(x.price);
+    if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
+    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, price, x.retailer);
+  }
+  try {
+    const cat = await db.doc(`projects/${current}/catalogue/latest`).get();
+    const hid = cat.exists ? plain(cat).history_asset : null;
+    if (hid) {
+      const h = await (await fetch("/_blob/" + hid)).json();
+      for (const [k, p] of Object.entries(h.p)) {
+        const g = CH_NONFOOD.find((x) => x.re.test(p.c || ""));
+        if (!g) continue;
+        let last = null, e = 0; const store = String(p.o).split(" ")[0].toLowerCase();
+        h.days.forEach((d, i) => { while (e < p.h.length && p.h[e][0] <= i) { last = p.h[e][1]; e++; } if (last) put(g.name, d, k, last, store); });
+      }
+    }
+  } catch (e) { /* the non-food lines appear once a price history exists */ }
+  return { obs, days: [...days].sort() };
+}
+function chSeries(metric, store) {
+  const { obs, days } = chData, out = [];
+  for (const [g, perDay] of Object.entries(obs)) {
+    const pts = []; let idx = 100, prev = null;
+    for (const d of days) {
+      const m = perDay[d]; if (!m) { pts.push(null); continue; }
+      const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
+      if (!cur.size) { pts.push(null); continue; }
+      if (metric === "avg") pts.push(+([...cur.values()].reduce((a, v) => a + v[0], 0) / cur.size).toFixed(2));
+      else {
+        if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) if (prev.has(k)) { ls += Math.log(v[0] / prev.get(k)[0]); n++; } if (n) idx *= Math.exp(ls / n); }
+        pts.push(+idx.toFixed(2));
+      }
+      prev = cur;
+    }
+    out.push({ g, pts, n: Math.max(...days.map((d) => (perDay[d] || new Map()).size)) });
+  }
+  return out;
+}
+function chDraw() {
+  if (!chData || !$("#ch-canvas")) return;
+  const metric = $("#ch-metric").value, store = $("#ch-store").value, days = chData.days, ser = chSeries(metric, store);
+  if (chChart) chChart.destroy();
+  chChart = new window.Chart($("#ch-canvas"), { type: "line",
+    data: { labels: days, datasets: ser.map((s, i) => ({ label: s.g, data: s.pts, borderColor: CH_COLORS[i % CH_COLORS.length], backgroundColor: CH_COLORS[i % CH_COLORS.length], tension: 0.2, spanGaps: true, pointRadius: 3, borderWidth: 2 })) },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false },
+      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
+      scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
+  $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
+    + (metric === "avg" ? " متوسط السعر يتأثر بحجم العبوات وبالمنتجات التي وُجدت كل يوم؛ الرقم القياسي أدق لأنه يقارن نفس المنتج بين يومين متتاليين." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
+}
+async function loadCharts() {
+  const pid = current;
+  try {
+    await loadChartLib();
+    chData = await chBuild();
+    if (current !== pid || !$("#ch-canvas")) return;
+    if (chData.days.length < 2) { $("#ch-note").textContent = "الرسم يحتاج يومين على الأقل من الأسعار؛ يظهر تلقائياً بعد التشغيل التالي."; return; }
+    $("#ch-metric").onchange = chDraw; $("#ch-store").onchange = chDraw; chDraw();
+  } catch (e) { if ($("#ch-note")) $("#ch-note").textContent = "تعذّر تحميل الرسم: " + (e?.message || e); }
 }
 
 // ------------------------------------------------------------ boot

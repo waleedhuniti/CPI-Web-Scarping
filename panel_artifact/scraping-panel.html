@@ -753,7 +753,7 @@ function renderOverview() {
     </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
     <div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
       <p class="muted" style="margin:0 0 10px">ملفات نصية بسيطة (UTF-8، بدون صور أو تنسيق) فيها كل ما جُمع: كل التشغيلات وكل الأسطر، الموجود وغير الموجود، مع أعمدة السلة. لتقرر Dataiku كيف يُحسب الرقم القياسي.</p>
-      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button>` : ""}</div></div>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button>` : ""}</div></div>
     ${isCpi ? `<div class="panel" id="cat-panel"><div class="bar-title navy">كتالوج المنتجات اليومي · كل أقسام CPI</div><div id="cat-body" class="muted">يُحمَّل…</div></div>` : ""}
     <div class="panel">
       <div class="bar-title navy">الأسعار</div>
@@ -771,6 +771,7 @@ function renderOverview() {
   $("#ov-dl").onclick = () => $("#r-export-all").click();
   $("#dk-runs").onclick = (e) => dataikuRuns(e.currentTarget);
   if ($("#dk-cat")) $("#dk-cat").onclick = (e) => dataikuCatalogue(e.currentTarget);
+  if ($("#dk-hist")) $("#dk-hist").onclick = (e) => dataikuHistory(e.currentTarget);
   ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
   if (isCpi) loadCatalogue();
   if (isCpi) loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
@@ -1570,6 +1571,21 @@ async function dataikuCatalogue(btn) {
     const rows = catData.rows.map((r) => Object.fromEntries(catData.cols.map((c, i) => [c, r[i]])));
     await offerFile(`catalogue_${catData.date}.csv`, plainCsv(rows, catData.cols));
     toast(`${rows.length.toLocaleString("en")} منتجاً`);
+  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
+
+async function dataikuHistory(btn) {
+  if (!catDoc?.history_asset) return toast("لا يوجد سجل أسعار بعد؛ يبدأ مع الكتالوج اليومي", true);
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try {
+    const h = await (await fetch("/_blob/" + catDoc.history_asset)).json();
+    const rows = [];
+    for (const [k, p] of Object.entries(h.p)) for (const [d, price, reg] of p.h)
+      rows.push({ date: h.days[d], outlet: p.o, product_id: k.slice(k.indexOf("|") + 1), title: p.t, price, regular_price: reg, group: p.g, category: p.c, url: p.u });
+    rows.sort((a, b) => a.date.localeCompare(b.date) || a.outlet.localeCompare(b.outlet));
+    await offerFile(`catalogue_price_history_${h.days[h.days.length - 1]}.csv`, plainCsv(rows, ["date", "outlet", "product_id", "title", "price", "regular_price", "group", "category", "url"]));
+    toast(`${h.days.length} يوماً · ${rows.length.toLocaleString("en")} تغييراً مسجّلاً`);
   } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
   finally { btn.disabled = false; btn.textContent = old; }
 }

@@ -762,7 +762,7 @@ function renderOverview() {
       <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
     <div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
       <p class="muted" style="margin:0 0 10px">ملفات نصية بسيطة (UTF-8، بدون صور أو تنسيق) فيها كل ما جُمع: كل التشغيلات وكل الأسطر، الموجود وغير الموجود، مع أعمدة السلة. لتقرر Dataiku كيف يُحسب الرقم القياسي.</p>
-      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button>` : ""}</div></div>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button><button class="primary" id="dk-pp">لوحة منتجات الأصناف بلا باركود (CSV)</button>` : ""}</div></div>
     ${isCpi ? `<div class="panel" id="cat-panel"><div class="bar-title navy">كتالوج المنتجات اليومي · كل أقسام CPI</div><div id="cat-body" class="muted">يُحمَّل…</div></div>` : ""}
     <div class="panel">
       <div class="bar-title navy">الأسعار</div>
@@ -781,6 +781,7 @@ function renderOverview() {
   $("#dk-runs").onclick = (e) => dataikuRuns(e.currentTarget);
   if ($("#dk-cat")) $("#dk-cat").onclick = (e) => dataikuCatalogue(e.currentTarget);
   if ($("#dk-hist")) $("#dk-hist").onclick = (e) => dataikuHistory(e.currentTarget);
+  if ($("#dk-pp")) $("#dk-pp").onclick = (e) => dataikuProducts(e.currentTarget);
   ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
   if (isCpi) loadCatalogue();
   if (isCpi) loadCharts();
@@ -1606,6 +1607,18 @@ async function dataikuCatalogue(btn) {
   finally { btn.disabled = false; btn.textContent = old; }
 }
 
+async function dataikuProducts(btn) {          // every product of every no-barcode line, per day (scripts/product_panel.py), as the routine saved it
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try {
+    const d = await db.doc(`projects/${current}/products/latest`).get();
+    const id = d.exists ? plain(d).panel_asset : null;
+    if (!id) return toast("لا توجد لوحة منتجات بعد؛ تبدأ مع التشغيل اليومي التالي", true);
+    const text = await (await fetch("/_blob/" + id)).text();
+    await offerFile(`product_panel_${plain(d).days?.slice(-1)[0] || ""}.csv`, text);
+    toast(`${(text.split("\n").length - 1).toLocaleString("en")} سطراً`);
+  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
 async function dataikuHistory(btn) {
   if (!catDoc?.history_asset) return toast("لا يوجد سجل أسعار بعد؛ يبدأ مع الكتالوج اليومي", true);
   const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
@@ -1637,14 +1650,14 @@ const divOfGroup = (name) => { const g = (basket || []).find((i) => String(i.gro
 async function chBuild() {
   // obs[group][day] = Map(key -> [price, store])
   const obs = {}, days = new Set();
-  const put = (g, d, k, price, store, title) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store, String(title || "")]); };
+  const put = (g, d, k, price, store, title, idx) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store, String(title || ""), idx > 0 ? idx : 0]); };
   const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
   const byDay = new Map();                                       // one run per day: the latest
   for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
   for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
     const price = Number(x.price);
     if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
-    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, price, x.retailer, x.title);
+    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, price, x.retailer, x.title, Number(x.line_index));
   }
   try {
     const cat = await db.doc(`projects/${current}/catalogue/latest`).get();
@@ -1672,7 +1685,7 @@ function chSeries(metric, store) {
       const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
       if (!cur.size) { pts.push(null); continue; }
       if (base === null) base = [...cur.values()].reduce((a, v) => a + v[0], 0) / cur.size;
-      if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) { const q = prev.get(k); if (q && q[2] === v[2]) { ls += Math.log(v[0] / q[0]); n++; } } if (n) idx *= Math.exp(ls / n); }
+      if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) { const q = prev.get(k); if (!q) continue; if (v[3] && q[3]) { ls += Math.log(v[3] / q[3]); n++; } else if (q[2] === v[2]) { ls += Math.log(v[0] / q[0]); n++; } } if (n) idx *= Math.exp(ls / n); }
       pts.push(+(metric === "avg" ? base * idx / 100 : idx).toFixed(2));
       prev = cur;
     }

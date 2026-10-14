@@ -226,6 +226,33 @@ def basket_basis(item, spec):
     return "pc"
 
 
+def make_filter(it, spec):
+    """(unit basis, predicate): the predicate says whether a catalogue row is the product this basket line stands for
+    (product words, none of the excluded words, section, price convertible to the line's unit). Origin is not looked at."""
+    want = basket_basis(it, spec)
+    fresh_line = it["group_code"] in ("0112", "0113", "0116", "0117") and not NOT_FRESH_LINE.search(it["name_ar"])
+    frozen_ok = "مجمد" in it["name_ar"] or "frozen" in (spec.get("query_en", "") + spec.get("product_en", "")).lower()
+    musts = [m for m in spec.get("must_have", []) if not re.search(r"\d", m)]
+    nots = spec.get("must_not", [])
+
+    def ok(row):
+        t, tw = row["title"].lower(), words(row["title"])
+        if not musts and not all(has_word(tw, w) for w in words(spec.get("query_en", "")) if w not in STOP):
+            return False
+        if musts and not all(phrase_ok(tw, m) for m in musts):
+            return False
+        if any(phrase_ok(tw, n) and any(w not in STOP for w in words(n)) for n in nots):
+            return False
+        if any(x in t for x in NOT_FRESH if not (x == "frozen" and frozen_ok)):
+            return False
+        if "frozen" in str(row.get("category", "")).lower() and not frozen_ok:   # frozen section, title may not say so
+            return False
+        if fresh_line and not FRESH_SECTION.search(str(row.get("category", ""))):   # no pickles, tins, dried fruit
+            return False
+        return row["price_basis"] == want and bool(row["unit_price"])
+    return want, ok
+
+
 def match(run_dir, catalog=None, delay=1.5):
     if catalog is None:
         catalog = list(csv.DictReader(open(run_dir / "catalog.csv", encoding="utf-8-sig")))
@@ -238,32 +265,10 @@ def match(run_dir, catalog=None, delay=1.5):
     plan = []
     for it in items:
         spec = specs.get(it["item_code"], {})
-        want = basket_basis(it, spec)
-        fresh_line = it["group_code"] in ("0112", "0113", "0116", "0117") and not NOT_FRESH_LINE.search(it["name_ar"])
-        frozen_ok = "مجمد" in it["name_ar"] or "frozen" in (spec.get("query_en", "") + spec.get("product_en", "")).lower()
-        musts = [m for m in spec.get("must_have", []) if not re.search(r"\d", m)]
-        nots = spec.get("must_not", [])
+        want, ok = make_filter(it, spec)
         for retailer in ("carrefour", "lulu"):
-            cands = []
-            for row in catalog:
-                if row["retailer"] != retailer or it["group_code"] not in str(row["group"]).split(","):
-                    continue
-                t, tw = row["title"].lower(), words(row["title"])
-                if not musts and not all(has_word(tw, w) for w in words(spec.get("query_en", "")) if w not in STOP):
-                    continue
-                if musts and not all(phrase_ok(tw, m) for m in musts):
-                    continue
-                if any(phrase_ok(tw, n) and any(w not in STOP for w in words(n)) for n in nots):
-                    continue
-                if any(x in t for x in NOT_FRESH if not (x == "frozen" and frozen_ok)):
-                    continue
-                if "frozen" in str(row.get("category", "")).lower() and not frozen_ok:   # frozen section, title may not say so
-                    continue
-                if fresh_line and not FRESH_SECTION.search(str(row.get("category", ""))):   # no pickles, tins, dried fruit
-                    continue
-                if row["price_basis"] != want or not row["unit_price"]:
-                    continue
-                cands.append(row)
+            cands = [row for row in catalog
+                     if row["retailer"] == retailer and it["group_code"] in str(row["group"]).split(",") and ok(row)]
             plan.append((it, spec, want, retailer, cands))
     enrich_origins(run_dir, list({id(c): c for *_, cands in plan for c in cands if not c["origin_seen"]}.values()), delay)
     pins = load_pins()

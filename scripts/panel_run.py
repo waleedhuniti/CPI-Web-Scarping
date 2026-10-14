@@ -114,12 +114,33 @@ def main(run_dir, started):
         log.append(f"{LABEL[retailer]} barcode: {len(searched)} pages read, {len(failed)} failed")
         rows += res
     cat = run_dir / "category_matches.csv"
+    lp = run_dir / "line_prices.csv"                  # scripts/product_panel.py: the product-set price of each no-barcode line
+    today_lines = {}
+    if lp.exists():
+        for r in csv.DictReader(open(lp, encoding="utf-8")):
+            if r["date"] == started[:10]:
+                today_lines[(r["item_code"], r["retailer"])] = r
     if cat.exists():
         crows = list(csv.DictReader(open(cat, encoding="utf-8-sig")))
         lines = {}
         for r in crows:
             lines.setdefault((r["retailer"], r["name_ar"]), set()).add(r["item_code"])
         for r in crows:
+            ln = today_lines.get((r["item_code"], r["retailer"]))
+            if lp.exists():                           # product-set method: any origin, any brand, matched products chained from day to day
+                rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],
+                                 actor=LABEL[r["retailer"]] + " (category)", item_code=r["item_code"], group_code=r["group"],
+                                 name=r["name_ar"], brand="", basket_qty=r["basket_qty"], barcode="",
+                                 status="found" if ln else "not_found", detail="product_set" if ln else "no_match",
+                                 accepted="yes" if ln else "no", title=ln["rep_title"] if ln else "",
+                                 price=num(ln["price"]) if ln else "", regular_price="",
+                                 unit_price=num(ln["price"]) if ln else "", price_basis=r["price_basis"], basket_origin=r["basket_origin"],
+                                 origin_seen="", currency="AED", url=ln["rep_url"] if ln else "", photo=(ln["rep_photo"] if ln else ""),
+                                 size="", group_name=GROUP.get(r["group"], ""), section="", retailer_id=retailer_id(ln["rep_url"]) if ln else "",
+                                 line_index=num(ln["index"]) if ln else "", n_products=int(ln["n_products"]) if ln else 0,
+                                 note=(f"{ln['n_products']} products ({ln['cheapest']}-{ln['dearest']} AED per {BASIS.get(r['price_basis'], r['price_basis'])}), "
+                                       f"index {ln['index']}") if ln else ""))
+                continue
             ok = category_found(r["status"], len(lines[(r["retailer"], r["name_ar"])]) == 1)
             rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],
                              actor=LABEL[r["retailer"]] + " (category)", item_code=r["item_code"],

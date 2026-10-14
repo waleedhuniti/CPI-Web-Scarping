@@ -51,19 +51,38 @@ def loose_ok(tw, phrase):
     return False
 
 
+# words a title may lack without it being another product: descriptions of the same product, and origins
+ADJ = {"whole", "white", "distilled", "smooth", "natural", "premium", "extra", "classic", "original", "plain", "large", "small",
+       "long", "grain", "fresh", "frozen", "canned", "pure", "turkey", "turkish", "egypt", "egyptian", "india", "indian",
+       "yemen", "yemeni", "pakistan", "pakistani", "saudi", "local", "imported", "organic"}
+
+
+def relaxed_ok(tw, spec):
+    """The title may miss descriptive words of the basket product (fresh, white, a country) but not its product words:
+    at least 60% of the English query words (brand left out) are there and every missing one is only a description.
+    Brand and the exact pack size are checked separately; a different pack size is never accepted."""
+    brand = set(words(spec.get("brand_en", "")))
+    q = [w for w in words(spec.get("query_en", "")) if w not in STOP and w not in brand]
+    if not q:
+        return False
+    miss = [w for w in q if not has_word(tw, w)]
+    return len(miss) <= 0.4 * len(q) and all(w in ADJ for w in miss)
+
+
 def accept(title, spec, want_q):
     tw = words(title)
     brand = [w for w in words(spec.get("brand_en", "")) if w not in STOP]
     if brand and not all(has_word(tw, w) for w in brand):
         return -1
     musts = [m for m in spec.get("must_have", []) if not re.search(r"\d", m)]
-    if not all(loose_ok(tw, m) for m in musts):
+    strict = all(loose_ok(tw, m) for m in musts)
+    if not strict and not relaxed_ok(tw, spec):
         return -1
     if any(phrase_ok(tw, n) and any(w not in STOP for w in words(n)) for n in spec.get("must_not", [])):
         return -1
     if not want_q.ok or not any(same_quantity(q, want_q) for q in all_quantities(title)):
         return -1
-    return sum(phrase_ok(tw, m) for m in musts) + len(brand)
+    return sum(phrase_ok(tw, m) for m in musts) + len(brand) + (100 if strict else 0)
 
 
 def run(retailer, run_dir, delay=1.5):

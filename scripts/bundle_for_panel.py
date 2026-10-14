@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FILES = sorted(str(p.relative_to(ROOT)) for p in (ROOT / "cpi").rglob("*.py")) + [
     "scripts/scrapling_search.py", "scripts/scrapling_category.py", "scripts/match_run.py", "scripts/panel_run.py",
-    "scripts/name_fallback.py", "scripts/combine_run.py", "scripts/fetch_thumbs.py", "scripts/catalogue_crawl.py", "scripts/generic_listing.py", "scripts/collect_photos.py", "scripts/fill_photos.py", "scripts/catalogue_assets.py", "scripts/catalogue_history.py", "scripts/feed_export.py", "config/catalogue.json", "config/cpi_groups.json", "scripts/match_catalogue_items.py", "scripts/export_basket_csv.py", "config/categories.json", "data/basket/specs_en.json",
+    "scripts/name_fallback.py", "scripts/combine_run.py", "scripts/fetch_thumbs.py", "scripts/catalogue_crawl.py", "scripts/generic_listing.py", "scripts/collect_photos.py", "scripts/fill_photos.py", "scripts/catalogue_assets.py", "scripts/catalogue_history.py", "scripts/product_panel.py", "scripts/feed_export.py", "config/catalogue.json", "config/cpi_groups.json", "scripts/match_catalogue_items.py", "scripts/export_basket_csv.py", "config/categories.json", "data/basket/specs_en.json",
 ]
 
 

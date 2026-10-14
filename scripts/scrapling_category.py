@@ -17,7 +17,7 @@ Barcoded basket lines are not touched here: they keep the barcode search (script
       match             one listing (or several within 15% per kg) of the basket origin - accepted
       review_multiple   several listings of the basket origin with prices that differ by more than 15%
       review_origin / substitute_origin  the product is there but without the basket origin (none stated, or another one):
-                        taken (as 'match') when it is within 15% or AED 3 of the line's last accepted price, else origin_skipped;
+                        taken (as 'match') when it is within the allowed move of the line's last accepted price (under AED 10: 15% or AED 3; AED 10 and over: 30%), else origin_skipped;
                         the first price of a line is its base
       no_match          nothing fits
 """
@@ -254,12 +254,19 @@ def make_filter(it, spec):
     return want, ok
 
 
-ORIGIN_PCT = 0.15      # a change of origin is taken when the price moves by no more than 15% ...
-ORIGIN_ABS = 3.0       # ... or by no more than AED 3 per unit (cheap goods: tomato 5 -> 3 is fine; meat jumping AED 20 is not)
+ORIGIN_PCT_LOW = 0.15  # last price under AED 10: +/-15%, or a move of at most AED 3 (tomato 5 -> 3 is fine)
+ORIGIN_ABS_LOW = 3.0
+ORIGIN_PCT_HIGH = 0.30  # last price AED 10 or more: +/-30% only (mortadella 10 -> 18 is a jump)
+ORIGIN_BIG = 10.0
 
 
 def origin_change_ok(last, new):
-    return last > 0 and (abs(new - last) / last <= ORIGIN_PCT or abs(new - last) <= ORIGIN_ABS)
+    if last <= 0:
+        return False
+    chg = abs(new - last)
+    if last >= ORIGIN_BIG:
+        return chg / last <= ORIGIN_PCT_HIGH
+    return chg / last <= ORIGIN_PCT_LOW or chg <= ORIGIN_ABS_LOW
 
 
 def match(run_dir, catalog=None, delay=1.5):

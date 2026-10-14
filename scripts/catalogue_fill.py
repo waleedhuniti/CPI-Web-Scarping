@@ -34,7 +34,8 @@ def prepare(run_dir, catalogue_json):
         w.writeheader()
         for r in d["rows"]:
             row = dict(zip(cols, r))
-            row["store"] = SLUG.get(row["outlet"], row["outlet"].lower().replace(" ", ""))
+            o = row["outlet"]
+            row["store"] = "centrepoint" if "(Centrepoint)" in o else SLUG.get(o, o.lower().replace(" ", ""))   # Splash, Babyshop, Shoe Mart ... are Centrepoint
             w.writerow({c: row.get(c, "") for c in COLS})
     return ref, d["date"]
 

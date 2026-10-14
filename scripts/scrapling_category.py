@@ -16,8 +16,9 @@ Barcoded basket lines are not touched here: they keep the barcode search (script
    -> <run_dir>/category_matches.csv, one row per basket line x retailer:
       match             one listing (or several within 15% per kg) of the basket origin - accepted
       review_multiple   several listings of the basket origin with prices that differ by more than 15%
-      review_origin     the product is there but the title names no origin
-      substitute_origin the product is there only from another origin (office rule: +/-30% of last month's price)
+      review_origin / substitute_origin  the product is there but without the basket origin (none stated, or another one):
+                        taken (as 'match') when it is within 15% or AED 3 of the line's last accepted price, else origin_skipped;
+                        the first price of a line is its base
       no_match          nothing fits
 """
 import argparse
@@ -253,6 +254,14 @@ def make_filter(it, spec):
     return want, ok
 
 
+ORIGIN_PCT = 0.15      # a change of origin is taken when the price moves by no more than 15% ...
+ORIGIN_ABS = 3.0       # ... or by no more than AED 3 per unit (cheap goods: tomato 5 -> 3 is fine; meat jumping AED 20 is not)
+
+
+def origin_change_ok(last, new):
+    return last > 0 and (abs(new - last) / last <= ORIGIN_PCT or abs(new - last) <= ORIGIN_ABS)
+
+
 def match(run_dir, catalog=None, delay=1.5):
     if catalog is None:
         catalog = list(csv.DictReader(open(run_dir / "catalog.csv", encoding="utf-8-sig")))
@@ -297,12 +306,18 @@ def match(run_dir, catalog=None, delay=1.5):
                 med = statistics.median(per)
                 pick = min(same, key=lambda c: abs(float(c["unit_price"]) - med))
                 status = "match" if per[-1] <= per[0] * 1.15 else "review_multiple"
-            elif unknown:                                    # no origin stated: the median listing (not the cheapest), pinned like the others
-                per = sorted(float(c["unit_price"]) for c in unknown)
-                med = statistics.median(per)
-                pick, status = min(unknown, key=lambda c: abs(float(c["unit_price"]) - med)), "review_origin"
-            elif other:
-                pick, status = min(other, key=lambda c: float(c["unit_price"])), "substitute_origin"
+            elif unknown or other:                           # origin unclear / only another origin: office rule against the last accepted price
+                pool, status = (unknown, "review_origin") if unknown else (other, "substitute_origin")
+                last = float(pin["unit"]) if pin and pin.get("unit") else None
+                per = sorted(float(c["unit_price"]) for c in pool)
+                target = last if last else statistics.median(per)
+                pick = min(pool, key=lambda c: abs(float(c["unit_price"]) - target))
+                if last is None:                             # first price of the line: it becomes the base
+                    status, pin_state = "match", "origin_base"
+                elif origin_change_ok(last, float(pick["unit_price"])):
+                    status, pin_state = "match", "origin_rule_ok"
+                else:
+                    status, pin_state = "origin_skipped", "origin_rule_skip"
             if pin_state == "" and pin:
                 pin_state = "repinned"
             alts = sorted(cands, key=lambda c: float(c["unit_price"]))
@@ -318,11 +333,15 @@ def match(run_dir, catalog=None, delay=1.5):
             if pin_state == "pinned_missing":
                 if pin.get("last") != today:
                     pin["miss"], pin["last"] = pin.get("miss", 0) + 1, today
-            elif (status in ("match", "review_multiple") or (status == "review_origin" and names[it["name_ar"]] == 1)) and pick is not None:
+            elif pin_state == "origin_rule_skip":            # price jump on a change of origin: skipped, the last accepted price stays the reference
+                pin["miss"], pin["last"] = 0, today
+            elif (status in ("match", "review_multiple")) and pick is not None:
                 if pin_state == "pinned":
                     pin["miss"], pin["last"] = 0, today
+                    pin["unit"] = float(pick["unit_price"])
                 else:
-                    pins[key] = {"url": pick["url"], "title": pick["title"], "since": today, "last": today, "miss": 0}
+                    pins[key] = {"url": pick["url"], "title": pick["title"], "since": today, "last": today, "miss": 0,
+                                 "unit": float(pick["unit_price"])}
     save_pins(pins)
     with open(run_dir / "category_matches.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]))

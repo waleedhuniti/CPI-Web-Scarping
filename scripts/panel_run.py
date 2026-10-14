@@ -15,6 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
 
 from cpi.decision import barcode_found, category_found  # noqa: E402
 
@@ -66,7 +67,7 @@ REASON = {"name": "no barcode: priced from the catalogue by product name/model (
           "market": "priced from a market rate (gold per gram), not a shop listing"}
 
 
-def pending_rows(date):
+def pending_rows(date, skip=()):
     """One row per basket item that no search or category crawl covers (match_mode name / service / market), so every
     day's file lists the whole basket: status not_found, source 'pending', and why."""
     f, g = ROOT / "data/basket/basket.json", ROOT / "config/cpi_groups.json"
@@ -76,7 +77,7 @@ def pending_rows(date):
     out = []
     for it in json.loads(f.read_text(encoding="utf-8")):
         mode = it.get("match_mode")
-        if mode not in REASON:
+        if mode not in REASON or it["item_code"] in skip:
             continue
         out.append(dict(run_date=date, source="pending", retailer="", actor="", item_code=it["item_code"], group_code=it["group_code"],
                         name=it["name_ar"], brand=it.get("brand_ar", ""), basket_qty=it.get("qty_raw", ""), barcode="",
@@ -88,6 +89,10 @@ def pending_rows(date):
 
 def main(run_dir, started):
     run_dir = Path(run_dir)
+    cat_rows = []
+    if os.environ.get("CPI_CATALOGUE_JSON") and Path(os.environ["CPI_CATALOGUE_JSON"]).exists():
+        import catalogue_fill                          # the day's catalogue fills the lines the searches could not price
+        cat_rows = catalogue_fill.rows(run_dir, os.environ["CPI_CATALOGUE_JSON"], started[:10])
     pics = photos(run_dir)
     info = listing_info(run_dir)
     rows, summary, log = [], {}, []
@@ -167,8 +172,9 @@ def main(run_dir, started):
         summary[f"{key[0]}_{key[1]}"] = dict(label=f"{LABEL[key[0]]} ({'barcode' if key[1] == 'barcode' else 'category'})",
                                               lines=len(mine), accepted=sum(r["accepted"] == "yes" for r in mine),
                                               statuses=st)
+    rows += cat_rows
     if os.environ.get("CPI_PENDING_ROWS"):          # off by default: the export adds these rows (they are the same every day)
-        rows += pending_rows(started[:10])
+        rows += pending_rows(started[:10], {r["item_code"] for r in rows})
     out = run_dir / "panel"
     out.mkdir(exist_ok=True)
     chunks, cur, size = [], [], 0

@@ -1582,7 +1582,8 @@ async function dataikuRuns(btn) {
       const days = [...new Set(rows.map((r) => r.run_date))];
       for (const d of days) {
         const rid = (rows.find((r) => r.run_date === d) || {}).run_id;
-        for (const m of basket || []) if (REASON[m.match_mode])
+        const have = new Set(rows.filter((r) => r.run_date === d).map((r) => r.item_code));   // priced from the catalogue: already has its rows
+        for (const m of basket || []) if (REASON[m.match_mode] && !have.has(m.item_code))
           rows.push({ run_id: rid, run_date: d, source: "pending", item_code: m.item_code, group_code: m.group_code, group_name: m.group_name, name: m.name_ar, basket_qty: m.qty_raw, status: m.match_mode === "service" ? "service" : "not_found", detail: REASON[m.match_mode], accepted: "no", currency: "AED",
             cpi_group: String(m.group_name || "").replace(/^\d+\s*-\s*/, "").trim(), class_code: m.class_code, class_name: m.class_name, name_ar: m.name_ar, qty_raw: m.qty_raw, qty_unit: m.qty_unit, qty_total: m.qty_total, match_mode: m.match_mode });
       }

@@ -231,20 +231,23 @@ def make_filter(it, spec):
     """(unit basis, predicate): the predicate says whether a catalogue row is the product this basket line stands for
     (product words, none of the excluded words, section, price convertible to the line's unit). Origin is not looked at."""
     want = basket_basis(it, spec)
-    fresh_line = it["group_code"] in ("0112", "0113", "0116", "0117") and not NOT_FRESH_LINE.search(it["name_ar"])
     frozen_ok = "مجمد" in it["name_ar"] or "frozen" in (spec.get("query_en", "") + spec.get("product_en", "")).lower()
+    fresh_line = it["group_code"] in ("0112", "0113", "0116", "0117") and not NOT_FRESH_LINE.search(it["name_ar"]) and not frozen_ok
     musts = [m for m in spec.get("must_have", []) if not re.search(r"\d", m)]
     nots = spec.get("must_not", [])
 
     def ok(row):
         t, tw = row["title"].lower(), words(row["title"])
+        if "frozen" in str(row.get("category", "")).lower():     # the frozen section: the title need not say 'frozen'
+            tw = tw + ["frozen"]
         if not musts and not all(has_word(tw, w) for w in words(spec.get("query_en", "")) if w not in STOP):
             return False
         if musts and not all(phrase_ok(tw, m) for m in musts):
             return False
         if any(phrase_ok(tw, n) and any(w not in STOP for w in words(n)) for n in nots):
             return False
-        if any(x in t for x in NOT_FRESH if not (x == "frozen" and frozen_ok)):
+        asked = (spec.get("query_en", "") + " " + spec.get("product_en", "")).lower()
+        if any(x in t for x in NOT_FRESH if not (x == "frozen" and frozen_ok) and x not in asked):
             return False
         if "frozen" in str(row.get("category", "")).lower() and not frozen_ok:   # frozen section, title may not say so
             return False

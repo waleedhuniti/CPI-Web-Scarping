@@ -1547,6 +1547,9 @@ function plainCsv(rows, cols) {
   const q = (v) => { const t = v === null || v === undefined ? "" : typeof v === "object" ? JSON.stringify(v) : String(v); return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; };
   return [cols.join(","), ...rows.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
 }
+// one format for everything exported to Dataiku: UTF-8 CSV, no BOM, fixed column order, a cpi_group column in the office's Arabic group names
+const DK_COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "barcode", "name", "brand", "basket_qty", "title", "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code", "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note", "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id", "section", "size", "source", "unit_price"];
+const cpiGroupOfCategory = (c) => (CH_NONFOOD.find((g) => g.re.test(c || "")) || {}).name || "";
 async function dataikuRuns(btn) {
   const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجمع…";
   try {
@@ -1557,13 +1560,15 @@ async function dataikuRuns(btn) {
       for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
         const m = meta.get(String(x.item_code)) || {};
         const o = { run_id: r.id, run_date: x.run_date || dubaiDay(r.startedAt), ...x };
+        if (m.group_name) o.cpi_group = String(m.group_name).replace(/^\d+\s*-\s*/, "").trim();
         for (const k of ["class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar", "barcode_raw", "gtin", "qty_raw", "qty_unit", "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"])
           if (o[k] === undefined && m[k] !== undefined) o[k] = m[k];
         delete o.thumb; rows.push(o);
       }
     }
     if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
-    const cols = [...LEAD.filter((k) => rows.some((r) => r[k] !== undefined)), ...[...new Set(rows.flatMap((r) => Object.keys(r)))].filter((k) => !LEAD.includes(k))];
+    const ordered = P()?.kind === "barcode" ? DK_COLS : LEAD;
+    const cols = [...ordered.filter((k) => rows.some((r) => r[k] !== undefined)), ...[...new Set(rows.flatMap((r) => Object.keys(r)))].filter((k) => !ordered.includes(k))];
     await offerFile(`${P().name}_all_runs.csv`, plainCsv(rows, cols));
     toast(`${rows.length.toLocaleString("en")} سطراً · ${cols.length} عموداً`);
   } catch (e) { toast(dbErr(e), true); }
@@ -1574,8 +1579,9 @@ async function dataikuCatalogue(btn) {
   const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
   try {
     if (!catData) { catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json(); catIx = Object.fromEntries(catData.cols.map((c, i) => [c, i])); }
-    const rows = catData.rows.map((r) => Object.fromEntries(catData.cols.map((c, i) => [c, r[i]])));
-    await offerFile(`catalogue_${catData.date}.csv`, plainCsv(rows, catData.cols));
+    const rows = catData.rows.map((r) => { const o = Object.fromEntries(catData.cols.map((c, i) => [c, r[i]])); o.cpi_group = cpiGroupOfCategory(o.category); return o; });
+    const cols = [...catData.cols.slice(0, catData.cols.indexOf("category") + 1), "cpi_group", ...catData.cols.slice(catData.cols.indexOf("category") + 1)];
+    await offerFile(`catalogue_${catData.date}.csv`, plainCsv(rows, cols));
     toast(`${rows.length.toLocaleString("en")} منتجاً`);
   } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
   finally { btn.disabled = false; btn.textContent = old; }
@@ -1588,9 +1594,9 @@ async function dataikuHistory(btn) {
     const h = await (await fetch("/_blob/" + catDoc.history_asset)).json();
     const rows = [];
     for (const [k, p] of Object.entries(h.p)) for (const [d, price, reg] of p.h)
-      rows.push({ date: h.days[d], outlet: p.o, product_id: k.slice(k.indexOf("|") + 1), title: p.t, price, regular_price: reg, group: p.g, category: p.c, url: p.u });
+      rows.push({ date: h.days[d], outlet: p.o, product_id: k.slice(k.indexOf("|") + 1), title: p.t, price, regular_price: reg, group: p.g, category: p.c, cpi_group: cpiGroupOfCategory(p.c), url: p.u });
     rows.sort((a, b) => a.date.localeCompare(b.date) || a.outlet.localeCompare(b.outlet));
-    await offerFile(`catalogue_price_history_${h.days[h.days.length - 1]}.csv`, plainCsv(rows, ["date", "outlet", "product_id", "title", "price", "regular_price", "group", "category", "url"]));
+    await offerFile(`catalogue_price_history_${h.days[h.days.length - 1]}.csv`, plainCsv(rows, ["date", "outlet", "product_id", "title", "price", "regular_price", "group", "category", "cpi_group", "url"]));
     toast(`${h.days.length} يوماً · ${rows.length.toLocaleString("en")} تغييراً مسجّلاً`);
   } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
   finally { btn.disabled = false; btn.textContent = old; }

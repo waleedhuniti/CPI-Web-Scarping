@@ -271,6 +271,8 @@ Carrefour 5,151 · Lulu 5,530 · Sharaf DG 1,584 · Zara 769 · Max 501 · Centr
 | `data/exports/cpi_prices_long.csv` | `scripts/export_for_dataiku.py` | صف لكل تشغيل × متجر × سطر |
 | `data/exports/dataiku/Step3_prices_clean.csv` | `scripts/export_step3.py` | **مُعالَج** (سعر لكل kg/l/pc، علم `outlier_check`)؛ بافتراضاتي — استخدموا الخام لقرار Dataiku |
 
+> **قاعدة ثابتة لأي ملف يُعطى لـ Dataiku (قرار 14/10):** CSV بصيغة UTF-8 **بدون BOM**، بنفس الأعمدة وترتيبها، مع عمود **`cpi_group`** بأسماء مجموعات CPI العربية الرسمية (بعد `item_code` مباشرة)، وملف واحد لا ملفات منفصلة لكل مجموعة. التنفيذ: `scripts/export_basket_csv.py <run>` (يُنتج `CPI_basket_<date>_cpi_group.csv`) وأزرار لوحة Dataiku في البورتال (كل التشغيلات، الكتالوج، سجل الأسعار) التي تضيف نفس العمود؛ في الكتالوج وسجل الأسعار يُملأ `cpi_group` للمجموعتين غير الغذائيتين فقط ويبقى فارغاً للباقي حتى يوجد تخصيص لكل الأقسام.
+
 أعمدة الجدول الطويل: `run_date, run_id, source, retailer, item_code, group_code, name_ar, brand_ar, basket_qty, barcode, status, detail, accepted, title, price, regular_price, unit_price, price_basis, basket_origin, origin_seen, currency, in_stock, url`.
 
 **حد 30 MB لإرسال الملفات في المحادثة:** ملف Excel بالصور 52 MB تجاوزه؛ بعد تصغير الصور (56px وجودة 55) صار 26 MB. تنزيل البورتال لا يخضع لهذا الحد.

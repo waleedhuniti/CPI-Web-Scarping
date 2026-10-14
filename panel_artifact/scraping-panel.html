@@ -446,7 +446,7 @@ const PARSERS = {
 const STATUS = {
   barcode_match: ["مطابق", "ok"], unit_label: ["مطابق (وحدة مكتوبة مختلفة)", "ok"], multiple_results: ["أكثر من منتج", "warn"],
   size_unverified: ["الحجم غير مؤكد", "warn"], qty_mismatch: ["الحجم مختلف", "bad"], not_found: ["غير موجود", ""],
-  not_searched: ["لم يُبحث", "warn"], error: ["خطأ في التشغيل", "bad"], ok: ["موجود", "ok"], missing: ["غير موجود في الصفحة", "bad"], row: ["صف", ""],
+  not_searched: ["لم يُبحث", "warn"], service: ["خدمة (لا سعر على الإنترنت)", ""], pending: ["لم يُسعَّر بعد", ""], error: ["خطأ في التشغيل", "bad"], ok: ["موجود", "ok"], missing: ["غير موجود في الصفحة", "bad"], row: ["صف", ""],
   found: ["موجود", "ok"], match: ["مطابق", "ok"], review_multiple: ["عدة عروض بأسعار مختلفة", "warn"], review_origin: ["المنشأ غير مذكور", "warn"],
   substitute_origin: ["منشأ بديل", "warn"], no_match: ["غير مطابق", ""], barcode_search_match: ["مطابق", "ok"], barcode_match_unit_label: ["مطابق (وحدة مختلفة)", "ok"],
   qty_unit_differs: ["وحدة الكمية مختلفة", "warn"], qty_title_url_conflict: ["تعارض الحجم", "warn"], barcode_match_qty_unverified: ["الحجم غير مؤكد", "warn"],
@@ -727,7 +727,8 @@ function renderOverview() {
   const bc = L.sources.filter((v) => v.kind === "barcode"), cat = L.sources.filter((v) => v.kind === "category");
   const sum = (xs, f) => xs.reduce((n, v) => n + (v[f] || 0), 0);
   const nBarcode = basket.length ? basket.filter((i) => gtinValid(i.barcode_raw)).length : (p.barcodeCount ?? 0);
-  const nSpec = basket.length ? basket.length - nBarcode : (p.specCount ?? 0);
+  const nSpec = basket.length ? basket.filter((i) => i.match_mode ? i.match_mode === "spec" : !gtinValid(i.barcode_raw)).length : (p.specCount ?? 0);
+  const nName = basket.filter((i) => i.match_mode === "name").length, nService = basket.filter((i) => i.match_mode === "service" || i.match_mode === "market").length;
   const accBc = sum(bc, "accepted"), accCat = sum(cat, "accepted");
   const lastAt = L.sources.map((v) => v.startedAt).sort().pop();
   const legend = `<div class="legend"><span style="--c:${BAR_COLORS.accepted}">موجود (بسعر)</span><span style="--c:${BAR_COLORS.other}">غير موجود</span></div>`;
@@ -737,6 +738,8 @@ function renderOverview() {
       <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
       ${isCpi ? `<div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${nBarcode.toLocaleString("en")}</span><span class="l">صنف بباركود · بحث بالباركود</span></div>
       <div class="kpi" style="--kc:var(--bar-steel)"><span class="v">${nSpec.toLocaleString("en")}</span><span class="l">صنف بدون باركود · مسح شامل</span></div>
+      ${nName || nService ? `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${nName.toLocaleString("en")}</span><span class="l">صنف يُسعَّر بالاسم/الموديل من الكتالوج</span></div>
+      <div class="kpi" style="--kc:var(--navy)"><span class="v">${nService.toLocaleString("en")}</span><span class="l">خدمة أو سعر سوق · بلا سعر رفّ</span></div>` : ""}
       <div class="kpi" style="--kc:var(--navy)"><span class="v">${L.products.toLocaleString("en")}</span><span class="l">منتج مسحوب في المسح الشامل (${L.categories} قسماً)</span></div>`
       : `<div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
       <div class="kpi" style="--kc:var(--navy)"><span class="v">${esc(fmtDate(lastAt))}</span><span class="l">آخر تحديث</span></div>`}
@@ -753,6 +756,7 @@ function renderOverview() {
     </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
     ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
       <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر (درهم)</option></select>
+        <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
         <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select></div>
       <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
       <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
@@ -1003,6 +1007,7 @@ function cell(it, c) {
   const v = it[c.key];
   if (c.type === "bool") return `<td><input type="checkbox" data-tog="${esc(c.key)}" ${v !== false && v !== "no" ? "checked" : ""} aria-label="${esc(c.label)}"></td>`;
   if (c.key === "barcode_raw" && v) return `<td class="num mono">${esc(v)}${gtinValid(v) ? "" : ` <span class="chip warn">غير صالح</span>`}</td>`;
+  if (c.key === "match_mode") return `<td>${esc({ barcode: "باركود", spec: "مسح الأقسام", name: "اسم/موديل (كتالوج)", service: "خدمة", market: "سعر سوق" }[v] || v || "")}</td>`;
   if (c.key === "qty_raw" && P().kind === "barcode") return `<td>${esc(v)}${v && !itemQty(it) ? ` <span class="chip warn">لم تُقرأ</span>` : ""}</td>`;
   return `<td class="${c.type === "code" ? "num mono" : ""}">${esc(v)}</td>`;
 }
@@ -1037,7 +1042,10 @@ function editItem(idx) {
 function formItem() {
   const it = editing === null ? {} : { ...basket[editing] };
   cols().forEach((c, i) => { const v = $("#fld-" + i).value.trim(); it[c.key] = c.type === "bool" ? v !== "no" : v; });
-  if (P().kind === "barcode") { const q = parseQty(it.qty_raw); it.qty_total = q?.total ?? null; it.qty_unit = q?.unit ?? ""; }
+  if (P().kind === "barcode") {
+    const q = parseQty(it.qty_raw); it.qty_total = q?.total ?? null; it.qty_unit = q?.unit ?? "";
+    if (gtinValid(it.barcode_raw)) it.match_mode = "barcode"; else if (!it.match_mode || it.match_mode === "barcode") it.match_mode = "spec";
+  }
   return it;
 }
 function preview() {
@@ -1057,7 +1065,8 @@ $("#b-save").addEventListener("click", async () => {
   try {
     await saveChunks(`projects/${current}/basket`, "items", basket);
     const nb = basket.filter((i) => gtinValid(i.barcode_raw)).length;
-    await saveProject({ itemCount: basket.length, barcodeCount: nb, specCount: basket.length - nb });
+    const cnt = (m) => basket.filter((i) => i.match_mode === m).length;
+    await saveProject({ itemCount: basket.length, barcodeCount: nb, specCount: basket.some((i) => i.match_mode) ? cnt("spec") : basket.length - nb, nameCount: cnt("name"), serviceCount: cnt("service") + cnt("market") });
     basketDirty = false; renderBasket(); renderRunPicks(); toast(`حُفظت السلة (${basket.length} عنصر)`);
   } catch (e) { toast(dbErr(e), true); }
 });
@@ -1567,6 +1576,16 @@ async function dataikuRuns(btn) {
       }
     }
     if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
+    if (P()?.kind === "barcode") {            // items no search covers (no barcode / spec: priced by name, services, market rates): one "not found" row each per day
+      const REASON = { name: "no barcode: priced from the catalogue by product name/model (not yet matched)", service: "service: no shelf price on the web (restaurant, repair, laundry, hotel, hairdresser)", market: "priced from a market rate (gold per gram), not a shop listing" };
+      const days = [...new Set(rows.map((r) => r.run_date))];
+      for (const d of days) {
+        const rid = (rows.find((r) => r.run_date === d) || {}).run_id;
+        for (const m of basket || []) if (REASON[m.match_mode])
+          rows.push({ run_id: rid, run_date: d, source: "pending", item_code: m.item_code, group_code: m.group_code, group_name: m.group_name, name: m.name_ar, basket_qty: m.qty_raw, status: m.match_mode === "service" ? "service" : "not_found", detail: REASON[m.match_mode], accepted: "no", currency: "AED",
+            cpi_group: String(m.group_name || "").replace(/^\d+\s*-\s*/, "").trim(), class_code: m.class_code, class_name: m.class_name, name_ar: m.name_ar, qty_raw: m.qty_raw, qty_unit: m.qty_unit, qty_total: m.qty_total, match_mode: m.match_mode });
+      }
+    }
     const ordered = P()?.kind === "barcode" ? DK_COLS : LEAD;
     const cols = [...ordered.filter((k) => rows.some((r) => r[k] !== undefined)), ...[...new Set(rows.flatMap((r) => Object.keys(r)))].filter((k) => !ordered.includes(k))];
     await offerFile(`${P().name}_all_runs.csv`, plainCsv(rows, cols));
@@ -1613,7 +1632,8 @@ const CH_NONFOOD = [
   { name: "السلع المنزلية غير المعمرة", re: /^(air freshener|batteries|cleaning|detergent|dishwashing|insecticide|light bulb|tissue|grocery household)/i },
   { name: "أجهزة أخرى (غير كهربائية) وأصناف ومنتجات معدة للعناية الشخصية", re: /^(body lotion|deodorant|perfume|razor|shampoo|soap|toothpaste|sanitary pads|diapers|face mask|health, fitness & beauty > fragrances)/i },
 ];
-const CH_COLORS = ["#223f62", "#e07a1f", "#1b998b", "#c0392b", "#6c5ce7", "#2e86de", "#8d6e63", "#d4a017", "#e84393", "#00a8a8", "#7f8c8d"];
+const CH_COLORS = ["#223f62", "#e07a1f", "#1b998b", "#c0392b", "#6c5ce7", "#2e86de", "#8d6e63", "#d4a017", "#e84393", "#00a8a8", "#7f8c8d", "#5b8c2a", "#a3318c", "#cc5500", "#1f6f9f", "#b8860b", "#3d5a80", "#9c2f2f", "#2a9d8f", "#6d597a"];
+const divOfGroup = (name) => { const g = (basket || []).find((i) => String(i.group_name || "").replace(/^\d+\s*-\s*/, "").trim() === name); return g ? (g.division_name || "") : ""; };
 async function chBuild() {
   // obs[group][day] = Map(key -> [price, store])
   const obs = {}, days = new Set();
@@ -1662,7 +1682,8 @@ function chSeries(metric, store) {
 }
 function chDraw() {
   if (!chData || !$("#ch-canvas")) return;
-  const metric = $("#ch-metric").value, store = $("#ch-store").value, days = chData.days, ser = chSeries(metric, store);
+  const metric = $("#ch-metric").value, store = $("#ch-store").value, dv = $("#ch-div")?.value || "", days = chData.days;
+  const ser = chSeries(metric, store).filter((s) => !dv || divOfGroup(s.g) === dv);
   if (chChart) chChart.destroy();
   chChart = new window.Chart($("#ch-canvas"), { type: "line",
     data: { labels: days, datasets: ser.map((s, i) => ({ label: s.g, data: s.pts, borderColor: CH_COLORS[i % CH_COLORS.length], backgroundColor: CH_COLORS[i % CH_COLORS.length], tension: 0.2, spanGaps: true, pointRadius: 3, borderWidth: 2 })) },
@@ -1679,6 +1700,8 @@ async function loadCharts() {
     chData = await chBuild();
     if (current !== pid || !$("#ch-canvas")) return;
     if (chData.days.length < 2) { $("#ch-note").textContent = "الرسم يحتاج يومين على الأقل من الأسعار؛ يظهر تلقائياً بعد التشغيل التالي."; return; }
+    const dvs = [...new Set(Object.keys(chData.obs).map(divOfGroup).filter(Boolean))];
+    if ($("#ch-div")) { $("#ch-div").innerHTML = `<option value="">كل الأقسام</option>` + dvs.map((d) => `<option value="${esc(d)}">${esc(d)}</option>`).join(""); $("#ch-div").onchange = chDraw; }
     $("#ch-metric").onchange = chDraw; $("#ch-store").onchange = chDraw; chDraw();
   } catch (e) { if ($("#ch-note")) $("#ch-note").textContent = "تعذّر تحميل الرسم: " + (e?.message || e); }
 }

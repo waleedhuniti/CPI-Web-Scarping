@@ -1,0 +1,354 @@
+{
+ "note": "Names for the 9 food groups, 0561 and 1312 are the office's (official=true). The others are provisional wording by the tool: confirm or replace them here, everything (portal, charts, exports) reads this file.",
+ "divisions": {
+  "01": {
+   "ar": "الأغذية والمشروبات غير الكحولية",
+   "en": "Food & non-alcoholic beverages"
+  },
+  "03": {
+   "ar": "الملابس والأحذية",
+   "en": "Clothing & footwear"
+  },
+  "04": {
+   "ar": "السكن والمياه والكهرباء والغاز وأنواع الوقود الأخرى",
+   "en": "Housing, water, electricity, gas & other fuels"
+  },
+  "05": {
+   "ar": "الأثاث والتجهيزات المنزلية",
+   "en": "Furnishings, household equipment & maintenance"
+  },
+  "08": {
+   "ar": "الاتصالات والمعلومات",
+   "en": "Information & communication"
+  },
+  "09": {
+   "ar": "الترفيه والرياضة والثقافة",
+   "en": "Recreation, sport & culture"
+  },
+  "11": {
+   "ar": "المطاعم وخدمات الإقامة",
+   "en": "Restaurants & accommodation"
+  },
+  "13": {
+   "ar": "العناية الشخصية والسلع والخدمات المتنوعة",
+   "en": "Personal care & miscellaneous goods and services"
+  }
+ },
+ "groups": {
+  "0111": {
+   "ar": "الحبوب ومنتجاتها",
+   "en": "Bread & cereals",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0112": {
+   "ar": "اللحـــوم",
+   "en": "Meat",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0113": {
+   "ar": "الأسماك والاغذية البحرية",
+   "en": "Fish & seafood",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0114": {
+   "ar": "اللبـــن و الجبـــن و البيض",
+   "en": "Milk, cheese & eggs",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0115": {
+   "ar": "الزيوت والدهون",
+   "en": "Oils & fats",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0116": {
+   "ar": "الفواكـه والمكسرات",
+   "en": "Fruit & nuts",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0117": {
+   "ar": "البقول والخضروات",
+   "en": "Vegetables & pulses",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0118": {
+   "ar": "السكر والمربي والعسل والشوكلاتة والحلوي",
+   "en": "Sugar, jam, honey & sweets",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0119": {
+   "ar": "منتجات الاغذية غير المصنفة تحت بند اخر",
+   "en": "Other food products",
+   "official": true,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0121": {
+   "ar": "العصائر",
+   "en": "Juices",
+   "official": false,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0122": {
+   "ar": "البن",
+   "en": "Coffee",
+   "official": false,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0123": {
+   "ar": "الشاي",
+   "en": "Tea",
+   "official": false,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0125": {
+   "ar": "المياه المعدنية",
+   "en": "Mineral water",
+   "official": false,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0126": {
+   "ar": "المشروبات الغازية",
+   "en": "Soft drinks",
+   "official": false,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0129": {
+   "ar": "مشروبات أخرى (الطاقة وغيرها)",
+   "en": "Other beverages (energy drinks etc.)",
+   "official": false,
+   "division": "01",
+   "kind": "goods"
+  },
+  "0311": {
+   "ar": "أقمشة وملابس تقليدية",
+   "en": "Clothing materials & traditional garments",
+   "official": false,
+   "division": "03",
+   "kind": "goods"
+  },
+  "0312": {
+   "ar": "الملابس الجاهزة",
+   "en": "Garments",
+   "official": false,
+   "division": "03",
+   "kind": "goods"
+  },
+  "0313": {
+   "ar": "مستلزمات الملابس وإكسسواراتها",
+   "en": "Clothing accessories",
+   "official": false,
+   "division": "03",
+   "kind": "goods"
+  },
+  "0314": {
+   "ar": "تنظيف الملابس وإصلاحها",
+   "en": "Cleaning & repair of clothing",
+   "official": false,
+   "division": "03",
+   "kind": "service"
+  },
+  "0321": {
+   "ar": "الأحذية",
+   "en": "Footwear",
+   "official": false,
+   "division": "03",
+   "kind": "goods"
+  },
+  "0453": {
+   "ar": "الوقود السائل",
+   "en": "Liquid fuels",
+   "official": false,
+   "division": "04",
+   "kind": "goods"
+  },
+  "0454": {
+   "ar": "الوقود الصلب والشموع",
+   "en": "Solid fuels & candles",
+   "official": false,
+   "division": "04",
+   "kind": "goods"
+  },
+  "0531": {
+   "ar": "الأجهزة المنزلية الكبيرة",
+   "en": "Major household appliances",
+   "official": false,
+   "division": "05",
+   "kind": "goods"
+  },
+  "0532": {
+   "ar": "الأجهزة المنزلية الصغيرة",
+   "en": "Small household appliances",
+   "official": false,
+   "division": "05",
+   "kind": "goods"
+  },
+  "0533": {
+   "ar": "إصلاح وصيانة الأجهزة المنزلية",
+   "en": "Repair of household appliances",
+   "official": false,
+   "division": "05",
+   "kind": "service"
+  },
+  "0540": {
+   "ar": "الأواني وأدوات المائدة والمطبخ",
+   "en": "Glassware, tableware & utensils",
+   "official": false,
+   "division": "05",
+   "kind": "goods"
+  },
+  "0551": {
+   "ar": "الأدوات والمعدات الكبيرة للمنزل والحديقة",
+   "en": "Major tools & equipment",
+   "official": false,
+   "division": "05",
+   "kind": "goods"
+  },
+  "0552": {
+   "ar": "الأدوات الصغيرة ومستلزمات المنزل",
+   "en": "Small tools & miscellaneous accessories",
+   "official": false,
+   "division": "05",
+   "kind": "goods"
+  },
+  "0561": {
+   "ar": "السلع المنزلية غير المعمرة",
+   "en": "Non-durable household goods",
+   "official": true,
+   "division": "05",
+   "kind": "goods"
+  },
+  "0812": {
+   "ar": "الهواتف المحمولة",
+   "en": "Mobile phones",
+   "official": false,
+   "division": "08",
+   "kind": "goods"
+  },
+  "0813": {
+   "ar": "أجهزة الحاسوب واللوحية",
+   "en": "Computers & tablets",
+   "official": false,
+   "division": "08",
+   "kind": "goods"
+  },
+  "0814": {
+   "ar": "أجهزة التلفاز",
+   "en": "Televisions",
+   "official": false,
+   "division": "08",
+   "kind": "goods"
+  },
+  "0819": {
+   "ar": "أجهزة اتصالات وصوت أخرى",
+   "en": "Other communication & audio equipment",
+   "official": false,
+   "division": "08",
+   "kind": "goods"
+  },
+  "0921": {
+   "ar": "الألعاب",
+   "en": "Toys & games",
+   "official": false,
+   "division": "09",
+   "kind": "goods"
+  },
+  "0922": {
+   "ar": "المعدات الرياضية",
+   "en": "Sports equipment",
+   "official": false,
+   "division": "09",
+   "kind": "goods"
+  },
+  "0931": {
+   "ar": "النباتات والزهور",
+   "en": "Plants & flowers",
+   "official": false,
+   "division": "09",
+   "kind": "goods"
+  },
+  "0932": {
+   "ar": "مستلزمات الحيوانات الأليفة",
+   "en": "Pet products",
+   "official": false,
+   "division": "09",
+   "kind": "goods"
+  },
+  "1111": {
+   "ar": "المطاعم والمقاهي",
+   "en": "Restaurants & cafés",
+   "official": false,
+   "division": "11",
+   "kind": "service"
+  },
+  "1112": {
+   "ar": "الوجبات السريعة والجاهزة",
+   "en": "Fast food & take-away",
+   "official": false,
+   "division": "11",
+   "kind": "service"
+  },
+  "1120": {
+   "ar": "خدمات الإقامة",
+   "en": "Accommodation services",
+   "official": false,
+   "division": "11",
+   "kind": "service"
+  },
+  "1311": {
+   "ar": "أجهزة العناية الشخصية الكهربائية",
+   "en": "Electric appliances for personal care",
+   "official": false,
+   "division": "13",
+   "kind": "goods"
+  },
+  "1312": {
+   "ar": "أجهزة أخرى (غير كهربائية) وأصناف ومنتجات معدة للعناية الشخصية",
+   "en": "Other non-electric appliances & personal care products",
+   "official": true,
+   "division": "13",
+   "kind": "goods"
+  },
+  "1313": {
+   "ar": "خدمات العناية الشخصية",
+   "en": "Personal care services",
+   "official": false,
+   "division": "13",
+   "kind": "service"
+  },
+  "1321": {
+   "ar": "المجوهرات والساعات",
+   "en": "Jewellery & watches",
+   "official": false,
+   "division": "13",
+   "kind": "goods"
+  },
+  "1329": {
+   "ar": "سلع شخصية أخرى",
+   "en": "Other personal effects",
+   "official": false,
+   "division": "13",
+   "kind": "goods"
+  }
+ }
+}

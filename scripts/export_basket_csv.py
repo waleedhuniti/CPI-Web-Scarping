@@ -30,7 +30,8 @@ def build(rows, run_id, out_dir=ROOT / "data/exports/dataiku"):
     import panel_run                                   # items no search covers (service / name / market): one 'not found' row each
     basket = {b["item_code"]: b for b in json.load(open(ROOT / "data/basket/basket.json", encoding="utf-8"))}
     date = str(rows[0].get("run_date") or "")
-    rows = list(rows) + panel_run.pending_rows(date)
+    have = {r["item_code"] for r in rows}
+    rows = list(rows) + [p for p in panel_run.pending_rows(date) if p["item_code"] not in have]   # an item the catalogue priced has its own rows
     for r in rows:
         m = basket.get(r["item_code"], {})
         for k in META:

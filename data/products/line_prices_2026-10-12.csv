@@ -1,0 +1,478 @@
+date,item_code,cpi_group,retailer,unit,price,index,n_products,n_pairs,cheapest,dearest,rep_title,rep_url,rep_photo,rep_unit_price
+2026-10-12,011110503,الحبوب ومنتجاتها,carrefour,kg,8.59,100.0,2,0,7.99,9.19,Los Pinos Harees Hab,https://www.carrefouruae.com/mafuae/en/other-pulses/vn-harees-hab/p/1785632,,7.99
+2026-10-12,011110503,الحبوب ومنتجاتها,lulu,kg,7.67,100.0,3,0,3.85,29.96,Al Fares Harees (Peeled Wheat) 2 kg,https://gcc.luluhypermarket.com/en-ae/al-fares-harees-peeled-wheat-2-kg/p/470888/,,7.67
+2026-10-12,011131003,الحبوب ومنتجاتها,carrefour,kg,45.0,100.0,12,0,25.45,232.55,"Karuzo Blueberry Cheesecake Filling Croissant Bun, 82g",https://www.carrefouruae.com/mafuae/en/croisant/karuzo-croissant-bun-blueberry-82g/p/2167764,,45.0
+2026-10-12,011131003,الحبوب ومنتجاتها,lulu,kg,34.61,100.0,20,0,21.97,61.51,Lusine Butter Croissant 85 g,https://gcc.luluhypermarket.com/en-ae/lusine-butter-croissant-85-g/p/1342687/,,34.71
+2026-10-11,011220101,اللحـــوم,carrefour,kg,92.99,100.0,1,0,92.99,92.99,Syrian Awassi Mutton Leg Bone In,https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-leg-bin-dc-/p/2288968,,92.99
+2026-10-12,011220101,اللحـــوم,carrefour,kg,92.99,100.0,1,1,92.99,92.99,Syrian Awassi Mutton Leg Bone In,https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-leg-bin-dc-/p/2288968,,92.99
+2026-10-11,011220101,اللحـــوم,lulu,kg,52.96,100.0,3,0,49.9,54.0,Pakistani Mutton Cuts Bone In 500 g,https://gcc.luluhypermarket.com/en-ae/p/154716-ea/,,52.96
+2026-10-12,011220101,اللحـــوم,lulu,kg,52.96,100.0,3,3,49.9,54.0,Pakistani Mutton Cuts Bone In 500 g,https://gcc.luluhypermarket.com/en-ae/p/154716-ea/,,52.96
+2026-10-11,011220102,اللحـــوم,carrefour,kg,90.0,100.0,6,0,49.99,139.0,Syrian Awassi Mutton Lea Fat,https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-lea-fat-dc-/p/2289021,,90.0
+2026-10-12,011220102,اللحـــوم,carrefour,kg,85.59,95.104,6,6,36.99,139.0,Syrian Awassi Mutton Lea Fat,https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-lea-fat-dc-/p/2289021,,90.0
+2026-10-11,011220102,اللحـــوم,lulu,kg,52.96,100.0,9,0,49.86,64.88,Pakistani Mutton Cuts Bone In 500 g,https://gcc.luluhypermarket.com/en-ae/p/154716-ea/,,52.96
+2026-10-12,011220102,اللحـــوم,lulu,kg,52.96,100.0,10,9,49.86,64.88,Indian Mutton Shoulder Cuts Bone-In 500 g,https://gcc.luluhypermarket.com/en-ae/indian-mutton-shoulder-cuts-bone-in-500-g/p/41555-ea/,,54.0
+2026-10-11,011220103,اللحـــوم,carrefour,kg,90.0,100.0,6,0,49.99,139.0,Syrian Awassi Mutton Lea Fat,https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-lea-fat-dc-/p/2289021,,90.0
+2026-10-12,011220103,اللحـــوم,carrefour,kg,85.59,95.104,6,6,36.99,139.0,Syrian Awassi Mutton Lea Fat,https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-lea-fat-dc-/p/2289021,,90.0
+2026-10-11,011220103,اللحـــوم,lulu,kg,52.96,100.0,9,0,49.86,64.88,Pakistani Mutton Cuts Bone In 500 g,https://gcc.luluhypermarket.com/en-ae/p/154716-ea/,,52.96
+2026-10-12,011220103,اللحـــوم,lulu,kg,52.96,100.0,10,9,49.86,64.88,Indian Mutton Shoulder Cuts Bone-In 500 g,https://gcc.luluhypermarket.com/en-ae/indian-mutton-shoulder-cuts-bone-in-500-g/p/41555-ea/,,54.0
+2026-10-11,011220105,اللحـــوم,carrefour,kg,85.0,100.0,4,0,55.0,99.99,Australian Lamb Cube Boneless Import,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-cubes-boneless-dc-/p/2288872,,90.0
+2026-10-12,011220105,اللحـــوم,carrefour,kg,85.0,100.0,4,4,55.0,99.99,Australian Lamb Cube Boneless Import,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-cubes-boneless-dc-/p/2288872,,90.0
+2026-10-11,011220105,اللحـــوم,lulu,kg,75.14,100.0,1,0,75.14,75.14,Australian Lamb Leg Steak Boneless 350 g,https://gcc.luluhypermarket.com/en-ae/p/137772-ea/,,75.14
+2026-10-12,011220105,اللحـــوم,lulu,kg,75.14,100.0,1,1,75.14,75.14,Australian Lamb Leg Steak Boneless 350 g,https://gcc.luluhypermarket.com/en-ae/p/137772-ea/,,75.14
+2026-10-11,011220301,اللحـــوم,carrefour,kg,95.0,100.0,4,0,88.0,169.0,Dutch Veal Striploin Steak Import,https://www.carrefouruae.com/mafuae/en/holand-beef/dutch-veal-striploin-steak-di/p/2288405,,100.0
+2026-10-12,011220301,اللحـــوم,carrefour,kg,95.0,100.0,4,4,88.0,169.0,Dutch Veal Striploin Steak Import,https://www.carrefouruae.com/mafuae/en/holand-beef/dutch-veal-striploin-steak-di/p/2288405,,100.0
+2026-10-11,011220301,اللحـــوم,lulu,kg,45.83,100.0,1,0,45.83,45.83,Indian Veal Steak 300 g,https://gcc.luluhypermarket.com/en-ae/indian-veal-steak-300-g/p/365778-ea/,,45.83
+2026-10-12,011220301,اللحـــوم,lulu,kg,45.83,100.0,1,1,45.83,45.83,Indian Veal Steak 300 g,https://gcc.luluhypermarket.com/en-ae/indian-veal-steak-300-g/p/365778-ea/,,45.83
+2026-10-11,011220302,اللحـــوم,carrefour,kg,119.0,100.0,39,0,60.0,3996.0,Australian Beef Ribeye Steak,https://www.carrefouruae.com/mafuae/en/australian-beef/aus-beef-ribeye-steak-dc-/p/264650,,119.0
+2026-10-12,011220302,اللحـــوم,carrefour,kg,119.0,100.0,39,39,60.0,3996.0,Australian Beef Ribeye Steak,https://www.carrefouruae.com/mafuae/en/australian-beef/aus-beef-ribeye-steak-dc-/p/264650,,119.0
+2026-10-11,011220302,اللحـــوم,lulu,kg,87.43,100.0,15,0,46.33,507.5,New Zealand Beef Breakfast Steak 350 g,https://gcc.luluhypermarket.com/en-ae/p/40375-ea/,,87.43
+2026-10-12,011220302,اللحـــوم,lulu,kg,87.43,100.0,15,15,46.33,507.5,New Zealand Beef Breakfast Steak 350 g,https://gcc.luluhypermarket.com/en-ae/p/40375-ea/,,87.43
+2026-10-11,011220303,اللحـــوم,carrefour,kg,90.0,100.0,3,0,70.0,119.0,New Zealand Boneless Beef Shank,https://www.carrefouruae.com/mafuae/en/new-zealand-beef/nz-beef-shank-boneless-dc-/p/742728,,90.0
+2026-10-12,011220303,اللحـــوم,carrefour,kg,90.0,100.0,3,3,70.0,119.0,New Zealand Boneless Beef Shank,https://www.carrefouruae.com/mafuae/en/new-zealand-beef/nz-beef-shank-boneless-dc-/p/742728,,90.0
+2026-10-11,011220303,اللحـــوم,lulu,kg,42.2,100.0,1,0,42.2,42.2,Pakistani Beef Boneless 500 g,https://gcc.luluhypermarket.com/en-ae/p/195911-ea/,,42.2
+2026-10-12,011220303,اللحـــوم,lulu,kg,42.2,100.0,1,1,42.2,42.2,Pakistani Beef Boneless 500 g,https://gcc.luluhypermarket.com/en-ae/p/195911-ea/,,42.2
+2026-10-11,011220304,اللحـــوم,carrefour,kg,103.95,100.0,6,0,70.0,166.65,Australian Beef Shank Bone In,https://www.carrefouruae.com/mafuae/en/australian-beef/aus-beef-shank-bin-dc-/p/2313342,,103.96
+2026-10-12,011220304,اللحـــوم,carrefour,kg,103.95,100.0,6,6,70.0,166.65,Australian Beef Shank Bone In,https://www.carrefouruae.com/mafuae/en/australian-beef/aus-beef-shank-bin-dc-/p/2313342,,103.96
+2026-10-11,011220304,اللحـــوم,lulu,kg,19.45,100.0,2,0,8.1,30.8,Fresh Beef Bones 500 g,https://gcc.luluhypermarket.com/en-ae/p/40678-ea/,,8.1
+2026-10-12,011220304,اللحـــوم,lulu,kg,19.45,100.0,2,2,8.1,30.8,Fresh Beef Bones 500 g,https://gcc.luluhypermarket.com/en-ae/p/40678-ea/,,8.1
+2026-10-11,011220701,اللحـــوم,carrefour,kg,74.0,100.0,9,0,52.0,96.0,USA Hereford Beef Mince Low-Fat Import,https://www.carrefouruae.com/mafuae/en/american-beef/usa-hereford-beef-mince-low-fat-di-/p/2267876,,74.0
+2026-10-12,011220701,اللحـــوم,carrefour,kg,74.0,100.0,10,9,52.0,96.0,Australian Beef Mince,https://www.carrefouruae.com/mafuae/en/minced-meat/aus-beef-mince-meat-dc-/p/909566,,70.0
+2026-10-11,011220701,اللحـــوم,lulu,kg,61.96,100.0,5,0,39.96,76.2,Australian Beef Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/37670-ea/,,61.96
+2026-10-12,011220701,اللحـــوم,lulu,kg,61.96,100.0,5,5,39.96,76.2,Australian Beef Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/37670-ea/,,61.96
+2026-10-11,011220702,اللحـــوم,carrefour,kg,80.0,100.0,1,0,80.0,80.0,Australian Lamb Mince Import,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-meat-minced-dc-/p/2258105,,80.0
+2026-10-12,011220702,اللحـــوم,carrefour,kg,80.0,100.0,1,1,80.0,80.0,Australian Lamb Mince Import,https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-meat-minced-dc-/p/2258105,,80.0
+2026-10-11,011220702,اللحـــوم,lulu,kg,76.91,100.0,2,0,71.5,82.33,Indian Mutton Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/41565-ea/,,71.5
+2026-10-12,011220702,اللحـــوم,lulu,kg,76.91,100.0,2,2,71.5,82.33,Indian Mutton Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/41565-ea/,,71.5
+2026-10-11,011220703,اللحـــوم,carrefour,kg,74.0,100.0,9,0,52.0,96.0,USA Hereford Beef Mince Low-Fat Import,https://www.carrefouruae.com/mafuae/en/american-beef/usa-hereford-beef-mince-low-fat-di-/p/2267876,,74.0
+2026-10-12,011220703,اللحـــوم,carrefour,kg,74.0,100.0,10,9,52.0,96.0,Australian Beef Mince,https://www.carrefouruae.com/mafuae/en/minced-meat/aus-beef-mince-meat-dc-/p/909566,,70.0
+2026-10-11,011220703,اللحـــوم,lulu,kg,61.96,100.0,5,0,39.96,76.2,Australian Beef Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/37670-ea/,,61.96
+2026-10-12,011220703,اللحـــوم,lulu,kg,61.96,100.0,5,5,39.96,76.2,Australian Beef Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/37670-ea/,,61.96
+2026-10-11,011220704,اللحـــوم,lulu,kg,71.5,100.0,1,0,71.5,71.5,Indian Mutton Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/41565-ea/,,71.5
+2026-10-12,011220704,اللحـــوم,lulu,kg,71.5,100.0,1,1,71.5,71.5,Indian Mutton Mince 500 g,https://gcc.luluhypermarket.com/en-ae/p/41565-ea/,,71.5
+2026-10-12,011230104,اللحـــوم,carrefour,kg,31.5,100.0,17,0,24.58,65.96,Nova Randa Mexican Chicken Mortadella,https://www.carrefouruae.com/mafuae/en/chicken/nova-randa-chicken-mort-mexican/p/1871971,,31.5
+2026-10-12,011230104,اللحـــوم,lulu,kg,32.38,100.0,24,0,27.0,64.75,LuLu Chicken Mortadella Assorted 3 x 350 g,https://gcc.luluhypermarket.com/en-ae/lulu-chicken-mortadella-assorted-3-x-350-g/p/1489243/,,31.9
+2026-10-12,011230105,اللحـــوم,carrefour,kg,43.98,100.0,9,0,30.48,60.0,Siniora Plain Beef Mortadella 500g,https://www.carrefouruae.com/mafuae/en/smoked-roasted-turkey/siniora-beef-plain-500g/p/1311781,,43.98
+2026-10-12,011230105,اللحـــوم,lulu,kg,32.26,100.0,14,0,27.0,64.75,LuLu Beef Mortadella Plain 250 g,https://gcc.luluhypermarket.com/en-ae/p/297991-ea/,,32.52
+2026-10-12,011230106,اللحـــوم,carrefour,kg,41.0,100.0,15,0,27.0,60.0,Siniora Plain Beef Mortadella,https://www.carrefouruae.com/mafuae/en/beef/siniora-mort-beef-plain/p/327202,,41.0
+2026-10-12,011230106,اللحـــوم,lulu,kg,32.52,100.0,22,0,27.0,64.75,LuLu Beef Mortadella Plain 250 g,https://gcc.luluhypermarket.com/en-ae/p/297991-ea/,,32.52
+2026-10-11,011250101,اللحـــوم,carrefour,kg,68.99,100.0,27,0,10.0,159.0,Sudan Lamb Shoulder Tripe,https://www.carrefouruae.com/mafuae/en/lamb-goat/local-sudanese-lamb-shoulder-tr-/p/996657,,68.99
+2026-10-12,011250101,اللحـــوم,carrefour,kg,68.99,100.0,27,27,10.0,159.0,Sudan Lamb Shoulder Tripe,https://www.carrefouruae.com/mafuae/en/lamb-goat/local-sudanese-lamb-shoulder-tr-/p/996657,,68.99
+2026-10-11,011250101,اللحـــوم,lulu,kg,66.9,100.0,19,0,42.2,131.96,Australian Lamb Shank 500 g,https://gcc.luluhypermarket.com/en-ae/p/137776-ea/,,66.9
+2026-10-12,011250101,اللحـــوم,lulu,kg,66.9,100.0,19,19,42.2,131.96,Australian Lamb Shank 500 g,https://gcc.luluhypermarket.com/en-ae/p/137776-ea/,,66.9
+2026-10-11,011310101,الأسماك والاغذية البحرية,carrefour,kg,70.0,100.0,3,0,70.0,139.95,Fresh Kingfish Steak,https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521,,70.0
+2026-10-12,011310101,الأسماك والاغذية البحرية,carrefour,kg,70.0,100.0,3,3,70.0,139.95,Fresh Kingfish Steak,https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521,,70.0
+2026-10-11,011310102,الأسماك والاغذية البحرية,carrefour,kg,70.0,100.0,3,0,70.0,139.95,Fresh Kingfish Steak,https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521,,70.0
+2026-10-12,011310102,الأسماك والاغذية البحرية,carrefour,kg,70.0,100.0,3,3,70.0,139.95,Fresh Kingfish Steak,https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521,,70.0
+2026-10-11,011310201,الأسماك والاغذية البحرية,carrefour,kg,48.0,100.0,1,0,48.0,48.0,Grouper Half Spotty,https://www.carrefouruae.com/mafuae/en/fish/grouper-half-spotty/p/318301,,48.0
+2026-10-12,011310201,الأسماك والاغذية البحرية,carrefour,kg,48.0,100.0,1,1,48.0,48.0,Grouper Half Spotty,https://www.carrefouruae.com/mafuae/en/fish/grouper-half-spotty/p/318301,,48.0
+2026-10-11,011310401,الأسماك والاغذية البحرية,lulu,kg,20.5,100.0,1,0,20.5,20.5,Fresh Safi Fish Medium Whole Cleaned 1 kg,https://gcc.luluhypermarket.com/en-ae/p/74524-ea/,,20.5
+2026-10-11,011310402,الأسماك والاغذية البحرية,lulu,kg,20.5,100.0,1,0,20.5,20.5,Fresh Safi Fish Medium Whole Cleaned 1 kg,https://gcc.luluhypermarket.com/en-ae/p/74524-ea/,,20.5
+2026-10-11,011310501,الأسماك والاغذية البحرية,carrefour,kg,39.0,100.0,2,0,34.0,44.0,Fresh Sultan Ibrahim (Oman),https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-omani/p/334469,,34.0
+2026-10-12,011310501,الأسماك والاغذية البحرية,carrefour,kg,39.0,100.0,2,2,34.0,44.0,Fresh Sultan Ibrahim (Oman),https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-omani/p/334469,,34.0
+2026-10-11,011310502,الأسماك والاغذية البحرية,carrefour,kg,39.0,100.0,2,0,34.0,44.0,Fresh Sultan Ibrahim (Oman),https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-omani/p/334469,,34.0
+2026-10-12,011310502,الأسماك والاغذية البحرية,carrefour,kg,39.0,100.0,2,2,34.0,44.0,Fresh Sultan Ibrahim (Oman),https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-omani/p/334469,,34.0
+2026-10-11,011310801,الأسماك والاغذية البحرية,lulu,kg,65.78,100.0,3,0,59.9,102.88,Norwegian Salmon Whole Superior 4.5 kg,https://gcc.luluhypermarket.com/en-ae/p/760321-ea/,,65.78
+2026-10-12,011310801,الأسماك والاغذية البحرية,lulu,kg,65.78,100.0,3,3,59.9,102.88,Norwegian Salmon Whole Superior 4.5 kg,https://gcc.luluhypermarket.com/en-ae/p/760321-ea/,,65.78
+2026-10-11,011310901,الأسماك والاغذية البحرية,carrefour,kg,8.98,100.0,1,0,8.98,8.98,Tilapia Fresh,https://www.carrefouruae.com/mafuae/en/fish/tilapia-fresh/p/939008,,8.98
+2026-10-12,011310901,الأسماك والاغذية البحرية,carrefour,kg,14.88,165.702,1,1,14.88,14.88,Tilapia Fresh,https://www.carrefouruae.com/mafuae/en/fish/tilapia-fresh/p/939008,,14.88
+2026-10-11,011310901,الأسماك والاغذية البحرية,lulu,kg,15.35,100.0,1,0,15.35,15.35,Tilapia Fish Local Whole Cleaned 1 kg,https://gcc.luluhypermarket.com/en-ae/tilapia-fish-local-whole-cleaned-1-kg/p/1544738-ea/,,15.35
+2026-10-12,011310901,الأسماك والاغذية البحرية,lulu,kg,15.35,100.0,1,0,15.35,15.35,Fresh Tilapia Fish Whole Cleaned 1 kg,https://gcc.luluhypermarket.com/en-ae/p/72192-ea/,,15.35
+2026-10-12,011340101,الأسماك والاغذية البحرية,lulu,kg,41.1,100.0,3,0,41.1,41.1,Fresh Farmed Prawns Large Head On Fully Cleaned 500 g,https://gcc.luluhypermarket.com/en-ae/fresh-farmed-prawns-large-head-on-fully-cleaned-500-g/p/1401115-yhc/,,41.1
+2026-10-11,011340102,الأسماك والاغذية البحرية,lulu,kg,29.81,100.0,2,0,25.71,33.91,Fresh Prawns Medium 40/50 350 g,https://gcc.luluhypermarket.com/en-ae/fresh-prawns-medium-40-50-350-g/p/1308428-ea/,,33.91
+2026-10-12,011340102,الأسماك والاغذية البحرية,lulu,kg,29.81,100.0,2,2,25.71,33.91,Fresh Prawns Medium 40/50 350 g,https://gcc.luluhypermarket.com/en-ae/fresh-prawns-medium-40-50-350-g/p/1308428-ea/,,33.91
+2026-10-11,011340103,الأسماك والاغذية البحرية,lulu,kg,41.1,100.0,1,0,41.1,41.1,Fresh Farmed Prawns Small 500 g,https://gcc.luluhypermarket.com/en-ae/p/1036033-ea/,,41.1
+2026-10-12,011340103,الأسماك والاغذية البحرية,lulu,kg,41.1,100.0,1,1,41.1,41.1,Fresh Farmed Prawns Small 500 g,https://gcc.luluhypermarket.com/en-ae/p/1036033-ea/,,41.1
+2026-10-11,011340201,الأسماك والاغذية البحرية,carrefour,kg,129.5,100.0,2,0,100.0,159.0,Fresh Lobster,https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster/p/73185,,159.0
+2026-10-12,011340201,الأسماك والاغذية البحرية,carrefour,kg,129.5,100.0,2,2,100.0,159.0,Fresh Lobster,https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster/p/73185,,159.0
+2026-10-11,011340202,الأسماك والاغذية البحرية,carrefour,kg,129.5,100.0,2,0,100.0,159.0,Fresh Lobster,https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster/p/73185,,159.0
+2026-10-12,011340202,الأسماك والاغذية البحرية,carrefour,kg,129.5,100.0,2,2,100.0,159.0,Fresh Lobster,https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster/p/73185,,159.0
+2026-10-11,011340401,الأسماك والاغذية البحرية,carrefour,kg,34.98,100.0,2,0,20.0,49.97,Fresh Squid,https://www.carrefouruae.com/mafuae/en/shellfish-molluscs/squid-fresh/p/981472,,20.0
+2026-10-12,011340401,الأسماك والاغذية البحرية,carrefour,kg,34.98,100.0,2,2,20.0,49.97,Fresh Squid,https://www.carrefouruae.com/mafuae/en/shellfish-molluscs/squid-fresh/p/981472,,20.0
+2026-10-11,011340401,الأسماك والاغذية البحرية,lulu,kg,33.9,100.0,2,0,33.9,33.9,Fresh Squid Whole Not Cleaned 500 g,https://gcc.luluhypermarket.com/en-ae/fresh-squid-whole-not-cleaned-500-g/p/1583012-ync/,,33.9
+2026-10-12,011340401,الأسماك والاغذية البحرية,lulu,kg,33.9,100.0,2,2,33.9,33.9,Fresh Squid Whole Not Cleaned 500 g,https://gcc.luluhypermarket.com/en-ae/fresh-squid-whole-not-cleaned-500-g/p/1583012-ync/,,33.9
+2026-10-12,011450301,اللبـــن و الجبـــن و البيض,carrefour,kg,66.98,100.0,13,0,17.49,99.0,"Kaval Bulgarian White Cow Milk Cheese, 400g",https://www.carrefouruae.com/mafuae/en/feta-white-cheese/kaval-white-cow-cheese-400g/p/2152931,,66.98
+2026-10-12,011450301,اللبـــن و الجبـــن و البيض,lulu,kg,52.66,100.0,26,0,18.9,148.0,Puck Garlic & Parsley Cubed White Cheese 200 g,https://gcc.luluhypermarket.com/en-ae/puck-garlic-parsley-cubed-white-cheese-200-g/p/1879926/,,54.5
+2026-10-12,011450302,اللبـــن و الجبـــن و البيض,carrefour,kg,61.72,100.0,16,0,37.32,96.45,"Balade Cheese Halloumi, 250g",https://www.carrefouruae.com/mafuae/en/halloumi-akawi-kashkawal/balade-halloumi-chees-250g/p/1252927,,63.96
+2026-10-12,011450302,اللبـــن و الجبـــن و البيض,lulu,kg,78.75,100.0,17,0,44.92,97.5,Almarai Halloumi Cheese Full Fat 200 g,https://gcc.luluhypermarket.com/en-ae/almarai-halloumi-cheese-full-fat-200-g/p/2139739/,,78.75
+2026-10-12,011450303,اللبـــن و الجبـــن و البيض,carrefour,kg,47.0,100.0,4,0,46.0,52.5,Fresh Akkawi Cheese,https://www.carrefouruae.com/mafuae/en/soft-cheese-cottage/akawi-al-baraka/p/71471,,47.0
+2026-10-12,011450303,اللبـــن و الجبـــن و البيض,lulu,kg,55.91,100.0,2,0,46.91,64.92,Czech Akkawi Cheese 250 g,https://gcc.luluhypermarket.com/en-ae/czech-akkawi-cheese-250-g/p/1177803-ea/,,64.92
+2026-10-11,011610101,الفواكـه والمكسرات,carrefour,kg,56.63,100.0,45,0,8.99,196.3,Kingdom Dates With Nuts 300g,https://www.carrefouruae.com/mafuae/en/dates/dates-with-nuts-kd/p/1450698,,56.63
+2026-10-12,011610101,الفواكـه والمكسرات,carrefour,kg,56.63,100.0,45,45,8.99,196.3,Kingdom Dates With Nuts 300g,https://www.carrefouruae.com/mafuae/en/dates/dates-with-nuts-kd/p/1450698,,56.63
+2026-10-11,011610101,الفواكـه والمكسرات,lulu,kg,16.27,100.0,3,0,8.95,27.8,Amal Dates Iran 550 g,https://gcc.luluhypermarket.com/en-ae/amal-dates-iran-550-g/p/377375/,,16.27
+2026-10-12,011610101,الفواكـه والمكسرات,lulu,kg,16.27,100.0,3,3,8.95,27.8,Amal Dates Iran 550 g,https://gcc.luluhypermarket.com/en-ae/amal-dates-iran-550-g/p/377375/,,16.27
+2026-10-12,011610201,الفواكـه والمكسرات,carrefour,kg,9.9,100.0,1,0,9.9,9.9,Chiquita Banana,https://www.carrefouruae.com/mafuae/en/banana/banana-chiquita/p/1078988,,9.9
+2026-10-11,011610201,الفواكـه والمكسرات,lulu,kg,9.95,100.0,1,0,9.95,9.95,Banana Chiquita Ecuador 1 kg,https://gcc.luluhypermarket.com/en-ae/p/380260-ea/,,9.95
+2026-10-12,011610201,الفواكـه والمكسرات,lulu,kg,9.95,100.0,1,1,9.95,9.95,Banana Chiquita Ecuador 1 kg,https://gcc.luluhypermarket.com/en-ae/p/380260-ea/,,9.95
+2026-10-11,011610202,الفواكـه والمكسرات,carrefour,kg,9.99,100.0,1,0,9.99,9.99,Banana Flower,https://www.carrefouruae.com/mafuae/en/banana/banana-flower/p/458493,,9.99
+2026-10-12,011610202,الفواكـه والمكسرات,carrefour,kg,9.99,100.0,2,1,9.9,9.99,Banana Flower,https://www.carrefouruae.com/mafuae/en/banana/banana-flower/p/458493,,9.99
+2026-10-11,011610202,الفواكـه والمكسرات,lulu,kg,9.96,100.0,9,0,4.96,21.96,Banana Mysore 500 g,https://gcc.luluhypermarket.com/en-ae/p/21745-ea/,,9.96
+2026-10-12,011610202,الفواكـه والمكسرات,lulu,kg,9.96,100.0,10,9,4.96,21.96,Banana Chiquita Ecuador 1 kg,https://gcc.luluhypermarket.com/en-ae/p/380260-ea/,,9.95
+2026-10-11,011610301,الفواكـه والمكسرات,carrefour,kg,30.0,100.0,11,0,11.99,93.96,Mango Palmer Import,https://www.carrefouruae.com/mafuae/en/mango/di-mango-palmer/p/918500,,30.0
+2026-10-12,011610301,الفواكـه والمكسرات,carrefour,kg,30.0,100.0,13,11,9.99,93.96,Mango Alphonso Premium,https://www.carrefouruae.com/mafuae/en/mango/di-mango-alphonso-premium/p/421985,,25.0
+2026-10-11,011610301,الفواكـه والمكسرات,lulu,kg,19.95,100.0,7,0,12.95,66.95,Kenya Mangoes Round Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19016-ea/,,19.95
+2026-10-12,011610301,الفواكـه والمكسرات,lulu,kg,19.21,96.305,7,7,9.95,66.95,Kenya Mangoes Round Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19016-ea/,,19.95
+2026-10-11,011610302,الفواكـه والمكسرات,carrefour,kg,30.0,100.0,11,0,11.99,93.96,Mango Palmer Import,https://www.carrefouruae.com/mafuae/en/mango/di-mango-palmer/p/918500,,30.0
+2026-10-12,011610302,الفواكـه والمكسرات,carrefour,kg,30.0,100.0,13,11,9.99,93.96,Mango Alphonso Premium,https://www.carrefouruae.com/mafuae/en/mango/di-mango-alphonso-premium/p/421985,,25.0
+2026-10-11,011610302,الفواكـه والمكسرات,lulu,kg,19.95,100.0,7,0,12.95,66.95,Kenya Mangoes Round Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19016-ea/,,19.95
+2026-10-12,011610302,الفواكـه والمكسرات,lulu,kg,19.21,96.305,7,7,9.95,66.95,Kenya Mangoes Round Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19016-ea/,,19.95
+2026-10-11,011610303,الفواكـه والمكسرات,carrefour,kg,30.0,100.0,11,0,11.99,93.96,Mango Palmer Import,https://www.carrefouruae.com/mafuae/en/mango/di-mango-palmer/p/918500,,30.0
+2026-10-12,011610303,الفواكـه والمكسرات,carrefour,kg,30.0,100.0,13,11,9.99,93.96,Mango Alphonso Premium,https://www.carrefouruae.com/mafuae/en/mango/di-mango-alphonso-premium/p/421985,,25.0
+2026-10-11,011610303,الفواكـه والمكسرات,lulu,kg,19.95,100.0,7,0,12.95,66.95,Kenya Mangoes Round Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19016-ea/,,19.95
+2026-10-12,011610303,الفواكـه والمكسرات,lulu,kg,19.21,96.305,7,7,9.95,66.95,Kenya Mangoes Round Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19016-ea/,,19.95
+2026-10-11,011610401,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,1,0,10.0,10.0,Guava,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902,,10.0
+2026-10-12,011610401,الفواكـه والمكسرات,carrefour,kg,17.0,170.0,1,1,17.0,17.0,Guava,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902,,17.0
+2026-10-11,011610401,الفواكـه والمكسرات,lulu,kg,20.95,100.0,2,0,16.96,24.95,Guava Egypt 500 g,https://gcc.luluhypermarket.com/en-ae/p/383762-ea/,,16.96
+2026-10-12,011610401,الفواكـه والمكسرات,lulu,kg,18.97,90.53,2,2,13.9,24.95,Guava Big India 1 kg,https://gcc.luluhypermarket.com/en-ae/guava-big-india-1-kg/p/1382053-ea/,,24.95
+2026-10-11,011610402,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,1,0,10.0,10.0,Guava,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902,,10.0
+2026-10-12,011610402,الفواكـه والمكسرات,carrefour,kg,17.0,170.0,1,1,17.0,17.0,Guava,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902,,17.0
+2026-10-11,011610402,الفواكـه والمكسرات,lulu,kg,20.95,100.0,2,0,16.96,24.95,Guava Egypt 500 g,https://gcc.luluhypermarket.com/en-ae/p/383762-ea/,,16.96
+2026-10-12,011610402,الفواكـه والمكسرات,lulu,kg,18.97,90.53,2,2,13.9,24.95,Guava Big India 1 kg,https://gcc.luluhypermarket.com/en-ae/guava-big-india-1-kg/p/1382053-ea/,,24.95
+2026-10-11,011610403,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,1,0,10.0,10.0,Guava,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902,,10.0
+2026-10-12,011610403,الفواكـه والمكسرات,carrefour,kg,17.0,170.0,1,1,17.0,17.0,Guava,https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902,,17.0
+2026-10-11,011610403,الفواكـه والمكسرات,lulu,kg,20.95,100.0,2,0,16.96,24.95,Guava Egypt 500 g,https://gcc.luluhypermarket.com/en-ae/p/383762-ea/,,16.96
+2026-10-12,011610403,الفواكـه والمكسرات,lulu,kg,18.97,90.53,2,2,13.9,24.95,Guava Big India 1 kg,https://gcc.luluhypermarket.com/en-ae/guava-big-india-1-kg/p/1382053-ea/,,24.95
+2026-10-11,011610501,الفواكـه والمكسرات,carrefour,kg,19.0,100.0,1,0,19.0,19.0,Fresh Figs,https://www.carrefouruae.com/mafuae/en/exotic-fruit/fig-fresh/p/446889,,19.0
+2026-10-12,011610501,الفواكـه والمكسرات,carrefour,kg,19.0,100.0,1,1,19.0,19.0,Fresh Figs,https://www.carrefouruae.com/mafuae/en/exotic-fruit/fig-fresh/p/446889,,19.0
+2026-10-11,011610601,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,0,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-12,011610601,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,1,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-11,011610602,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,0,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-12,011610602,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,1,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-11,011610603,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,0,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-12,011610603,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,1,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-11,011610604,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,0,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-12,011610604,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,1,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-11,011610701,الفواكـه والمكسرات,carrefour,kg,24.99,100.0,1,0,24.99,24.99,Solo Papaya,https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-solo/p/446974,,24.99
+2026-10-12,011610701,الفواكـه والمكسرات,carrefour,kg,24.99,100.0,1,1,24.99,24.99,Solo Papaya,https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-solo/p/446974,,24.99
+2026-10-11,011610701,الفواكـه والمكسرات,lulu,kg,14.95,100.0,3,0,7.94,16.61,Papaya Fruit India 1.5 kg,https://gcc.luluhypermarket.com/en-ae/p/18671-ea/,,14.95
+2026-10-12,011610701,الفواكـه والمكسرات,lulu,kg,14.95,100.0,3,3,7.94,16.61,Papaya Fruit India 1.5 kg,https://gcc.luluhypermarket.com/en-ae/p/18671-ea/,,14.95
+2026-10-11,011610702,الفواكـه والمكسرات,carrefour,kg,24.99,100.0,1,0,24.99,24.99,Solo Papaya,https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-solo/p/446974,,24.99
+2026-10-12,011610702,الفواكـه والمكسرات,carrefour,kg,24.99,100.0,1,1,24.99,24.99,Solo Papaya,https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-solo/p/446974,,24.99
+2026-10-11,011610801,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,0,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-12,011610801,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,1,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-11,011610802,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,0,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-12,011610802,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,1,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-11,011610803,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,0,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-12,011610803,الفواكـه والمكسرات,lulu,pc,3.5,100.0,1,1,3.5,3.5,Coconut Whole India 1 pc,https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/,,3.5
+2026-10-11,011610901,الفواكـه والمكسرات,carrefour,kg,32.49,100.0,2,0,18.98,46.0,Avocado Hass Premium,https://www.carrefouruae.com/mafuae/en/avocado/di-avocado-hass-premium/p/1808066,,46.0
+2026-10-12,011610901,الفواكـه والمكسرات,carrefour,kg,32.49,100.0,2,2,18.98,46.0,Avocado Hass Premium,https://www.carrefouruae.com/mafuae/en/avocado/di-avocado-hass-premium/p/1808066,,46.0
+2026-10-11,011610901,الفواكـه والمكسرات,lulu,kg,25.95,100.0,2,0,16.95,34.96,Avocado Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/avocado-kenya-1-kg/p/19009-ea/,,16.95
+2026-10-12,011610901,الفواكـه والمكسرات,lulu,kg,25.95,100.0,2,2,16.95,34.96,Avocado Kenya 1 kg,https://gcc.luluhypermarket.com/en-ae/avocado-kenya-1-kg/p/19009-ea/,,16.95
+2026-10-11,011620101,الفواكـه والمكسرات,carrefour,kg,19.12,100.0,2,0,8.23,30.0,Orange Navel Premium,https://www.carrefouruae.com/mafuae/en/orange/di-orange-navel-premium/p/446558,,30.0
+2026-10-12,011620101,الفواكـه والمكسرات,carrefour,kg,19.12,100.0,2,2,8.23,30.0,Orange Navel Premium,https://www.carrefouruae.com/mafuae/en/orange/di-orange-navel-premium/p/446558,,30.0
+2026-10-11,011620101,الفواكـه والمكسرات,lulu,kg,8.95,100.0,3,0,8.95,9.4,Orange Navel South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18995-ea/,,8.95
+2026-10-12,011620101,الفواكـه والمكسرات,lulu,kg,8.95,100.0,3,3,8.95,9.4,Orange Navel South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18995-ea/,,8.95
+2026-10-11,011620102,الفواكـه والمكسرات,carrefour,kg,19.12,100.0,2,0,8.23,30.0,Orange Navel Premium,https://www.carrefouruae.com/mafuae/en/orange/di-orange-navel-premium/p/446558,,30.0
+2026-10-12,011620102,الفواكـه والمكسرات,carrefour,kg,19.12,100.0,2,2,8.23,30.0,Orange Navel Premium,https://www.carrefouruae.com/mafuae/en/orange/di-orange-navel-premium/p/446558,,30.0
+2026-10-11,011620102,الفواكـه والمكسرات,lulu,kg,8.95,100.0,3,0,8.95,9.4,Orange Navel South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18995-ea/,,8.95
+2026-10-12,011620102,الفواكـه والمكسرات,lulu,kg,8.95,100.0,3,3,8.95,9.4,Orange Navel South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18995-ea/,,8.95
+2026-10-11,011620103,الفواكـه والمكسرات,carrefour,kg,19.12,100.0,2,0,8.23,30.0,Orange Navel Premium,https://www.carrefouruae.com/mafuae/en/orange/di-orange-navel-premium/p/446558,,30.0
+2026-10-12,011620103,الفواكـه والمكسرات,carrefour,kg,19.12,100.0,2,2,8.23,30.0,Orange Navel Premium,https://www.carrefouruae.com/mafuae/en/orange/di-orange-navel-premium/p/446558,,30.0
+2026-10-11,011620103,الفواكـه والمكسرات,lulu,kg,8.95,100.0,3,0,8.95,9.4,Orange Navel South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18995-ea/,,8.95
+2026-10-12,011620103,الفواكـه والمكسرات,lulu,kg,8.95,100.0,3,3,8.95,9.4,Orange Navel South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18995-ea/,,8.95
+2026-10-11,011620104,الفواكـه والمكسرات,carrefour,kg,8.76,100.0,2,0,8.63,8.89,Orange Valencia,https://www.carrefouruae.com/mafuae/en/orange/orange-valencia/p/446565,,8.89
+2026-10-12,011620104,الفواكـه والمكسرات,carrefour,kg,8.76,100.0,2,2,8.63,8.89,Orange Valencia,https://www.carrefouruae.com/mafuae/en/orange/orange-valencia/p/446565,,8.89
+2026-10-11,011620104,الفواكـه والمكسرات,lulu,kg,9.82,100.0,2,0,9.65,10.0,Orange Valencia South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/1291292-ea/,,9.65
+2026-10-12,011620104,الفواكـه والمكسرات,lulu,kg,9.82,100.0,2,2,9.65,10.0,Orange Valencia South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/1291292-ea/,,9.65
+2026-10-11,011620105,الفواكـه والمكسرات,carrefour,kg,8.76,100.0,2,0,8.63,8.89,Orange Valencia,https://www.carrefouruae.com/mafuae/en/orange/orange-valencia/p/446565,,8.89
+2026-10-12,011620105,الفواكـه والمكسرات,carrefour,kg,8.76,100.0,2,2,8.63,8.89,Orange Valencia,https://www.carrefouruae.com/mafuae/en/orange/orange-valencia/p/446565,,8.89
+2026-10-11,011620105,الفواكـه والمكسرات,lulu,kg,9.82,100.0,2,0,9.65,10.0,Orange Valencia South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/1291292-ea/,,9.65
+2026-10-12,011620105,الفواكـه والمكسرات,lulu,kg,9.82,100.0,2,2,9.65,10.0,Orange Valencia South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/p/1291292-ea/,,9.65
+2026-10-11,011620201,الفواكـه والمكسرات,carrefour,kg,8.2,100.0,2,0,7.4,9.0,Yellow Lime,https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440,,7.4
+2026-10-12,011620201,الفواكـه والمكسرات,carrefour,kg,8.2,100.0,2,2,7.4,9.0,Yellow Lime,https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440,,7.4
+2026-10-11,011620201,الفواكـه والمكسرات,lulu,kg,28.48,100.0,4,0,7.96,55.0,Lime Seedless Vietnam 250 g,https://gcc.luluhypermarket.com/en-ae/lime-seedless-vietnam-250-g/p/1450929-ea/,,9.96
+2026-10-12,011620201,الفواكـه والمكسرات,lulu,kg,28.48,100.0,3,3,7.96,55.0,Lime Seedless Vietnam 250 g,https://gcc.luluhypermarket.com/en-ae/lime-seedless-vietnam-250-g/p/1450929-ea/,,9.96
+2026-10-11,011620202,الفواكـه والمكسرات,carrefour,kg,8.2,100.0,2,0,7.4,9.0,Yellow Lime,https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440,,7.4
+2026-10-12,011620202,الفواكـه والمكسرات,carrefour,kg,8.2,100.0,2,2,7.4,9.0,Yellow Lime,https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440,,7.4
+2026-10-11,011620202,الفواكـه والمكسرات,lulu,kg,28.48,100.0,4,0,7.96,55.0,Lime Seedless Vietnam 250 g,https://gcc.luluhypermarket.com/en-ae/lime-seedless-vietnam-250-g/p/1450929-ea/,,9.96
+2026-10-12,011620202,الفواكـه والمكسرات,lulu,kg,28.48,100.0,3,3,7.96,55.0,Lime Seedless Vietnam 250 g,https://gcc.luluhypermarket.com/en-ae/lime-seedless-vietnam-250-g/p/1450929-ea/,,9.96
+2026-10-11,011620203,الفواكـه والمكسرات,carrefour,kg,7.09,100.0,2,0,7.0,7.18,Lemon,https://www.carrefouruae.com/mafuae/en/lemon-lime/lemon/p/446434,,7.18
+2026-10-12,011620203,الفواكـه والمكسرات,carrefour,kg,7.09,100.0,2,2,7.0,7.18,Lemon,https://www.carrefouruae.com/mafuae/en/lemon-lime/lemon/p/446434,,7.18
+2026-10-11,011620203,الفواكـه والمكسرات,lulu,kg,8.47,100.0,3,0,7.96,44.0,Lemon Bag 2 kg,https://gcc.luluhypermarket.com/en-ae/lemon-bag-2-kg/p/795633/,,8.47
+2026-10-12,011620203,الفواكـه والمكسرات,lulu,kg,8.47,100.0,2,2,8.47,44.0,Lemon Grass Thailand 100 g,https://gcc.luluhypermarket.com/en-ae/p/19092-ea/,,44.0
+2026-10-11,011620204,الفواكـه والمكسرات,carrefour,kg,7.09,100.0,2,0,7.0,7.18,Lemon,https://www.carrefouruae.com/mafuae/en/lemon-lime/lemon/p/446434,,7.18
+2026-10-12,011620204,الفواكـه والمكسرات,carrefour,kg,7.09,100.0,2,2,7.0,7.18,Lemon,https://www.carrefouruae.com/mafuae/en/lemon-lime/lemon/p/446434,,7.18
+2026-10-11,011620204,الفواكـه والمكسرات,lulu,kg,8.47,100.0,3,0,7.96,44.0,Lemon Bag 2 kg,https://gcc.luluhypermarket.com/en-ae/lemon-bag-2-kg/p/795633/,,8.47
+2026-10-12,011620204,الفواكـه والمكسرات,lulu,kg,8.47,100.0,2,2,8.47,44.0,Lemon Grass Thailand 100 g,https://gcc.luluhypermarket.com/en-ae/p/19092-ea/,,44.0
+2026-10-11,011620301,الفواكـه والمكسرات,carrefour,kg,8.98,100.0,1,0,8.98,8.98,Grapefruit Star Ruby,https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417,,8.98
+2026-10-12,011620301,الفواكـه والمكسرات,carrefour,kg,8.98,100.0,1,1,8.98,8.98,Grapefruit Star Ruby,https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417,,8.98
+2026-10-11,011620301,الفواكـه والمكسرات,lulu,kg,7.95,100.0,1,0,7.95,7.95,Grapefruit 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19000-ea/,,7.95
+2026-10-12,011620301,الفواكـه والمكسرات,lulu,kg,7.95,100.0,1,1,7.95,7.95,Grapefruit 1 kg,https://gcc.luluhypermarket.com/en-ae/p/19000-ea/,,7.95
+2026-10-11,011620302,الفواكـه والمكسرات,carrefour,kg,8.98,100.0,1,0,8.98,8.98,Grapefruit Star Ruby,https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417,,8.98
+2026-10-12,011620302,الفواكـه والمكسرات,carrefour,kg,8.98,100.0,1,1,8.98,8.98,Grapefruit Star Ruby,https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417,,8.98
+2026-10-11,011620401,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,1,0,10.0,10.0,Carrefour Mandarin Nadorcott,https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056,,10.0
+2026-10-12,011620401,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,2,1,6.8,10.0,Carrefour Mandarin Nadorcott,https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056,,10.0
+2026-10-11,011620401,الفواكـه والمكسرات,lulu,kg,12.3,100.0,4,0,9.95,14.95,Mandarin Honey Murcot Australia 1 kg,https://gcc.luluhypermarket.com/en-ae/mandarin-honey-murcot-australia-1-kg/p/2036641-ea/,,14.65
+2026-10-12,011620401,الفواكـه والمكسرات,lulu,kg,11.44,92.981,5,4,9.95,14.95,Mandarin Tango South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/mandarin-tango-south-africa-1-kg/p/1869489-ea/,,9.95
+2026-10-11,011620402,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,1,0,10.0,10.0,Carrefour Mandarin Nadorcott,https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056,,10.0
+2026-10-12,011620402,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,2,1,6.8,10.0,Carrefour Mandarin Nadorcott,https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056,,10.0
+2026-10-11,011620402,الفواكـه والمكسرات,lulu,kg,12.3,100.0,4,0,9.95,14.95,Mandarin Honey Murcot Australia 1 kg,https://gcc.luluhypermarket.com/en-ae/mandarin-honey-murcot-australia-1-kg/p/2036641-ea/,,14.65
+2026-10-12,011620402,الفواكـه والمكسرات,lulu,kg,11.44,92.981,5,4,9.95,14.95,Mandarin Tango South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/mandarin-tango-south-africa-1-kg/p/1869489-ea/,,9.95
+2026-10-11,011620403,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,1,0,10.0,10.0,Carrefour Mandarin Nadorcott,https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056,,10.0
+2026-10-12,011620403,الفواكـه والمكسرات,carrefour,kg,10.0,100.0,2,1,6.8,10.0,Carrefour Mandarin Nadorcott,https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056,,10.0
+2026-10-11,011620403,الفواكـه والمكسرات,lulu,kg,12.3,100.0,4,0,9.95,14.95,Mandarin Honey Murcot Australia 1 kg,https://gcc.luluhypermarket.com/en-ae/mandarin-honey-murcot-australia-1-kg/p/2036641-ea/,,14.65
+2026-10-12,011620403,الفواكـه والمكسرات,lulu,kg,11.44,92.981,5,4,9.95,14.95,Mandarin Tango South Africa 1 kg,https://gcc.luluhypermarket.com/en-ae/mandarin-tango-south-africa-1-kg/p/1869489-ea/,,9.95
+2026-10-11,011630101,الفواكـه والمكسرات,carrefour,kg,12.0,100.0,1,0,12.0,12.0,Red Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442,,12.0
+2026-10-12,011630101,الفواكـه والمكسرات,carrefour,kg,12.0,100.0,1,1,12.0,12.0,Red Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442,,12.0
+2026-10-11,011630101,الفواكـه والمكسرات,lulu,kg,18.95,100.0,3,0,7.95,18.95,Red Apple USA 1 kg,https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea/,,18.95
+2026-10-12,011630101,الفواكـه والمكسرات,lulu,kg,18.95,100.0,3,3,7.95,18.95,Red Apple USA 1 kg,https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea/,,18.95
+2026-10-11,011630102,الفواكـه والمكسرات,carrefour,kg,12.0,100.0,1,0,12.0,12.0,Red Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442,,12.0
+2026-10-12,011630102,الفواكـه والمكسرات,carrefour,kg,12.0,100.0,1,1,12.0,12.0,Red Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442,,12.0
+2026-10-11,011630102,الفواكـه والمكسرات,lulu,kg,18.95,100.0,3,0,7.95,18.95,Red Apple USA 1 kg,https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea/,,18.95
+2026-10-12,011630102,الفواكـه والمكسرات,lulu,kg,18.95,100.0,3,3,7.95,18.95,Red Apple USA 1 kg,https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea/,,18.95
+2026-10-11,011630103,الفواكـه والمكسرات,carrefour,kg,10.27,100.0,4,0,8.88,15.0,Royal Gala Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-royal-gala/p/638657,,9.88
+2026-10-12,011630103,الفواكـه والمكسرات,carrefour,kg,10.27,100.0,4,4,8.88,15.0,Royal Gala Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-royal-gala/p/638657,,9.88
+2026-10-11,011630103,الفواكـه والمكسرات,lulu,kg,10.95,100.0,5,0,9.95,13.95,Royal Gala Apple France 1 kg,https://gcc.luluhypermarket.com/en-ae/royal-gala-apple-france-1-kg/p/19173-ea/,,10.95
+2026-10-12,011630103,الفواكـه والمكسرات,lulu,kg,9.98,91.127,5,5,7.65,13.95,Royal Gala Apple Turkey 1 kg,https://gcc.luluhypermarket.com/en-ae/royal-gala-apple-turkey-1-kg/p/1355449-ea/,,9.95
+2026-10-11,011630104,الفواكـه والمكسرات,carrefour,kg,46.0,100.0,7,0,7.4,70.0,Mango Yellow,https://www.carrefouruae.com/mafuae/en/mango/mango-yellow/p/1077402,,46.0
+2026-10-12,011630104,الفواكـه والمكسرات,carrefour,kg,46.0,100.0,8,7,7.4,70.0,Pineapple Gold Whole Fruit,https://www.carrefouruae.com/mafuae/en/pineapple/pineapple-gold/p/574851,,28.32
+2026-10-11,011630104,الفواكـه والمكسرات,lulu,kg,27.46,100.0,6,0,12.95,74.0,Kiwi Gold New Zealand 500 g,https://gcc.luluhypermarket.com/en-ae/p/363124-ea/,,39.96
+2026-10-12,011630104,الفواكـه والمكسرات,lulu,kg,27.46,100.0,7,6,11.95,74.0,Capsicum Yellow 500 g,https://gcc.luluhypermarket.com/en-ae/p/18799-ea/,,14.96
+2026-10-11,011630105,الفواكـه والمكسرات,carrefour,kg,46.0,100.0,7,0,7.4,70.0,Mango Yellow,https://www.carrefouruae.com/mafuae/en/mango/mango-yellow/p/1077402,,46.0
+2026-10-12,011630105,الفواكـه والمكسرات,carrefour,kg,46.0,100.0,8,7,7.4,70.0,Pineapple Gold Whole Fruit,https://www.carrefouruae.com/mafuae/en/pineapple/pineapple-gold/p/574851,,28.32
+2026-10-11,011630105,الفواكـه والمكسرات,lulu,kg,27.46,100.0,6,0,12.95,74.0,Kiwi Gold New Zealand 500 g,https://gcc.luluhypermarket.com/en-ae/p/363124-ea/,,39.96
+2026-10-12,011630105,الفواكـه والمكسرات,lulu,kg,27.46,100.0,7,6,11.95,74.0,Capsicum Yellow 500 g,https://gcc.luluhypermarket.com/en-ae/p/18799-ea/,,14.96
+2026-10-11,011630106,الفواكـه والمكسرات,carrefour,kg,12.74,100.0,6,0,2.99,15.0,Green Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385,,12.48
+2026-10-12,011630106,الفواكـه والمكسرات,carrefour,kg,12.74,100.0,6,6,2.99,15.0,Green Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385,,12.48
+2026-10-11,011630106,الفواكـه والمكسرات,lulu,kg,13.48,100.0,12,0,5.65,44.75,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-12,011630106,الفواكـه والمكسرات,lulu,kg,13.48,100.0,13,12,5.65,44.75,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-11,011630107,الفواكـه والمكسرات,carrefour,kg,12.74,100.0,6,0,2.99,15.0,Green Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385,,12.48
+2026-10-12,011630107,الفواكـه والمكسرات,carrefour,kg,12.74,100.0,6,6,2.99,15.0,Green Apple,https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385,,12.48
+2026-10-11,011630107,الفواكـه والمكسرات,lulu,kg,13.48,100.0,12,0,5.65,44.75,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-12,011630107,الفواكـه والمكسرات,lulu,kg,13.48,100.0,13,12,5.65,44.75,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-11,011630401,الفواكـه والمكسرات,carrefour,kg,13.5,100.0,4,0,8.88,15.98,Plum Black,https://www.carrefouruae.com/mafuae/en/apricot-plums/di-plum-black/p/71640,,12.0
+2026-10-12,011630401,الفواكـه والمكسرات,carrefour,kg,14.51,107.457,4,4,8.88,16.0,Plum Black,https://www.carrefouruae.com/mafuae/en/apricot-plums/plum-black-pp/p/1269459,,15.98
+2026-10-11,011630401,الفواكـه والمكسرات,lulu,kg,17.66,100.0,3,0,13.96,19.94,Plums Angelino 500 g,https://gcc.luluhypermarket.com/en-ae/p/982754-ea/,,17.66
+2026-10-12,011630401,الفواكـه والمكسرات,lulu,kg,15.93,90.2,3,3,12.96,19.94,Plums Spain 500 g,https://gcc.luluhypermarket.com/en-ae/p/377422-ea/,,13.96
+2026-10-11,011630402,الفواكـه والمكسرات,carrefour,kg,13.99,100.0,2,0,12.0,15.98,Plum Black,https://www.carrefouruae.com/mafuae/en/apricot-plums/di-plum-black/p/71640,,12.0
+2026-10-12,011630402,الفواكـه والمكسرات,carrefour,kg,16.15,115.47,2,2,15.98,16.0,Plum Black,https://www.carrefouruae.com/mafuae/en/apricot-plums/di-plum-black/p/71640,,16.0
+2026-10-11,011630601,الفواكـه والمكسرات,carrefour,kg,12.0,100.0,4,0,10.9,13.0,Pear Forelle,https://www.carrefouruae.com/mafuae/en/pears/pear-forelle/p/71048,,11.0
+2026-10-12,011630601,الفواكـه والمكسرات,carrefour,kg,12.83,106.937,4,4,10.9,17.0,Pear Forelle,https://www.carrefouruae.com/mafuae/en/pears/pear-forelle/p/71048,,11.0
+2026-10-11,011630601,الفواكـه والمكسرات,lulu,kg,13.66,100.0,4,0,11.95,13.96,Vermonte Beauty Pears South Africa 500 g,https://gcc.luluhypermarket.com/en-ae/p/382137-ea/,,13.66
+2026-10-12,011630601,الفواكـه والمكسرات,lulu,kg,14.45,105.759,4,4,13.66,14.95,Vermonte Beauty Pears South Africa 500 g,https://gcc.luluhypermarket.com/en-ae/p/382137-ea/,,13.66
+2026-10-11,011630602,الفواكـه والمكسرات,carrefour,kg,12.0,100.0,4,0,10.9,13.0,Pear Forelle,https://www.carrefouruae.com/mafuae/en/pears/pear-forelle/p/71048,,11.0
+2026-10-12,011630602,الفواكـه والمكسرات,carrefour,kg,12.83,106.937,4,4,10.9,17.0,Pear Forelle,https://www.carrefouruae.com/mafuae/en/pears/pear-forelle/p/71048,,11.0
+2026-10-11,011630602,الفواكـه والمكسرات,lulu,kg,13.66,100.0,4,0,11.95,13.96,Vermonte Beauty Pears South Africa 500 g,https://gcc.luluhypermarket.com/en-ae/p/382137-ea/,,13.66
+2026-10-12,011630602,الفواكـه والمكسرات,lulu,kg,14.45,105.759,4,4,13.66,14.95,Vermonte Beauty Pears South Africa 500 g,https://gcc.luluhypermarket.com/en-ae/p/382137-ea/,,13.66
+2026-10-11,011630603,الفواكـه والمكسرات,carrefour,kg,12.0,100.0,4,0,10.9,13.0,Pear Forelle,https://www.carrefouruae.com/mafuae/en/pears/pear-forelle/p/71048,,11.0
+2026-10-12,011630603,الفواكـه والمكسرات,carrefour,kg,12.83,106.937,4,4,10.9,17.0,Pear Forelle,https://www.carrefouruae.com/mafuae/en/pears/pear-forelle/p/71048,,11.0
+2026-10-11,011630603,الفواكـه والمكسرات,lulu,kg,13.66,100.0,4,0,11.95,13.96,Vermonte Beauty Pears South Africa 500 g,https://gcc.luluhypermarket.com/en-ae/p/382137-ea/,,13.66
+2026-10-12,011630603,الفواكـه والمكسرات,lulu,kg,14.45,105.759,4,4,13.66,14.95,Vermonte Beauty Pears South Africa 500 g,https://gcc.luluhypermarket.com/en-ae/p/382137-ea/,,13.66
+2026-10-12,011640101,الفواكـه والمكسرات,carrefour,kg,79.56,100.0,1,0,79.56,79.56,Strawberry 250g,https://www.carrefouruae.com/mafuae/en/berries/strawberry-250g-pp/p/425359,,79.56
+2026-10-11,011640101,الفواكـه والمكسرات,lulu,kg,74.0,100.0,5,0,63.92,83.8,Driscoll's Strawberry South Africa 250 g,https://gcc.luluhypermarket.com/en-ae/driscoll-s-strawberry-south-africa-250-g/p/2162984/,,74.0
+2026-10-12,011640101,الفواكـه والمكسرات,lulu,kg,73.28,99.027,5,5,63.92,83.8,Driscoll's Strawberry South Africa 250 g,https://gcc.luluhypermarket.com/en-ae/driscoll-s-strawberry-south-africa-250-g/p/2162984/,,74.0
+2026-10-12,011640102,الفواكـه والمكسرات,carrefour,kg,79.56,100.0,1,0,79.56,79.56,Strawberry 250g,https://www.carrefouruae.com/mafuae/en/berries/strawberry-250g-pp/p/425359,,79.56
+2026-10-11,011640102,الفواكـه والمكسرات,lulu,kg,74.0,100.0,5,0,63.92,83.8,Driscoll's Strawberry South Africa 250 g,https://gcc.luluhypermarket.com/en-ae/driscoll-s-strawberry-south-africa-250-g/p/2162984/,,74.0
+2026-10-12,011640102,الفواكـه والمكسرات,lulu,kg,73.28,99.027,5,5,63.92,83.8,Driscoll's Strawberry South Africa 250 g,https://gcc.luluhypermarket.com/en-ae/driscoll-s-strawberry-south-africa-250-g/p/2162984/,,74.0
+2026-10-11,011650101,الفواكـه والمكسرات,carrefour,kg,20.0,100.0,3,0,19.58,30.0,Red Grapes Globe Import,https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892,,20.0
+2026-10-12,011650101,الفواكـه والمكسرات,carrefour,kg,20.0,100.0,3,3,19.58,30.0,Red Grapes Globe Import,https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892,,20.0
+2026-10-11,011650101,الفواكـه والمكسرات,lulu,kg,18.46,100.0,2,0,16.96,19.96,Grapes Red Globe Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/,,16.96
+2026-10-12,011650101,الفواكـه والمكسرات,lulu,kg,18.46,100.0,2,2,16.96,19.96,Grapes Red Globe Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/,,16.96
+2026-10-11,011650102,الفواكـه والمكسرات,carrefour,kg,20.0,100.0,3,0,19.58,30.0,Red Grapes Globe Import,https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892,,20.0
+2026-10-12,011650102,الفواكـه والمكسرات,carrefour,kg,20.0,100.0,3,3,19.58,30.0,Red Grapes Globe Import,https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892,,20.0
+2026-10-11,011650102,الفواكـه والمكسرات,lulu,kg,18.46,100.0,2,0,16.96,19.96,Grapes Red Globe Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/,,16.96
+2026-10-12,011650102,الفواكـه والمكسرات,lulu,kg,18.46,100.0,2,2,16.96,19.96,Grapes Red Globe Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/,,16.96
+2026-10-11,011650103,الفواكـه والمكسرات,carrefour,kg,20.0,100.0,3,0,19.58,30.0,Red Grapes Globe Import,https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892,,20.0
+2026-10-12,011650103,الفواكـه والمكسرات,carrefour,kg,20.0,100.0,3,3,19.58,30.0,Red Grapes Globe Import,https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892,,20.0
+2026-10-11,011650103,الفواكـه والمكسرات,lulu,kg,18.46,100.0,2,0,16.96,19.96,Grapes Red Globe Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/,,16.96
+2026-10-12,011650103,الفواكـه والمكسرات,lulu,kg,18.46,100.0,2,2,16.96,19.96,Grapes Red Globe Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/,,16.96
+2026-10-11,011650104,الفواكـه والمكسرات,carrefour,kg,23.49,100.0,2,0,16.98,30.0,White Seedless Grapes Import,https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972,,30.0
+2026-10-12,011650104,الفواكـه والمكسرات,carrefour,kg,23.49,100.0,2,2,16.98,30.0,White Seedless Grapes Import,https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972,,30.0
+2026-10-11,011650104,الفواكـه والمكسرات,lulu,kg,18.96,100.0,4,0,13.96,34.96,White Grapes Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/p/372683-ea/,,17.96
+2026-10-12,011650104,الفواكـه والمكسرات,lulu,kg,18.96,100.0,4,4,13.96,34.96,White Grapes Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/p/372683-ea/,,17.96
+2026-10-11,011650105,الفواكـه والمكسرات,carrefour,kg,23.49,100.0,2,0,16.98,30.0,White Seedless Grapes Import,https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972,,30.0
+2026-10-12,011650105,الفواكـه والمكسرات,carrefour,kg,23.49,100.0,2,2,16.98,30.0,White Seedless Grapes Import,https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972,,30.0
+2026-10-11,011650105,الفواكـه والمكسرات,lulu,kg,18.96,100.0,4,0,13.96,34.96,White Grapes Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/p/372683-ea/,,17.96
+2026-10-12,011650105,الفواكـه والمكسرات,lulu,kg,18.96,100.0,4,4,13.96,34.96,White Grapes Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/p/372683-ea/,,17.96
+2026-10-11,011650106,الفواكـه والمكسرات,carrefour,kg,23.49,100.0,2,0,16.98,30.0,White Seedless Grapes Import,https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972,,30.0
+2026-10-12,011650106,الفواكـه والمكسرات,carrefour,kg,23.49,100.0,2,2,16.98,30.0,White Seedless Grapes Import,https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972,,30.0
+2026-10-11,011650106,الفواكـه والمكسرات,lulu,kg,18.96,100.0,4,0,13.96,34.96,White Grapes Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/p/372683-ea/,,17.96
+2026-10-12,011650106,الفواكـه والمكسرات,lulu,kg,18.96,100.0,4,4,13.96,34.96,White Grapes Lebanon 500 g,https://gcc.luluhypermarket.com/en-ae/p/372683-ea/,,17.96
+2026-10-11,011650107,الفواكـه والمكسرات,carrefour,kg,46.48,100.0,2,0,17.98,74.97,Grapes Black Seedles (Candy Dreams),https://www.carrefouruae.com/mafuae/en/grapes/grapes-candy-dreams-pp/p/1883609,,74.97
+2026-10-12,011650107,الفواكـه والمكسرات,carrefour,kg,46.48,100.0,2,2,17.98,74.97,Grapes Black Seedles (Candy Dreams),https://www.carrefouruae.com/mafuae/en/grapes/grapes-candy-dreams-pp/p/1883609,,74.97
+2026-10-11,011650107,الفواكـه والمكسرات,lulu,kg,25.96,100.0,1,0,25.96,25.96,Grapes Black Italy 500 g,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/,,25.96
+2026-10-12,011650107,الفواكـه والمكسرات,lulu,kg,25.96,100.0,1,1,25.96,25.96,Grapes Black Italy 500 g,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/,,25.96
+2026-10-11,011650108,الفواكـه والمكسرات,carrefour,kg,46.48,100.0,2,0,17.98,74.97,Grapes Black Seedles (Candy Dreams),https://www.carrefouruae.com/mafuae/en/grapes/grapes-candy-dreams-pp/p/1883609,,74.97
+2026-10-12,011650108,الفواكـه والمكسرات,carrefour,kg,46.48,100.0,2,2,17.98,74.97,Grapes Black Seedles (Candy Dreams),https://www.carrefouruae.com/mafuae/en/grapes/grapes-candy-dreams-pp/p/1883609,,74.97
+2026-10-11,011650108,الفواكـه والمكسرات,lulu,kg,25.96,100.0,1,0,25.96,25.96,Grapes Black Italy 500 g,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/,,25.96
+2026-10-12,011650108,الفواكـه والمكسرات,lulu,kg,25.96,100.0,1,1,25.96,25.96,Grapes Black Italy 500 g,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/,,25.96
+2026-10-11,011650109,الفواكـه والمكسرات,carrefour,kg,46.48,100.0,2,0,17.98,74.97,Grapes Black Seedles (Candy Dreams),https://www.carrefouruae.com/mafuae/en/grapes/grapes-candy-dreams-pp/p/1883609,,74.97
+2026-10-12,011650109,الفواكـه والمكسرات,carrefour,kg,46.48,100.0,2,2,17.98,74.97,Grapes Black Seedles (Candy Dreams),https://www.carrefouruae.com/mafuae/en/grapes/grapes-candy-dreams-pp/p/1883609,,74.97
+2026-10-11,011650109,الفواكـه والمكسرات,lulu,kg,25.96,100.0,1,0,25.96,25.96,Grapes Black Italy 500 g,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/,,25.96
+2026-10-12,011650109,الفواكـه والمكسرات,lulu,kg,25.96,100.0,1,1,25.96,25.96,Grapes Black Italy 500 g,https://gcc.luluhypermarket.com/en-ae/p/377353-ea/,,25.96
+2026-10-11,011670101,الفواكـه والمكسرات,carrefour,kg,32.29,100.0,3,0,17.99,131.4,Kingdom Dates Khalas Al Qaseem Dates 1kg,https://www.carrefouruae.com/mafuae/en/dates/khalas-al-qaseem-kd/p/869984,,32.29
+2026-10-12,011670101,الفواكـه والمكسرات,carrefour,kg,32.29,100.0,3,3,17.99,131.4,Kingdom Dates Khalas Al Qaseem Dates 1kg,https://www.carrefouruae.com/mafuae/en/dates/khalas-al-qaseem-kd/p/869984,,32.29
+2026-10-12,011670101,الفواكـه والمكسرات,lulu,kg,17.45,100.0,8,0,12.75,75.0,LuLu Khalas Dates 500 g,https://gcc.luluhypermarket.com/en-ae/lulu-khalas-dates-500-g/p/1154779/,,15.9
+2026-10-12,011670102,الفواكـه والمكسرات,lulu,kg,25.45,100.0,4,0,20.5,37.0,Date Crown Fard 500 g,https://gcc.luluhypermarket.com/en-ae/date-crown-fard-500-g/p/598571/,,29.9
+2026-10-12,011670201,الفواكـه والمكسرات,carrefour,kg,42.73,100.0,8,0,22.0,325.8,Los Pinos Black Raisins,https://www.carrefouruae.com/mafuae/en/dried-fruits/vn-raisins-black/p/1778293,,47.5
+2026-10-12,011670201,الفواكـه والمكسرات,lulu,kg,25.8,100.0,8,0,23.6,36.8,LuLu Black Raisins 250 g,https://gcc.luluhypermarket.com/en-ae/lulu-black-raisins-250-g/p/936624/,,25.8
+2026-10-12,011670202,الفواكـه والمكسرات,carrefour,kg,42.73,100.0,8,0,22.0,325.8,Los Pinos Black Raisins,https://www.carrefouruae.com/mafuae/en/dried-fruits/vn-raisins-black/p/1778293,,47.5
+2026-10-12,011670202,الفواكـه والمكسرات,lulu,kg,25.8,100.0,8,0,23.6,36.8,LuLu Black Raisins 250 g,https://gcc.luluhypermarket.com/en-ae/lulu-black-raisins-250-g/p/936624/,,25.8
+2026-10-12,011680103,الفواكـه والمكسرات,carrefour,kg,152.9,100.0,3,0,141.65,194.75,"Crunchos Roasted and Salted Almond Can, 100g",https://www.carrefouruae.com/mafuae/en/almonds/crunchos-almond-100g-can/p/1220489,,152.9
+2026-10-12,011680103,الفواكـه والمكسرات,lulu,kg,72.35,100.0,4,0,57.6,137.5,Almond Roasted Lemon 500 g,https://gcc.luluhypermarket.com/en-ae/p/20201-ea/,,60.7
+2026-10-12,011680201,الفواكـه والمكسرات,carrefour,kg,132.67,100.0,8,0,75.0,197.9,"Wonderful Roasted Salted XXL Pistachios, 115g",https://www.carrefouruae.com/mafuae/en/pistachios/wonderful-pistachios-s-p-115g/p/1179392,,141.65
+2026-10-12,011680201,الفواكـه والمكسرات,lulu,kg,100.0,100.0,7,0,74.7,202.5,Fancy Nuts Roasted & Salted Pistachio 125 g,https://gcc.luluhypermarket.com/en-ae/fancy-nuts-roasted-salted-pistachio-125-g/p/2535051/,,100.0
+2026-10-12,011680301,الفواكـه والمكسرات,carrefour,kg,107.18,100.0,3,0,59.3,109.0,"Carrefour Oil Roasted and Salted Cashews, 110g",https://www.carrefouruae.com/mafuae/en/cashew/crf-cashew-slt-rst-110g-can/p/1764386,,107.18
+2026-10-12,011680301,الفواكـه والمكسرات,lulu,kg,71.05,100.0,8,0,63.8,187.5,Cashew Nut 320 Roasted Salt 500 g,https://gcc.luluhypermarket.com/en-ae/cashew-nut-320-roasted-salt-500-g/p/2398157-ea/,,69.0
+2026-10-12,011680402,الفواكـه والمكسرات,carrefour,kg,94.97,100.0,15,0,28.66,149.95,Bayara Walnuts Halves 400g,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-walnuts-halves-400gr/p/966766,,94.97
+2026-10-12,011680402,الفواكـه والمكسرات,lulu,kg,78.39,100.0,8,0,30.3,107.5,Bayara Walnuts 400 g,https://gcc.luluhypermarket.com/en-ae/bayara-walnuts-400-g/p/919706/,,72.38
+2026-10-12,011680403,الفواكـه والمكسرات,carrefour,kg,94.97,100.0,15,0,28.66,149.95,Bayara Walnuts Halves 400g,https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-walnuts-halves-400gr/p/966766,,94.97
+2026-10-12,011680403,الفواكـه والمكسرات,lulu,kg,78.39,100.0,8,0,30.3,107.5,Bayara Walnuts 400 g,https://gcc.luluhypermarket.com/en-ae/bayara-walnuts-400-g/p/919706/,,72.38
+2026-10-12,011680801,الفواكـه والمكسرات,carrefour,kg,89.97,100.0,41,0,35.0,325.8,Los Pinos Supreme Mixed Nuts 400g,https://www.carrefouruae.com/mafuae/en/mixed-nuts/supreme-mix-400g-gv/p/1915116,,89.97
+2026-10-12,011680801,الفواكـه والمكسرات,lulu,kg,74.7,100.0,23,0,37.89,171.5,Al Rifai Mixed Nuts 500 g,https://gcc.luluhypermarket.com/en-ae/al-rifai-mixed-nuts-500-g/p/195957/,,74.7
+2026-10-11,011710201,البقول والخضروات,carrefour,kg,5.5,100.0,3,0,4.0,34.99,Cabbage White Flat,https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-flat/p/472448,,5.5
+2026-10-12,011710201,البقول والخضروات,carrefour,kg,6.3,114.471,3,3,5.5,34.99,White Round Cabbage,https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-round-kg-ep/p/70727,,6.0
+2026-10-11,011710201,البقول والخضروات,lulu,kg,6.45,100.0,3,0,5.96,6.95,Cabbage White 1 kg,https://gcc.luluhypermarket.com/en-ae/cabbage-white-1-kg/p/1965482/,,6.45
+2026-10-12,011710201,البقول والخضروات,lulu,kg,5.7,88.362,3,3,4.45,6.95,Cabbage White 500 g,https://gcc.luluhypermarket.com/en-ae/p/18555-ea/,,5.96
+2026-10-11,011710202,البقول والخضروات,carrefour,kg,5.5,100.0,3,0,4.0,34.99,Cabbage White Flat,https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-flat/p/472448,,5.5
+2026-10-12,011710202,البقول والخضروات,carrefour,kg,6.3,114.471,3,3,5.5,34.99,White Round Cabbage,https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-round-kg-ep/p/70727,,6.0
+2026-10-11,011710202,البقول والخضروات,lulu,kg,6.45,100.0,3,0,5.96,6.95,Cabbage White 1 kg,https://gcc.luluhypermarket.com/en-ae/cabbage-white-1-kg/p/1965482/,,6.45
+2026-10-12,011710202,البقول والخضروات,lulu,kg,5.7,88.362,3,3,4.45,6.95,Cabbage White 500 g,https://gcc.luluhypermarket.com/en-ae/p/18555-ea/,,5.96
+2026-10-11,011710203,البقول والخضروات,carrefour,kg,5.5,100.0,3,0,4.0,34.99,Cabbage White Flat,https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-flat/p/472448,,5.5
+2026-10-12,011710203,البقول والخضروات,carrefour,kg,6.3,114.471,3,3,5.5,34.99,White Round Cabbage,https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-round-kg-ep/p/70727,,6.0
+2026-10-11,011710203,البقول والخضروات,lulu,kg,6.45,100.0,3,0,5.96,6.95,Cabbage White 1 kg,https://gcc.luluhypermarket.com/en-ae/cabbage-white-1-kg/p/1965482/,,6.45
+2026-10-12,011710203,البقول والخضروات,lulu,kg,5.7,88.362,3,3,4.45,6.95,Cabbage White 500 g,https://gcc.luluhypermarket.com/en-ae/p/18555-ea/,,5.96
+2026-10-11,011710301,البقول والخضروات,carrefour,kg,15.93,100.0,2,0,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-12,011710301,البقول والخضروات,carrefour,kg,15.93,100.0,2,2,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-11,011710301,البقول والخضروات,lulu,kg,23.95,100.0,1,0,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-12,011710301,البقول والخضروات,lulu,kg,23.95,100.0,1,1,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-11,011710302,البقول والخضروات,carrefour,kg,15.93,100.0,2,0,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-12,011710302,البقول والخضروات,carrefour,kg,15.93,100.0,2,2,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-11,011710302,البقول والخضروات,lulu,kg,23.95,100.0,1,0,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-12,011710302,البقول والخضروات,lulu,kg,23.95,100.0,1,1,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-11,011710303,البقول والخضروات,carrefour,kg,15.93,100.0,2,0,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-12,011710303,البقول والخضروات,carrefour,kg,15.93,100.0,2,2,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-11,011710303,البقول والخضروات,lulu,kg,23.95,100.0,1,0,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-12,011710303,البقول والخضروات,lulu,kg,23.95,100.0,1,1,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-11,011710304,البقول والخضروات,carrefour,kg,15.93,100.0,2,0,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-12,011710304,البقول والخضروات,carrefour,kg,15.93,100.0,2,2,11.9,19.97,Cauliflower,https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043,,11.9
+2026-10-11,011710304,البقول والخضروات,lulu,kg,23.95,100.0,1,0,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-12,011710304,البقول والخضروات,lulu,kg,23.95,100.0,1,1,23.95,23.95,Cauliflower Holland 800 g,https://gcc.luluhypermarket.com/en-ae/p/18803-ea/,,23.95
+2026-10-11,011710401,البقول والخضروات,lulu,bunch,1.98,100.0,2,0,1.0,2.95,Arugula Leaves (Gerger) 1 Bunch,https://gcc.luluhypermarket.com/en-ae/arugula-leaves-gerger-1-bunch/p/2502795/,,1.0
+2026-10-12,011710401,البقول والخضروات,lulu,bunch,1.98,100.0,2,2,1.0,2.95,Arugula Leaves (Gerger) 1 Bunch,https://gcc.luluhypermarket.com/en-ae/arugula-leaves-gerger-1-bunch/p/2502795/,,1.0
+2026-10-12,011710601,البقول والخضروات,carrefour,bunch,0.89,100.0,1,0,0.89,0.89,Mint Import Bunch 100g,https://www.carrefouruae.com/mafuae/en/fresh-herbs/fresh-mint-import/p/70820,,0.89
+2026-10-11,011710601,البقول والخضروات,lulu,bunch,2.95,100.0,3,0,1.0,4.25,Premium Mint Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/premium-mint-leaves-1-bunch/p/2593655/,,2.95
+2026-10-12,011710601,البقول والخضروات,lulu,bunch,2.95,100.0,3,3,1.0,4.25,Premium Mint Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/premium-mint-leaves-1-bunch/p/2593655/,,2.95
+2026-10-11,011720103,البقول والخضروات,carrefour,kg,34.69,100.0,6,0,6.2,42.83,Carrefour Red Candy Tomato 500g,https://www.carrefouruae.com/mafuae/en/tomato/mf-red-candy-tomato-500g/p/1801435,,29.4
+2026-10-12,011720103,البقول والخضروات,carrefour,kg,34.69,100.0,7,6,6.2,49.97,Carrefour Mix Color Candy Tomato 500g,https://www.carrefouruae.com/mafuae/en/tomato/mf-mix-candy-tomato-500g/p/1879365,,39.98
+2026-10-11,011720103,البقول والخضروات,lulu,kg,6.46,100.0,3,0,6.2,7.0,Tomato Jordan 500 g,https://gcc.luluhypermarket.com/en-ae/p/372444-ea/,,6.46
+2026-10-12,011720103,البقول والخضروات,lulu,kg,6.46,100.0,3,3,6.2,7.0,Tomato Jordan 500 g,https://gcc.luluhypermarket.com/en-ae/p/372444-ea/,,6.46
+2026-10-11,011720104,البقول والخضروات,carrefour,kg,34.69,100.0,6,0,6.2,42.83,Carrefour Red Candy Tomato 500g,https://www.carrefouruae.com/mafuae/en/tomato/mf-red-candy-tomato-500g/p/1801435,,29.4
+2026-10-12,011720104,البقول والخضروات,carrefour,kg,34.69,100.0,7,6,6.2,49.97,Carrefour Mix Color Candy Tomato 500g,https://www.carrefouruae.com/mafuae/en/tomato/mf-mix-candy-tomato-500g/p/1879365,,39.98
+2026-10-11,011720104,البقول والخضروات,lulu,kg,6.46,100.0,3,0,6.2,7.0,Tomato Jordan 500 g,https://gcc.luluhypermarket.com/en-ae/p/372444-ea/,,6.46
+2026-10-12,011720104,البقول والخضروات,lulu,kg,6.46,100.0,3,3,6.2,7.0,Tomato Jordan 500 g,https://gcc.luluhypermarket.com/en-ae/p/372444-ea/,,6.46
+2026-10-11,011720105,البقول والخضروات,carrefour,kg,34.69,100.0,6,0,6.2,42.83,Carrefour Red Candy Tomato 500g,https://www.carrefouruae.com/mafuae/en/tomato/mf-red-candy-tomato-500g/p/1801435,,29.4
+2026-10-12,011720105,البقول والخضروات,carrefour,kg,34.69,100.0,7,6,6.2,49.97,Carrefour Mix Color Candy Tomato 500g,https://www.carrefouruae.com/mafuae/en/tomato/mf-mix-candy-tomato-500g/p/1879365,,39.98
+2026-10-11,011720105,البقول والخضروات,lulu,kg,6.46,100.0,3,0,6.2,7.0,Tomato Jordan 500 g,https://gcc.luluhypermarket.com/en-ae/p/372444-ea/,,6.46
+2026-10-12,011720105,البقول والخضروات,lulu,kg,6.46,100.0,3,3,6.2,7.0,Tomato Jordan 500 g,https://gcc.luluhypermarket.com/en-ae/p/372444-ea/,,6.46
+2026-10-11,011720203,البقول والخضروات,carrefour,kg,19.0,100.0,1,0,19.0,19.0,Long Cucumber,https://www.carrefouruae.com/mafuae/en/cucumber/cucumber-long/p/70658,,19.0
+2026-10-12,011720203,البقول والخضروات,carrefour,kg,19.0,100.0,1,1,19.0,19.0,Long Cucumber,https://www.carrefouruae.com/mafuae/en/cucumber/cucumber-long/p/70658,,19.0
+2026-10-11,011720301,البقول والخضروات,carrefour,kg,32.99,100.0,1,0,32.99,32.99,Zucchini Green Import,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345,,32.99
+2026-10-12,011720301,البقول والخضروات,carrefour,kg,32.99,100.0,1,1,32.99,32.99,Zucchini Green Import,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345,,32.99
+2026-10-11,011720302,البقول والخضروات,carrefour,kg,32.99,100.0,1,0,32.99,32.99,Zucchini Green Import,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345,,32.99
+2026-10-12,011720302,البقول والخضروات,carrefour,kg,32.99,100.0,1,1,32.99,32.99,Zucchini Green Import,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345,,32.99
+2026-10-11,011720303,البقول والخضروات,carrefour,kg,32.99,100.0,1,0,32.99,32.99,Zucchini Green Import,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345,,32.99
+2026-10-12,011720303,البقول والخضروات,carrefour,kg,32.99,100.0,1,1,32.99,32.99,Zucchini Green Import,https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green-import/p/449345,,32.99
+2026-10-11,011720501,البقول والخضروات,carrefour,kg,6.25,100.0,2,0,3.5,9.0,Ash Pumpkin (Kaddoo),https://www.carrefouruae.com/mafuae/en/pumpkin-squash/pumpkin-ash/p/406650,,3.5
+2026-10-12,011720501,البقول والخضروات,carrefour,kg,6.25,100.0,3,2,3.5,48.99,Red Baby Pumpkin,https://www.carrefouruae.com/mafuae/en/pumpkin-squash/pumpkin-baby-red/p/445974,,9.0
+2026-10-11,011720501,البقول والخضروات,lulu,kg,6.95,100.0,3,0,6.65,10.95,Long White Pumpkin 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18626-ea/,,6.95
+2026-10-12,011720501,البقول والخضروات,lulu,kg,6.95,100.0,3,3,6.65,10.95,Long White Pumpkin 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18626-ea/,,6.95
+2026-10-11,011720601,البقول والخضروات,carrefour,kg,30.31,100.0,2,0,12.7,47.92,Thai Red Chillies 125g,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-red-pp/p/447569,,47.92
+2026-10-12,011720601,البقول والخضروات,carrefour,kg,30.31,100.0,2,2,12.7,47.92,Thai Red Chillies 125g,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-red-pp/p/447569,,47.92
+2026-10-11,011720601,البقول والخضروات,lulu,kg,14.0,100.0,5,0,10.93,29.96,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-12,011720601,البقول والخضروات,lulu,kg,14.0,100.0,5,5,10.93,29.96,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-11,011720602,البقول والخضروات,carrefour,kg,30.31,100.0,2,0,12.7,47.92,Thai Red Chillies 125g,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-red-pp/p/447569,,47.92
+2026-10-12,011720602,البقول والخضروات,carrefour,kg,30.31,100.0,2,2,12.7,47.92,Thai Red Chillies 125g,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-red-pp/p/447569,,47.92
+2026-10-11,011720602,البقول والخضروات,lulu,kg,14.0,100.0,5,0,10.93,29.96,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-12,011720602,البقول والخضروات,lulu,kg,14.0,100.0,5,5,10.93,29.96,Green Chilli India 100 g,https://gcc.luluhypermarket.com/en-ae/p/373185-ea/,,14.0
+2026-10-11,011720701,البقول والخضروات,carrefour,kg,9.9,100.0,1,0,9.9,9.9,Green Capsicum,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966,,9.9
+2026-10-12,011720701,البقول والخضروات,carrefour,kg,9.9,100.0,1,1,9.9,9.9,Green Capsicum,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966,,9.9
+2026-10-11,011720701,البقول والخضروات,lulu,kg,24.96,100.0,2,0,9.96,39.96,Capsicum Green 500 g,https://gcc.luluhypermarket.com/en-ae/p/18558-ea/,,9.96
+2026-10-12,011720701,البقول والخضروات,lulu,kg,24.96,100.0,2,2,9.96,39.96,Capsicum Green 500 g,https://gcc.luluhypermarket.com/en-ae/p/18558-ea/,,9.96
+2026-10-11,011720702,البقول والخضروات,carrefour,kg,9.9,100.0,1,0,9.9,9.9,Green Capsicum,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966,,9.9
+2026-10-12,011720702,البقول والخضروات,carrefour,kg,9.9,100.0,1,1,9.9,9.9,Green Capsicum,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966,,9.9
+2026-10-11,011720702,البقول والخضروات,lulu,kg,24.96,100.0,2,0,9.96,39.96,Capsicum Green 500 g,https://gcc.luluhypermarket.com/en-ae/p/18558-ea/,,9.96
+2026-10-12,011720702,البقول والخضروات,lulu,kg,24.96,100.0,2,2,9.96,39.96,Capsicum Green 500 g,https://gcc.luluhypermarket.com/en-ae/p/18558-ea/,,9.96
+2026-10-12,011720703,البقول والخضروات,carrefour,kg,16.0,100.0,1,0,16.0,16.0,Red Capsicum,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-red/p/490008,,16.0
+2026-10-11,011720703,البقول والخضروات,lulu,kg,14.96,100.0,1,0,14.96,14.96,Capsicum Red 500 g,https://gcc.luluhypermarket.com/en-ae/p/372374-ea/,,14.96
+2026-10-12,011720703,البقول والخضروات,lulu,kg,14.96,100.0,1,1,14.96,14.96,Capsicum Red 500 g,https://gcc.luluhypermarket.com/en-ae/p/372374-ea/,,14.96
+2026-10-12,011720704,البقول والخضروات,carrefour,kg,16.0,100.0,1,0,16.0,16.0,Red Capsicum,https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-red/p/490008,,16.0
+2026-10-11,011720704,البقول والخضروات,lulu,kg,14.96,100.0,1,0,14.96,14.96,Capsicum Red 500 g,https://gcc.luluhypermarket.com/en-ae/p/372374-ea/,,14.96
+2026-10-12,011720704,البقول والخضروات,lulu,kg,14.96,100.0,1,1,14.96,14.96,Capsicum Red 500 g,https://gcc.luluhypermarket.com/en-ae/p/372374-ea/,,14.96
+2026-10-12,011720801,البقول والخضروات,carrefour,kg,13.0,100.0,1,0,13.0,13.0,Long Okra (Bhindi),https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577,,13.0
+2026-10-11,011720801,البقول والخضروات,lulu,kg,13.96,100.0,1,0,13.96,13.96,Okra 250 g,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/,,13.96
+2026-10-12,011720801,البقول والخضروات,lulu,kg,13.96,100.0,1,1,13.96,13.96,Okra 250 g,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/,,13.96
+2026-10-12,011720802,البقول والخضروات,carrefour,kg,13.0,100.0,1,0,13.0,13.0,Long Okra (Bhindi),https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577,,13.0
+2026-10-11,011720802,البقول والخضروات,lulu,kg,13.96,100.0,1,0,13.96,13.96,Okra 250 g,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/,,13.96
+2026-10-12,011720802,البقول والخضروات,lulu,kg,13.96,100.0,1,1,13.96,13.96,Okra 250 g,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/,,13.96
+2026-10-12,011720803,البقول والخضروات,carrefour,kg,13.0,100.0,1,0,13.0,13.0,Long Okra (Bhindi),https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577,,13.0
+2026-10-11,011720803,البقول والخضروات,lulu,kg,13.96,100.0,1,0,13.96,13.96,Okra 250 g,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/,,13.96
+2026-10-12,011720803,البقول والخضروات,lulu,kg,13.96,100.0,1,1,13.96,13.96,Okra 250 g,https://gcc.luluhypermarket.com/en-ae/p/386248-ea/,,13.96
+2026-10-11,011740101,البقول والخضروات,carrefour,kg,9.6,100.0,4,0,3.0,46.26,Red Onions 3Kg,https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-red-bag-3kg-pp/p/638671,,5.23
+2026-10-12,011740101,البقول والخضروات,carrefour,kg,10.9,113.622,4,4,5.0,46.26,Red Onions 3Kg,https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-red-bag-3kg-pp/p/638671,,5.23
+2026-10-11,011740101,البقول والخضروات,lulu,kg,8.62,100.0,4,0,4.25,16.0,Barakat Fresh Red Onion Chopped 250 g,https://gcc.luluhypermarket.com/en-ae/barakat-fresh-red-onion-chopped-250-g/p/457071/,,13.0
+2026-10-12,011740101,البقول والخضروات,lulu,kg,9.75,113.083,4,4,4.25,16.0,Onion Red Egypt 1 kg,https://gcc.luluhypermarket.com/en-ae/onion-red-egypt-1-kg/p/1916514/,,6.95
+2026-10-11,011740102,البقول والخضروات,carrefour,kg,9.6,100.0,4,0,3.0,46.26,Red Onions 3Kg,https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-red-bag-3kg-pp/p/638671,,5.23
+2026-10-12,011740102,البقول والخضروات,carrefour,kg,10.9,113.622,4,4,5.0,46.26,Red Onions 3Kg,https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-red-bag-3kg-pp/p/638671,,5.23
+2026-10-11,011740102,البقول والخضروات,lulu,kg,8.62,100.0,4,0,4.25,16.0,Barakat Fresh Red Onion Chopped 250 g,https://gcc.luluhypermarket.com/en-ae/barakat-fresh-red-onion-chopped-250-g/p/457071/,,13.0
+2026-10-12,011740102,البقول والخضروات,lulu,kg,9.75,113.083,4,4,4.25,16.0,Onion Red Egypt 1 kg,https://gcc.luluhypermarket.com/en-ae/onion-red-egypt-1-kg/p/1916514/,,6.95
+2026-10-11,011740104,البقول والخضروات,carrefour,kg,27.02,100.0,2,0,7.79,46.26,White Onions 1.5Kg,https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-white-bag-1-5kg-pp/p/351847,,7.79
+2026-10-12,011740104,البقول والخضروات,carrefour,kg,27.02,100.0,3,2,7.79,46.26,White Onion,https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-white/p/447552,,8.0
+2026-10-11,011740104,البقول والخضروات,lulu,kg,5.95,100.0,1,0,5.95,5.95,Onion White China 1 kg,https://gcc.luluhypermarket.com/en-ae/onion-white-china-1-kg/p/2589862-ea/,,5.95
+2026-10-12,011740104,البقول والخضروات,lulu,kg,5.95,100.0,1,1,5.95,5.95,Onion White China 1 kg,https://gcc.luluhypermarket.com/en-ae/onion-white-china-1-kg/p/2589862-ea/,,5.95
+2026-10-11,011740201,البقول والخضروات,carrefour,kg,6.89,100.0,1,0,6.89,6.89,Beetroot,https://www.carrefouruae.com/mafuae/en/root-vegetables/beetroot/p/71561,,6.89
+2026-10-12,011740201,البقول والخضروات,carrefour,kg,6.89,100.0,2,1,6.89,15.27,Barakat Finely-Cut Beetroot 150g,https://www.carrefouruae.com/mafuae/en/cut-vegetables/beetroot-finely-cut-150g-bk/p/1797754,,15.27
+2026-10-11,011740201,البقول والخضروات,lulu,kg,6.96,100.0,1,0,6.96,6.96,Beetroot 500 g,https://gcc.luluhypermarket.com/en-ae/p/40192-ea/,,6.96
+2026-10-12,011740201,البقول والخضروات,lulu,kg,6.96,100.0,2,1,6.96,16.67,Barakat Beetroot Fine Cut 150 g,https://gcc.luluhypermarket.com/en-ae/barakat-beetroot-fine-cut-150-g/p/2038841/,,16.67
+2026-10-11,011740301,البقول والخضروات,carrefour,kg,14.43,100.0,4,0,8.79,21.93,Carrot,https://www.carrefouruae.com/mafuae/en/carrot/carrot/p/70968,,8.9
+2026-10-12,011740301,البقول والخضروات,carrefour,kg,14.43,100.0,4,4,8.79,21.93,Carrot,https://www.carrefouruae.com/mafuae/en/carrot/carrot/p/70968,,8.9
+2026-10-11,011740301,البقول والخضروات,lulu,kg,10.5,100.0,5,0,8.96,21.67,Fresh Carrots 1 kg,https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/,,10.5
+2026-10-12,011740301,البقول والخضروات,lulu,kg,10.67,101.6,5,5,8.96,21.67,Fresh Carrots 1 kg,https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/,,10.5
+2026-10-11,011740302,البقول والخضروات,carrefour,kg,14.43,100.0,4,0,8.79,21.93,Carrot,https://www.carrefouruae.com/mafuae/en/carrot/carrot/p/70968,,8.9
+2026-10-12,011740302,البقول والخضروات,carrefour,kg,14.43,100.0,4,4,8.79,21.93,Carrot,https://www.carrefouruae.com/mafuae/en/carrot/carrot/p/70968,,8.9
+2026-10-11,011740302,البقول والخضروات,lulu,kg,10.5,100.0,5,0,8.96,21.67,Fresh Carrots 1 kg,https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/,,10.5
+2026-10-12,011740302,البقول والخضروات,lulu,kg,10.67,101.6,5,5,8.96,21.67,Fresh Carrots 1 kg,https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/,,10.5
+2026-10-11,011740303,البقول والخضروات,carrefour,kg,14.43,100.0,4,0,8.79,21.93,Carrot,https://www.carrefouruae.com/mafuae/en/carrot/carrot/p/70968,,8.9
+2026-10-12,011740303,البقول والخضروات,carrefour,kg,14.43,100.0,4,4,8.79,21.93,Carrot,https://www.carrefouruae.com/mafuae/en/carrot/carrot/p/70968,,8.9
+2026-10-11,011740303,البقول والخضروات,lulu,kg,10.5,100.0,5,0,8.96,21.67,Fresh Carrots 1 kg,https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/,,10.5
+2026-10-12,011740303,البقول والخضروات,lulu,kg,10.67,101.6,5,5,8.96,21.67,Fresh Carrots 1 kg,https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/,,10.5
+2026-10-11,011740501,البقول والخضروات,carrefour,kg,15.9,100.0,1,0,15.9,15.9,Ginger,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854,,15.9
+2026-10-12,011740501,البقول والخضروات,carrefour,kg,15.9,100.0,1,1,15.9,15.9,Ginger,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854,,15.9
+2026-10-11,011740501,البقول والخضروات,lulu,kg,16.3,100.0,2,0,15.96,16.65,Ginger China 250 g,https://gcc.luluhypermarket.com/en-ae/p/18660-ea/,,15.96
+2026-10-12,011740501,البقول والخضروات,lulu,kg,16.3,100.0,2,2,15.96,16.65,Ginger China 250 g,https://gcc.luluhypermarket.com/en-ae/p/18660-ea/,,15.96
+2026-10-11,011740502,البقول والخضروات,carrefour,kg,15.9,100.0,1,0,15.9,15.9,Ginger,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854,,15.9
+2026-10-12,011740502,البقول والخضروات,carrefour,kg,15.9,100.0,1,1,15.9,15.9,Ginger,https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854,,15.9
+2026-10-11,011740502,البقول والخضروات,lulu,kg,16.3,100.0,2,0,15.96,16.65,Ginger China 250 g,https://gcc.luluhypermarket.com/en-ae/p/18660-ea/,,15.96
+2026-10-12,011740502,البقول والخضروات,lulu,kg,16.3,100.0,2,2,15.96,16.65,Ginger China 250 g,https://gcc.luluhypermarket.com/en-ae/p/18660-ea/,,15.96
+2026-10-11,011740601,البقول والخضروات,lulu,bunch,1.0,100.0,1,0,1.0,1.0,Radish Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/radish-leaves-1-bunch/p/2502809/,,1.0
+2026-10-12,011740601,البقول والخضروات,lulu,bunch,1.0,100.0,1,1,1.0,1.0,Radish Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/radish-leaves-1-bunch/p/2502809/,,1.0
+2026-10-11,011740602,البقول والخضروات,carrefour,kg,53.94,100.0,4,0,10.0,119.92,Radish Red Round 125g,https://www.carrefouruae.com/mafuae/en/salads/radish-red-round-pp/p/71393,,47.92
+2026-10-12,011740602,البقول والخضروات,carrefour,kg,53.94,100.0,4,4,10.0,119.92,Radish Red Round 125g,https://www.carrefouruae.com/mafuae/en/salads/radish-red-round-pp/p/71393,,47.92
+2026-10-11,011740602,البقول والخضروات,lulu,kg,28.18,100.0,2,0,8.75,47.6,Local White Radish 1 kg,https://gcc.luluhypermarket.com/en-ae/p/18650-ea/,,8.75
+2026-10-12,011740602,البقول والخضروات,lulu,kg,21.19,75.214,2,2,4.95,47.6,Red Radish Holland 125 g,https://gcc.luluhypermarket.com/en-ae/red-radish-holland-125-g/p/18860/,,47.6
+2026-10-11,011750101,البقول والخضروات,carrefour,kg,20.0,100.0,3,0,4.2,25.98,Potato Idaho USA,https://www.carrefouruae.com/mafuae/en/potato/di-potato-idaho-usa/p/2263590,,20.0
+2026-10-12,011750101,البقول والخضروات,carrefour,kg,20.0,100.0,4,3,4.2,44.1,Potato Red Cocktails 500g,https://www.carrefouruae.com/mafuae/en/potato/potato-red-cocktails-500-g/p/1794452,,25.98
+2026-10-11,011750101,البقول والخضروات,lulu,kg,4.22,100.0,4,0,4.0,4.6,Potato Bag 5 kg,https://gcc.luluhypermarket.com/en-ae/potato-bag-5-kg/p/376844/,,4.2
+2026-10-12,011750101,البقول والخضروات,lulu,kg,4.22,100.0,4,4,4.0,4.6,Potato Bag 5 kg,https://gcc.luluhypermarket.com/en-ae/potato-bag-5-kg/p/376844/,,4.2
+2026-10-11,011750102,البقول والخضروات,carrefour,kg,20.0,100.0,3,0,4.2,25.98,Potato Idaho USA,https://www.carrefouruae.com/mafuae/en/potato/di-potato-idaho-usa/p/2263590,,20.0
+2026-10-12,011750102,البقول والخضروات,carrefour,kg,20.0,100.0,4,3,4.2,44.1,Potato Red Cocktails 500g,https://www.carrefouruae.com/mafuae/en/potato/potato-red-cocktails-500-g/p/1794452,,25.98
+2026-10-11,011750102,البقول والخضروات,lulu,kg,4.22,100.0,4,0,4.0,4.6,Potato Bag 5 kg,https://gcc.luluhypermarket.com/en-ae/potato-bag-5-kg/p/376844/,,4.2
+2026-10-12,011750102,البقول والخضروات,lulu,kg,4.22,100.0,4,4,4.0,4.6,Potato Bag 5 kg,https://gcc.luluhypermarket.com/en-ae/potato-bag-5-kg/p/376844/,,4.2
+2026-10-12,011940101,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,kg,83.98,100.0,5,0,59.95,119.35,Carrefour Whole Black Pepper 500g,https://www.carrefouruae.com/mafuae/en/black-pepper/crf-black-pepper-whole-500g/p/1349864,,83.98
+2026-10-12,011940101,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,kg,100.03,100.0,8,0,56.0,431.25,Bayara Black Pepper Whole 500 g,https://gcc.luluhypermarket.com/en-ae/bayara-black-pepper-whole-500-g/p/11826/,,106.3
+2026-10-12,011940102,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,kg,83.98,100.0,5,0,59.95,119.35,Carrefour Whole Black Pepper 500g,https://www.carrefouruae.com/mafuae/en/black-pepper/crf-black-pepper-whole-500g/p/1349864,,83.98
+2026-10-12,011940102,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,kg,100.03,100.0,8,0,56.0,431.25,Bayara Black Pepper Whole 500 g,https://gcc.luluhypermarket.com/en-ae/bayara-black-pepper-whole-500-g/p/11826/,,106.3
+2026-10-12,011940103,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,kg,93.2,100.0,10,0,39.95,132.4,Carrefour Black Pepper Powder 200g,https://www.carrefouruae.com/mafuae/en/black-pepper/crf-black-pepper-powder-200g/p/1349861,,87.45
+2026-10-12,011940103,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,kg,113.2,100.0,15,0,38.0,411.0,Al Fares Black Pepper Powder 250 g,https://gcc.luluhypermarket.com/en-ae/al-fares-black-pepper-powder-250-g/p/471027/,,113.2
+2026-10-12,011940104,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,kg,93.2,100.0,10,0,39.95,132.4,Carrefour Black Pepper Powder 200g,https://www.carrefouruae.com/mafuae/en/black-pepper/crf-black-pepper-powder-200g/p/1349861,,87.45
+2026-10-12,011940104,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,kg,113.2,100.0,15,0,38.0,411.0,Al Fares Black Pepper Powder 250 g,https://gcc.luluhypermarket.com/en-ae/al-fares-black-pepper-powder-250-g/p/471027/,,113.2
+2026-10-12,011940303,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,kg,40.95,100.0,9,0,29.95,305.8,Shan Cumin Powder (Jeera) 200g,https://www.carrefouruae.com/mafuae/en/spices/shan-cumin-powder-poly-200g/p/1717471,,40.95
+2026-10-12,011940303,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,kg,52.79,100.0,6,0,25.5,82.0,Cumin Powder 150 g,https://gcc.luluhypermarket.com/en-ae/p/592726-ea/,,50.33
+2026-10-12,011941001,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,kg,118.95,100.0,3,0,105.5,164.0,Bab Elsham Mixed Meat Spices 190 g,https://gcc.luluhypermarket.com/en-ae/bab-elsham-mixed-meat-spices-190-g/p/2526713/,,118.95
+2026-10-11,011941101,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,bunch,0.99,100.0,1,0,0.99,0.99,Fresh Coriander Bunch,https://www.carrefouruae.com/mafuae/en/fresh-herbs/coriander-fresh-bunche/p/1264804,,0.99
+2026-10-12,011941101,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,bunch,0.99,100.0,1,1,0.99,0.99,Fresh Coriander Bunch,https://www.carrefouruae.com/mafuae/en/fresh-herbs/coriander-fresh-bunche/p/1264804,,0.99
+2026-10-11,011941101,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,bunch,1.98,100.0,2,0,1.0,2.95,Coriander Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/coriander-leaves-1-bunch/p/2502793/,,1.0
+2026-10-12,011941101,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,bunch,1.98,100.0,1,1,2.95,2.95,Premium Coriander Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/premium-coriander-leaves-1-bunch/p/2593654/,,2.95
+2026-10-11,011941201,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,bunch,0.89,100.0,1,0,0.89,0.89,Parsley Import Bunch 100g,https://www.carrefouruae.com/mafuae/en/fresh-herbs/fresh-parsley-import/p/447432,,0.89
+2026-10-12,011941201,منتجات الاغذية غير المصنفة تحت بند اخر,carrefour,bunch,0.89,100.0,1,1,0.89,0.89,Parsley Import Bunch 100g,https://www.carrefouruae.com/mafuae/en/fresh-herbs/fresh-parsley-import/p/447432,,0.89
+2026-10-11,011941201,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,bunch,1.98,100.0,2,0,1.0,2.95,Premium Parsley Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/premium-parsley-leaves-1-bunch/p/2593708/,,2.95
+2026-10-12,011941201,منتجات الاغذية غير المصنفة تحت بند اخر,lulu,bunch,1.98,100.0,2,2,1.0,2.95,Premium Parsley Leaves 1 Bunch,https://gcc.luluhypermarket.com/en-ae/premium-parsley-leaves-1-bunch/p/2593708/,,2.95

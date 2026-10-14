@@ -51,7 +51,8 @@ DEMONYMS = {"indian": "IN", "pakistani": "PK", "australian": "AU", "brazilian": 
 STOP = {"fresh", "loose", "deli", "counter", "per", "kg", "imported", "the", "and", "or", "of", "with", "a", "in"}
 # fresh meat, fish, fruit and vegetable lines are priced only from fresh sections (not tins, pickles, frozen, nuts)
 FRESH_SECTION = re.compile(r"^(?!.*(dried|nuts|tins|canned|frozen|jars|pickle)).*(fresh|meat|poultry|fish|seafood|fruit|vegetable|herb|beef|chicken|lamb)", re.I)
-NOT_FRESH_LINE = re.compile(r"محمص|مكسرات|تمر|مجفف|زبيب|مجمد|معلب")
+# processed meat (mortadella, luncheon, sausages, burgers, kebab) sits in the deli / chilled counter, not in the fresh-meat section
+NOT_FRESH_LINE = re.compile(r"محمص|مكسرات|تمر|مجفف|زبيب|مجمد|معلب|مرتديلا|لانشون|نقانق|همبرجر|برجر|كباب|شيش|نجتس")
 NOT_FRESH = ["organic", "marinated", "ready to cook", "seasoned", "cooked", "smoked", "frozen", "juice", "dried",
              "canned", "puree", "pickled", "stuffed", "nuggets", "burger", "sausage", "kebab", "kofta"]
 
@@ -266,6 +267,9 @@ def match(run_dir, catalog=None, delay=1.5):
             plan.append((it, spec, want, retailer, cands))
     enrich_origins(run_dir, list({id(c): c for *_, cands in plan for c in cands if not c["origin_seen"]}.values()), delay)
     pins = load_pins()
+    names = {}
+    for i in items:
+        names[i["name_ar"]] = names.get(i["name_ar"], 0) + 1
     today = run_dir.name[:10]
     by_url = {(r["retailer"], r["url"]): r for r in catalog}
     out = []
@@ -288,8 +292,10 @@ def match(run_dir, catalog=None, delay=1.5):
                 med = statistics.median(per)
                 pick = min(same, key=lambda c: abs(float(c["unit_price"]) - med))
                 status = "match" if per[-1] <= per[0] * 1.15 else "review_multiple"
-            elif unknown:
-                pick, status = min(unknown, key=lambda c: float(c["unit_price"])), "review_origin"
+            elif unknown:                                    # no origin stated: the median listing (not the cheapest), pinned like the others
+                per = sorted(float(c["unit_price"]) for c in unknown)
+                med = statistics.median(per)
+                pick, status = min(unknown, key=lambda c: abs(float(c["unit_price"]) - med)), "review_origin"
             elif other:
                 pick, status = min(other, key=lambda c: float(c["unit_price"])), "substitute_origin"
             if pin_state == "" and pin:
@@ -307,7 +313,7 @@ def match(run_dir, catalog=None, delay=1.5):
             if pin_state == "pinned_missing":
                 if pin.get("last") != today:
                     pin["miss"], pin["last"] = pin.get("miss", 0) + 1, today
-            elif status in ("match", "review_multiple") and pick is not None:
+            elif (status in ("match", "review_multiple") or (status == "review_origin" and names[it["name_ar"]] == 1)) and pick is not None:
                 if pin_state == "pinned":
                     pin["miss"], pin["last"] = 0, today
                 else:

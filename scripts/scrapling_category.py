@@ -199,7 +199,9 @@ def words(text):
 
 
 def has_word(tw, w):
-    return any(x == w or (len(w) >= 4 and (x.startswith(w) or w.startswith(x) and len(x) >= 4)) for x in tw)
+    """w is a title word, or its plural/singular (tomato / tomatoes). Only a short ending counts: 'bone' is NOT 'boneless'."""
+    return any(x == w or (len(w) >= 4 and len(x) >= 4 and abs(len(x) - len(w)) <= 2 and (x.startswith(w) or w.startswith(x)))
+               for x in tw)
 
 
 def phrase_ok(tw, phrase):

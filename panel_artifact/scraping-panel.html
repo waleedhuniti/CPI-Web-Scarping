@@ -735,25 +735,11 @@ function renderOverview() {
   const isCpi = p.kind === "barcode";
   $("#ov-body").innerHTML = `
     <div class="kpis">
-      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
-      ${isCpi ? `<div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${nBarcode.toLocaleString("en")}</span><span class="l">صنف بباركود · بحث بالباركود</span></div>
-      <div class="kpi" style="--kc:var(--bar-steel)"><span class="v">${nSpec.toLocaleString("en")}</span><span class="l">صنف بدون باركود · مسح شامل</span></div>
-      ${nName || nService ? `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${nName.toLocaleString("en")}</span><span class="l">صنف يُسعَّر بالاسم/الموديل من الكتالوج</span></div>
-      <div class="kpi" style="--kc:var(--navy)"><span class="v">${nService.toLocaleString("en")}</span><span class="l">خدمة أو سعر سوق · بلا سعر رفّ</span></div>` : ""}
-      <div class="kpi" style="--kc:var(--navy)"><span class="v">${L.products.toLocaleString("en")}</span><span class="l">منتج مسحوب في المسح الشامل (${L.categories} قسماً)</span></div>`
-      : `<div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
+      ${isCpi ? `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v" id="ov-priced">…</span><span class="l">سلعة مسعّرة من ${basket.length.toLocaleString("en")} سلعة في السلة</span></div>`
+      : `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
+      <div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
       <div class="kpi" style="--kc:var(--navy)"><span class="v">${esc(fmtDate(lastAt))}</span><span class="l">آخر تحديث</span></div>`}
     </div>
-    ${isCpi ? `<div class="plan-grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
-      <div class="panel"><h3>الأصناف بباركود (${nBarcode}) · بحث بالباركود</h3>
-        <p class="muted" style="margin:0">كل باركود يُبحث عنه في كارفور ولولو؛ وإن لم يظهر يُبحث بالاسم. يُعدّ موجوداً عندما يكون نفس المنتج (الماركة والنوع) وبنفس الحجم بالضبط.</p>
-        ${legend}<div class="srcbars">${srcBars(bc) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
-        <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accBc}</b> سعراً · ${bc[0] ? "آخر تشغيل " + esc(fmtDate(bc[0].startedAt)) : ""}</p></div>
-      <div class="panel"><h3>الأصناف بدون باركود (${nSpec}) · مسح شامل للأقسام</h3>
-        <p class="muted" style="margin:0">تُسحب أقسام كاملة (لحوم، أسماك، فواكه، خضار، مخبوزات، أجبان، بهارات) ${L.products ? `<b>${L.products.toLocaleString("en")}</b> منتجاً من ${L.categories} قسماً` : ""}، ويُطابق كل صنف بالنوع والقطعة والمنشأ والسعر للكيلو.</p>
-        ${legend}<div class="srcbars">${srcBars(cat) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
-        <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
-    </div>` : ""}
     ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
       <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر للكيلو أو اللتر أو القطعة (درهم)</option></select>
         <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
@@ -807,6 +793,7 @@ async function loadOvRows(runIds, sources) {
   } catch (e) { if (current === pid) $("#ov-rows").innerHTML = `<tr><td colspan="7">${esc(dbErr(e))}</td></tr>`; return; }
   if (current !== pid) return;
   ovRows = out; drawOvRows();
+  if ($("#ov-priced")) $("#ov-priced").textContent = new Set(out.map((r) => r.item_code).filter(Boolean)).size.toLocaleString("en");
   for (const id of runIds) await loadThumbs(pid, runs.find((r) => r.id === id));
   if (current === pid) drawOvRows();
 }

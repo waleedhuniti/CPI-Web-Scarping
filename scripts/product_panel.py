@@ -68,6 +68,17 @@ def lines():
     return out
 
 
+MAX_UNIT_PRICE = 600.0       # AED per kg / litre: above this a fresh-food listing is a whole animal, a hamper or a parse error (a lamb carcass priced 1,619 'per kg')
+
+
+def plausible(r):
+    try:
+        up = float(r["unit_price"])
+    except ValueError:
+        return False
+    return 0 < up <= MAX_UNIT_PRICE or str(r.get("group", "")).split(",")[0] in ("0119", "0118")     # spices, saffron, chocolates can be dear
+
+
 def update(hist_in, catalog_csv, date, hist_out):
     hist = json.load(open(hist_in, encoding="utf-8")) if hist_in not in ("-", "") and Path(hist_in).exists() else {"v": 1, "days": [], "skipped": {}, "p": {}}
     days, P = hist["days"], hist["p"]
@@ -78,7 +89,7 @@ def update(hist_in, catalog_csv, date, hist_out):
         days.pop(i)
     idx = len(days)
     days.append(date)
-    rows = [r for r in csv.DictReader(open(catalog_csv, encoding="utf-8-sig")) if r["retailer"] in SHOPS and r.get("unit_price")]
+    rows = [r for r in csv.DictReader(open(catalog_csv, encoding="utf-8-sig")) if r["retailer"] in SHOPS and r.get("unit_price") and plausible(r)]
     fits = lines()
     today = {}
     for r in rows:

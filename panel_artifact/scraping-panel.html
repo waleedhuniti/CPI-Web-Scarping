@@ -1721,7 +1721,11 @@ function chSeries(metric, store) {
       const m = perDay[d]; if (!m) { pts.push(null); continue; }
       const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
       if (!cur.size) { pts.push(null); continue; }
-      if (base === null) base = [...cur.values()].reduce((a, v) => a + v[0], 0) / cur.size;
+      if (base === null) {                          // first-day level: mean of the lines' prices, leaving out absurd ones (a whole animal priced as a kilo: AED 1,620)
+        const v = [...cur.values()].map((x) => x[0]).sort((a, b) => a - b), med = v[Math.floor(v.length / 2)];
+        const keep = v.filter((x) => x <= med * 4 && x >= med / 4);
+        base = keep.reduce((a, x) => a + x, 0) / keep.length;
+      }
       if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) { const q = prev.get(k); if (!q) continue; if (v[3] && q[3]) { ls += Math.log(v[3] / q[3]); n++; } else if (q[2] === v[2]) { ls += Math.log(v[0] / q[0]); n++; } } if (n) idx *= Math.exp(ls / n); }
       pts.push(+(metric === "avg" ? base * idx / 100 : idx).toFixed(2));
       prev = cur;

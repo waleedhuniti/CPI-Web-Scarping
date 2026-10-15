@@ -222,8 +222,13 @@ def main(run_dir, started):
     # {"thumbs_asset": <asset id>}
     (out / "thumbs.json").write_text(json.dumps({"pairs": pairs}), encoding="utf-8")
     acc = sum(r["accepted"] == "yes" for r in rows)
-    failed_any = any("failed" in line and not line.endswith(" 0 failed") for line in log if "barcode" in line)
-    status = "error" if failed_any else "done"
+    import re as _re
+    bad = 0                                             # 'error' only when more than 5% of a shop's barcode pages could not be read (after the retries); a few are noted in the log
+    for line in log:
+        m = _re.search(r"barcode: (\d+) pages read, (\d+) failed", line)
+        if m and int(m.group(2)) > 0.05 * (int(m.group(1)) + int(m.group(2))):
+            bad += 1
+    status = "error" if bad else "done"
     (out / "run.json").write_text(json.dumps(dict(
         startedAt=started, finishedAt=datetime.now(timezone.utc).isoformat(timespec="seconds"), status=status,
         summary=summary, chunks=len(chunks), count=len(rows), accepted=acc, log=log), ensure_ascii=False), encoding="utf-8")

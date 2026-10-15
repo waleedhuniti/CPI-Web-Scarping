@@ -153,21 +153,34 @@ def main():
         codes = codes[:a.limit]
 
     raw, searched, failed = [], [], []
-    with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
-        for n, code in enumerate(codes, 1):
+
+    def read_pages(session, todo, label=""):
+        """Search every barcode of `todo`; returns the ones whose page could not be read."""
+        bad = []
+        for n, code in enumerate(todo, 1):
             try:
-                page = s.get(site["url"](code))
+                page = session.get(site["url"](code))
                 html = page.body.decode("utf-8", "ignore") if isinstance(page.body, bytes) else str(page.body)
                 if not site["page_ok"](page, html):
                     raise RuntimeError(f"HTTP {page.status}, {len(html)} bytes - not a search result page")
                 rows = site["parse"](page, code)
-                raw += rows
+                raw.extend(rows)
                 searched.append(code)
-                print(f"[{n}/{len(codes)}] {code}: {len(rows)} product(s)" + (f" - {rows[0]['title']} AED {rows[0]['price']}" if rows else ""))
+                print(f"{label}[{n}/{len(todo)}] {code}: {len(rows)} product(s)" + (f" - {rows[0]['title']} AED {rows[0]['price']}" if rows else ""))
             except Exception as e:                                   # one bad page must not stop the run
-                failed.append(code)
-                print(f"[{n}/{len(codes)}] {code}: FAILED {type(e).__name__}: {str(e)[:120]}")
+                bad.append(code)
+                print(f"{label}[{n}/{len(todo)}] {code}: FAILED {type(e).__name__}: {str(e)[:120]}")
             time.sleep(a.delay + random.random())
+        return bad
+
+    with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
+        failed = read_pages(s, codes)
+        for rnd, wait in enumerate((30, 90), 1):                     # pages that failed (a shop busy or blocking for a moment) get two more tries
+            if not failed:
+                break
+            print(f"\nretry {rnd}: {len(failed)} page(s) failed, waiting {wait} s", flush=True)
+            time.sleep(wait)
+            failed = read_pages(s, failed, label=f"retry{rnd} ")
 
     raw_path = run_dir / f"{a.retailer}_raw.jsonl"
     with open(raw_path, "w", encoding="utf-8") as f:

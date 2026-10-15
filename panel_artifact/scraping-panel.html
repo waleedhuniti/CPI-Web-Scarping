@@ -1679,7 +1679,7 @@ async function chBuild() {
   const bk = new Map((basket || []).map((b) => [b.item_code, b]));
   // price per kg / per litre / per piece, the way the pipeline's Step3 'observed_price (per unit)' is: half a kilo is never added to a kilo
   const perUnit = (x, price) => {
-    if (["kg", "l", "pc", "bunch"].includes(x.price_basis) && Number(x.unit_price) > 0 && x.source === "category") return [price, x.price_basis];   // product-set lines are priced per unit already
+    if (["kg", "l", "pc", "bunch", "bag100"].includes(x.price_basis) && Number(x.unit_price) > 0 && (x.source === "category" || x.source === "catalogue")) return [price, x.price_basis];   // product-set lines (shop listings and catalogue) are priced per unit already
     if (Number(x.unit_price) > 0 && ["kg", "l"].includes(x.price_basis)) return [Number(x.unit_price), x.price_basis];
     const b = bk.get(x.item_code) || {}, tot = Number(b.qty_total) || 0, n = Number(b.qty_count) || 1;
     if (b.qty_unit === "g" && tot > 0) return [price * 1000 / tot, "kg"];

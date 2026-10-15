@@ -82,7 +82,7 @@ def main():
             s["basis"] = f["basis"]
         if "keep" in f:
             s["keep"] = f["keep"]
-    SPECS.write_text(json.dumps(specs, ensure_ascii=False, indent=1), encoding="utf-8")
+    SPECS.write_text(json.dumps(specs, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     bk = SPECS.parent / "basket.json"
     basket = json.loads(bk.read_text(encoding="utf-8"))
     n = 0

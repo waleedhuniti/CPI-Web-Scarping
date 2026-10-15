@@ -1682,10 +1682,12 @@ async function chBuild() {
     if (["kg", "l", "pc", "bunch", "bag100"].includes(x.price_basis) && Number(x.unit_price) > 0 && (x.source === "category" || x.source === "catalogue")) return [price, x.price_basis];   // product-set lines (shop listings and catalogue) are priced per unit already
     if (Number(x.unit_price) > 0 && ["kg", "l"].includes(x.price_basis)) return [Number(x.unit_price), x.price_basis];
     const b = bk.get(x.item_code) || {}, tot = Number(b.qty_total) || 0, n = Number(b.qty_count) || 1;
+    if ((b.qty_unit === "g" || b.qty_unit === "ml") && tot > 0 && tot < 5) return [price, "pc"];   // a 1 g saffron tube is a piece, not 1/1000 of a kilo
     if (b.qty_unit === "g" && tot > 0) return [price * 1000 / tot, "kg"];
     if (b.qty_unit === "ml" && tot > 0) return [price * 1000 / tot, "l"];
     return [price / n, "pc"];
   };
+  const MAX_UNIT = 1000;                                          // AED per kg / litre: above this the price is from a tiny or mis-sized pack, not a market price
   const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
   const byDay = new Map();                                       // one run per day: the latest
   for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
@@ -1693,6 +1695,7 @@ async function chBuild() {
     const price = Number(x.price);
     if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
     const [pu, basis] = perUnit(x, price);
+    if ((basis === "kg" || basis === "l") && pu > MAX_UNIT) continue;
     put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, pu, x.retailer, x.title, Number(x.line_index), basis);
   }
   try {

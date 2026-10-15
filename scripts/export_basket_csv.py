@@ -25,21 +25,38 @@ META = ["class_code", "class_name", "group_code", "group_name", "name_ar", "bran
         "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"]
 
 
+MAX_UNIT_PRICE = 1000.0    # AED per kg / litre: above this the unit price comes from a tiny or mis-sized pack, not a market price
+MIN_PACK = 5.0             # g / ml: a 1 g saffron tube is a piece, not 1/1000 of a kilo
+
+
 def fill_unit_price(rows):
     """Every priced row gets unit_price / price_basis on the same unit (per kg, per litre or per piece), from the line's pack size,
-    so pack prices (barcode lines) and per-unit prices (product-set lines) can be compared. 'price' itself is left as found."""
+    so pack prices (barcode lines) and per-unit prices (product-set lines) can be compared. 'price' itself is left as found.
+    Packs under 5 g / 5 ml count per piece; a per-kg / per-litre price above AED 1,000 is not kept as a unit price (note says why)."""
     n = 0
     for r in rows:
         try:
             price, total = float(r.get("price") or 0), float(r.get("qty_total") or 0)
         except ValueError:
             continue
-        if price <= 0 or total <= 0 or r.get("unit_price") not in (None, ""):
+        if price <= 0:
             continue
-        k = {"g": ("kg", 1000.0), "ml": ("l", 1000.0), "pc": ("pc", 1.0)}.get(r.get("qty_unit"))
-        if k:
+        have = r.get("unit_price") not in (None, "")
+        if not have:
+            if total <= 0:
+                continue
+            k = {"g": ("kg", 1000.0), "ml": ("l", 1000.0), "pc": ("pc", 1.0)}.get(r.get("qty_unit"))
+            if not k:
+                continue
+            if k[1] > 1 and total < MIN_PACK:
+                r["unit_price"], r["price_basis"] = round(price, 2), "pc"
+                n += 1
+                continue
             r["unit_price"], r["price_basis"] = round(price / (total / k[1]), 2), k[0]
             n += 1
+        if r.get("price_basis") in ("kg", "l") and float(r["unit_price"]) > MAX_UNIT_PRICE:
+            r["unit_price"] = ""
+            r["note"] = (str(r.get("note") or "") + " · unit price above AED 1,000 per kg/l left out").strip(" ·")
     return n
 
 

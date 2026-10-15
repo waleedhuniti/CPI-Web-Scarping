@@ -1688,12 +1688,17 @@ async function chBuild() {
     return [price / n, "pc"];
   };
   const MAX_UNIT = 1000;                                          // AED per kg / litre: above this the price is from a tiny or mis-sized pack, not a market price
+  // official price of each line (July file, the line's own unit): a price below 0.4x or above 2.5x of it is a wrong product, left out of the charts
+  let official = {};
+  try { const od = await db.doc(`projects/${current}/weights/current`).get(); if (od.exists) official = plain(od).official || {}; } catch (e) { /* no check without the official prices */ }
   const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
   const byDay = new Map();                                       // one run per day: the latest
   for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
   for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
     const price = Number(x.price);
     if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
+    const off = Number(official[x.item_code]);
+    if (off > 0 && (price / off < 0.4 || price / off > 2.5)) continue;
     const [pu, basis] = perUnit(x, price);
     if ((basis === "kg" || basis === "l") && pu > MAX_UNIT) continue;
     put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, pu, x.retailer, x.title, Number(x.line_index), basis);

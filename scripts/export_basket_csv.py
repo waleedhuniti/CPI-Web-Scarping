@@ -20,7 +20,7 @@ COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "ba
         "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code",
         "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note",
         "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id",
-        "section", "size", "source", "unit_price"]
+        "section", "size", "source", "unit_price", "price_rejected"]
 META = ["class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar", "barcode_raw", "gtin", "qty_raw", "qty_unit",
         "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"]
 
@@ -75,6 +75,8 @@ def build(rows, run_id, out_dir=ROOT / "data/exports/dataiku"):
         r.setdefault("run_id", run_id)
         r["cpi_group"] = re.sub(r"^\d+\s*-\s*", "", str(m.get("group_name", ""))).strip()
         r.pop("thumb", None)
+    import plausible_prices
+    plausible_prices.apply(rows)                       # a price far from the line's official price is a wrong product
     fill_unit_price(rows)
     cols = COLS + sorted({k for r in rows for k in r} - set(COLS))
     out_dir = Path(out_dir)

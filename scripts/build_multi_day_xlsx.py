@@ -11,6 +11,10 @@ from pathlib import Path
 
 import openpyxl
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import export_basket_csv  # noqa: E402
+import plausible_prices  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -54,7 +58,9 @@ def main():
     for d in days:
         rows = load(d)
         added = rematch(rows, re_[d]) if d in re_ else 0
-        header = header or list(rows[0].keys())
+        export_basket_csv.fill_unit_price(rows)
+        plausible_prices.apply(rows)
+        header = header or (list(rows[0].keys()) + ["price_rejected"])
         if d == days[0]:
             data.append(header)
         for r in rows:

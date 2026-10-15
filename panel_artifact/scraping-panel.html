@@ -1233,7 +1233,7 @@ async function loadCatalogue() {
       <select id="cv-s" style="flex:1 1 150px"><option value="">كل المتاجر</option>${Object.keys(catDoc.stores || {}).map((k) => `<option value="${esc(k)}">${esc(k)}</option>`).join("")}</select></div>
     <div class="row" style="margin-top:8px"><button class="ghost" id="cv-all">تحديد كل المعروض</button><button class="ghost" id="cv-none">إلغاء التحديد</button>
       <button class="primary" id="cv-dl">تنزيل المحدد (0)</button><span class="muted" id="cv-count"></span></div>
-    <div class="tw"><table><thead><tr><th>✓</th><th>صورة</th><th>المنتج</th><th>المتجر</th><th>السعر (درهم)</th><th>الحجم</th><th>القسم</th><th>الرابط</th></tr></thead><tbody id="cv-rows"><tr><td colspan="8" class="empty">تُحمَّل المنتجات…</td></tr></tbody></table></div>`;
+    <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right">صورة</th><th style="text-align:right">المنتج</th><th style="text-align:right">المتجر</th><th style="text-align:right">السعر (درهم)</th><th style="text-align:right">الحجم</th><th style="text-align:right">القسم</th><th style="text-align:right">الرابط</th><th>✓</th></tr></thead><tbody id="cv-rows"><tr><td colspan="8" class="empty">تُحمَّل المنتجات…</td></tr></tbody></table></div>`;
   $$("#cat-body [data-cat]").forEach((b) => b.addEventListener("click", () => downloadCatalogue(b.dataset.cat, b, false)));
   ["#cv-q", "#cv-g", "#cv-s"].forEach((q) => $(q).addEventListener(q === "#cv-q" ? "input" : "change", drawCatRows));
   $("#cv-all").onclick = () => { catView().slice(0, 300).forEach((i) => catSel.add(i)); drawCatRows(); };
@@ -1256,10 +1256,10 @@ async function drawCatRows() {
   if (!catData || !$("#cv-rows")) return;
   const view = catView(), show = view.slice(0, 300), ix = catIx;
   $("#cv-rows").innerHTML = show.map((i) => { const r = catData.rows[i], u = r[ix.photo_url], b = catThumbs[u];
-    return `<tr><td><input type="checkbox" data-i="${i}" ${catSel.has(i) ? "checked" : ""}></td>
-      <td>${b ? `<img class="thumb" src="data:image/jpeg;base64,${b}" alt="">` : (u ? `<img class="thumb" src="${esc(u)}" alt="" loading="lazy" onerror="this.remove()">` : "")}</td>
-      <td>${esc(r[ix.title])}</td><td>${esc(r[ix.outlet])}</td><td class="num"><b>${Number(r[ix.price]).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b></td>
-      <td>${esc(r[ix.size])}</td><td>${esc(r[ix.category])}</td><td>${r[ix.url] ? `<a href="${esc(r[ix.url])}" target="_blank" rel="noopener">فتح</a>` : ""}</td></tr>`; }).join("") || `<tr><td colspan="8" class="empty">لا منتجات مطابقة.</td></tr>`;
+    return `<tr><td style="text-align:right">${b ? `<img class="thumb" src="data:image/jpeg;base64,${b}" alt="">` : (u ? `<img class="thumb" src="${esc(u)}" alt="" loading="lazy" onerror="this.remove()">` : "")}</td>
+      <td style="text-align:right">${esc(r[ix.title])}</td><td style="text-align:right">${esc(r[ix.outlet])}</td><td class="num" style="text-align:right"><b>${Number(r[ix.price]).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b></td>
+      <td style="text-align:right">${esc(r[ix.size])}</td><td style="text-align:right">${esc(r[ix.category])}</td><td style="text-align:right">${r[ix.url] ? `<a href="${esc(r[ix.url])}" target="_blank" rel="noopener">فتح</a>` : ""}</td>
+      <td><input type="checkbox" data-i="${i}" ${catSel.has(i) ? "checked" : ""}></td></tr>`; }).join("") || `<tr><td colspan="8" class="empty">لا منتجات مطابقة.</td></tr>`;
   $$("#cv-rows input[type=checkbox]").forEach((c) => c.addEventListener("change", () => { c.checked ? catSel.add(+c.dataset.i) : catSel.delete(+c.dataset.i); $("#cv-dl").textContent = `تنزيل المحدد (${catSel.size})`; }));
   $("#cv-dl").textContent = `تنزيل المحدد (${catSel.size})`;
   $("#cv-count").textContent = `${view.length.toLocaleString("en")} منتج${view.length > 300 ? " · يظهر أول 300؛ ضيّق البحث أو نزّل الملف" : ""}`;

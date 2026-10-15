@@ -774,7 +774,7 @@ function renderOverview() {
       : `<div class="row"><input id="ov-q" placeholder="ابحث باسم السلعة أو الفئة" style="flex:2 1 220px">
         <select id="ov-date" style="flex:1 1 160px"></select>
         <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
-      <div class="tw"><table><thead><tr><th>السلعة</th><th>الفئة</th><th>السعر</th><th>الوحدة</th><th>التغير اليومي</th><th>منذ بداية السنة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`}
+      <div class="tw"><table><thead><tr><th>السلعة</th><th>الفئة</th><th>الوحدة</th><th style="min-width:300px">الرسم الحي · حركة السعر عبر الأيام</th></tr></thead><tbody id="ov-rows"><tr><td colspan="4" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`}
       <p class="muted" id="ov-count"></p>
     </div>`;
   $("#ov-dl").onclick = () => $("#r-export-all").click();
@@ -839,14 +839,50 @@ function drawGlobalRows() {
     sel.value = keep;
   }
   const q = ($("#ov-q")?.value || "").trim().toLowerCase(), day = sel.value;
-  const rows = ovRows.filter((r) => (!day || r.run_date === day) && (!q || [r.commodity, r.category, r.name].join(" ").toLowerCase().includes(q)))
-    .sort((a, b) => String(b.run_date).localeCompare(String(a.run_date)) || String(a.category).localeCompare(String(b.category)));
-  $("#ov-rows").innerHTML = rows.slice(0, 400).map((r) => `<tr>
-    <td>${esc(r.commodity || r.name || "")}</td><td>${esc(r.category || "")}</td>
-    <td class="num"><b>${esc(r.price ?? "")}</b></td><td>${esc(r.unit || "")}</td>
-    <td class="num">${esc(r.pct ?? "")}</td><td class="num">${esc(r.ytd ?? "")}</td>
-    <td class="num">${esc(r.run_date || "")}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">لا أسعار مطابقة.</td></tr>`;
-  $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر · ${days.length} يوماً محفوظاً (${days[days.length - 1] || ""} إلى ${days[0] || ""})${rows.length > 400 ? " · يظهر أول 400؛ نزّل الملف لرؤية الكل" : ""}`;
+  // one row per commodity; its chart follows the price over every saved day (up to the chosen day)
+  const by = new Map();
+  for (const r of ovRows) {
+    const name = r.commodity || r.name || ""; if (!name) continue;
+    const k = (r.category || "") + "|" + name + "|" + (r.unit || "");
+    if (!by.has(k)) by.set(k, { k, name, category: r.category || "", unit: r.unit || "", pts: new Map() });
+    const price = Number(r.price); if (Number.isFinite(price) && r.run_date) by.get(k).pts.set(r.run_date, { price, pct: r.pct, ytd: r.ytd });
+  }
+  gcSeries = [...by.values()].map((c) => ({ ...c, series: [...c.pts.entries()].filter(([d]) => !day || d <= day).sort((x, y) => x[0].localeCompare(y[0])) }))
+    .filter((c) => c.series.length && (!q || [c.name, c.category].join(" ").toLowerCase().includes(q)))
+    .sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+  gcOpen = gcOpen && gcSeries.some((c) => c.k === gcOpen) ? gcOpen : null;
+  $("#ov-rows").innerHTML = gcSeries.slice(0, 400).map((c, i) => `<tr class="gc-row" data-i="${i}" style="cursor:pointer">
+    <td><b>${esc(c.name)}</b></td><td>${esc(c.category)}</td><td>${esc(c.unit)}</td><td>${gcSpark(c)}</td></tr>`).join("") || `<tr><td colspan="4" class="empty">لا أسعار مطابقة.</td></tr>`;
+  $("#ov-rows").onclick = (e) => { const tr = e.target.closest(".gc-row"); if (tr) gcToggle(Number(tr.dataset.i), tr); };
+  $("#ov-count").textContent = `${gcSeries.length.toLocaleString("en")} سلعة · ${days.length} يوماً محفوظاً (${days[days.length - 1] || ""} إلى ${days[0] || ""}) · انقر سلعة لفتح الرسم الكامل${gcSeries.length > 400 ? " · يظهر أول 400؛ نزّل الملف لرؤية الكل" : ""}`;
+}
+let gcSeries = [], gcOpen = null, gcChart = null;
+function gcSpark(c) {
+  const v = c.series.map((x) => x[1].price), n = v.length, last = v[n - 1], first = v[0];
+  const pct = n > 1 && first ? (last / first - 1) * 100 : 0;
+  const col = n < 2 ? "var(--muted)" : pct > 0 ? "#1a8f4e" : pct < 0 ? "#c0392b" : "var(--muted)";
+  const W = 180, H = 34, lo = Math.min(...v), hi = Math.max(...v), span = hi - lo || 1;
+  const xy = v.map((y, i) => [n === 1 ? W / 2 : 4 + (i * (W - 8)) / (n - 1), H - 4 - ((y - lo) / span) * (H - 8)]);
+  const line = n > 1 ? `<polyline fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" points="${xy.map((p) => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ")}"/>` : "";
+  const tip = c.series.map(([d, o]) => `${d}: ${o.price}`).join("\n");
+  return `<div style="display:flex;align-items:center;gap:10px;direction:ltr"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img"><title>${esc(tip)}</title>${line}<circle cx="${xy[n - 1][0].toFixed(1)}" cy="${xy[n - 1][1].toFixed(1)}" r="3.2" fill="${col}"/></svg>
+    <span class="num" style="min-width:86px"><b>${last}</b><br><span style="color:${col};font-size:11px">${n > 1 ? (pct > 0 ? "▲ " : pct < 0 ? "▼ " : "") + pct.toFixed(2) + "%" : "يوم واحد"}</span></span></div>`;
+}
+async function gcToggle(i, tr) {
+  const c = gcSeries[i]; if (!c) return;
+  const open = tr.nextElementSibling?.classList.contains("gc-detail");
+  document.querySelectorAll(".gc-detail").forEach((x) => x.remove()); if (gcChart) { gcChart.destroy(); gcChart = null; }
+  if (open) { gcOpen = null; return; }
+  gcOpen = c.k;
+  const d = document.createElement("tr"); d.className = "gc-detail";
+  d.innerHTML = `<td colspan="4"><div style="position:relative;height:300px"><canvas id="gc-canvas"></canvas></div><p class="muted" style="margin:6px 0 0">${esc(c.name)} · ${esc(c.category)} · ${esc(c.unit)} · ${c.series.length} يوماً</p></td>`;
+  tr.after(d);
+  try { await loadChartLib(); } catch (e) { d.querySelector("p").textContent = "تعذّر تحميل مكتبة الرسم: " + (e?.message || e); return; }
+  gcChart = new window.Chart(d.querySelector("#gc-canvas"), { type: "line",
+    data: { labels: c.series.map((x) => x[0]), datasets: [{ label: `${c.name} (${c.unit})`, data: c.series.map((x) => x[1].price), borderColor: "#1678be", backgroundColor: "rgba(22,120,190,.12)", fill: true, tension: 0.25, pointRadius: 4, borderWidth: 2 }] },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false },
+      plugins: { legend: { display: false }, tooltip: { rtl: true, textDirection: "rtl", callbacks: { afterLabel: (ctx) => { const o = c.series[ctx.dataIndex][1]; return `التغير اليومي: ${o.pct ?? "-"}  ·  منذ بداية السنة: ${o.ytd ?? "-"}`; } } } },
+      scales: { y: { title: { display: true, text: c.unit } } } } });
 }
 
 async function newProject() {

@@ -20,7 +20,7 @@ COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "ba
         "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code",
         "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note",
         "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id",
-        "section", "size", "source", "unit_price"]
+        "section", "size", "source", "unit_price", "price_spec"]
 META = ["class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar", "barcode_raw", "gtin", "qty_raw", "qty_unit",
         "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"]
 
@@ -56,6 +56,24 @@ def fill_unit_price(rows):
     return n
 
 
+def fill_spec_price(rows):
+    """price_spec: the price in the line's OWN unit, the one the official file uses ('102 g' croissant, '1 kg' rice, 'piece'):
+    unit price x the line's quantity. A listing of another size is scaled by its unit price (CPI quantity adjustment)."""
+    n = 0
+    for r in rows:
+        try:
+            up, total = float(r.get("unit_price") or 0), float(r.get("qty_total") or 0)
+        except ValueError:
+            continue
+        if up <= 0 or total <= 0:
+            continue
+        f = {"g": 1000.0, "ml": 1000.0, "pc": 1.0}.get(r.get("qty_unit"))
+        if f and r.get("price_basis") in ("kg", "l", "pc"):
+            r["price_spec"] = round(up * total / f, 2)
+            n += 1
+    return n
+
+
 def build(rows, run_id, out_dir=ROOT / "data/exports/dataiku"):
     """rows = a day's panel rows (found / not found per item and store); adds the items no search covers, the basket columns and cpi_group."""
     import panel_run                                   # items no search covers (service / name / market): one 'not found' row each
@@ -72,6 +90,7 @@ def build(rows, run_id, out_dir=ROOT / "data/exports/dataiku"):
         r["cpi_group"] = re.sub(r"^\d+\s*-\s*", "", str(m.get("group_name", ""))).strip()
         r.pop("thumb", None)
     fill_unit_price(rows)
+    fill_spec_price(rows)
     cols = COLS + sorted({k for r in rows for k in r} - set(COLS))
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)

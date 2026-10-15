@@ -58,7 +58,8 @@ def main():
         rows = load(d)
         added = rematch(rows, re_[d]) if d in re_ else 0
         export_basket_csv.fill_unit_price(rows)
-        header = header or list(rows[0].keys())
+        export_basket_csv.fill_spec_price(rows)
+        header = header or (list(rows[0].keys()) + (["price_spec"] if "price_spec" not in rows[0] else []))
         if d == days[0]:
             data.append(header)
         for r in rows:

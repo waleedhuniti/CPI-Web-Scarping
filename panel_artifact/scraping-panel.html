@@ -757,7 +757,8 @@ function renderOverview() {
     ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
       <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر للكيلو أو اللتر أو القطعة (درهم)</option></select>
         <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
-        <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select></div>
+        <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
+        <select id="ch-w" style="flex:1 1 200px"><option value="w">أوزان CPI الرسمية (لكل بند)</option><option value="eq">أوزان متساوية</option></select></div>
       <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
       <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
     ${isCpi ? `<div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
@@ -1720,13 +1721,17 @@ async function chBuild() {
       }
     }
   } catch (e) { /* the non-food lines appear once a price history exists */ }
-  return { obs, days: [...days].sort() };
+  let wts = {};
+  try { const wd = await db.doc(`projects/${current}/weights/current`).get(); if (wd.exists) wts = plain(wd).weights || {}; } catch (e) { /* equal weights when the weights document is missing */ }
+  return { obs, days: [...days].sort(), wts };
 }
 function chSeries(metric, store) {
-  const { obs, days } = chData, out = [];
+  const { obs, days, wts } = chData, out = [], wmode = ($("#ch-w")?.value || "w") === "w";
   for (const [g, perDay] of Object.entries(obs)) {
-    // chained index on the same product only (a listing swapped by the matcher is ignored); the average price is the first
-    // day's average level moved by that index, so it does not jump when products come or go
+    // Daily change of each basket ITEM (7-digit class) = geometric mean of the price relatives of the same product (same listing line) in the
+    // same shop between two consecutive days; the group's daily change = the items' changes averaged with the OFFICIAL item weights (or equally);
+    // the index chains these daily changes. The average price keeps the first day's level and moves with the index, so it does not jump
+    // when products come or go.
     const pts = []; let idx = 100, prev = null, base = null;
     for (const d of days) {
       const m = perDay[d]; if (!m) { pts.push(null); continue; }
@@ -1739,7 +1744,20 @@ function chSeries(metric, store) {
         const keep = v.filter((x) => x <= med * 4 && x >= med / 4);
         base = keep.reduce((a, x) => a + x, 0) / keep.length;
       }
-      if (prev) { let n = 0, ls = 0; for (const [k, v] of cur) { const q = prev.get(k); if (!q) continue; if (v[3] && q[3]) { ls += Math.log(v[3] / q[3]); n++; } else if (q[2] === v[2]) { ls += Math.log(v[0] / q[0]); n++; } } if (n) idx *= Math.exp(ls / n); }
+      if (prev) {
+        const byItem = new Map();                    // item -> [sum of ln relatives, n]
+        for (const [k, v] of cur) {
+          const q = prev.get(k); if (!q) continue;
+          let r = null;
+          if (v[3] && q[3]) r = v[3] / q[3]; else if (q[2] === v[2]) r = v[0] / q[0];
+          if (!(r > 0)) continue;
+          const it = /^\d{9}\|/.test(k) ? k.slice(0, 7) : k;     // catalogue products (no basket item): each is its own item
+          const e = byItem.get(it) || [0, 0]; e[0] += Math.log(r); e[1]++; byItem.set(it, e);
+        }
+        let sw = 0, sr = 0, ls = 0, n = 0;
+        for (const [it, [l, c]] of byItem) { const rel = Math.exp(l / c), w = wmode ? (wts[it] || 0) : 1; ls += l / c; n++; if (w > 0) { sw += w; sr += w * rel; } }
+        if (wmode && sw > 0) idx *= sr / sw; else if (n) idx *= Math.exp(ls / n);
+      }
       pts.push(+(metric === "avg" ? base * idx / 100 : idx).toFixed(2));
       prev = cur;
     }
@@ -1758,7 +1776,7 @@ function chDraw() {
       plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
       scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
   $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
-    + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج (بنفس العنوان) في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
+    + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: لكل بند من بنود السلة متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، ثم تُجمع البنود بأوزانها الرسمية (أو متساوية حسب الاختيار)، أول يوم = 100.");
 }
 async function loadCharts() {
   const pid = current;
@@ -1769,7 +1787,7 @@ async function loadCharts() {
     if (chData.days.length < 2) { $("#ch-note").textContent = "الرسم يحتاج يومين على الأقل من الأسعار؛ يظهر تلقائياً بعد التشغيل التالي."; return; }
     const dvs = [...new Set(Object.keys(chData.obs).map(divOfGroup).filter(Boolean))];
     if ($("#ch-div")) { $("#ch-div").innerHTML = `<option value="">كل الأقسام</option>` + dvs.map((d) => `<option value="${esc(d)}">${esc(d)}</option>`).join(""); $("#ch-div").onchange = chDraw; }
-    $("#ch-metric").onchange = chDraw; $("#ch-store").onchange = chDraw; chDraw();
+    $("#ch-metric").onchange = chDraw; $("#ch-store").onchange = chDraw; $("#ch-w").onchange = chDraw; chDraw();
   } catch (e) { if ($("#ch-note")) $("#ch-note").textContent = "تعذّر تحميل الرسم: " + (e?.message || e); }
 }
 

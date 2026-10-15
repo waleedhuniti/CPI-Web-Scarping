@@ -25,6 +25,24 @@ META = ["class_code", "class_name", "group_code", "group_name", "name_ar", "bran
         "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"]
 
 
+def fill_unit_price(rows):
+    """Every priced row gets unit_price / price_basis on the same unit (per kg, per litre or per piece), from the line's pack size,
+    so pack prices (barcode lines) and per-unit prices (product-set lines) can be compared. 'price' itself is left as found."""
+    n = 0
+    for r in rows:
+        try:
+            price, total = float(r.get("price") or 0), float(r.get("qty_total") or 0)
+        except ValueError:
+            continue
+        if price <= 0 or total <= 0 or r.get("unit_price") not in (None, ""):
+            continue
+        k = {"g": ("kg", 1000.0), "ml": ("l", 1000.0), "pc": ("pc", 1.0)}.get(r.get("qty_unit"))
+        if k:
+            r["unit_price"], r["price_basis"] = round(price / (total / k[1]), 2), k[0]
+            n += 1
+    return n
+
+
 def build(rows, run_id, out_dir=ROOT / "data/exports/dataiku"):
     """rows = a day's panel rows (found / not found per item and store); adds the items no search covers, the basket columns and cpi_group."""
     import panel_run                                   # items no search covers (service / name / market): one 'not found' row each
@@ -40,6 +58,7 @@ def build(rows, run_id, out_dir=ROOT / "data/exports/dataiku"):
         r.setdefault("run_id", run_id)
         r["cpi_group"] = re.sub(r"^\d+\s*-\s*", "", str(m.get("group_name", ""))).strip()
         r.pop("thumb", None)
+    fill_unit_price(rows)
     cols = COLS + sorted({k for r in rows for k in r} - set(COLS))
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)

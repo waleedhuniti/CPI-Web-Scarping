@@ -758,7 +758,7 @@ function renderOverview() {
       <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر للكيلو أو اللتر أو القطعة (درهم)</option></select>
         <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
         <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
-        <select id="ch-w" style="flex:1 1 200px"><option value="w">أوزان CPI الرسمية (لكل بند)</option><option value="eq">أوزان متساوية</option></select></div>
+        <select id="ch-w" style="flex:1 1 200px"><option value="w">مرجّح حسب أهمية البند في إنفاق الأسرة</option><option value="eq">غير مرجّح (كل بند بنفس الأهمية)</option></select></div>
       <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
       <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
     ${isCpi ? `<div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
@@ -1776,7 +1776,7 @@ function chDraw() {
       plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
       scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
   $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
-    + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: لكل بند من بنود السلة متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، ثم تُجمع البنود بأوزانها الرسمية (أو متساوية حسب الاختيار)، أول يوم = 100.");
+    + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: لكل بند من بنود السلة متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، ثم تُجمع البنود حسب أهميتها في إنفاق الأسرة (الأوزان الرسمية)، أو بنفس الأهمية إن اخترت "غير مرجّح"، أول يوم = 100.");
 }
 async function loadCharts() {
   const pid = current;

@@ -1582,7 +1582,7 @@ function plainCsv(rows, cols) {
   return [cols.join(","), ...rows.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
 }
 // one format for everything exported to Dataiku: UTF-8 CSV, no BOM, fixed column order, a cpi_group column in the office's Arabic group names
-const DK_COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "barcode", "name", "brand", "basket_qty", "title", "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code", "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note", "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id", "section", "size", "source", "unit_price"];
+const DK_COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "barcode", "name", "brand", "basket_qty", "title", "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code", "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note", "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id", "section", "size", "source", "unit_price", "price_spec"];
 const cpiGroupOfCategory = (c) => (CH_NONFOOD.find((g) => g.re.test(c || "")) || {}).name || "";
 async function dataikuRuns(btn) {
   const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجمع…";
@@ -1606,11 +1606,13 @@ async function dataikuRuns(btn) {
         const p = Number(o.price);
         if (!(p > 0)) continue;
         const tot = Number(o.qty_total) || 0, k = { g: ["kg", 1000], ml: ["l", 1000], pc: ["pc", 1] }[o.qty_unit];
-        if (o.unit_price === undefined || o.unit_price === "" || o.unit_price === null) {
+        if ((o.source === "category" || /product set/.test(String(o.detail || ""))) && ["kg", "l", "pc", "bunch", "bag100"].includes(o.price_basis)) { o.unit_price = Math.round(p * 100) / 100; }   // product-set lines: 'price' is already per unit
+        else if (o.unit_price === undefined || o.unit_price === "" || o.unit_price === null) {
           if (!k || !(tot > 0)) continue;
           if (k[1] > 1 && tot < 5) { o.unit_price = Math.round(p * 100) / 100; o.price_basis = "pc"; }
           else { o.unit_price = Math.round(p / (tot / k[1]) * 100) / 100; o.price_basis = k[0]; }
         }
+        if (Number(o.unit_price) > 0 && k && tot > 0 && ["kg", "l", "pc"].includes(o.price_basis)) o.price_spec = Math.round(Number(o.unit_price) * tot / k[1] * 100) / 100;   // price in the line's own unit, as the official file
       }
     }
     if (P()?.kind === "barcode") {            // items no search covers (no barcode / spec: priced by name, services, market rates): one "not found" row each per day

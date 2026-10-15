@@ -41,6 +41,10 @@ def fill_unit_price(rows):
         if price <= 0:
             continue
         have = r.get("unit_price") not in (None, "")
+        per_unit = r.get("source") == "category" or "product set" in str(r.get("detail") or "")
+        if per_unit and r.get("price_basis") in ("kg", "l", "pc", "bunch", "bag100"):   # product-set lines: 'price' is already per unit
+            r["unit_price"] = round(price, 2)
+            continue
         if not have:
             if total <= 0:
                 continue

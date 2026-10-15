@@ -482,15 +482,18 @@
   "brand_en": "Mona",
   "product_en": "coarse bulgur",
   "must_have": [
-   "bulgur / burghul",
-   "coarse"
+   "bulgur/burghol/burgul/bulghur/burghul/burghul"
   ],
   "must_not": [
-   "fine",
-   "brown"
+   "salad",
+   "tabbouleh",
+   "tabouli",
+   "mix",
+   "ready",
+   "kibbeh"
   ],
-  "size": "1 kg",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011110902",
@@ -499,16 +502,18 @@
   "brand_en": "Bayara",
   "product_en": "fine bulgur",
   "must_have": [
-   "Bayara",
-   "fine",
-   "burghol"
+   "bulgur/burghol/burgul/bulghur/burghul/burghul"
   ],
   "must_not": [
-   "coarse",
-   "brown"
+   "salad",
+   "tabbouleh",
+   "tabouli",
+   "mix",
+   "ready",
+   "kibbeh"
   ],
-  "size": "400 g",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011110904",
@@ -517,15 +522,18 @@
   "brand_en": "Lulu",
   "product_en": "white bulgur",
   "must_have": [
-   "Lulu",
-   "bulgur / burghul",
-   "white"
+   "bulgur/burghol/burgul/bulghur/burghul/burghul"
   ],
   "must_not": [
-   "brown"
+   "salad",
+   "tabbouleh",
+   "tabouli",
+   "mix",
+   "ready",
+   "kibbeh"
   ],
-  "size": "500 g",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011120101",
@@ -677,19 +685,32 @@
  },
  {
   "c": "011130101",
-  "query_en": "paratha",
+  "query_en": "frozen paratha",
   "query_alt": "Malabar paratha",
   "product_en": "Indian paratha, fresh, single piece",
   "must_have": [
    "paratha"
   ],
   "must_not": [
-   "frozen",
+   "aloo",
+   "paneer",
+   "mix",
+   "veg",
+   "vegetable",
    "stuffed",
-   "aloo"
+   "cheese",
+   "methi",
+   "onion",
+   "gobi",
+   "chicken",
+   "egg",
+   "garlic",
+   "keema",
+   "mooli",
+   "masala"
   ],
-  "size": "1 pc",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011130102",
@@ -1309,14 +1330,17 @@
   "query_alt": "baklava with walnuts",
   "product_en": "walnut baklava",
   "must_have": [
-   "baklava",
-   "walnut"
+   "baklawa/baklava"
   ],
   "must_not": [
-   "cashew",
-   "pistachio",
-   "mixed",
-   "frozen"
+   "frozen",
+   "cake",
+   "ice",
+   "cream",
+   "chocolate",
+   "bar",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -1327,14 +1351,17 @@
   "query_alt": "baklava with cashew",
   "product_en": "cashew baklava",
   "must_have": [
-   "baklava",
-   "cashew"
+   "baklawa/baklava"
   ],
   "must_not": [
-   "walnut",
-   "pistachio",
-   "mixed",
-   "frozen"
+   "frozen",
+   "cake",
+   "ice",
+   "cream",
+   "chocolate",
+   "bar",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -1345,14 +1372,17 @@
   "query_alt": "baklava with pistachio",
   "product_en": "pistachio baklava",
   "must_have": [
-   "baklava",
-   "pistachio"
+   "baklawa/baklava"
   ],
   "must_not": [
-   "walnut",
-   "cashew",
-   "mixed",
-   "frozen"
+   "frozen",
+   "cake",
+   "ice",
+   "cream",
+   "chocolate",
+   "bar",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -1363,15 +1393,24 @@
   "query_alt": "knafeh with cheese",
   "product_en": "kunafa with cheese (made to order)",
   "must_have": [
-   "kunafa / knafeh",
-   "cheese"
+   "kunafa/knafeh/kunafeh/kanafeh"
   ],
   "must_not": [
-   "cream / ashta",
-   "kunafa dough",
-   "kataifi pastry",
+   "bites",
+   "spread",
+   "kitkat",
+   "speculoos",
+   "nestle",
+   "pistachio",
+   "cake",
+   "chocolate",
+   "ice",
+   "cream",
+   "bar",
+   "dough",
+   "kataifi",
    "frozen",
-   "chocolate"
+   "bread"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -1382,54 +1421,63 @@
   "query_alt": "knafeh ashta",
   "product_en": "kunafa with cream (ashta, made to order)",
   "must_have": [
-   "kunafa / knafeh",
-   "cream / ashta"
+   "kunafa/knafeh/kunafeh/kanafeh"
   ],
   "must_not": [
-   "cheese",
-   "kunafa dough",
-   "kataifi pastry",
+   "bites",
+   "spread",
+   "kitkat",
+   "speculoos",
+   "nestle",
+   "pistachio",
+   "cake",
+   "chocolate",
+   "ice",
+   "bar",
+   "dough",
+   "kataifi",
    "frozen",
-   "chocolate"
+   "bread"
   ],
   "size": "per kg",
   "sold_by_weight": true
  },
  {
   "c": "011131001",
-  "query_en": "cheese fatayer",
+  "query_en": "frozen cheese sambousek",
   "query_alt": "cheese pie",
   "product_en": "cheese fatayer (cheese pie), single piece",
   "must_have": [
    "cheese",
-   "fatayer / pie"
+   "sambousek/sambousak/fatayer/fatayar/pie/rolls/roll"
   ],
   "must_not": [
    "zaatar",
    "spinach",
    "meat",
-   "frozen"
+   "chicken",
+   "mini",
+   "spring"
   ],
-  "size": "1 pc (144 g)",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011131002",
-  "query_en": "zaatar fatayer",
+  "query_en": "frozen zaatar fatayer",
   "query_alt": "zaatar manakeesh",
   "product_en": "zaatar fatayer (zaatar pie), single piece",
   "must_have": [
-   "zaatar",
-   "fatayer / pie / manakeesh"
+   "zaatar/zatar",
+   "sambousek/sambousak/fatayer/fatayar/pie/manakish"
   ],
   "must_not": [
-   "cheese",
-   "spinach",
    "meat",
-   "frozen"
+   "chicken",
+   "cheese"
   ],
-  "size": "1 pc (148 g)",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011131003",
@@ -2097,14 +2145,18 @@
   "query_alt": "mutton loin India",
   "product_en": "Fresh mutton loin with bone",
   "must_have": [
-   "fresh/chilled",
-   "loin",
-   "bone-in"
+   "mutton/lamb",
+   "bone/bones"
   ],
   "must_not": [
-   "frozen",
    "boneless",
-   "minced"
+   "minced",
+   "mince",
+   "frozen",
+   "liver",
+   "kebab",
+   "burger",
+   "lamb bones"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -3751,12 +3803,13 @@
   "query_alt": "shaari fish uae",
   "product_en": "Fresh shaari (emperor fish)",
   "must_have": [
-   "shaari/emperor",
-   "fresh"
+   "sheri/shaari/shaeri/shari"
   ],
   "must_not": [
+   "fillet",
    "frozen",
-   "fillet"
+   "cheese",
+   "safi"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -3767,12 +3820,13 @@
   "query_alt": "shaari fish oman",
   "product_en": "Fresh shaari (emperor fish)",
   "must_have": [
-   "shaari/emperor",
-   "fresh"
+   "sheri/shaari/shaeri/shari"
   ],
   "must_not": [
+   "fillet",
    "frozen",
-   "fillet"
+   "cheese",
+   "safi"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -3883,13 +3937,17 @@
   "query_alt": "sea bream uae",
   "product_en": "Fresh sea bream",
   "must_have": [
-   "sea bream",
-   "fresh"
+   "seabream/bream"
   ],
   "must_not": [
-   "frozen",
    "fillet",
-   "sea bass"
+   "frozen",
+   "sea bass",
+   "marinated",
+   "flavors",
+   "flavours",
+   "lemon",
+   "herbs"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -3900,13 +3958,17 @@
   "query_alt": "sea bream turkey",
   "product_en": "Fresh sea bream",
   "must_have": [
-   "sea bream",
-   "fresh"
+   "seabream/bream"
   ],
   "must_not": [
-   "frozen",
    "fillet",
-   "sea bass"
+   "frozen",
+   "sea bass",
+   "marinated",
+   "flavors",
+   "flavours",
+   "lemon",
+   "herbs"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -4060,16 +4122,29 @@
   "query_alt": "jumbo shrimps oman",
   "product_en": "Fresh large/jumbo shrimp, U10 grade",
   "must_have": [
-   "shrimp/prawn",
-   "fresh",
-   "jumbo/large"
+   "shrimp/shrimps/prawn/prawns"
   ],
   "must_not": [
    "frozen",
    "peeled",
    "cooked",
-   "medium",
-   "small"
+   "breaded",
+   "cleaned",
+   "cocktail",
+   "tempura",
+   "skewers",
+   "herb",
+   "marinated",
+   "mediterranean",
+   "sauce",
+   "curry",
+   "soup",
+   "salad",
+   "sushi",
+   "dumpling",
+   "chips",
+   "tandoori",
+   "crackers"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -4186,64 +4261,99 @@
  },
  {
   "c": "011340501",
-  "query_en": "Arctic Gold peeled shrimps",
+  "query_en": "frozen peeled shrimp",
   "query_alt": "frozen peeled shrimps small",
   "brand_en": "Arctic Gold",
   "product_en": "Frozen peeled small shrimp",
   "must_have": [
-   "shrimp",
-   "peeled",
-   "frozen",
-   "small"
+   "shrimp/shrimps/prawn/prawns",
+   "peeled/cleaned/deveined",
+   "frozen"
   ],
   "must_not": [
-   "unpeeled/head-on",
    "breaded",
    "cooked",
-   "jumbo/large"
+   "tempura",
+   "sauce",
+   "curry",
+   "soup",
+   "salad",
+   "sushi",
+   "dumpling",
+   "chips",
+   "crackers",
+   "skewers",
+   "marinated",
+   "fried",
+   "popcorn",
+   "tandoori"
   ],
-  "size": "1 kg",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011340502",
-  "query_en": "Al Islami cooking shrimps",
+  "query_en": "frozen peeled shrimp",
   "query_alt": "Al Islami peeled shrimps",
   "brand_en": "Al Islami",
   "product_en": "Frozen peeled small cooking shrimp",
   "must_have": [
-   "shrimp",
-   "peeled",
-   "frozen",
-   "small/cooking"
+   "shrimp/shrimps/prawn/prawns",
+   "peeled/cleaned/deveined",
+   "frozen"
   ],
   "must_not": [
-   "unpeeled",
    "breaded",
-   "jumbo",
-   "large"
+   "cooked",
+   "tempura",
+   "sauce",
+   "curry",
+   "soup",
+   "salad",
+   "sushi",
+   "dumpling",
+   "chips",
+   "crackers",
+   "skewers",
+   "marinated",
+   "fried",
+   "popcorn",
+   "tandoori"
   ],
-  "size": "1 kg",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011340503",
-  "query_en": "Siblou peeled shrimps",
+  "query_en": "frozen peeled shrimp",
   "query_alt": "Siblou frozen shrimps",
   "brand_en": "Siblou",
   "product_en": "Frozen peeled shrimp",
   "must_have": [
-   "shrimp",
-   "peeled",
+   "shrimp/shrimps/prawn/prawns",
+   "peeled/cleaned/deveined",
    "frozen"
   ],
   "must_not": [
-   "unpeeled",
    "breaded",
-   "cooked"
+   "cooked",
+   "tempura",
+   "sauce",
+   "curry",
+   "soup",
+   "salad",
+   "sushi",
+   "dumpling",
+   "chips",
+   "crackers",
+   "skewers",
+   "marinated",
+   "fried",
+   "popcorn",
+   "tandoori"
   ],
-  "size": "500 g",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011410101",
@@ -5454,16 +5564,24 @@
   "brand_en": "Hayat",
   "product_en": "Hayat palm olein (palm oil)",
   "must_have": [
-   "palm olein / palm oil"
+   "palm",
+   "oil/olein"
   ],
   "must_not": [
+   "kernel",
+   "fruit",
+   "sugar",
+   "soap",
+   "shampoo",
+   "cream",
+   "ghee",
+   "butter",
    "sunflower",
-   "corn",
-   "frying blended oil",
-   "ghee"
+   "corn"
   ],
-  "size": "1.5 L",
-  "sold_by_weight": false
+  "size": "per l",
+  "sold_by_weight": true,
+  "basis": "l"
  },
  {
   "c": "011510502",
@@ -5472,15 +5590,24 @@
   "brand_en": "OK",
   "product_en": "OK palm olein (palm oil), jerrycan",
   "must_have": [
-   "palm oil / palm olein"
+   "palm",
+   "oil/olein"
   ],
   "must_not": [
+   "kernel",
+   "fruit",
+   "sugar",
+   "soap",
+   "shampoo",
+   "cream",
+   "ghee",
+   "butter",
    "sunflower",
-   "corn",
-   "blend"
+   "corn"
   ],
-  "size": "10 L",
-  "sold_by_weight": false
+  "size": "per l",
+  "sold_by_weight": true,
+  "basis": "l"
  },
  {
   "c": "011510602",
@@ -5821,14 +5948,48 @@
   "brand_en": "Dole",
   "product_en": "Dole banana",
   "must_have": [
-   "banana",
-   "Dole"
+   "banana/bananas"
   ],
   "must_not": [
-   "baby banana",
-   "red banana",
+   "baby",
+   "sweetio",
+   "red",
    "plantain",
-   "organic"
+   "flower",
+   "blossom",
+   "chips",
+   "milk",
+   "bread",
+   "cake",
+   "smoothie",
+   "dried",
+   "peel",
+   "shake",
+   "dessert",
+   "strawberry",
+   "organic",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -6484,16 +6645,47 @@
   "query_alt": "green apple usa",
   "product_en": "Green apple (Granny Smith), fresh, loose",
   "must_have": [
-   "green / granny smith"
+   "apple/apples",
+   "green/granny"
   ],
   "must_not": [
    "red",
+   "pink",
    "golden",
-   "royal gala",
-   "organic"
+   "gala",
+   "fuji",
+   "dazzle",
+   "ambrosia",
+   "cider",
+   "vinegar",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
-  "sold_by_weight": true
+  "sold_by_weight": true,
+  "keep": [
+   "green"
+  ]
  },
  {
   "c": "011630107",
@@ -6501,16 +6693,47 @@
   "query_alt": "green apple france",
   "product_en": "Green apple (Granny Smith), fresh, loose",
   "must_have": [
-   "green / granny smith"
+   "apple/apples",
+   "green/granny"
   ],
   "must_not": [
    "red",
+   "pink",
    "golden",
-   "royal gala",
-   "organic"
+   "gala",
+   "fuji",
+   "dazzle",
+   "ambrosia",
+   "cider",
+   "vinegar",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
-  "sold_by_weight": true
+  "sold_by_weight": true,
+  "keep": [
+   "green"
+  ]
  },
  {
   "c": "011630201",
@@ -6518,12 +6741,40 @@
   "query_alt": "apricot lebanon",
   "product_en": "Apricot, fresh, loose",
   "must_have": [
-   "fresh apricot"
+   "apricot/apricots"
   ],
   "must_not": [
+   "tartlets",
+   "crostata",
+   "crostatina",
+   "glazed",
+   "leather",
+   "kernel",
+   "compote",
+   "nectar",
+   "dried",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
    "dried",
    "canned",
-   "jam"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -6534,12 +6785,40 @@
   "query_alt": "apricot iran",
   "product_en": "Apricot, fresh, loose",
   "must_have": [
-   "fresh apricot"
+   "apricot/apricots"
   ],
   "must_not": [
+   "tartlets",
+   "crostata",
+   "crostatina",
+   "glazed",
+   "leather",
+   "kernel",
+   "compote",
+   "nectar",
+   "dried",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
    "dried",
    "canned",
-   "jam"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -6638,14 +6917,41 @@
   "query_alt": "cherry usa",
   "product_en": "Cherries, fresh, loose",
   "must_have": [
-   "fresh cherries"
+   "cherries/cherry"
   ],
   "must_not": [
-   "cherry tomato",
+   "tomato",
+   "tomatoes",
+   "plum",
+   "bucket",
+   "tea",
+   "jelly",
+   "compote",
+   "soda",
+   "cola",
+   "brandy",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
    "dried",
    "canned",
-   "maraschino",
-   "juice"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -6656,14 +6962,41 @@
   "query_alt": "cherry lebanon",
   "product_en": "Cherries, fresh, loose",
   "must_have": [
-   "fresh cherries"
+   "cherries/cherry"
   ],
   "must_not": [
-   "cherry tomato",
+   "tomato",
+   "tomatoes",
+   "plum",
+   "bucket",
+   "tea",
+   "jelly",
+   "compote",
+   "soda",
+   "cola",
+   "brandy",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
    "dried",
    "canned",
-   "maraschino",
-   "juice"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -6674,14 +7007,41 @@
   "query_alt": "cherry austria",
   "product_en": "Cherries, fresh, loose",
   "must_have": [
-   "fresh cherries"
+   "cherries/cherry"
   ],
   "must_not": [
-   "cherry tomato",
+   "tomato",
+   "tomatoes",
+   "plum",
+   "bucket",
+   "tea",
+   "jelly",
+   "compote",
+   "soda",
+   "cola",
+   "brandy",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
    "dried",
    "canned",
-   "maraschino",
-   "juice"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -7857,17 +8217,48 @@
   "query_alt": "spinach uae",
   "product_en": "Fresh spinach bunch",
   "must_have": [
-   "fresh",
-   "spinach",
-   "bunch"
+   "spinach"
   ],
   "must_not": [
+   "baby",
+   "cheese",
+   "manakish",
+   "rucola",
+   "mix",
+   "dip",
+   "paneer",
+   "puree",
+   "pasta",
+   "ravioli",
+   "ready",
+   "tortilla",
+   "wrap",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
    "frozen",
-   "baby spinach pack",
-   "canned"
+   "ice",
+   "biscuit",
+   "cookie"
   ],
-  "size": "1 bunch",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true,
+  "basis": "kg"
  },
  {
   "c": "011710201",
@@ -8082,14 +8473,40 @@
   "query_alt": "vine tomato uae",
   "product_en": "Truss/vine tomatoes (bunch tomatoes)",
   "must_have": [
-   "fresh",
-   "tomato",
-   "on the vine/truss"
+   "tomato/tomatoes"
   ],
   "must_not": [
    "cherry",
+   "plum",
+   "shaker",
+   "bucket",
+   "candy",
+   "ketchup",
+   "pickle",
+   "seed",
+   "sun",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
    "canned",
-   "loose round"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -8157,14 +8574,41 @@
   "query_alt": "cucumber uae",
   "product_en": "Short cucumber",
   "must_have": [
-   "fresh",
-   "cucumber",
-   "short/local"
+   "cucumber/cucumbers"
   ],
   "must_not": [
-   "english/long",
-   "mini/baby",
-   "pickled"
+   "long",
+   "english",
+   "snack",
+   "mini",
+   "baby",
+   "pickled",
+   "pickle",
+   "family",
+   "dip",
+   "sandwich",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -8175,14 +8619,41 @@
   "query_alt": "cucumber oman",
   "product_en": "Short cucumber",
   "must_have": [
-   "fresh",
-   "cucumber",
-   "short/local"
+   "cucumber/cucumbers"
   ],
   "must_not": [
-   "english/long",
-   "mini/baby",
-   "pickled"
+   "long",
+   "english",
+   "snack",
+   "mini",
+   "baby",
+   "pickled",
+   "pickle",
+   "family",
+   "dip",
+   "sandwich",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -8193,17 +8664,46 @@
   "query_alt": "cucumber holland",
   "product_en": "Long (English) cucumber",
   "must_have": [
-   "fresh",
-   "cucumber",
+   "cucumber/cucumbers",
    "long/english"
   ],
   "must_not": [
-   "short/local",
-   "mini/baby",
-   "pickled"
+   "snack",
+   "mini",
+   "baby",
+   "pickled",
+   "pickle",
+   "family",
+   "dip",
+   "sandwich",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
-  "sold_by_weight": true
+  "sold_by_weight": true,
+  "keep": [
+   "long"
+  ]
  },
  {
   "c": "011720301",
@@ -8841,14 +9341,48 @@
   "query_alt": "sweet potato egypt",
   "product_en": "White sweet potato",
   "must_have": [
-   "fresh",
-   "sweet potato",
-   "white flesh"
+   "sweet",
+   "potato/potatoes"
   ],
   "must_not": [
-   "orange flesh",
-   "purple flesh",
-   "regular potato"
+   "chips",
+   "fries",
+   "crisps",
+   "fried",
+   "grilled",
+   "chicken",
+   "roast",
+   "mash",
+   "purple",
+   "wedges",
+   "puree",
+   "bread",
+   "mix",
+   "noodles",
+   "vermicelli",
+   "pasta",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -8859,14 +9393,48 @@
   "query_alt": "sweet potato oman",
   "product_en": "White sweet potato",
   "must_have": [
-   "fresh",
-   "sweet potato",
-   "white flesh"
+   "sweet",
+   "potato/potatoes"
   ],
   "must_not": [
-   "orange flesh",
-   "purple flesh",
-   "regular potato"
+   "chips",
+   "fries",
+   "crisps",
+   "fried",
+   "grilled",
+   "chicken",
+   "roast",
+   "mash",
+   "purple",
+   "wedges",
+   "puree",
+   "bread",
+   "mix",
+   "noodles",
+   "vermicelli",
+   "pasta",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -8950,15 +9518,30 @@
   "query_alt": "chickpeas turkey",
   "product_en": "Dry chickpeas, loose",
   "must_have": [
-   "chickpeas",
-   "dry",
-   "whole"
+   "chickpeas/chickpea"
   ],
   "must_not": [
-   "canned",
+   "flour",
+   "sev",
+   "masala",
+   "boondi",
+   "fried",
+   "roasted",
+   "snack",
+   "pop",
+   "crunch",
    "boiled",
-   "split/chana dal",
-   "roasted"
+   "hummus",
+   "tahini",
+   "tin",
+   "can",
+   "curry",
+   "dal",
+   "spicy",
+   "noodles",
+   "pasta",
+   "falafel",
+   "black"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -8969,16 +9552,30 @@
   "query_alt": "chickpeas mexico",
   "product_en": "Dried chickpeas (kabuli), loose",
   "must_have": [
-   "dried",
-   "chickpeas"
+   "chickpeas/chickpea"
   ],
   "must_not": [
-   "canned",
+   "flour",
+   "sev",
+   "masala",
+   "boondi",
+   "fried",
    "roasted",
-   "split",
-   "chana dal",
-   "black chickpeas",
-   "brown chickpeas"
+   "snack",
+   "pop",
+   "crunch",
+   "boiled",
+   "hummus",
+   "tahini",
+   "tin",
+   "can",
+   "curry",
+   "dal",
+   "spicy",
+   "noodles",
+   "pasta",
+   "falafel",
+   "black"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -9064,17 +9661,58 @@
   "brand_en": "Alwan Dubai",
   "product_en": "Dried white beans, loose from roastery",
   "must_have": [
-   "dried",
-   "white beans"
+   "beans",
+   "white/navy/cannellini/haricot"
   ],
   "must_not": [
+   "tin",
+   "can",
+   "baked",
+   "tomato",
+   "green",
+   "fine",
+   "kidney",
+   "red",
+   "black",
+   "butter",
+   "soup",
+   "salad",
+   "mix",
+   "kit",
+   "curry",
+   "hummus",
+   "coffee",
+   "vanilla",
+   "paste",
+   "burrito",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
    "canned",
-   "tomato sauce",
-   "red kidney beans",
-   "butter beans"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
-  "sold_by_weight": true
+  "sold_by_weight": true,
+  "keep": [
+   "white"
+  ]
  },
  {
   "c": "011760405",
@@ -9082,16 +9720,58 @@
   "query_alt": "white beans turkey",
   "product_en": "Dried white beans, loose",
   "must_have": [
-   "dried",
-   "white beans"
+   "beans",
+   "white/navy/cannellini/haricot"
   ],
   "must_not": [
+   "tin",
+   "can",
+   "baked",
+   "tomato",
+   "green",
+   "fine",
+   "kidney",
+   "red",
+   "black",
+   "butter",
+   "soup",
+   "salad",
+   "mix",
+   "kit",
+   "curry",
+   "hummus",
+   "coffee",
+   "vanilla",
+   "paste",
+   "burrito",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
    "canned",
-   "tomato sauce",
-   "red kidney beans"
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
-  "sold_by_weight": true
+  "sold_by_weight": true,
+  "keep": [
+   "white"
+  ]
  },
  {
   "c": "011760407",
@@ -9837,17 +10517,55 @@
   "query_alt": "green olives lebanon",
   "product_en": "Loose green olives",
   "must_have": [
-   "green olives",
-   "loose"
+   "olives/olive",
+   "green"
   ],
   "must_not": [
+   "oil",
+   "bread",
+   "manakish",
+   "fougasse",
    "stuffed",
+   "pizza",
+   "sourdough",
+   "tapenade",
+   "spread",
+   "crackers",
+   "cheese",
+   "black",
    "pitted",
-   "sliced",
-   "jar"
+   "zaatar",
+   "garlic",
+   "chili",
+   "chilli",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
-  "sold_by_weight": true
+  "sold_by_weight": true,
+  "keep": [
+   "green"
+  ]
  },
  {
   "c": "011790702",
@@ -9872,17 +10590,51 @@
   "query_alt": "black olives egypt",
   "product_en": "Loose black olives",
   "must_have": [
-   "black olives",
-   "loose"
+   "olives/olive",
+   "black"
   ],
   "must_not": [
-   "pitted",
-   "sliced",
+   "oil",
+   "bread",
+   "manakish",
+   "fougasse",
    "stuffed",
-   "jar"
+   "pizza",
+   "sourdough",
+   "tapenade",
+   "spread",
+   "crackers",
+   "cheese",
+   "green",
+   "pitted",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
-  "sold_by_weight": true
+  "sold_by_weight": true,
+  "keep": [
+   "black"
+  ]
  },
  {
   "c": "011790704",
@@ -9907,13 +10659,38 @@
   "query_alt": "mixed pickles egypt",
   "product_en": "Loose mixed pickles, plain",
   "must_have": [
-   "mixed pickles",
-   "loose"
+   "mixed",
+   "pickles/pickle/pickled"
   ],
   "must_not": [
    "spicy",
    "chili",
-   "jar"
+   "chilli",
+   "onion",
+   "lemon",
+   "cornichon",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -9924,13 +10701,35 @@
   "query_alt": "onion pickle egypt",
   "product_en": "Loose pickled onions, plain",
   "must_have": [
-   "onion pickle",
-   "loose"
+   "pickled/pickles/pickle",
+   "onion/onions"
   ],
   "must_not": [
    "spicy",
-   "mixed pickles",
-   "jar"
+   "chili",
+   "chilli",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -9941,13 +10740,38 @@
   "query_alt": "mixed pickles lebanon",
   "product_en": "Loose mixed pickles, plain",
   "must_have": [
-   "mixed pickles",
-   "loose"
+   "mixed",
+   "pickles/pickle/pickled"
   ],
   "must_not": [
    "spicy",
    "chili",
-   "jar"
+   "chilli",
+   "onion",
+   "lemon",
+   "cornichon",
+   "juice",
+   "jam",
+   "cake",
+   "pie",
+   "tart",
+   "dried",
+   "canned",
+   "sauce",
+   "paste",
+   "yoghurt",
+   "yogurt",
+   "flavour",
+   "flavor",
+   "chocolate",
+   "candy",
+   "syrup",
+   "soup",
+   "salad",
+   "frozen",
+   "ice",
+   "biscuit",
+   "cookie"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -11394,12 +12218,19 @@
   "product_en": "Ground dried ginger (loose)",
   "must_have": [
    "ginger",
-   "powder"
+   "powder/ground/grounded"
   ],
   "must_not": [
-   "fresh ginger",
    "paste",
-   "whole"
+   "garlic",
+   "tea",
+   "ale",
+   "beer",
+   "instant",
+   "drink",
+   "bread",
+   "sauce",
+   "capsules"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -11411,12 +12242,19 @@
   "product_en": "Ground dried ginger (loose)",
   "must_have": [
    "ginger",
-   "powder"
+   "powder/ground/grounded"
   ],
   "must_not": [
-   "fresh ginger",
    "paste",
-   "whole"
+   "garlic",
+   "tea",
+   "ale",
+   "beer",
+   "instant",
+   "drink",
+   "bread",
+   "sauce",
+   "capsules"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -11533,12 +12371,15 @@
   "product_en": "Hot shawarma spice mix (loose)",
   "must_have": [
    "shawarma",
-   "hot"
+   "spices/spice/seasoning/mix"
   ],
   "must_not": [
-   "mild",
-   "chicken seasoning cubes",
-   "bezar"
+   "bread",
+   "sandwich",
+   "wrap",
+   "sauce",
+   "garlic",
+   "marinated"
   ],
   "size": "per kg",
   "sold_by_weight": true
@@ -11660,12 +12501,25 @@
    "yeast"
   ],
   "must_not": [
-   "fresh yeast",
-   "baking powder",
-   "sachets"
+   "extract",
+   "marmite",
+   "nutritional",
+   "free",
+   "cheesy",
+   "seasoning",
+   "stock",
+   "cubes",
+   "bread",
+   "beer",
+   "cake",
+   "biscuit",
+   "pizza",
+   "flavour",
+   "vegemite",
+   "fresh"
   ],
-  "size": "500 g",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011990302",
@@ -11677,12 +12531,25 @@
    "yeast"
   ],
   "must_not": [
-   "fresh yeast",
-   "baking powder",
-   "sachets"
+   "extract",
+   "marmite",
+   "nutritional",
+   "free",
+   "cheesy",
+   "seasoning",
+   "stock",
+   "cubes",
+   "bread",
+   "beer",
+   "cake",
+   "biscuit",
+   "pizza",
+   "flavour",
+   "vegemite",
+   "fresh"
   ],
-  "size": "500 g",
-  "sold_by_weight": false
+  "size": "per kg",
+  "sold_by_weight": true
  },
  {
   "c": "011990401",

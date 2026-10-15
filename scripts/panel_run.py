@@ -172,7 +172,16 @@ def main(run_dir, started):
         summary[f"{key[0]}_{key[1]}"] = dict(label=f"{LABEL[key[0]]} ({'barcode' if key[1] == 'barcode' else 'category'})",
                                               lines=len(mine), accepted=sum(r["accepted"] == "yes" for r in mine),
                                               statuses=st)
-    rows += cat_rows
+    live = []                                          # food lines named in Latin letters, searched on the shop sites (scripts/name_live.py)
+    nl = run_dir / "name_live.csv"
+    if nl.exists():
+        for r in csv.DictReader(open(nl, encoding="utf-8-sig")):
+            live.append(dict(run_date=started[:10], source="name_search", retailer=r["retailer"], actor=LABEL.get(r["retailer"], r["retailer"]) + " (name search)",
+                             item_code=r["item_code"], group_code="", name="", brand="", basket_qty="", barcode="", status="found", detail="name search (same brand + pack size)",
+                             accepted="yes", title=r["title"], price=num(r["price"]), regular_price=num(r["regular_price"]), currency="AED", url=r["url"], photo=pics.get(r["url"], ""),
+                             retailer_id=retailer_id(r["url"]), size="", in_stock=""))
+    taken = {(r["item_code"], r["retailer"]) for r in live}
+    rows += live + [r for r in cat_rows if (r["item_code"], r["retailer"]) not in taken]
     if os.environ.get("CPI_PENDING_ROWS"):          # off by default: the export adds these rows (they are the same every day)
         rows += pending_rows(started[:10], {r["item_code"] for r in rows})
     out = run_dir / "panel"

@@ -32,7 +32,7 @@
    "url": "https://www.carrefouruae.com/mafuae/en/c/bakery?currentPage={page0}"
   },
   {
-   "group": "0114,0112",
+   "group": "0114,0112,0117,0118",
    "name": "Chilled Food Counter",
    "url": "https://www.carrefouruae.com/mafuae/en/c/F1620000?currentPage={page0}"
   },
@@ -62,7 +62,7 @@
    "url": "https://www.carrefouruae.com/mafuae/en/c/F1701200?currentPage={page0}"
   },
   {
-   "group": "0118,0111,0114",
+   "group": "0118,0111,0114,0119",
    "name": "Baking Essentials",
    "url": "https://www.carrefouruae.com/mafuae/en/c/F1701300?currentPage={page0}"
   },
@@ -129,7 +129,7 @@
    "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-bakery/?page={page1}"
   },
   {
-   "group": "0114,0111,0118,0112",
+   "group": "0114,0111,0118,0112,0117",
    "name": "Deli",
    "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-deli/?page={page1}"
   },
@@ -154,7 +154,7 @@
    "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-rice-pasta-noodles/?page={page1}"
   },
   {
-   "group": "0111,0118,0114",
+   "group": "0111,0118,0114,0119",
    "name": "Home Baking & Sweeteners",
    "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-home-baking-sweeteners/?page={page1}"
   },

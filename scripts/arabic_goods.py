@@ -100,8 +100,8 @@ add("012100114", "set", [["mixed", "fruit", "juice"], ["multi", "fruit", "juice"
 add("012100301", "set", [["orange", "powder"], ["tang", "orange"], ["orange", "drink", "mix"], ["orange", "instant", "drink"]], [], basis="kg")
 add("012100305", "set", [["mango", "powder"], ["mango", "drink", "mix"], ["mango", "instant", "drink"], ["tang", "mango"]], [], basis="kg")
 add("012100306", "set", [["pineapple", "powder"], ["pineapple", "drink", "mix"], ["pineapple", "instant", "drink"], ["tang", "pineapple"]], [], basis="kg")
-add("012200101 012200102", "set", [["emirati", "coffee"], ["arabic", "coffee"], ["khawlani"], ["gahwa"], ["ground", "coffee"]], ["capsule", "capsules", "instant", "pods", "3in1"], basis="kg")
-add("012200103 012200104", "set", [["saudi", "coffee"], ["arabic", "coffee"], ["khawlani"], ["gahwa"], ["ground", "coffee"]], ["capsule", "capsules", "instant", "pods", "3in1"], basis="kg")
+add("012200101 012200102", "set", [["arabic", "coffee"], ["gahwa"], ["qahwa"], ["khawlani"], ["saudi", "coffee"], ["emirati", "coffee"]], ["capsule", "capsules", "instant", "pods", "3in1", "turkish", "grounded", "espresso", "latte"], basis="kg")
+add("012200103 012200104", "set", [["arabic", "coffee"], ["gahwa"], ["qahwa"], ["khawlani"], ["saudi", "coffee"], ["emirati", "coffee"]], ["capsule", "capsules", "instant", "pods", "3in1", "turkish", "grounded", "espresso", "latte"], basis="kg")
 add("012200201 012200202 012200203", "set", [["instant", "coffee"]], ["3in1", "3", "stick", "sticks", "mix", "latte", "cappuccino", "capsule"], basis="kg")
 add("012300201 012300202 012300203", "set", [["black", "tea", "bags"], ["tea", "bags", "black"], ["red", "tea", "bags"], ["black", "tea", "bag"]], ["green", "herbal", "ginger", "lemon", "mint", "chamomile"], basis="bag100")
 add("012300205", "set", [["green", "tea", "bags"], ["green", "tea", "bag"]], ["lemon", "mint", "ginger", "jasmine"], basis="bag100")
@@ -339,8 +339,6 @@ def candidate_price(spec, it, row, want_q):
                 return None
         elif want_q is not None and want_q.ok and not any(same_quantity(q, want_q) for q in all_quantities(row["title"])):
             return None
-    if spec["mode"] == "set" and spec["basis"] in ("l", "kg") and not size_class_ok(it, row["title"]):
-        return None
     if spec["basis"] == "pc" and spec.get("demo") is None and not count_ok(it.get("unit", ""), row["title"]):
         return None
     if spec.get("packs", 1) != 1 or (spec["mode"] == "set" and spec["basis"] == "pc" and spec.get("demo")):

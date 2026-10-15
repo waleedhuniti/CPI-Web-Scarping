@@ -53,7 +53,7 @@ STOP = {"fresh", "loose", "deli", "counter", "per", "kg", "imported", "the", "an
 # fresh meat, fish, fruit and vegetable lines are priced only from fresh sections (not tins, pickles, frozen, nuts)
 FRESH_SECTION = re.compile(r"^(?!.*(dried|nuts|tins|canned|frozen|jars|pickle)).*(fresh|meat|poultry|fish|seafood|fruit|vegetable|herb|beef|chicken|lamb)", re.I)
 # processed meat (mortadella, luncheon, sausages, burgers, kebab) sits in the deli / chilled counter, not in the fresh-meat section
-NOT_FRESH_LINE = re.compile(r"محمص|مكسرات|تمر|مجفف|زبيب|مجمد|معلب|مرتديلا|لانشون|نقانق|همبرجر|برجر|كباب|شيش|نجتس")
+NOT_FRESH_LINE = re.compile(r"محمص|مكسرات|تمر|مجفف|زبيب|مجمد|معلب|مرتديلا|لانشون|نقانق|همبرجر|برجر|كباب|شيش|نجتس|مخلل|زيتون|جاف|مطحون|مسحوق")
 NOT_FRESH = ["organic", "marinated", "ready to cook", "seasoned", "cooked", "smoked", "frozen", "juice", "dried",
              "canned", "puree", "pickled", "stuffed", "nuggets", "burger", "sausage", "kebab", "kofta"]
 
@@ -217,6 +217,8 @@ def phrase_ok(tw, phrase):
 
 
 def basket_basis(item, spec):
+    if (spec or {}).get("basis"):                     # the spec states the unit when the basket's unit text cannot (a bunch of spinach compared by the kilo)
+        return spec["basis"]
     size = (spec or {}).get("size", "").lower()
     if "bunch" in size or "حزمة" in item["qty_raw"]:
         return "bunch"
@@ -227,14 +229,44 @@ def basket_basis(item, spec):
     return "pc"
 
 
+# words a title seldom carries but the English spec adds to describe the product ("whole watermelon", "loose olives", "large purple eggplant")
+DESCRIPTORS = {"whole", "loose", "large", "small", "medium", "big", "head", "bulb", "bunch", "per", "kg", "dry", "raw", "round", "long",
+               "white", "black", "green", "red", "yellow", "purple", "pink", "local", "plain", "natural", "premium", "extra", "imported",
+               "packaged", "pack", "pre-packed"}
+
+
+FUNC = {"the", "and", "or", "of", "with", "a", "in"}
+
+
+def phrase_all(tw, phrase):
+    """A must_not phrase ('fresh ginger', 'sea bass') excludes a title only when EVERY word of one alternative is in it (fresh is a real word here)."""
+    for a in [x for x in re.split(r"\s*/\s*", phrase) if x.strip()]:
+        core = [w for w in words(a) if w not in FUNC]
+        if core and all(has_word(tw, w) for w in core):
+            return True
+    return False
+
+
+NOT_CANNED_LINE = re.compile(r"جاف|سائب|مخلل مشكل|مخلل البصل")        # dry pulses, loose olives and pickles: not from tins and jars
+CANNED_SECTION = re.compile(r"tins|jars|canned", re.I)
+
+
 def make_filter(it, spec):
     """(unit basis, predicate): the predicate says whether a catalogue row is the product this basket line stands for
     (product words, none of the excluded words, section, price convertible to the line's unit). Origin is not looked at."""
     want = basket_basis(it, spec)
     frozen_ok = "مجمد" in it["name_ar"] or "frozen" in (spec.get("query_en", "") + spec.get("product_en", "")).lower()
     fresh_line = it["group_code"] in ("0112", "0113", "0116", "0117") and not NOT_FRESH_LINE.search(it["name_ar"]) and not frozen_ok
-    musts = [m for m in spec.get("must_have", []) if not re.search(r"\d", m)]
+    musts = []
+    for m in spec.get("must_have", []):
+        if re.search(r"\d", m):
+            continue
+        drop = DESCRIPTORS - set(spec.get("keep", []))             # "keep": ["green"] when the colour is the product (green olives)
+        core = " / ".join(" ".join(w for w in words(a) if w not in drop) for a in re.split(r"\s*/\s*", m))
+        if re.sub(r"[ /]", "", core):                   # a phrase made only of descriptors ('whole', 'loose', 'large') is not required
+            musts.append(core)
     nots = spec.get("must_not", [])
+    not_canned = bool(NOT_CANNED_LINE.search(it["name_ar"]))
 
     def ok(row):
         t, tw = row["title"].lower(), words(row["title"])
@@ -244,10 +276,12 @@ def make_filter(it, spec):
             return False
         if musts and not all(phrase_ok(tw, m) for m in musts):
             return False
-        if any(phrase_ok(tw, n) and any(w not in STOP for w in words(n)) for n in nots):
+        if any(phrase_all(tw, n) for n in nots):
             return False
         asked = (spec.get("query_en", "") + " " + spec.get("product_en", "")).lower()
         if any(x in t for x in NOT_FRESH if not (x == "frozen" and frozen_ok) and x not in asked):
+            return False
+        if not_canned and CANNED_SECTION.search(str(row.get("category", ""))):
             return False
         if "frozen" in str(row.get("category", "")).lower() and not frozen_ok:   # frozen section, title may not say so
             return False

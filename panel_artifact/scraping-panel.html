@@ -755,7 +755,7 @@ function renderOverview() {
         <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
     </div>` : ""}
     ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
-      <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر (درهم)</option></select>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر للكيلو أو اللتر أو القطعة (درهم)</option></select>
         <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
         <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select></div>
       <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
@@ -1687,14 +1687,25 @@ const divOfGroup = (name) => { const g = (basket || []).find((i) => String(i.gro
 async function chBuild() {
   // obs[group][day] = Map(key -> [price, store])
   const obs = {}, days = new Set();
-  const put = (g, d, k, price, store, title, idx) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store, String(title || ""), idx > 0 ? idx : 0]); };
+  const put = (g, d, k, price, store, title, idx, basis) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store, String(title || ""), idx > 0 ? idx : 0, basis || "pc"]); };
+  const bk = new Map((basket || []).map((b) => [b.item_code, b]));
+  // price per kg / per litre / per piece, the way the pipeline's Step3 'observed_price (per unit)' is: half a kilo is never added to a kilo
+  const perUnit = (x, price) => {
+    if (["kg", "l", "pc", "bunch"].includes(x.price_basis) && Number(x.unit_price) > 0 && x.source === "category") return [price, x.price_basis];   // product-set lines are priced per unit already
+    if (Number(x.unit_price) > 0 && ["kg", "l"].includes(x.price_basis)) return [Number(x.unit_price), x.price_basis];
+    const b = bk.get(x.item_code) || {}, tot = Number(b.qty_total) || 0, n = Number(b.qty_count) || 1;
+    if (b.qty_unit === "g" && tot > 0) return [price * 1000 / tot, "kg"];
+    if (b.qty_unit === "ml" && tot > 0) return [price * 1000 / tot, "l"];
+    return [price / n, "pc"];
+  };
   const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
   const byDay = new Map();                                       // one run per day: the latest
   for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
   for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
     const price = Number(x.price);
     if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
-    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, price, x.retailer, x.title, Number(x.line_index));
+    const [pu, basis] = perUnit(x, price);
+    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, pu, x.retailer, x.title, Number(x.line_index), basis);
   }
   try {
     const cat = await db.doc(`projects/${current}/catalogue/latest`).get();
@@ -1722,7 +1733,9 @@ function chSeries(metric, store) {
       const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
       if (!cur.size) { pts.push(null); continue; }
       if (base === null) {                          // first-day level: mean of the lines' prices, leaving out absurd ones (a whole animal priced as a kilo: AED 1,620)
-        const v = [...cur.values()].map((x) => x[0]).sort((a, b) => a - b), med = v[Math.floor(v.length / 2)];
+        const cnt = {}; for (const x of cur.values()) cnt[x[4]] = (cnt[x[4]] || 0) + 1;
+        const dom = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0];                       // kg for meat, litre for drinks, piece for clothes
+        const v = [...cur.values()].filter((x) => x[4] === dom).map((x) => x[0]).sort((a, b) => a - b), med = v[Math.floor(v.length / 2)];
         const keep = v.filter((x) => x <= med * 4 && x >= med / 4);
         base = keep.reduce((a, x) => a + x, 0) / keep.length;
       }
@@ -1745,7 +1758,7 @@ function chDraw() {
       plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
       scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
   $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
-    + (metric === "avg" ? " متوسط السعر هنا = متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها؛ ويتأثر بحجم العبوات، فالرقم القياسي أدق." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج (بنفس العنوان) في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
+    + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: متوسط هندسي لتغيّر سعر نفس المنتج (بنفس العنوان) في نفس المتجر بين يومين متتاليين، أول يوم = 100، بأوزان متساوية.");
 }
 async function loadCharts() {
   const pid = current;

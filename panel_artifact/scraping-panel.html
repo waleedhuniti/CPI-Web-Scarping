@@ -1758,9 +1758,9 @@ function chDraw() {
   const ser = chSeries(metric, store).filter((s) => !dv || divOfGroup(s.g) === dv);
   if (chChart) chChart.destroy();
   chChart = new window.Chart($("#ch-canvas"), { type: "line",
-    data: { labels: days, datasets: ser.map((s, i) => ({ label: s.g, data: s.pts, borderColor: CH_COLORS[i % CH_COLORS.length], backgroundColor: CH_COLORS[i % CH_COLORS.length], tension: 0.2, spanGaps: true, pointRadius: 3, borderWidth: 2 })) },
-    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false },
-      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
+    data: { labels: days, datasets: ser.map((s, i) => ({ label: s.g, data: s.pts, borderColor: CH_COLORS[i % CH_COLORS.length], backgroundColor: CH_COLORS[i % CH_COLORS.length], tension: 0.2, spanGaps: true, pointRadius: 3, pointHoverRadius: 6, pointHitRadius: 8, borderWidth: 2 })) },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "nearest", intersect: false },
+      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl", callbacks: { label: (ctx) => `${ctx.dataset.label}: ${Number(ctx.parsed.y).toFixed(2)}` } } },
       scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
   $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
     + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: لكل بند من بنود السلة متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، ثم تُجمع البنود بأوزانها، أو بدون أوزان إن اخترت ذلك، أول يوم = 100.");

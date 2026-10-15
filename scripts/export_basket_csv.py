@@ -20,19 +20,18 @@ COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "ba
         "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code",
         "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note",
         "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id",
-        "section", "size", "source", "unit_price", "price_rejected"]
+        "section", "size", "source", "unit_price"]
 META = ["class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar", "barcode_raw", "gtin", "qty_raw", "qty_unit",
         "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"]
 
 
-MAX_UNIT_PRICE = 1000.0    # AED per kg / litre: above this the unit price comes from a tiny or mis-sized pack, not a market price
 MIN_PACK = 5.0             # g / ml: a 1 g saffron tube is a piece, not 1/1000 of a kilo
 
 
 def fill_unit_price(rows):
     """Every priced row gets unit_price / price_basis on the same unit (per kg, per litre or per piece), from the line's pack size,
     so pack prices (barcode lines) and per-unit prices (product-set lines) can be compared. 'price' itself is left as found.
-    Packs under 5 g / 5 ml count per piece; a per-kg / per-litre price above AED 1,000 is not kept as a unit price (note says why)."""
+    Packs under 5 g / 5 ml count per piece. Nothing is rejected: a dear item is simply shown at its unit price."""
     n = 0
     for r in rows:
         try:
@@ -54,9 +53,6 @@ def fill_unit_price(rows):
                 continue
             r["unit_price"], r["price_basis"] = round(price / (total / k[1]), 2), k[0]
             n += 1
-        if r.get("price_basis") in ("kg", "l") and float(r["unit_price"]) > MAX_UNIT_PRICE:
-            r["unit_price"] = ""
-            r["note"] = (str(r.get("note") or "") + " · unit price above AED 1,000 per kg/l left out").strip(" ·")
     return n
 
 
@@ -75,8 +71,6 @@ def build(rows, run_id, out_dir=ROOT / "data/exports/dataiku"):
         r.setdefault("run_id", run_id)
         r["cpi_group"] = re.sub(r"^\d+\s*-\s*", "", str(m.get("group_name", ""))).strip()
         r.pop("thumb", None)
-    import plausible_prices
-    plausible_prices.apply(rows)                       # a price far from the line's official price is a wrong product
     fill_unit_price(rows)
     cols = COLS + sorted({k for r in rows for k in r} - set(COLS))
     out_dir = Path(out_dir)

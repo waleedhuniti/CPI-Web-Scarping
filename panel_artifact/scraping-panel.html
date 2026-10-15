@@ -1582,7 +1582,7 @@ function plainCsv(rows, cols) {
   return [cols.join(","), ...rows.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
 }
 // one format for everything exported to Dataiku: UTF-8 CSV, no BOM, fixed column order, a cpi_group column in the office's Arabic group names
-const DK_COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "barcode", "name", "brand", "basket_qty", "title", "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code", "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note", "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id", "section", "size", "source", "unit_price", "price_rejected"];
+const DK_COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "barcode", "name", "brand", "basket_qty", "title", "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code", "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note", "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id", "section", "size", "source", "unit_price"];
 const cpiGroupOfCategory = (c) => (CH_NONFOOD.find((g) => g.re.test(c || "")) || {}).name || "";
 async function dataikuRuns(btn) {
   const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجمع…";
@@ -1601,16 +1601,9 @@ async function dataikuRuns(btn) {
       }
     }
     if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
-    if (P()?.kind === "barcode") {            // a price far from the line's official price is a wrong product; every priced row gets a unit price (per kg / litre / piece)
-      let official = {};
-      try { const od = await db.doc(`projects/${current}/weights/current`).get(); if (od.exists) official = plain(od).official || {}; } catch (e) { /* no check without the official prices */ }
+    if (P()?.kind === "barcode") {            // every priced row gets a unit price (per kg / litre / piece); nothing is rejected
       for (const o of rows) {
-        const p = Number(o.price), off = Number(official[o.item_code]);
-        if (p > 0 && off > 0 && (p / off < 0.4 || p / off > 2.5)) {
-          o.price_rejected = o.price; o.price = ""; o.unit_price = ""; o.status = "implausible"; o.accepted = "no";
-          o.note = ((o.note || "") + ` · price ${p} is ${(p / off).toFixed(1)}x the official ${off}: rejected`).replace(/^ · /, "");
-          continue;
-        }
+        const p = Number(o.price);
         if (!(p > 0)) continue;
         const tot = Number(o.qty_total) || 0, k = { g: ["kg", 1000], ml: ["l", 1000], pc: ["pc", 1] }[o.qty_unit];
         if (o.unit_price === undefined || o.unit_price === "" || o.unit_price === null) {
@@ -1618,7 +1611,6 @@ async function dataikuRuns(btn) {
           if (k[1] > 1 && tot < 5) { o.unit_price = Math.round(p * 100) / 100; o.price_basis = "pc"; }
           else { o.unit_price = Math.round(p / (tot / k[1]) * 100) / 100; o.price_basis = k[0]; }
         }
-        if ((o.price_basis === "kg" || o.price_basis === "l") && Number(o.unit_price) > 1000) { o.unit_price = ""; o.note = ((o.note || "") + " · unit price above AED 1,000 per kg/l left out").replace(/^ · /, ""); }
       }
     }
     if (P()?.kind === "barcode") {            // items no search covers (no barcode / spec: priced by name, services, market rates): one "not found" row each per day
@@ -1707,20 +1699,13 @@ async function chBuild() {
     if (b.qty_unit === "ml" && tot > 0) return [price * 1000 / tot, "l"];
     return [price / n, "pc"];
   };
-  const MAX_UNIT = 1000;                                          // AED per kg / litre: above this the price is from a tiny or mis-sized pack, not a market price
-  // official price of each line (July file, the line's own unit): a price below 0.4x or above 2.5x of it is a wrong product, left out of the charts
-  let official = {};
-  try { const od = await db.doc(`projects/${current}/weights/current`).get(); if (od.exists) official = plain(od).official || {}; } catch (e) { /* no check without the official prices */ }
   const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
   const byDay = new Map();                                       // one run per day: the latest
   for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
   for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
     const price = Number(x.price);
     if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
-    const off = Number(official[x.item_code]);
-    if (off > 0 && (price / off < 0.4 || price / off > 2.5)) continue;
     const [pu, basis] = perUnit(x, price);
-    if ((basis === "kg" || basis === "l") && pu > MAX_UNIT) continue;
     put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, pu, x.retailer, x.title, Number(x.line_index), basis);
   }
   try {

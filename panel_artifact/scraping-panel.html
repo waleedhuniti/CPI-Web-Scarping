@@ -753,16 +753,16 @@ function renderOverview() {
         <p class="muted" style="margin:0">تُسحب أقسام كاملة (لحوم، أسماك، فواكه، خضار، مخبوزات، أجبان، بهارات) ${L.products ? `<b>${L.products.toLocaleString("en")}</b> منتجاً من ${L.categories} قسماً` : ""}، ويُطابق كل صنف بالنوع والقطعة والمنشأ والسعر للكيلو.</p>
         ${legend}<div class="srcbars">${srcBars(cat) || `<span class="muted">لا يوجد تشغيل بعد.</span>`}</div>
         <p class="muted" style="margin:0">موجود: <b style="color:var(--cyan)">${accCat}</b> سعراً · ${cat[0] ? "آخر تشغيل " + esc(fmtDate(cat[0].startedAt)) : ""}</p></div>
-    </div>` : `<div class="panel"><div class="bar-title">النتائج حسب المصدر</div>${legend}<div class="srcbars">${srcBars(L.sources)}</div></div>`}
+    </div>` : ""}
     ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
       <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر (درهم)</option></select>
         <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
         <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select></div>
       <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
       <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
-    <div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
+    ${isCpi ? `<div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
       <p class="muted" style="margin:0 0 10px">ملفات نصية بسيطة (UTF-8، بدون صور أو تنسيق) فيها كل ما جُمع: كل التشغيلات وكل الأسطر، الموجود وغير الموجود، مع أعمدة السلة. لتقرر Dataiku كيف يُحسب الرقم القياسي.</p>
-      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button><button class="primary" id="dk-pp">لوحة منتجات الأصناف بلا باركود (CSV)</button>` : ""}</div></div>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button><button class="primary" id="dk-pp">لوحة منتجات الأصناف بلا باركود (CSV)</button>` : ""}</div></div>` : ""}
     ${isCpi ? `<div class="panel" id="cat-panel"><div class="bar-title navy">كتالوج المنتجات اليومي · كل أقسام CPI</div><div id="cat-body" class="muted">يُحمَّل…</div></div>` : ""}
     <div class="panel">
       <div class="bar-title navy">الأسعار</div>
@@ -778,7 +778,7 @@ function renderOverview() {
       <p class="muted" id="ov-count"></p>
     </div>`;
   $("#ov-dl").onclick = () => $("#r-export-all").click();
-  $("#dk-runs").onclick = (e) => dataikuRuns(e.currentTarget);
+  if ($("#dk-runs")) $("#dk-runs").onclick = (e) => dataikuRuns(e.currentTarget);
   if ($("#dk-cat")) $("#dk-cat").onclick = (e) => dataikuCatalogue(e.currentTarget);
   if ($("#dk-hist")) $("#dk-hist").onclick = (e) => dataikuHistory(e.currentTarget);
   if ($("#dk-pp")) $("#dk-pp").onclick = (e) => dataikuProducts(e.currentTarget);

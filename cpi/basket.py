@@ -85,3 +85,35 @@ def write_csv(items, path):
 
 def write_json(items, path):
     Path(path).write_text(json.dumps([asdict(i) for i in items], ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+EDITABLE = ["item_code", "class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar",
+            "barcode_raw", "origin_raw", "qty_raw"]
+
+
+def item_from_fields(d: dict) -> BasketItem:
+    """A basket line from its editable fields (as the panel or basket.json store it); derived fields recomputed."""
+    import re
+    e = {k: _s(d.get(k)) for k in EDITABLE}
+    if not re.fullmatch(r"\d{4,12}", e["item_code"]):
+        raise ValueError(f"item_code must be digits: {e['item_code']!r}")
+    e["group_code"] = e["group_code"] or e["item_code"][:4]
+    e["class_code"] = e["class_code"] or e["item_code"][:7]
+    q = parse_quantity(e["qty_raw"])
+    kind = gtin.classify_barcode(e["barcode_raw"]) if e["barcode_raw"] else "none"
+    return BasketItem(
+        **e, gtin=gtin.canonical(e["barcode_raw"]) if kind == "gtin" else "", barcode_kind=kind,
+        origin_iso=origin_iso(e["origin_raw"]) if e["origin_raw"] else "",
+        qty_unit=q.unit, qty_total=q.total, qty_count=q.count, qty_flag=q.flag,
+        match_mode="barcode" if kind == "gtin" else "spec",
+        fresh_type=FRESH_GROUPS.get(e["group_code"], "") if kind != "gtin" else "",
+    )
+
+
+def load_basket_any(root) -> list:
+    """The basket as BasketItems: data/basket/basket.json when present (it carries the panel's edits), else the workbook."""
+    root = Path(root)
+    j = root / "data/basket/basket.json"
+    if j.exists():
+        return [item_from_fields(d) for d in json.loads(j.read_text(encoding="utf-8"))]
+    return load_basket(root / "data/basket/basket_source.xlsx")

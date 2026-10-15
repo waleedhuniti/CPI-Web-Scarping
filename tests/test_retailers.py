@@ -230,3 +230,29 @@ def test_lulu_weighed_items_without_slug_are_read():
     first = ls[0]
     assert first.title == "Pakistani Mutton Cuts Bone In 500 g" and first.price == 27.25
     assert first.url == "https://gcc.luluhypermarket.com/en-ae/p/154716-ea/"
+
+
+def test_scrapling_card_parsers():
+    """Search-page HTML in the shape Carrefour and Lulu serve (trimmed to one card each)."""
+    import importlib.util
+    if importlib.util.find_spec("scrapling") is None:
+        import pytest
+        pytest.skip("scrapling not installed")
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+    from scrapling.parser import Selector
+    import scrapling_search as ss
+
+    c = Selector('<div><div><a href="/mafuae/en/rice/tilda-basmati-rice-1kg/p/79241?offer=x">Tilda Pure Basmati Rice, 1kg</a></div>'
+                 '<div><span>AED</span><span>17.79</span></div><span>1kg</span></div>')
+    rows = ss.parse_carrefour(c, "8901144311002")
+    assert rows == [dict(searched_barcode="8901144311002", product_id="79241", title="Tilda Pure Basmati Rice, 1kg",
+                         price=17.79, regular_price=17.79, in_stock=None,
+                         url="https://www.carrefouruae.com/mafuae/en/rice/tilda-basmati-rice-1kg/p/79241",
+                         unit_price=0.0, unit_basis="", size_text="1kg", photo="")]
+    lu = Selector('<div><a href="/en-ae/sinnara-rice-5-kg/p/123-ch1/?">Sinnara Rice 5 kg</a>'
+                  '<span data-testid="product-price">38.90 </span><span class="line-through">43.95</span></div>')
+    rows = ss.parse_lulu(lu, "6294000201053")
+    assert rows[0]["price"] == 38.9 and rows[0]["regular_price"] == 43.95
+    assert rows[0]["url"] == "https://gcc.luluhypermarket.com/en-ae/sinnara-rice-5-kg/p/123-ch1/"

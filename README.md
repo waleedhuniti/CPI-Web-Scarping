@@ -32,6 +32,57 @@ Every accepted price has to pass all of these; anything that fails one goes to `
 451 accepted retailer prices are in `prices.csv` (`use_in_index = yes`); 366 rows are in `review_queue.csv`. Nesto has no
 online shop we could find; Spinneys needs a delivery address and a browser actor (not in this run).
 
+## Portal (بوابة التشغيل)
+
+A local web page to run the barcode scrape with one click, edit the basket and edit the Apify actors.
+
+```bash
+pip install -r requirements.txt
+python portal/app.py          # open http://127.0.0.1:5000
+```
+
+| Tab | What it does |
+|---|---|
+| **تشغيل السكراب** | Pick retailers, COICOP groups or item codes, press *ابدأ السكراب*. Runs each retailer's Apify actor in batches, matches every listing against the basket (`cpi/matcher.py`) and writes `data/runs/<date>_<time>_portal/` (`results.csv`, `<retailer>_raw.jsonl`, `<retailer>_dataset.json`, `summary.json`). Previous runs can be opened, filtered and downloaded. |
+| **السلة** | Search, edit, add and delete basket lines; GTIN, quantity and origin are re-derived on save (`data/basket/basket.json` + `.csv`). Upload a new workbook in the office's layout to replace the basket. |
+| **الـ Actors** | Per retailer: actor id, mode (`barcodes` or `search_urls`), batch size, parallel runs, input JSON with placeholders (`"{barcodes}"`, `"{barcodes_json}"`, `"{barcodes_text}"`, `"{start_urls}"`, `"{urls}"`), and the parser for its dataset (`carrefour_actor`, `lulu_search_markdown`, `lulu_page_function`, or `generic` with a field map). Saved to `config/actors.json`. Also edits the Lulu page function. |
+| **الإعدادات و GitHub** | Apify token (kept in `.env`, never committed) and a button that commits the basket, actor settings and portal runs and pushes the current branch. |
+
+The portal searches basket lines that carry a barcode; the name / fresh-produce search stays in `scripts/name_search.py`.
+
+## Scrapling (no Apify)
+
+`scripts/scrapling_search.py` runs the barcode search on Carrefour and Lulu with the free
+[Scrapling](https://scrapling.readthedocs.io) library instead of Apify actors, then the same matching (`match_run.py`).
+
+```bash
+pip install "scrapling[fetchers]"
+python scripts/scrapling_search.py carrefour data/runs/<date>_scrapling            # whole basket
+python scripts/scrapling_search.py lulu data/runs/<date>_scrapling --limit 10      # quick test
+```
+
+Plain HTTP with Chrome's TLS fingerprint is enough for both search pages (no browser, no proxy). Test of 10 barcodes on
+2026-10-11 (`data/runs/2026-10-11_scrapling_test/`): 19 of 20 results equal to the Apify run of 2026-10-05; the one
+difference is a Lulu price that changed (Sinnara rice 5 kg, 38.90 -> 43.95). One request at a time, 1.5-2.5 s apart:
+the 384 barcodes take about 45 minutes per retailer (both run at once).
+
+Full run 2026-10-11 (`data/runs/2026-10-11_scrapling/`): every page read, none failed. Carrefour **186** of 384
+barcode lines accepted (Apify 2026-10-05: 173), Lulu **110** (Apify: 110). `python scripts/export_for_dataiku.py`
+writes all runs as one table, `data/exports/cpi_prices_long.csv` (see `docs/dataiku.md`).
+
+### Non-barcode lines: bulk category crawl
+
+Basket lines without a barcode (meat, fish, fruit, vegetables) are priced from whole category listings instead of one
+search per item: `python scripts/scrapling_category.py data/runs/<date>_category` crawls every page of the categories in
+`config/categories.json` (Carrefour and Lulu), opens the product page only for candidates whose title names no origin,
+and matches each line by its English spec, unit (per kg / piece / bunch) and origin. Barcoded lines keep the barcode
+search. Run 2026-10-12 (all 18 categories, `data/runs/2026-10-12_category/`): 7,971 products listed; of all 253 non-barcode
+lines, Carrefour 30 and Lulu 25 accepted, 97 `substitute_origin` (only another origin on sale: needs last month's price
+for the +/-30% rule), the rest review or not sold online (live sheep, tandoor bread, made-to-order kunafa ...).
+
+The daily routine (08:00 Dubai) runs both parts: barcode search for barcoded lines and this category crawl for the
+rest, with the basket kept in the panel; its code is packed into the panel by `scripts/bundle_for_panel.py`.
+
 ## Layout
 
 | Path | What |
@@ -49,12 +100,15 @@ online shop we could find; Spinneys needs a delivery address and a browser actor
 | `docs/retailers.md` | What works per retailer, pilot findings, what Spinneys and Nesto need |
 | `data/pilot/` | Live pilot results (10 basket barcodes at Carrefour and Lulu) |
 | `actors/lulu_search/` | Page function for Apify's web-scraper (bulk Lulu barcode search) - written, not yet run |
+| `scripts/scrapling_search.py` | Barcode search with Scrapling (no Apify) + matching |
+| `scripts/scrapling_category.py` | Bulk category crawl + spec matching for lines without a barcode |
 | `scripts/match_run.py`, `scripts/ingest_lulu.py` | Barcode results -> matched CSV per retailer |
 | `scripts/verify_pages.py` | Second-source check on the product page (price, stock, size, Lulu barcode, origin) |
 | `scripts/name_search.py` | Name + brand + size search: URLs, candidates, judge batches, apply, finalize, audit |
 | `scripts/build_price_table.py` | `prices.csv`, `coverage.md`, `review_queue.csv` for a run |
 | `data/runs/<date>/` | Everything a run produced; `evidence/` keeps the crawled pages and the judges' verdicts |
 | `docs/june_comparison.md` | June manual-vs-scraped comparison and the class-by-class recommendation |
+| `portal/` | The web portal (Flask app + page); `config/actors.json` holds its actor settings |
 | `tests/` | `python -m pytest` |
 
 ## Use

@@ -1,0 +1,1803 @@
+<title>منصة جمع الأسعار</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a project shelf on the home view; inside a project, one tab strip (run / basket / actors / results / settings) over a single working column. */
+:root {
+  /* Palette taken from the office's presentation (DG meeting deck): white page, cyan titles and section bars,
+     mid-blue and navy bars, navy table headers, light-grey zebra rows, blue figures, amber for a second figure. */
+  --bg: #ffffff; --surface: #ffffff; --sunk: #f2f2f2; --line: #d9dee6;
+  --fg: #14264b; --muted: #5a6478; --accent: #14264b; --accent-fg: #ffffff; --cyan: #1a8fd1;
+  --band: #ffffff; --band-fg: #14264b; --band-muted: #5a6478;
+  --title: #1ea5e0; --bar-cyan: #1ea5e0; --bar-blue: #1678be; --bar-steel: #2e88c2; --navy: #14264b; --amber: #c98d22;
+  --ok: #2f7d32; --warn: #9a6a00; --bad: #c2412a;
+  --dd-cyan: #1ea5e0; --dd-teal: #2e88c2; --dd-green: #1678be; --dd-yellow: #d9a43a; --dd-coral: #14264b; --dd-purple: #2e88c2;
+  --sans: "Dubai", "Dubai W23", "Tajawal", Arial, Tahoma, sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--sans); padding-inline: 16px; padding-block: 0 48px; }
+.wrap { max-width: 1180px; margin-inline: auto; }
+header.top { border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 16px 20px; margin: 0 -16px 22px; background: var(--band); color: var(--band-fg); position: relative; }
+header.top::after { content: ""; position: absolute; inset-inline: 0; bottom: -4px; height: 4px; background: linear-gradient(90deg, var(--dd-cyan) 0 17%, var(--dd-teal) 17% 34%, var(--dd-green) 34% 50%, var(--dd-yellow) 50% 67%, var(--dd-coral) 67% 84%, var(--dd-purple) 84%); }
+header.top h1 { font-size: 21px; margin: 0; font-weight: 700; text-wrap: balance; }
+header.top .brand { font-size: 12px; letter-spacing: .08em; color: #1d8fc0; font-weight: 700; text-transform: uppercase; }
+.crumb { color: var(--band-muted); }
+.crumb button { all: unset; cursor: pointer; color: #1d8fc0; font-weight: 600; }
+.crumb button:focus-visible { outline: 2px solid var(--accent); }
+.spacer { flex: 1; }
+.conn { font-size: 13px; color: var(--band-muted); display: flex; gap: 8px; align-items: center; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); display: inline-block; }
+.dot.ok { background: var(--ok); } .dot.bad { background: var(--bad); } .dot.warn { background: var(--warn); }
+h2 { font-size: 17px; margin: 0 0 12px; } h3 { font-size: 14px; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
+.muted { color: var(--muted); font-size: 13px; }
+.mono, code { font-family: var(--mono); font-size: 13px; direction: ltr; unicode-bidi: isolate; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.stack { display: grid; gap: 18px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.row > * { min-width: 0; }
+button, .btn { font: inherit; font-size: 14px; padding: 7px 14px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button:disabled { opacity: .5; cursor: default; }
+button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
+button.danger { color: var(--bad); border-color: var(--bad); background: transparent; }
+button.ghost { border-color: transparent; background: transparent; color: var(--cyan); }
+button.big { font-size: 17px; padding: 11px 26px; }
+input, select, textarea { font: inherit; font-size: 14px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); color: var(--fg); width: 100%; min-width: 0; }
+input[type=checkbox] { width: auto; accent-color: var(--accent); }
+textarea.code { font-family: var(--mono); font-size: 12.5px; line-height: 1.5; direction: ltr; text-align: left; }
+label.f { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+label.f > span { font-weight: 500; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px 14px; }
+
+/* home */
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.proj { all: unset; box-sizing: border-box; cursor: pointer; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; align-content: start; min-height: 170px; }
+.proj:hover { border-color: var(--dd-cyan); }
+.proj { border-top: 4px solid var(--dd-cyan); }
+.proj:nth-child(2n) { border-top-color: var(--dd-teal); }
+.proj:nth-child(3n) { border-top-color: var(--dd-purple); }
+.proj.new { border-top-width: 1px; border-top-color: var(--line); }
+.proj:focus-visible { outline: 2px solid var(--accent); }
+.proj .name { font-size: 19px; font-weight: 700; }
+.proj .desc { color: var(--muted); font-size: 14px; }
+.proj .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.proj.new { border-style: dashed; place-content: center; text-align: center; color: var(--cyan); font-weight: 600; }
+.chip { font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.chip.ok { color: var(--ok); border-color: var(--ok); } .chip.warn { color: var(--warn); border-color: var(--warn); } .chip.bad { color: var(--bad); border-color: var(--bad); }
+
+/* tabs */
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+nav.tabs button { border: none; background: none; border-radius: 0; padding: 9px 14px; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.tabs button[aria-selected=true] { color: var(--fg); border-bottom-color: var(--dd-cyan); font-weight: 600; }
+.picks { display: flex; flex-wrap: wrap; gap: 6px; }
+.picks label { display: flex; gap: 6px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; font-size: 14px; background: var(--bg); }
+.picks.scroll { max-height: 170px; overflow: auto; }
+.bar { height: 8px; background: var(--sunk); border-radius: 999px; overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--dd-cyan); transition: width .4s; }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
+pre.log { margin: 0; background: var(--sunk); border-radius: 8px; padding: 12px; max-height: 240px; overflow: auto; font: 12px/1.5 var(--mono); direction: ltr; text-align: left; white-space: pre-wrap; }
+.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: top; }
+th { background: var(--sunk); color: var(--muted); font-weight: 600; font-size: 13px; position: sticky; top: 0; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+td.num { font-variant-numeric: tabular-nums; direction: ltr; text-align: right; white-space: nowrap; }
+td a { color: var(--cyan); }
+.pager { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.actor { border: 1px solid var(--line); border-radius: 9px; padding: 14px; display: grid; gap: 12px; background: var(--bg); }
+.empty { text-align: center; padding: 28px 12px; color: var(--muted); }
+.notice { border: 1px solid var(--warn); color: var(--warn); border-radius: 8px; padding: 10px 14px; font-size: 14px; }
+.notice.bad { border-color: var(--bad); color: var(--bad); }
+.confirm { border: 1px solid var(--bad); border-radius: 8px; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--fg); width: min(720px, 94vw); padding: 20px; }
+dialog::backdrop { background: rgb(0 0 0 / .45); }
+#toast { position: fixed; inset-inline: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); margin-inline: auto; width: fit-content; max-width: 92vw; background: var(--fg); color: var(--bg); padding: 9px 16px; border-radius: 8px; font-size: 14px; z-index: 10; }
+#toast.bad { background: var(--bad); color: #fff; }
+.stat { display: grid; gap: 2px; }
+.stat b { font-size: 22px; font-variant-numeric: tabular-nums; }
+.stats { display: flex; flex-wrap: wrap; gap: 28px; }
+
+/* presentation layer: hero, KPI tiles, sections, status chips, overview */
+.hero { display: grid; gap: 18px; padding-block: 8px 26px; }
+.hero h2 { font-size: 30px; line-height: 1.25; margin: 0; text-wrap: balance; }
+.hero p { margin: 0; color: var(--muted); max-width: 70ch; font-size: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.kpi { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px; background: var(--surface); position: relative; overflow: hidden; }
+.kpi::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: 4px; background: var(--kc, var(--dd-cyan)); }
+.kpi .v { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.kpi .l { color: var(--muted); font-size: 13px; }
+.sec-h { display: flex; align-items: baseline; gap: 10px; margin: 28px 0 12px; }
+.sec-h h2 { margin: 0; font-size: 19px; }
+.sec-h .muted { font-size: 13px; }
+.proj .icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-weight: 700; font-size: 15px; color: #fff; background: var(--pc, var(--dd-cyan)); }
+.proj .top { display: flex; align-items: center; gap: 12px; }
+.proj.planned { background: var(--sunk); border-style: dashed; border-top-style: solid; }
+.chip.live { color: #fff; background: var(--ok); border-color: var(--ok); }
+.chip.planned { color: #fff; background: var(--dd-purple); border-color: var(--dd-purple); }
+.chip.sched { color: var(--cyan); border-color: var(--cyan); }
+.ov-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.ov-head p { margin: 0; color: var(--muted); flex-basis: 100%; }
+.srcbars { display: grid; gap: 12px; }
+.srcbar { display: grid; grid-template-columns: minmax(150px, 230px) 1fr 110px; gap: 12px; align-items: center; }
+.srcbar .track { height: 14px; background: var(--sunk); border-radius: 999px; overflow: hidden; display: flex; }
+.srcbar .track i { display: block; height: 100%; }
+.srcbar .n { font-variant-numeric: tabular-nums; text-align: left; direction: ltr; font-size: 13px; color: var(--muted); }
+@media (max-width: 640px) { .srcbar { grid-template-columns: 1fr; gap: 4px; } .srcbar .n { text-align: right; } }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 6px; background: var(--c); vertical-align: middle; }
+.plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.plan-grid .panel h3 { color: var(--fg); font-size: 15px; }
+.plan-grid ul, .plan-grid ol { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
+.steps li.done { color: var(--ok); }
+details.adv > summary { cursor: pointer; font-weight: 600; padding: 4px 0; color: var(--muted); }
+details.adv[open] > summary { margin-bottom: 12px; }
+
+/* ===== presentation style (DG deck) ===== */
+[hidden] { display: none !important; }
+.kpi .v.txt { font-size: 19px; line-height: 1.35; padding-block: 18px; }
+header.top { border-bottom: none; padding: 22px 4px 8px; margin: 0 0 14px; align-items: flex-end; }
+header.top::after { display: none; }
+header.top .brand { color: var(--fg); font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 700; }
+header.top h1 { color: var(--title); font-size: 30px; font-weight: 700; }
+.crumb button { color: var(--title); }
+.sec-h { margin: 26px 0 12px; padding: 10px 16px; background: var(--bar-cyan); color: #fff; justify-content: center; border-radius: 0; }
+.sec-h h2 { color: #fff; font-size: 18px; }
+.sec-h .muted { color: rgba(255,255,255,.85); }
+.sec-h.navy { background: var(--navy); }
+.hero h2 { color: var(--fg); font-size: 22px; }
+.kpis { gap: 14px; }
+.kpi { padding: 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.08); overflow: hidden; text-align: center; gap: 0; }
+.kpi::before { display: none; }
+.kpi .l { order: -1; background: var(--kc, var(--bar-cyan)); color: #fff; font-weight: 700; font-size: 14px; padding: 10px 12px; }
+.kpi .v { color: var(--fg); font-size: 30px; padding: 16px 12px 18px; }
+.panel { border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.06); }
+.panel > h2:first-child, .panel > .row > h2 { color: var(--fg); }
+.bar-title { margin: -18px -18px 4px; padding: 11px 16px; background: var(--bar-cyan); color: #fff; font-weight: 700; font-size: 16px; border-radius: 10px 10px 0 0; text-align: center; }
+.bar-title.navy { background: var(--navy); } .bar-title.blue { background: var(--bar-blue); }
+th { background: var(--navy); color: #fff; font-weight: 700; }
+tbody tr:nth-child(even) td { background: var(--sunk); }
+td.num b, td.num { color: var(--fg); }
+td.num b { color: var(--cyan); }
+.tw { border-color: var(--line); border-radius: 6px; }
+nav.tabs { border-bottom: 2px solid var(--line); }
+nav.tabs button[aria-selected=true] { color: #fff; background: var(--bar-cyan); border-bottom-color: var(--bar-cyan); border-radius: 8px 8px 0 0; }
+.proj { padding: 0; border: 1px solid var(--line); border-top: none; border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.08); overflow: hidden; gap: 0; }
+.proj .top { background: var(--pc, var(--bar-cyan)); color: #fff; padding: 14px 16px; }
+.proj .top .name { color: #fff; font-size: 18px; }
+.proj .icon { background: rgba(255,255,255,.18); width: 36px; height: 36px; font-size: 13px; }
+.proj .desc { padding: 14px 16px 0; }
+.proj .meta { padding: 12px 16px 16px; }
+.proj.planned { background: var(--surface); border-style: solid; }
+.proj.new { padding: 20px; border: 1px dashed var(--line); box-shadow: none; color: var(--cyan); }
+.chip.live { background: var(--bar-blue); border-color: var(--bar-blue); }
+.chip.planned { background: var(--navy); border-color: var(--navy); }
+.srcbar .n { color: var(--cyan); font-weight: 700; }
+.plan-grid .panel h3 { margin: -18px -18px 4px; padding: 10px 14px; background: var(--bar-blue); color: #fff; border-radius: 10px 10px 0 0; text-align: center; }
+.plan-grid .panel:nth-child(2) h3 { background: var(--bar-steel); }
+.plan-grid .panel:nth-child(3) h3 { background: var(--bar-cyan); }
+.plan-grid .panel:nth-child(4) h3 { background: var(--navy); }
+footer.foot { margin-top: 36px; background: var(--navy); color: #fff; border-radius: 10px; padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; font-size: 13px; }
+button.primary { background: var(--navy); border-color: var(--navy); }
+  img.thumb { width: 44px; height: 44px; object-fit: contain; border-radius: 6px; background: #fff; border: 1px solid var(--line, #dde3ea); display: block; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div style="display:grid;gap:2px"><span class="brand" id="eyebrow">Digital Dubai · بيانات الأسعار</span><h1 id="title">منصة جمع الأسعار</h1></div>
+    <span class="crumb" id="crumb" hidden><button id="go-home">← كل المشاريع</button></span>
+    <span class="spacer"></span>
+    <span class="conn" id="conn"><span class="dot" id="conn-dot"></span><span id="conn-text">جارٍ الاتصال…</span></span>
+  </header>
+
+  <!-- HOME -->
+  <section id="view-home">
+    <div class="hero">
+      <h2>أسعار من المتاجر والمواقع، تُجمع آلياً كل يوم</h2>
+      <p>كل مشروع يجمع أسعاره من مصادره على الإنترنت حسب جدول، ويطابقها مع سلته، ويحفظ النتائج جاهزة للتنزيل والتحليل في Dataiku.</p>
+      <div class="kpis" id="home-kpis"></div>
+    </div>
+    <div class="sec-h"><h2>المشاريع الفعّالة</h2><span class="muted">تعمل وتُحدَّث تلقائياً</span></div>
+    <div class="shelf" id="shelf">
+      <div class="panel empty" id="shelf-empty">تُحمَّل المشاريع…</div>
+    </div>
+    <div class="sec-h navy"><h2>المشاريع القادمة</h2><span class="muted">قيد التخطيط</span></div>
+    <div class="shelf" id="shelf-planned"></div>
+  </section>
+
+  <!-- PROJECT -->
+  <section id="view-project" hidden>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="overview" aria-selected="true">نظرة عامة</button>
+      <button role="tab" data-tab="run" aria-selected="false">تشغيل</button>
+      <button role="tab" data-tab="basket" aria-selected="false">السلة</button>
+      <button role="tab" data-tab="actors" aria-selected="false">الـ Actors</button>
+      <button role="tab" data-tab="results" aria-selected="false">النتائج</button>
+      <button role="tab" data-tab="settings" aria-selected="false">إعدادات المشروع</button>
+    </nav>
+
+    <div class="tab stack" id="tab-overview">
+      <div class="panel"><div class="ov-head" id="ov-head"></div></div>
+      <div id="ov-body" class="stack"></div>
+    </div>
+
+    <div class="tab stack" id="tab-run" hidden>
+      <div class="panel" id="quick" hidden>
+        <h2>سحب الأسعار الآن</h2>
+        <p class="muted" id="quick-note">يشغّل السحب على خوادم Claude باستخدام Scrapling (بدون رصيد Apify)، ويحفظ النتيجة في قاعدة البيانات. تظهر في تبويب «النتائج» عند انتهائه (حوالي 30 دقيقة لـ CPI).</p>
+        <div class="row"><button class="primary big" id="btn-quick">▶ شغّل السحب الآن</button></div>
+        <div id="quick-confirm"></div>
+      </div>
+      <details class="panel adv" id="apify-run">
+        <summary id="apify-title">متقدم: تشغيل عبر Apify من المتصفح</summary>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <div><h3>الـ Actors</h3><div class="picks" id="run-actors"></div></div>
+          <div id="run-groups-box"><h3>المجموعات (بدون اختيار = الكل)</h3><div class="picks scroll" id="run-groups"></div></div>
+        </div>
+        <label class="f" id="run-codes-box"><span>أكواد محددة (اختياري)</span><textarea id="run-codes" rows="2" placeholder="011110101, 011110102"></textarea></label>
+        <p class="muted" id="run-count"></p>
+        <div class="row">
+          <button class="primary big" id="btn-run">▶ ابدأ السكراب</button>
+          <button class="danger" id="btn-stop" disabled>إيقاف</button>
+          <span class="muted">أبقِ الصفحة مفتوحة حتى ينتهي التشغيل.</span>
+        </div>
+      </details>
+      <div class="panel" id="sched">
+        <div class="row"><h2 style="margin:0">التشغيل اليومي</h2><span class="chip" id="sched-state">—</span></div>
+        <div id="sched-body" class="muted">يُحمَّل موعد التشغيل…</div>
+      </div>
+      <div class="panel" id="job" hidden>
+        <div class="row"><h2 style="margin:0">التقدم</h2><span class="chip" id="job-state"></span></div>
+        <div id="job-bars" class="stack" style="gap:10px"></div>
+        <pre class="log" id="job-log"></pre>
+        <div id="job-summary"></div>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-basket" hidden>
+      <div class="panel">
+        <div class="row">
+          <input id="b-search" placeholder="ابحث في السلة" style="flex:2 1 220px">
+          <select id="b-group" style="flex:1 1 180px"></select>
+        </div>
+        <div class="row">
+          <button id="b-add">+ صنف</button>
+          <button class="primary" id="b-save">حفظ السلة</button>
+          <button id="b-export">تنزيل CSV</button>
+          <label class="btn" for="b-file" style="cursor:pointer">استيراد CSV</label>
+          <input type="file" id="b-file" accept=".csv,text/csv" hidden>
+          <span class="muted" id="b-info"></span>
+        </div>
+        <div id="b-import-confirm"></div>
+        <div class="tw"><table id="b-table"><thead></thead><tbody></tbody></table></div>
+        <div class="pager"><button id="b-prev">السابق</button><span class="muted" id="b-page"></span><button id="b-next">التالي</button></div>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-actors" hidden>
+      <div class="panel">
+        <div class="row"><button id="a-add">+ Actor</button><button class="primary" id="a-save">حفظ الـ Actors</button></div>
+        <p class="muted">في الإدخال تُستبدل هذه القيم بكل دفعة: <code>"{barcodes}"</code> قائمة، <code>"{barcodes_json}"</code> القائمة كنص JSON، <code>"{barcodes_text}"</code> سطر لكل كود، <code>"{start_urls}"</code> روابط بصيغة Apify، <code>"{urls}"</code> روابط كنصوص. النمط <code>single</code> يشغّل الإدخال كما هو مرة واحدة.</p>
+        <div id="a-list" class="stack"></div>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-results" hidden>
+      <div class="panel">
+        <div class="row"><h2 style="margin:0">التشغيلات</h2><span class="spacer"></span><button id="r-export-all">تنزيل كل الأسعار (Excel)</button></div>
+        <p class="muted">ملف واحد بكل التشغيلات المحفوظة، صف لكل عنصر في كل تشغيل، بأعمدة ثابتة وتاريخ <code>run_date</code>، جاهز للاستيراد في Dataiku.</p>
+        <div id="r-list"></div>
+      </div>
+      <div class="panel" id="r-view" hidden>
+        <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل Excel</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
+        <div id="r-del-confirm"></div>
+        <div class="stats" id="r-stats"></div>
+        <div class="row"><input id="r-search" placeholder="ابحث باسم المنتج أو المتجر أو القسم" style="flex:2 1 220px"><select id="r-filter" hidden><option value=""></option></select></div>
+        <div class="tw"><table id="r-table"><thead></thead><tbody></tbody></table></div>
+        <p class="muted" id="r-more"></p>
+      </div>
+    </div>
+
+    <div class="tab stack" id="tab-settings" hidden>
+      <div class="panel">
+        <div class="grid">
+          <label class="f"><span>اسم المشروع</span><input id="s-name"></label>
+          <label class="f"><span>نوع المطابقة</span><select id="s-kind"><option value="barcode">باركود + حجم (سلة أسعار)</option><option value="list">قائمة عناصر (جدول صفحة)</option><option value="raw">بدون مطابقة (كل الصفوف)</option></select></label>
+        </div>
+        <label class="f"><span>الوصف</span><input id="s-desc"></label>
+        <label class="f"><span>أعمدة السلة (JSON)</span><textarea id="s-cols" class="code" rows="8"></textarea></label>
+        <p class="muted">كل عمود: <code>key</code> و <code>label</code>، و <code>type</code> اختياري (<code>bool</code> أو <code>code</code>). لمطابقة الباركود يلزم <code>barcode_raw</code> و <code>qty_raw</code>، وللقائمة يلزم عمود المفتاح المحدد في <code>list_key</code>.</p>
+        <label class="f"><span>مفتاح القائمة (list_key)</span><input id="s-listkey" class="mono" dir="ltr"></label>
+        <div class="row"><button class="primary" id="s-save">حفظ الإعدادات</button><span class="spacer"></span><button class="danger" id="s-delete">حذف المشروع</button></div>
+        <div id="s-del-confirm"></div>
+      </div>
+    </div>
+  </section>
+  <footer class="foot"><span>منصة جمع الأسعار · Digital Dubai</span><span>البيانات تُجمع من مصادر عامة على الإنترنت وتُراجع قبل الاستخدام</span></footer>
+</div>
+
+<dialog id="dlg">
+  <form method="dialog" id="dlg-form" class="stack">
+    <h2 id="dlg-title">صنف</h2>
+    <div class="grid" id="dlg-fields"></div>
+    <p class="muted" id="dlg-preview"></p>
+    <div class="row"><button value="ok" class="primary">تم</button><button value="cancel" formnovalidate>إلغاء</button></div>
+  </form>
+</dialog>
+<div id="toast" hidden></div>
+
+<script>
+"use strict";
+const APIFY = "Apfiy";
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+function toast(msg, bad = false) {
+  const t = $("#toast"); t.textContent = msg; t.className = bad ? "bad" : ""; t.hidden = false;
+  clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), bad ? 8000 : 3000);
+}
+
+let db = null, mcp = null, downloads = null;
+let projects = {};            // id -> project doc
+let current = null;           // project id
+let basket = [], basketDirty = false;
+let job = null;
+
+// ------------------------------------------------------------ quantity, barcode
+const UNITS = [
+  [/^(kg|kgs|kilo|kilos|kilogram|kilograms|كغ|كجم|كيلو|كيلوغرام|كيلوجرام|كلغ)$/, "g", 1000],
+  [/^(g|gm|gms|gr|grm|gram|grams|غ|غم|غرام|جم|جرام|ج)$/, "g", 1],
+  [/^(l|lt|ltr|ltrs|litre|litres|liter|liters|لتر|ل|ليتر)$/, "ml", 1000],
+  [/^(ml|mls|millilitre|milliliter|مل|ملل|مليلتر)$/, "ml", 1],
+  [/^(pc|pcs|piece|pieces|pack|eggs?|حبة|حبه|حبات|بيضة|بيضه|قطعة)$/, "pc", 1],
+];
+const AR_DIGITS = { "٠": 0, "١": 1, "٢": 2, "٣": 3, "٤": 4, "٥": 5, "٦": 6, "٧": 7, "٨": 8, "٩": 9 };
+function unitOf(u) { u = u.toLowerCase(); for (const [re, base, f] of UNITS) if (re.test(u)) return [base, f]; return null; }
+function parseQty(text) {
+  if (!text) return null;
+  let s = String(text).replace(/[٠-٩]/g, (d) => AR_DIGITS[d]).replace(/٫/g, ".").replace(/,(?=\d{3}\b)/g, "").toLowerCase();
+  const N = "(\\d+(?:\\.\\d+)?)", U = "([a-z\\u0600-\\u06ff]+)";
+  let m = s.match(new RegExp(N + "\\s*[x×*]\\s*" + N + "\\s*" + U));       // 4 x 1 litre
+  if (m && unitOf(m[3])) { const [b, f] = unitOf(m[3]); return { unit: b, total: +m[1] * +m[2] * f }; }
+  m = s.match(new RegExp(N + "\\s*" + U + "\\s*[x×*]\\s*" + N));           // 30g x 18
+  if (m && unitOf(m[2])) { const [b, f] = unitOf(m[2]); return { unit: b, total: +m[1] * +m[3] * f }; }
+  for (const mm of s.matchAll(new RegExp(N + "\\s*" + U, "g"))) {
+    const u = unitOf(mm[2]); if (u) return { unit: u[0], total: +mm[1] * u[1] };
+  }
+  return null;
+}
+function digits(x) { return String(x ?? "").replace(/\D/g, ""); }
+function searchForm(raw) { const d = digits(raw); return d.length === 11 ? "0" + d : d; }
+function gtinValid(raw) {
+  let d = digits(raw); if (d.length === 11) d = "0" + d;
+  if (![8, 12, 13, 14].includes(d.length)) return false;
+  const p = d.padStart(14, "0"); let sum = 0;
+  for (let i = 0; i < 13; i++) sum += +p[i] * (i % 2 === 0 ? 3 : 1);
+  return (10 - (sum % 10)) % 10 === +p[13];
+}
+function itemQty(it) { return it.qty_total && it.qty_unit ? { unit: it.qty_unit, total: +it.qty_total } : parseQty(it.qty_raw); }
+
+// ------------------------------------------------------------ parsers: dataset items -> rows
+function num(v) { if (v === null || v === undefined || v === "") return null; const n = parseFloat(String(v).replace(/[,%\s]/g, "")); return isNaN(n) ? null : n; }
+const PARSERS = {
+  carrefour_actor(items, batch) {
+    const rows = items.filter((it) => digits(it.searchQuery).length >= 8).map((it) => ({
+      code: digits(it.searchQuery), title: it.title || "", price: num(it.price), regular_price: num(it.regularPrice) ?? num(it.price),
+      in_stock: it.in_stock ?? null, url: it.url || "" }));
+    return { rows, searched: new Set(batch) };
+  },
+  lulu_search_markdown(items) {
+    const card = /\[([^\]\n]+)\]\((https:\/\/gcc\.luluhypermarket\.com\/en-ae\/(?:[^)\s]*?\/)?p\/[^)\s]*?)\)\s*\n\s*\n([\d,]+(?:\.\d+)?)(?:\s*\n\s*\n([\d,]+(?:\.\d+)?))?(?:\s*\n\s*\n(\d+)% OFF)?/g;
+    const rows = [], searched = new Set();
+    for (const it of items) {
+      let q = ""; try { q = new URL(it.url).searchParams.get("search_text") || ""; } catch (e) {}
+      const md = it.markdown || it.text || "";
+      if (!q || (!md.includes("All Products") && !md.includes("No results found"))) continue;
+      searched.add(q);
+      if (md.includes("No results found")) continue;
+      for (const c of md.matchAll(card)) {
+        const price = num(c[3]), other = num(c[4]);
+        rows.push({ code: q, title: c[1].trim(), price, regular_price: other && other > price ? other : price, in_stock: null, url: c[2].split("?")[0] });
+      }
+    }
+    return { rows, searched };
+  },
+  te_commodities(items) {
+    const html = items[0] && (items[0].html || items[0].body);
+    if (!html) throw new Error("the actor returned no html");
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const KEYS = { price: "price", chg: "change", "%chg": "pct", weekly: "weekly", monthly: "monthly", ytd: "ytd", yoy: "yoy", date: "price_date" };
+    const rows = [];
+    for (const t of doc.querySelectorAll("table")) {
+      const h = [...t.querySelectorAll("thead th")].map((x) => x.textContent.trim());
+      if (h.length < 2 || h[1] !== "Price") continue;
+      for (const tr of t.querySelectorAll("tbody tr")) {
+        const tds = tr.querySelectorAll("td"); const b = tds[0] && tds[0].querySelector("b");
+        if (!b) continue;
+        const r = { category: h[0], commodity: b.textContent.trim(), unit: tds[0].querySelector("div")?.textContent.trim() || "" };
+        h.slice(1).forEach((x, i) => {
+          const k = KEYS[x.toLowerCase()], td = tds[i + 1]; if (!k || !td) return;
+          const txt = td.textContent.replace(/\s+/g, " ").trim();
+          r[k] = k === "price_date" ? txt : num(td.getAttribute("data-value") ?? txt);
+        });
+        rows.push(r);
+      }
+    }
+    if (rows.length < 20) throw new Error(`only ${rows.length} commodity rows found on the page`);
+    return { rows, searched: null };
+  },
+  generic(items, batch, cfg) {
+    const f = cfg.fields || {};
+    const get = (o, p) => String(p || "").split(".").reduce((a, k) => (a && typeof a === "object" ? a[k] : undefined), o) ?? o[p];
+    const rows = items.map((it) => {
+      const r = {}; for (const [k, p] of Object.entries(f)) r[k] = get(it, p);
+      if (r.code !== undefined) r.code = searchForm(r.code);
+      if (r.price !== undefined) r.price = num(r.price);
+      if (r.regular_price !== undefined) r.regular_price = num(r.regular_price);
+      return Object.keys(f).length ? r : it;
+    });
+    return { rows, searched: batch ? new Set(batch) : null };
+  },
+};
+
+// ------------------------------------------------------------ matchers: rows -> results
+const STATUS = {
+  barcode_match: ["مطابق", "ok"], unit_label: ["مطابق (وحدة مكتوبة مختلفة)", "ok"], multiple_results: ["أكثر من منتج", "warn"],
+  size_unverified: ["الحجم غير مؤكد", "warn"], qty_mismatch: ["الحجم مختلف", "bad"], not_found: ["غير موجود", ""],
+  not_searched: ["لم يُبحث", "warn"], service: ["خدمة (لا سعر على الإنترنت)", ""], pending: ["لم يُسعَّر بعد", ""], error: ["خطأ في التشغيل", "bad"], ok: ["موجود", "ok"], missing: ["غير موجود في الصفحة", "bad"], row: ["صف", ""],
+  found: ["موجود", "ok"], match: ["مطابق", "ok"], review_multiple: ["عدة عروض بأسعار مختلفة", "warn"], review_origin: ["المنشأ غير مذكور", "warn"],
+  substitute_origin: ["منشأ بديل", "warn"], no_match: ["غير مطابق", ""], barcode_search_match: ["مطابق", "ok"], barcode_match_unit_label: ["مطابق (وحدة مختلفة)", "ok"],
+  qty_unit_differs: ["وحدة الكمية مختلفة", "warn"], qty_title_url_conflict: ["تعارض الحجم", "warn"], barcode_match_qty_unverified: ["الحجم غير مؤكد", "warn"],
+};
+function matchBarcode(actorKey, label, items, rows, searched, failed) {
+  const byCode = new Map();
+  for (const r of rows) { if (!byCode.has(r.code)) byCode.set(r.code, new Map()); byCode.get(r.code).set(r.url || r.title, r); }
+  const out = [];
+  for (const it of items) {
+    if (!gtinValid(it.barcode_raw)) continue;
+    const code = searchForm(it.barcode_raw);
+    const base = { actor: label, item_code: it.item_code || "", name: it.name_ar || it.name || "", brand: it.brand_ar || "", basket_qty: it.qty_raw || "", barcode: code, title: "", price: "", regular_price: "", url: "", accepted: "no" };
+    const hits = [...(byCode.get(code)?.values() || [])];
+    if (!hits.length) { out.push({ ...base, status: failed.has(code) ? "error" : searched.has(code) ? "not_found" : "not_searched" }); continue; }
+    const want = itemQty(it); let best = null;
+    for (const h of hits) {
+      const got = parseQty(h.title) || parseQty(decodeURIComponent(h.url || "").replace(/[-_/]/g, " "));
+      let status;
+      if (!want || !got) status = "size_unverified";
+      else if (Math.abs(want.total - got.total) <= want.total * 0.005) status = want.unit === got.unit ? (hits.length === 1 ? "barcode_match" : "multiple_results") : (want.unit !== "pc" && got.unit !== "pc" && hits.length === 1 ? "unit_label" : "size_unverified");
+      else status = "qty_mismatch";
+      const rank = { barcode_match: 5, unit_label: 4, multiple_results: 3, size_unverified: 2, qty_mismatch: 1 }[status];
+      if (!best || rank > best.rank) best = { h, status, rank };
+    }
+    out.push({ ...base, status: best.status, accepted: ["barcode_match", "unit_label"].includes(best.status) ? "yes" : "no",
+      title: best.h.title, price: best.h.price ?? "", regular_price: best.h.regular_price ?? "", url: best.h.url });
+  }
+  return out;
+}
+function matchList(label, items, rows, key) {
+  const want = items.filter((i) => i.enabled !== false && i.enabled !== "no");
+  const norm = (s) => String(s ?? "").trim().toLowerCase();
+  const byKey = new Map(rows.map((r) => [norm(r[key]), r]));
+  const out = want.map((i) => { const r = byKey.get(norm(i[key])); return r ? { actor: label, ...r, status: "ok", accepted: "yes" } : { actor: label, [key]: i[key], category: i.category || "", status: "missing", accepted: "no" }; });
+  return want.length ? out : rows.map((r) => ({ actor: label, ...r, status: "ok", accepted: "yes" }));
+}
+
+// ------------------------------------------------------------ Apify through the connector
+function mcpErr(e) {
+  const fix = { needs_reauth: "أعد ربط Apify من إعدادات claude.ai ← Connectors", server_not_connected: "أضف موصل Apify من إعدادات claude.ai ← Connectors",
+    selection_required: "اختر موصل Apify الذي تريده عندما يطلب claude.ai ذلك", not_in_manifest: "لم يُسمح لهذه الصفحة باستخدام Apify؛ أعد فتحها واسمح بالموصل",
+    blocked_by_policy: "سياسة المؤسسة تمنع هذه الأداة", approval_required: "الأداة تحتاج موافقة لكل استدعاء", server_unavailable: "Apify لا يستجيب الآن؛ حاول بعد قليل" }[e?.code];
+  return fix ? `${fix} (${e.code})` : (e?.message || String(e));
+}
+async function apify(tool, input, read = false) {
+  try { return (await mcp.callTool(APIFY, tool, input, { cache: false })).payload; }
+  catch (e) {
+    if (read && e?.retryable) { await sleep((e.retryAfterMs || 1500) + Math.random() * 1000); return (await mcp.callTool(APIFY, tool, input, { cache: false })).payload; }
+    throw e;
+  }
+}
+async function runActor(cfg, input, stopped) {
+  const args = { actor: cfg.actor, input, waitSecs: 0 };
+  if (cfg.call_options && Object.keys(cfg.call_options).length) args.callOptions = cfg.call_options;
+  const start = await apify("call-actor", args);
+  const runId = start.runId; let status = start.status; let dsId = start.storages?.datasets?.default?.id;
+  if (!runId) throw new Error("Apify did not return a run id");
+  while (!["SUCCEEDED", "FAILED", "ABORTED", "TIMED-OUT"].includes(status)) {
+    if (stopped()) throw new Error("stopped");
+    const r = await apify("get-actor-run", { runId, waitSecs: 30 }, true);
+    status = r.status; dsId = r.storages?.datasets?.default?.id || dsId;
+  }
+  if (status !== "SUCCEEDED") throw new Error(`run ${runId} ended ${status}`);
+  const items = []; const limit = 500;
+  for (let offset = 0; ; offset += limit) {
+    const q = { datasetId: dsId, clean: true, limit, offset }; if (cfg.dataset_fields) q.fields = cfg.dataset_fields;
+    const p = await apify("get-dataset-items", q, true);
+    const page = p.items || []; items.push(...page);
+    if (page.length < limit || (p.totalItemCount && items.length >= p.totalItemCount)) break;
+  }
+  return { runId, items };
+}
+function fill(v, subs) {
+  if (Array.isArray(v)) return v.map((x) => fill(x, subs));
+  if (v && typeof v === "object") return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, fill(x, subs)]));
+  if (typeof v === "string") { const m = v.match(/^\{(\w+)\}$/); if (m && m[1] in subs) return subs[m[1]]; }
+  return v;
+}
+function buildRuns(cfg, items) {
+  if (cfg.mode === "single") return [{ batch: null, input: cfg.input }];
+  const codes = [...new Set(items.filter((i) => gtinValid(i.barcode_raw)).map((i) => searchForm(i.barcode_raw)))];
+  const size = Math.max(1, +cfg.batch_size || 10), runs = [];
+  for (let k = 0; k < codes.length; k += size) {
+    const batch = codes.slice(k, k + size);
+    const urls = batch.map((c) => String(cfg.url_template || "").replace("{barcode}", c));
+    runs.push({ batch, input: fill(JSON.parse(JSON.stringify(cfg.input)), {
+      barcodes: batch, barcodes_json: JSON.stringify(batch), barcodes_text: batch.join("\n"),
+      start_urls: batch.map((c, i) => ({ url: urls[i], userData: { ean: c } })), urls }) });
+  }
+  return runs;
+}
+
+// ------------------------------------------------------------ db helpers
+const P = () => projects[current];
+async function loadProjects() {
+  const snap = await db.collection("projects").get();
+  projects = {}; snap.docs.forEach((d) => (projects[d.id] = { ...plain(d) }));
+}
+async function loadBasket(pid) {
+  const snap = await db.collection(`projects/${pid}/basket`).get();
+  return [...snap.docs].sort((a, b) => a.id.localeCompare(b.id)).flatMap((d) => plain(d).items || []);
+}
+async function saveChunks(coll, key, list, old) {
+  const chunks = []; let cur = [], size = 0;
+  for (const x of list) { const s = JSON.stringify(x).length; if (size + s > 40000 && cur.length) { chunks.push(cur); cur = []; size = 0; } cur.push(x); size += s; }
+  if (cur.length || !chunks.length) chunks.push(cur);
+  for (let i = 0; i < chunks.length; i++) await db.doc(`${coll}/c${String(i).padStart(3, "0")}`).set({ [key]: chunks[i], i });
+  const prev = old ?? (await db.collection(coll).get()).docs.map((d) => d.id);
+  for (const id of prev) if (+id.slice(1) >= chunks.length) await db.doc(`${coll}/${id}`).delete();
+  return chunks.length;
+}
+async function saveProject(patch) {
+  const p = { ...P(), ...patch, updatedAt: new Date().toISOString() };
+  await db.doc(`projects/${current}`).set(p); projects[current] = p;
+}
+// the store hands back frozen data; work on a plain copy
+const plain = (snap) => JSON.parse(JSON.stringify(snap.data() ?? {}));
+// rows of a run: one document at a time (a whole-collection read of large chunks can fail), in chunk order
+async function rowDocs(pid, run) {
+  const base = `projects/${pid}/runs/${run.id}/rows`;
+  if (Number.isInteger(run.chunks) && run.chunks > 0) {
+    const out = [];
+    for (let i = 0; i < run.chunks; i++) {
+      const snap = await db.doc(`${base}/c${String(i).padStart(3, "0")}`).get();
+      if (snap.exists) out.push(snap);
+    }
+    if (out.length) return out;
+  }
+  return [...(await db.collection(base).limit(200).get()).docs].sort((a, b) => a.id.localeCompare(b.id));
+}
+// product thumbnails saved with each run (projects/<p>/runs/<id>/thumbs/tNNN: {pairs: [[photo url, base64 jpeg]]})
+const thumbs = new Map(); const thumbRuns = new Set();
+async function loadThumbs(pid, run) {
+  if (!run || thumbRuns.has(pid + "/" + run.id)) return;
+  if (run.thumbs_asset) {          // the run's pictures as one uploaded file
+    thumbRuns.add(pid + "/" + run.id);
+    try { for (const [u, b] of (await (await fetch("/_blob/" + run.thumbs_asset)).json()).pairs || []) thumbs.set(u, b); } catch (e) {}
+    return;
+  }
+  if (!run.thumbs) return;
+  thumbRuns.add(pid + "/" + run.id);
+  for (let i = 0; i < run.thumbs; i++) {
+    try {
+      const snap = await db.doc(`projects/${pid}/runs/${run.id}/thumbs/t${String(i).padStart(3, "0")}`).get();
+      if (snap.exists) for (const [u, b] of plain(snap).pairs || []) thumbs.set(u, b);
+    } catch (e) { /* a missing thumbnail only leaves the photo cell empty */ }
+  }
+}
+const photoSrc = (u) => (thumbs.has(u) ? "data:image/jpeg;base64," + thumbs.get(u) : u);
+function dbErr(e) { return e?.code === "quota_exceeded" ? "امتلأت قاعدة البيانات؛ احذف تشغيلات قديمة ثم حاول" : e?.code === "revoked" ? "لم تعد لديك صلاحية على هذه الصفحة" : (e?.message || String(e)); }
+
+// ------------------------------------------------------------ home
+const PCOLORS = ["var(--bar-cyan)", "var(--bar-blue)", "var(--bar-steel)", "var(--navy)"];
+const isPlanned = (p) => p?.status === "planned";
+function initials(name) { const w = String(name || "?").replace(/[·|()]/g, " ").trim().split(/\s+/); return (w[0] || "?").slice(0, 4).toUpperCase(); }
+function fmtDate(iso) { if (!iso) return "—"; try { return new Date(iso).toLocaleDateString("ar", { timeZone: "Asia/Dubai", day: "numeric", month: "short" }); } catch (e) { return String(iso).slice(0, 10); } }
+function renderHome() {
+  $("#title").textContent = "منصة جمع الأسعار"; $("#eyebrow").textContent = "Digital Dubai · بيانات الأسعار"; $("#crumb").hidden = true;
+  $("#view-home").hidden = false; $("#view-project").hidden = true;
+  const list = Object.entries(projects).sort((a, b) => (a[1].order ?? 99) - (b[1].order ?? 99));
+  const live = list.filter(([, p]) => !isPlanned(p)), planned = list.filter(([, p]) => isPlanned(p));
+  const accepted = live.reduce((n, [id, p]) => n + (homeAcc[id] ?? p.lastRun?.accepted ?? 0), 0);
+  const scraped = Object.values(homeProducts).reduce((n, x) => n + x, 0);
+  const items = live.reduce((n, [, p]) => n + (p.itemCount || 0), 0);
+  const latest = live.map(([, p]) => p.lastRun?.at).filter(Boolean).sort().pop();
+  $("#home-kpis").innerHTML = [
+    ["var(--bar-cyan)", live.length, "مشاريع فعّالة"],
+    ["var(--bar-steel)", planned.length, "مشاريع قادمة"],
+    ["var(--bar-blue)", items.toLocaleString("en"), "عنصر تُتابَع أسعاره"],
+    ["var(--bar-cyan)", accepted.toLocaleString("en"), "سعر موجود في آخر التشغيلات"],
+    ["var(--bar-steel)", scraped.toLocaleString("en"), "منتج مسحوب في المسح الشامل"],
+    ["var(--navy)", fmtDate(latest), "آخر تحديث"],
+  ].map(([c, v, l]) => `<div class="kpi" style="--kc:${c}"><span class="v">${esc(v)}</span><span class="l">${esc(l)}</span></div>`).join("");
+  const card = ([id, p], i) => {
+    const lr = p.lastRun; const st = lr ? (lr.status === "done" ? "ok" : lr.status === "error" ? "bad" : "warn") : "";
+    const color = p.color || PCOLORS[i % PCOLORS.length];
+    const meta = isPlanned(p)
+      ? `<span class="chip planned">قيد التخطيط</span>${p.plan?.frequency ? `<span class="chip">${esc(p.plan.frequency)}</span>` : ""}`
+      : `<span class="chip live">فعّال</span><span class="chip">${(p.itemCount ?? 0).toLocaleString("en")} عنصر</span>
+         ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))} · ${(homeAcc[id] ?? lr.accepted ?? 0).toLocaleString("en")} سعر</span>` : `<span class="chip">لم يُشغّل بعد</span>`}
+         ${homeProducts[id] ? `<span class="chip">${homeProducts[id].toLocaleString("en")} منتج في المسح الشامل</span>` : ""}`;
+    return `<button class="proj ${isPlanned(p) ? "planned" : ""}" data-open="${esc(id)}" style="border-top-color:${color}">
+      <span class="top"><span class="icon" style="--pc:${color}">${esc(p.short || initials(p.name))}</span><span class="name">${esc(p.name)}</span></span>
+      <span class="desc">${esc(p.description || "")}</span><span class="meta">${meta}</span></button>`;
+  };
+  $("#shelf").innerHTML = live.map(card).join("") || `<div class="panel empty">لا توجد مشاريع فعّالة بعد.</div>`;
+  $("#shelf-planned").innerHTML = planned.map((x, i) => card(x, i + live.length)).join("") + `<button class="proj new" id="new-proj">+ مشروع جديد</button>`;
+  $$("[data-open]").forEach((b) => b.addEventListener("click", () => openProject(b.dataset.open)));
+  $("#new-proj").addEventListener("click", newProject);
+}
+
+// home figures per project from its runs (latest result per source), filled after load
+const homeAcc = {}, homeProducts = {};
+async function loadHomeFigures() {
+  for (const [id, p] of Object.entries(projects)) {
+    if (isPlanned(p)) continue;
+    try {
+      const list = (await db.collection(`projects/${id}/runs`).orderBy("startedAt", "desc").limit(20).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
+      if (!list.length) continue;
+      const L = latestBySource(list);
+      homeAcc[id] = L.sources.reduce((n, v) => n + (v.accepted || 0), 0);
+      homeProducts[id] = L.products;
+    } catch (e) {}
+  }
+  if (!current) renderHome();
+}
+
+// ------------------------------------------------------------ overview tab
+function renderOverviewHead() {
+  const p = P(); if (!p) return;
+  const lr = p.lastRun;
+  $("#ov-head").innerHTML = `<h2 style="margin:0">${esc(p.name)}</h2>
+    ${isPlanned(p) ? `<span class="chip planned">قيد التخطيط</span>` : `<span class="chip live">فعّال</span>`}
+    ${p.schedule?.trigger_id && !isPlanned(p) ? `<span class="chip sched">تشغيل يومي</span>` : ""}
+    ${lr || runs[0] ? `<span class="chip">آخر تشغيل ${esc(fmtDate(runs[0]?.startedAt || lr.at))}</span>` : ""}
+    <p>${esc(p.description || "")}</p>`;
+}
+function renderPlan(p) {
+  const pl = p.plan || {};
+  const li = (xs) => (xs || []).map((x) => `<li>${esc(x)}</li>`).join("");
+  $("#ov-body").innerHTML = `
+    <div class="kpis">
+      <div class="kpi" style="--kc:var(--dd-purple)"><span class="v">${esc(pl.stage || "تخطيط")}</span><span class="l">المرحلة</span></div>
+      <div class="kpi" style="--kc:var(--dd-cyan)"><span class="v">${esc(pl.frequency || "—")}</span><span class="l">تكرار الجمع المقترح</span></div>
+      <div class="kpi" style="--kc:var(--dd-teal)"><span class="v">${esc((pl.sources || []).length)}</span><span class="l">مصادر مقترحة</span></div>
+      <div class="kpi" style="--kc:var(--dd-coral)"><span class="v txt">${esc(pl.target || "—")}</span><span class="l">الهدف</span></div>
+    </div>
+    <div class="plan-grid">
+      <div class="panel"><h3>ماذا نقيس</h3><ul>${li(pl.measures)}</ul></div>
+      <div class="panel"><h3>المصادر المقترحة</h3><ul>${li(pl.sources)}</ul></div>
+      <div class="panel"><h3>طريقة الجمع</h3><ul>${li(pl.method)}</ul></div>
+      <div class="panel"><h3>المخرجات</h3><ul>${li(pl.outputs)}</ul></div>
+    </div>
+    <div class="panel"><h3 style="color:var(--fg)">خطة العمل</h3><ol class="steps">${(pl.steps || []).map((x) => `<li class="${x.done ? "done" : ""}">${x.done ? "✓ " : ""}${esc(x.text || x)}</li>`).join("")}</ol>
+      ${pl.notes ? `<p class="muted">${esc(pl.notes)}</p>` : ""}</div>`;
+}
+const BAR_COLORS = { accepted: "#1ea5e0", review: "#d9a43a", other: "#d9dee6" };   // review stays for runs saved before the yes/no rule
+const REVIEW_RE = /review|substitute|multiple|unverified|differs|conflict|mismatch|size_|unit_label_x/;
+const isCat = (label) => /category|\(category\)/i.test(label || "");
+
+/* The latest result per source (retailer x barcode/category), taken from the newest run that has it: a daily run
+   holds both parts, the runs saved by hand hold one part each. Also the size of the latest bulk catalogue. */
+function latestBySource(list) {
+  const seen = new Map(); let products = 0, categories = 0, catRun = null;
+  for (const r of [...list].sort((a, b) => String(b.startedAt).localeCompare(String(a.startedAt)))) {
+    for (const [k, v] of Object.entries(r.summary || {})) {
+      const kind = isCat(v.label) || /_category$/.test(k) ? "category" : "barcode";
+      const key = kind + "|" + String(v.label).replace(/\s*\((category|barcode)\)\s*/i, "");
+      if (!seen.has(key)) seen.set(key, { ...v, kind, runId: r.id, startedAt: r.startedAt });
+    }
+    if (!catRun && (r.log || []).some((l) => / products from \d+ pages/.test(l))) {
+      catRun = r;
+      for (const l of r.log) { const m = l.match(/:\s*(\d+) products from/); if (m) { products += +m[1]; categories++; } }
+    }
+  }
+  return { sources: [...seen.values()], products, categories };
+}
+
+function srcBars(list) {
+  return list.map((v) => {
+    const review = Object.entries(v.statuses || {}).filter(([k]) => REVIEW_RE.test(k)).reduce((n, [, c]) => n + c, 0);
+    const rest = Math.max(0, v.lines - v.accepted - review), pct = (x) => (v.lines ? (100 * x) / v.lines : 0);
+    return `<div class="srcbar"><span>${esc(String(v.label).replace(/\s*\((category|barcode)\)/i, ""))}</span>
+      <span class="track" role="img" aria-label="${v.accepted} مقبول، ${review} للمراجعة، ${rest} غير موجود من ${v.lines}">
+        <i style="width:${pct(v.accepted)}%;background:${BAR_COLORS.accepted}"></i><i style="width:${pct(review)}%;background:${BAR_COLORS.review}"></i><i style="width:${pct(rest)}%;background:${BAR_COLORS.other}"></i></span>
+      <span class="n">${v.accepted} / ${v.lines}</span></div>`;
+  }).join("");
+}
+
+let ovRows = [];
+function renderOverview() {
+  const p = P(); if (!p) return;
+  renderOverviewHead();
+  if (isPlanned(p)) return renderPlan(p);
+  renderOverviewHead();
+  if (!runs.length) { $("#ov-body").innerHTML = `<div class="panel empty">لم يُحفظ أي تشغيل بعد. شغّل السحب من تبويب «تشغيل» وستظهر النتائج هنا.</div>`; return; }
+  const L = latestBySource(runs);
+  const bc = L.sources.filter((v) => v.kind === "barcode"), cat = L.sources.filter((v) => v.kind === "category");
+  const sum = (xs, f) => xs.reduce((n, v) => n + (v[f] || 0), 0);
+  const nBarcode = basket.length ? basket.filter((i) => gtinValid(i.barcode_raw)).length : (p.barcodeCount ?? 0);
+  const nSpec = basket.length ? basket.filter((i) => i.match_mode ? i.match_mode === "spec" : !gtinValid(i.barcode_raw)).length : (p.specCount ?? 0);
+  const nName = basket.filter((i) => i.match_mode === "name").length, nService = basket.filter((i) => i.match_mode === "service" || i.match_mode === "market").length;
+  const accBc = sum(bc, "accepted"), accCat = sum(cat, "accepted");
+  const lastAt = L.sources.map((v) => v.startedAt).sort().pop();
+  const legend = `<div class="legend"><span style="--c:${BAR_COLORS.accepted}">موجود (بسعر)</span><span style="--c:${BAR_COLORS.other}">غير موجود</span></div>`;
+  const isCpi = p.kind === "barcode";
+  $("#ov-body").innerHTML = `
+    <div class="kpis">
+      ${isCpi ? `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v" id="ov-priced">…</span><span class="l">سلعة مسعّرة من ${basket.length.toLocaleString("en")} سلعة في السلة</span></div>`
+      : `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
+      <div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
+      <div class="kpi" style="--kc:var(--navy)"><span class="v">${esc(fmtDate(lastAt))}</span><span class="l">آخر تحديث</span></div>`}
+    </div>
+    ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر للكيلو أو اللتر أو القطعة (درهم)</option></select>
+        <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
+        <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
+        <select id="ch-w" style="flex:1 1 200px"><option value="w">بالأوزان</option><option value="eq">بدون أوزان</option></select></div>
+      <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
+      <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
+    ${isCpi ? `<div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
+      <p class="muted" style="margin:0 0 10px">ملفات نصية بسيطة (UTF-8، بدون صور أو تنسيق) فيها كل ما جُمع: كل التشغيلات وكل الأسطر، الموجود وغير الموجود، مع أعمدة السلة. لتقرر Dataiku كيف يُحسب الرقم القياسي.</p>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button><button class="primary" id="dk-pp">لوحة منتجات الأصناف بلا باركود (CSV)</button>` : ""}</div></div>` : ""}
+    ${isCpi ? `<div class="panel" id="cat-panel"><div class="bar-title navy">كتالوج المنتجات اليومي · كل أقسام CPI</div><div id="cat-body" class="muted">يُحمَّل…</div></div>` : ""}
+    <div class="panel">
+      <div class="bar-title navy">الأسعار</div>
+      ${isCpi ? `<div class="row"><input id="ov-q" placeholder="ابحث باسم الصنف أو المنتج" style="flex:2 1 220px">
+        <select id="ov-src" style="flex:1 1 160px"><option value="">كل المصادر</option><option value="barcode">بحث بالباركود</option><option value="category">مسح شامل</option></select>
+        <select id="ov-ret" style="flex:1 1 140px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
+        <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
+      <div class="tw"><table><thead><tr><th>صورة</th><th>الصنف</th><th>المتجر</th><th>المصدر</th><th>المنتج في المتجر</th><th>السعر (درهم)</th><th>سعر الوحدة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="8" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`
+      : `<div class="row"><input id="ov-q" placeholder="ابحث باسم السلعة أو الفئة" style="flex:2 1 220px">
+        <select id="ov-date" style="flex:1 1 160px"></select>
+        <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
+      <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right">السلعة</th><th style="text-align:right">الفئة</th><th style="text-align:right">الوحدة</th><th style="text-align:right">السعر</th><th style="text-align:right;min-width:220px">الرسم الحي · حركة السعر عبر الأيام</th></tr></thead><tbody id="ov-rows"><tr><td colspan="5" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`}
+      <p class="muted" id="ov-count"></p>
+    </div>`;
+  $("#ov-dl").onclick = () => $("#r-export-all").click();
+  if ($("#dk-runs")) $("#dk-runs").onclick = (e) => dataikuRuns(e.currentTarget);
+  if ($("#dk-cat")) $("#dk-cat").onclick = (e) => dataikuCatalogue(e.currentTarget);
+  if ($("#dk-hist")) $("#dk-hist").onclick = (e) => dataikuHistory(e.currentTarget);
+  if ($("#dk-pp")) $("#dk-pp").onclick = (e) => dataikuProducts(e.currentTarget);
+  ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
+  if (isCpi) loadCatalogue();
+  if (isCpi) loadCharts();
+  if (isCpi) loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
+  else loadOvRows(runs.map((r) => r.id), null);   // global prices: every saved day, newest first
+}
+async function loadOvRows(runIds, sources) {
+  const pid = current; const out = [];
+  try {
+    for (const id of runIds) {
+      const chunks = await rowDocs(pid, runs.find((r) => r.id === id) || { id });
+      for (const c of chunks) for (const r of plain(c).rows || []) {
+        const kind = r.source === "category" || isCat(r.actor) ? "category" : "barcode";
+        const ret = r.retailer || (/lulu/i.test(r.actor) ? "lulu" : /carrefour/i.test(r.actor) ? "carrefour" : r.actor);
+        // keep a row only from the run that is the latest for its source
+        if (sources && !sources.some((v) => v.runId === id && v.kind === kind && (!v.label || String(v.label).toLowerCase().includes(String(ret).toLowerCase().slice(0, 4))))) continue;
+        if (r.accepted !== "yes") continue;
+        const run = runs.find((x) => x.id === id);
+        out.push({ ...r, kind, ret, run_date: r.run_date || dubaiDay(run?.startedAt) });
+      }
+    }
+  } catch (e) { if (current === pid) $("#ov-rows").innerHTML = `<tr><td colspan="7">${esc(dbErr(e))}</td></tr>`; return; }
+  if (current !== pid) return;
+  ovRows = out; drawOvRows();
+  if ($("#ov-priced")) $("#ov-priced").textContent = new Set(out.map((r) => r.item_code).filter(Boolean)).size.toLocaleString("en");
+  for (const id of runIds) await loadThumbs(pid, runs.find((r) => r.id === id));
+  if (current === pid) drawOvRows();
+}
+function dubaiDay(iso) {
+  if (!iso) return "";
+  try { return new Date(iso).toLocaleDateString("en-CA", { timeZone: "Asia/Dubai" }); } catch (e) { return String(iso).slice(0, 10); }
+}
+function drawOvRows() {
+  if (P()?.kind !== "barcode") return drawGlobalRows();
+  const q = ($("#ov-q")?.value || "").trim().toLowerCase(), src = $("#ov-src")?.value, ret = $("#ov-ret")?.value;
+  const rows = ovRows.filter((r) => (!src || r.kind === src) && (!ret || r.ret === ret) && (!q || [r.name, r.name_ar, r.title, r.item_code, r.commodity].join(" ").toLowerCase().includes(q)));
+  const basis = { kg: "/كغ", l: "/لتر", pc: "/حبة", bunch: "/حزمة" };
+  $("#ov-rows").innerHTML = rows.slice(0, 300).map((r) => `<tr>
+    <td>${r.photo ? `<img class="thumb" src="${esc(photoSrc(r.photo))}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>
+    <td>${esc(r.name || r.name_ar || r.commodity || "")} <span class="muted mono">${esc(r.item_code || "")}</span></td>
+    <td>${r.ret === "carrefour" ? "Carrefour" : r.ret === "lulu" ? "Lulu" : esc(r.ret || "")}</td>
+    <td><span class="chip">${r.kind === "category" ? "مسح شامل" : "باركود"}</span></td>
+    <td>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title || "")}</a>` : esc(r.title || r.commodity || "")}</td>
+    <td class="num"><b>${esc(r.price ?? "")}</b></td>
+    <td class="num">${r.unit_price ? esc(r.unit_price) + (basis[r.price_basis] || "") : ""}</td>
+    <td class="num">${esc(fmtDate(r.run_date))}</td></tr>`).join("") || `<tr><td colspan="8" class="empty">لا أسعار مطابقة.</td></tr>`;
+  $("#ov-count").textContent = `${rows.length.toLocaleString("en")} سعر${rows.length > 300 ? " · يظهر أول 300؛ نزّل الملف لرؤية الكل" : ""}`;
+}
+
+function drawGlobalRows() {
+  const sel = $("#ov-date"); if (!sel) return;
+  const days = [...new Set(ovRows.map((r) => r.run_date).filter(Boolean))].sort().reverse();
+  if (sel.options.length !== days.length + 1) {
+    const keep = sel.value || days[0] || "";
+    sel.innerHTML = days.map((d) => `<option value="${esc(d)}">${esc(d)}</option>`).join("") + `<option value="">كل الأيام (${days.length})</option>`;
+    sel.value = keep;
+  }
+  const q = ($("#ov-q")?.value || "").trim().toLowerCase(), day = sel.value;
+  // one row per commodity; its chart follows the price over every saved day (up to the chosen day)
+  const by = new Map();
+  for (const r of ovRows) {
+    const name = r.commodity || r.name || ""; if (!name) continue;
+    const k = (r.category || "") + "|" + name + "|" + (r.unit || "");
+    if (!by.has(k)) by.set(k, { k, name, category: r.category || "", unit: r.unit || "", pts: new Map() });
+    const price = Number(r.price); if (Number.isFinite(price) && r.run_date) by.get(k).pts.set(r.run_date, { price, pct: r.pct, ytd: r.ytd });
+  }
+  gcSeries = [...by.values()].map((c) => ({ ...c, series: [...c.pts.entries()].filter(([d]) => !day || d <= day).sort((x, y) => x[0].localeCompare(y[0])) }))
+    .filter((c) => c.series.length && (!q || [c.name, c.category].join(" ").toLowerCase().includes(q)))
+    .sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+  gcOpen = gcOpen && gcSeries.some((c) => c.k === gcOpen) ? gcOpen : null;
+  $("#ov-rows").innerHTML = gcSeries.slice(0, 400).map((c, i) => `<tr class="gc-row" data-i="${i}" style="cursor:pointer">
+    <td style="text-align:right"><b>${esc(c.name)}</b></td><td style="text-align:right">${esc(c.category)}</td><td style="text-align:right">${esc(c.unit)}</td>${gcSpark(c)}</tr>`).join("") || `<tr><td colspan="5" class="empty">لا أسعار مطابقة.</td></tr>`;
+  $("#ov-rows").onclick = (e) => { const tr = e.target.closest(".gc-row"); if (tr) gcToggle(Number(tr.dataset.i), tr); };
+  $("#ov-count").textContent = `${gcSeries.length.toLocaleString("en")} سلعة · ${days.length} يوماً محفوظاً (${days[days.length - 1] || ""} إلى ${days[0] || ""}) · انقر سلعة لفتح الرسم الكامل${gcSeries.length > 400 ? " · يظهر أول 400؛ نزّل الملف لرؤية الكل" : ""}`;
+}
+let gcSeries = [], gcOpen = null, gcChart = null;
+function gcSpark(c) {
+  const v = c.series.map((x) => x[1].price), n = v.length, last = v[n - 1], first = v[0];
+  const pct = n > 1 && first ? (last / first - 1) * 100 : 0;
+  const col = n < 2 ? "var(--muted)" : pct > 0 ? "#1a8f4e" : pct < 0 ? "#c0392b" : "var(--muted)";
+  const W = 180, H = 34, lo = Math.min(...v), hi = Math.max(...v), span = hi - lo || 1;
+  const xy = v.map((y, i) => [n === 1 ? W / 2 : 4 + (i * (W - 8)) / (n - 1), H - 4 - ((y - lo) / span) * (H - 8)]);
+  const line = n > 1 ? `<polyline fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" points="${xy.map((p) => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ")}"/>` : "";
+  const tip = c.series.map(([d, o]) => `${d}: ${o.price}`).join("\n");
+  return `<td class="num" style="text-align:right;white-space:nowrap"><b>${last}</b><br><span style="color:${col};font-size:11px">${n > 1 ? (pct > 0 ? "▲ " : pct < 0 ? "▼ " : "") + pct.toFixed(2) + "%" : "يوم واحد"}</span></td>
+    <td style="direction:ltr"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img"><title>${esc(tip)}</title>${line}<circle cx="${xy[n - 1][0].toFixed(1)}" cy="${xy[n - 1][1].toFixed(1)}" r="3.2" fill="${col}"/></svg></td>`;
+}
+async function gcToggle(i, tr) {
+  const c = gcSeries[i]; if (!c) return;
+  const open = tr.nextElementSibling?.classList.contains("gc-detail");
+  document.querySelectorAll(".gc-detail").forEach((x) => x.remove()); if (gcChart) { gcChart.destroy(); gcChart = null; }
+  if (open) { gcOpen = null; return; }
+  gcOpen = c.k;
+  const d = document.createElement("tr"); d.className = "gc-detail";
+  d.innerHTML = `<td colspan="5"><div style="position:relative;height:300px"><canvas id="gc-canvas"></canvas></div><p class="muted" style="margin:6px 0 0">${esc(c.name)} · ${esc(c.category)} · ${esc(c.unit)} · ${c.series.length} يوماً</p></td>`;
+  tr.after(d);
+  try { await loadChartLib(); } catch (e) { d.querySelector("p").textContent = "تعذّر تحميل مكتبة الرسم: " + (e?.message || e); return; }
+  gcChart = new window.Chart(d.querySelector("#gc-canvas"), { type: "line",
+    data: { labels: c.series.map((x) => x[0]), datasets: [{ label: `${c.name} (${c.unit})`, data: c.series.map((x) => x[1].price), borderColor: "#1678be", backgroundColor: "rgba(22,120,190,.12)", fill: true, tension: 0.25, pointRadius: 4, borderWidth: 2 }] },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false },
+      plugins: { legend: { display: false }, tooltip: { rtl: true, textDirection: "rtl", callbacks: { afterLabel: (ctx) => { const o = c.series[ctx.dataIndex][1]; return `التغير اليومي: ${o.pct ?? "-"}  ·  منذ بداية السنة: ${o.ytd ?? "-"}`; } } } },
+      scales: { y: { title: { display: true, text: c.unit } } } } });
+}
+
+async function newProject() {
+  let id = "p" + Date.now().toString(36);
+  const p = { name: "مشروع جديد", description: "", kind: "list", list_key: "name", order: Object.keys(projects).length + 1, itemCount: 0,
+    columns: [{ key: "name", label: "الاسم" }, { key: "enabled", label: "مفعّل", type: "bool" }],
+    actors: { main: { label: "Actor", enabled: true, actor: "apify/web-fetch", mode: "single", input: { url: "https://example.com", formats: ["markdown"] }, parser: "generic", fields: {}, dataset_fields: "", batch_size: 10, parallel_runs: 1 } } };
+  try { await db.doc(`projects/${id}`).set(p); projects[id] = p; await openProject(id); switchTab("settings"); toast("أُنشئ المشروع؛ سمّه وعدّل أعمدته"); }
+  catch (e) { toast(dbErr(e), true); }
+}
+async function openProject(id) {
+  if (basketDirty && current && current !== id) { toast("احفظ تعديلات السلة أولاً أو أعد تحميل الصفحة لتجاهلها", true); return; }
+  current = id; basketDirty = false;
+  $("#title").textContent = P().name; $("#eyebrow").textContent = isPlanned(P()) ? "مشروع قادم · قيد التخطيط" : "مشروع فعّال · منصة جمع الأسعار"; $("#crumb").hidden = false;
+  $("#view-home").hidden = true; $("#view-project").hidden = false;
+  $$("#tabs button").forEach((b) => (b.hidden = isPlanned(P()) && !["overview", "settings"].includes(b.dataset.tab)));
+  switchTab("overview"); runs = []; renderOverview();
+  try { location.hash = id.replace(/[^\w.~-]/g, ""); } catch (e) {}
+  basket = []; renderBasket(); renderActors(); renderSettings(); renderRunPicks(); renderJob();
+  try { basket = await loadBasket(id); } catch (e) { toast("تعذّر تحميل السلة: " + dbErr(e), true); }
+  bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); renderQuick();
+  if (!isPlanned(P())) { await loadRuns(); renderOverview(); renderSchedule(); }
+}
+$("#go-home").addEventListener("click", () => { if (basketDirty) return toast("احفظ تعديلات السلة أولاً", true); current = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} renderHome(); });
+
+function switchTab(t) {
+  $$("#tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
+  $$("#view-project .tab").forEach((x) => (x.hidden = x.id !== "tab-" + t));
+}
+$$("#tabs button").forEach((b) => b.addEventListener("click", () => switchTab(b.dataset.tab)));
+
+// ------------------------------------------------------------ run tab
+function hasGroups() { return basket.some((i) => i.group_code); }
+function renderRunPicks() {
+  const p = P(); if (!p) return;
+  $("#run-actors").innerHTML = Object.entries(p.actors || {}).map(([k, a]) => `<label><input type="checkbox" value="${esc(k)}" ${a.enabled ? "checked" : ""}>${esc(a.label || k)}</label>`).join("") || `<span class="muted">لا يوجد Actor؛ أضف واحداً من تبويب الـ Actors.</span>`;
+  const groups = groupsOf(basket);
+  $("#run-groups-box").hidden = !groups.length;
+  $("#run-codes-box").hidden = p.kind !== "barcode";
+  $("#run-groups").innerHTML = groups.map(([c, n]) => `<label><input type="checkbox" value="${esc(c)}">${esc(n)}</label>`).join("");
+  $$("#run-actors input, #run-groups input").forEach((i) => i.addEventListener("change", updateRunCount));
+  updateRunCount();
+}
+function runSelection() {
+  const groups = $$("#run-groups input:checked").map((i) => i.value);
+  const codes = $("#run-codes").value.split(/[\s,،]+/).filter(Boolean);
+  let items = basket;
+  if (groups.length) items = items.filter((i) => groups.includes(i.group_code));
+  if (codes.length && P().kind === "barcode") items = items.filter((i) => codes.includes(i.item_code));
+  return { actors: $$("#run-actors input:checked").map((i) => i.value), items };
+}
+function updateRunCount() {
+  const s = runSelection(), p = P();
+  if (p.kind === "barcode") {
+    const n = s.items.filter((i) => gtinValid(i.barcode_raw)).length;
+    $("#run-count").textContent = `${n} صنف بباركود صالح سيُبحث عنه عبر ${s.actors.length} Actor. الأصناف بدون باركود لا يشملها هذا التشغيل.`;
+  } else if (p.kind === "list") {
+    const n = s.items.filter((i) => i.enabled !== false && i.enabled !== "no").length;
+    $("#run-count").textContent = n ? `${n} عنصر مفعّل سيُستخرج من الصفحة.` : "السلة فارغة: ستُحفظ كل الصفوف التي في الصفحة.";
+  } else $("#run-count").textContent = "ستُحفظ كل الصفوف التي يرجعها الـ Actor.";
+}
+$("#run-codes").addEventListener("input", updateRunCount);
+
+$("#btn-run").addEventListener("click", async () => {
+  if (!mcp) return toast("Apify غير متاح في هذا العرض؛ افتح الصفحة داخل claude.ai مع موصل Apify", true);
+  if (job?.running) return;
+  const sel = runSelection(), p = P();
+  if (!sel.actors.length) return toast("اختر Actor واحداً على الأقل", true);
+  if (p.kind === "barcode" && !sel.items.some((i) => gtinValid(i.barcode_raw))) return toast("لا يوجد صنف بباركود صالح في هذا الاختيار", true);
+  if (basketDirty) toast("التشغيل يستخدم السلة كما تظهر الآن، حتى قبل الحفظ");
+  startJob(current, sel);
+});
+$("#btn-stop").addEventListener("click", () => { if (job) { job.stop = true; log("طُلب الإيقاف: لن تبدأ دفعات جديدة"); } });
+
+function log(m) { if (!job) return; job.log.push(`${new Date().toLocaleTimeString("en-GB")}  ${m}`); renderJob(); }
+function renderJob() {
+  const box = $("#job");
+  if (!job || job.pid !== current) { box.hidden = true; $("#btn-run").disabled = !!job?.running; $("#btn-stop").disabled = true; return; }
+  box.hidden = false;
+  const st = job.running ? ["يعمل", "warn"] : job.status === "done" ? ["انتهى", "ok"] : job.status === "stopped" ? ["أُوقف", "warn"] : ["خطأ", "bad"];
+  $("#job-state").textContent = st[0]; $("#job-state").className = "chip " + st[1];
+  $("#job-bars").innerHTML = Object.entries(job.progress).map(([k, g]) => `<div><div class="row" style="justify-content:space-between"><span>${esc(g.label)}</span><span class="muted mono">${g.done}/${g.total}${g.failed ? ` · ${g.failed} failed` : ""}</span></div><div class="bar"><i style="width:${g.total ? (100 * g.done) / g.total : 0}%"></i></div></div>`).join("");
+  const l = $("#job-log"); l.textContent = job.log.join("\n"); l.scrollTop = l.scrollHeight;
+  $("#job-summary").innerHTML = job.summary ? summaryHtml(job.summary) : "";
+  $("#btn-run").disabled = job.running; $("#btn-stop").disabled = !job.running;
+}
+function summaryHtml(sum) {
+  return `<div class="tw"><table><thead><tr><th>الـ Actor</th><th>صفوف</th><th>مقبول</th><th>التفاصيل</th></tr></thead><tbody>${Object.values(sum).map((v) =>
+    `<tr><td>${esc(v.label)}</td><td class="num">${v.lines}</td><td class="num"><b>${v.accepted}</b></td><td>${Object.entries(v.statuses).map(([s, n]) => `${esc(STATUS[s]?.[0] || s)}: ${n}`).join(" · ")}</td></tr>`).join("")}</tbody></table></div>`;
+}
+
+async function startJob(pid, sel) {
+  const p = projects[pid];
+  job = { pid, running: true, stop: false, status: "running", log: [], progress: {}, summary: null };
+  const runId = new Date().toISOString().replace(/[-:]/g, "").slice(0, 13) + "-" + Math.random().toString(36).slice(2, 6);
+  const startedAt = new Date().toISOString();
+  log(`${p.name}: ${sel.actors.length} Actor`);
+  const results = [], summary = {};
+  try {
+    for (const key of sel.actors) {
+      const cfg = p.actors[key], label = cfg.label || key;
+      const runs = buildRuns(cfg, sel.items);
+      job.progress[key] = { label, done: 0, total: runs.length, failed: 0 };
+      log(`${label}: ${runs.length} run(s) of ${cfg.actor}`);
+      const rows = [], searched = new Set(), failed = new Set(); let nextIdx = 0;
+      const worker = async () => {
+        while (nextIdx < runs.length && !job.stop) {
+          const r = runs[nextIdx++];
+          try {
+            const { runId: rid, items } = await runActor(cfg, r.input, () => job.stop);
+            const parsed = PARSERS[cfg.parser](items, r.batch, cfg);
+            rows.push(...parsed.rows); parsed.searched?.forEach((c) => searched.add(c));
+            log(`${label}: run ${rid} — ${items.length} items, ${parsed.rows.length} rows`);
+          } catch (e) {
+            (r.batch || []).forEach((c) => failed.add(c)); job.progress[key].failed++;
+            log(`${label}: ${r.batch ? r.batch[0] + "…" : "run"} failed: ${mcpErr(e)}`);
+          }
+          job.progress[key].done++; renderJob();
+        }
+      };
+      await Promise.all(Array.from({ length: Math.max(1, Math.min(+cfg.parallel_runs || 1, runs.length)) }, worker));
+      let res;
+      if (p.kind === "barcode") res = matchBarcode(key, label, sel.items, rows, searched, failed);
+      else if (p.kind === "list") res = matchList(label, sel.items, rows, p.list_key || "name");
+      else res = rows.map((r) => ({ actor: label, ...r, status: "row", accepted: "yes" }));
+      if (p.kind !== "barcode" && failed.size === 0 && job.progress[key].failed) res = [];
+      results.push(...res);
+      const statuses = {}; res.forEach((r) => (statuses[r.status] = (statuses[r.status] || 0) + 1));
+      summary[key] = { label, lines: res.length, accepted: res.filter((r) => r.accepted === "yes").length, statuses };
+      log(`${label}: ${summary[key].accepted} of ${res.length} accepted`);
+    }
+    job.status = job.stop ? "stopped" : "done";
+  } catch (e) { job.status = "error"; log("ERROR: " + mcpErr(e)); }
+  job.summary = summary; job.running = false; renderJob();
+  try {
+    const n = await saveChunks(`projects/${pid}/runs/${runId}/rows`, "rows", results, []);
+    const accepted = results.filter((r) => r.accepted === "yes").length;
+    await db.doc(`projects/${pid}/runs/${runId}`).set({ startedAt, finishedAt: new Date().toISOString(), status: job.status, summary, chunks: n, count: results.length, accepted, log: job.log.slice(-200) });
+    projects[pid] = { ...projects[pid], lastRun: { at: startedAt, status: job.status, accepted } };
+    await db.doc(`projects/${pid}`).update({ lastRun: projects[pid].lastRun });
+    log(`saved run ${runId}`); toast("انتهى التشغيل وحُفظت النتائج");
+    if (current === pid) loadRuns();
+  } catch (e) { log("could not save results: " + dbErr(e)); toast(dbErr(e), true); }
+}
+
+// ------------------------------------------------------------ basket tab
+let bPage = 0; const PER = 50;
+function cols() { return P()?.columns || []; }
+function groupsOf(items) { const g = new Map(); items.forEach((i) => i.group_code && g.set(i.group_code, i.group_name || i.group_code)); return [...g].sort(); }
+function fillGroupSelect() {
+  const g = groupsOf(basket); $("#b-group").hidden = !g.length;
+  $("#b-group").innerHTML = `<option value="">كل المجموعات</option>` + g.map(([c, n]) => `<option value="${esc(c)}">${esc(n)}</option>`).join("");
+}
+function filtered() {
+  const q = $("#b-search").value.trim().toLowerCase(), g = $("#b-group").value;
+  return basket.map((it, idx) => ({ it, idx })).filter(({ it }) => (!g || it.group_code === g) && (!q || cols().map((c) => it[c.key]).join(" ").toLowerCase().includes(q)));
+}
+function cell(it, c) {
+  const v = it[c.key];
+  if (c.type === "bool") return `<td><input type="checkbox" data-tog="${esc(c.key)}" ${v !== false && v !== "no" ? "checked" : ""} aria-label="${esc(c.label)}"></td>`;
+  if (c.key === "barcode_raw" && v) return `<td class="num mono">${esc(v)}${gtinValid(v) ? "" : ` <span class="chip warn">غير صالح</span>`}</td>`;
+  if (c.key === "match_mode") return `<td>${esc({ barcode: "باركود", spec: "مسح الأقسام", name: "اسم/موديل (كتالوج)", service: "خدمة", market: "سعر سوق" }[v] || v || "")}</td>`;
+  if (c.key === "qty_raw" && P().kind === "barcode") return `<td>${esc(v)}${v && !itemQty(it) ? ` <span class="chip warn">لم تُقرأ</span>` : ""}</td>`;
+  return `<td class="${c.type === "code" ? "num mono" : ""}">${esc(v)}</td>`;
+}
+function renderBasket() {
+  const p = P(); if (!p) return;
+  $("#b-table thead").innerHTML = `<tr>${cols().map((c) => `<th>${esc(c.label)}</th>`).join("")}<th></th></tr>`;
+  const rows = filtered(), pages = Math.max(1, Math.ceil(rows.length / PER)); bPage = Math.min(bPage, pages - 1);
+  $("#b-table tbody").innerHTML = rows.length ? rows.slice(bPage * PER, (bPage + 1) * PER).map(({ it, idx }) =>
+    `<tr data-i="${idx}">${cols().map((c) => cell(it, c)).join("")}<td style="white-space:nowrap"><button class="ghost" data-edit>تعديل</button><button class="ghost" data-del style="color:var(--bad)">حذف</button></td></tr>`).join("")
+    : `<tr><td colspan="${cols().length + 1}" class="empty">${basket.length ? "لا نتائج لهذا البحث." : "السلة فارغة. أضف عنصراً أو استورد ملف CSV بأعمدة المشروع."}</td></tr>`;
+  $("#b-page").textContent = `${bPage + 1} / ${pages}`;
+  $("#b-info").textContent = `${basket.length} عنصر${basketDirty ? " · تعديلات غير محفوظة" : ""}`;
+  $$("#b-table [data-edit]").forEach((b) => b.addEventListener("click", () => editItem(+b.closest("tr").dataset.i)));
+  $$("#b-table [data-del]").forEach((b) => b.addEventListener("click", () => { basket.splice(+b.closest("tr").dataset.i, 1); basketDirty = true; renderBasket(); toast("حُذف العنصر؛ احفظ السلة لتثبيت الحذف"); }));
+  $$("#b-table [data-tog]").forEach((b) => b.addEventListener("change", () => { basket[+b.closest("tr").dataset.i][b.dataset.tog] = b.checked; basketDirty = true; renderBasket(); }));
+}
+$("#b-search").addEventListener("input", () => { bPage = 0; renderBasket(); });
+$("#b-group").addEventListener("change", () => { bPage = 0; renderBasket(); });
+$("#b-prev").addEventListener("click", () => { bPage = Math.max(0, bPage - 1); renderBasket(); });
+$("#b-next").addEventListener("click", () => { bPage++; renderBasket(); });
+
+let editing = null;
+function editItem(idx) {
+  editing = idx; const it = idx === null ? {} : basket[idx];
+  $("#dlg-title").textContent = idx === null ? "عنصر جديد" : "تعديل عنصر";
+  $("#dlg-fields").innerHTML = cols().map((c, i) => c.type === "bool"
+    ? `<label class="f"><span>${esc(c.label)}</span><select id="fld-${i}" name="${esc(c.key)}"><option value="yes">نعم</option><option value="no">لا</option></select></label>`
+    : `<label class="f"><span>${esc(c.label)}</span><input id="fld-${i}" name="${esc(c.key)}" ${c.type === "code" ? 'dir="ltr" class="mono"' : ""}></label>`).join("");
+  cols().forEach((c, i) => { const el = $("#fld-" + i); el.value = c.type === "bool" ? (it[c.key] === false || it[c.key] === "no" ? "no" : "yes") : it[c.key] ?? ""; });
+  preview(); $("#dlg").showModal();
+}
+function formItem() {
+  const it = editing === null ? {} : { ...basket[editing] };
+  cols().forEach((c, i) => { const v = $("#fld-" + i).value.trim(); it[c.key] = c.type === "bool" ? v !== "no" : v; });
+  if (P().kind === "barcode") {
+    const q = parseQty(it.qty_raw); it.qty_total = q?.total ?? null; it.qty_unit = q?.unit ?? "";
+    if (gtinValid(it.barcode_raw)) it.match_mode = "barcode"; else if (!it.match_mode || it.match_mode === "barcode") it.match_mode = "spec";
+  }
+  return it;
+}
+function preview() {
+  if (P().kind !== "barcode") return ($("#dlg-preview").textContent = "");
+  const it = formItem(), q = itemQty(it);
+  $("#dlg-preview").textContent = `الباركود: ${it.barcode_raw ? (gtinValid(it.barcode_raw) ? "صالح، يُبحث بـ " + searchForm(it.barcode_raw) : "غير صالح، لن يُبحث عنه") : "لا يوجد"} · الحجم: ${q ? q.total + " " + q.unit : "لم يُقرأ، ستذهب النتيجة للمراجعة"}`;
+}
+$("#dlg-form").addEventListener("input", preview);
+$("#dlg").addEventListener("close", () => {
+  if ($("#dlg").returnValue !== "ok") return;
+  const it = formItem();
+  if (editing === null) basket.unshift(it); else basket[editing] = it;
+  basketDirty = true; fillGroupSelect(); renderBasket(); renderRunPicks();
+});
+$("#b-add").addEventListener("click", () => editItem(null));
+$("#b-save").addEventListener("click", async () => {
+  try {
+    await saveChunks(`projects/${current}/basket`, "items", basket);
+    const nb = basket.filter((i) => gtinValid(i.barcode_raw)).length;
+    const cnt = (m) => basket.filter((i) => i.match_mode === m).length;
+    await saveProject({ itemCount: basket.length, barcodeCount: nb, specCount: basket.some((i) => i.match_mode) ? cnt("spec") : basket.length - nb, nameCount: cnt("name"), serviceCount: cnt("service") + cnt("market") });
+    basketDirty = false; renderBasket(); renderRunPicks(); toast(`حُفظت السلة (${basket.length} عنصر)`);
+  } catch (e) { toast(dbErr(e), true); }
+});
+
+function toCsv(rows, columns) {
+  const q = (v) => { const s = v === null || v === undefined ? "" : typeof v === "object" ? JSON.stringify(v) : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+  return "﻿" + [columns.join(","), ...rows.map((r) => columns.map((c) => q(r[c])).join(","))].join("\n");
+}
+function parseCsv(text) {
+  const rows = []; let row = [], cur = "", inQ = false;
+  text = text.replace(/^﻿/, "");
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQ) { if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else inQ = false; } else cur += ch; }
+    else if (ch === '"') inQ = true; else if (ch === ",") { row.push(cur); cur = ""; }
+    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && text[i + 1] === "\n") i++; row.push(cur); rows.push(row); row = []; cur = ""; }
+    else cur += ch;
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  const [head, ...body] = rows.filter((r) => r.some((x) => x.trim()));
+  return body.map((r) => Object.fromEntries(head.map((h, i) => [h.trim(), r[i] ?? ""])));
+}
+async function offerFile(filename, text) {
+  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
+  try { await downloads.save({ filename, data: new Blob([text], { type: "text/csv;charset=utf-8" }) }); }
+  catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || "لم يكتمل التنزيل", true); }
+}
+// ------------------------------------------------------------ Excel download in the catalogue layout (navy header, white rows, photos)
+const EXCELJS = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js";
+let excelLib = null;
+function loadExcel() {
+  return excelLib ??= new Promise((ok, fail) => {
+    const s = document.createElement("script"); s.src = EXCELJS;
+    s.onload = () => ok(window.ExcelJS); s.onerror = () => { excelLib = null; fail(new Error("تعذّر تحميل مكتبة Excel")); };
+    document.head.appendChild(s);
+  });
+}
+const OUTLET = { carrefour: "Carrefour", lulu: "Lulu", spinneys: "Spinneys" };
+function catalogueSheet(rows) {
+  const found = rows.filter((r) => r.accepted === "yes" && r.title)
+    .sort((a, b) => String(b.run_date).localeCompare(String(a.run_date)) || String(a.group_code).localeCompare(String(b.group_code)) || String(a.retailer).localeCompare(String(b.retailer)));
+  return {
+    title: "Dubai bulk product catalogue",
+    subtitle: `${found.length.toLocaleString("en")} prices • ${[...new Set(found.map((r) => r.run_date))].sort().join(", ")} • Choose Yes in the first column, then filter`,
+    headers: ["Select", "Outlet", "Product name", "Photo", "Price (AED)", "Pack / size", "Brand", "Retailer ID", "Availability", "Category", "Product URL", "Photo URL", "Collected (Dubai)", "Notes"],
+    widths: [8, 11, 42, 13, 11, 14, 14, 12, 12, 24, 46, 30, 16, 46],
+    photoCol: 4, priceCols: [5], select: true,
+    rows: found.map((r) => ["No", OUTLET[r.retailer] || r.retailer || "", r.title, r.photo || "", r.price === "" ? null : Number(r.price),
+      r.size || r.basket_qty || "", r.brand || "", r.retailer_id || (String(r.url || "").match(/\/p\/([^/?]+)/) || [])[1] || "", "Available",
+      [r.group_name, r.section].filter(Boolean).join(" · "), r.url || "", r.photo || "", r.run_date || "",
+      [r.note, `Basket item: ${r.name || ""} (${r.item_code || ""})`].filter(Boolean).join(" · ")]),
+  };
+}
+function globalSheet(rows) {
+  const ok = rows.filter((r) => r.accepted === "yes").sort((a, b) => String(b.run_date).localeCompare(String(a.run_date)) || String(a.category).localeCompare(String(b.category)));
+  const num = (v) => (v === "" || v == null || isNaN(Number(String(v).replace(/[%,]/g, ""))) ? (v ?? "") : Number(String(v).replace(/[%,]/g, "")));
+  return {
+    title: "Global commodity prices",
+    subtitle: `${ok.length.toLocaleString("en")} prices • ${[...new Set(ok.map((r) => r.run_date))].length} days • Trading Economics`,
+    headers: ["Commodity", "Category", "Price", "Unit", "Change", "Change %", "Weekly %", "Monthly %", "YTD %", "YoY %", "Price date", "Collected (Dubai)"],
+    widths: [30, 16, 12, 18, 10, 10, 10, 10, 10, 10, 14, 16], priceCols: [3, 5],
+    rows: ok.map((r) => [r.commodity || r.name || "", r.category || "", num(r.price), r.unit || "", num(r.change), r.pct ?? "", r.weekly ?? "", r.monthly ?? "", r.ytd ?? "", r.yoy ?? "", r.price_date || "", r.run_date || ""]),
+  };
+}
+async function offerXlsx(filename, sheet) {
+  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
+  if (!sheet.rows.length) return toast("لا توجد أسعار للتنزيل", true);
+  const ExcelJS = await loadExcel();
+  const wb = new ExcelJS.Workbook();
+  const ws = wb.addWorksheet(sheet.photoCol ? "Catalogue" : "Prices", { views: [{ state: "frozen", ySplit: 5 }] });
+  ws.getCell("A2").value = sheet.title; ws.getCell("A2").font = { size: 16, bold: true, color: { argb: "FF173653" } };
+  ws.getCell("A3").value = sheet.subtitle; ws.getCell("A3").font = { size: 10, color: { argb: "FF627184" } };
+  const head = ws.getRow(5); head.height = 32; const imgIds = new Map();
+  sheet.headers.forEach((h, i) => {
+    const c = head.getCell(i + 1); c.value = h;
+    c.font = { bold: true, color: { argb: "FFFFFFFF" } };
+    c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF223F62" } };
+    c.alignment = { horizontal: "center", vertical: "middle", wrapText: true };
+  });
+  sheet.widths.forEach((w, i) => (ws.getColumn(i + 1).width = w));
+  sheet.rows.forEach((vals, k) => {
+    const row = ws.getRow(6 + k);
+    vals.forEach((v, i) => {
+      const c = row.getCell(i + 1);
+      if (sheet.photoCol === i + 1) {
+        c.value = null;
+        if (v && thumbs.has(v)) {
+          if (!imgIds.has(v)) imgIds.set(v, wb.addImage({ base64: thumbs.get(v), extension: "jpeg" }));
+          ws.addImage(imgIds.get(v), { tl: { col: i + 0.1, row: 5 + k + 0.1 }, ext: { width: 72, height: 72 } });
+        }
+      } else c.value = v === "" ? null : v;
+      c.alignment = { vertical: "middle", wrapText: i === 2 };
+      if (sheet.priceCols.includes(i + 1)) c.numFmt = "#,##0.00";
+      if (sheet.select && i === 0) c.dataValidation = { type: "list", allowBlank: false, formulae: ['"No,Yes"'] };
+    });
+    if (sheet.photoCol) row.height = 60;
+  });
+  ws.autoFilter = { from: { row: 5, column: 1 }, to: { row: 5 + sheet.rows.length, column: sheet.headers.length } };
+  const buf = await wb.xlsx.writeBuffer();
+  try { await downloads.save({ filename, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) }); }
+  catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || "لم يكتمل التنزيل", true); }
+}
+// ------------------------------------------------------------ daily product catalogue (all CPI divisions), Excel per group
+const GROUP_AR = { all: "كل الأقسام", food: "الأغذية والبقالة", household: "المنزل والتنظيف", personal: "العناية الشخصية والصحة",
+  electronics: "الإلكترونيات والهواتف والإكسسوارات", clothing: "الملابس والأحذية", other: "النقل والترفيه والتعليم" };
+let catDoc = null, catData = null, catIx = null; const catThumbs = {}, catGot = {}, catSel = new Set();
+async function ensureCat(groups) {
+  if (!catData) { catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json(); catIx = Object.fromEntries(catData.cols.map((c, i) => [c, i])); }
+  for (const g of groups) {
+    const id = (catDoc.thumbs_assets || {})[g];
+    if (id && !catGot[g]) { catGot[g] = 1; try { Object.assign(catThumbs, (await (await fetch("/_blob/" + id)).json()).thumbs || {}); } catch (e) { catGot[g] = 0; } }
+  }
+}
+async function loadCatalogue() {
+  const pid = current;
+  try { const snap = await db.doc(`projects/${pid}/catalogue/latest`).get(); catDoc = snap.exists ? plain(snap) : null; }
+  catch (e) { catDoc = null; }
+  if (current !== pid || !$("#cat-body")) return;
+  if (!catDoc) { $("#cat-body").innerHTML = "لا يوجد كتالوج بعد؛ يُنشأ مع التشغيل اليومي."; return; }
+  const c = catDoc.counts || {}, keys = ["all", ...Object.keys(catDoc.groups || {})];
+  $("#cat-body").innerHTML = `
+    <p style="margin:0 0 10px">آخر كتالوج <b>${esc(catDoc.date)}</b> · <b>${(catDoc.rows || 0).toLocaleString("en")}</b> منتجاً مع صورها. تصفّح المنتجات وحدّد ما تريد، أو نزّل قسماً كاملاً:</p>
+    <div class="row" style="flex-wrap:wrap;gap:8px">${keys.map((k) => `<button class="${k === "all" ? "primary" : "ghost"}" data-cat="${esc(k)}">
+      ${esc(GROUP_AR[k] || catDoc.groups?.[k] || k)} <span class="muted">(${(k === "all" ? catDoc.rows : c[k] || 0).toLocaleString("en")})</span></button>`).join("")}</div>
+    <div class="row" style="margin-top:14px"><input id="cv-q" placeholder="ابحث باسم المنتج أو الماركة" style="flex:2 1 220px">
+      <select id="cv-g" style="flex:1 1 170px"><option value="">كل الأقسام</option>${Object.keys(catDoc.groups || {}).map((k) => `<option value="${esc(k)}">${esc(GROUP_AR[k] || k)}</option>`).join("")}</select>
+      <select id="cv-s" style="flex:1 1 150px"><option value="">كل المتاجر</option>${Object.keys(catDoc.stores || {}).map((k) => `<option value="${esc(k)}">${esc(k)}</option>`).join("")}</select></div>
+    <div class="row" style="margin-top:8px"><button class="ghost" id="cv-all">تحديد كل المعروض</button><button class="ghost" id="cv-none">إلغاء التحديد</button>
+      <button class="primary" id="cv-dl">تنزيل المحدد (0)</button><span class="muted" id="cv-count"></span></div>
+    <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right">صورة</th><th style="text-align:right">المنتج</th><th style="text-align:right">المتجر</th><th style="text-align:right">السعر (درهم)</th><th style="text-align:right">الحجم</th><th style="text-align:right">القسم</th><th style="text-align:right">الرابط</th><th>✓</th></tr></thead><tbody id="cv-rows"><tr><td colspan="8" class="empty">تُحمَّل المنتجات…</td></tr></tbody></table></div>`;
+  $$("#cat-body [data-cat]").forEach((b) => b.addEventListener("click", () => downloadCatalogue(b.dataset.cat, b, false)));
+  ["#cv-q", "#cv-g", "#cv-s"].forEach((q) => $(q).addEventListener(q === "#cv-q" ? "input" : "change", drawCatRows));
+  $("#cv-all").onclick = () => { catView().slice(0, 300).forEach((i) => catSel.add(i)); drawCatRows(); };
+  $("#cv-none").onclick = () => { catSel.clear(); drawCatRows(); };
+  $("#cv-dl").onclick = (e) => downloadCatalogue("all", e.currentTarget, true);
+  try { await ensureCat(Object.keys(catDoc.groups || {}).slice(0, 1)); } catch (e) { $("#cv-rows").innerHTML = `<tr><td colspan="8">${esc(e?.message || e)}</td></tr>`; return; }
+  drawCatRows();
+}
+function catView() {
+  const q = ($("#cv-q")?.value || "").trim().toLowerCase(), g = $("#cv-g")?.value, st = $("#cv-s")?.value, ix = catIx, out = [];
+  catData.rows.forEach((r, i) => {
+    if (g && r[ix.group] !== g) return;
+    if (st && r[ix.outlet] !== st && !String(r[ix.outlet]).startsWith(st)) return;
+    if (q && !(r[ix.title] + " " + r[ix.category] + " " + r[ix.outlet]).toLowerCase().includes(q)) return;
+    out.push(i);
+  });
+  return out;
+}
+async function drawCatRows() {
+  if (!catData || !$("#cv-rows")) return;
+  const view = catView(), show = view.slice(0, 300), ix = catIx;
+  $("#cv-rows").innerHTML = show.map((i) => { const r = catData.rows[i], u = r[ix.photo_url], b = catThumbs[u];
+    return `<tr><td style="text-align:right">${b ? `<img class="thumb" src="data:image/jpeg;base64,${b}" alt="">` : (u ? `<img class="thumb" src="${esc(u)}" alt="" loading="lazy" onerror="this.remove()">` : "")}</td>
+      <td style="text-align:right">${esc(r[ix.title])}</td><td style="text-align:right">${esc(r[ix.outlet])}</td><td class="num" style="text-align:right"><b>${Number(r[ix.price]).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b></td>
+      <td style="text-align:right">${esc(r[ix.size])}</td><td style="text-align:right">${esc(r[ix.category])}</td><td style="text-align:right">${r[ix.url] ? `<a href="${esc(r[ix.url])}" target="_blank" rel="noopener">فتح</a>` : ""}</td>
+      <td><input type="checkbox" data-i="${i}" ${catSel.has(i) ? "checked" : ""}></td></tr>`; }).join("") || `<tr><td colspan="8" class="empty">لا منتجات مطابقة.</td></tr>`;
+  $$("#cv-rows input[type=checkbox]").forEach((c) => c.addEventListener("change", () => { c.checked ? catSel.add(+c.dataset.i) : catSel.delete(+c.dataset.i); $("#cv-dl").textContent = `تنزيل المحدد (${catSel.size})`; }));
+  $("#cv-dl").textContent = `تنزيل المحدد (${catSel.size})`;
+  $("#cv-count").textContent = `${view.length.toLocaleString("en")} منتج${view.length > 300 ? " · يظهر أول 300؛ ضيّق البحث أو نزّل الملف" : ""}`;
+  // pictures of the groups on screen that are not loaded yet
+  const need = [...new Set(show.map((i) => catData.rows[i][ix.group]))].filter((g) => !catGot[g]);
+  if (need.length) { await ensureCat(need); drawCatRows(); }
+}
+async function downloadCatalogue(group, btn, onlySelected) {
+  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
+  if (onlySelected && !catSel.size) return toast("حدّد منتجات أولاً", true);
+  const old = btn.innerHTML; btn.disabled = true; btn.textContent = "يُجهَّز الملف…";
+  try {
+    await ensureCat(group === "all" ? Object.keys(catDoc.groups || {}) : [group]);
+    const ix = catIx;
+    const idx = catData.rows.map((r, i) => i).filter((i) => onlySelected ? catSel.has(i) : group === "all" || catData.rows[i][ix.group] === group);
+    const rows = idx.map((i) => catData.rows[i]);
+    const label = group === "all" ? "All groups" : catData.groups[group] || group;
+    const ExcelJS = await loadExcel();
+    const wb = new ExcelJS.Workbook();
+    const ws = wb.addWorksheet("Catalogue", { views: [{ state: "frozen", ySplit: 5 }] });
+    const heads = ["Select", "Outlet", "Product name", "Photo", "Price (AED)", "Pack / size", "Brand", "Retailer ID", "Availability",
+      "Category", "CPI division", "Product URL", "Photo URL", "Collected (Dubai)", "Notes"];
+    const widths = [7.8, 10.6, 44, 12, 10.2, 13, 14, 13, 12, 22, 26, 46.7, 30, 16, 50];
+    ws.getCell("A2").value = "Dubai bulk product catalogue" + (group === "all" || onlySelected ? "" : " · " + label);
+    ws.getCell("A2").font = { size: 16, bold: true, color: { argb: "FF173653" } };
+    const stores = [...new Set(rows.map((r) => r[ix.outlet]))].join(", ");
+    ws.getCell("A3").value = `${rows.length.toLocaleString("en")} listings • ${catData.date} • ${stores} • Choose Yes in the first column, then filter`;
+    ws.getCell("A3").font = { size: 10, color: { argb: "FF627184" } };
+    const head = ws.getRow(5); head.height = 32;
+    heads.forEach((h, i) => { const c = head.getCell(i + 1); c.value = h; c.font = { bold: true, color: { argb: "FFFFFFFF" } };
+      c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF223F62" } }; c.alignment = { horizontal: "center", vertical: "middle", wrapText: true }; });
+    widths.forEach((w, i) => (ws.getColumn(i + 1).width = w));
+    const ids = new Map(); let pics = 0;
+    rows.forEach((r, k) => {
+      const row = ws.getRow(6 + k); row.height = 52;
+      const v = [catSel.has(idx[k]) ? "Yes" : "No", r[ix.outlet], r[ix.title], null, r[ix.price] === "" ? null : Number(r[ix.price]), r[ix.size] || null, r[ix.brand] || null,
+        r[ix.retailer_id] || null, r[ix.availability], r[ix.category], r[ix.division], r[ix.url], r[ix.photo_url] || null, r[ix.collected], r[ix.notes]];
+      v.forEach((x, i) => { const c = row.getCell(i + 1); c.value = x; c.alignment = { vertical: "middle", wrapText: i === 2 }; });
+      row.getCell(5).numFmt = "#,##0.00";
+      row.getCell(1).dataValidation = { type: "list", allowBlank: false, formulae: ['"No,Yes"'] };
+      const u = r[ix.photo_url], b = u && catThumbs[u];
+      if (b) { if (!ids.has(u)) ids.set(u, wb.addImage({ base64: b, extension: "jpeg" }));
+        ws.addImage(ids.get(u), { tl: { col: 3.1, row: 5 + k + 0.1 }, ext: { width: 60, height: 60 } }); pics++; }
+    });
+    ws.autoFilter = { from: { row: 5, column: 1 }, to: { row: 5 + rows.length, column: heads.length } };
+    const buf = await wb.xlsx.writeBuffer();
+    await downloads.save({ filename: `Dubai_Catalogue_${catData.date}_${onlySelected ? "selected" : group}.xlsx`, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) });
+    toast(`${rows.length.toLocaleString("en")} منتج، ${pics.toLocaleString("en")} صورة داخل الملف`);
+  } catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.innerHTML = old; if (onlySelected) btn.textContent = `تنزيل المحدد (${catSel.size})`; }
+}
+const sheetFor = (rows) => (P()?.kind === "barcode" ? catalogueSheet(rows) : globalSheet(rows));
+$("#b-export").addEventListener("click", () => {
+  const keys = [...new Set([...cols().map((c) => c.key), ...basket.flatMap((i) => Object.keys(i))])];
+  offerFile(`${P().name}-basket.csv`, toCsv(basket, keys));
+});
+$("#b-file").addEventListener("change", async (ev) => {
+  const f = ev.target.files[0]; ev.target.value = ""; if (!f) return;
+  const items = parseCsv(await f.text());
+  const missing = cols().filter((c) => !(items[0] && c.key in items[0])).map((c) => c.key);
+  $("#b-import-confirm").innerHTML = `<div class="confirm"><span>استبدال السلة (${basket.length} عنصر) بـ ${items.length} عنصر من ${esc(f.name)}؟${missing.length ? ` أعمدة ناقصة: <code>${esc(missing.join(", "))}</code>` : ""}</span><button class="danger" id="imp-yes">استبدال</button><button id="imp-no">إلغاء</button></div>`;
+  $("#imp-no").onclick = () => ($("#b-import-confirm").innerHTML = "");
+  $("#imp-yes").onclick = () => {
+    items.forEach((it) => { cols().filter((c) => c.type === "bool").forEach((c) => (it[c.key] = !/^(no|false|0|لا)$/i.test(String(it[c.key] ?? "").trim())));
+      if (it.qty_total !== undefined && it.qty_total !== "") it.qty_total = +it.qty_total; });
+    basket = items; basketDirty = true; bPage = 0; $("#b-import-confirm").innerHTML = "";
+    fillGroupSelect(); renderBasket(); renderRunPicks(); toast("استُورد الملف؛ اضغط حفظ السلة لتثبيته");
+  };
+});
+
+// ------------------------------------------------------------ actors tab
+const MODES = ["barcodes", "search_urls", "single"];
+let actorsDraft = {};
+function renderActors() {
+  const p = P(); if (!p) return; actorsDraft = JSON.parse(JSON.stringify(p.actors || {}));
+  drawActors();
+}
+function drawActors() {
+  $("#a-list").innerHTML = Object.entries(actorsDraft).map(([k, a]) => `<div class="actor" data-key="${esc(k)}">
+    <div class="row"><b>${esc(a.label || k)}</b><span class="muted mono">${esc(k)}</span><label class="row" style="gap:6px"><input type="checkbox" data-f="enabled" ${a.enabled ? "checked" : ""}> مفعّل</label><span class="spacer"></span><button class="danger" data-rm>حذف</button></div>
+    <div class="grid">
+      <label class="f"><span>الاسم</span><input data-f="label" value="${esc(a.label || "")}"></label>
+      <label class="f"><span>Actor</span><input data-f="actor" class="mono" dir="ltr" value="${esc(a.actor || "")}"></label>
+      <label class="f"><span>النمط</span><select data-f="mode">${MODES.map((m) => `<option ${m === a.mode ? "selected" : ""}>${m}</option>`).join("")}</select></label>
+      <label class="f"><span>المحلل</span><select data-f="parser">${Object.keys(PARSERS).map((m) => `<option ${m === a.parser ? "selected" : ""}>${m}</option>`).join("")}</select></label>
+      <label class="f"><span>أكواد لكل تشغيل</span><input data-f="batch_size" type="number" min="1" value="${esc(a.batch_size ?? 10)}"></label>
+      <label class="f"><span>تشغيلات متوازية</span><input data-f="parallel_runs" type="number" min="1" max="10" value="${esc(a.parallel_runs ?? 1)}"></label>
+    </div>
+    <label class="f"><span>رابط البحث (للنمط search_urls، فيه {barcode})</span><input data-f="url_template" class="mono" dir="ltr" value="${esc(a.url_template || "")}"></label>
+    <label class="f"><span>حقول البيانات المطلوبة من Apify (اختياري، مفصولة بفاصلة)</span><input data-f="dataset_fields" class="mono" dir="ltr" value="${esc(a.dataset_fields || "")}"></label>
+    <label class="f"><span>الإدخال (JSON)</span><textarea data-f="input" class="code" rows="8" spellcheck="false">${esc(JSON.stringify(a.input ?? {}, null, 2))}</textarea></label>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      <label class="f"><span>خيارات التشغيل (JSON: memory, timeout…)</span><textarea data-f="call_options" class="code" rows="3" spellcheck="false">${esc(JSON.stringify(a.call_options ?? {}, null, 2))}</textarea></label>
+      <label class="f"><span>حقول المحلل generic (JSON: اسم العمود ← حقل البيانات)</span><textarea data-f="fields" class="code" rows="3" spellcheck="false">${esc(JSON.stringify(a.fields ?? {}, null, 2))}</textarea></label>
+    </div>
+    <label class="f"><span>ملاحظات</span><input data-f="notes" value="${esc(a.notes || "")}"></label>
+    <div data-confirm></div>
+  </div>`).join("") || `<div class="empty">لا يوجد Actor في هذا المشروع.</div>`;
+  $$("#a-list [data-rm]").forEach((b) => b.addEventListener("click", () => {
+    const box = b.closest(".actor"), k = box.dataset.key;
+    $("[data-confirm]", box).innerHTML = `<div class="confirm"><span>حذف ${esc(k)}؟ يُطبّق عند الحفظ.</span><button class="danger" data-yes>حذف</button><button data-no>إلغاء</button></div>`;
+    $("[data-no]", box).onclick = () => ($("[data-confirm]", box).innerHTML = "");
+    $("[data-yes]", box).onclick = () => { try { collectActors(); } catch (e) {} delete actorsDraft[k]; drawActors(); };
+  }));
+}
+function collectActors() {
+  const out = {};
+  for (const box of $$("#a-list .actor")) {
+    const k = box.dataset.key, a = { ...actorsDraft[k] };
+    for (const el of $$("[data-f]", box)) {
+      const f = el.dataset.f;
+      if (f === "enabled") a.enabled = el.checked;
+      else if (["input", "call_options", "fields"].includes(f)) { try { a[f] = JSON.parse(el.value || "{}"); } catch (e) { throw new Error(`${k}: ${f} ليس JSON صحيحاً (${e.message})`); } }
+      else if (f === "batch_size" || f === "parallel_runs") a[f] = Math.max(1, +el.value || 1);
+      else a[f] = el.value.trim();
+    }
+    if (!/^[\w.-]+[/~][\w.-]+$/.test(a.actor)) throw new Error(`${k}: اكتب الـ Actor بصيغة username/actor-name`);
+    if (a.mode === "search_urls" && !String(a.url_template).includes("{barcode}")) throw new Error(`${k}: رابط البحث يجب أن يحتوي {barcode}`);
+    out[k] = a;
+  }
+  actorsDraft = out; return out;
+}
+$("#a-add").addEventListener("click", () => {
+  try { collectActors(); } catch (e) { return toast(e.message, true); }
+  let k = "actor" + (Object.keys(actorsDraft).length + 1); while (actorsDraft[k]) k += "x";
+  actorsDraft[k] = { label: "Actor جديد", enabled: false, actor: "username/actor-name", mode: P().kind === "barcode" ? "barcodes" : "single", batch_size: 10, parallel_runs: 1, input: P().kind === "barcode" ? { query: "{barcodes_json}" } : {}, parser: "generic", fields: P().kind === "barcode" ? { code: "searchQuery", title: "title", price: "price", regular_price: "regularPrice", url: "url" } : {}, dataset_fields: "", call_options: {}, notes: "" };
+  drawActors();
+});
+$("#a-save").addEventListener("click", async () => {
+  try { await saveProject({ actors: collectActors() }); renderActors(); renderRunPicks(); toast("حُفظت الـ Actors"); }
+  catch (e) { toast(e.code ? dbErr(e) : e.message, true); }
+});
+
+// ------------------------------------------------------------ results tab
+let runs = [], shownRun = null, shownRows = [];
+async function loadRuns() {
+  try {
+    const snap = await db.collection(`projects/${current}/runs`).orderBy("startedAt", "desc").limit(50).get();
+    runs = snap.docs.map((d) => ({ id: d.id, ...plain(d) }));
+  } catch (e) { runs = []; }
+  $("#r-list").innerHTML = runs.length ? `<div class="tw"><table><thead><tr><th>التاريخ</th><th>الحالة</th><th>صفوف</th><th>مقبول</th><th></th></tr></thead><tbody>${runs.map((r) => {
+    const st = r.status === "done" ? ["انتهى", "ok"] : r.status === "stopped" ? ["أُوقف", "warn"] : ["خطأ", "bad"];
+    return `<tr><td class="num">${esc((r.startedAt || "").replace("T", " ").slice(0, 16))}</td><td><span class="chip ${st[1]}">${st[0]}</span></td><td class="num">${r.count ?? ""}</td><td class="num">${r.accepted ?? ""}</td><td><button class="ghost" data-run="${esc(r.id)}">عرض</button></td></tr>`;
+  }).join("")}</tbody></table></div>` : `<div class="empty">لا توجد تشغيلات بعد. شغّل السكراب من تبويب «تشغيل» وستظهر نتائجه هنا.</div>`;
+  $$("#r-list [data-run]").forEach((b) => b.addEventListener("click", () => showRun(b.dataset.run)));
+}
+async function showRun(id) {
+  shownRun = runs.find((r) => r.id === id);
+  $("#r-view").hidden = false; $("#r-more").textContent = "تُحمَّل الصفوف…";
+  try { shownRows = (await rowDocs(current, shownRun)).flatMap((d) => plain(d).rows || []); await loadThumbs(current, shownRun); }
+  catch (e) { shownRows = []; $("#r-more").textContent = ""; toast("تعذّر تحميل صفوف التشغيل: " + dbErr(e), true); return; }
+  $("#r-view").hidden = false; $("#r-del-confirm").innerHTML = "";
+  $("#r-title").textContent = (shownRun.startedAt || "").replace("T", " ").slice(0, 16);
+  $("#r-stats").innerHTML = Object.values(shownRun.summary || {}).map((s) => `<div class="stat"><span class="muted">${esc(s.label)}</span><b>${s.accepted} / ${s.lines}</b><span class="muted">موجود</span></div>`).join("");
+  drawRun(); $("#r-view").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+}
+function runColumns() {
+  const first = ["actor", "status"], seen = new Set(first);
+  shownRows.forEach((r) => Object.keys(r).forEach((k) => seen.add(k)));
+  return [...seen].filter((k) => k !== "accepted");
+}
+function drawRun() {
+  // the same columns as the Excel download (catalogue layout), without the Select and Photo URL helpers
+  const q = $("#r-search").value.trim().toLowerCase();
+  const sheet = sheetFor(shownRows.map((x) => ({ ...x, run_date: x.run_date || dubaiDay(shownRun?.startedAt) })));
+  const keep = sheet.headers.map((h, i) => i).filter((i) => !["Select", "Photo URL"].includes(sheet.headers[i]));
+  const rows = sheet.rows.filter((r) => !q || r.join(" ").toLowerCase().includes(q));
+  const URLS = new Set(["Product URL"]), PHOTO = sheet.photoCol ? sheet.photoCol - 1 : -1;
+  $("#r-table thead").innerHTML = `<tr>${keep.map((i) => `<th>${esc(sheet.headers[i])}</th>`).join("")}</tr>`;
+  $("#r-table tbody").innerHTML = rows.slice(0, 400).map((r) => `<tr>${keep.map((i) => {
+    const v = r[i], h = sheet.headers[i];
+    if (i === PHOTO) return `<td>${v ? `<img class="thumb" src="${esc(photoSrc(v))}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>`;
+    if (URLS.has(h)) return v ? `<td><a href="${esc(v)}" target="_blank" rel="noopener">فتح</a></td>` : "<td></td>";
+    if (sheet.priceCols.includes(i + 1) && typeof v === "number") return `<td class="num"><b>${v.toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b></td>`;
+    return `<td>${esc(v ?? "")}</td>`;
+  }).join("")}</tr>`).join("") || `<tr><td class="empty" colspan="${keep.length}">لا أسعار.</td></tr>`;
+  $("#r-more").textContent = rows.length > 400 ? `يظهر أول 400 من ${rows.length}؛ نزّل Excel لرؤية الكل.` : `${rows.length} سعر`;
+}
+$("#r-search").addEventListener("input", drawRun);
+$("#r-filter").addEventListener("change", drawRun);
+$("#r-export").addEventListener("click", async () => {
+  if (!shownRun) return;
+  const btn = $("#r-export"); btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try { await loadThumbs(current, shownRun); await offerXlsx(`${P().name} ${shownRun.id}.xlsx`, sheetFor(shownRows.map((x) => ({ ...x, run_date: x.run_date || dubaiDay(shownRun.startedAt) })))); }
+  catch (e) { toast(e?.message || String(e), true); }
+  finally { btn.disabled = false; btn.textContent = "تنزيل Excel"; }
+});
+$("#r-delete").addEventListener("click", () => {
+  $("#r-del-confirm").innerHTML = `<div class="confirm"><span>حذف هذا التشغيل ونتائجه نهائياً؟</span><button class="danger" id="rd-yes">حذف</button><button id="rd-no">إلغاء</button></div>`;
+  $("#rd-no").onclick = () => ($("#r-del-confirm").innerHTML = "");
+  $("#rd-yes").onclick = async () => {
+    try {
+      const rows = await db.collection(`projects/${current}/runs/${shownRun.id}/rows`).get();
+      for (const d of rows.docs) await db.doc(`projects/${current}/runs/${shownRun.id}/rows/${d.id}`).delete();
+      await db.doc(`projects/${current}/runs/${shownRun.id}`).delete();
+      $("#r-view").hidden = true; loadRuns(); toast("حُذف التشغيل");
+    } catch (e) { toast(dbErr(e), true); }
+  };
+});
+
+// ------------------------------------------------------------ settings tab
+function renderSettings() {
+  const p = P(); if (!p) return;
+  $("#s-name").value = p.name || ""; $("#s-desc").value = p.description || ""; $("#s-kind").value = p.kind || "list";
+  $("#s-cols").value = JSON.stringify(p.columns || [], null, 2); $("#s-listkey").value = p.list_key || "";
+  $("#s-del-confirm").innerHTML = "";
+}
+$("#s-save").addEventListener("click", async () => {
+  let columns; try { columns = JSON.parse($("#s-cols").value); if (!Array.isArray(columns) || columns.some((c) => !c.key)) throw new Error("كل عمود يحتاج key"); }
+  catch (e) { return toast("أعمدة السلة: " + e.message, true); }
+  try {
+    await saveProject({ name: $("#s-name").value.trim() || "بدون اسم", description: $("#s-desc").value.trim(), kind: $("#s-kind").value, columns, list_key: $("#s-listkey").value.trim() });
+    $("#title").textContent = P().name; renderBasket(); renderRunPicks(); toast("حُفظت الإعدادات");
+  } catch (e) { toast(dbErr(e), true); }
+});
+$("#s-delete").addEventListener("click", () => {
+  $("#s-del-confirm").innerHTML = `<div class="confirm"><span>حذف مشروع «${esc(P().name)}» مع سلته؟ التشغيلات المحفوظة تُحذف أيضاً.</span><button class="danger" id="sd-yes">حذف المشروع</button><button id="sd-no">إلغاء</button></div>`;
+  $("#sd-no").onclick = () => ($("#s-del-confirm").innerHTML = "");
+  $("#sd-yes").onclick = async () => {
+    try {
+      const pid = current;
+      for (const d of (await db.collection(`projects/${pid}/basket`).get()).docs) await db.doc(`projects/${pid}/basket/${d.id}`).delete();
+      for (const r of (await db.collection(`projects/${pid}/runs`).get()).docs) {
+        for (const d of (await db.collection(`projects/${pid}/runs/${r.id}/rows`).get()).docs) await db.doc(`projects/${pid}/runs/${r.id}/rows/${d.id}`).delete();
+        await db.doc(`projects/${pid}/runs/${r.id}`).delete();
+      }
+      await db.doc(`projects/${pid}`).delete(); delete projects[pid];
+      basketDirty = false; current = null; renderHome(); toast("حُذف المشروع");
+    } catch (e) { toast(dbErr(e), true); }
+  };
+});
+
+// ------------------------------------------------------------ daily schedule (a claude.ai Routine per project)
+const CCR = "Claude Code Remote";
+const TZ_LABEL = { "Asia/Dubai": "توقيت دبي" };
+function parseCron(c) {
+  const m = String(c || "").match(/^(?:CRON_TZ=(\S+)\s+)?(\d{1,2})\s+(\d{1,2})\s+(\S+)\s+(\S+)\s+(\S+)$/);
+  return m ? { tz: m[1] || "UTC", min: +m[2], hour: +m[3], dom: m[4], mon: m[5], dow: m[6] } : null;
+}
+const pad = (n) => String(n).padStart(2, "0");
+function fmtWhen(iso) { if (!iso) return "—"; try { return new Date(iso).toLocaleString("ar", { timeZone: "Asia/Dubai", dateStyle: "medium", timeStyle: "short" }); } catch (e) { return iso; } }
+function schedFail(e) {
+  const fix = { needs_reauth: "أعد ربط Claude Code Remote من إعدادات claude.ai", server_not_connected: "موصل Claude Code Remote غير متاح لهذا الحساب",
+    not_in_manifest: "لم يُسمح للصفحة بإدارة الجدولة؛ أعد فتحها واسمح بالموصل" }[e?.code];
+  return fix || e?.message || String(e);
+}
+async function ccr(tool, input) { return (await mcp.callTool(CCR, tool, input, { cache: false })).payload; }
+async function renderSchedule() {
+  const p = P(), pid = current, body = $("#sched-body"), chip = $("#sched-state");
+  const tid = p?.schedule?.trigger_id;
+  body.className = "muted";
+  if (!tid) { chip.textContent = "غير مجدول"; chip.className = "chip"; body.textContent = "لا يوجد تشغيل يومي لهذا المشروع. اطلب من Claude إنشاء واحد."; return; }
+  if (!mcp) { chip.textContent = "غير متاح"; body.textContent = "إدارة الجدولة تحتاج فتح الصفحة داخل claude.ai."; return; }
+  body.textContent = "يُحمَّل موعد التشغيل…";
+  let t;
+  try { const r = await ccr("get_trigger", { trigger_id: tid }); t = r?.trigger || r?.data || r; }
+  catch (e) { chip.textContent = "تعذّر القراءة"; chip.className = "chip bad"; body.textContent = schedFail(e); return; }
+  if (current !== pid) return;
+  const c = parseCron(t.cron_expression) || { tz: "Asia/Dubai", hour: 8, min: 0 };
+  const lr = t.last_run;
+  const lrTxt = lr ? `${fmtWhen(lr.fired_at)} · ${/SUCCEEDED/.test(lr.status) ? "نجح" : /FAILED/.test(lr.status) ? "فشل" + (lr.failure_reason ? ` (${String(lr.failure_reason).replace("ROUTINE_RUN_FAILURE_REASON_", "").toLowerCase()})` : "") : String(lr.status || "").replace("ROUTINE_RUN_STATUS_", "").toLowerCase()}` : "لم يعمل بعد";
+  chip.textContent = t.enabled ? "مفعّل" : "متوقف"; chip.className = "chip " + (t.enabled ? "ok" : "warn");
+  body.className = ""; body.innerHTML = `
+    <div class="row" style="align-items:end">
+      <label class="f" style="width:150px"><span>الوقت (${esc(TZ_LABEL[c.tz] || c.tz)})</span><input type="time" id="sched-time" value="${pad(c.hour)}:${pad(c.min)}"></label>
+      <label class="row" style="gap:6px;padding-bottom:8px"><input type="checkbox" id="sched-on" ${t.enabled ? "checked" : ""}> يعمل كل يوم</label>
+      <button class="primary" id="sched-save">حفظ الموعد</button>
+      <button id="sched-fire">شغّل الآن</button>
+    </div>
+    <div class="row muted"><span>التشغيل القادم: <b style="color:var(--fg)">${esc(t.enabled ? fmtWhen(t.next_run_at) : "متوقف")}</b></span><span>آخر تشغيل: ${esc(lrTxt)}</span></div>
+    <div id="sched-confirm"></div>`;
+  $("#sched-save").onclick = async () => {
+    const [h, m] = ($("#sched-time").value || "").split(":").map(Number);
+    if (isNaN(h) || isNaN(m)) return toast("اختر وقتاً صحيحاً", true);
+    const cron = `CRON_TZ=${c.tz} ${m} ${h} ${c.dom || "*"} ${c.mon || "*"} ${c.dow && c.dow !== "1-5" ? c.dow : "*"}`;
+    try { await ccr("update_trigger", { trigger_id: tid, cron_expression: cron, enabled: $("#sched-on").checked }); toast(`حُفظ: ${pad(h)}:${pad(m)} ${TZ_LABEL[c.tz] || c.tz}`); renderSchedule(); }
+    catch (e) { toast(schedFail(e), true); }
+  };
+  $("#sched-fire").onclick = () => {
+    $("#sched-confirm").innerHTML = `<div class="confirm"><span>تشغيل المهمة اليومية الآن؟ تعمل في الخلفية وتظهر نتيجتها في تبويب النتائج عند انتهائها.</span><button class="primary" id="sf-yes">شغّل</button><button id="sf-no">إلغاء</button></div>`;
+    $("#sf-no").onclick = () => ($("#sched-confirm").innerHTML = "");
+    $("#sf-yes").onclick = async () => {
+      $("#sched-confirm").innerHTML = "";
+      try { await ccr("fire_trigger", { trigger_id: tid }); toast("بدأ التشغيل في الخلفية"); setTimeout(renderSchedule, 4000); }
+      catch (e) { toast(schedFail(e), true); }
+    };
+  };
+}
+
+
+// ------------------------------------------------------------ quick run through the project's routine (Scrapling, server side)
+function renderQuick() {
+  const p = P(); const on = p?.runner === "routine" && p?.schedule?.trigger_id;
+  $("#quick").hidden = !on;
+  $("#apify-title").textContent = on ? "متقدم: تشغيل عبر Apify من المتصفح (يستهلك رصيد Apify)" : "تشغيل عبر Apify من المتصفح";
+  $("#apify-run").open = !on;
+}
+$("#btn-quick").addEventListener("click", () => {
+  if (!mcp) return toast("التشغيل يحتاج فتح الصفحة داخل claude.ai", true);
+  $("#quick-confirm").innerHTML = `<div class="confirm"><span>بدء سحب كامل لمشروع «${esc(P().name)}» الآن؟</span><button class="primary" id="q-yes">ابدأ</button><button id="q-no">إلغاء</button></div>`;
+  $("#q-no").onclick = () => ($("#quick-confirm").innerHTML = "");
+  $("#q-yes").onclick = async () => {
+    $("#quick-confirm").innerHTML = "";
+    try { await ccr("fire_trigger", { trigger_id: P().schedule.trigger_id }); toast("بدأ السحب؛ النتيجة تظهر في تبويب النتائج عند انتهائه"); setTimeout(renderSchedule, 4000); }
+    catch (e) { toast(schedFail(e), true); }
+  };
+});
+
+// ------------------------------------------------------------ one long table of every saved run (for Dataiku)
+const LEAD = ["run_date", "run_id", "retailer", "actor", "item_code", "barcode", "name", "brand", "basket_qty", "category", "commodity", "unit",
+  "title", "price", "regular_price", "currency", "change", "pct", "weekly", "monthly", "ytd", "yoy", "price_date", "status", "accepted", "url"];
+$("#r-export-all").addEventListener("click", async () => {
+  const btn = $("#r-export-all"); btn.disabled = true; btn.textContent = "يُجمع…";
+  try {
+    const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
+    const rows = [];
+    for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
+      const chunks = await rowDocs(current, r);
+      for (const c of chunks) for (const x of plain(c).rows || [])
+        rows.push({ ...x, run_id: r.id, run_date: x.run_date || dubaiDay(r.startedAt) });
+    }
+    if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
+    for (const r of all) await loadThumbs(current, r);
+    await offerXlsx(`${P().name} - all prices.xlsx`, sheetFor(rows));
+  } catch (e) { toast(dbErr(e), true); }
+  finally { btn.disabled = false; btn.textContent = "تنزيل كل الأسعار (Excel)"; }
+});
+
+// ------------------------------------------------------------ raw CSV for Dataiku (every field, no photos, no styling)
+function plainCsv(rows, cols) {
+  const q = (v) => { const t = v === null || v === undefined ? "" : typeof v === "object" ? JSON.stringify(v) : String(v); return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; };
+  return [cols.join(","), ...rows.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
+}
+// one format for everything exported to Dataiku: UTF-8 CSV, no BOM, fixed column order, a cpi_group column in the office's Arabic group names
+const DK_COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "barcode", "name", "brand", "basket_qty", "title", "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code", "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note", "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id", "section", "size", "source", "unit_price"];
+const cpiGroupOfCategory = (c) => (CH_NONFOOD.find((g) => g.re.test(c || "")) || {}).name || "";
+async function dataikuRuns(btn) {
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجمع…";
+  try {
+    const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
+    const meta = new Map((basket || []).map((i) => [String(i.item_code), i]));
+    const rows = [];
+    for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
+      for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
+        const m = meta.get(String(x.item_code)) || {};
+        const o = { run_id: r.id, run_date: x.run_date || dubaiDay(r.startedAt), ...x };
+        if (m.group_name) o.cpi_group = String(m.group_name).replace(/^\d+\s*-\s*/, "").trim();
+        for (const k of ["class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar", "barcode_raw", "gtin", "qty_raw", "qty_unit", "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"])
+          if (o[k] === undefined && m[k] !== undefined) o[k] = m[k];
+        delete o.thumb; rows.push(o);
+      }
+    }
+    if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
+    if (P()?.kind === "barcode") {            // items no search covers (no barcode / spec: priced by name, services, market rates): one "not found" row each per day
+      const REASON = { name: "no barcode: priced from the catalogue by product name/model (not yet matched)", service: "service: no shelf price on the web (restaurant, repair, laundry, hotel, hairdresser)", market: "priced from a market rate (gold per gram), not a shop listing" };
+      const days = [...new Set(rows.map((r) => r.run_date))];
+      for (const d of days) {
+        const rid = (rows.find((r) => r.run_date === d) || {}).run_id;
+        const have = new Set(rows.filter((r) => r.run_date === d).map((r) => r.item_code));   // priced from the catalogue: already has its rows
+        for (const m of basket || []) if (REASON[m.match_mode] && !have.has(m.item_code))
+          rows.push({ run_id: rid, run_date: d, source: "pending", item_code: m.item_code, group_code: m.group_code, group_name: m.group_name, name: m.name_ar, basket_qty: m.qty_raw, status: m.match_mode === "service" ? "service" : "not_found", detail: REASON[m.match_mode], accepted: "no", currency: "AED",
+            cpi_group: String(m.group_name || "").replace(/^\d+\s*-\s*/, "").trim(), class_code: m.class_code, class_name: m.class_name, name_ar: m.name_ar, qty_raw: m.qty_raw, qty_unit: m.qty_unit, qty_total: m.qty_total, match_mode: m.match_mode });
+      }
+    }
+    const ordered = P()?.kind === "barcode" ? DK_COLS : LEAD;
+    const cols = [...ordered.filter((k) => rows.some((r) => r[k] !== undefined)), ...[...new Set(rows.flatMap((r) => Object.keys(r)))].filter((k) => !ordered.includes(k))];
+    await offerFile(`${P().name}_all_runs.csv`, plainCsv(rows, cols));
+    toast(`${rows.length.toLocaleString("en")} سطراً · ${cols.length} عموداً`);
+  } catch (e) { toast(dbErr(e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
+async function dataikuCatalogue(btn) {
+  if (!catDoc) return toast("لا يوجد كتالوج بعد", true);
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try {
+    if (!catData) { catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json(); catIx = Object.fromEntries(catData.cols.map((c, i) => [c, i])); }
+    const rows = catData.rows.map((r) => { const o = Object.fromEntries(catData.cols.map((c, i) => [c, r[i]])); o.cpi_group = cpiGroupOfCategory(o.category); return o; });
+    const cols = [...catData.cols.slice(0, catData.cols.indexOf("category") + 1), "cpi_group", ...catData.cols.slice(catData.cols.indexOf("category") + 1)];
+    await offerFile(`catalogue_${catData.date}.csv`, plainCsv(rows, cols));
+    toast(`${rows.length.toLocaleString("en")} منتجاً`);
+  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
+
+async function dataikuProducts(btn) {          // every product of every no-barcode line, per day (scripts/product_panel.py), as the routine saved it
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try {
+    const d = await db.doc(`projects/${current}/products/latest`).get();
+    const id = d.exists ? plain(d).panel_asset : null;
+    if (!id) return toast("لا توجد لوحة منتجات بعد؛ تبدأ مع التشغيل اليومي التالي", true);
+    const text = await (await fetch("/_blob/" + id)).text();
+    await offerFile(`product_panel_${plain(d).days?.slice(-1)[0] || ""}.csv`, text);
+    toast(`${(text.split("\n").length - 1).toLocaleString("en")} سطراً`);
+  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
+async function dataikuHistory(btn) {
+  if (!catDoc?.history_asset) return toast("لا يوجد سجل أسعار بعد؛ يبدأ مع الكتالوج اليومي", true);
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try {
+    const h = await (await fetch("/_blob/" + catDoc.history_asset)).json();
+    const rows = [];
+    for (const [k, p] of Object.entries(h.p)) for (const [d, price, reg] of p.h)
+      rows.push({ date: h.days[d], outlet: p.o, product_id: k.slice(k.indexOf("|") + 1), title: p.t, price, regular_price: reg, group: p.g, category: p.c, cpi_group: cpiGroupOfCategory(p.c), url: p.u });
+    rows.sort((a, b) => a.date.localeCompare(b.date) || a.outlet.localeCompare(b.outlet));
+    await offerFile(`catalogue_price_history_${h.days[h.days.length - 1]}.csv`, plainCsv(rows, ["date", "outlet", "product_id", "title", "price", "regular_price", "group", "category", "cpi_group", "url"]));
+    toast(`${h.days.length} يوماً · ${rows.length.toLocaleString("en")} تغييراً مسجّلاً`);
+  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
+
+// ------------------------------------------------------------ price charts by CPI group (index or average price over the days)
+const CH_LIB = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js";
+let chLib = null, chChart = null, chData = null;
+const loadChartLib = () => window.Chart ? Promise.resolve(window.Chart) : (chLib ??= new Promise((ok, fail) => {
+  const el = document.createElement("script"); el.src = CH_LIB; el.onload = () => ok(window.Chart);
+  el.onerror = () => { chLib = null; fail(new Error("تعذّر تحميل مكتبة الرسوم")); }; document.head.appendChild(el); }));
+// the two non-food groups come from the daily catalogue history (our category -> the CPI group name)
+const CH_NONFOOD = [
+  { name: "السلع المنزلية غير المعمرة", re: /^(air freshener|batteries|cleaning|detergent|dishwashing|insecticide|light bulb|tissue|grocery household)/i },
+  { name: "أجهزة أخرى (غير كهربائية) وأصناف ومنتجات معدة للعناية الشخصية", re: /^(body lotion|deodorant|perfume|razor|shampoo|soap|toothpaste|sanitary pads|diapers|face mask|health, fitness & beauty > fragrances)/i },
+];
+const CH_COLORS = ["#223f62", "#e07a1f", "#1b998b", "#c0392b", "#6c5ce7", "#2e86de", "#8d6e63", "#d4a017", "#e84393", "#00a8a8", "#7f8c8d", "#5b8c2a", "#a3318c", "#cc5500", "#1f6f9f", "#b8860b", "#3d5a80", "#9c2f2f", "#2a9d8f", "#6d597a"];
+const divOfGroup = (name) => { const g = (basket || []).find((i) => String(i.group_name || "").replace(/^\d+\s*-\s*/, "").trim() === name); return g ? (g.division_name || "") : ""; };
+async function chBuild() {
+  // obs[group][day] = Map(key -> [price, store])
+  const obs = {}, days = new Set();
+  const put = (g, d, k, price, store, title, idx, basis) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store, String(title || ""), idx > 0 ? idx : 0, basis || "pc"]); };
+  const bk = new Map((basket || []).map((b) => [b.item_code, b]));
+  // price per kg / per litre / per piece, the way the pipeline's Step3 'observed_price (per unit)' is: half a kilo is never added to a kilo
+  const perUnit = (x, price) => {
+    if (["kg", "l", "pc", "bunch"].includes(x.price_basis) && Number(x.unit_price) > 0 && x.source === "category") return [price, x.price_basis];   // product-set lines are priced per unit already
+    if (Number(x.unit_price) > 0 && ["kg", "l"].includes(x.price_basis)) return [Number(x.unit_price), x.price_basis];
+    const b = bk.get(x.item_code) || {}, tot = Number(b.qty_total) || 0, n = Number(b.qty_count) || 1;
+    if (b.qty_unit === "g" && tot > 0) return [price * 1000 / tot, "kg"];
+    if (b.qty_unit === "ml" && tot > 0) return [price * 1000 / tot, "l"];
+    return [price / n, "pc"];
+  };
+  const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
+  const byDay = new Map();                                       // one run per day: the latest
+  for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
+  for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
+    const price = Number(x.price);
+    if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
+    const [pu, basis] = perUnit(x, price);
+    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, pu, x.retailer, x.title, Number(x.line_index), basis);
+  }
+  try {
+    const cat = await db.doc(`projects/${current}/catalogue/latest`).get();
+    const hid = cat.exists ? plain(cat).history_asset : null;
+    if (hid) {
+      const h = await (await fetch("/_blob/" + hid)).json();
+      for (const [k, p] of Object.entries(h.p)) {
+        const g = CH_NONFOOD.find((x) => x.re.test(p.c || ""));
+        if (!g) continue;
+        let last = null, e = 0; const store = String(p.o).split(" ")[0].toLowerCase();
+        h.days.forEach((d, i) => { while (e < p.h.length && p.h[e][0] <= i) { last = p.h[e][1]; e++; } if (last) put(g.name, d, k, last, store, p.t); });
+      }
+    }
+  } catch (e) { /* the non-food lines appear once a price history exists */ }
+  let wts = {};
+  try { const wd = await db.doc(`projects/${current}/weights/current`).get(); if (wd.exists) wts = plain(wd).weights || {}; } catch (e) { /* equal weights when the weights document is missing */ }
+  return { obs, days: [...days].sort(), wts };
+}
+function chSeries(metric, store) {
+  const { obs, days, wts } = chData, out = [], wmode = ($("#ch-w")?.value || "w") === "w";
+  for (const [g, perDay] of Object.entries(obs)) {
+    // Daily change of each basket ITEM (7-digit class) = geometric mean of the price relatives of the same product (same listing line) in the
+    // same shop between two consecutive days; the group's daily change = the items' changes averaged with the OFFICIAL item weights (or equally);
+    // the index chains these daily changes. The average price keeps the first day's level and moves with the index, so it does not jump
+    // when products come or go.
+    const pts = []; let idx = 100, prev = null, base = null;
+    for (const d of days) {
+      const m = perDay[d]; if (!m) { pts.push(null); continue; }
+      const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
+      if (!cur.size) { pts.push(null); continue; }
+      if (base === null) {                          // first-day level: mean of the lines' prices, leaving out absurd ones (a whole animal priced as a kilo: AED 1,620)
+        const cnt = {}; for (const x of cur.values()) cnt[x[4]] = (cnt[x[4]] || 0) + 1;
+        const dom = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0];                       // kg for meat, litre for drinks, piece for clothes
+        const v = [...cur.values()].filter((x) => x[4] === dom).map((x) => x[0]).sort((a, b) => a - b), med = v[Math.floor(v.length / 2)];
+        const keep = v.filter((x) => x <= med * 4 && x >= med / 4);
+        base = keep.reduce((a, x) => a + x, 0) / keep.length;
+      }
+      if (prev) {
+        const byItem = new Map();                    // item -> [sum of ln relatives, n]
+        for (const [k, v] of cur) {
+          const q = prev.get(k); if (!q) continue;
+          let r = null;
+          if (v[3] && q[3]) r = v[3] / q[3]; else if (q[2] === v[2]) r = v[0] / q[0];
+          if (!(r > 0)) continue;
+          const it = /^\d{9}\|/.test(k) ? k.slice(0, 7) : k;     // catalogue products (no basket item): each is its own item
+          const e = byItem.get(it) || [0, 0]; e[0] += Math.log(r); e[1]++; byItem.set(it, e);
+        }
+        let sw = 0, sr = 0, ls = 0, n = 0;
+        for (const [it, [l, c]] of byItem) { const rel = Math.exp(l / c), w = wmode ? (wts[it] || 0) : 1; ls += l / c; n++; if (w > 0) { sw += w; sr += w * rel; } }
+        if (wmode && sw > 0) idx *= sr / sw; else if (n) idx *= Math.exp(ls / n);
+      }
+      pts.push(+(metric === "avg" ? base * idx / 100 : idx).toFixed(2));
+      prev = cur;
+    }
+    out.push({ g, pts, n: Math.max(...days.map((d) => (perDay[d] || new Map()).size)) });
+  }
+  return out;
+}
+function chDraw() {
+  if (!chData || !$("#ch-canvas")) return;
+  const metric = $("#ch-metric").value, store = $("#ch-store").value, dv = $("#ch-div")?.value || "", days = chData.days;
+  const ser = chSeries(metric, store).filter((s) => !dv || divOfGroup(s.g) === dv);
+  if (chChart) chChart.destroy();
+  chChart = new window.Chart($("#ch-canvas"), { type: "line",
+    data: { labels: days, datasets: ser.map((s, i) => ({ label: s.g, data: s.pts, borderColor: CH_COLORS[i % CH_COLORS.length], backgroundColor: CH_COLORS[i % CH_COLORS.length], tension: 0.2, spanGaps: true, pointRadius: 3, borderWidth: 2 })) },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false },
+      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl" } },
+      scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
+  $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
+    + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: لكل بند من بنود السلة متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، ثم تُجمع البنود بأوزانها، أو بدون أوزان إن اخترت ذلك، أول يوم = 100.");
+}
+async function loadCharts() {
+  const pid = current;
+  try {
+    await loadChartLib();
+    chData = await chBuild();
+    if (current !== pid || !$("#ch-canvas")) return;
+    if (chData.days.length < 2) { $("#ch-note").textContent = "الرسم يحتاج يومين على الأقل من الأسعار؛ يظهر تلقائياً بعد التشغيل التالي."; return; }
+    const dvs = [...new Set(Object.keys(chData.obs).map(divOfGroup).filter(Boolean))];
+    if ($("#ch-div")) { $("#ch-div").innerHTML = `<option value="">كل الأقسام</option>` + dvs.map((d) => `<option value="${esc(d)}">${esc(d)}</option>`).join(""); $("#ch-div").onchange = chDraw; }
+    $("#ch-metric").onchange = chDraw; $("#ch-store").onchange = chDraw; $("#ch-w").onchange = chDraw; chDraw();
+  } catch (e) { if ($("#ch-note")) $("#ch-note").textContent = "تعذّر تحميل الرسم: " + (e?.message || e); }
+}
+
+// ------------------------------------------------------------ boot
+function setConn(state, text) { $("#conn-dot").className = "dot " + state; $("#conn-text").textContent = text; }
+(async function boot() {
+  const C = window.claude;
+  if (!C?.use) { setConn("bad", "افتح الصفحة من claude.ai"); $("#shelf-empty").textContent = "هذه اللوحة تعمل داخل claude.ai فقط، حيث تُحفظ المشاريع ويتصل Apify."; return; }
+  [db, mcp, downloads] = await Promise.all([C.use("db"), C.use("mcp"), C.use("downloads")]);
+  if (!db) { setConn("bad", "التخزين غير متاح"); $("#shelf-empty").textContent = "لا يمكن قراءة المشاريع في هذا العرض. افتح الصفحة من claude.ai وأنت مسجّل الدخول."; return; }
+  if (!mcp) setConn("warn", "Apify غير متاح: التعديل يعمل، التشغيل لا");
+  else {
+    try {
+      const l = await mcp.listTools(APIFY); const s = l.servers.find((x) => x.server === APIFY);
+      if (!s) setConn("bad", "أضف موصل Apify من إعدادات claude.ai");
+      else if (s.authStatus === "needs_reauth") setConn("bad", "أعد ربط Apify من إعدادات claude.ai");
+      else setConn("ok", "Apify متصل");
+    } catch (e) { setConn("warn", mcpErr(e)); }
+  }
+  try { await loadProjects(); } catch (e) { $("#shelf-empty").textContent = "تعذّر تحميل المشاريع: " + dbErr(e); return; }
+  const want = (location.hash || "").slice(1);
+  if (want && projects[want]) openProject(want); else renderHome();
+  loadHomeFigures();
+  window.addEventListener("beforeunload", (e) => { if (basketDirty || job?.running) e.preventDefault(); });
+})();
+</script>

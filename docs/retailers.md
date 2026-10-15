@@ -118,3 +118,13 @@ call - each page is ~450 KB of HTML and larger reads drop the Apify connection.
 Lulu search pages. With the default 'readable text' transformer the product grid is removed: most Lulu pages and about one
 Carrefour page in five came back as an empty page shell, which would look like "not sold" when the product is there.
 `scripts/ingest_lulu.py` and `scripts/name_search.py candidates` report such pages as unreadable instead of "not found".
+
+## Spinneys - test of 2026-10-11 (Scrapling)
+* From the cloud environment every request (plain HTTP with a Chrome fingerprint, and Scrapling's stealth browser) gets
+  **HTTP 403 from Spinneys' Azure Application Gateway**: an IP block, not a bot challenge.
+* Through Apify's unblocker the search page `https://www.spinneys.com/en-ae/search/?q=<text>` loads (`region-id: AE`)
+  but contains **no products**: only the page shell and the "Changing Delivery Address" dialog. Products are loaded by
+  the browser after a delivery address (store) is chosen; no product API URL is visible in the HTML.
+* To add Spinneys: (1) open the site once in a browser **from the UAE**, set a Dubai address and record the product
+  search request it makes (DevTools > Network); (2) call that request with Scrapling from a UAE machine / the Dataiku
+  server, or with a UAE residential proxy (`FetcherSession(proxy=...)`); (3) check whether search accepts a barcode.

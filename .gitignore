@@ -5,3 +5,7 @@ __pycache__/
 .env
 storage/
 apify_storage/
+data/thumbs/
+data/exports/*.xlsx
+data/catalogue/*/thumbs.json
+data/catalogue/*/catalogue.json

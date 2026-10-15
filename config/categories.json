@@ -1,0 +1,197 @@
+{
+ "notes": "Category listings crawled in bulk for ALL basket lines WITHOUT a barcode (match_mode 'spec'). Barcoded lines keep the barcode search. group = COICOP group(s) the category feeds. 2026-10-12: added dairy & eggs, rice/pasta, baking & sugar, nuts & dates, spreads, tins, frozen, sauces, cereals, biscuits (the sections the 8 Oct catalogue had and the crawl lacked); Lulu Cheese replaced by the whole Dairy, Eggs & Cheese section.",
+ "carrefour": [
+  {
+   "group": "0112",
+   "name": "Meat & Poultry",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1670000?currentPage={page0}"
+  },
+  {
+   "group": "0113",
+   "name": "Fish & Seafood",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1640000?currentPage={page0}"
+  },
+  {
+   "group": "0116",
+   "name": "Fruits",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F11660100?currentPage={page0}"
+  },
+  {
+   "group": "0117",
+   "name": "Vegetables",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F11660500?currentPage={page0}"
+  },
+  {
+   "group": "0117,0119",
+   "name": "Herbs",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F11660200?currentPage={page0}"
+  },
+  {
+   "group": "0111,0118",
+   "name": "Bakery",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/bakery?currentPage={page0}"
+  },
+  {
+   "group": "0114,0112,0117,0118",
+   "name": "Chilled Food Counter",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1620000?currentPage={page0}"
+  },
+  {
+   "group": "0111,0118",
+   "name": "Food To Go",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1650000?currentPage={page0}"
+  },
+  {
+   "group": "0119,0111",
+   "name": "Cooking Ingredients",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1760000?currentPage={page0}"
+  },
+  {
+   "group": "0118,0111",
+   "name": "World Specialities",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1790000?currentPage={page0}"
+  },
+  {
+   "group": "0114,0115",
+   "name": "Dairy & Eggs",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F21600000?currentPage={page0}"
+  },
+  {
+   "group": "0111,0117",
+   "name": "Rice, Pasta & Pulses",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1701200?currentPage={page0}"
+  },
+  {
+   "group": "0118,0111,0114,0119",
+   "name": "Baking Essentials",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1701300?currentPage={page0}"
+  },
+  {
+   "group": "0116",
+   "name": "Nuts, Dates & Dried Fruits",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1780000?currentPage={page0}"
+  },
+  {
+   "group": "0118",
+   "name": "Jams, Honey & Spreads",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1770000?currentPage={page0}"
+  },
+  {
+   "group": "0117,0113,0112,0116",
+   "name": "Tins, Jars & Packets",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1714000?currentPage={page0}"
+  },
+  {
+   "group": "0112,0113,0117,0111",
+   "name": "Frozen Food",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F6000000?currentPage={page0}"
+  },
+  {
+   "group": "0119",
+   "name": "Sauces & Dressings",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1750000?currentPage={page0}"
+  },
+  {
+   "group": "0111",
+   "name": "Breakfast Cereals & Bars",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1720000?currentPage={page0}"
+  },
+  {
+   "group": "0118",
+   "name": "Chocolate & Confectionery",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1740000?currentPage={page0}"
+  },
+  {
+   "group": "0111",
+   "name": "Biscuits & Crackers",
+   "url": "https://www.carrefouruae.com/mafuae/en/c/F1710000?currentPage={page0}"
+  }
+ ],
+ "lulu": [
+  {
+   "group": "0112",
+   "name": "Fresh Meat & Poultry",
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-meat-poultry/?page={page1}"
+  },
+  {
+   "group": "0113",
+   "name": "Fresh Fish & Seafood",
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-fish-seafoods/?page={page1}"
+  },
+  {
+   "group": "0116,0117,0119",
+   "name": "Fruits & Vegetables",
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-fruits-vegetables/?page={page1}"
+  },
+  {
+   "group": "0111,0118",
+   "name": "Bakery",
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-bakery/?page={page1}"
+  },
+  {
+   "group": "0114,0111,0118,0112,0117",
+   "name": "Deli",
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-deli/?page={page1}"
+  },
+  {
+   "group": "0119,0111",
+   "name": "Cooking Ingredients",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-cooking-ingredients/?page={page1}"
+  },
+  {
+   "group": "0118,0111,0119",
+   "name": "World Foods",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-world-foods/?page={page1}"
+  },
+  {
+   "group": "0114,0115",
+   "name": "Dairy, Eggs & Cheese",
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-food-dairy-eggs-cheese/?page={page1}"
+  },
+  {
+   "group": "0111",
+   "name": "Rice, Pasta & Noodles",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-rice-pasta-noodles/?page={page1}"
+  },
+  {
+   "group": "0111,0118,0114,0119",
+   "name": "Home Baking & Sweeteners",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-home-baking-sweeteners/?page={page1}"
+  },
+  {
+   "group": "0112,0113,0117,0111",
+   "name": "Frozen Food",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-frozen-food/?page={page1}"
+  },
+  {
+   "group": "0117,0113,0112,0116",
+   "name": "Canned Foods",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-canned-foods/?page={page1}"
+  },
+  {
+   "group": "0118,0111",
+   "name": "Breakfast & Spreads",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-breakfast-spreads/?page={page1}"
+  },
+  {
+   "group": "0111,0118",
+   "name": "Biscuits & Confectionery",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-biscuits-confectionery/?page={page1}"
+  },
+  {
+   "group": "0119",
+   "name": "Sauces & Dressings",
+   "url": "https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-dressings-table-sauces-sides/?page={page1}"
+  },
+  {
+   "group": "0116",
+   "name": "Nuts (search)",
+   "url": "https://gcc.luluhypermarket.com/en-ae/list/?search_text=nuts&page={page1}"
+  },
+  {
+   "group": "0116",
+   "name": "Dates (search)",
+   "url": "https://gcc.luluhypermarket.com/en-ae/list/?search_text=dates&page={page1}"
+  }
+ ]
+}

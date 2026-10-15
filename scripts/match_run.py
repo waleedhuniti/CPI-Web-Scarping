@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from cpi import gtin  # noqa: E402
-from cpi.basket import load_basket  # noqa: E402
+from cpi.basket import load_basket_any  # noqa: E402
 from cpi.matcher import ACCEPTED, Listing, match  # noqa: E402
 
 
@@ -26,7 +26,7 @@ def search_form(raw) -> str:
 
 
 def main(retailer, raw_path, searched_path=None):
-    items = [i for i in load_basket(ROOT / "data/basket/basket_source.xlsx") if i.barcode_kind == "gtin"]
+    items = [i for i in load_basket_any(ROOT) if i.barcode_kind == "gtin"]
     raw = [json.loads(line) for line in open(raw_path, encoding="utf-8")]
     searched = set(json.load(open(searched_path))) if searched_path else None   # None = every barcode was searched
     by_code = collections.defaultdict(dict)                 # searched barcode -> {product_id/url: row}  (de-duplicated)
@@ -71,7 +71,7 @@ def main(retailer, raw_path, searched_path=None):
         w.writeheader()
         w.writerows(out)
     n = len(out)
-    found = sum(v for k, v in counts.items() if k != "not_found")
+    found = sum(v for k, v in counts.items() if k not in ("not_found", "not_searched"))
     accepted = sum(v for k, v in counts.items() if k in ACCEPTED)
     print(f"{retailer}: {n} barcoded basket lines | found at retailer {found} ({found / n:.0%}) | "
           f"accepted by barcode+size {accepted} ({accepted / n:.0%})")

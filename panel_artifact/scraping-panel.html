@@ -1606,7 +1606,7 @@ async function dataikuRuns(btn) {
         const p = Number(o.price);
         if (!(p > 0)) continue;
         const tot = Number(o.qty_total) || 0, k = { g: ["kg", 1000], ml: ["l", 1000], pc: ["pc", 1] }[o.qty_unit];
-        if ((o.source === "category" || /product set/.test(String(o.detail || ""))) && ["kg", "l", "pc", "bunch", "bag100"].includes(o.price_basis)) { o.unit_price = Math.round(p * 100) / 100; }   // product-set lines: 'price' is already per unit
+        if ((o.source === "category" || /product set/.test(String(o.detail || ""))) && ["kg", "l", "pc", "bunch", "bag100"].includes(o.price_basis)) { if (!(Number(o.unit_price) > 0)) o.unit_price = Math.round(p * 100) / 100; }   // product-set lines: 'price' is per unit (older runs kept the pack price there and the unit price apart)
         else if (o.unit_price === undefined || o.unit_price === "" || o.unit_price === null) {
           if (!k || !(tot > 0)) continue;
           if (k[1] > 1 && tot < 5) { o.unit_price = Math.round(p * 100) / 100; o.price_basis = "pc"; }
@@ -1693,7 +1693,7 @@ async function chBuild() {
   const bk = new Map((basket || []).map((b) => [b.item_code, b]));
   // price per kg / per litre / per piece, the way the pipeline's Step3 'observed_price (per unit)' is: half a kilo is never added to a kilo
   const perUnit = (x, price) => {
-    if (["kg", "l", "pc", "bunch", "bag100"].includes(x.price_basis) && Number(x.unit_price) > 0 && (x.source === "category" || x.source === "catalogue")) return [price, x.price_basis];   // product-set lines (shop listings and catalogue) are priced per unit already
+    if (["kg", "l", "pc", "bunch", "bag100"].includes(x.price_basis) && Number(x.unit_price) > 0) return [Number(x.unit_price), x.price_basis];   // the stored unit price (older runs kept the pack price in 'price')
     if (Number(x.unit_price) > 0 && ["kg", "l"].includes(x.price_basis)) return [Number(x.unit_price), x.price_basis];
     const b = bk.get(x.item_code) || {}, tot = Number(b.qty_total) || 0, n = Number(b.qty_count) || 1;
     if ((b.qty_unit === "g" || b.qty_unit === "ml") && tot > 0 && tot < 5) return [price, "pc"];   // a 1 g saffron tube is a piece, not 1/1000 of a kilo
@@ -1751,7 +1751,7 @@ function chSeries(metric, store) {
         for (const [k, v] of cur) {
           const q = prev.get(k); if (!q) continue;
           let r = null;
-          if (v[3] && q[3]) r = v[3] / q[3]; else if (q[2] === v[2]) r = v[0] / q[0];
+          if (v[3] && q[3]) r = v[3] / q[3]; else if (!v[3] && !q[3] && q[2] === v[2]) r = v[0] / q[0];   // never chain a single listing to a product-set level (a change of method, not of price)
           if (!(r > 0)) continue;
           const it = /^\d{9}\|/.test(k) ? k.slice(0, 7) : k;     // catalogue products (no basket item): each is its own item
           const e = byItem.get(it) || [0, 0]; e[0] += Math.log(r); e[1]++; byItem.set(it, e);

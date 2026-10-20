@@ -9,3 +9,4 @@ data/thumbs/
 data/exports/*.xlsx
 data/catalogue/*/thumbs.json
 data/catalogue/*/catalogue.json
+data/exports/*_screenshots.zip

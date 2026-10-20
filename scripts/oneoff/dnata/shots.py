@@ -1,0 +1,88 @@
+"""Screenshot of the final package page (Emirates non-stop selected) for every priced hotel of res file."""
+import asyncio, json, re, sys
+from playwright.async_api import async_playwright
+CI, CO = "2026-11-01", "2026-11-04"
+res = json.load(open(sys.argv[1])); OUT = sys.argv[2]
+done = json.load(open(OUT)) if len(sys.argv) > 3 else {}
+async def wait_text(pg, needle, n=20):
+    for i in range(n):
+        await pg.wait_for_timeout(2000)
+        if needle in await pg.inner_text('body'): return True
+    return False
+def slug(s): return re.sub(r'[^A-Za-z0-9]+', '_', s or '')[:40]
+async def one(ctx, v):
+    pg = await ctx.new_page()
+    try:
+        did = re.search(r'\((\d+)\)', v['destination']).group(1)
+        board = "&hotelFilters.boardTypes=2" if v.get('board_rule') == 'Bed & Breakfast' else ""
+        url = (f"https://www.dnatatravel.com/holidays/hotels?checkIn={CI}&checkOut={CO}&destIds={did}&tripType=HOLIDAY&rooms.0.adults=1"
+               f"&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&sort=PRICE_LOWEST_FIRST{board}")
+        await pg.goto(url, wait_until='domcontentloaded', timeout=90000)
+        await wait_text(pg, 'Total AED')
+        q = pg.url.split('?', 1)[1]
+        await pg.goto(f"https://www.dnatatravel.com/holidays/hotels/{v['estab_id']}?{q}", wait_until='domcontentloaded', timeout=90000)
+        if not await wait_text(pg, 'Total holiday'): return {'error': 'room page did not load'}
+        await pg.evaluate("document.querySelectorAll('#onetrust-consent-sdk').forEach(e=>e.remove())")
+        await pg.get_by_role('button', name='Change flight').first.click()
+        await pg.wait_for_timeout(6000)
+        dlg = pg.locator('[role=dialog]').first
+        await dlg.locator('label', has_text='Direct').first.click(); await pg.wait_for_timeout(4000)
+        best = None
+        for more in range(4):
+            sel = dlg.locator('button', has_text=re.compile(r'^\s*Select\s*$'))
+            for i in range(await sel.count()):
+                t = await sel.nth(i).locator('xpath=ancestor::*[contains(., "Dubai to")][1]').inner_text()
+                if t.count('Emirates') < 2 or re.search(r'\d stop', t): continue
+                m = re.search(r'([+-])\s*AED\s*([\d,]+)', t)
+                d = (1 if m.group(1) == '+' else -1) * float(m.group(2).replace(',', '')) if m else 0.0
+                if best is None or d < best[0]: best = (d, i)
+            if best: break
+            mb = dlg.get_by_role('button', name='Show more flights')
+            if await mb.count() == 0: break
+            await mb.first.click(); await pg.wait_for_timeout(4000)
+        if not best: return {'error': 'no Emirates direct flight in the list'}
+        sel = dlg.locator('button', has_text=re.compile(r'^\s*Select\s*$'))
+        await sel.nth(best[1]).click()
+        await pg.wait_for_timeout(3000)
+        notice = None
+        if 'Important Notice' in await pg.inner_text('body'):
+            nights = (__import__('datetime').date.fromisoformat(CO) - __import__('datetime').date.fromisoformat(CI)).days
+            opt = pg.locator('label', has_text=f'({nights} nights)').first
+            notice = (await pg.locator('text=Important Notice').locator('xpath=ancestor::*[contains(., "Proceed")][1]').inner_text())[:300].replace('\n', ' ')
+            if await opt.count(): await opt.click()
+            else: await pg.get_by_text(f'({nights} nights)').first.click()
+            await pg.wait_for_timeout(800)
+            await pg.get_by_role('button', name='Proceed').first.click()
+        for i in range(15):
+            await pg.wait_for_timeout(2000)
+            if await pg.locator('[role=dialog]').count() == 0: break
+        await pg.wait_for_timeout(3000)
+        body = await pg.inner_text('body')
+        m = re.search(r'Total holiday\s*AED\s*([\d,]+)', body)
+        nm = re.search(r'(\d+) nights?, 1 adult', body)
+        shown = float(m.group(1).replace(',', '')) if m else None
+        await pg.get_by_text('Your selected flights').first.scroll_into_view_if_needed()
+        await pg.mouse.wheel(0, -260); await pg.wait_for_timeout(800)
+        path = f"shots/{v['row']:02d}_{slug(v['hotel_found'])}.png"
+        await pg.screenshot(path=path)
+        return {'shown_total': shown, 'flight_delta_shown': best[0], 'screenshot': path, 'page_url': pg.url, 'nights_shown': int(nm.group(1)) if nm else None, 'notice': notice}
+    except Exception as e:
+        return {'error': f'{type(e).__name__}: {e}'[:200]}
+    finally:
+        await pg.close()
+async def main():
+    async with async_playwright() as p:
+        b = await p.chromium.launch(headless=True, executable_path="/opt/pw-browsers/chromium-1243/chrome-linux64/chrome")
+        ctx = await b.new_context(locale="en-US", viewport={"width": 1300, "height": 1000},
+                                  user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+        for k in sorted(res, key=int):
+            v = res[k]
+            if not v.get('total') or (k in done and done[k].get('shown_total')): continue
+            r = await one(ctx, v)
+            if r.get('error'):                       # one retry
+                r = await one(ctx, v)
+            done[k] = r
+            json.dump(done, open(OUT, 'w'), ensure_ascii=False, indent=1)
+            print(k, v['hotel_found'], 'calc', v['total'], 'shown', r.get('shown_total'), r.get('error', ''), flush=True)
+        await b.close()
+asyncio.run(main())

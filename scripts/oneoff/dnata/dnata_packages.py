@@ -3,7 +3,8 @@ Stay CHECKIN..CHECKOUT, 1 adult from DXB, Emirates non-stop both ways, Bed & Bre
 Runs in a headless browser (the site's own GraphQL calls, made from the page) and writes results JSON."""
 import asyncio, json, sys, re
 from playwright.async_api import async_playwright
-CHECKIN, CHECKOUT = "2026-10-25", "2026-10-29"
+import os
+CHECKIN, CHECKOUT = os.environ.get("CHECKIN", "2026-10-25"), os.environ.get("CHECKOUT", "2026-10-29")
 Q = json.load(open("queries.json"))
 TARGETS = json.load(open(sys.argv[1]))          # [{row, city, term, keys}]
 OUT = sys.argv[2]

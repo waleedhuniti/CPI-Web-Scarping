@@ -374,9 +374,10 @@
   "default_flight": "Qatar Airways / Qatar Airways / Qatar Airways / Qatar Airways",
   "flight": "EK0215 08:30 / EK0216 15:50",
   "flight_delta": 715.5,
-  "total": 9329.0,
+  "total": 9092.0,
   "calc_total": 9091.7,
-  "screenshot": "shots_4n/30_Hilton_Los_Angeles_Airport_Hotel.png"
+  "screenshot": "shots_4n/30_Hilton_Los_Angeles_Airport_Hotel.png",
+  "note": "أُعيد التقاط الصفحة: أرخص غرفة بفطور (Two Double Beds)؛ اللقطة الأولى كانت بغرفة أغلى اختارها الموقع تلقائياً (+237)"
  },
  "31": {
   "row": 31,

@@ -24,6 +24,17 @@ async def one(ctx, v):
         await pg.goto(f"https://www.dnatatravel.com/holidays/hotels/{v['estab_id']}?{q}", wait_until='domcontentloaded', timeout=90000)
         if not await wait_text(pg, 'Total holiday'): return {'error': 'room page did not load'}
         await pg.evaluate("document.querySelectorAll('#onetrust-consent-sdk').forEach(e=>e.remove())")
+        # cheapest room of the selected board: a room option shows '-AED n' when it is cheaper than the pre-selected one
+        for _ in range(3):
+            more = pg.get_by_role('button', name=re.compile(r'^Show \d+ more rooms$'))
+            if await more.count(): await more.first.click(); await pg.wait_for_timeout(1500)
+        cheaper = []
+        for el in await pg.locator('label:has(input[type=radio])').all():
+            t = await el.inner_text()
+            m = re.search(r'-\s*AED\s*([\d,]+)\s*total', t)
+            if m: cheaper.append((float(m.group(1).replace(',', '')), el))
+        if cheaper:
+            await max(cheaper, key=lambda x: x[0])[1].click(); await pg.wait_for_timeout(5000)
         await pg.get_by_role('button', name='Change flight').first.click()
         await pg.wait_for_timeout(6000)
         dlg = pg.locator('[role=dialog]').first

@@ -1,0 +1,742 @@
+{
+ "DEL_out": {
+  "key": "DEL_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=DEL&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 17,
+  "airlines": {
+   "Air India": {
+    "min": 1627.6,
+    "max": 2470,
+    "n": 8,
+    "min_flight": "AI0996 23:55",
+    "max_flight": "AI0918 13:45"
+   },
+   "Flydubai": {
+    "min": 2142.45,
+    "max": 2142.45,
+    "n": 1,
+    "min_flight": "FZ0441 05:05",
+    "max_flight": "FZ0441 05:05"
+   },
+   "Emirates": {
+    "min": 2641.95,
+    "max": 2672.85,
+    "n": 8,
+    "min_flight": "EK0510 04:15",
+    "max_flight": "EK0510 04:15"
+   }
+  }
+ },
+ "DEL_back": {
+  "key": "DEL_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=DEL&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 33,
+  "airlines": {
+   "Air India": {
+    "min": 774.8,
+    "max": 972.4000000000001,
+    "n": 8,
+    "min_flight": "AI0929 08:40",
+    "max_flight": "AI0917 09:50"
+   },
+   "Emirates": {
+    "min": 932.15,
+    "max": 1807.65,
+    "n": 25,
+    "min_flight": "EK0517 16:15",
+    "max_flight": "EK0517 16:15"
+   }
+  }
+ },
+ "DEL_return": {
+  "key": "DEL_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=DEL&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 152,
+  "airlines": {
+   "Air India": {
+    "min": 2256.8,
+    "max": 2964,
+    "n": 32,
+    "min_flight": "AI0996 23:55 / AI0929 08:40",
+    "max_flight": "AI0918 13:45 / AI0929 08:40"
+   },
+   "Emirates": {
+    "min": 2327.8,
+    "max": 3821.3,
+    "n": 120,
+    "min_flight": "EK2124 05:05 / EK0517 16:15",
+    "max_flight": "EK0510 04:15 / EK0515 21:30"
+   }
+  }
+ },
+ "LHR_out": {
+  "key": "LHR_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=LHR&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 6,
+  "airlines": {
+   "Emirates": {
+    "min": 4794.65,
+    "max": 4825.55,
+    "n": 6,
+    "min_flight": "EK0005 16:05",
+    "max_flight": "EK0005 16:05"
+   }
+  }
+ },
+ "LHR_back": {
+  "key": "LHR_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=LHR&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 13,
+  "airlines": {
+   "Emirates": {
+    "min": 2878.8500000000004,
+    "max": 4506.25,
+    "n": 12,
+    "min_flight": "EK0006 22:00",
+    "max_flight": "EK0006 22:00"
+   },
+   "British Airways": {
+    "min": 2948.4,
+    "max": 2948.4,
+    "n": 1,
+    "min_flight": "BA0105 20:00",
+    "max_flight": "BA0105 20:00"
+   }
+  }
+ },
+ "LHR_return": {
+  "key": "LHR_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=LHR&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 108,
+  "airlines": {
+   "Emirates": {
+    "min": 6200.6,
+    "max": 7797.1,
+    "n": 108,
+    "min_flight": "EK0005 16:05 / EK0030 15:50",
+    "max_flight": "EK0005 16:05 / EK0030 15:50"
+   }
+  }
+ },
+ "LGW_out": {
+  "key": "LGW_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=LGW&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 8,
+  "airlines": {
+   "Emirates": {
+    "min": 4804.95,
+    "max": 4835.85,
+    "n": 8,
+    "min_flight": "EK0069 17:05",
+    "max_flight": "EK0069 17:05"
+   }
+  }
+ },
+ "LGW_back": {
+  "key": "LGW_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=LGW&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 8,
+  "airlines": {
+   "Emirates": {
+    "min": 2755.25,
+    "max": 4382.65,
+    "n": 8,
+    "min_flight": "EK0012 09:40",
+    "max_flight": "EK0012 09:40"
+   }
+  }
+ },
+ "LGW_return": {
+  "key": "LGW_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=LGW&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 96,
+  "airlines": {
+   "Emirates": {
+    "min": 6087.299999999999,
+    "max": 7683.799999999999,
+    "n": 96,
+    "min_flight": "EK0069 17:05 / EK0012 09:40",
+    "max_flight": "EK0069 17:05 / EK0012 09:40"
+   }
+  }
+ },
+ "RUH_out": {
+  "key": "RUH_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=RUH&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 20,
+  "airlines": {
+   "Emirates": {
+    "min": 602.55,
+    "max": 2229.9500000000003,
+    "n": 18,
+    "min_flight": "EK0815 01:00",
+    "max_flight": "EK0815 01:00"
+   },
+   "Flydubai": {
+    "min": 807.3,
+    "max": 1231.65,
+    "n": 2,
+    "min_flight": "FZ0855 19:20",
+    "max_flight": "FZ0847 07:50"
+   }
+  }
+ },
+ "RUH_back": {
+  "key": "RUH_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=RUH&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 20,
+  "airlines": {
+   "Flydubai": {
+    "min": 507.15,
+    "max": 1045.35,
+    "n": 2,
+    "min_flight": "FZ0856 21:25",
+    "max_flight": "FZ0848 09:55"
+   },
+   "Emirates": {
+    "min": 798.25,
+    "max": 2281.45,
+    "n": 18,
+    "min_flight": "EK0816 04:00",
+    "max_flight": "EK0816 04:00"
+   }
+  }
+ },
+ "RUH_return": {
+  "key": "RUH_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=RUH&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 250,
+  "airlines": {
+   "Emirates": {
+    "min": 1133,
+    "max": 3831.6,
+    "n": 246,
+    "min_flight": "EK0815 01:00 / EK0818 20:25",
+    "max_flight": "EK2264 19:20 / EK0818 20:25"
+   },
+   "Flydubai": {
+    "min": 1242,
+    "max": 1852.65,
+    "n": 4,
+    "min_flight": "FZ0855 19:20 / FZ0856 21:25",
+    "max_flight": "FZ0847 07:50 / FZ0848 09:55"
+   }
+  }
+ },
+ "KHI_out": {
+  "key": "KHI_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=KHI&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 15,
+  "airlines": {
+   "Emirates": {
+    "min": 520.15,
+    "max": 1673.75,
+    "n": 12,
+    "min_flight": "EK0600 07:30",
+    "max_flight": "EK0600 07:30"
+   },
+   "Flydubai": {
+    "min": 621,
+    "max": 1035,
+    "n": 3,
+    "min_flight": "FZ0329 19:55",
+    "max_flight": "FZ0335 12:25"
+   }
+  }
+ },
+ "KHI_back": {
+  "key": "KHI_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=KHI&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 27,
+  "airlines": {
+   "Flydubai": {
+    "min": 910.8,
+    "max": 910.8,
+    "n": 3,
+    "min_flight": "FZ0334 10:00",
+    "max_flight": "FZ0334 10:00"
+   },
+   "Emirates": {
+    "min": 952.75,
+    "max": 4392.950000000001,
+    "n": 24,
+    "min_flight": "EK0609 19:35",
+    "max_flight": "EK2111 10:00"
+   }
+  }
+ },
+ "KHI_return": {
+  "key": "KHI_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=KHI&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 309,
+  "airlines": {
+   "Emirates": {
+    "min": 1133,
+    "max": 2832.5,
+    "n": 291,
+    "min_flight": "EK0600 07:30 / EK2113 16:25",
+    "max_flight": "EK2112 12:25 / EK0601 12:00"
+   },
+   "Flydubai": {
+    "min": 1190.25,
+    "max": 1511.1,
+    "n": 9,
+    "min_flight": "FZ0329 19:55 / FZ0334 10:00",
+    "max_flight": "FZ0335 12:25 / FZ0334 10:00"
+   }
+  }
+ },
+ "JFK_out": {
+  "key": "JFK_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=JFK&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 8,
+  "airlines": {
+   "Emirates": {
+    "min": 3857.35,
+    "max": 5536.25,
+    "n": 8,
+    "min_flight": "EK0201 08:30",
+    "max_flight": "EK0201 08:30"
+   }
+  }
+ },
+ "JFK_back": {
+  "key": "JFK_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=JFK&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 8,
+  "airlines": {
+   "Emirates": {
+    "min": 3146.6499999999996,
+    "max": 7482.95,
+    "n": 8,
+    "min_flight": "EK0204 10:40",
+    "max_flight": "EK0204 10:40"
+   }
+  }
+ },
+ "JFK_return": {
+  "key": "JFK_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=JFK&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 40,
+  "airlines": {
+   "Emirates": {
+    "min": 5077.9,
+    "max": 7107,
+    "n": 40,
+    "min_flight": "EK0201 08:30 / EK0204 10:40",
+    "max_flight": "EK0201 08:30 / EK0202 23:00"
+   }
+  }
+ },
+ "EWR_out": {
+  "key": "EWR_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=EWR&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "EWR_back": {
+  "key": "EWR_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=EWR&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "EWR_return": {
+  "key": "EWR_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=EWR&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "IKA_out": {
+  "key": "IKA_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=IKA&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "IKA_back": {
+  "key": "IKA_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=IKA&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "IKA_return": {
+  "key": "IKA_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=IKA&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "BKK_out": {
+  "key": "BKK_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=BKK&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 20,
+  "airlines": {
+   "Emirates": {
+    "min": 2652.25,
+    "max": 3898.55,
+    "n": 20,
+    "min_flight": "EK0374 22:30",
+    "max_flight": "EK0374 22:30"
+   }
+  }
+ },
+ "BKK_back": {
+  "key": "BKK_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=BKK&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 30,
+  "airlines": {
+   "Emirates": {
+    "min": 2116.65,
+    "max": 3259.9500000000003,
+    "n": 30,
+    "min_flight": "EK0371 02:55",
+    "max_flight": "EK0371 02:55"
+   }
+  }
+ },
+ "BKK_return": {
+  "key": "BKK_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=BKK&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 250,
+  "airlines": {
+   "Emirates": {
+    "min": 3491.7,
+    "max": 5819.5,
+    "n": 250,
+    "min_flight": "EK0374 22:30 / EK0373 20:55",
+    "max_flight": "EK0384 03:05 / EK0373 20:55"
+   }
+  }
+ },
+ "IST_out": {
+  "key": "IST_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=IST&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 28,
+  "airlines": {
+   "Flydubai": {
+    "min": 1604.25,
+    "max": 1604.25,
+    "n": 2,
+    "min_flight": "FZ0727 13:20",
+    "max_flight": "FZ0727 13:20"
+   },
+   "Emirates": {
+    "min": 2044.55,
+    "max": 3187.85,
+    "n": 20,
+    "min_flight": "EK0123 10:00",
+    "max_flight": "EK0123 10:00"
+   },
+   "Turkish Airlines": {
+    "min": 2854.8,
+    "max": 3853.2,
+    "n": 6,
+    "min_flight": "TK0763 08:35",
+    "max_flight": "TK0765 15:05"
+   }
+  }
+ },
+ "IST_back": {
+  "key": "IST_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=IST&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 26,
+  "airlines": {
+   "Flydubai": {
+    "min": 1169.55,
+    "max": 1169.55,
+    "n": 2,
+    "min_flight": "FZ0756 01:55",
+    "max_flight": "FZ0756 01:55"
+   },
+   "Emirates": {
+    "min": 2374.15,
+    "max": 3661.65,
+    "n": 20,
+    "min_flight": "EK0122 20:05",
+    "max_flight": "EK0122 20:05"
+   },
+   "Turkish Airlines": {
+    "min": 2376.4,
+    "max": 2397.2,
+    "n": 4,
+    "min_flight": "TK0758 21:45",
+    "max_flight": "TK0762 01:30"
+   }
+  }
+ },
+ "IST_return": {
+  "key": "IST_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=IST&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 282,
+  "airlines": {
+   "Flydubai": {
+    "min": 2121.75,
+    "max": 2297.7,
+    "n": 8,
+    "min_flight": "FZ0727 13:20 / FZ0756 01:55",
+    "max_flight": "FZ0727 13:20 / FZ0756 01:55"
+   },
+   "Emirates": {
+    "min": 2544.1,
+    "max": 5180.9,
+    "n": 250,
+    "min_flight": "EK0121 14:20 / EK2095 18:35",
+    "max_flight": "EK0123 10:00 / EK0124 16:05"
+   },
+   "Turkish Airlines": {
+    "min": 3702.3999999999996,
+    "max": 4565.6,
+    "n": 24,
+    "min_flight": "TK0763 08:35 / TK0758 21:45",
+    "max_flight": "TK0765 15:05 / TK0762 01:30"
+   }
+  }
+ },
+ "SAW_out": {
+  "key": "SAW_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=SAW&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 6,
+  "airlines": {
+   "Flydubai": {
+    "min": 1138.5,
+    "max": 1138.5,
+    "n": 1,
+    "min_flight": "FZ0751 09:10",
+    "max_flight": "FZ0751 09:10"
+   },
+   "Pegasus Airlines": {
+    "min": 1211.6,
+    "max": 1211.6,
+    "n": 1,
+    "min_flight": "PC0741 03:25",
+    "max_flight": "PC0741 03:25"
+   },
+   "Emirates": {
+    "min": 2044.55,
+    "max": 3187.85,
+    "n": 4,
+    "min_flight": "EK2224 09:10",
+    "max_flight": "EK2224 09:10"
+   }
+  }
+ },
+ "SAW_back": {
+  "key": "SAW_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=SAW&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 6,
+  "airlines": {
+   "Pegasus Airlines": {
+    "min": 920.4,
+    "max": 920.4,
+    "n": 1,
+    "min_flight": "PC0740 20:50",
+    "max_flight": "PC0740 20:50"
+   },
+   "Flydubai": {
+    "min": 1066.05,
+    "max": 1066.05,
+    "n": 1,
+    "min_flight": "FZ0752 14:20",
+    "max_flight": "FZ0752 14:20"
+   },
+   "Emirates": {
+    "min": 2353.5499999999997,
+    "max": 3641.0499999999997,
+    "n": 4,
+    "min_flight": "EK2225 14:20",
+    "max_flight": "EK2225 14:20"
+   }
+  }
+ },
+ "SAW_return": {
+  "key": "SAW_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=SAW&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 13,
+  "airlines": {
+   "Flydubai": {
+    "min": 1873.3500000000001,
+    "max": 2018.25,
+    "n": 2,
+    "min_flight": "FZ0751 09:10 / FZ0752 14:20",
+    "max_flight": "FZ0751 09:10 / FZ0752 14:20"
+   },
+   "Pegasus Airlines": {
+    "min": 2132,
+    "max": 2132,
+    "n": 1,
+    "min_flight": "PC0741 03:25 / PC0740 20:50",
+    "max_flight": "PC0741 03:25 / PC0740 20:50"
+   },
+   "Emirates": {
+    "min": 2523.5,
+    "max": 4233.3,
+    "n": 10,
+    "min_flight": "EK2224 09:10 / EK2225 14:20",
+    "max_flight": "EK2224 09:10 / EK2225 14:20"
+   }
+  }
+ },
+ "CAI_out": {
+  "key": "CAI_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=CAI&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 38,
+  "airlines": {
+   "Egyptair": {
+    "min": 962,
+    "max": 1315.6,
+    "n": 8,
+    "min_flight": "MS0913 16:20",
+    "max_flight": "MS0906 20:00"
+   },
+   "Emirates": {
+    "min": 1251.45,
+    "max": 2271.15,
+    "n": 30,
+    "min_flight": "EK0929 04:10",
+    "max_flight": "EK0929 04:10"
+   }
+  }
+ },
+ "CAI_back": {
+  "key": "CAI_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=CAI&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 38,
+  "airlines": {
+   "Egyptair": {
+    "min": 920.4000000000001,
+    "max": 1076.4,
+    "n": 8,
+    "min_flight": "MS0901 04:15",
+    "max_flight": "MS0910 22:20"
+   },
+   "Emirates": {
+    "min": 1117.55,
+    "max": 2858.25,
+    "n": 30,
+    "min_flight": "EK0924 19:25",
+    "max_flight": "EK0924 19:25"
+   }
+  }
+ },
+ "CAI_return": {
+  "key": "CAI_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=CAI&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 282,
+  "airlines": {
+   "Egyptair": {
+    "min": 1830.3999999999999,
+    "max": 2444,
+    "n": 32,
+    "min_flight": "MS0911 05:00 / MS0901 04:15",
+    "max_flight": "MS0906 20:00 / MS0905 13:35"
+   },
+   "Emirates": {
+    "min": 2070.3,
+    "max": 3193,
+    "n": 250,
+    "min_flight": "EK0929 04:10 / EK0928 12:30",
+    "max_flight": "EK0929 04:10 / EK0926 00:50"
+   }
+  }
+ },
+ "HBE_out": {
+  "key": "HBE_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=HBE&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "HBE_back": {
+  "key": "HBE_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=HBE&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "HBE_return": {
+  "key": "HBE_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=HBE&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "AMM_out": {
+  "key": "AMM_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=AMM&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 19,
+  "airlines": {
+   "Flydubai": {
+    "min": 641.7,
+    "max": 641.7,
+    "n": 2,
+    "min_flight": "FZ0147 07:00",
+    "max_flight": "FZ0147 07:00"
+   },
+   "Royal Jordanian Airlines": {
+    "min": 806,
+    "max": 1430,
+    "n": 5,
+    "min_flight": "RJ0615 22:45",
+    "max_flight": "RJ0611 13:45"
+   },
+   "Emirates": {
+    "min": 942.45,
+    "max": 1828.25,
+    "n": 12,
+    "min_flight": "EK0903 14:30",
+    "max_flight": "EK0903 14:30"
+   }
+  }
+ },
+ "AMM_back": {
+  "key": "AMM_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-06&tripType=FLIGHT&depAirports=AMM&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 17,
+  "airlines": {
+   "Flydubai": {
+    "min": 817.65,
+    "max": 817.65,
+    "n": 2,
+    "min_flight": "FZ0148 10:55",
+    "max_flight": "FZ0148 10:55"
+   },
+   "Emirates": {
+    "min": 1076.35,
+    "max": 2271.15,
+    "n": 12,
+    "min_flight": "EK0904 18:45",
+    "max_flight": "EK0904 18:45"
+   },
+   "Royal Jordanian Airlines": {
+    "min": 1378,
+    "max": 1378,
+    "n": 3,
+    "min_flight": "RJ0612 00:10",
+    "max_flight": "RJ0612 00:10"
+   }
+  }
+ },
+ "AMM_return": {
+  "key": "AMM_return",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-01&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=AMM&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&checkOut=2026-11-06&flightJourneyType=RETURN",
+  "total_direct": 170,
+  "airlines": {
+   "Flydubai": {
+    "min": 1014.3,
+    "max": 1014.3,
+    "n": 4,
+    "min_flight": "FZ0147 07:00 / FZ0148 10:55",
+    "max_flight": "FZ0147 07:00 / FZ0148 10:55"
+   },
+   "Royal Jordanian Airlines": {
+    "min": 1476.8000000000002,
+    "max": 1684.8000000000002,
+    "n": 6,
+    "min_flight": "RJ0613 06:45 / RJ0612 00:10",
+    "max_flight": "RJ0611 13:45 / RJ0612 00:10"
+   },
+   "Emirates": {
+    "min": 1771.6,
+    "max": 2729.5,
+    "n": 160,
+    "min_flight": "EK0903 14:30 / EK0902 12:25",
+    "max_flight": "EK0903 14:30 / EK0904 18:45"
+   }
+  }
+ }
+}

@@ -1,7 +1,8 @@
 """Screenshot of the final package page (Emirates non-stop selected) for every priced hotel of res file."""
 import asyncio, json, re, sys
 from playwright.async_api import async_playwright
-CI, CO = "2026-11-01", "2026-11-04"
+import os
+CI, CO = os.environ.get("CHECKIN", "2026-11-01"), os.environ.get("CHECKOUT", "2026-11-04")
 res = json.load(open(sys.argv[1])); OUT = sys.argv[2]
 done = json.load(open(OUT)) if len(sys.argv) > 3 else {}
 async def wait_text(pg, needle, n=20):
@@ -27,12 +28,17 @@ async def one(ctx, v):
         await pg.wait_for_timeout(6000)
         dlg = pg.locator('[role=dialog]').first
         await dlg.locator('label', has_text='Direct').first.click(); await pg.wait_for_timeout(4000)
+        ek = dlg.locator('label', has_text=re.compile(r'^\s*Emirates\s*$'))
+        if await ek.count() == 0 or not await ek.first.is_visible():
+            for b in await dlg.get_by_role('button', name=re.compile(r'^Show \d+ more$')).all():
+                await b.click(); await pg.wait_for_timeout(1000)
+        await ek.first.click(); await pg.wait_for_timeout(5000)
         best = None
         for more in range(4):
             sel = dlg.locator('button', has_text=re.compile(r'^\s*Select\s*$'))
             for i in range(await sel.count()):
                 t = await sel.nth(i).locator('xpath=ancestor::*[contains(., "Dubai to")][1]').inner_text()
-                if t.count('Emirates') < 2 or re.search(r'\d stop', t): continue
+                if t.count('Direct') < 2 or re.search(r'\d stop', t): continue   # the Emirates filter is ticked: every card listed is Emirates
                 m = re.search(r'([+-])\s*AED\s*([\d,]+)', t)
                 d = (1 if m.group(1) == '+' else -1) * float(m.group(2).replace(',', '')) if m else 0.0
                 if best is None or d < best[0]: best = (d, i)
@@ -46,7 +52,7 @@ async def one(ctx, v):
         await pg.wait_for_timeout(3000)
         notice = None
         if 'Important Notice' in await pg.inner_text('body'):
-            nights = (__import__('datetime').date.fromisoformat(CO) - __import__('datetime').date.fromisoformat(CI)).days
+            nights = int(os.environ.get('NIGHTS') or (__import__('datetime').date.fromisoformat(CO) - __import__('datetime').date.fromisoformat(CI)).days)
             opt = pg.locator('label', has_text=f'({nights} nights)').first
             notice = (await pg.locator('text=Important Notice').locator('xpath=ancestor::*[contains(., "Proceed")][1]').inner_text())[:300].replace('\n', ' ')
             if await opt.count(): await opt.click()
@@ -63,7 +69,7 @@ async def one(ctx, v):
         shown = float(m.group(1).replace(',', '')) if m else None
         await pg.get_by_text('Your selected flights').first.scroll_into_view_if_needed()
         await pg.mouse.wheel(0, -260); await pg.wait_for_timeout(800)
-        path = f"shots/{v['row']:02d}_{slug(v['hotel_found'])}.png"
+        path = f"{os.environ.get('SHOTDIR', 'shots')}/{v['row']:02d}_{slug(v['hotel_found'])}.png"
         await pg.screenshot(path=path)
         return {'shown_total': shown, 'flight_delta_shown': best[0], 'screenshot': path, 'page_url': pg.url, 'nights_shown': int(nm.group(1)) if nm else None, 'notice': notice}
     except Exception as e:

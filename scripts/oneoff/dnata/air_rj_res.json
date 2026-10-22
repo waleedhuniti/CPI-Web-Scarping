@@ -1,0 +1,77 @@
+{
+ "AMM": {
+  "out": {
+   "date": "2026-11-01",
+   "shifted_days": 0,
+   "flights": [
+    {
+     "flight": "RJ 613",
+     "dep": "2026-11-01 06:45:00",
+     "from": 905.0,
+     "fares": {
+      "ECVALUE": 905.0,
+      "ECFLEX": 1105.0
+     }
+    },
+    {
+     "flight": "RJ 611",
+     "dep": "2026-11-01 13:45:00",
+     "from": 1335.0,
+     "fares": {
+      "ECVALUE": 1335.0,
+      "ECFLEX": 1535.0
+     }
+    },
+    {
+     "flight": "RJ 615",
+     "dep": "2026-11-01 22:45:00",
+     "from": 735.0,
+     "fares": {
+      "ECVALUE": 735.0,
+      "ECFLEX": 935.0
+     }
+    }
+   ],
+   "lowest": 735.0,
+   "highest": 1335.0
+  },
+  "back": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "flights": [
+    {
+     "flight": "RJ 612",
+     "dep": "2026-11-06 00:10:00",
+     "from": 575.0,
+     "fares": {
+      "ECSAVER": 575.0,
+      "ECVALUE": 585.0,
+      "ECFLEX": 635.0
+     }
+    },
+    {
+     "flight": "RJ 610",
+     "dep": "2026-11-06 08:40:00",
+     "from": 575.0,
+     "fares": {
+      "ECSAVER": 575.0,
+      "ECVALUE": 585.0,
+      "ECFLEX": 635.0
+     }
+    },
+    {
+     "flight": "RJ 614",
+     "dep": "2026-11-06 17:25:00",
+     "from": 575.0,
+     "fares": {
+      "ECSAVER": 575.0,
+      "ECVALUE": 585.0,
+      "ECFLEX": 635.0
+     }
+    }
+   ],
+   "lowest": 575.0,
+   "highest": 575.0
+  }
+ }
+}

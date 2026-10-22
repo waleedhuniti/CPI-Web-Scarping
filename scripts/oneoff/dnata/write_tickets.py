@@ -22,11 +22,11 @@ for city, r0 in DROW.items():
         for (clo, chi), al in (((3, 4), "Flydubai"), ((6, 7), "Emirates")):
             lo, hi, _ = rng(city, leg, al)
             dom.cell(r0 + i, clo).value = lo
-            dom.cell(r0 + i, chi).value = hi if hi else lo
+            dom.cell(r0 + i, chi).value = hi if (hi and hi != lo) else None
     for clo, chi, cav in ((3, 4, 5), (6, 7, 8)):          # same formula on every return row: out + back, ticket = average of lowest and highest
         L, H, A = (openpyxl.utils.get_column_letter(c) for c in (clo, chi, cav))
         if dom.cell(r0, clo).value and dom.cell(r0 + 1, clo).value:
-            dom.cell(r0 + 2, clo).value = f"=SUM({L}{r0}:{L}{r0+1})"; dom.cell(r0 + 2, chi).value = f"=SUM({H}{r0}:{H}{r0+1})"; dom.cell(r0 + 2, cav).value = f"=AVERAGE({L}{r0+2}:{H}{r0+2})"
+            dom.cell(r0 + 2, clo).value = f"=SUM({L}{r0}:{L}{r0+1})"; dom.cell(r0 + 2, chi).value = f'=IF(AND({H}{r0}="",{H}{r0+1}=""),"",IF({H}{r0}="",{L}{r0},{H}{r0})+IF({H}{r0+1}="",{L}{r0+1},{H}{r0+1}))'; dom.cell(r0 + 2, cav).value = f"=AVERAGE({L}{r0+2}:{H}{r0+2})"
         else:
             for c in (clo, chi, cav): dom.cell(r0 + 2, c).value = None
 dom.cell(1, 3).value = "الأسبوع الأول: الذهاب 1 نوفمبر، العودة 6 نوفمبر 2026"
@@ -40,9 +40,9 @@ fo = wb.copy_worksheet(for_src); fo.title = "أجنبي 1-6 نوفمبر"; fo.sh
 for city, (r0, al) in NAT.items():
     for i, leg in enumerate(("out", "back")):
         lo, hi, _ = rng(city, leg, al)
-        fo.cell(r0 + i, 3).value = lo; fo.cell(r0 + i, 4).value = hi if hi else lo
+        fo.cell(r0 + i, 3).value = lo; fo.cell(r0 + i, 4).value = hi if (hi and hi != lo) else None
     if fo.cell(r0, 3).value and fo.cell(r0 + 1, 3).value:
-        fo.cell(r0 + 2, 3).value = f"=SUM(C{r0}:C{r0+1})"; fo.cell(r0 + 2, 4).value = f"=SUM(D{r0}:D{r0+1})"; fo.cell(r0 + 2, 5).value = f"=AVERAGE(C{r0+2}:D{r0+2})"
+        fo.cell(r0 + 2, 3).value = f"=SUM(C{r0}:C{r0+1})"; fo.cell(r0 + 2, 4).value = f'=IF(AND(D{r0}="",D{r0+1}=""),"",IF(D{r0}="",C{r0},D{r0})+IF(D{r0+1}="",C{r0+1},D{r0+1}))'; fo.cell(r0 + 2, 5).value = f"=AVERAGE(C{r0+2}:D{r0+2})"
     else:
         for c in (3, 4, 5): fo.cell(r0 + 2, c).value = None
 fo.cell(1, 2).value = "الأسبوع الأول: الذهاب 1 نوفمبر، العودة 6 نوفمبر 2026"
@@ -67,7 +67,7 @@ for line in ["المصدر: dnatatravel.com (طيران فقط)، تاريخ ا�
              "صف (الذهاب والعودة) وسعر التذكرة محسوبان بمعادلات الملف نفسها: مجموع الذهاب + العودة، ثم متوسط الأقل والأعلى.",
              "لندن = هيثرو (LHR) وجاتويك (LGW)؛ نيويورك = JFK؛ إسطنبول = المطار الجديد (IST) وصبيحة (SAW).",
              "لا توجد نتائج على دناتا: طهران، الإسكندرية، الطيران السعودي (الرياض)، الطيران الباكستاني (كراتشي)؛ البريطانية تظهر للعودة فقط.",
-             "وحّدنا المعادلات في كل الصفوف (بعض صفوف الملف الأصلي كانت لا تجمع الأعلى، وسعر لندن كان =F8 أي العودة فقط). عند وجود سعر واحد فقط، الأعلى = الأقل. إذا غاب الذهاب أو العودة يُترك صف الذهاب والعودة فارغاً.",
+             "وحّدنا المعادلات في كل الصفوف (بعض صفوف الملف الأصلي كانت لا تجمع الأعلى، وسعر لندن كان =F8 أي العودة فقط). عند تساوي الأقل والأعلى يُترك الأعلى فارغاً، والمعادلة تأخذ الأقل مكانه. إذا غاب الذهاب أو العودة يُترك صف الذهاب والعودة فارغاً.",
              "ورقة التفاصيل فيها أيضاً سعر تذكرة الذهاب والعودة الواحدة للمقارنة (غالباً أرخص من مجموع تذكرتين منفصلتين)."]:
     n.append([line])
 n.column_dimensions["A"].width = 120

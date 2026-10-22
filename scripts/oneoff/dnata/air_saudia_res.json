@@ -1,0 +1,100 @@
+{
+ "RUH": {
+  "out": {
+   "date": "2026-11-01",
+   "shifted_days": 0,
+   "lowest": 450.0,
+   "highest": 580.0,
+   "flights": [
+    {
+     "flight": "SV585",
+     "dep": "02:25",
+     "from": 450.0
+    },
+    {
+     "flight": "SV563",
+     "dep": "10:40",
+     "from": 580.0
+    },
+    {
+     "flight": "SV597",
+     "dep": "13:20",
+     "from": 450.0
+    },
+    {
+     "flight": "SV565",
+     "dep": "14:15",
+     "from": 450.0
+    },
+    {
+     "flight": "SV559",
+     "dep": "16:00",
+     "from": 450.0
+    },
+    {
+     "flight": "SV555",
+     "dep": "18:15",
+     "from": 450.0
+    },
+    {
+     "flight": "SV561",
+     "dep": "20:30",
+     "from": 450.0
+    },
+    {
+     "flight": "SV553",
+     "dep": "22:30",
+     "from": 490.0
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 440.0,
+   "highest": 440.0,
+   "flights": [
+    {
+     "flight": "SV562",
+     "dep": "06:30",
+     "from": 440.0
+    },
+    {
+     "flight": "SV596",
+     "dep": "09:05",
+     "from": 440.0
+    },
+    {
+     "flight": "SV564",
+     "dep": "10:05",
+     "from": 440.0
+    },
+    {
+     "flight": "SV558",
+     "dep": "11:35",
+     "from": 440.0
+    },
+    {
+     "flight": "SV554",
+     "dep": "13:50",
+     "from": 440.0
+    },
+    {
+     "flight": "SV560",
+     "dep": "16:05",
+     "from": 440.0
+    },
+    {
+     "flight": "SV552",
+     "dep": "18:05",
+     "from": 440.0
+    },
+    {
+     "flight": "SV584",
+     "dep": "22:15",
+     "from": 440.0
+    }
+   ]
+  }
+ }
+}

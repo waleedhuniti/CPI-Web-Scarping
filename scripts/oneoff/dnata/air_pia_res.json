@@ -1,0 +1,38 @@
+{
+ "ISB": {
+  "out": {
+   "date": "2026-11-01",
+   "shifted_days": 0,
+   "lowest": 780.0,
+   "highest": 780.0,
+   "flights": [
+    {
+     "flight": "PK-212",
+     "dep": "11:00 AM",
+     "from": 780.0,
+     "brands": {
+      "LITE": 780.0,
+      "STANDARD": 800.0,
+      "FREEDOM": 830.0
+     }
+    }
+   ],
+   "note": "only one direct PIA flight that day; 'Only 3 seats left' in LITE"
+  },
+  "back": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 750.0,
+   "highest": 750.0,
+   "flights": [
+    {
+     "flight": "PK-233",
+     "dep": "01:45 AM",
+     "from": 750.0,
+     "brands": {}
+    }
+   ],
+   "note": "price of PK-233 as listed in the round-trip search before choosing the outbound (round-trip total 1 Nov/6 Nov = 1530 = 780+750). The same flight searched one-way on 6 Nov costs 975 (LITE). Return-leg brand prices only show after selecting the outbound."
+  }
+ }
+}

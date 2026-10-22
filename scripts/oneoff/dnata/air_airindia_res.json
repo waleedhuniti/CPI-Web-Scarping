@@ -1,0 +1,8 @@
+{
+ "DEL": {
+  "error": "blocked: www.airindia.com (Akamai) returns 'Access Denied' after the first page view from this IP; search results never reached",
+  "seen_calendar": "round-trip fare calendar (DXB-DEL, 7-day trips, AED) showed 1 Nov = 1860 total; not per leg",
+  "out": null,
+  "back": null
+ }
+}

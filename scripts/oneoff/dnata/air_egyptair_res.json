@@ -1,0 +1,63 @@
+{
+ "CAI": {
+  "out": {
+   "date": "2026-11-01",
+   "shifted_days": 0,
+   "currency": "AED",
+   "lowest": 895.0,
+   "highest": 1005.0,
+   "flights": [
+    {
+     "flight": "MS 911",
+     "dep": "2026-11-01T05:00",
+     "from": 895.0
+    },
+    {
+     "flight": "MS 902",
+     "dep": "2026-11-01T10:40",
+     "from": 1005.0
+    },
+    {
+     "flight": "MS 913",
+     "dep": "2026-11-01T16:20",
+     "from": 905.0
+    },
+    {
+     "flight": "MS 906",
+     "dep": "2026-11-01T20:00",
+     "from": 955.0
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "currency": "AED",
+   "lowest": 865.0,
+   "highest": 905.0,
+   "flights": [
+    {
+     "flight": "MS 901",
+     "dep": "2026-11-06T04:15",
+     "from": 865.0
+    },
+    {
+     "flight": "MS 912",
+     "dep": "2026-11-06T09:35",
+     "from": 875.0
+    },
+    {
+     "flight": "MS 905",
+     "dep": "2026-11-06T13:35",
+     "from": 905.0
+    },
+    {
+     "flight": "MS 910",
+     "dep": "2026-11-06T22:20",
+     "from": 905.0
+    }
+   ]
+  },
+  "source": "egyptair.com (UAE point of sale), searched 2026-10-22"
+ }
+}

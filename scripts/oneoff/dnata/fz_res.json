@@ -1,0 +1,76 @@
+{
+ "DEL": {
+  "city": "Delhi",
+  "airport": "DEL",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_DEL/20261101_20261106",
+  "out": 1684.0,
+  "back": null,
+  "note": "no flights message"
+ },
+ "RUH": {
+  "city": "Riyadh",
+  "airport": "RUH",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_RUH/20261101_20261106",
+  "out": 580.0,
+  "back": 505.0
+ },
+ "KHI": {
+  "city": "Karachi",
+  "airport": "KHI",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_KHI/20261101_20261106",
+  "out": 450.0,
+  "back": 560.0
+ },
+ "CMB": {
+  "city": "Colombo",
+  "airport": "CMB",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_CMB/20261101_20261106",
+  "out": 655.0,
+  "back": 755.0
+ },
+ "IST": {
+  "city": "Istanbul",
+  "airport": "IST",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_IST/20261101_20261106",
+  "out": 1271.0,
+  "back": 905.0
+ },
+ "SAW": {
+  "city": "Istanbul",
+  "airport": "SAW",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_SAW/20261101_20261106",
+  "out": 971.0,
+  "back": 884.0
+ },
+ "HBE": {
+  "city": "Alexandria",
+  "airport": "HBE",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_HBE/20261101_20261106",
+  "out": null,
+  "back": null,
+  "note": "no flights message"
+ },
+ "AMM": {
+  "city": "Amman",
+  "airport": "AMM",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_AMM/20261101_20261106",
+  "out": 385.0,
+  "back": 565.0
+ },
+ "CAI": {
+  "city": "Cairo",
+  "airport": "CAI",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_CAI/20261101_20261106",
+  "out": null,
+  "back": null,
+  "note": "no flights message"
+ },
+ "BKK": {
+  "city": "Bangkok",
+  "airport": "BKK",
+  "url": "https://flights2.flydubai.com/en/results/rt/a1/DXB_BKK/20261101_20261106",
+  "out": null,
+  "back": null,
+  "note": "no flights message"
+ }
+}

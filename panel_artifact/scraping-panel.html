@@ -733,47 +733,41 @@ function renderOverview() {
   const lastAt = L.sources.map((v) => v.startedAt).sort().pop();
   const legend = `<div class="legend"><span style="--c:${BAR_COLORS.accepted}">موجود (بسعر)</span><span style="--c:${BAR_COLORS.other}">غير موجود</span></div>`;
   const isCpi = p.kind === "barcode";
+  if (isCpi) {
+    $("#ov-body").innerHTML = `
+    <div class="kpis">
+      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v" id="ov-n-prod">…</span><span class="l">منتج نتابع سعره يومياً</span></div>
+      <div class="kpi" style="--kc:var(--bar-blue)"><span class="v" id="ov-n-store">…</span><span class="l">متجر</span></div>
+      <div class="kpi" style="--kc:var(--navy)"><span class="v" id="ov-n-days">…</span><span class="l">يوماً من الأسعار</span></div>
+    </div>
+    <div class="row"><button class="primary" id="ov-xlsx">تنزيل البيانات (Excel)</button></div>
+    <div class="panel" id="ct-panel"><div class="bar-title navy">تطور الأسعار حسب التصنيف العالمي COICOP 2018</div>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ct-store" style="flex:1 1 200px"><option value="">كل المتاجر</option></select>
+        <select id="ct-w" style="flex:1 1 220px"><option value="w">بأوزان سلة دبي الرسمية</option><option value="eq">بدون أوزان (بالتساوي)</option></select></div>
+      <p class="muted" style="margin:0">انقر أي بند لفتح رسمه والبنود التي تحته، مرتبة من الأكبر أثراً؛ آخر مستوى يفتح المنتجات بصورها.</p>
+      <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right;min-width:260px">البند</th><th>المنتجات</th><th>الرقم القياسي</th><th id="ct-head-chg">التغير</th><th>تغير آخر يوم</th><th title="حصة البند من وزن المستوى الأعلى × تغيره">الأثر (نقطة)</th><th style="min-width:160px">الرسم الحي</th></tr></thead>
+        <tbody id="ct-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>
+      <p class="muted" id="ct-note" style="margin:0"></p></div>`;
+    loadCoicop();
+    return;
+  }
   $("#ov-body").innerHTML = `
     <div class="kpis">
-      ${isCpi ? `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v" id="ov-priced">…</span><span class="l">سلعة مسعّرة من ${basket.length.toLocaleString("en")} سلعة في السلة</span></div>`
-      : `<div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
+      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
       <div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
-      <div class="kpi" style="--kc:var(--navy)"><span class="v">${esc(fmtDate(lastAt))}</span><span class="l">آخر تحديث</span></div>`}
+      <div class="kpi" style="--kc:var(--navy)"><span class="v">${esc(fmtDate(lastAt))}</span><span class="l">آخر تحديث</span></div>
     </div>
-    ${isCpi ? `<div class="panel" id="ch-panel"><div class="bar-title navy">تطور الأسعار عبر الأيام · حسب المجموعة</div>
-      <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ch-metric" style="flex:1 1 220px"><option value="index">الرقم القياسي للأسعار (أول يوم = 100)</option><option value="avg">متوسط السعر للكيلو أو اللتر أو القطعة (درهم)</option></select>
-        <select id="ch-div" style="flex:1 1 200px"><option value="">كل الأقسام</option></select>
-        <select id="ch-store" style="flex:1 1 150px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
-        <select id="ch-w" style="flex:1 1 200px"><option value="w">بالأوزان</option><option value="eq">بدون أوزان</option></select></div>
-      <div style="position:relative;height:380px;margin-top:10px"><canvas id="ch-canvas"></canvas></div>
-      <p class="muted" id="ch-note" style="margin:8px 0 0">يُحمَّل…</p></div>` : ""}
-    ${isCpi ? `<div class="panel" id="dk-panel"><div class="bar-title navy">للربط مع Dataiku · كل البيانات الخام (CSV)</div>
-      <p class="muted" style="margin:0 0 10px">ملفات نصية بسيطة (UTF-8، بدون صور أو تنسيق) فيها كل ما جُمع: كل التشغيلات وكل الأسطر، الموجود وغير الموجود، مع أعمدة السلة. لتقرر Dataiku كيف يُحسب الرقم القياسي.</p>
-      <div class="row" style="flex-wrap:wrap;gap:8px"><button class="primary" id="dk-runs">كل الأسعار والتشغيلات (CSV)</button>${isCpi ? `<button class="primary" id="dk-cat">الكتالوج الكامل (CSV)</button><button class="primary" id="dk-hist">سجل الأسعار اليومي (CSV)</button><button class="primary" id="dk-pp">لوحة منتجات الأصناف بلا باركود (CSV)</button>` : ""}</div></div>` : ""}
-    ${isCpi ? `<div class="panel" id="cat-panel"><div class="bar-title navy">كتالوج المنتجات اليومي · كل أقسام CPI</div><div id="cat-body" class="muted">يُحمَّل…</div></div>` : ""}
     <div class="panel">
       <div class="bar-title navy">الأسعار</div>
-      ${isCpi ? `<div class="row"><input id="ov-q" placeholder="ابحث باسم الصنف أو المنتج" style="flex:2 1 220px">
-        <select id="ov-src" style="flex:1 1 160px"><option value="">كل المصادر</option><option value="barcode">بحث بالباركود</option><option value="category">مسح شامل</option></select>
-        <select id="ov-ret" style="flex:1 1 140px"><option value="">كل المتاجر</option><option value="carrefour">Carrefour</option><option value="lulu">Lulu</option></select>
-        <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
-      <div class="tw"><table><thead><tr><th>صورة</th><th>الصنف</th><th>المتجر</th><th>المصدر</th><th>المنتج في المتجر</th><th>السعر (درهم)</th><th>سعر الوحدة</th><th>التاريخ</th></tr></thead><tbody id="ov-rows"><tr><td colspan="8" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`
-      : `<div class="row"><input id="ov-q" placeholder="ابحث باسم السلعة أو الفئة" style="flex:2 1 220px">
+      <div class="row"><input id="ov-q" placeholder="ابحث باسم السلعة أو الفئة" style="flex:2 1 220px">
         <select id="ov-date" style="flex:1 1 160px"></select>
         <button class="primary" id="ov-dl">تنزيل كل البيانات</button></div>
-      <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right">السلعة</th><th style="text-align:right">الفئة</th><th style="text-align:right">الوحدة</th><th style="text-align:right">السعر</th><th style="text-align:right;min-width:220px">الرسم الحي · حركة السعر عبر الأيام</th></tr></thead><tbody id="ov-rows"><tr><td colspan="5" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>`}
+      <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right">السلعة</th><th style="text-align:right">الفئة</th><th style="text-align:right">الوحدة</th><th style="text-align:right">السعر</th><th style="text-align:right;min-width:220px">الرسم الحي · حركة السعر عبر الأيام</th></tr></thead><tbody id="ov-rows"><tr><td colspan="5" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>
       <p class="muted" id="ov-count"></p>
     </div>`;
   $("#ov-dl").onclick = () => $("#r-export-all").click();
-  if ($("#dk-runs")) $("#dk-runs").onclick = (e) => dataikuRuns(e.currentTarget);
-  if ($("#dk-cat")) $("#dk-cat").onclick = (e) => dataikuCatalogue(e.currentTarget);
-  if ($("#dk-hist")) $("#dk-hist").onclick = (e) => dataikuHistory(e.currentTarget);
-  if ($("#dk-pp")) $("#dk-pp").onclick = (e) => dataikuProducts(e.currentTarget);
-  ["#ov-q", "#ov-src", "#ov-ret", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
-  if (isCpi) loadCatalogue();
-  if (isCpi) loadCharts();
-  if (isCpi) loadOvRows([...new Set(L.sources.map((v) => v.runId))], L.sources);
-  else loadOvRows(runs.map((r) => r.id), null);   // global prices: every saved day, newest first
+  ["#ov-q", "#ov-date"].forEach((s) => $(s)?.addEventListener(s === "#ov-q" ? "input" : "change", drawOvRows));
+  loadOvRows(runs.map((r) => r.id), null);   // global prices: every saved day, newest first
 }
 async function loadOvRows(runIds, sources) {
   const pid = current; const out = [];
@@ -1194,110 +1188,14 @@ async function offerXlsx(filename, sheet) {
   try { await downloads.save({ filename, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) }); }
   catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || "لم يكتمل التنزيل", true); }
 }
-// ------------------------------------------------------------ daily product catalogue (all CPI divisions), Excel per group
-const GROUP_AR = { all: "كل الأقسام", food: "الأغذية والبقالة", household: "المنزل والتنظيف", personal: "العناية الشخصية والصحة",
-  electronics: "الإلكترونيات والهواتف والإكسسوارات", clothing: "الملابس والأحذية", other: "النقل والترفيه والتعليم" };
-let catDoc = null, catData = null, catIx = null; const catThumbs = {}, catGot = {}, catSel = new Set();
+// ------------------------------------------------------------ daily product catalogue: rows (photo, size, unit price) and photos per section
+let catDoc = null, catData = null, catIx = null; const catThumbs = {}, catGot = {};
 async function ensureCat(groups) {
   if (!catData) { catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json(); catIx = Object.fromEntries(catData.cols.map((c, i) => [c, i])); }
   for (const g of groups) {
     const id = (catDoc.thumbs_assets || {})[g];
     if (id && !catGot[g]) { catGot[g] = 1; try { Object.assign(catThumbs, (await (await fetch("/_blob/" + id)).json()).thumbs || {}); } catch (e) { catGot[g] = 0; } }
   }
-}
-async function loadCatalogue() {
-  const pid = current;
-  try { const snap = await db.doc(`projects/${pid}/catalogue/latest`).get(); catDoc = snap.exists ? plain(snap) : null; }
-  catch (e) { catDoc = null; }
-  if (current !== pid || !$("#cat-body")) return;
-  if (!catDoc) { $("#cat-body").innerHTML = "لا يوجد كتالوج بعد؛ يُنشأ مع التشغيل اليومي."; return; }
-  const c = catDoc.counts || {}, keys = ["all", ...Object.keys(catDoc.groups || {})];
-  $("#cat-body").innerHTML = `
-    <p style="margin:0 0 10px">آخر كتالوج <b>${esc(catDoc.date)}</b> · <b>${(catDoc.rows || 0).toLocaleString("en")}</b> منتجاً مع صورها. تصفّح المنتجات وحدّد ما تريد، أو نزّل قسماً كاملاً:</p>
-    <div class="row" style="flex-wrap:wrap;gap:8px">${keys.map((k) => `<button class="${k === "all" ? "primary" : "ghost"}" data-cat="${esc(k)}">
-      ${esc(GROUP_AR[k] || catDoc.groups?.[k] || k)} <span class="muted">(${(k === "all" ? catDoc.rows : c[k] || 0).toLocaleString("en")})</span></button>`).join("")}</div>
-    <div class="row" style="margin-top:14px"><input id="cv-q" placeholder="ابحث باسم المنتج أو الماركة" style="flex:2 1 220px">
-      <select id="cv-g" style="flex:1 1 170px"><option value="">كل الأقسام</option>${Object.keys(catDoc.groups || {}).map((k) => `<option value="${esc(k)}">${esc(GROUP_AR[k] || k)}</option>`).join("")}</select>
-      <select id="cv-s" style="flex:1 1 150px"><option value="">كل المتاجر</option>${Object.keys(catDoc.stores || {}).map((k) => `<option value="${esc(k)}">${esc(k)}</option>`).join("")}</select></div>
-    <div class="row" style="margin-top:8px"><button class="ghost" id="cv-all">تحديد كل المعروض</button><button class="ghost" id="cv-none">إلغاء التحديد</button>
-      <button class="primary" id="cv-dl">تنزيل المحدد (0)</button><span class="muted" id="cv-count"></span></div>
-    <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right">صورة</th><th style="text-align:right">المنتج</th><th style="text-align:right">المتجر</th><th style="text-align:right">السعر (درهم)</th><th style="text-align:right">الحجم</th><th style="text-align:right">القسم</th><th style="text-align:right">الرابط</th><th>✓</th></tr></thead><tbody id="cv-rows"><tr><td colspan="8" class="empty">تُحمَّل المنتجات…</td></tr></tbody></table></div>`;
-  $$("#cat-body [data-cat]").forEach((b) => b.addEventListener("click", () => downloadCatalogue(b.dataset.cat, b, false)));
-  ["#cv-q", "#cv-g", "#cv-s"].forEach((q) => $(q).addEventListener(q === "#cv-q" ? "input" : "change", drawCatRows));
-  $("#cv-all").onclick = () => { catView().slice(0, 300).forEach((i) => catSel.add(i)); drawCatRows(); };
-  $("#cv-none").onclick = () => { catSel.clear(); drawCatRows(); };
-  $("#cv-dl").onclick = (e) => downloadCatalogue("all", e.currentTarget, true);
-  try { await ensureCat(Object.keys(catDoc.groups || {}).slice(0, 1)); } catch (e) { $("#cv-rows").innerHTML = `<tr><td colspan="8">${esc(e?.message || e)}</td></tr>`; return; }
-  drawCatRows();
-}
-function catView() {
-  const q = ($("#cv-q")?.value || "").trim().toLowerCase(), g = $("#cv-g")?.value, st = $("#cv-s")?.value, ix = catIx, out = [];
-  catData.rows.forEach((r, i) => {
-    if (g && r[ix.group] !== g) return;
-    if (st && r[ix.outlet] !== st && !String(r[ix.outlet]).startsWith(st)) return;
-    if (q && !(r[ix.title] + " " + r[ix.category] + " " + r[ix.outlet]).toLowerCase().includes(q)) return;
-    out.push(i);
-  });
-  return out;
-}
-async function drawCatRows() {
-  if (!catData || !$("#cv-rows")) return;
-  const view = catView(), show = view.slice(0, 300), ix = catIx;
-  $("#cv-rows").innerHTML = show.map((i) => { const r = catData.rows[i], u = r[ix.photo_url], b = catThumbs[u];
-    return `<tr><td style="text-align:right">${b ? `<img class="thumb" src="data:image/jpeg;base64,${b}" alt="">` : (u ? `<img class="thumb" src="${esc(u)}" alt="" loading="lazy" onerror="this.remove()">` : "")}</td>
-      <td style="text-align:right">${esc(r[ix.title])}</td><td style="text-align:right">${esc(r[ix.outlet])}</td><td class="num" style="text-align:right"><b>${Number(r[ix.price]).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b></td>
-      <td style="text-align:right">${esc(r[ix.size])}</td><td style="text-align:right">${esc(r[ix.category])}</td><td style="text-align:right">${r[ix.url] ? `<a href="${esc(r[ix.url])}" target="_blank" rel="noopener">فتح</a>` : ""}</td>
-      <td><input type="checkbox" data-i="${i}" ${catSel.has(i) ? "checked" : ""}></td></tr>`; }).join("") || `<tr><td colspan="8" class="empty">لا منتجات مطابقة.</td></tr>`;
-  $$("#cv-rows input[type=checkbox]").forEach((c) => c.addEventListener("change", () => { c.checked ? catSel.add(+c.dataset.i) : catSel.delete(+c.dataset.i); $("#cv-dl").textContent = `تنزيل المحدد (${catSel.size})`; }));
-  $("#cv-dl").textContent = `تنزيل المحدد (${catSel.size})`;
-  $("#cv-count").textContent = `${view.length.toLocaleString("en")} منتج${view.length > 300 ? " · يظهر أول 300؛ ضيّق البحث أو نزّل الملف" : ""}`;
-  // pictures of the groups on screen that are not loaded yet
-  const need = [...new Set(show.map((i) => catData.rows[i][ix.group]))].filter((g) => !catGot[g]);
-  if (need.length) { await ensureCat(need); drawCatRows(); }
-}
-async function downloadCatalogue(group, btn, onlySelected) {
-  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
-  if (onlySelected && !catSel.size) return toast("حدّد منتجات أولاً", true);
-  const old = btn.innerHTML; btn.disabled = true; btn.textContent = "يُجهَّز الملف…";
-  try {
-    await ensureCat(group === "all" ? Object.keys(catDoc.groups || {}) : [group]);
-    const ix = catIx;
-    const idx = catData.rows.map((r, i) => i).filter((i) => onlySelected ? catSel.has(i) : group === "all" || catData.rows[i][ix.group] === group);
-    const rows = idx.map((i) => catData.rows[i]);
-    const label = group === "all" ? "All groups" : catData.groups[group] || group;
-    const ExcelJS = await loadExcel();
-    const wb = new ExcelJS.Workbook();
-    const ws = wb.addWorksheet("Catalogue", { views: [{ state: "frozen", ySplit: 5 }] });
-    const heads = ["Select", "Outlet", "Product name", "Photo", "Price (AED)", "Pack / size", "Brand", "Retailer ID", "Availability",
-      "Category", "CPI division", "Product URL", "Photo URL", "Collected (Dubai)", "Notes"];
-    const widths = [7.8, 10.6, 44, 12, 10.2, 13, 14, 13, 12, 22, 26, 46.7, 30, 16, 50];
-    ws.getCell("A2").value = "Dubai bulk product catalogue" + (group === "all" || onlySelected ? "" : " · " + label);
-    ws.getCell("A2").font = { size: 16, bold: true, color: { argb: "FF173653" } };
-    const stores = [...new Set(rows.map((r) => r[ix.outlet]))].join(", ");
-    ws.getCell("A3").value = `${rows.length.toLocaleString("en")} listings • ${catData.date} • ${stores} • Choose Yes in the first column, then filter`;
-    ws.getCell("A3").font = { size: 10, color: { argb: "FF627184" } };
-    const head = ws.getRow(5); head.height = 32;
-    heads.forEach((h, i) => { const c = head.getCell(i + 1); c.value = h; c.font = { bold: true, color: { argb: "FFFFFFFF" } };
-      c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF223F62" } }; c.alignment = { horizontal: "center", vertical: "middle", wrapText: true }; });
-    widths.forEach((w, i) => (ws.getColumn(i + 1).width = w));
-    const ids = new Map(); let pics = 0;
-    rows.forEach((r, k) => {
-      const row = ws.getRow(6 + k); row.height = 52;
-      const v = [catSel.has(idx[k]) ? "Yes" : "No", r[ix.outlet], r[ix.title], null, r[ix.price] === "" ? null : Number(r[ix.price]), r[ix.size] || null, r[ix.brand] || null,
-        r[ix.retailer_id] || null, r[ix.availability], r[ix.category], r[ix.division], r[ix.url], r[ix.photo_url] || null, r[ix.collected], r[ix.notes]];
-      v.forEach((x, i) => { const c = row.getCell(i + 1); c.value = x; c.alignment = { vertical: "middle", wrapText: i === 2 }; });
-      row.getCell(5).numFmt = "#,##0.00";
-      row.getCell(1).dataValidation = { type: "list", allowBlank: false, formulae: ['"No,Yes"'] };
-      const u = r[ix.photo_url], b = u && catThumbs[u];
-      if (b) { if (!ids.has(u)) ids.set(u, wb.addImage({ base64: b, extension: "jpeg" }));
-        ws.addImage(ids.get(u), { tl: { col: 3.1, row: 5 + k + 0.1 }, ext: { width: 60, height: 60 } }); pics++; }
-    });
-    ws.autoFilter = { from: { row: 5, column: 1 }, to: { row: 5 + rows.length, column: heads.length } };
-    const buf = await wb.xlsx.writeBuffer();
-    await downloads.save({ filename: `Dubai_Catalogue_${catData.date}_${onlySelected ? "selected" : group}.xlsx`, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) });
-    toast(`${rows.length.toLocaleString("en")} منتج، ${pics.toLocaleString("en")} صورة داخل الملف`);
-  } catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
-  finally { btn.disabled = false; btn.innerHTML = old; if (onlySelected) btn.textContent = `تنزيل المحدد (${catSel.size})`; }
 }
 const sheetFor = (rows) => (P()?.kind === "barcode" ? catalogueSheet(rows) : globalSheet(rows));
 $("#b-export").addEventListener("click", () => {
@@ -1576,221 +1474,528 @@ $("#r-export-all").addEventListener("click", async () => {
   finally { btn.disabled = false; btn.textContent = "تنزيل كل الأسعار (Excel)"; }
 });
 
-// ------------------------------------------------------------ raw CSV for Dataiku (every field, no photos, no styling)
-function plainCsv(rows, cols) {
-  const q = (v) => { const t = v === null || v === undefined ? "" : typeof v === "object" ? JSON.stringify(v) : String(v); return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; };
-  return [cols.join(","), ...rows.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
-}
-// one format for everything exported to Dataiku: UTF-8 CSV, no BOM, fixed column order, a cpi_group column in the office's Arabic group names
-const DK_COLS = ["run_date", "run_id", "retailer", "actor", "item_code", "cpi_group", "barcode", "name", "brand", "basket_qty", "title", "price", "regular_price", "currency", "status", "accepted", "url", "barcode_raw", "basket_origin", "brand_ar", "class_code", "class_name", "detail", "fresh_type", "group_code", "group_name", "gtin", "in_stock", "match_mode", "name_ar", "note", "origin_iso", "origin_seen", "photo", "price_basis", "qty_count", "qty_raw", "qty_total", "qty_unit", "retailer_id", "section", "size", "source", "unit_price", "price_spec"];
-const cpiGroupOfCategory = (c) => (CH_NONFOOD.find((g) => g.re.test(c || "")) || {}).name || "";
-async function dataikuRuns(btn) {
-  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجمع…";
-  try {
-    const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
-    const meta = new Map((basket || []).map((i) => [String(i.item_code), i]));
-    const rows = [];
-    for (const r of all.sort((a, b) => String(a.startedAt).localeCompare(String(b.startedAt)))) {
-      for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
-        const m = meta.get(String(x.item_code)) || {};
-        const o = { run_id: r.id, run_date: x.run_date || dubaiDay(r.startedAt), ...x };
-        if (m.group_name) o.cpi_group = String(m.group_name).replace(/^\d+\s*-\s*/, "").trim();
-        for (const k of ["class_code", "class_name", "group_code", "group_name", "name_ar", "brand_ar", "barcode_raw", "gtin", "qty_raw", "qty_unit", "qty_total", "qty_count", "origin_iso", "match_mode", "fresh_type"])
-          if (o[k] === undefined && m[k] !== undefined) o[k] = m[k];
-        delete o.thumb; rows.push(o);
-      }
-    }
-    if (!rows.length) return toast("لا توجد تشغيلات محفوظة بعد", true);
-    if (P()?.kind === "barcode") {            // every priced row gets a unit price (per kg / litre / piece); nothing is rejected
-      for (const o of rows) {
-        const p = Number(o.price);
-        if (!(p > 0)) continue;
-        const tot = Number(o.qty_total) || 0, k = { g: ["kg", 1000], ml: ["l", 1000], pc: ["pc", 1] }[o.qty_unit];
-        if ((o.source === "category" || /product set/.test(String(o.detail || ""))) && ["kg", "l", "pc", "bunch", "bag100"].includes(o.price_basis)) { if (!(Number(o.unit_price) > 0)) o.unit_price = Math.round(p * 100) / 100; }   // product-set lines: 'price' is per unit (older runs kept the pack price there and the unit price apart)
-        else if (o.unit_price === undefined || o.unit_price === "" || o.unit_price === null) {
-          if (!k || !(tot > 0)) continue;
-          if (k[1] > 1 && tot < 5) { o.unit_price = Math.round(p * 100) / 100; o.price_basis = "pc"; }
-          else { o.unit_price = Math.round(p / (tot / k[1]) * 100) / 100; o.price_basis = k[0]; }
-        }
-        if (Number(o.unit_price) > 0 && k && tot > 0 && ["kg", "l", "pc"].includes(o.price_basis)) o.price_spec = Math.round(Number(o.unit_price) * tot / k[1] * 100) / 100;   // price in the line's own unit, as the official file
-      }
-    }
-    if (P()?.kind === "barcode") {            // items no search covers (no barcode / spec: priced by name, services, market rates): one "not found" row each per day
-      const REASON = { name: "no barcode: priced from the catalogue by product name/model (not yet matched)", service: "service: no shelf price on the web (restaurant, repair, laundry, hotel, hairdresser)", market: "priced from a market rate (gold per gram), not a shop listing" };
-      const days = [...new Set(rows.map((r) => r.run_date))];
-      for (const d of days) {
-        const rid = (rows.find((r) => r.run_date === d) || {}).run_id;
-        const have = new Set(rows.filter((r) => r.run_date === d).map((r) => r.item_code));   // priced from the catalogue: already has its rows
-        for (const m of basket || []) if (REASON[m.match_mode] && !have.has(m.item_code))
-          rows.push({ run_id: rid, run_date: d, source: "pending", item_code: m.item_code, group_code: m.group_code, group_name: m.group_name, name: m.name_ar, basket_qty: m.qty_raw, status: m.match_mode === "service" ? "service" : "not_found", detail: REASON[m.match_mode], accepted: "no", currency: "AED",
-            cpi_group: String(m.group_name || "").replace(/^\d+\s*-\s*/, "").trim(), class_code: m.class_code, class_name: m.class_name, name_ar: m.name_ar, qty_raw: m.qty_raw, qty_unit: m.qty_unit, qty_total: m.qty_total, match_mode: m.match_mode });
-      }
-    }
-    const ordered = P()?.kind === "barcode" ? DK_COLS : LEAD;
-    const cols = [...ordered.filter((k) => rows.some((r) => r[k] !== undefined)), ...[...new Set(rows.flatMap((r) => Object.keys(r)))].filter((k) => !ordered.includes(k))];
-    await offerFile(`${P().name}_all_runs.csv`, plainCsv(rows, cols));
-    toast(`${rows.length.toLocaleString("en")} سطراً · ${cols.length} عموداً`);
-  } catch (e) { toast(dbErr(e), true); }
-  finally { btn.disabled = false; btn.textContent = old; }
-}
-async function dataikuCatalogue(btn) {
-  if (!catDoc) return toast("لا يوجد كتالوج بعد", true);
-  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
-  try {
-    if (!catData) { catData = await (await fetch("/_blob/" + catDoc.rows_asset)).json(); catIx = Object.fromEntries(catData.cols.map((c, i) => [c, i])); }
-    const rows = catData.rows.map((r) => { const o = Object.fromEntries(catData.cols.map((c, i) => [c, r[i]])); o.cpi_group = cpiGroupOfCategory(o.category); return o; });
-    const cols = [...catData.cols.slice(0, catData.cols.indexOf("category") + 1), "cpi_group", ...catData.cols.slice(catData.cols.indexOf("category") + 1)];
-    await offerFile(`catalogue_${catData.date}.csv`, plainCsv(rows, cols));
-    toast(`${rows.length.toLocaleString("en")} منتجاً`);
-  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
-  finally { btn.disabled = false; btn.textContent = old; }
-}
-
-async function dataikuProducts(btn) {          // every product of every no-barcode line, per day (scripts/product_panel.py), as the routine saved it
-  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
-  try {
-    const d = await db.doc(`projects/${current}/products/latest`).get();
-    const id = d.exists ? plain(d).panel_asset : null;
-    if (!id) return toast("لا توجد لوحة منتجات بعد؛ تبدأ مع التشغيل اليومي التالي", true);
-    const text = await (await fetch("/_blob/" + id)).text();
-    await offerFile(`product_panel_${plain(d).days?.slice(-1)[0] || ""}.csv`, text);
-    toast(`${(text.split("\n").length - 1).toLocaleString("en")} سطراً`);
-  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
-  finally { btn.disabled = false; btn.textContent = old; }
-}
-async function dataikuHistory(btn) {
-  if (!catDoc?.history_asset) return toast("لا يوجد سجل أسعار بعد؛ يبدأ مع الكتالوج اليومي", true);
-  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
-  try {
-    const h = await (await fetch("/_blob/" + catDoc.history_asset)).json();
-    const rows = [];
-    for (const [k, p] of Object.entries(h.p)) for (const [d, price, reg] of p.h)
-      rows.push({ date: h.days[d], outlet: p.o, product_id: k.slice(k.indexOf("|") + 1), title: p.t, price, regular_price: reg, group: p.g, category: p.c, cpi_group: cpiGroupOfCategory(p.c), url: p.u });
-    rows.sort((a, b) => a.date.localeCompare(b.date) || a.outlet.localeCompare(b.outlet));
-    await offerFile(`catalogue_price_history_${h.days[h.days.length - 1]}.csv`, plainCsv(rows, ["date", "outlet", "product_id", "title", "price", "regular_price", "group", "category", "cpi_group", "url"]));
-    toast(`${h.days.length} يوماً · ${rows.length.toLocaleString("en")} تغييراً مسجّلاً`);
-  } catch (e) { toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
-  finally { btn.disabled = false; btn.textContent = old; }
-}
-
-// ------------------------------------------------------------ price charts by CPI group (index or average price over the days)
+// ------------------------------------------------------------ chart library
 const CH_LIB = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js";
-let chLib = null, chChart = null, chData = null;
+let chLib = null;
 const loadChartLib = () => window.Chart ? Promise.resolve(window.Chart) : (chLib ??= new Promise((ok, fail) => {
   const el = document.createElement("script"); el.src = CH_LIB; el.onload = () => ok(window.Chart);
   el.onerror = () => { chLib = null; fail(new Error("تعذّر تحميل مكتبة الرسوم")); }; document.head.appendChild(el); }));
 // the two non-food groups come from the daily catalogue history (our category -> the CPI group name)
-const CH_NONFOOD = [
-  { name: "السلع المنزلية غير المعمرة", re: /^(air freshener|batteries|cleaning|detergent|dishwashing|insecticide|light bulb|tissue|grocery household)/i },
-  { name: "أجهزة أخرى (غير كهربائية) وأصناف ومنتجات معدة للعناية الشخصية", re: /^(body lotion|deodorant|perfume|razor|shampoo|soap|toothpaste|sanitary pads|diapers|face mask|health, fitness & beauty > fragrances)/i },
-];
 const CH_COLORS = ["#223f62", "#e07a1f", "#1b998b", "#c0392b", "#6c5ce7", "#2e86de", "#8d6e63", "#d4a017", "#e84393", "#00a8a8", "#7f8c8d", "#5b8c2a", "#a3318c", "#cc5500", "#1f6f9f", "#b8860b", "#3d5a80", "#9c2f2f", "#2a9d8f", "#6d597a"];
-const divOfGroup = (name) => { const g = (basket || []).find((i) => String(i.group_name || "").replace(/^\d+\s*-\s*/, "").trim() === name); return g ? (g.division_name || "") : ""; };
-async function chBuild() {
-  // obs[group][day] = Map(key -> [price, store])
-  const obs = {}, days = new Set();
-  const put = (g, d, k, price, store, title, idx, basis) => { days.add(d); ((obs[g] ??= {})[d] ??= new Map()).set(k, [price, store, String(title || ""), idx > 0 ? idx : 0, basis || "pc"]); };
-  const bk = new Map((basket || []).map((b) => [b.item_code, b]));
-  // price per kg / per litre / per piece, the way the pipeline's Step3 'observed_price (per unit)' is: half a kilo is never added to a kilo
-  const perUnit = (x, price) => {
-    if (["kg", "l", "pc", "bunch", "bag100"].includes(x.price_basis) && Number(x.unit_price) > 0) return [Number(x.unit_price), x.price_basis];   // the stored unit price (older runs kept the pack price in 'price')
-    if (Number(x.unit_price) > 0 && ["kg", "l"].includes(x.price_basis)) return [Number(x.unit_price), x.price_basis];
-    const b = bk.get(x.item_code) || {}, tot = Number(b.qty_total) || 0, n = Number(b.qty_count) || 1;
-    if ((b.qty_unit === "g" || b.qty_unit === "ml") && tot > 0 && tot < 5) return [price, "pc"];   // a 1 g saffron tube is a piece, not 1/1000 of a kilo
-    if (b.qty_unit === "g" && tot > 0) return [price * 1000 / tot, "kg"];
-    if (b.qty_unit === "ml" && tot > 0) return [price * 1000 / tot, "l"];
-    return [price / n, "pc"];
+// ------------------------------------------------------------ COICOP 2018 price tree (division > group > class > subclass > item type > products)
+// Codes and English titles: UN COICOP 2018. Arabic titles: the Dubai Statistics Center CPI basket names where it has the
+// class (4-digit codes such as 0112 = 01.1.2), otherwise a translation of the COICOP title. Item types (the last level, e.g.
+// red meat / poultry) are the elementary aggregates under a COICOP subclass, coded "<subclass>-<letter>".
+const COICOP = [
+  ["01", "الأغذية والمشروبات غير الكحولية", "Food and non-alcoholic beverages"],
+  ["01.1", "الأغذية", "Food"],
+  ["01.1.1", "الحبوب ومنتجاتها", "Cereals and cereal products"],
+  ["01.1.1.1", "الحبوب", "Cereals"], ["01.1.1.1-a", "الأرز", "Rice"],
+  ["01.1.1.2", "دقيق الحبوب", "Flour of cereals"], ["01.1.1.2-a", "الدقيق والسميد", "Flour and semolina"],
+  ["01.1.1.3", "الخبز والمخبوزات", "Bread and bakery products"], ["01.1.1.3-a", "الخبز والمخبوزات", "Bread and bakery products"],
+  ["01.1.1.4", "حبوب الإفطار", "Breakfast cereals"], ["01.1.1.4-a", "حبوب الإفطار والشوفان", "Breakfast cereals and oats"],
+  ["01.1.1.5", "المعكرونة والشعيرية والكسكس", "Macaroni, noodles, couscous and similar pasta products"],
+  ["01.1.1.5-a", "المعكرونة", "Pasta"], ["01.1.1.5-b", "الشعيرية والنودلز", "Noodles and vermicelli"],
+  ["01.1.2", "اللحوم", "Live animals, meat and other parts of slaughtered land animals"],
+  ["01.1.2.2", "لحوم طازجة أو مبرّدة أو مجمّدة", "Meat, fresh, chilled or frozen"],
+  ["01.1.2.2-a", "اللحوم الحمراء (بقري، ضأن، ماعز)", "Red meat (beef, lamb, goat)"], ["01.1.2.2-b", "الدواجن", "Poultry"],
+  ["01.1.2.4", "الأحشاء والأجزاء الأخرى من الذبائح", "Offal, blood and other parts of slaughtered animals"], ["01.1.2.4-a", "الكبدة والأحشاء", "Liver and offal"],
+  ["01.1.2.5", "مستحضرات اللحوم", "Meat, offal and other parts' preparations"], ["01.1.2.5-a", "لحوم مصنّعة ومحضّرة (نقانق، برجر، ناجتس)", "Processed meat (sausages, burgers, nuggets)"],
+  ["01.1.3", "الأسماك والأغذية البحرية", "Fish and other seafood"],
+  ["01.1.3.1", "أسماك طازجة أو مبرّدة أو مجمّدة", "Fish, live, fresh, chilled or frozen"], ["01.1.3.1-a", "الأسماك الطازجة والمجمّدة", "Fresh and frozen fish"],
+  ["01.1.3.2", "أسماك مجففة أو مملّحة أو مدخّنة", "Fish, dried, salted, in brine or smoked"], ["01.1.3.2-a", "أسماك مدخّنة ومجففة", "Smoked and dried fish"],
+  ["01.1.3.3", "مستحضرات الأسماك", "Fish preparations"], ["01.1.3.3-a", "التونة والسردين والأسماك المحضّرة", "Tuna, sardines and prepared fish"],
+  ["01.1.3.4", "أغذية بحرية أخرى طازجة أو مجمّدة", "Other seafood, live, fresh, chilled or frozen"], ["01.1.3.4-a", "الروبيان والأغذية البحرية", "Shrimp and seafood"],
+  ["01.1.4", "اللبن والجبن والبيض", "Milk, other dairy products and eggs"],
+  ["01.1.4.1", "الحليب الخام وكامل الدسم", "Raw and whole milk"], ["01.1.4.1-a", "الحليب الطازج", "Fresh milk"],
+  ["01.1.4.2", "الحليب منزوع الدسم", "Skimmed milk"], ["01.1.4.2-a", "حليب قليل أو خالي الدسم", "Low-fat and skimmed milk"],
+  ["01.1.4.3", "أنواع أخرى من الحليب والقشطة", "Other milk and cream"], ["01.1.4.3-a", "الحليب المجفف والمكثف والقشطة", "Powdered and condensed milk, cream"],
+  ["01.1.4.4", "الحليب النباتي", "Non-animal milk"], ["01.1.4.4-a", "الحليب النباتي", "Plant-based milk"],
+  ["01.1.4.5", "الأجبان", "Cheese"], ["01.1.4.5-a", "الأجبان", "Cheese"],
+  ["01.1.4.6", "الزبادي والمنتجات المشابهة", "Yoghurt and similar products"], ["01.1.4.6-a", "الزبادي واللبن", "Yoghurt and laban"],
+  ["01.1.4.7", "حلويات ومشروبات الحليب", "Milk-based dessert and beverages"], ["01.1.4.7-a", "الحليب المنكّه", "Flavoured milk"], ["01.1.4.7-b", "حلويات الألبان", "Dairy desserts"],
+  ["01.1.4.8", "البيض", "Eggs"], ["01.1.4.8-a", "البيض", "Eggs"],
+  ["01.1.5", "الزيوت والدهون", "Oils and fats"],
+  ["01.1.5.1", "الزيوت النباتية", "Vegetable oils"], ["01.1.5.1-a", "زيوت الطبخ والزيتون", "Cooking and olive oils"],
+  ["01.1.5.2", "الزبدة والدهون المشتقة من الحليب", "Butter and other fats derived from milk"], ["01.1.5.2-a", "الزبدة والسمن", "Butter and ghee"],
+  ["01.1.5.3", "المارجرين والمستحضرات المشابهة", "Margarine and similar preparations"], ["01.1.5.3-a", "المارجرين", "Margarine"],
+  ["01.1.6", "الفواكه والمكسرات", "Fruits and nuts"],
+  ["01.1.6.1", "التمور والتين والفواكه الاستوائية", "Dates, figs and tropical fruits, fresh"], ["01.1.6.1-a", "التمور", "Dates"], ["01.1.6.1-b", "الموز والمانجو والفواكه الاستوائية", "Bananas, mangoes and tropical fruit"],
+  ["01.1.6.2", "الحمضيات", "Citrus fruits, fresh"], ["01.1.6.2-a", "البرتقال والليمون والحمضيات", "Oranges, lemons and citrus"],
+  ["01.1.6.3", "الفواكه ذات النواة والتفاحيات", "Stone fruits and pome fruits, fresh"], ["01.1.6.3-a", "التفاح والكمثرى والخوخ", "Apples, pears and stone fruit"],
+  ["01.1.6.4", "العنب والتوت", "Berries, fresh"], ["01.1.6.4-a", "العنب والفراولة والتوت", "Grapes, strawberries and berries"],
+  ["01.1.6.5", "فواكه طازجة أخرى", "Other fruits, fresh"], ["01.1.6.5-a", "البطيخ والرمان وفواكه أخرى", "Melons, pomegranates and other fruit"],
+  ["01.1.6.6", "الفواكه المجمّدة", "Frozen fruit"], ["01.1.6.6-a", "الفواكه المجمّدة", "Frozen fruit"],
+  ["01.1.6.7", "الفواكه المجففة", "Fruit, dried and dehydrated"], ["01.1.6.7-a", "الفواكه المجففة", "Dried fruit"],
+  ["01.1.6.8", "المكسرات", "Nuts, in shell or shelled"], ["01.1.6.8-a", "المكسرات", "Nuts"],
+  ["01.1.7", "البقول والخضروات", "Vegetables, tubers, plantains, cooking bananas and pulses"],
+  ["01.1.7.1", "الخضروات الورقية والساقية", "Leafy or stem vegetables, fresh or chilled"], ["01.1.7.1-a", "الخس والسبانخ والخضار الورقية", "Lettuce, spinach and leafy vegetables"],
+  ["01.1.7.2", "الخضروات الثمرية", "Fruit-bearing vegetables, fresh or chilled"], ["01.1.7.2-a", "الطماطم والخيار والفلفل", "Tomatoes, cucumbers and peppers"],
+  ["01.1.7.3", "البقول الخضراء", "Green leguminous vegetables, fresh or chilled"], ["01.1.7.3-a", "الفاصوليا والبازلاء الخضراء", "Green beans and peas"],
+  ["01.1.7.4", "خضروات أخرى", "Other vegetables, fresh or chilled"], ["01.1.7.4-a", "البصل والثوم والجزر والفطر", "Onions, garlic, carrots and mushrooms"],
+  ["01.1.7.5", "الدرنيات", "Tubers, plantains and cooking bananas"], ["01.1.7.5-a", "البطاطس والدرنيات", "Potatoes and tubers"],
+  ["01.1.7.6", "البقوليات الجافة", "Pulses"], ["01.1.7.6-a", "العدس والحمص والفول", "Lentils, chickpeas and beans"],
+  ["01.1.7.8", "الخضروات المجمّدة", "Vegetables, tubers, plantains and cooking bananas, frozen"], ["01.1.7.8-a", "الخضار والبطاطس المجمّدة", "Frozen vegetables and fries"],
+  ["01.1.7.9", "مستحضرات الخضروات والبقول", "Vegetables and pulses ground and other preparations"], ["01.1.7.9-a", "الخضار والبقول المعلّبة", "Canned vegetables and pulses"],
+  ["01.1.8", "السكر والمربى والعسل والشوكولاتة والحلوى", "Sugar, confectionery and desserts"],
+  ["01.1.8.1", "سكر القصب والبنجر", "Cane and beet sugar"], ["01.1.8.1-a", "السكر", "Sugar"],
+  ["01.1.8.2", "بدائل السكر", "Other sugar and sugar substitutes"], ["01.1.8.2-a", "المحليات وبدائل السكر", "Sweeteners"],
+  ["01.1.8.3", "المربى والعسل", "Jams, fruit jellies, marmalades, honey"], ["01.1.8.3-a", "العسل", "Honey"], ["01.1.8.3-b", "المربى", "Jam"],
+  ["01.1.8.4", "زبدة المكسرات والطحينة", "Nut purée, nut butter and nut pastes"], ["01.1.8.4-a", "زبدة الفول السوداني والطحينة", "Peanut butter and tahini"],
+  ["01.1.8.5", "الشوكولاتة والكاكاو", "Chocolate, cocoa, and cocoa-based food products"], ["01.1.8.5-a", "الشوكولاتة والكاكاو", "Chocolate and cocoa"],
+  ["01.1.8.6", "المثلجات والآيس كريم", "Ice, ice cream and sorbet"], ["01.1.8.6-a", "الآيس كريم", "Ice cream"],
+  ["01.1.8.9", "حلويات أخرى", "Other sugar confectionery and desserts n.e.c."], ["01.1.8.9-a", "الحلويات والجيلي والكاسترد", "Sweets, jelly and custard"],
+  ["01.1.9", "منتجات غذائية غير مصنّفة في مكان آخر", "Ready-made food and other food products n.e.c."],
+  ["01.1.9.1", "الأطعمة الجاهزة", "Ready-made food"], ["01.1.9.1-a", "الأطعمة الجاهزة والمجمّدة", "Ready and frozen meals"],
+  ["01.1.9.3", "الملح والصلصات", "Salt, condiments and sauces"], ["01.1.9.3-a", "الملح", "Salt"], ["01.1.9.3-b", "الصلصات والخل", "Sauces and vinegar"],
+  ["01.1.9.4", "البهارات والأعشاب", "Spices, culinary herbs and seeds"], ["01.1.9.4-a", "البهارات", "Spices"],
+  ["01.1.9.9", "منتجات غذائية أخرى", "Other food products n.e.c."], ["01.1.9.9-a", "مستلزمات الطبخ والخبز الأخرى", "Other cooking and baking products"],
+  ["01.2", "المشروبات غير الكحولية", "Non-alcoholic beverages"],
+  ["01.2.1", "العصائر", "Fruit and vegetable juices"], ["01.2.1.0", "العصائر", "Fruit and vegetable juices"], ["01.2.1.0-a", "العصائر", "Juices"],
+  ["01.2.2", "البن", "Coffee and coffee substitutes"], ["01.2.2.0", "البن", "Coffee and coffee substitutes"], ["01.2.2.0-a", "البن والقهوة", "Coffee"],
+  ["01.2.3", "الشاي", "Tea, maté and other plant products for infusion"], ["01.2.3.0", "الشاي", "Tea, maté and other plant products for infusion"], ["01.2.3.0-a", "الشاي", "Tea"],
+  ["01.2.5", "المياه المعدنية", "Water"], ["01.2.5.0", "المياه المعدنية", "Water"], ["01.2.5.0-a", "مياه الشرب", "Drinking water"],
+  ["01.2.6", "المشروبات الغازية", "Soft drinks"], ["01.2.6.0", "المشروبات الغازية", "Soft drinks"], ["01.2.6.0-a", "المشروبات الغازية", "Soft drinks"],
+  ["01.2.9", "مشروبات أخرى (الطاقة وغيرها)", "Other non-alcoholic beverages"], ["01.2.9.0", "مشروبات أخرى", "Other non-alcoholic beverages"], ["01.2.9.0-a", "مشروبات الطاقة", "Energy drinks"],
+  ["03", "الملابس والأحذية", "Clothing and footwear"],
+  ["03.1", "الملابس", "Clothing"],
+  ["03.1.2", "الملابس الجاهزة", "Garments"],
+  ["03.1.2.1", "ملابس الرجال والأولاد", "Garments for men or boys"],
+  ["03.1.2.1-a", "القمصان والتيشيرتات", "Shirts and T-shirts"], ["03.1.2.1-b", "الجينز والبناطيل", "Jeans and trousers"], ["03.1.2.1-c", "الجاكيتات والبدلات والتريكو", "Jackets, suits and knitwear"], ["03.1.2.1-d", "الملابس الداخلية والجوارب", "Underwear and socks"], ["03.1.2.1-e", "ملابس أخرى", "Other garments"],
+  ["03.1.2.2", "ملابس النساء والبنات", "Garments for women or girls"],
+  ["03.1.2.2-a", "البلوزات والقمصان والتيشيرتات", "Tops, shirts and T-shirts"], ["03.1.2.2-b", "الجينز والبناطيل", "Jeans and trousers"], ["03.1.2.2-c", "الفساتين والعبايات", "Dresses and abayas"], ["03.1.2.2-d", "الجاكيتات والتريكو", "Jackets and knitwear"], ["03.1.2.2-e", "الملابس الداخلية والجوارب", "Underwear and socks"], ["03.1.2.2-f", "ملابس أخرى", "Other garments"],
+  ["03.1.2.3", "ملابس الرضّع (حتى سنتين)", "Garments for infants (0 to under 2 years)"], ["03.1.2.3-a", "ملابس الرضّع", "Infant clothing"],
+  ["03.2", "الأحذية", "Footwear"],
+  ["03.2.1", "الأحذية", "Shoes and other footwear"],
+  ["03.2.1.1", "أحذية الرجال", "Footwear for men"], ["03.2.1.1-a", "أحذية الرجال", "Men's shoes"],
+  ["03.2.1.2", "أحذية النساء", "Footwear for women"], ["03.2.1.2-a", "أحذية النساء", "Women's shoes"],
+  ["03.2.1.3", "أحذية الرضّع والأطفال", "Footwear for infants and children"], ["03.2.1.3-a", "أحذية الأطفال", "Children's shoes"],
+  ["05", "الأثاث والتجهيزات المنزلية", "Furnishings, household equipment and routine household maintenance"],
+  ["05.2", "المنسوجات المنزلية", "Household textiles"], ["05.2.1", "المنسوجات المنزلية", "Household textiles"],
+  ["05.2.1.2", "مفارش وأغطية السرير", "Bed linen and bedding"], ["05.2.1.2-a", "مفارش السرير", "Bed sheets"],
+  ["05.3", "الأجهزة المنزلية", "Household appliances"],
+  ["05.3.1", "الأجهزة المنزلية الكبيرة", "Major household appliances, whether electric or not"],
+  ["05.3.1.1", "أجهزة المطبخ الكبيرة", "Major kitchen appliances"], ["05.3.1.1-a", "الثلاجات والمجمّدات", "Refrigerators and freezers"], ["05.3.1.1-b", "غسالات الصحون", "Dishwashers"],
+  ["05.3.1.2", "أجهزة الغسيل الكبيرة", "Major laundry appliances"], ["05.3.1.2-a", "غسالات الملابس", "Washing machines"],
+  ["05.3.1.3", "المدافئ والمكيفات", "Heaters, air conditioners"], ["05.3.1.3-a", "المكيفات", "Air conditioners"],
+  ["05.3.1.4", "أجهزة التنظيف", "Cleaning equipment"], ["05.3.1.4-a", "المكانس الكهربائية", "Vacuum cleaners"],
+  ["05.3.2", "الأجهزة المنزلية الصغيرة", "Small household appliances"],
+  ["05.3.2.1", "أجهزة الطبخ وتحضير الطعام الصغيرة", "Small appliances for cooking and processing of food"], ["05.3.2.1-a", "الخلاطات وأجهزة المطبخ الصغيرة", "Blenders and small kitchen appliances"],
+  ["05.3.2.2", "أجهزة تحضير المشروبات", "Small appliances for preparing beverages"], ["05.3.2.2-a", "الغلايات وآلات القهوة", "Kettles and coffee machines"],
+  ["05.3.2.9", "أجهزة منزلية صغيرة أخرى", "Other small household appliances"], ["05.3.2.9-a", "المكاوي والمراوح وأجهزة أخرى", "Irons, fans and other appliances"],
+  ["05.4", "الأواني وأدوات المائدة والمطبخ", "Glassware, tableware and household utensils"], ["05.4.0", "الأواني وأدوات المائدة والمطبخ", "Glassware, tableware and household utensils"],
+  ["05.4.0.1", "الأواني الزجاجية والخزفية", "Glassware, crystal-ware, ceramic ware and chinaware"], ["05.4.0.1-a", "الأطباق وأواني المائدة", "Plates and tableware"],
+  ["05.4.0.3", "أدوات المطبخ", "Kitchen utensils and articles"], ["05.4.0.3-a", "أواني الطبخ", "Cookware"],
+  ["05.5", "الأدوات والمعدات للمنزل والحديقة", "Tools and equipment for house and garden"], ["05.5.2", "الأدوات الصغيرة ومستلزمات المنزل", "Non-motorized tools and miscellaneous accessories"],
+  ["05.5.2.2", "مستلزمات متنوعة", "Miscellaneous accessories"], ["05.5.2.2-a", "البطاريات والمصابيح", "Batteries and light bulbs"],
+  ["05.6", "السلع والخدمات للصيانة المنزلية الاعتيادية", "Goods and services for routine household maintenance"],
+  ["05.6.1", "السلع المنزلية غير المعمّرة", "Non-durable household goods"],
+  ["05.6.1.1", "منتجات التنظيف والصيانة المنزلية", "Household cleaning and maintenance products"], ["05.6.1.1-a", "منظفات الغسيل", "Laundry detergents"], ["05.6.1.1-b", "منظفات الصحون", "Dishwashing products"], ["05.6.1.1-c", "منظفات المنزل والمطهرات", "Household cleaners and disinfectants"],
+  ["05.6.1.9", "سلع منزلية غير معمّرة أخرى", "Other non-durable household goods"], ["05.6.1.9-a", "المعطّرات ومبيدات الحشرات", "Air fresheners and insecticides"], ["05.6.1.9-b", "مناديل المطبخ الورقية", "Kitchen paper towels"],
+  ["06", "الصحة", "Health"],
+  ["06.1", "الأدوية والمنتجات الصحية", "Medicines and health products"],
+  ["06.1.1", "الأدوية", "Medicines"], ["06.1.1.1", "الأدوية واللقاحات والمستحضرات الصيدلانية", "Medicines, vaccines and other pharmaceutical preparations"], ["06.1.1.1-a", "المسكّنات (باراسيتامول)", "Painkillers (paracetamol)"], ["06.1.1.1-b", "الفيتامينات والمكمّلات", "Vitamins and supplements"],
+  ["06.1.2", "المنتجات الطبية", "Medical products"], ["06.1.2.1", "منتجات التشخيص الطبي", "Medical diagnostic products"], ["06.1.2.1-a", "موازين الحرارة", "Thermometers"],
+  ["06.1.2.3", "أدوات العلاج للاستخدام الشخصي", "Treatment devices for personal use"], ["06.1.2.3-a", "مستلزمات الإسعافات الأولية", "First aid supplies"],
+  ["07", "النقل", "Transport"],
+  ["07.1", "شراء المركبات", "Purchase of vehicles"], ["07.1.3", "الدراجات الهوائية", "Bicycles"], ["07.1.3.0", "الدراجات الهوائية", "Bicycles"], ["07.1.3.0-a", "الدراجات الهوائية", "Bicycles"],
+  ["07.2", "تشغيل معدات النقل الشخصية", "Operation of personal transport equipment"],
+  ["07.2.1", "قطع غيار وإكسسوارات المركبات", "Parts and accessories for personal transport equipment"],
+  ["07.2.1.2", "قطع غيار المركبات", "Parts for personal transport equipment"], ["07.2.1.2-a", "بطاريات السيارات", "Car batteries"],
+  ["07.2.1.3", "إكسسوارات المركبات", "Accessories for personal transport equipment"], ["07.2.1.3-a", "إكسسوارات السيارات", "Car accessories"],
+  ["07.2.2", "الوقود ومواد التشحيم", "Fuels and lubricants for personal transport equipment"], ["07.2.2.4", "مواد التشحيم", "Lubricants"], ["07.2.2.4-a", "زيوت المحركات", "Engine oil"],
+  ["08", "الاتصالات والمعلومات", "Information and communication"],
+  ["08.1", "أجهزة المعلومات والاتصالات", "Information and communication equipment"],
+  ["08.1.2", "الهواتف المحمولة", "Mobile telephone equipment"], ["08.1.2.0", "الهواتف المحمولة", "Mobile telephone equipment"], ["08.1.2.0-a", "الهواتف المحمولة", "Mobile phones"],
+  ["08.1.3", "أجهزة الحاسوب واللوحية", "Information processing equipment"],
+  ["08.1.3.1", "الحواسيب المحمولة واللوحية", "Computers, laptops and tablets"], ["08.1.3.1-a", "الحواسيب المحمولة", "Laptops"], ["08.1.3.1-b", "الأجهزة اللوحية", "Tablets"],
+  ["08.1.3.2", "الملحقات الطرفية ومستهلكاتها", "Peripheral equipment and its consumable components"], ["08.1.3.2-a", "الشاشات والطابعات والتخزين والشبكات", "Monitors, printers, storage and networking"],
+  ["08.1.4", "أجهزة التلفاز والصوت", "Equipment for the reception, recording and reproduction of sound and vision"], ["08.1.4.0", "أجهزة التلفاز والصوت", "Equipment for the reception, recording and reproduction of sound and vision"],
+  ["08.1.4.0-a", "أجهزة التلفاز", "Televisions"], ["08.1.4.0-b", "السماعات وأجهزة الصوت", "Headphones, earphones and speakers"],
+  ["08.1.9", "أجهزة اتصالات وصوت أخرى", "Other information and communication equipment and accessories"],
+  ["08.1.9.1", "أجهزة اتصالات أخرى", "Other information and communication equipment"], ["08.1.9.1-a", "الساعات الذكية", "Smartwatches"],
+  ["08.1.9.2", "ملحقات أجهزة الاتصالات", "Other information and communication accessories"], ["08.1.9.2-a", "الشواحن والكوابل والأغطية", "Chargers, cables, power banks and cases"],
+  ["09", "الترفيه والرياضة والثقافة", "Recreation, sport and culture"],
+  ["09.1", "السلع المعمّرة للترفيه", "Recreational durables"], ["09.1.1", "معدات التصوير والأجهزة البصرية", "Photographic and cinematographic equipment and optical instruments"],
+  ["09.1.1.1", "الكاميرات", "Cameras"], ["09.1.1.1-a", "الكاميرات", "Cameras"],
+  ["09.2", "سلع ترفيهية أخرى", "Other recreational goods"], ["09.2.1", "الألعاب", "Games, toys and hobbies"],
+  ["09.2.1.1", "أجهزة وألعاب الفيديو", "Video game computers, game consoles, game apps and software"], ["09.2.1.1-a", "أجهزة وألعاب الفيديو", "Game consoles and video games"],
+  ["09.2.1.2", "ألعاب أخرى", "Other games, toys and hobbies"], ["09.2.1.2-a", "ألعاب الأطفال", "Toys"],
+  ["09.2.1.3", "مستلزمات الاحتفالات", "Celebration articles"], ["09.2.1.3-a", "الأزياء التنكرية ومستلزمات الحفلات", "Costumes and party articles"],
+  ["09.3", "منتجات الحدائق والحيوانات الأليفة", "Garden products and pets"],
+  ["09.3.1", "منتجات الحدائق والنباتات والزهور", "Garden products, plants and flowers"], ["09.3.1.1", "منتجات الحدائق", "Garden products"], ["09.3.1.1-a", "مستلزمات الحدائق", "Garden supplies"],
+  ["09.3.2", "مستلزمات الحيوانات الأليفة", "Pets and products for pets"], ["09.3.2.2", "منتجات الحيوانات الأليفة", "Products for pets and other household animals"], ["09.3.2.2-a", "أغذية الحيوانات الأليفة", "Pet food"],
+  ["09.7", "الصحف والكتب والقرطاسية", "Newspapers, books and stationery"],
+  ["09.7.1", "الكتب", "Books"], ["09.7.1.9", "كتب أخرى", "Other books"], ["09.7.1.9-a", "الكتب", "Books"],
+  ["09.7.4", "القرطاسية ومواد الرسم", "Stationery and drawing materials"], ["09.7.4.0", "القرطاسية ومواد الرسم", "Stationery and drawing materials"], ["09.7.4.0-a", "الدفاتر والأقلام والقرطاسية", "Notebooks, pens and stationery"],
+  ["13", "العناية الشخصية والسلع والخدمات المتنوعة", "Personal care, social protection and miscellaneous goods and services"],
+  ["13.1", "العناية الشخصية", "Personal care"],
+  ["13.1.1", "أجهزة العناية الشخصية الكهربائية", "Electric appliances for personal care"], ["13.1.1.1", "أجهزة العناية الشخصية الكهربائية", "Electric appliances for personal care"], ["13.1.1.1-a", "مجففات الشعر وماكينات الحلاقة", "Hair dryers, shavers and trimmers"],
+  ["13.1.2", "أجهزة أخرى (غير كهربائية) وأصناف ومنتجات معدة للعناية الشخصية", "Other appliances, articles and products for personal care"],
+  ["13.1.2.0", "منتجات العناية الشخصية", "Other appliances, articles and products for personal care"],
+  ["13.1.2.0-a", "العطور", "Perfumes"], ["13.1.2.0-b", "مزيلات العرق", "Deodorants"], ["13.1.2.0-c", "الشامبو والصابون", "Shampoo and soap"], ["13.1.2.0-d", "العناية بالبشرة", "Skin care"],
+  ["13.1.2.0-e", "معجون الأسنان", "Toothpaste"], ["13.1.2.0-f", "المناديل الورقية", "Facial tissues"], ["13.1.2.0-g", "أدوات الحلاقة", "Razors"], ["13.1.2.0-h", "الفوط الصحية والحفاضات", "Sanitary pads and diapers"],
+  ["13.2", "مقتنيات شخصية أخرى", "Other personal effects"], ["13.2.9", "سلع شخصية أخرى", "Other personal effects n.e.c."],
+  ["13.2.9.1", "حقائب السفر ومستلزمات الأطفال وسلع شخصية أخرى", "Travel goods and articles for babies and other personal effects n.e.c."], ["13.2.9.1-a", "الحقائب المدرسية", "School bags"],
+];
+const CNODE = Object.fromEntries(COICOP.map(([c, ar, en]) => [c, { code: c, ar, en }]));
+const cParent = (c) => c.includes("-") ? c.slice(0, c.indexOf("-")) : c.includes(".") ? c.slice(0, c.lastIndexOf(".")) : "";
+
+// which item type a scraped product belongs to, from the shop's category (our crawl) and the product title
+function coicopOf(cat, title) {
+  const c = String(cat || "").toLowerCase().trim(), t = " " + String(title || "").toLowerCase() + " ";
+  const has = (re) => re.test(t);
+  const gender = () => has(/\bwomen|\bwoman|\bladies|\blady\b|\bgirls?\b|\bfemale/) ? "f" : has(/\bmen\b|\bmen'?s\b|\bmens\b|\bboys?\b|\bmale\b|\bgents?\b/) ? "m" : has(/\bbaby\b|\binfants?\b|\bnewborn|\btoddler|\bmonths?\b|\b\d+\s?-\s?\d+\s?m\b/) ? "b" : has(/\bkids?\b|\bchildren|\bjunior|\byouth\b/) ? "k" : "";
+  const garment = (g) => {                      // which garment type for men/boys (m) or women/girls (f)
+    if (has(/costume|cosplay|halloween|fancy dress|party dress up/)) return "09.2.1.3-a";
+    if (g === "b") return "03.1.2.3-a";
+    const m = g !== "f";
+    if (has(/underwear|brief|boxer|panty|panties|bra\b|vests?\b|socks?\b|sleepsuit|pyjama|pajama/)) return m ? "03.1.2.1-d" : "03.1.2.2-e";
+    if (!m && has(/dress|abaya|skirt|kaftan|jumpsuit/)) return "03.1.2.2-c";
+    if (has(/jeans|trouser|pants|chino|short|jogger|legging/)) return m ? "03.1.2.1-b" : "03.1.2.2-b";
+    if (has(/jacket|coat|blazer|suit\b|knit|cardigan|jumper|sweater|hoodie|sweatshirt|gilet|bomber|parka/)) return m ? "03.1.2.1-c" : "03.1.2.2-d";
+    if (has(/shirt|t-shirt|tee\b|top\b|polo|blouse/)) return m ? "03.1.2.1-a" : "03.1.2.2-a";
+    return m ? "03.1.2.1-e" : "03.1.2.2-f";
   };
-  const all = (await db.collection(`projects/${current}/runs`).get()).docs.map((d) => ({ id: d.id, ...plain(d) }));
-  const byDay = new Map();                                       // one run per day: the latest
-  for (const r of all) { const d = dubaiDay(r.startedAt); if (!byDay.has(d) || String(r.startedAt) > String(byDay.get(d).startedAt)) byDay.set(d, r); }
-  for (const [d, r] of byDay) for (const c of await rowDocs(current, r)) for (const x of plain(c).rows || []) {
-    const price = Number(x.price);
-    if (x.accepted !== "yes" || !(price > 0) || !x.group_name) continue;
-    const [pu, basis] = perUnit(x, price);
-    put(String(x.group_name).replace(/^\d+\s*-\s*/, ""), d, x.item_code + "|" + x.retailer, pu, x.retailer, x.title, Number(x.line_index), basis);
+  const fish = () => has(/shrimp|prawn|crab\b|lobster|squid|calamari|mussel|clam\b|octopus|oyster|scallop|cuttlefish|seafood/) ? (has(/stick|breaded|tempura/) ? "01.1.3.3-a" : "01.1.3.4-a")
+    : has(/tuna|sardine|canned|\btin\b|in oil|in brine|finger|breaded|fish cake|surimi|crab stick|mackerel in/) ? "01.1.3.3-a"
+    : has(/smoked|salted|dried|anchov/) ? "01.1.3.2-a" : "01.1.3.1-a";
+  const meat = (poultryCat) => has(/sausage|burger|nugget|kofta|kebab|kabab|mortadella|salami|hot ?dog|luncheon|frank|shawarma|popcorn|tender|strips|breaded|marinated|meat ?ball|pepperoni|bacon|pastrami|\bham\b|cold cut|tikka|samosa|crispy|cordon|escalope|schnitzel|sliced turkey|smoked|spicy|bbq|kibbeh|corned/) ? "01.1.2.5-a"
+    : has(/liver|kidney|heart|gizzard|tripe|tongue|brain|\bfeet\b|trotter|offal|marrow/) ? "01.1.2.4-a"
+    : poultryCat || has(/chicken|poultry|turkey|duck|quail|\bhen\b/) ? "01.1.2.2-b" : "01.1.2.2-a";
+  const fruit = () => has(/frozen/) ? "01.1.6.6-a" : has(/dried|raisin|prune|dehydrated/) ? "01.1.6.7-a"
+    : has(/orange|lemon|lime\b|mandarin|tangerine|grapefruit|clementine|pomelo|citrus|kumquat/) ? "01.1.6.2-a"
+    : has(/apple|pear\b|pears|peach|plum|apricot|cherr|nectarine|quince/) ? "01.1.6.3-a"
+    : has(/berr|grape/) ? "01.1.6.4-a"
+    : has(/banana|mango|pineapple|papaya|kiwi|avocado|guava|passion|dragon|lychee|rambutan|coconut|\bfigs?\b|jackfruit|mangosteen|longan/) ? "01.1.6.1-b"
+    : "01.1.6.5-a";
+  const veg = () => has(/frozen/) ? "01.1.7.8-a" : has(/canned|\btin\b|paste|puree|pickle/) ? "01.1.7.9-a"
+    : has(/lentil|chickpea|kidney bean|fava|\bfoul\b|\bdal\b|dhal|split pea|black eyed|moong|dried beans/) ? "01.1.7.6-a"
+    : has(/potato|cassava|yam\b|taro|sweet potato|colocasia/) ? "01.1.7.5-a"
+    : has(/lettuce|spinach|cabbage|parsley|coriander|\bmint|celery|broccoli|cauliflower|leek|rocket|arugula|kale|molokhia|mulukhiyah|dill|basil|asparagus|artichoke|chard|watercress|spring onion|herbs?\b/) ? "01.1.7.1-a"
+    : has(/tomato|cucumber|pepper|capsicum|eggplant|aubergine|brinjal|zucchini|courgette|squash|pumpkin|okra|bhindi|chil+i|\bcorn\b|marrow|gourd/) ? "01.1.7.2-a"
+    : has(/green beans?|\bpeas?\b|snow pea|beans/) ? "01.1.7.3-a" : "01.1.7.4-a";
+  const fruitOrVeg = () => has(/apple|banana|orange|mango|grape|berr|melon|pear\b|peach|plum|lemon|lime\b|kiwi|avocado|pineapple|papaya|pomegranate|guava|fig\b|cherr|apricot|mandarin|fruit|dates?\b/) && !has(/tomato|pepper|aubergine|eggplant/) ? fruit() : veg();
+  const cupboard = () => has(/tuna|sardine/) ? "01.1.3.3-a" : has(/tomato paste|canned|chickpea|baked beans|\bbeans\b|sweet corn|\bpeas\b|foul|fava/) ? "01.1.7.9-a"
+    : has(/sauce|ketchup|mayo|mustard|vinegar|dressing|chutney|stock|bouillon|\bcubes?\b|soy/) ? "01.1.9.3-b"
+    : has(/spice|cumin|turmeric|cardamom|cinnamon|masala|paprika|saffron|curry|black pepper|chil+i powder|clove|oregano|thyme|za.?atar|seasoning/) ? "01.1.9.4-a"
+    : has(/\bsalt\b/) ? "01.1.9.3-a" : has(/\boil\b|ghee/) ? (has(/ghee/) ? "01.1.5.2-a" : "01.1.5.1-a")
+    : has(/noodle|vermicelli/) ? "01.1.1.5-b" : has(/pasta|spaghetti|macaroni|penne|fusilli|lasagn/) ? "01.1.1.5-a" : has(/\brice\b/) ? "01.1.1.1-a"
+    : has(/jam\b|marmalade/) ? "01.1.8.3-b" : has(/honey/) ? "01.1.8.3-a" : has(/chocolate|cocoa|nutella/) ? "01.1.8.5-a"
+    : has(/oats|corn ?flakes|cereal|muesli|granola/) ? "01.1.1.4-a" : has(/soup|ready meal|instant/) ? "01.1.9.1-a"
+    : has(/sweetener|stevia|sucralose/) ? "01.1.8.2-a" : has(/\bsugar\b/) ? "01.1.8.1-a" : has(/flour|semolina/) ? "01.1.1.2-a"
+    : has(/cake mix|brownie mix|pancake mix|muffin mix/) ? "01.1.1.3-a" : has(/jelly|custard|pudding|caramel/) ? "01.1.8.9-a" : "01.1.9.9-a";
+  switch (true) {
+    // food
+    case /^(beef|lamb|fresh food fresh meat poultry fresh beef veal)$/.test(c): return meat(false);
+    case /^(chicken|fresh food fresh meat poultry fresh chicken)$/.test(c): return meat(true);
+    case /^(fish|fresh food fresh fish seafoods)$/.test(c): return fish();
+    case /^(milk|fresh food dairy eggs cheese fresh milk)$/.test(c):
+      return has(/almond|\boat|soy|coconut|rice milk|plant/) ? "01.1.4.4-a" : has(/chocolate|strawberry|banana|flavou?r|milkshake|vanilla|mango|saffron|coffee/) ? "01.1.4.7-a"
+        : has(/condensed|evaporated|powder|cream|creamer/) ? "01.1.4.3-a" : has(/laban|buttermilk|ayran/) ? "01.1.4.6-a"
+        : has(/skim|fat free|low fat|light|\b0%|\b1%|half/) ? "01.1.4.2-a" : "01.1.4.1-a";
+    case c === "cheese": return "01.1.4.5-a";
+    case /^(yoghurt|fresh food dairy eggs cheese yoghurt chilled desserts)$/.test(c): return has(/dessert|pudding|custard|caramel|jelly|mousse/) ? "01.1.4.7-b" : "01.1.4.6-a";
+    case /^(eggs|fresh food dairy eggs cheese eggs)$/.test(c): return has(/\beggs?\b/) ? "01.1.4.8-a" : null;
+    case c === "butter": return has(/margarine|spread/) ? "01.1.5.3-a" : "01.1.5.2-a";
+    case c === "oil": return has(/\boil\b|ghee/) ? (has(/ghee/) ? "01.1.5.2-a" : "01.1.5.1-a") : null;
+    case c === "fruit": return fruitOrVeg();
+    case c === "dates": return "01.1.6.1-a";
+    case c === "nuts": return has(/peanut butter|nut butter|tahini|tahina/) ? "01.1.8.4-a" : "01.1.6.8-a";
+    case c === "vegetables": return fruitOrVeg();
+    case c === "fresh food fruits vegetables": return fruitOrVeg();
+    case c === "rice": return "01.1.1.1-a";
+    case c === "grocery food cupboard rice pasta noodles": return has(/\brice\b/) ? "01.1.1.1-a" : has(/noodle|vermicelli/) ? "01.1.1.5-b" : "01.1.1.5-a";
+    case c === "flour": return "01.1.1.2-a";
+    case c === "bread": return "01.1.1.3-a";
+    case c === "pasta": return has(/noodle|vermicelli/) ? "01.1.1.5-b" : "01.1.1.5-a";
+    case c === "sugar": return has(/sweetener|stevia|sucralose/) ? "01.1.8.2-a" : "01.1.8.1-a";
+    case c === "honey": return has(/jam\b|marmalade/) ? "01.1.8.3-b" : "01.1.8.3-a";
+    case c === "salt": return "01.1.9.3-a";
+    case /^grocery food cupboard( cooking ingredients| home baking sweeteners)?$/.test(c): return cupboard();
+    case c === "grocery food cupboard frozen food":
+      return has(/fries|potato|vegetable|\bpeas\b|\bcorn\b|okra|spinach|beans|molokhia/) ? "01.1.7.8-a" : has(/fish|shrimp|prawn|fillet|seafood/) ? fish()
+        : has(/chicken|nugget|burger|sausage|kofta|meat|beef|kebab/) ? "01.1.2.5-a" : has(/ice cream/) ? "01.1.8.6-a" : has(/fruit|berr|mango/) ? "01.1.6.6-a" : "01.1.9.1-a";
+    case c === "coffee": return "01.2.2.0-a";
+    case c === "tea": return "01.2.3.0-a";
+    case c === "juice": return "01.2.1.0-a";
+    case c === "water": return "01.2.5.0-a";
+    case c === "soft drinks": return has(/energy/) ? "01.2.9.0-a" : "01.2.6.0-a";
+    case c === "garden": return has(/canned|chickpea|\bcorn\b|\bpeas\b|beans|foul|fava|tahin|\d+\s?g\b|frozen|vegetable/) ? (has(/frozen/) ? "01.1.7.8-a" : "01.1.7.9-a") : "09.3.1.1-a";
+    // clothing and footwear
+    case /^(men > shoes|men shoes)$/.test(c): return "03.2.1.1-a";
+    case /^(women > shoes|women shoes)$/.test(c): return "03.2.1.2-a";
+    case /^(kids shoes|boys > shoes|girls > shoes)$/.test(c): return "03.2.1.3-a";
+    case /^(shoes|sports shoes|sandals)$/.test(c):
+      if (has(/shoe ?laces|\blaces\b|insoles?|inserts|shoe cleaner|polish|brush|stretcher|shoe horn|deodori[sz]er|massag|organi[sz]er|\brack\b|display|storage|shoe bag|cover|protector|spray|charm|shoe lifts|soap|incense|dhoop|cream/)) return null;
+      { const g = gender(); return g === "f" ? "03.2.1.2-a" : g === "k" || g === "b" ? "03.2.1.3-a" : g === "m" ? "03.2.1.1-a" : null; }
+    case /^(baby > t-shirts|baby clothing)$/.test(c): return garment("b");
+    case /^(boys > |men > |men )/.test(c): return garment("m");
+    case /^(girls > |women > |women )/.test(c) || c === "abaya": return garment("f");
+    case /^(kids clothing|underwear|socks)$/.test(c): { const g = gender(); return g === "b" ? "03.1.2.3-a" : has(/costume|cosplay|halloween/) ? "09.2.1.3-a" : g === "f" ? garment("f") : g === "m" || c !== "kids clothing" ? garment("m") : null; }
+    case c === "jeans": return has(/yarn|extender|button|patch|hanger|iron-on|fabric|sticker/) || !has(/\bjeans?\b|denim/) || has(/parfum|perfume|eau de|toilette/) ? null : garment(gender() === "f" ? "f" : gender() === "b" ? "b" : "m");
+    // furnishings and household
+    case /^(refrigerator|home appliances > fridges & freezers)$/.test(c): return "05.3.1.1-a";
+    case c === "home appliances > dishwashers": return "05.3.1.1-b";
+    case /^(washing machine|home appliances > laundry)$/.test(c): return "05.3.1.2-a";
+    case /^(air conditioner|home appliances > cooling & heating)$/.test(c): return has(/\bfan\b/) ? "05.3.2.9-a" : "05.3.1.3-a";
+    case /^(vacuum cleaner|home appliances > floorcare)$/.test(c): return "05.3.1.4-a";
+    case /^(blender|home appliances > cooking)$/.test(c): return has(/kettle|coffee|espresso|tea maker/) ? "05.3.2.2-a" : "05.3.2.1-a";
+    case c === "kettle": return "05.3.2.2-a";
+    case /^(iron|fan|home appliances > small appliances)$/.test(c): return has(/blender|mixer|chopper|juicer|air fryer|toaster/) ? "05.3.2.1-a" : has(/kettle|coffee/) ? "05.3.2.2-a" : "05.3.2.9-a";
+    case c === "bedsheet": return "05.2.1.2-a";
+    case c === "plates": return "05.4.0.1-a";
+    case c === "cookware": return "05.4.0.3-a";
+    case /^(batteries|light bulb)$/.test(c): return has(/charger|tester/) ? null : "05.5.2.2-a";
+    case /^(detergent|grocery household laundry essentials)$/.test(c): return "05.6.1.1-a";
+    case /^(dishwashing|grocery household dishwashing liquids tablets)$/.test(c): return "05.6.1.1-b";
+    case /^(cleaning|grocery household cleaning essentials|grocery household)$/.test(c): return "05.6.1.1-c";
+    case /^(air freshener|insecticide)$/.test(c): return "05.6.1.9-a";
+    case c === "towel": return "05.6.1.9-b";
+    case c === "tissue": return "13.1.2.0-f";
+    // health
+    case c === "paracetamol": return "06.1.1.1-a";
+    case c === "vitamins": return "06.1.1.1-b";
+    case c === "thermometer": return "06.1.2.1-a";
+    case c === "first aid": return "06.1.2.3-a";
+    // transport
+    case c === "bicycle": return has(/bicycle|cycle|bike/) && !has(/\block\b|pump|helmet|light|bell|stand|cover|glove|bottle|holder|rack/) ? "07.1.3.0-a" : null;
+    case c === "car battery": return has(/charger|tester|connector|clamp|cable|jump/) ? null : "07.2.1.2-a";
+    case c === "car accessories": return "07.2.1.3-a";
+    case c === "engine oil": return "07.2.2.4-a";
+    // information and communication
+    case /^(mobile phone|mobiles & tablets > mobiles)$/.test(c): return has(/case|cover|protector|charger|cable|holder/) ? "08.1.9.2-a" : "08.1.2.0-a";
+    case /^(laptop|computing > laptops)$/.test(c): return has(/bag|sleeve|stand|cooler|skin|charger/) ? "08.1.3.2-a" : "08.1.3.1-a";
+    case /^(tablet|mobiles & tablets > tablets)$/.test(c): return has(/case|cover|protector|stylus|pen\b|keyboard/) ? "08.1.9.2-a" : "08.1.3.1-b";
+    case /^(router|computing > (monitors|printers & ink|storage|computing accessories|networking & wireless))$/.test(c): return "08.1.3.2-a";
+    case /^(television|tv, video & audio > tvs)$/.test(c): return has(/wall mount|bracket|remote control|tv stand|hdmi|cable/) && !has(/smart tv|oled|qled|uhd|television/) ? null : "08.1.4.0-a";
+    case /^(headphones|earphones|speaker|tv, video & audio > (audio|home cinema & soundbars))$/.test(c): return "08.1.4.0-b";
+    case /^(smart watch|wearables & smartwatches > smartwatches)$/.test(c): return has(/strap|band\b|protector|charger|case/) ? "08.1.9.2-a" : "08.1.9.1-a";
+    case /^(charger|power bank|usb cable|phone case|screen protector|mobiles & tablets > (mobile|tablet) accessories)$/.test(c): return "08.1.9.2-a";
+    // recreation
+    case /^(camera|cameras & camcorders > digital cameras)$/.test(c): return "09.1.1.1-a";
+    case /^(gaming console|video games|gaming > (games|gaming consoles|gaming accessories))$/.test(c): return has(/foam|sword|plush|figure|costume|poster|mug/) ? "09.2.1.2-a" : "09.2.1.1-a";
+    case c === "toys": return "09.2.1.2-a";
+    case c === "pet food": return "09.3.2.2-a";
+    case c === "books": return "09.7.1.9-a";
+    case /^(notebook|pens|stationery)$/.test(c): return "09.7.4.0-a";
+    // personal care
+    case /^(hair dryer|health, fitness & beauty > grooming appliances)$/.test(c): return "13.1.1.1-a";
+    case /^(perfume|health, fitness & beauty > fragrances)$/.test(c): return "13.1.2.0-a";
+    case c === "deodorant": return "13.1.2.0-b";
+    case /^(shampoo|soap)$/.test(c): return "13.1.2.0-c";
+    case /^(body lotion|face mask)$/.test(c): return "13.1.2.0-d";
+    case c === "toothpaste": return "13.1.2.0-e";
+    case c === "razor": return "13.1.2.0-g";
+    case /^(sanitary pads|diapers)$/.test(c): return "13.1.2.0-h";
+    case c === "school bag": return "13.2.9.1-a";
   }
-  try {
-    const cat = await db.doc(`projects/${current}/catalogue/latest`).get();
-    const hid = cat.exists ? plain(cat).history_asset : null;
-    if (hid) {
-      const h = await (await fetch("/_blob/" + hid)).json();
-      for (const [k, p] of Object.entries(h.p)) {
-        const g = CH_NONFOOD.find((x) => x.re.test(p.c || ""));
-        if (!g) continue;
-        let last = null, e = 0; const store = String(p.o).split(" ")[0].toLowerCase();
-        h.days.forEach((d, i) => { while (e < p.h.length && p.h[e][0] <= i) { last = p.h[e][1]; e++; } if (last) put(g.name, d, k, last, store, p.t); });
-      }
-    }
-  } catch (e) { /* the non-food lines appear once a price history exists */ }
-  let wts = {};
-  try { const wd = await db.doc(`projects/${current}/weights/current`).get(); if (wd.exists) wts = plain(wd).weights || {}; } catch (e) { /* equal weights when the weights document is missing */ }
-  return { obs, days: [...days].sort(), wts };
+  return null;
 }
-function chSeries(metric, store) {
-  const { obs, days, wts } = chData, out = [], wmode = ($("#ch-w")?.value || "w") === "w";
-  for (const [g, perDay] of Object.entries(obs)) {
-    // Daily change of each basket ITEM (7-digit class) = geometric mean of the price relatives of the same product (same listing line) in the
-    // same shop between two consecutive days; the group's daily change = the items' changes averaged with the OFFICIAL item weights (or equally);
-    // the index chains these daily changes. The average price keeps the first day's level and moves with the index, so it does not jump
-    // when products come or go.
-    const pts = []; let idx = 100, prev = null, base = null;
-    for (const d of days) {
-      const m = perDay[d]; if (!m) { pts.push(null); continue; }
-      const cur = new Map([...m].filter(([, v]) => !store || String(v[1]).toLowerCase().startsWith(store)));
-      if (!cur.size) { pts.push(null); continue; }
-      if (base === null) {                          // first-day level: mean of the lines' prices, leaving out absurd ones (a whole animal priced as a kilo: AED 1,620)
-        const cnt = {}; for (const x of cur.values()) cnt[x[4]] = (cnt[x[4]] || 0) + 1;
-        const dom = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0];                       // kg for meat, litre for drinks, piece for clothes
-        const v = [...cur.values()].filter((x) => x[4] === dom).map((x) => x[0]).sort((a, b) => a - b), med = v[Math.floor(v.length / 2)];
-        const keep = v.filter((x) => x <= med * 4 && x >= med / 4);
-        base = keep.reduce((a, x) => a + x, 0) / keep.length;
-      }
-      if (prev) {
-        const byItem = new Map();                    // item -> [sum of ln relatives, n]
-        for (const [k, v] of cur) {
-          const q = prev.get(k); if (!q) continue;
-          let r = null;
-          if (v[3] && q[3]) r = v[3] / q[3]; else if (!v[3] && !q[3] && q[2] === v[2]) r = v[0] / q[0];   // never chain a single listing to a product-set level (a change of method, not of price)
-          if (!(r > 0)) continue;
-          const it = /^\d{9}\|/.test(k) ? k.slice(0, 7) : k;     // catalogue products (no basket item): each is its own item
-          const e = byItem.get(it) || [0, 0]; e[0] += Math.log(r); e[1]++; byItem.set(it, e);
+
+// Indices over the saved days. A product's daily price comes from the history change log; the item type's daily change is the
+// geometric mean of its products' price relatives (same product, same shop, two consecutive days); each higher level's daily
+// change is the weighted mean of its children's changes (Dubai CPI weights at class level and above, equal weights below);
+// the index chains the daily changes, first day = 100. A child's impact is its weight share times its change, in index points.
+function coicopBuild(hist, weights, opts = {}) {
+  const days = hist.days, D = days.length, store = opts.store || "", weighted = opts.weighted !== false;
+  const nodes = new Map(), node = (code) => {
+    if (!nodes.has(code)) { const n = { ...(CNODE[code] || { code, ar: code, en: code }), kids: [], prods: [] }; nodes.set(code, n); const p = cParent(code); if (code) node(p).kids.push(n); }
+    return nodes.get(code);
+  };
+  const root = node(""); root.ar = "كل الأقسام"; root.en = "All items";
+  let unclassified = 0;
+  for (const [k, p] of Object.entries(hist.p)) {
+    if (store && p.o !== store) continue;
+    const type = coicopOf(p.c, p.t);
+    if (!type) { unclassified++; continue; }
+    const pr = new Array(D).fill(null); let cur = null, e = 0;
+    for (let d = 0; d < D; d++) { while (e < p.h.length && p.h[e][0] <= d) { cur = p.h[e][1]; e++; } pr[d] = cur > 0 ? cur : null; }
+    if (!pr.some((x) => x)) continue;
+    node(type).prods.push({ k, t: p.t, o: p.o, u: p.u, c: p.c, g: p.g, pr });
+  }
+  // official weights (Dubai CPI basket, 7-digit codes) summed to COICOP classes (0112 -> 01.1.2)
+  const cw = {};
+  for (const [c7, w] of Object.entries(weights || {})) { const c4 = String(c7).slice(0, 4); const cls = `${c4.slice(0, 2)}.${c4[2]}.${c4[3]}`; cw[cls] = (cw[cls] || 0) + Number(w || 0); }
+  const LN3 = Math.log(3);
+  (function calc(n) {
+    n.rel = new Array(D).fill(null);
+    if (n.prods.length) {
+      n.count = new Array(D).fill(0);
+      for (let d = 0; d < D; d++) {
+        let s = 0, m = 0;
+        for (const q of n.prods) {
+          if (q.pr[d]) n.count[d]++;
+          if (d && q.pr[d] && q.pr[d - 1]) { const l = Math.log(q.pr[d] / q.pr[d - 1]); if (Math.abs(l) <= LN3) { s += l; m++; } }
         }
-        let sw = 0, sr = 0, ls = 0, n = 0;
-        for (const [it, [l, c]] of byItem) { const rel = Math.exp(l / c), w = wmode ? (wts[it] || 0) : 1; ls += l / c; n++; if (w > 0) { sw += w; sr += w * rel; } }
-        if (wmode && sw > 0) idx *= sr / sw; else if (n) idx *= Math.exp(ls / n);
+        if (d && m) n.rel[d] = Math.exp(s / m);
       }
-      pts.push(+(metric === "avg" ? base * idx / 100 : idx).toFixed(2));
-      prev = cur;
+      n.ow = 0;
+    } else {
+      n.kids.forEach(calc);
+      n.kids = n.kids.filter((k) => k.count && k.count.some((x) => x));
+      n.ow = n.kids.reduce((a, k) => a + k.ow, 0) || cw[n.code] || 0;      // official weight: the class figure, or the sum of the classes below
+      if (cw[n.code]) n.ow = cw[n.code];
+      const anyW = weighted && n.kids.some((k) => k.ow > 0);
+      for (const k of n.kids) k.w = anyW ? k.ow : 1;                         // children without an official weight count 0 when the others have one
+      n.count = new Array(D).fill(0);
+      for (let d = 0; d < D; d++) {
+        let sw = 0, sr = 0;
+        for (const k of n.kids) { n.count[d] += k.count[d]; if (k.rel[d] && k.w > 0) { sw += k.w; sr += k.w * k.rel[d]; } }
+        if (d && sw) n.rel[d] = sr / sw;
+      }
     }
-    out.push({ g, pts, n: Math.max(...days.map((d) => (perDay[d] || new Map()).size)) });
-  }
-  return out;
+    n.first = n.count.findIndex((x) => x > 0);
+    n.idx = n.rel.map(() => null); let I = 100;
+    for (let d = Math.max(n.first, 0); d < D; d++) { if (d > n.first && n.rel[d]) I *= n.rel[d]; n.idx[d] = n.count[d] || d > n.first ? +I.toFixed(3) : null; }
+    n.last = n.idx[D - 1]; n.chg = n.last - 100;
+    const prev = n.idx[D - 2]; n.day = prev ? (n.last / prev - 1) * 100 : 0;
+    n.products = n.count[D - 1];
+  })(root);
+  (function impact(n) {
+    const sw = n.kids.reduce((a, k) => a + (k.w > 0 ? k.w : 0), 0);
+    for (const k of n.kids) { k.share = sw && k.w > 0 ? k.w / sw : 0; k.imp = k.share * k.chg; impact(k); }
+    n.kids.sort((a, b) => Math.abs(b.imp) - Math.abs(a.imp) || Math.abs(b.chg) - Math.abs(a.chg) || b.products - a.products);
+    for (const q of n.prods) { const f = q.pr.find((x) => x), l = q.pr[D - 1]; q.first = f; q.lastp = l; q.chg = f && l ? (l / f - 1) * 100 : null; }
+    n.prods.sort((a, b) => Math.abs(b.chg ?? -1) - Math.abs(a.chg ?? -1));
+  })(root);
+  return { root, nodes, days, unclassified };
 }
-function chDraw() {
-  if (!chData || !$("#ch-canvas")) return;
-  const metric = $("#ch-metric").value, store = $("#ch-store").value, dv = $("#ch-div")?.value || "", days = chData.days;
-  const ser = chSeries(metric, store).filter((s) => !dv || divOfGroup(s.g) === dv);
-  if (chChart) chChart.destroy();
-  chChart = new window.Chart($("#ch-canvas"), { type: "line",
-    data: { labels: days, datasets: ser.map((s, i) => ({ label: s.g, data: s.pts, borderColor: CH_COLORS[i % CH_COLORS.length], backgroundColor: CH_COLORS[i % CH_COLORS.length], tension: 0.2, spanGaps: true, pointRadius: 3, pointHoverRadius: 6, pointHitRadius: 8, borderWidth: 2 })) },
-    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "nearest", intersect: false },
-      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl", callbacks: { label: (ctx) => `${ctx.dataset.label}: ${Number(ctx.parsed.y).toFixed(2)}` } } },
-      scales: { y: { title: { display: true, text: metric === "index" ? "الرقم القياسي" : "درهم" } } } } });
-  $("#ch-note").textContent = `${days.length} يوماً · ${ser.length} مجموعة · انقر اسم المجموعة أسفل الرسم لإخفائها أو إظهارها.`
-    + (metric === "avg" ? " متوسط السعر هنا لكل وحدة واحدة (كيلو للّحوم والخضار، لتر للمشروبات، قطعة للملابس): كل عبوة تُحوَّل إلى سعر الكيلو أو اللتر قبل الجمع، فلا يُجمع نصف كيلو مع كيلو. هو متوسط أول يوم محرّكاً بالرقم القياسي (نفس المنتج فقط)، فلا يقفز عند دخول منتجات أو خروجها، ويستثني الأسعار الشاذة." : " الرقم القياسي: لكل بند من بنود السلة متوسط هندسي لتغيّر سعر نفس المنتج في نفس المتجر بين يومين متتاليين، ثم تُجمع البنود بأوزانها، أو بدون أوزان إن اخترت ذلك، أول يوم = 100.");
+
+// The overview of a barcode project: a COICOP 2018 tree fed by the daily crawl (every scraped product, not only the basket).
+// Each row shows the level's index and its live line; a click opens its chart and the level below, sorted by impact; an item type
+// opens its products with their photos.
+let ctHist = null, ctW = {}, ctTree = null; const ctOpen = new Set(); let ctCharts = []; const ctInfo = new Map();
+const CT_UP = "#c0392b", CT_DOWN = "#1a8f4e";                       // a price rise is red, a fall green
+const ctCol = (v) => (v > 0.005 ? CT_UP : v < -0.005 ? CT_DOWN : "var(--muted)");
+const ctPct = (v, d = 2) => (v == null || !isFinite(v) ? "—" : (v > 0.005 ? "▲ " : v < -0.005 ? "▼ " : "") + Math.abs(v).toFixed(d) + "%");
+const ctLevel = (c) => (!c ? "الكل" : c.includes("-") ? "نوع السلعة" : ["القسم", "المجموعة", "الفئة", "الفئة الفرعية"][c.split(".").length - 1]);
+function ctSpark(vals, W = 150, H = 32) {
+  const pts = vals.map((v, i) => [i, v]).filter((x) => x[1] != null);
+  if (!pts.length) return "";
+  const v = pts.map((x) => x[1]), lo = Math.min(...v), hi = Math.max(...v), span = hi - lo || 1, n = vals.length;
+  const col = ctCol((v[v.length - 1] / v[0] - 1) * 100);
+  const xy = pts.map(([i, y]) => [n === 1 ? W / 2 : 4 + (i * (W - 8)) / (n - 1), H - 4 - ((y - lo) / span) * (H - 8)]);
+  const line = xy.length > 1 ? `<polyline fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" points="${xy.map((p) => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ")}"/>` : "";
+  const [lx, ly] = xy[xy.length - 1];
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" style="direction:ltr">${line}<circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="3" fill="${col}"/></svg>`;
 }
-async function loadCharts() {
+async function loadCoicop() {
   const pid = current;
   try {
-    await loadChartLib();
-    chData = await chBuild();
-    if (current !== pid || !$("#ch-canvas")) return;
-    if (chData.days.length < 2) { $("#ch-note").textContent = "الرسم يحتاج يومين على الأقل من الأسعار؛ يظهر تلقائياً بعد التشغيل التالي."; return; }
-    const dvs = [...new Set(Object.keys(chData.obs).map(divOfGroup).filter(Boolean))];
-    if ($("#ch-div")) { $("#ch-div").innerHTML = `<option value="">كل الأقسام</option>` + dvs.map((d) => `<option value="${esc(d)}">${esc(d)}</option>`).join(""); $("#ch-div").onchange = chDraw; }
-    $("#ch-metric").onchange = chDraw; $("#ch-store").onchange = chDraw; $("#ch-w").onchange = chDraw; chDraw();
-  } catch (e) { if ($("#ch-note")) $("#ch-note").textContent = "تعذّر تحميل الرسم: " + (e?.message || e); }
+    const snap = await db.doc(`projects/${pid}/catalogue/latest`).get(); catDoc = snap.exists ? plain(snap) : null;
+    if (current !== pid || !$("#ct-rows")) return;
+    if (!catDoc?.history_asset) { $("#ct-rows").innerHTML = `<tr><td colspan="7" class="empty">لا يوجد سجل أسعار بعد؛ يبدأ مع المسح اليومي.</td></tr>`; return; }
+    $("#ov-n-prod").textContent = (catDoc.rows || 0).toLocaleString("en");
+    $("#ov-n-store").textContent = Object.keys(catDoc.stores || {}).length.toLocaleString("en");
+    $("#ct-store").innerHTML = `<option value="">كل المتاجر</option>` + Object.entries(catDoc.stores || {}).sort((a, b) => b[1] - a[1]).map(([s, n]) => `<option value="${esc(s)}">${esc(s)} (${n.toLocaleString("en")})</option>`).join("");
+    const [h] = await Promise.all([fetch("/_blob/" + catDoc.history_asset).then((r) => r.json()), loadChartLib()]);
+    try { const wd = await db.doc(`projects/${pid}/weights/current`).get(); ctW = wd.exists ? plain(wd).weights || {} : {}; } catch (e) { ctW = {}; }
+    if (current !== pid || !$("#ct-rows")) return;
+    ctHist = h; $("#ov-n-days").textContent = h.days.length.toLocaleString("en");
+    $("#ct-store").onchange = $("#ct-w").onchange = () => { ctBuild(); ctDraw(); };
+    $("#ct-rows").onclick = (e) => { const tr = e.target.closest(".ct-row"); if (tr && !e.target.closest("a")) ctToggle(tr.dataset.code); };
+    $("#ov-xlsx").onclick = (e) => ctExcel(e.currentTarget);
+    ctBuild(); ctDraw();
+    await ensureCat([]);                                                   // photos, sizes and unit prices of today's products
+    const ix = catIx;
+    for (const r of catData.rows) ctInfo.set(r[ix.outlet] + "|" + (r[ix.retailer_id] || r[ix.url]), { photo: r[ix.photo_url], size: String(r[ix.size] || "").replace(/\s*(min order|only \d+ left|tod\.|tom\.|global store|express|delivery).*$/i, "").trim(), unit: r[ix.unit_price], basis: r[ix.price_basis] });
+    if (current === pid) ctDraw();
+  } catch (e) { if ($("#ct-note")) $("#ct-note").textContent = "تعذّر تحميل الأسعار: " + (e?.message || e); }
+}
+function ctBuild() { ctTree = coicopBuild(ctHist, ctW, { store: $("#ct-store")?.value || "", weighted: ($("#ct-w")?.value || "w") === "w" }); }
+function ctToggle(code) {
+  if (ctOpen.has(code)) { for (const c of [...ctOpen]) if (c === code || c.startsWith(code + ".") || c.startsWith(code + "-")) ctOpen.delete(c); }
+  else ctOpen.add(code);
+  ctDraw();
+  const n = ctTree.nodes.get(code);
+  if (ctOpen.has(code) && n?.prods.length) {                              // an item type: load the photos of its catalogue section
+    const need = [...new Set(n.prods.map((q) => q.g))].filter((g) => catDoc?.thumbs_assets?.[g] && !catGot[g]);
+    if (need.length) ensureCat(need).then(() => ctOpen.has(code) && ctDraw());
+  }
+}
+function ctDraw() {
+  if (!ctTree || !$("#ct-rows")) return;
+  ctCharts.forEach((c) => c.destroy()); ctCharts = [];
+  const { root, days } = ctTree, d0 = days[0], out = [];
+  const anyW = ($("#ct-w")?.value || "w") === "w";
+  const row = (n, depth) => {
+    const open = ctOpen.has(n.code), leaf = n.prods.length > 0;
+    const noW = anyW && n.code && n.w === 0;
+    return `<tr class="ct-row" data-code="${esc(n.code)}" style="cursor:pointer${depth ? "" : ";background:var(--sunk)"}">
+      <td style="text-align:right;padding-inline-start:${10 + depth * 22}px"><span style="color:var(--cyan);display:inline-block;width:14px">${open ? "▾" : "◂"}</span>
+        <span class="mono" style="color:var(--muted)">${esc(n.code.replace(/-[a-z]$/, ""))}</span> <b>${esc(n.ar)}</b>
+        <div class="muted" style="font-size:12px;margin-inline-start:18px">${esc(ctLevel(n.code))} · ${esc(n.en)}${leaf ? " · منتجات" : ""}${noW ? ` · <span class="chip" title="لا وزن له في سلة دبي الرسمية، فلا يدخل في حساب المستوى الأعلى">بلا وزن رسمي</span>` : ""}</div></td>
+      <td class="num">${(n.products || 0).toLocaleString("en")}</td>
+      <td class="num"><b>${n.last != null ? n.last.toFixed(2) : "—"}</b></td>
+      <td class="num" style="color:${ctCol(n.chg)}">${ctPct(n.chg)}</td>
+      <td class="num" style="color:${ctCol(n.day)}">${ctPct(n.day)}</td>
+      <td class="num" style="color:${ctCol(n.imp ?? 0)}">${n.code ? (n.imp >= 0 ? "+" : "") + (n.imp ?? 0).toFixed(3) : ""}</td>
+      <td>${ctSpark(n.idx)}</td></tr>`;
+  };
+  const detail = (n) => {
+    const leaf = n.prods.length > 0, top = n.kids.slice(0, 6);
+    let html = `<tr class="ct-detail"><td colspan="7" style="background:#fff"><div style="position:relative;height:250px"><canvas data-ct="${esc(n.code)}"></canvas></div>
+      <p class="muted" style="margin:6px 0 0">${esc(n.ar)} · الرقم القياسي (${esc(d0)} = 100)${top.length ? ` مع أكبر ${top.length} بنود تأثيراً تحته` : ""} · ${days.length} يوماً</p>`;
+    if (leaf) {
+      const D = days.length, ps = n.prods.slice(0, 200);
+      html += `<div class="tw" style="margin-top:10px"><table dir="rtl"><thead><tr><th>صورة</th><th>المنتج</th><th>المتجر</th><th>الحجم</th><th>أول سعر</th><th>آخر سعر</th><th>التغير</th><th>الرسم الحي</th></tr></thead><tbody>${ps.map((q) => {
+        const inf = ctInfo.get(q.k) || {}, b = inf.photo && catThumbs[inf.photo];
+        const unit = inf.unit && inf.basis ? `<br><span class="muted">${Number(inf.unit).toFixed(2)} / ${esc({ kg: "كغ", l: "لتر", pc: "قطعة" }[inf.basis] || inf.basis)}</span>` : "";
+        return `<tr><td style="text-align:right">${b ? `<img class="thumb" src="data:image/jpeg;base64,${b}" alt="">` : inf.photo ? `<img class="thumb" src="${esc(inf.photo)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>
+          <td style="text-align:right"><a href="${esc(q.u)}" target="_blank" rel="noopener">${esc(q.t)}</a></td><td style="text-align:right">${esc(q.o)}</td><td style="text-align:right">${esc(inf.size || "")}</td>
+          <td class="num">${q.first != null ? q.first.toFixed(2) : "—"}</td><td class="num"><b>${q.lastp != null ? q.lastp.toFixed(2) : "غير معروض اليوم"}</b>${unit}</td>
+          <td class="num" style="color:${ctCol(q.chg)}">${ctPct(q.chg, 1)}</td><td>${ctSpark(q.pr, 130, 30)}</td></tr>`; }).join("")}</tbody></table></div>
+        <p class="muted" style="margin:6px 0 0">${n.prods.length.toLocaleString("en")} منتجاً، مرتبة من الأكبر تغيراً${n.prods.length > 200 ? " · يظهر أول 200؛ الكل في ملف Excel" : ""}. الأسعار بالدرهم كما على رف المتجر؛ تحتها سعر الكيلو أو اللتر أو القطعة حين يتوفر.</p>`;
+    }
+    return html + `</td></tr>`;
+  };
+  const walk = (n, depth) => { for (const k of n.kids) { out.push(row(k, depth)); if (ctOpen.has(k.code)) { out.push(detail(k)); walk(k, depth + 1); } } };
+  out.push(row(root, 0)); if (ctOpen.has("")) out.push(detail(root));
+  walk(root, 0);
+  $("#ct-rows").innerHTML = out.join("");
+  $("#ct-head-chg").textContent = `التغير منذ ${d0}`;
+  for (const cv of $$("#ct-rows canvas[data-ct]")) {
+    const n = ctTree.nodes.get(cv.dataset.ct); if (!n) continue;
+    const sets = [{ label: n.ar, data: n.idx, borderColor: "#14264b", backgroundColor: "rgba(20,38,75,.08)", fill: true, borderWidth: 3, pointRadius: 3, tension: 0.2, spanGaps: true }]
+      .concat(n.kids.slice(0, 6).map((k, i) => ({ label: k.ar, data: k.idx, borderColor: CH_COLORS[(i + 1) % CH_COLORS.length], borderWidth: 1.5, pointRadius: 2, tension: 0.2, spanGaps: true })));
+    ctCharts.push(new window.Chart(cv, { type: "line", data: { labels: days, datasets: sets },
+      options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "nearest", intersect: false },
+        plugins: { legend: { position: "bottom", labels: { usePointStyle: true, font: { size: 11 } } }, tooltip: { rtl: true, textDirection: "rtl", callbacks: { label: (c) => `${c.dataset.label}: ${Number(c.parsed.y).toFixed(2)}` } } },
+        scales: { y: { title: { display: true, text: "الرقم القياسي" } } } } }));
+  }
+  const w = ($("#ct-w")?.value || "w") === "w";
+  $("#ct-note").textContent = `${ctTree.root.products.toLocaleString("en")} منتجاً مصنّفاً في ${days.length} يوماً (${d0} إلى ${days[days.length - 1]})`
+    + (ctTree.unclassified ? ` · ${ctTree.unclassified.toLocaleString("en")} منتجاً خارج التصنيف (إكسسوارات وأصناف لا تخص الفئة التي بُحث فيها)` : "")
+    + `. التصنيف: COICOP 2018 العالمي بأسماء سلة مركز دبي للإحصاء. لكل نوع سلعة: متوسط هندسي لتغير سعر نفس المنتج في نفس المتجر من يوم لليوم التالي؛ ثم كل مستوى أعلى يجمع ما تحته `
+    + (w ? "بأوزان سلة دبي الرسمية (من مستوى الفئة فما فوق، وبالتساوي تحتها)" : "بالتساوي")
+    + `؛ أول يوم = 100. «الأثر» = حصة البند من وزن المستوى الأعلى × تغيره، بالنقاط، والبنود مرتبة حسبه. الأحمر ارتفاع والأخضر انخفاض.`;
+}
+async function ctExcel(btn) {
+  if (!ctTree) return toast("تُحمَّل الأسعار بعد…", true);
+  if (!downloads) return toast("التنزيل غير متاح في هذا العرض", true);
+  const old = btn.textContent; btn.disabled = true; btn.textContent = "يُجهَّز…";
+  try {
+    const ExcelJS = await loadExcel(), wb = new ExcelJS.Workbook(), { root, days } = ctTree;
+    const head = (ws, cols, widths) => { const r = ws.getRow(1); r.height = 30; cols.forEach((h, i) => { const c = r.getCell(i + 1); c.value = h; c.font = { bold: true, color: { argb: "FFFFFFFF" } }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF14264B" } }; c.alignment = { horizontal: "center", vertical: "middle", wrapText: true }; ws.getColumn(i + 1).width = widths[i] || 12; }); ws.views = [{ state: "frozen", ySplit: 1 }]; };
+    const t = wb.addWorksheet("COICOP tree");
+    head(t, ["Level", "COICOP 2018 code", "Name (Arabic)", "Name (English)", "Products (last day)", "Official weight", "Share of parent %", "Impact on parent (points)", `Change since ${days[0]} %`, "Last-day change %", ...days.map((d) => `Index ${d}`)], [14, 14, 38, 44, 12, 12, 12, 14, 14, 12]);
+    const prodRows = [];
+    const walk = (n) => {
+      t.addRow([ctLevel(n.code), n.code.replace(/-[a-z]$/, "") || "All", n.ar, n.en, n.products, n.ow ? +n.ow.toFixed(4) : null, n.code ? +(100 * (n.share || 0)).toFixed(3) : null,
+        n.code ? +(n.imp || 0).toFixed(4) : null, +n.chg.toFixed(3), +n.day.toFixed(3), ...n.idx.map((v) => (v == null ? null : +v.toFixed(3)))]);
+      for (const q of n.prods) { const inf = ctInfo.get(q.k) || {}; prodRows.push([n.code.replace(/-[a-z]$/, ""), n.ar, n.en, q.o, q.t, inf.size || "", q.first, q.lastp, q.chg == null ? null : +q.chg.toFixed(3), ...q.pr, q.u, inf.photo || ""]); }
+      n.kids.forEach(walk);
+    };
+    walk(root);
+    const p = wb.addWorksheet("Products");
+    head(p, ["COICOP 2018 subclass", "Item type (Arabic)", "Item type (English)", "Store", "Product", "Size", "First price (AED)", "Last price (AED)", "Change %", ...days.map((d) => `Price ${d}`), "Product URL", "Photo URL"], [14, 30, 30, 14, 50, 12, 12, 12, 10]);
+    prodRows.forEach((r) => p.addRow(r));
+    const buf = await wb.xlsx.writeBuffer();
+    await downloads.save({ filename: `CPI_COICOP_tree_${days[days.length - 1]}.xlsx`, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) });
+    toast(`${prodRows.length.toLocaleString("en")} منتجاً · ${days.length} يوماً`);
+  } catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast("تعذّر تجهيز الملف: " + (e?.message || e), true); }
+  finally { btn.disabled = false; btn.textContent = old; }
 }
 
 // ------------------------------------------------------------ boot

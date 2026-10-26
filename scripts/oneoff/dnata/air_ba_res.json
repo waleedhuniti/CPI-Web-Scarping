@@ -1,0 +1,26 @@
+{
+ "LHR": {
+  "url": "https://www.britishairways.com/nx/b/airselect/en/are/book/search/?trip=return&departureDate=2026-11-01&returnDate=2026-11-06&from=DXB&to=LHR&travelClass=economy&adults=1&youngAdults=0&children=0&infants=0",
+  "currency": "AED",
+  "out_calendar": {
+   "2026-10-29": 2425,
+   "2026-10-30": 2525,
+   "2026-10-31": 4965,
+   "2026-11-01": 3855,
+   "2026-11-02": 2425,
+   "2026-11-03": 1985,
+   "2026-11-04": 1725
+  },
+  "out": {
+   "date": "2026-11-01",
+   "shifted_days": 0,
+   "lowest": 3855.0,
+   "highest": null,
+   "flights": [],
+   "source": "fare calendar (lowest fare of the day), collected 2026-10-26"
+  },
+  "out_list_error": "HTTP 200 but BA information page instead of the flight list; the booking page showed \"Sorry, we're having technical difficulties\"",
+  "back": null,
+  "back_note": "return-leg prices load only after an outbound flight is selected; not reached"
+ }
+}

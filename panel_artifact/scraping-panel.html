@@ -744,7 +744,7 @@ function renderOverview() {
     <div class="panel" id="ct-panel"><div class="bar-title navy">تطور الأسعار حسب التصنيف العالمي COICOP 2018</div>
       <div class="row" style="flex-wrap:wrap;gap:8px"><select id="ct-store" style="flex:1 1 200px"><option value="">كل المتاجر</option></select>
         <select id="ct-w" style="flex:1 1 220px"><option value="w">بأوزان سلة دبي الرسمية</option><option value="eq">بدون أوزان (بالتساوي)</option></select></div>
-      <p class="muted" style="margin:0">انقر أي بند لفتح رسمه والبنود التي تحته، مرتبة من الأكبر أثراً؛ آخر مستوى يفتح المنتجات بصورها.</p>
+      <p class="muted" style="margin:0">ابدأ من «كل الأقسام»: انقر أي بند لعرض البنود التي تحته مرتبة من الأكبر أثراً، حتى المنتجات بصورها في آخر مستوى. انقر الرسم الصغير لعرض الرسم الكامل.</p>
       <div class="tw"><table dir="rtl"><thead><tr><th style="text-align:right;min-width:260px">البند</th><th>المنتجات</th><th>الرقم القياسي</th><th id="ct-head-chg">التغير</th><th>تغير آخر يوم</th><th title="حصة البند من وزن المستوى الأعلى × تغيره">الأثر (نقطة)</th><th style="min-width:160px">الرسم الحي</th></tr></thead>
         <tbody id="ct-rows"><tr><td colspan="7" class="empty">تُحمَّل الأسعار…</td></tr></tbody></table></div>
       <p class="muted" id="ct-note" style="margin:0"></p></div>`;
@@ -1638,6 +1638,7 @@ const COICOP = [
   ["13.2", "مقتنيات شخصية أخرى", "Other personal effects"], ["13.2.9", "سلع شخصية أخرى", "Other personal effects n.e.c."],
   ["13.2.9.1", "حقائب السفر ومستلزمات الأطفال وسلع شخصية أخرى", "Travel goods and articles for babies and other personal effects n.e.c."], ["13.2.9.1-a", "الحقائب المدرسية", "School bags"],
 ];
+const COICOP_SKIP = ["06", "07"];                 // health and transport: outside this team's scope
 const CNODE = Object.fromEntries(COICOP.map(([c, ar, en]) => [c, { code: c, ar, en }]));
 const cParent = (c) => c.includes("-") ? c.slice(0, c.indexOf("-")) : c.includes(".") ? c.slice(0, c.lastIndexOf(".")) : "";
 
@@ -1809,6 +1810,7 @@ function coicopBuild(hist, weights, opts = {}) {
     if (store && p.o !== store) continue;
     const type = coicopOf(p.c, p.t);
     if (!type) { unclassified++; continue; }
+    if (COICOP_SKIP.includes(type.slice(0, 2))) continue;
     const pr = new Array(D).fill(null); let cur = null, e = 0;
     for (let d = 0; d < D; d++) { while (e < p.h.length && p.h[e][0] <= d) { cur = p.h[e][1]; e++; } pr[d] = cur > 0 ? cur : null; }
     if (!pr.some((x) => x)) continue;
@@ -1817,6 +1819,10 @@ function coicopBuild(hist, weights, opts = {}) {
   // official weights (Dubai CPI basket, 7-digit codes) summed to COICOP classes (0112 -> 01.1.2)
   const cw = {};
   for (const [c7, w] of Object.entries(weights || {})) { const c4 = String(c7).slice(0, 4); const cls = `${c4.slice(0, 2)}.${c4[2]}.${c4[3]}`; cw[cls] = (cw[cls] || 0) + Number(w || 0); }
+  // what the reader walks through: a division lists its classes directly (the COICOP group level, e.g. 01.1 Food, is folded
+  // in), and a level with a single branch below it takes that branch's content, so every click opens a real choice
+  for (const d of root.kids) d.kids = d.kids.flatMap((g) => (g.prods.length ? [g] : g.kids));
+  (function squash(n) { while (n !== root && n.kids.length === 1 && !n.prods.length) { const c = n.kids[0]; n.kids = c.kids; n.prods = c.prods; } n.kids.forEach(squash); })(root);
   const LN3 = Math.log(3);
   (function calc(n) {
     n.rel = new Array(D).fill(null);
@@ -1830,7 +1836,7 @@ function coicopBuild(hist, weights, opts = {}) {
         }
         if (d && m) n.rel[d] = Math.exp(s / m);
       }
-      n.ow = 0;
+      n.ow = cw[n.code] || 0;                                             // a class whose single branch was folded in keeps its weight
     } else {
       n.kids.forEach(calc);
       n.kids = n.kids.filter((k) => k.count && k.count.some((x) => x));
@@ -1863,9 +1869,9 @@ function coicopBuild(hist, weights, opts = {}) {
 }
 
 // The overview of a barcode project: a COICOP 2018 tree fed by the daily crawl (every scraped product, not only the basket).
-// Each row shows the level's index and its live line; a click opens its chart and the level below, sorted by impact; an item type
-// opens its products with their photos.
-let ctHist = null, ctW = {}, ctTree = null; const ctOpen = new Set(); let ctCharts = []; const ctInfo = new Map();
+// It starts from one row (all divisions); a click on a row lists the level below it, sorted by impact, and an item type lists its
+// products with their photos. A click on a row's live line opens its full chart.
+let ctHist = null, ctW = {}, ctTree = null; const ctOpen = new Set(), ctChartOpen = new Set(); let ctCharts = []; const ctInfo = new Map();
 const CT_UP = "#c0392b", CT_DOWN = "#1a8f4e";                       // a price rise is red, a fall green
 const ctCol = (v) => (v > 0.005 ? CT_UP : v < -0.005 ? CT_DOWN : "var(--muted)");
 const ctPct = (v, d = 2) => (v == null || !isFinite(v) ? "—" : (v > 0.005 ? "▲ " : v < -0.005 ? "▼ " : "") + Math.abs(v).toFixed(d) + "%");
@@ -1894,7 +1900,7 @@ async function loadCoicop() {
     if (current !== pid || !$("#ct-rows")) return;
     ctHist = h; $("#ov-n-days").textContent = h.days.length.toLocaleString("en");
     $("#ct-store").onchange = $("#ct-w").onchange = () => { ctBuild(); ctDraw(); };
-    $("#ct-rows").onclick = (e) => { const tr = e.target.closest(".ct-row"); if (tr && !e.target.closest("a")) ctToggle(tr.dataset.code); };
+    $("#ct-rows").onclick = (e) => { const tr = e.target.closest(".ct-row"); if (tr && !e.target.closest("a")) ctToggle(tr.dataset.code, !!e.target.closest(".ct-spark")); };
     $("#ov-xlsx").onclick = (e) => ctExcel(e.currentTarget);
     ctBuild(); ctDraw();
     await ensureCat([]);                                                   // photos, sizes and unit prices of today's products
@@ -1904,59 +1910,66 @@ async function loadCoicop() {
   } catch (e) { if ($("#ct-note")) $("#ct-note").textContent = "تعذّر تحميل الأسعار: " + (e?.message || e); }
 }
 function ctBuild() { ctTree = coicopBuild(ctHist, ctW, { store: $("#ct-store")?.value || "", weighted: ($("#ct-w")?.value || "w") === "w" }); }
-function ctToggle(code) {
-  if (ctOpen.has(code)) { for (const c of [...ctOpen]) if (c === code || c.startsWith(code + ".") || c.startsWith(code + "-")) ctOpen.delete(c); }
-  else ctOpen.add(code);
+function ctToggle(code, chart) {
+  const set = chart ? ctChartOpen : ctOpen;
+  if (set.has(code)) { set.delete(code); if (!chart) for (const c of [...ctOpen, ...ctChartOpen]) if (code === "" ? c : c.startsWith(code + ".") || c.startsWith(code + "-")) { ctOpen.delete(c); ctChartOpen.delete(c); } }
+  else set.add(code);
   ctDraw();
   const n = ctTree.nodes.get(code);
-  if (ctOpen.has(code) && n?.prods.length) {                              // an item type: load the photos of its catalogue section
+  if (!chart && ctOpen.has(code) && n?.prods.length) {                     // an item type: load the photos of its catalogue section
     const need = [...new Set(n.prods.map((q) => q.g))].filter((g) => catDoc?.thumbs_assets?.[g] && !catGot[g]);
     if (need.length) ensureCat(need).then(() => ctOpen.has(code) && ctDraw());
   }
 }
+const CT_LEVEL_COLORS = ["#14264b", "#1678be", "#1ea5e0", "#2e88c2", "#d9a43a", "#8d6e63"];
 function ctDraw() {
   if (!ctTree || !$("#ct-rows")) return;
   ctCharts.forEach((c) => c.destroy()); ctCharts = [];
   const { root, days } = ctTree, d0 = days[0], out = [];
   const anyW = ($("#ct-w")?.value || "w") === "w";
+  const pad = (depth) => `padding-inline-start:${12 + depth * 30}px;border-inline-start:5px solid ${CT_LEVEL_COLORS[Math.min(depth, CT_LEVEL_COLORS.length - 1)]}`;
   const row = (n, depth) => {
-    const open = ctOpen.has(n.code), leaf = n.prods.length > 0;
+    const open = ctOpen.has(n.code), leaf = n.prods.length > 0, nKids = leaf ? n.prods.length : n.kids.length;
     const noW = anyW && n.code && n.w === 0;
-    return `<tr class="ct-row" data-code="${esc(n.code)}" style="cursor:pointer${depth ? "" : ";background:var(--sunk)"}">
-      <td style="text-align:right;padding-inline-start:${10 + depth * 22}px"><span style="color:var(--cyan);display:inline-block;width:14px">${open ? "▾" : "◂"}</span>
-        <span class="mono" style="color:var(--muted)">${esc(n.code.replace(/-[a-z]$/, ""))}</span> <b>${esc(n.ar)}</b>
-        <div class="muted" style="font-size:12px;margin-inline-start:18px">${esc(ctLevel(n.code))} · ${esc(n.en)}${leaf ? " · منتجات" : ""}${noW ? ` · <span class="chip" title="لا وزن له في سلة دبي الرسمية، فلا يدخل في حساب المستوى الأعلى">بلا وزن رسمي</span>` : ""}</div></td>
+    return `<tr class="ct-row" data-code="${esc(n.code)}" style="cursor:pointer;background:${open ? "#eaf4fb" : depth % 2 ? "#fafbfc" : "#fff"}">
+      <td style="text-align:right;${pad(depth)}"><span style="color:var(--cyan);display:inline-block;width:16px;font-size:16px">${open ? "▾" : "◂"}</span>
+        ${n.code ? `<span class="mono" style="color:var(--muted)">${esc(n.code.replace(/-[a-z]$/, ""))}</span> ` : ""}<b>${esc(n.ar)}</b>
+        <div class="muted" style="font-size:12px;margin-inline-start:20px">${esc(ctLevel(n.code))} · ${esc(n.en)} · ${open ? "اضغط للإغلاق" : leaf ? `${nKids.toLocaleString("en")} منتجاً بالصور` : `${nKids} بنود تحته`}${noW ? ` · <span class="chip" title="لا وزن له في سلة دبي الرسمية، فلا يدخل في حساب المستوى الأعلى">بلا وزن رسمي</span>` : ""}</div></td>
       <td class="num">${(n.products || 0).toLocaleString("en")}</td>
       <td class="num"><b>${n.last != null ? n.last.toFixed(2) : "—"}</b></td>
       <td class="num" style="color:${ctCol(n.chg)}">${ctPct(n.chg)}</td>
       <td class="num" style="color:${ctCol(n.day)}">${ctPct(n.day)}</td>
       <td class="num" style="color:${ctCol(n.imp ?? 0)}">${n.code ? (n.imp >= 0 ? "+" : "") + (n.imp ?? 0).toFixed(3) : ""}</td>
-      <td>${ctSpark(n.idx)}</td></tr>`;
+      <td class="ct-spark" title="اضغط لعرض الرسم الكامل" style="cursor:zoom-in">${ctSpark(n.idx)}<div class="muted" style="font-size:11px">${ctChartOpen.has(n.code) ? "إخفاء الرسم" : "📈 الرسم الكامل"}</div></td></tr>`;
   };
-  const detail = (n) => {
-    const leaf = n.prods.length > 0, top = n.kids.slice(0, 6);
-    let html = `<tr class="ct-detail"><td colspan="7" style="background:#fff"><div style="position:relative;height:250px"><canvas data-ct="${esc(n.code)}"></canvas></div>
-      <p class="muted" style="margin:6px 0 0">${esc(n.ar)} · الرقم القياسي (${esc(d0)} = 100)${top.length ? ` مع أكبر ${top.length} بنود تأثيراً تحته` : ""} · ${days.length} يوماً</p>`;
-    if (leaf) {
-      const D = days.length, ps = n.prods.slice(0, 200);
-      html += `<div class="tw" style="margin-top:10px"><table dir="rtl"><thead><tr><th>صورة</th><th>المنتج</th><th>المتجر</th><th>الحجم</th><th>أول سعر</th><th>آخر سعر</th><th>التغير</th><th>الرسم الحي</th></tr></thead><tbody>${ps.map((q) => {
-        const inf = ctInfo.get(q.k) || {}, b = inf.photo && catThumbs[inf.photo];
-        const unit = inf.unit && inf.basis ? `<br><span class="muted">${Number(inf.unit).toFixed(2)} / ${esc({ kg: "كغ", l: "لتر", pc: "قطعة" }[inf.basis] || inf.basis)}</span>` : "";
-        return `<tr><td style="text-align:right">${b ? `<img class="thumb" src="data:image/jpeg;base64,${b}" alt="">` : inf.photo ? `<img class="thumb" src="${esc(inf.photo)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>
-          <td style="text-align:right"><a href="${esc(q.u)}" target="_blank" rel="noopener">${esc(q.t)}</a></td><td style="text-align:right">${esc(q.o)}</td><td style="text-align:right">${esc(inf.size || "")}</td>
-          <td class="num">${q.first != null ? q.first.toFixed(2) : "—"}</td><td class="num"><b>${q.lastp != null ? q.lastp.toFixed(2) : "غير معروض اليوم"}</b>${unit}</td>
-          <td class="num" style="color:${ctCol(q.chg)}">${ctPct(q.chg, 1)}</td><td>${ctSpark(q.pr, 130, 30)}</td></tr>`; }).join("")}</tbody></table></div>
-        <p class="muted" style="margin:6px 0 0">${n.prods.length.toLocaleString("en")} منتجاً، مرتبة من الأكبر تغيراً${n.prods.length > 200 ? " · يظهر أول 200؛ الكل في ملف Excel" : ""}. الأسعار بالدرهم كما على رف المتجر؛ تحتها سعر الكيلو أو اللتر أو القطعة حين يتوفر.</p>`;
-    }
-    return html + `</td></tr>`;
+  const chartRow = (n, depth) => {
+    const top = n.kids.slice(0, 6);
+    return `<tr class="ct-detail"><td colspan="7" style="background:#fff;${pad(depth)}"><div style="position:relative;height:250px"><canvas data-ct="${esc(n.code)}"></canvas></div>
+      <p class="muted" style="margin:6px 0 0">${esc(n.ar)} · الرقم القياسي (${esc(d0)} = 100)${top.length ? ` مع أكبر ${top.length} بنود تأثيراً تحته` : ""} · ${days.length} يوماً</p></td></tr>`;
   };
-  const walk = (n, depth) => { for (const k of n.kids) { out.push(row(k, depth)); if (ctOpen.has(k.code)) { out.push(detail(k)); walk(k, depth + 1); } } };
-  out.push(row(root, 0)); if (ctOpen.has("")) out.push(detail(root));
+  const prodRow = (n, depth) => {
+    const ps = n.prods.slice(0, 200);
+    return `<tr class="ct-detail"><td colspan="7" style="background:#fff;${pad(depth)}"><div class="tw"><table dir="rtl"><thead><tr><th>صورة</th><th>المنتج</th><th>المتجر</th><th>الحجم</th><th>أول سعر</th><th>آخر سعر</th><th>التغير</th><th>الرسم الحي</th></tr></thead><tbody>${ps.map((q) => {
+      const inf = ctInfo.get(q.k) || {}, b = inf.photo && catThumbs[inf.photo];
+      const unit = inf.unit && inf.basis ? `<br><span class="muted">${Number(inf.unit).toFixed(2)} / ${esc({ kg: "كغ", l: "لتر", pc: "قطعة" }[inf.basis] || inf.basis)}</span>` : "";
+      return `<tr><td style="text-align:right">${b ? `<img class="thumb" src="data:image/jpeg;base64,${b}" alt="">` : inf.photo ? `<img class="thumb" src="${esc(inf.photo)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</td>
+        <td style="text-align:right"><a href="${esc(q.u)}" target="_blank" rel="noopener">${esc(q.t)}</a></td><td style="text-align:right">${esc(q.o)}</td><td style="text-align:right">${esc(inf.size || "")}</td>
+        <td class="num">${q.first != null ? q.first.toFixed(2) : "—"}</td><td class="num"><b>${q.lastp != null ? q.lastp.toFixed(2) : "غير معروض اليوم"}</b>${unit}</td>
+        <td class="num" style="color:${ctCol(q.chg)}">${ctPct(q.chg, 1)}</td><td>${ctSpark(q.pr, 130, 30)}</td></tr>`; }).join("")}</tbody></table></div>
+      <p class="muted" style="margin:6px 0 0">${n.prods.length.toLocaleString("en")} منتجاً، مرتبة من الأكبر تغيراً${n.prods.length > 200 ? " · يظهر أول 200؛ الكل في ملف Excel" : ""}. الأسعار بالدرهم كما على رف المتجر؛ تحتها سعر الكيلو أو اللتر أو القطعة حين يتوفر.</p></td></tr>`;
+  };
+  const walk = (n, depth) => {
+    out.push(row(n, depth));
+    if (ctChartOpen.has(n.code)) out.push(chartRow(n, depth));
+    if (!ctOpen.has(n.code)) return;
+    if (n.prods.length) out.push(prodRow(n, depth + 1));
+    else for (const k of n.kids) walk(k, depth + 1);
+  };
   walk(root, 0);
   $("#ct-rows").innerHTML = out.join("");
   $("#ct-head-chg").textContent = `التغير منذ ${d0}`;
   for (const cv of $$("#ct-rows canvas[data-ct]")) {
-    const n = ctTree.nodes.get(cv.dataset.ct); if (!n) continue;
+    const n = ctTree.nodes.get(cv.dataset.ct) || (cv.dataset.ct === "" ? root : null); if (!n) continue;
     const sets = [{ label: n.ar, data: n.idx, borderColor: "#14264b", backgroundColor: "rgba(20,38,75,.08)", fill: true, borderWidth: 3, pointRadius: 3, tension: 0.2, spanGaps: true }]
       .concat(n.kids.slice(0, 6).map((k, i) => ({ label: k.ar, data: k.idx, borderColor: CH_COLORS[(i + 1) % CH_COLORS.length], borderWidth: 1.5, pointRadius: 2, tension: 0.2, spanGaps: true })));
     ctCharts.push(new window.Chart(cv, { type: "line", data: { labels: days, datasets: sets },
@@ -1967,7 +1980,7 @@ function ctDraw() {
   const w = ($("#ct-w")?.value || "w") === "w";
   $("#ct-note").textContent = `${ctTree.root.products.toLocaleString("en")} منتجاً مصنّفاً في ${days.length} يوماً (${d0} إلى ${days[days.length - 1]})`
     + (ctTree.unclassified ? ` · ${ctTree.unclassified.toLocaleString("en")} منتجاً خارج التصنيف (إكسسوارات وأصناف لا تخص الفئة التي بُحث فيها)` : "")
-    + `. التصنيف: COICOP 2018 العالمي بأسماء سلة مركز دبي للإحصاء. لكل نوع سلعة: متوسط هندسي لتغير سعر نفس المنتج في نفس المتجر من يوم لليوم التالي؛ ثم كل مستوى أعلى يجمع ما تحته `
+    + `. التصنيف: COICOP 2018 العالمي بأسماء سلة مركز دبي للإحصاء (الصحة والنقل خارج النطاق). لكل نوع سلعة: متوسط هندسي لتغير سعر نفس المنتج في نفس المتجر من يوم لليوم التالي؛ ثم كل مستوى أعلى يجمع ما تحته `
     + (w ? "بأوزان سلة دبي الرسمية (من مستوى الفئة فما فوق، وبالتساوي تحتها)" : "بالتساوي")
     + `؛ أول يوم = 100. «الأثر» = حصة البند من وزن المستوى الأعلى × تغيره، بالنقاط، والبنود مرتبة حسبه. الأحمر ارتفاع والأخضر انخفاض.`;
 }

@@ -21,6 +21,7 @@ ROBOTS_AGENT = "*"
 DEFAULT_DELAY = 2.0          # seconds between two requests to the same host (robots Crawl-delay wins if larger)
 MAX_REDIRECTS = 5
 SERVER_ERROR_RETRIES = 2
+ROBOTS_TRIES = 4               # reads of an unreadable robots.txt per host and run
 BOT_WALL_MARKERS = ("Just a moment...", "challenges.cloudflare.com", "cf-chl-", "Attention Required! | Cloudflare",
                     "captcha-delivery.com", "/_Incapsula_Resource", "px-captcha")
 
@@ -84,6 +85,7 @@ class Net:
         self.timeout = timeout
         self.log = log if log is not None else []     # list of FetchResult, in request order
         self._robots = {}                              # host -> (Protego | None, state)
+        self._robots_tries = {}                        # host -> times robots.txt was read
         self._last_hit = {}
 
     # ---- robots.txt ------------------------------------------------------------------------------------
@@ -91,8 +93,14 @@ class Net:
         """('allowed' | 'disallowed' | 'no_rules' | 'unreadable', crawl_delay)."""
         parts = urlsplit(url)
         host = f"{parts.scheme}://{parts.netloc}"
-        if host not in self._robots:
+        tries = self._robots_tries.get(host, 0)
+        if host not in self._robots or (self._robots[host][1] == "unreadable" and tries < ROBOTS_TRIES):
+            # an unreadable robots.txt (5xx, network) is asked again on the next page of that host, so one
+            # transient error does not skip the whole site for the rest of the run
+            if tries:
+                time.sleep(5)
             self._robots[host] = self._read_robots(host)
+            self._robots_tries[host] = tries + 1
         rules, state = self._robots[host]
         if rules is None:
             return state, 0.0

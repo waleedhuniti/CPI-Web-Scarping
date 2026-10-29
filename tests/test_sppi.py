@@ -313,3 +313,12 @@ def test_flydubai_route_links_and_route_fares():
     assert [(r["item"], r["price"]) for r in recs] == [
         ("flydubai fare Dubai to Baku - lowest fare (One way)", 840.0),
         ("flydubai fare Dubai to Baku - lowest fare (Return)", 1711.0)]
+
+
+def test_unreadable_robots_is_read_again_on_the_next_page(monkeypatch):
+    answers = iter([(502, b"", {}, ""), (200, b"User-Agent: *\nAllow: /\n", {}, "")])
+    net = Net(delay=0)
+    monkeypatch.setattr(net, "_http", lambda url: next(answers))
+    monkeypatch.setattr("sppi.fetch.time.sleep", lambda s: None)
+    assert net.robots_state("https://shop.example/a")[0] == "unreadable"
+    assert net.robots_state("https://shop.example/b")[0] == "allowed"

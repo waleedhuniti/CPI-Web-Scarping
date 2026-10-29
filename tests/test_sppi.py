@@ -167,3 +167,115 @@ def test_probe_finds_text_and_alt_text_amounts():
     m = probe.mentions(html)
     assert {(x["currency"], x["amount"]) for x in m} == {("AED", 3.0), ("AED", 465.0)}
     assert any(x["where"].startswith("image alt") for x in m)
+
+
+# ---- generic extractor ---------------------------------------------------------------------------------
+from sppi import run as sppi_run  # noqa: E402
+from sppi.sources import generic, tables  # noqa: E402
+
+
+def test_generic_joins_amount_split_over_two_elements_and_reads_text_after():
+    html = ('<html><body><h3>Business Pro 2 User Pack</h3><div class="card"><div><span>1,095</span> '
+            '<span>AED/Month</span></div><p>5% VAT EXCLUDED</p></div></body></html>')
+    recs = generic.extract(html)
+    assert [(r["price"], r["currency"]) for r in recs] == [(1095.0, "AED")]
+    assert recs[0]["context"].startswith("Business Pro 2 User Pack")
+    assert recs[0]["after"] == "5% VAT EXCLUDED"
+
+
+def test_generic_nested_list_labels_and_heading():
+    html = ('<html><body><h2>Service Fees</h2><p>Mobile Application</p><ul><li>Friday<ul>'
+            '<li>6:00 AM - 8:00 AM → AED 9</li><li>Per KM Rate: AED 2.45</li></ul></li></ul></body></html>')
+    recs = generic.extract(html)
+    assert [r["price"] for r in recs] == [9.0, 2.45]
+    assert recs[0]["context"] == "Service Fees > Mobile Application > Friday"
+    assert recs[1]["label"] == "Per KM Rate"
+
+
+def test_generic_skips_header_nav_footer_unless_asked():
+    html = '<html><body><nav><p>Lounge from AED 195</p></nav><main><p>Fee AED 10</p></main></body></html>'
+    assert [r["price"] for r in generic.extract(html)] == [10.0]
+    assert sorted(r["price"] for r in generic.extract(html, include_chrome=True)) == [10.0, 195.0]
+
+
+def test_tables_matrix_skips_footnote_row_and_single_column_tables():
+    html = ('<table><tr><th></th><th>Zone 1</th><th>Zone 2</th></tr>'
+            '<tr><td>Zone 1 UAE</td><td>-</td><td>AED 50</td></tr>'
+            '<tr><td colspan="3">* Asmara is AED 250.</td></tr></table>'
+            '<table><tr><td>From Zone 1</td></tr><tr><td>AED 50</td></tr></table>')
+    recs = tables.parse(html, "per kg")
+    assert [(r["item"], r["price"], r["unit"]) for r in recs] == [("Zone 1 UAE -> Zone 2", 50.0, "per kg")]
+
+
+def test_ups_fee_lines():
+    lines = ["UPS Collect on Delivery (COD) UPS will attempt to collect ... For each UAE national / domestic COD "
+             "shipment, AED 29 in addition to the",
+             "Large Package Surcharge A package is considered ... 257 AED per package will be billed in addition",
+             "Some other line AED 99"]
+    recs = ups.parse_fee_lines(lines)
+    assert [(r["item"], r["price"], r["unit"]) for r in recs] == [
+        ("UPS fee - UPS Collect on Delivery (COD)", 29.0, ""),
+        ("UPS fee - Large Package Surcharge", 257.0, "per package")]
+
+
+# ---- linking to the sample products --------------------------------------------------------------------
+PRODUCTS = {
+    "h4-01": dict(product_id="h4-01", ser="h4", section="H", company="Dubai Taxi", isic_registered="4922", red="نعم",
+                  type="خدمة", product="Taxi", isic_product="4922", isic_product_name="", source_url=""),
+    "h4-02": dict(product_id="h4-02", ser="h4", section="H", company="Dubai Taxi", isic_registered="4922", red="نعم",
+                  type="خدمة", product="Limousine", isic_product="4922", isic_product_name="", source_url=""),
+    "j2-01": dict(product_id="j2-01", ser="j2", section="J", company="du", isic_registered="6110", red="نعم",
+                  type="منتج", product="Ultimate Plans", isic_product="6110", isic_product_name="", source_url=""),
+}
+COMPANIES = {"h4": dict(ser="h4", section="H", name_en="Dubai Taxi", isic="4922", red="نعم",
+                        scraping_reason="sheet reason"),
+             "j2": dict(ser="j2", section="J", name_en="du", isic="6110", red="نعم", scraping_reason="")}
+
+
+def _rec(item, price, text):
+    return dict(item=item, spec="", price=price, currency="AED", unit="", price_type="", price_text=text, vat="",
+                effective_date="", note="", status="parsed_page", source_url="https://x.ae/p", fetched_at="",
+                http_status=200, snapshot="", sha256="", _context=item)
+
+
+def test_map_records_rules_extras_and_dedupe():
+    page = dict(id="p", ser="h4", map=[{"match": "Limo", "product": "h4-02"}, {"product": "h4-01"},
+                                       {"match": "Rental", "product": "+Taxi rental"}])
+    recs = [_rec("Limousine | Per KM Rate", 3.9, "Per KM Rate: AED 3.90"),
+            _rec("Limousine | Per KM Rate", 3.9, "Per KM Rate: AED 3.90"),       # same text twice on the page
+            _rec("Rental | 2 hours", 400.0, "2 hours - AED 400")]
+    out = sppi_run.map_records(page, recs, PRODUCTS, COMPANIES, "2026-10-29")
+    got = sorted((r["product_id"] or "+" + r["product"], r["price"]) for r in out)
+    assert got == [("+Taxi rental", 400.0), ("h4-01", 3.9), ("h4-01", 400.0), ("h4-02", 3.9)]
+    limo = next(r for r in out if r["product_id"] == "h4-02")
+    assert (limo["section"], limo["isic_registered"], limo["isic_product"], limo["in_sample"]) == ("H", "4922", "4922",
+                                                                                                    "نعم")
+    assert "_context" not in limo
+    extra = next(r for r in out if r["product"] == "Taxi rental")
+    assert extra["section"] == "H" and extra["in_sample"].startswith("لا")
+
+
+def test_availability_scraping_online_and_neither():
+    prices = [dict(product_id="h4-01", currency="AED", price=5.0, source_url="https://x.ae/a"),
+              dict(product_id="h4-01", currency="AED", price=2.45, source_url="https://x.ae/a")]
+    status = {"companies": {"j2": {"status": "online", "verified": "yes", "reason": "robots.txt forbids"}},
+              "products": {}}
+    rows = {r["product_id"]: r for r in sppi_run.availability(PRODUCTS, COMPANIES, prices, status)}
+    assert rows["h4-01"]["availability"] == sppi_run.SCRAPING and rows["h4-01"]["price_range"] == "2.45 - 5.00"
+    assert rows["j2-01"]["availability"] == sppi_run.ONLINE and rows["j2-01"]["verified"] == "yes"
+    assert rows["h4-02"]["availability"] == sppi_run.NEITHER and rows["h4-02"]["reason"] == "sheet reason"
+
+
+def test_drop_repeated_removes_site_banner_only():
+    banner = _rec("News | Revenue of over", 1.0, "Revenue of over AED 1 Billion")
+    raw = {f"p{i}": [banner, _rec(f"Page {i} | Fee", float(i), f"Fee AED {i}")] for i in range(4)}
+    out = sppi_run.drop_repeated(raw)
+    assert all([r["price"] for r in recs] == [float(i)] for i, recs in enumerate(out.values()))
+
+
+def test_pages_config_points_at_existing_products():
+    products = sppi_run.load_products()
+    pages, drop_labels = sppi_run.load_pages(products)       # raises on an unknown product_id
+    assert drop_labels
+    assert len({p["id"] for p in pages}) == len(pages)
+    assert all(p["ser"] in {x["ser"] for x in products.values()} for p in pages)

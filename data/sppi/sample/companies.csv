@@ -1,0 +1,74 @@
+﻿ser,section,name_ar,name_en,isic,isic_name,red,website,scraping_rating,scraping_reason
+h196,H,مترو دبي,مترو دبي,4911,"Passenger rail transport, interurban",لا,,عالية,الأجرة منظمة ومنشورة في جداول ثابتة وتتغير نادراً
+g74946,H,بي إل سي إس الدولية دي دبليو سي ش.ذ.م.م,BLCS INTERNATIONAL DWC-LLC,4912,Freight rail transport,لا,,غير ممكن,لم يظهر موقع مؤكد
+h2219,H,المدني لنقل الركاب,AL MADANI PASSENGER TRANSPORT,4921,Urban and suburban passenger land transport,لا,,متوسطة,أسعار حافلات المدن تُنشر عادة على منصات الحجز؛ لم يتأكد الموقع
+h2425,H,الاهلية لنقل الركاب على الخطوط الدولية ش.ذ.م.م,ALAHLIH INTERNATIONAL BUSES SERVICE L.L.C,4921,Urban and suburban passenger land transport,لا,,متوسطة,مثل المدني: الأسعار على منصات حجز؛ لم يتأكد الموقع
+g66260,H,شركة نقليات دبي (ش ذ م م ),DUBAI TRANSPORT CO. (L.L.C.),4921,Urban and suburban passenger land transport,لا,,غير ممكن,عقود B2B
+h4,H,هيئه الطرق و المواصلات (تاكسى دبى,هيئه الطرق و المواصلات (تاكسى دبى,4922,Other passenger land transport,نعم,https://www.dubaitaxi.ae,عالية,التعرفة منظمة من هيئة الطرق ومنشورة؛ تتغير نادراً
+h6,H,كارس تاكسي سيرفيسيس كومباني (ش. ذ. م. م),CARS TAXI SERVICES CO (L.L.C),4922,Other passenger land transport,نعم,https://al-ghurair.com/en/al-ghurair-mobility,عالية,نفس تعرفة هيئة الطرق المنظمة؛ الموقع المدرج صفحة المجموعة
+h9524,H,مؤسسه الامارات العامه للنقل والخدمات,مؤسسه الامارات العامه للنقل والخدمات,4922,Other passenger land transport,نعم,https://et.ae,منخفضة,خدمات B2B/حكومية، الرسوم المدرسية غير منشورة بشكل منتظم
+h11915,H,كول فرايتس للنقليات ش.ذ.م.م,COOL FREIGHTS TRANSPORT L.L.C,4923,Freight transport by road,نعم,https://coolfreights.com,متوسطة,الموقع يعرض الخدمات بصفحات تسويقية؛ يحتاج فحص هل الأسعار منشورة
+h9218,H,عمر جول للنقليات ش.ذ.م.م,UMAR GUL TRANSPORT L.L.C,4923,Freight transport by road,نعم,لم يُعثر على موقع مؤكد,غير ممكن,لا يوجد موقع مؤكد
+g130845,H,الهرم الذهبي للنقليات ش.ذ.م.م,ALHARAM ALDHAHABI TRANSPORT L.L.C,4923,Freight transport by road,نعم,لم يُعثر على موقع مؤكد,غير ممكن,لا يوجد موقع مؤكد
+g157011,H,ايه كي ار لنقل وتوزيع الديزل ش.ذ.م.م,A K R DIESEL FUEL TRANSPORT AND DISTRIBUTION L.L.C,4930,Transport via pipeline,لا,,متوسطة,أسعار الديزل للمحطات تعلنها وزارة الطاقة شهرياً (مؤشر عام)، وليس سعر الشركة
+h3714,H,ايه بي سي لتأجير سفن النزهة ش.ذ.م.م,ABSEA YACHTS & BOATS RENTAL L.L.C,5011,Sea and coastal passenger water transport,لا,,منخفضة,الصفحة الرئيسية لا تعرض أسعاراً؛ قد تتوفر على صفحات الرحلات أو منصات الحجز (لم تُفحص)
+c11144,H,ستانفورد مارين (ش. ذ. م. م),STANFORD MARINE (L.L.C.),5012,Sea and coastal freight water transport,نعم,https://stanford-marine.com,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+h11600,H,دينساي شيب مانجمنت آند تكنيكال سيرفيسز م.د.م.س,DENSAY SHIP MANAGEMENT AND TECHNICAL SERVICES DMCC,5012,Sea and coastal freight water transport,نعم,https://www.densay.com,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+n4433,H,داتش اوريانتل ميكا لليخوت ش.ذ.م.م,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,Inland passenger water transport,لا,,عالية,"الموقع يعرض قائمة يخوت بسعر ""من X درهم/ساعة"" لكل يخت؛ صفحة ثابتة سهلة الجمع (تحقق من الشروط)"
+h1,H,طيران الامارات (الموارد البشريه),طيران الامارات (الموارد البشريه),5110,Passenger air transport,نعم,https://www.emirates.com,منخفضة,الأسعار منشورة لكن ديناميكية جداً ومحمية من الروبوتات وشروط الاستخدام تمنع الجمع الآلي
+h10,H,فلاى دبى (الموارد البشريه),فلاى دبى (الموارد البشريه),5110,Passenger air transport,نعم,https://www.flydubai.com,منخفضة,نفس حالة الطيران: تسعير ديناميكي وحماية ضد الجمع الآلي
+h10222,H,مجموعة جي دي ايه سي للطيران دي دبليو سي ش.ذ.م.م,GDAC GROUP AVIATION DWC-LLC,5120,Freight air transport,لا,,غير ممكن,لم يظهر موقع مؤكد، وتسعير عند الطلب
+h201,H,شركة آل مير للتخزين (ذ.م.م),AAL MIR STORING CO. L.L.C),5210,Warehousing and storage,لا,,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+h1488,H,هورايزن الامارات تيرمينالز فرع دبى ذ.م. م,HORIZON EMIRATES TERMINALS L.L.C DUBAI BRANCH,5210,Warehousing and storage,لا,,غير ممكن,تسعير بعقود طويلة
+m10323,H,بوسطن ساينتيفيك ميدل ايست منطقة حرة-ذ.م.م,Boston Scientific Middle East FZ-LLC,5210,Warehousing and storage,لا,,غير ممكن,نشاط مصنف قد لا يعكس خدمة مسعّرة
+h20958,H,شركة سالك (مساهمة عامة),SALIK COMPANY P.J.S.C.,5221,Service activities incidental to land transportation,نعم,https://www.salik.ae,عالية,تعرفة رسمية منشورة وقليلة التغير (حسب الوقت من اليوم)؛ صفحة ثابتة سهلة المتابعة
+h6735,H,دبى العالميه,دبى العالميه,5222,Service activities incidental to water transportation,نعم,https://www.dpworld.com,متوسطة,تعرفة الموانئ تُنشر عادة كوثائق PDF وليس صفحات ديناميكية؛ يحتاج تحقق من آخر إصدار
+h2,H,دناتا (الموارد البشرية-الشئون المحلية),دناتا (الموارد البشرية-الشئون المحلية),5223,Service activities incidental to air transportation,نعم,https://www.dnata.com,غير ممكن,خدمات B2B بعقود
+h25009,H,Dubai Aviation City Corporation ,Dubai Aviation City Corporation ,5223,Service activities incidental to air transportation,نعم,لم يُعثر على موقع مؤكد,غير ممكن,جهة حكومية تضع وتجمع رسوماً لخدمات داخل المنطقة، لكنها غير منشورة كمنتج
+h34,H,النجم الثلاثي للنقليات (ش. ذ. م. م),TRI STAR TRANSPORT (L.L.C),5224,Cargo handling,لا,,غير ممكن,عقود B2B بأسعار غير منشورة
+h21018,H,(سفين انفيكتوس ليمتد (فرع م.د.م.س,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,Cargo handling,لا,,غير ممكن,أسعار شحن بعقود
+h7618,H,أكشن لوجيستكس م.م.ح,Action Logistics FZE,5224,Cargo handling,لا,,غير ممكن,لا يوجد موقع مؤكد
+h4803,H,بيناس اكسبرس للشحن و التخليص ش.ذ.م.م,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,Cargo handling,لا,,متوسطة,صفحة الأسعار تنشر سعر الشحن الجوي نصاً، أما أسعار الشحن البحري والصناديق فمعروضة كصور فقط
+h5510,H,العوان للنقليات,AL AWAN TRANSPORT,5224,Cargo handling,لا,,غير ممكن,لا يوجد موقع مؤكد
+g44709,H,سوكار لوجيستيكس م.د.م.س,SOCAR LOGISTICS DMCC,5229,Other transportation support activities,نعم,لم يُعثر على موقع مؤكد,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+m651,H,يو بي اس ميدل ايست م م ح,UPS Middle East FZE,5229,Other transportation support activities,نعم,https://www.ups.com/ae/en/home,متوسطة,حاسبة أسعار تفاعلية على الموقع، وقد يتوفر دليل أسعار PDF؛ تحتاج فحص الشروط
+h17,H,دانزز ايه  ئي آي  الإمارات   ش.ذ.م.م,Danzas AEI Emirates ( L.L.C.),5229,Other transportation support activities,نعم,لم يُعثر على موقع مؤكد,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+h9118,H,جلوبال فيدر للشحن ش.ذ.م.م,GLOBAL FEEDER SHIPPING L.L.C,5229,Other transportation support activities,نعم,https://gfsmgmt.com,غير ممكن,الموقع يعرض المسارات والأسطول فقط دون أسعار
+h9653,H,ريلود لوجيستيكس م.د.م.س,RELOAD LOGISTICS DMCC,5229,Other transportation support activities,نعم,https://www.reloadlogistics.com,غير ممكن,الموقع تعريفي وتسعير عند الطلب
+h392,H,اليت ايربورن اكسبرس (ش.ذ.م.م),ELITE AIRBORNE EXPRESS (L.L.C),5310,Postal activities,لا,,منخفضة,لم يتأكد وجود حاسبة عامة
+j607,H,دليفري هيرو طلبات دي بي ذ.م.م,DELIVERY HERO TALABAT DB L.L.C,5320,Courier activities,نعم,https://www.talabat.com,منخفضة,تطبيق/موقع ديناميكي ورسوم التوصيل تتفاوت حسب المطعم؛ عمولة المطاعم غير منشورة
+h22,H,دي أتش ال وورلد وايد اكسبريس( دبي). ذ.م.م,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,Courier activities,نعم,https://www.dhl.com/ae-en/home/express.html,متوسطة,حاسبة أسعار عامة على الموقع؛ أتمتتها مقيّدة بشروط الاستخدام
+j438,J,مدينة المعلومات للنشر وادارة المعارض والمؤتمرات (ش.ذ.م.م),INFORMATION CITY PUBLISHING & CONFERENCE & EXHIBITION MANAGEMENT (L.L.C),5811,Book publishing,لا,,منخفضة,لم يتأكد وجود قوائم أسعار عامة
+j437,J,تريس ميديا انترناشيونال منطقة حرة-ذ.م.م,Trace Media International FZ-LLC,5813,"Publishing of newspapers, journals and periodicals",نعم,https://www.tracemedia.info,منخفضة,باقات الرعاية عند الطلب
+m3173,J,كيو 1 للدعاية والاعلان (ش.ذ.م.م),Q1 ADVERTISING (L.L.C),5819,Other publishing activities,لا,,غير ممكن,تسعير بالمشروع
+j29268,J,زيل نوفا م.د.م.س,ZEAL NOVA DMCC,5820,Software publishing,نعم,لم يُعثر على موقع مؤكد,غير ممكن,منتج ألعاب استهلاكي؛ لا خدمة B2B بأسعار منشورة
+j442,J,ذي جولدماين فيلمز منطقة حرة-ذ.م.م,The Goldmine Films FZ-LLC,5911,"Motion picture, video and television programme production activities",نعم,https://www.thegoldminefilms.com,غير ممكن,الموقع تعريفي والتسعير عند الطلب
+n72,J,أي تي بي ميديا جروب منطقة حرة-ذ.م.م,ITP Media Group FZ-LLC,5912,"Motion picture, video and television programme post-production activities",لا,,منخفضة,قوائم أسعار الإعلان عادة عند الطلب
+j1322,J,سي ميديا منطقة حرة-ذ.م.م,C Media FZ-LLC,5912,"Motion picture, video and television programme post-production activities",لا,,غير ممكن,لم يظهر موقع مؤكد
+j444,J,جولدن سينما (ش.ذ.م.م),GOLDEN CINEMA (L.L.C),5913,"Motion picture, video and television programme distribution activities",لا,,غير ممكن,الشركة أُغلقت بعد 43 عاماً؛ تحتاج استبدالاً في العينة أو التأكد أن الرخصة تعمل بنشاط آخر
+i56,J,شركة ماجد الفطيم للسينما ش ذ م م,MAJID AL FUTTAIM CINEMAS LLC,5914,Motion picture projection activities,نعم,https://www.majidalfuttaim.com/en/what-we-do/our-industries/brand/vox-cinemas,عالية,أسعار التذاكر منشورة على الموقع لكل عرض/صالة؛ تحتاج التأكد من الشروط
+j49,J,هافاس ميديا ميدل إيست منطقة حرة-ذ.م.م,Havas Media Middle East FZ-LLC,5920,Sound recording and music publishing activities,لا,,غير ممكن,رسوم الوكالات غير منشورة
+j132,J,المجد للبث الفضائي منطقة حرة-ذ.م.م,Al Majd Satellite Broadcasting FZ-LLC,6010,Radio broadcasting,لا,,غير ممكن,لم تظهر أسعار اشتراك منشورة
+j3,J,ام بي سي منطقة حرة-ذ.م.م,MBC FZ-LLC,6020,Television programming and broadcasting activities,نعم,https://www.mbc.net,متوسطة,اشتراكات شاهد VIP منشورة؛ أما إيراد الإعلانات (الأكبر) فبقوائم أسعار عند الطلب
+j7,J,جلف دي تي إتش منطقة حرة-ذ.م.م,Gulf DTH FZ-LLC,6020,Television programming and broadcasting activities,نعم,https://www.osn.com,عالية,أسعار باقات OSN+ منشورة على الموقع
+j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,Wired telecommunications activities,نعم,https://www.etisalat.ae,عالية,باقات وأسعار منشورة على الموقع (محتوى ديناميكي JavaScript لكنه قابل للجمع)
+j2,J,شركة الامارات للاتصالات المتكاملة (مساهمة عامة),EMIRATES INTEGRATED TELECOMMUNICATIONS COMPANY P.J.S.C.,6110,Wired telecommunications activities,نعم,https://www.du.ae,عالية,باقات وأسعار منشورة على الموقع (محتوى ديناميكي)
+j446,J,شركة انمارسات كوميونيكيشنز كومباني ش.ذ.م.م,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,Wireless telecommunications activities,لا,,منخفضة,تُباع غالباً عبر موزعين؛ أسعار محدودة
+j7144,J,سي اس اس ايميا للاتصالات الفضائية عبر الاقمار الصناعية ش.ذ.م.م,C S S EMEA SATELLITE COMMUNICATION SERVICES L.L.C,6120,Wireless telecommunications activities,لا,,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+j29263,J,تراستسواب م.د.م.س,TRUSTSWAP DMCC,6120,Wireless telecommunications activities,لا,,غير ممكن,نتائج البحث لم تؤكد الشركة
+j7345,J,تيدس ميدل ايست منطقة حرة-ذ.م.م,Teads Middle East FZ-LLC,6130,Satellite telecommunications activities,لا,,غير ممكن,تسعير برمجي عند الطلب
+j308,J,نوكيا سوليوشنز آند نتوركس ايه إي منطقة حرة-ذ.م.م,Nokia Solutions and Networks AE FZ-LLC,6190,Other telecommunications activities,لا,,غير ممكن,عقود B2B ضخمة
+j5,J,اوراكل سيستمز ليميتد,Oracle Systems Limited,6201,Computer programming activities,نعم,https://www.oracle.com,عالية,قائمة أسعار الخدمات السحابية عامة ومنظمة، لكنها بالدولار وعالمية وليست خاصة بالإمارات
+g138,J,اس ايه بي الشرق الاوسط وشمال افريقيا (ش ذ م م),S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,Computer programming activities,نعم,https://www.sap.com/mena/,منخفضة,معظم الأسعار بعقود؛ بعض الباقات على SAP Store
+j10,J,سيسكو سيستمز انترناشيونال منطقة حرة-ذ.م.م,Cisco Systems International FZ-LLC,6202,Computer consultancy and computer facilities management activities,نعم,https://www.cisco.com,غير ممكن,قوائم الأسعار غير عامة
+n47,J,وي ون م م ح,We One FZE,6202,Computer consultancy and computer facilities management activities,نعم,لم يُعثر على موقع مؤكد,غير ممكن,لا يوجد موقع مؤكد
+j8400,J,أوه تي سي سيرفسيز م.د.م.س,OTC SERVICES DMCC,6202,Computer consultancy and computer facilities management activities,نعم,لم يُعثر على موقع مؤكد,غير ممكن,لا يوجد موقع مؤكد
+j168,J,اكسنتشر ميدل ايست بي في (فرع دبي),ACCENTURE MIDDLE  EAST B.V.(DUBAI BRANCH),6202,Computer consultancy and computer facilities management activities,نعم,https://www.accenture.com,غير ممكن,أسعار الاستشارات غير منشورة
+j218,J,سي إيه مينا منطقة حرة-ذ.م.م,CA Mena FZ-LLC,6209,Other information technology and computer service activities,نعم,لم يُعثر على موقع مؤكد,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+j4987,J,ساتريكس إنفورمايشون سكيوريتي م.د.م.س,SATTRIX INFORMATION SECURITY DMCC,6311,"Data processing, hosting and related activities",نعم,https://www.sattrix.com,غير ممكن,أسعار حسب العرض (Quote) - غير منشورة
+j198,J,ويب بيدز منطقة حرة-ذ.م.م,WebBeds FZ-LLC,6312,Web portals,نعم,https://www.webbeds.com,غير ممكن,منصة B2B بتسجيل دخول وأسعار غير عامة
+j85,J,بروبرتي فايندر منطقة حرة-ذ.م.م,propertyfinder FZ-LLC,6312,Web portals,نعم,https://www.propertyfinder.ae,منخفضة,الإعلانات العقارية عامة لكنها أسعار عقارات وليست أسعار خدمة المنصة؛ رسوم الوسطاء غير عامة
+j712,J,بيوت ويب ببليشينج منطقة حرة-ذ.م.م,Bayut Web Publishing FZ-LLC,6312,Web portals,نعم,https://www.bayut.com,منخفضة,نفس Property Finder
+r10,J,ريفينتيف ليميتد,Refinitiv Limited,6391,News agency activities,لا,,غير ممكن,عقود مؤسسية
+j1330,J,كوريان برودكاستينج سيستم,Korean Broadcasting System,6391,News agency activities,لا,,غير ممكن,ليس مزوّد خدمة بسعر سوق
+n799,J,في.أف.اس (جي.سي.سي) (ش.ذ.م.م),VFS (GCC) (L.L.C),6399,Other information service activities n.e.c.,لا,,عالية,جداول رسوم الخدمة منشورة لكل دولة/مركز وقليلة التغير

@@ -94,14 +94,47 @@ def parse_rate_lines(lines: list[str], effective: str = "") -> tuple[list[dict],
     return out, unparsed
 
 
+# Charges on the 'ADDITIONAL SERVICES AND CHARGES' pages. Each line starts with the charge name, then the description
+# and the fee run together (two-column layout), so only these names at the start of a line are read.
+FEE_NAMES = ["UPS 1 Attempt Returns Plus", "UPS 3 Attempt Returns Plus", "UPS Prints and Posts Return Label",
+             "UPS Print Return Label", "UPS Electronic Return Label", "Print Label", "Electronic Label",
+             "Prints and Posts Label", "Proof of delivery (POD)", "Directly Delivery Only", "Freight Residential Delivery",
+             "UPS Collect on Delivery (COD)", "Address Correction", "Special Handling of Undeliverable",
+             "Receiver/Third Party Refuses", "Duty and Tax Forwarding Charge", "Additional Handling Charge",
+             "Large Package Surcharge", "Over Maximum Limits", "Oversize Pallet Charge"]
+FEE_RE = re.compile(r"(?:AED\s*(\d[\d,]*(?:\.\d+)?)|(\d[\d,]*(?:\.\d+)?)\s*AED)(.{0,40})")
+FEE_UNIT = re.compile(r"per (package|shipment|pallet|undeliverable shipment|letter)")
+
+
+def parse_fee_lines(lines: list[str], effective: str = "") -> list[dict]:
+    out, seen = [], set()
+    for line in lines:
+        name = next((n for n in FEE_NAMES if line.startswith(n + " ")), None)
+        m = FEE_RE.search(line) if name else None
+        if not m:
+            continue
+        value = float((m.group(1) or m.group(2)).replace(",", ""))
+        unit = FEE_UNIT.search(m.group(3) or "")
+        if (name, value) in seen:
+            continue
+        seen.add((name, value))
+        out.append(dict(item=f"UPS fee - {name}", spec="additional service / surcharge", price=value, currency="AED",
+                        unit=f"per {unit.group(1)}" if unit else "", price_type="published tariff", price_text=line,
+                        vat="excl. VAT", effective_date=effective, note=""))
+    return out
+
+
 def parse(pdf_bytes: bytes) -> tuple[list[dict], list[str], str]:
-    """(records, unparsed lines, effective date) for the whole guide."""
-    lines, effective = [], ""
+    """(records, unparsed lines, effective date) for the whole guide: rate tables plus additional charges."""
+    lines, fee_lines, effective = [], [], ""
     with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
         effective = effective_date(pdf.pages[0].extract_text() or "")
         for page in pdf.pages:
             text = page.extract_text() or ""
-            if DIRECTION_RE.search(text.splitlines()[0] if text else ""):
+            first = text.splitlines()[0] if text else ""
+            if DIRECTION_RE.search(first):
                 lines.extend(text.splitlines())
+            elif "ADDITIONAL SERVICES AND CHARGES" in first:
+                fee_lines.extend(text.splitlines())
     records, unparsed = parse_rate_lines(lines, effective)
-    return records, unparsed, effective
+    return records + parse_fee_lines(fee_lines, effective), unparsed, effective

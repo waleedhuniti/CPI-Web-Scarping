@@ -47,6 +47,7 @@ class FetchResult:
     outcome: str = ""           # ok / http_error / robots_disallowed / blocked_bot_protection / fetch_error
     note: str = ""
     redirects: list = field(default_factory=list)
+    tag: str = ""               # which configured page the request belongs to
 
     @property
     def ok(self) -> bool:
@@ -125,8 +126,8 @@ class Net:
         self._last_hit[host] = time.monotonic()
 
     # ---- fetching --------------------------------------------------------------------------------------
-    def get(self, url: str, mode: str = "http", **browser_kwargs) -> FetchResult:
-        res = FetchResult(url=url, mode=mode, fetched_at=now_utc())
+    def get(self, url: str, mode: str = "http", tag: str = "", **browser_kwargs) -> FetchResult:
+        res = FetchResult(url=url, mode=mode, fetched_at=now_utc(), tag=tag)
         t0 = time.monotonic()
         try:
             self._get(res, url, mode, browser_kwargs)

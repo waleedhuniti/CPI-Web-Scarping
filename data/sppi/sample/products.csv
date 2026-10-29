@@ -1,0 +1,447 @@
+﻿product_id,ser,section,company,isic_registered,red,type,product,isic_product,isic_product_name,source_url,certainty
+h196-01,h196,H,مترو دبي,4911,لا,منتج,بطاقة نول Silver,4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-02,h196,H,مترو دبي,4911,لا,منتج,بطاقة نول Gold,4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-03,h196,H,مترو دبي,4911,لا,منتج,بطاقة نول Personal (Blue),4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-04,h196,H,مترو دبي,4911,لا,منتج,تذكرة Red Ticket (Regular وGold),4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-05,h196,H,مترو دبي,4911,لا,خدمة,رحلة مترو/ترام/حافلة: ضمن منطقة واحدة,4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-06,h196,H,مترو دبي,4911,لا,خدمة,رحلة: منطقتان متجاورتان,4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-07,h196,H,مترو دبي,4911,لا,خدمة,رحلة: أكثر من منطقتين,4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-08,h196,H,مترو دبي,4911,لا,خدمة,Gold class surcharge (ترام ومترو),4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-09,h196,H,مترو دبي,4911,لا,منتج,تصاريح سفر 7 / 30 / 90 / 365 يوماً (1 منطقة، 2 منطقة، كل المناطق),4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+h196-10,h196,H,مترو دبي,4911,لا,خدمة,تعرفة مخفضة: طلاب، كبار مواطنين، شؤون اجتماعية (50%),4921,النقل البري للركاب في المدن والضواحي,https://www.rta.ae/wps/portal/rta/ae/public-transport/Nol-Fares,من صفحة موقع الشركة
+g74946-01,g74946,H,BLCS INTERNATIONAL DWC-LLC,4912,لا,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+h2219-01,h2219,H,AL MADANI PASSENGER TRANSPORT,4921,لا,خدمة,نقل ركاب خاص / تأجير حافلات,4922,أنواع النقل البري الأخرى للركاب,https://www.hidubai.com/businesses/al-madani-passenger-transport-transport-vehicle-services-private-transport-al-murar-dubai,من طرف ثالث (مقال/دليل)
+h2425-01,h2425,H,ALAHLIH INTERNATIONAL BUSES SERVICE L.L.C,4921,لا,خدمة,خدمة حافلات دولية (International Buses Service),4922,أنواع النقل البري الأخرى للركاب,https://dcciinfo.ae/international-buses-service-dubai/11181,من طرف ثالث (مقال/دليل)
+g66260-01,g66260,H,DUBAI TRANSPORT CO. (L.L.C.),4921,لا,خدمة,Construction & Dredging (DutCon، BK Gulf...),4290,أعمال التشييد المتعلقة بمشاريع الهندسة المدنية الأخرى,https://www.dutco.com/about-us/about-us-banner,من صفحة موقع الشركة
+g66260-02,g66260,H,DUBAI TRANSPORT CO. (L.L.C.),4921,لا,خدمة,"Hospitality & Tourism (JA Resorts, Dutco Travels & Tourism)",5510,أنشطة الإقامة القصيرة المدى,https://www.dutco.com/about-us/about-us-banner,من صفحة موقع الشركة
+g66260-03,g66260,H,DUBAI TRANSPORT CO. (L.L.C.),4921,لا,خدمة,Oil & Gas (Dutco Energy، International Octane...),—,—,https://www.dutco.com/about-us/about-us-banner,من صفحة موقع الشركة
+g66260-04,g66260,H,DUBAI TRANSPORT CO. (L.L.C.),4921,لا,خدمة,"Trading, Manufacturing & Logistics (Modern Freight، Dutco Tennant...)",—,—,https://www.dutco.com/about-us/about-us-banner,من صفحة موقع الشركة
+g66260-05,g66260,H,DUBAI TRANSPORT CO. (L.L.C.),4921,لا,خدمة,Real Estate,6810,الأنشطة العقارية في الممتلكات المملوكة أو المؤجَّرة,https://www.dutco.com/about-us/about-us-banner,من صفحة موقع الشركة
+h4-01,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Taxi,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-02,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Limousine,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-03,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Limousine Hourly Rental,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-04,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Ameera Limousine (للسيدات),4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-05,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,In Safe Hands,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-06,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Airport Taxi,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-07,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Families and Ladies Taxi,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-08,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,People of Determination Taxi,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-09,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,DTC My Driver,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-10,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,DTC Autonomous Taxis,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-11,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Limousine for Businesses,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-12,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Delivery Service,5320,أنشطة شركات نقل البريد الخاصة,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-13,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,Commercial Buses,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h4-14,h4,H,هيئه الطرق و المواصلات (تاكسى دبى,4922,نعم,خدمة,School Bus Transport,4922,أنواع النقل البري الأخرى للركاب,https://www.dubaitaxi.ae/en/about-dtc,من صفحة موقع الشركة
+h6-01,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,خدمة,Kabi (خدمة تاكسي دبي),4922,أنواع النقل البري الأخرى للركاب,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-02,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,خدمة,Zed (تطبيق طلب مركبات ومنصة إدارة أسطول),4922,أنواع النقل البري الأخرى للركاب,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-03,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,خدمة,Buddy's (تطبيق إدارة أصول السائق),6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-04,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,منتج,EXEED (سيارات),4510,بيع المركبات ذات المحركات,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-05,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,منتج,سيارات مستعملة معتمدة,4510,بيع المركبات ذات المحركات,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-06,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,خدمة,مراكز صيانة متعددة الماركات,4520,صيانة وإصلاح المركبات ذات المحركات,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-07,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,منتج,Motor Parts,4530,بيع قطع غيار المركبات ذات المحركات وملحقاتها,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-08,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,خدمة,Car Care,4520,صيانة وإصلاح المركبات ذات المحركات,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-09,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,منتج,Kazuko (زيوت تشحيم),4661,بيع أنواع الوقود الصلبة والسائلة والغازية وما يتصل بها من منتجات بالجملة,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-10,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,منتج,King Long وAshok Leyland وCMC وFAW (مركبات تجارية),4510,بيع المركبات ذات المحركات,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h6-11,h6,H,CARS TAXI SERVICES CO (L.L.C),4922,نعم,خدمة,مراكز تسجيل وفحص مركبات (معتمدة من RTA),7120,الاختبارات والتحاليل التقنية,https://al-ghurair.com/en/al-ghurair-mobility,من صفحة موقع الشركة
+h9524-01,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,Transport and Leasing,7710,تأجير المركبات ذات المحرّكات,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-02,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,School Transport (Emirates Transportation),4922,أنواع النقل البري الأخرى للركاب,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-03,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,"Maintenance, Repair & Overhaul (MRO)",4520,صيانة وإصلاح المركبات ذات المحركات,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-04,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,Fleet management,7710,تأجير المركبات ذات المحرّكات,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-05,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,Emirates Transport Taxi,4922,أنواع النقل البري الأخرى للركاب,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-06,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,Abu Dhabi Airport Taxi,4922,أنواع النقل البري الأخرى للركاب,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-07,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,Emirates Car Wash,4520,صيانة وإصلاح المركبات ذات المحركات,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-08,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,منتج,Emirates Moto,4540,بيع وصيانة وإصلاح الدراجات النارية وقطع غيارها وملحقاتها,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-09,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,Al Wataneya Auction,4610,البيع بالجملة نظير رسم أو على أساس عقد,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-10,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,Musada,—,—,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-11,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,ETDI,8549,أنواع التعليم الأخرى غير المصنّفة في موضع آخر,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-12,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,تطبيق Hafilaty (أولياء أمور طلاب المدارس),4922,أنواع النقل البري الأخرى للركاب,https://et.ae/en/about/,من صفحة موقع الشركة
+h9524-13,h9524,H,مؤسسه الامارات العامه للنقل والخدمات,4922,نعم,خدمة,تطبيق OneET,—,—,https://et.ae/en/about/,من صفحة موقع الشركة
+h11915-01,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير شاحنة مبردة Chiller Truck,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-02,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير Reefer Truck,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-03,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير Freezer Truck,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-04,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير Refrigerated Truck,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-05,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير Food Truck,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-06,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير Chiller Van,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-07,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير Freezer Van,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-08,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير High Roof Van,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-09,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,تأجير Refrigerated Van,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h11915-10,h11915,H,COOL FREIGHTS TRANSPORT L.L.C,4923,نعم,خدمة,خيارات: يومي/شهري/سنوي، مع أو بدون سائق، مع أو بدون رافعة خلفية,4923,النقل البري للبضائع,https://coolfreights.com/services,من صفحة موقع الشركة
+h9218-01,h9218,H,UMAR GUL TRANSPORT L.L.C,4923,نعم,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+g130845-01,g130845,H,ALHARAM ALDHAHABI TRANSPORT L.L.C,4923,نعم,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+g157011-01,g157011,H,A K R DIESEL FUEL TRANSPORT AND DISTRIBUTION L.L.C,4930,لا,خدمة,نقل وتوزيع ديزل (حسب اسم الشركة),4923,النقل البري للبضائع,https://www.emirates247.com/uae/uae-announces-petrol-prices-for-month-year/1215,من طرف ثالث (مقال/دليل)
+h3714-01,h3714,H,ABSEA YACHTS & BOATS RENTAL L.L.C,5011,لا,خدمة,Alexandra Dhow Cruise (مطعم عائم - Alexandra 1 وAlexandra 2 في مرسى دبي),5011,النقل المائي البحري والساحلي للركاب,https://absea.ae/,من صفحة موقع الشركة
+h3714-02,h3714,H,ABSEA YACHTS & BOATS RENTAL L.L.C,5011,لا,خدمة,ABSEA Sport Fishing (رحلات صيد في دبي وأبوظبي ورأس الخيمة),5011,النقل المائي البحري والساحلي للركاب,https://absea.ae/,من صفحة موقع الشركة
+h3714-03,h3714,H,ABSEA YACHTS & BOATS RENTAL L.L.C,5011,لا,خدمة,برمجيات: سوق B2C وB2B وERP لمزودي الأنشطة (traveldesk.me),6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://absea.ae/,من صفحة موقع الشركة
+c11144-01,c11144,H,STANFORD MARINE (L.L.C.),5012,نعم,خدمة,Vessel Chartering (سفن دعم بحرية),5012,النقل المائي البحري والساحلي للبضائع,https://stanford-marine.com/services/,من صفحة موقع الشركة
+c11144-02,c11144,H,STANFORD MARINE (L.L.C.),5012,نعم,خدمة,Cross Chartering & Vessel Management,5222,أنشطة الخدمات المتصلة بالنقل المائي,https://stanford-marine.com/services/,من صفحة موقع الشركة
+c11144-03,c11144,H,STANFORD MARINE (L.L.C.),5012,نعم,خدمة,Project Transport Solutions (قطر وسحب منشآت),5012,النقل المائي البحري والساحلي للبضائع,https://stanford-marine.com/services/,من صفحة موقع الشركة
+c11144-04,c11144,H,STANFORD MARINE (L.L.C.),5012,نعم,خدمة,Supply Base Operations,5222,أنشطة الخدمات المتصلة بالنقل المائي,https://stanford-marine.com/services/,من صفحة موقع الشركة
+c11144-05,c11144,H,STANFORD MARINE (L.L.C.),5012,نعم,خدمة,Integrated Logistics Projects,5229,أنشطة دعم النقل الأخرى,https://stanford-marine.com/services/,من صفحة موقع الشركة
+c11144-06,c11144,H,STANFORD MARINE (L.L.C.),5012,نعم,خدمة,Specialized Petroleum Services (حفر اتجاهي ومعدات),910,أنشطة الدعم لاستخراج النفط والغاز الطبيعي,https://stanford-marine.com/services/,من صفحة موقع الشركة
+h11600-01,h11600,H,DENSAY SHIP MANAGEMENT AND TECHNICAL SERVICES DMCC,5012,نعم,—,لم يُعثر على معلومات مؤكدة,—,—,http://www.densay.com/company,لم يُعثر على معلومات مؤكدة
+n4433-01,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"يخت Lotus 240 (240 قدماً) - من 14,990 درهم/ساعة",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-02,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Ocean Empress 155 - من 7,990",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-03,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Desert Rose 155 - من 5,990",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-04,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Al Mansour 140 - من 3,990",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-05,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Arabian Pearl 90 - من 2,990",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-06,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Virgo 88 - من 2,490",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-07,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Ocean Pearl 95 - من 1,890",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-08,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Venus 85 - من 1,390",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-09,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,"Pluto 85 وApollo - من 1,190",5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-10,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,منتج,Athina 50 وCalypso 40 - من 690,5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-11,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,خدمة,Private Charter,5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-12,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,خدمة,Shared Tickets,5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+n4433-13,n4433,H,DUTCH ORIENTAL MEGA YACHTS L.L.C,5021,لا,خدمة,Dinner Cruise,5011,النقل المائي البحري والساحلي للركاب,https://www.megayachts.ae/,من صفحة موقع الشركة
+h1-01,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,منتج,First Class (Private Suite),5110,النقل الجوي للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-02,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,منتج,Business Class (A380 Onboard Lounge),5110,النقل الجوي للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-03,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,منتج,Premium Economy,5110,النقل الجوي للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-04,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,منتج,Economy Class,5110,النقل الجوي للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-05,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Chauffeur-drive,4922,أنواع النقل البري الأخرى للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-06,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,First Class lounge / Business Class lounge,5110,النقل الجوي للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-07,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Paid lounge access,5110,النقل الجوي للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-08,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,marhaba lounge,5223,أنشطة الخدمات المتصلة بالنقل الجوي,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-09,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Dubai Stopover,7912,أنشطة مشغلي الجولات السياحية,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-10,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Emirates Holidays,7912,أنشطة مشغلي الجولات السياحية,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-11,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Emirates SkyCargo (شحن جوي),5120,النقل الجوي للبضائع,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-12,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Pharma (نقل أدوية بسلسلة تبريد - SkyCargo),5120,النقل الجوي للبضائع,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-13,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Onboard Wi-Fi,6190,أنشطة الاتصالات الأخرى,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-14,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,خدمة,Inflight Entertainment (ice),5110,النقل الجوي للركاب,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-15,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,منتج,EmiratesRED Inflight Retail,4799,أنواع البيع بالتجزئة الأخرى خارج المتاجر والأكشاك والأسواق,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h1-16,h1,H,طيران الامارات (الموارد البشريه),5110,نعم,منتج,Emirates Official Store,4791,البيع بالتجزئة عن طريق بيوت تنفيذ طلبات الشراء بالبريد أو عن طريق الإنترنت,https://www.emirates.com/english/experience/cabin-features/,من صفحة موقع الشركة
+h10-01,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,منتج,Business Class,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-02,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,منتج,Economy Class,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-03,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,منتج,فئة Lite,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-04,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,منتج,فئة Value,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-05,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,منتج,فئة Flex,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-06,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,منتج,فئة Business (سعر),5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-07,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,منتج,أسعار الشراكة مع Emirates (Economy/Business),5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-08,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,flydubai Cargo (SkyChain),5120,النقل الجوي للبضائع,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-09,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,flydubai Holidays,7912,أنشطة مشغلي الجولات السياحية,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-10,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Emirates Skywards,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-11,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Business Lounge (T2),5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-12,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Upgrade to Business Class,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-13,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Add baggage / Select seat,5110,النقل الجوي للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-14,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Travel insurance,6622,أنشطة وكلاء وسماسرة التأمين,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-15,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Meet and greet,5223,أنشطة الخدمات المتصلة بالنقل الجوي,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-16,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Home check-in / City check-in,5223,أنشطة الخدمات المتصلة بالنقل الجوي,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-17,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Airport parking T2,5221,أنشطة الخدمات المتصلة بالنقل البري,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-18,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,UAE chauffeur service,4922,أنواع النقل البري الأخرى للركاب,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-19,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Car rental / hotels,7911,أنشطة وكالات السفر,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-20,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Corporate travel,7911,أنشطة وكالات السفر,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10-21,h10,H,فلاى دبى (الموارد البشريه),5110,نعم,خدمة,Dubai stopover,7912,أنشطة مشغلي الجولات السياحية,https://www.flydubai.com/en/help/about-flydubai/about-us/,من صفحة موقع الشركة
+h10222-01,h10222,H,GDAC GROUP AVIATION DWC-LLC,5120,لا,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+h201-01,h201,H,AAL MIR STORING CO. L.L.C),5210,لا,خدمة,مستودع ومركز لوجستي مبرد (حوالي 350 ألف قدم مربع، دبي للاستثمار),5210,التخزين,https://aalmir.com/infrastructure/,من صفحة موقع الشركة
+h201-02,h201,H,AAL MIR STORING CO. L.L.C),5210,لا,خدمة,تبريد مركزي (15±2 م° ورطوبة حتى 45%),5210,التخزين,https://aalmir.com/infrastructure/,من صفحة موقع الشركة
+h201-03,h201,H,AAL MIR STORING CO. L.L.C),5210,لا,خدمة,Stock rotation (FIFO) وStock monitoring,5210,التخزين,https://aalmir.com/infrastructure/,من صفحة موقع الشركة
+h201-04,h201,H,AAL MIR STORING CO. L.L.C),5210,لا,خدمة,Pre- and post-delivery operations,5229,أنشطة دعم النقل الأخرى,https://aalmir.com/infrastructure/,من صفحة موقع الشركة
+h201-05,h201,H,AAL MIR STORING CO. L.L.C),5210,لا,خدمة,أسطول 200+ مركبة مبردة للتوزيع,4923,النقل البري للبضائع,https://aalmir.com/infrastructure/,من صفحة موقع الشركة
+h201-06,h201,H,AAL MIR STORING CO. L.L.C),5210,لا,خدمة,Brand management / Sales and marketing / Route-to-market (مجموعة آل مير),4610,البيع بالجملة نظير رسم أو على أساس عقد,https://aalmir.com/infrastructure/,من صفحة موقع الشركة
+h201-07,h201,H,AAL MIR STORING CO. L.L.C),5210,لا,منتج,منتجات موزعة: حلويات وأغذية ومشروبات، تنظيف وعناية شخصية، تبغ (30+ علامة),4630,بيع الأغذية والمشروبات والتبغ بالجملة,https://aalmir.com/infrastructure/,من صفحة موقع الشركة
+h1488-01,h1488,H,HORIZON EMIRATES TERMINALS L.L.C DUBAI BRANCH,5210,لا,خدمة,محطة تخزين سوائل سائبة نفطية (Bulk Liquid Petroleum Terminal),5210,التخزين,https://gulfnews.com/business/oil-gas/horizon-terminals-ltd-marks-groundbreaking-of-142-million-bulk-liquid-petroleum-terminal-in-dubai-1.1028793,من عناوين نتائج البحث فقط
+h1488-02,h1488,H,HORIZON EMIRATES TERMINALS L.L.C DUBAI BRANCH,5210,لا,خدمة,محطة Horizon Fujairah Distribution Terminal,5210,التخزين,https://gulfnews.com/business/oil-gas/horizon-terminals-ltd-marks-groundbreaking-of-142-million-bulk-liquid-petroleum-terminal-in-dubai-1.1028793,من عناوين نتائج البحث فقط
+m10323-01,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,Cardiac Rhythm Management,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+m10323-02,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,Electrophysiology,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+m10323-03,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,Endoscopy,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+m10323-04,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,Interventional Cardiology & Vascular Therapies,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+m10323-05,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,Neuromodulation,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+m10323-06,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,Urology,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+m10323-07,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,WATCHMAN,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+m10323-08,m10323,H,Boston Scientific Middle East FZ-LLC,5210,لا,منتج,Interventional Oncology & Embolization,4649,بيع السلع المنزلية الأخرى بالجملة,https://www.bostonscientific.com/en-US/about-us/core-businesses.html,من صفحة موقع الشركة
+h20958-01,h20958,H,SALIK COMPANY P.J.S.C.,5221,نعم,خدمة,Purchase a Salik Tag,5221,أنشطة الخدمات المتصلة بالنقل البري,https://www.salik.ae/en/support/salik-services-catalog,من عناوين نتائج البحث فقط
+h20958-02,h20958,H,SALIK COMPANY P.J.S.C.,5221,نعم,خدمة,Register and Activate a Salik Tag,5221,أنشطة الخدمات المتصلة بالنقل البري,https://www.salik.ae/en/support/salik-services-catalog,من عناوين نتائج البحث فقط
+h20958-03,h20958,H,SALIK COMPANY P.J.S.C.,5221,نعم,خدمة,Recharge a Salik Account,5221,أنشطة الخدمات المتصلة بالنقل البري,https://www.salik.ae/en/support/salik-services-catalog,من عناوين نتائج البحث فقط
+h20958-04,h20958,H,SALIK COMPANY P.J.S.C.,5221,نعم,خدمة,رسم عبور بوابات التعرفة (Toll tariff),5221,أنشطة الخدمات المتصلة بالنقل البري,https://www.salik.ae/en/support/salik-services-catalog,من عناوين نتائج البحث فقط
+h20958-05,h20958,H,SALIK COMPANY P.J.S.C.,5221,نعم,خدمة,Digital solutions (التطبيق والخدمات الرقمية),5221,أنشطة الخدمات المتصلة بالنقل البري,https://www.salik.ae/en/support/salik-services-catalog,من عناوين نتائج البحث فقط
+h6735-01,h6735,H,دبى العالميه,5222,نعم,خدمة,End-to-End Solutions,5229,أنشطة دعم النقل الأخرى,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h6735-02,h6735,H,دبى العالميه,5222,نعم,خدمة,"Freight Forwarding: Ocean / Air / Road / Rail Freight, Value Added Services",5229,أنشطة دعم النقل الأخرى,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h6735-03,h6735,H,دبى العالميه,5222,نعم,خدمة,"Contract Logistics: Warehousing & Distribution, E-Commerce and Fulfillment, Manufacturing and Assembly, Export Packing, Reverse Repair and Service Parts",5229,أنشطة دعم النقل الأخرى,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h6735-04,h6735,H,دبى العالميه,5222,نعم,خدمة,"Marine Services: Freight Link Solutions, Maritime Logistics, Feedering Solutions",5012,النقل المائي البحري والساحلي للبضائع,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h6735-05,h6735,H,دبى العالميه,5222,نعم,خدمة,"Ports & Terminals: Container Services, RoRo & Finished Vehicle, Port-based Logistics, Dry & Liquid Bulk, Breakbulk, Cruise Services",5222,أنشطة الخدمات المتصلة بالنقل المائي,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h6735-06,h6735,H,دبى العالميه,5222,نعم,خدمة,"Market Access: Specialised Logistics, Multi-Market Aggregation, Sourcing & Procurement, Marketing & Promotion",4610,البيع بالجملة نظير رسم أو على أساس عقد,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h6735-07,h6735,H,دبى العالميه,5222,نعم,خدمة,Economic Zones,6810,الأنشطة العقارية في الممتلكات المملوكة أو المؤجَّرة,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h6735-08,h6735,H,دبى العالميه,5222,نعم,خدمة,Trade Finance,6492,أشكال منح القروض الأخرى,https://www.dpworld.com/en/about-us/our-locations/uae/services,من صفحة موقع الشركة
+h2-01,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Ground handling,5223,أنشطة الخدمات المتصلة بالنقل الجوي,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-02,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Cargo,5224,مناولة البضائع,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-03,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Premium services,5223,أنشطة الخدمات المتصلة بالنقل الجوي,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-04,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Private aviation,5223,أنشطة الخدمات المتصلة بالنقل الجوي,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-05,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Inflight catering,5629,أنشطة خدمات الطعام الأخرى,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-06,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Retail services,4719,أنواع البيع بالتجزئة الأخرى في المتاجر غير المتخصصة,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-07,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,VIP catering,5629,أنشطة خدمات الطعام الأخرى,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-08,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Airport food & beverage outlets,5610,أنشطة المطاعم وخدمات الأطعمة المتنقلة,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-09,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Corporate travel,7911,أنشطة وكالات السفر,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-10,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Leisure travel,7911,أنشطة وكالات السفر,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-11,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Destination management,7912,أنشطة مشغلي الجولات السياحية,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h2-12,h2,H,دناتا (الموارد البشرية-الشئون المحلية),5223,نعم,خدمة,Representation services,5229,أنشطة دعم النقل الأخرى,https://www.dnata.com/en/our-services/,من صفحة موقع الشركة
+h25009-01,h25009,H,Dubai Aviation City Corporation ,5223,نعم,خدمة,تخطيط واستثمار وإدارة أراضي منطقة مدينة دبي للطيران,6810,الأنشطة العقارية في الممتلكات المملوكة أو المؤجَّرة,https://dlp.dubai.gov.ae/Legislation%20Reference/2015/Law%2010%20of%202015%20Concerning%20Dubai%20Aviation%20City%20Corporation.html,من طرف ثالث (مقال/دليل)
+h25009-02,h25009,H,Dubai Aviation City Corporation ,5223,نعم,خدمة,تحصيل رسوم خدمات داخل المنطقة وخارجها,6810,الأنشطة العقارية في الممتلكات المملوكة أو المؤجَّرة,https://dlp.dubai.gov.ae/Legislation%20Reference/2015/Law%2010%20of%202015%20Concerning%20Dubai%20Aviation%20City%20Corporation.html,من طرف ثالث (مقال/دليل)
+h25009-03,h25009,H,Dubai Aviation City Corporation ,5223,نعم,خدمة,تأسيس شركات أو المساهمة فيها,6420,أنشطة الشركات القابضة,https://dlp.dubai.gov.ae/Legislation%20Reference/2015/Law%2010%20of%202015%20Concerning%20Dubai%20Aviation%20City%20Corporation.html,من طرف ثالث (مقال/دليل)
+h25009-04,h25009,H,Dubai Aviation City Corporation ,5223,نعم,خدمة,استضافة معارض ومؤتمرات الطيران,8230,تنظيم المؤتمرات والمعارض التجارية,https://dlp.dubai.gov.ae/Legislation%20Reference/2015/Law%2010%20of%202015%20Concerning%20Dubai%20Aviation%20City%20Corporation.html,من طرف ثالث (مقال/دليل)
+h34-01,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,نقل بري ومستودعات: نقل منتجات نفطية، وقود طيران، تموين سفن (in-port bunkering)، غازات مبرّدة (cryogenics),4923,النقل البري للبضائع,https://tristar-group.co/,من صفحة موقع الشركة
+h34-02,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,HAZMAT وتخزين وتوزيع زيوت وكيماويات,5210,التخزين,https://tristar-group.co/,من صفحة موقع الشركة
+h34-03,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,خدمات مستودع: إعادة تعبئة وتنظيف خزانات ISO,5229,أنشطة دعم النقل الأخرى,https://tristar-group.co/,من صفحة موقع الشركة
+h34-04,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,Cryogenics Division: نقل، تأجير حاويات ISO، صيانة، هندسة وفحص,4923,النقل البري للبضائع,https://tristar-group.co/,من صفحة موقع الشركة
+h34-05,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,Maritime Logistics: نقل منتجات نظيفة وLNG وLPG وسائبة، تموين وقود ساحلي، تأجير ناقلات,5012,النقل المائي البحري والساحلي للبضائع,https://tristar-group.co/,من صفحة موقع الشركة
+h34-06,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,Fuel Farms and Terminals: تخزين نفط وLPG ونقل بين السفن والبر,5210,التخزين,https://tristar-group.co/,من صفحة موقع الشركة
+h34-07,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,Tristar Chemical Terminal (الإمارات),5210,التخزين,https://tristar-group.co/,من صفحة موقع الشركة
+h34-08,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,خدمة,Remote Fuels,4661,بيع أنواع الوقود الصلبة والسائلة والغازية وما يتصل بها من منتجات بالجملة,https://tristar-group.co/,من صفحة موقع الشركة
+h34-09,h34,H,TRI STAR TRANSPORT (L.L.C),5224,لا,منتج,وقود وزيوت تشحيم (Commercial Fuels - شرق أفريقيا),4661,بيع أنواع الوقود الصلبة والسائلة والغازية وما يتصل بها من منتجات بالجملة,https://tristar-group.co/,من صفحة موقع الشركة
+h21018-01,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,Container Shipping,5012,النقل المائي البحري والساحلي للبضائع,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h21018-02,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,Dry Bulk Shipping (SAFEEN Invictus JV - 5 سفن سائبة بعقد طويل),5012,النقل المائي البحري والساحلي للبضائع,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h21018-03,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,Liquid Bulk Shipping,5012,النقل المائي البحري والساحلي للبضائع,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h21018-04,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,Ro-Ro Services,5012,النقل المائي البحري والساحلي للبضائع,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h21018-05,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,Transshipment Services,5224,مناولة البضائع,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h21018-06,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,Chartering Services,5012,النقل المائي البحري والساحلي للبضائع,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h21018-07,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,Feeders Container,5012,النقل المائي البحري والساحلي للبضائع,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h21018-08,h21018,H,SAFEEN INVICTUS LTD (DMCC BRANCH),5224,لا,خدمة,NVOCC,5229,أنشطة دعم النقل الأخرى,https://wpvip.adportsgroup.com/noatummaritime/what-we-do/shipping/,من صفحة موقع الشركة
+h7618-01,h7618,H,Action Logistics FZE,5224,لا,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+h4803-01,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,خدمة,Sea Cargo Services (صناديق Balikbayan إلى الفلبين),5229,أنشطة دعم النقل الأخرى,https://pinascargo.com/services/,من صفحة موقع الشركة
+h4803-02,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,خدمة,Air Cargo Services,5229,أنشطة دعم النقل الأخرى,https://pinascargo.com/services/,من صفحة موقع الشركة
+h4803-03,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,خدمة,TV cargo (شحن تلفزيونات 32-65 بوصة),5229,أنشطة دعم النقل الأخرى,https://pinascargo.com/services/,من صفحة موقع الشركة
+h4803-04,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,خدمة,General Warehousing,5210,التخزين,https://pinascargo.com/services/,من صفحة موقع الشركة
+h4803-05,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,خدمة,"Cargo Packaging, Loading & Unloading",5224,مناولة البضائع,https://pinascargo.com/services/,من صفحة موقع الشركة
+h4803-06,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,خدمة,Containers Loading & Unloading,5224,مناولة البضائع,https://pinascargo.com/services/,من صفحة موقع الشركة
+h4803-07,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,خدمة,Trucking Services,4923,النقل البري للبضائع,https://pinascargo.com/services/,من صفحة موقع الشركة
+h4803-08,h4803,H,PINAS EXPRESS CARGO & CLEARING L.L.C,5224,لا,منتج,صناديق: Bulilit، Medium، Jumbo Set، Super Jumbo Set,5229,أنشطة دعم النقل الأخرى,https://pinascargo.com/services/,من صفحة موقع الشركة
+h5510-01,h5510,H,AL AWAN TRANSPORT,5224,لا,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+g44709-01,g44709,H,SOCAR LOGISTICS DMCC,5229,نعم,—,لم يُعثر على معلومات مؤكدة,—,—,https://www.zoominfo.com/c/socar-logistics-dmcc/1335217843,لم يُعثر على معلومات مؤكدة
+m651-01,m651,H,UPS Middle East FZE,5229,نعم,خدمة,UPS Express,5320,أنشطة شركات نقل البريد الخاصة,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+m651-02,m651,H,UPS Middle East FZE,5229,نعم,خدمة,UPS Express Saver,5320,أنشطة شركات نقل البريد الخاصة,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+m651-03,m651,H,UPS Middle East FZE,5229,نعم,خدمة,Domestic Shipping,5320,أنشطة شركات نقل البريد الخاصة,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+m651-04,m651,H,UPS Middle East FZE,5229,نعم,خدمة,International Shipping,5320,أنشطة شركات نقل البريد الخاصة,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+m651-05,m651,H,UPS Middle East FZE,5229,نعم,خدمة,Freight Shipping,5229,أنشطة دعم النقل الأخرى,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+m651-06,m651,H,UPS Middle East FZE,5229,نعم,خدمة,Delivery Confirmation,5320,أنشطة شركات نقل البريد الخاصة,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+m651-07,m651,H,UPS Middle East FZE,5229,نعم,خدمة,Hold for Collection,5320,أنشطة شركات نقل البريد الخاصة,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+m651-08,m651,H,UPS Middle East FZE,5229,نعم,خدمة,Collect on Delivery (CoD),5320,أنشطة شركات نقل البريد الخاصة,https://www.ups.com/ae/en/support/shipping-support/shipping-services,من صفحة موقع الشركة
+h17-01,h17,H,Danzas AEI Emirates ( L.L.C.),5229,نعم,خدمة,خدمات لوجستية ونقل لدبي والإمارات الشمالية (دون تفصيل في المصدر),5229,أنشطة دعم النقل الأخرى,https://www.dhl.com/ae-en/home/press/press-archive/2023/dhl-to-acquire-all-remaining-shares-in-danzas-aei-emirates-to-further-strengthen-its-position-as-leading-logistics-provider-in-the-gcc.html,من صفحة موقع الشركة
+h9118-01,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,خدمة,Technical management,5222,أنشطة الخدمات المتصلة بالنقل المائي,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-02,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,خدمة,Crew management,7830,تقديم موارد بشرية أخرى,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-03,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,خدمة,Commercial management,5229,أنشطة دعم النقل الأخرى,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-04,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,خدمة,QHSE & security inspection services,7120,الاختبارات والتحاليل التقنية,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-05,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,خدمة,Drydocking supervision,7110,الأنشطة المعمارية والهندسية والخدمات الاستشارية الفنية المتصلة بها,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-06,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,خدمة,Newbuilding supervision,7110,الأنشطة المعمارية والهندسية والخدمات الاستشارية الفنية المتصلة بها,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-07,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,خدمة,خدمات تغذية حاويات (Feeder services) - غرب وشرق أفريقيا,5012,النقل المائي البحري والساحلي للبضائع,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-08,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,منتج,أسطول GFS: سفن حاويات (30+ سفينة، أكثر من 120 ألف TEU),5012,النقل المائي البحري والساحلي للبضائع,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-09,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,منتج,سفن نقل سيارات (Car carriers),5012,النقل المائي البحري والساحلي للبضائع,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9118-10,h9118,H,GLOBAL FEEDER SHIPPING L.L.C,5229,نعم,منتج,ناقلات سائبة (Bulk carriers),5012,النقل المائي البحري والساحلي للبضائع,https://gfsmgmt.com/about-us/,من صفحة موقع الشركة
+h9653-01,h9653,H,RELOAD LOGISTICS DMCC,5229,نعم,خدمة,Warehousing,5210,التخزين,https://www.reloadlogistics.com/services,من صفحة موقع الشركة
+h9653-02,h9653,H,RELOAD LOGISTICS DMCC,5229,نعم,خدمة,International Freight Forwarding (Ocean FCL وغيره),5229,أنشطة دعم النقل الأخرى,https://www.reloadlogistics.com/services,من صفحة موقع الشركة
+h9653-03,h9653,H,RELOAD LOGISTICS DMCC,5229,نعم,خدمة,Customs Clearing & Consulting,5229,أنشطة دعم النقل الأخرى,https://www.reloadlogistics.com/services,من صفحة موقع الشركة
+h9653-04,h9653,H,RELOAD LOGISTICS DMCC,5229,نعم,خدمة,Transport Solutions,5229,أنشطة دعم النقل الأخرى,https://www.reloadlogistics.com/services,من صفحة موقع الشركة
+h9653-05,h9653,H,RELOAD LOGISTICS DMCC,5229,نعم,خدمة,Project Cargo,5229,أنشطة دعم النقل الأخرى,https://www.reloadlogistics.com/services,من صفحة موقع الشركة
+h9653-06,h9653,H,RELOAD LOGISTICS DMCC,5229,نعم,خدمة,Commodities Transport Solutions,5229,أنشطة دعم النقل الأخرى,https://www.reloadlogistics.com/services,من صفحة موقع الشركة
+h392-01,h392,H,ELITE AIRBORNE EXPRESS (L.L.C),5310,لا,خدمة,خدمات بريد سريع وتوصيل (Courier & Delivery),5320,أنشطة شركات نقل البريد الخاصة,https://www.hidubai.com/businesses/elite-airborne-express-shipping-logistics-courier-delivery-services-al-qusais-industrial-1-dubai,من طرف ثالث (مقال/دليل)
+j607-01,j607,H,DELIVERY HERO TALABAT DB L.L.C,5320,نعم,خدمة,Food Delivery (توصيل طعام),5320,أنشطة شركات نقل البريد الخاصة,https://corporate.talabat.com/on-our-menu/,من صفحة موقع الشركة
+j607-02,j607,H,DELIVERY HERO TALABAT DB L.L.C,5320,نعم,خدمة,Grocery & Retail (talabat mart),4791,البيع بالتجزئة عن طريق بيوت تنفيذ طلبات الشراء بالبريد أو عن طريق الإنترنت,https://corporate.talabat.com/on-our-menu/,من صفحة موقع الشركة
+j607-03,j607,H,DELIVERY HERO TALABAT DB L.L.C,5320,نعم,خدمة,talabat Pro (اشتراك),5320,أنشطة شركات نقل البريد الخاصة,https://corporate.talabat.com/on-our-menu/,من صفحة موقع الشركة
+j607-04,j607,H,DELIVERY HERO TALABAT DB L.L.C,5320,نعم,خدمة,talabat Rewards,5320,أنشطة شركات نقل البريد الخاصة,https://corporate.talabat.com/on-our-menu/,من صفحة موقع الشركة
+j607-05,j607,H,DELIVERY HERO TALABAT DB L.L.C,5320,نعم,خدمة,PostPaid (الدفع خلال 30 يوماً),6492,أشكال منح القروض الأخرى,https://corporate.talabat.com/on-our-menu/,من صفحة موقع الشركة
+j607-06,j607,H,DELIVERY HERO TALABAT DB L.L.C,5320,نعم,خدمة,DineOut,7990,خدمات الحجز الأخرى والأنشطة المتصلة بها,https://corporate.talabat.com/on-our-menu/,من صفحة موقع الشركة
+h22-01,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Express 9:00,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-02,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Express 10:30,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-03,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Express 12:00,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-04,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Express Worldwide,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-05,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Express Easy,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-06,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Economy Select,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-07,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Jetline,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-08,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Sprintline,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+h22-09,h22,H,D H L WORLD WIDE EXPRESS (DUBAI). L.L.C,5320,نعم,خدمة,Express Domestic,5320,أنشطة شركات نقل البريد الخاصة,https://www.dhl.com/gb-en/home/express/products-and-solutions/products-and-services-overview/delivery-services.html,من صفحة موقع الشركة
+j438-01,j438,J,INFORMATION CITY PUBLISHING & CONFERENCE & EXHIBITION MANAGEMENT (L.L.C),5811,لا,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+j437-01,j437,J,Trace Media International FZ-LLC,5813,نعم,منتج,Telecom Review (Middle East / Asia Pacific / North America / Africa / Europe / Canada),5813,نشر الصُحف والمجلات والدوريات,https://www.tracemedia.info/platforms,من صفحة موقع الشركة
+j437-02,j437,J,Trace Media International FZ-LLC,5813,نعم,منتج,Subsea Cables platform,6312,بوابات الشبكة,https://www.tracemedia.info/platforms,من صفحة موقع الشركة
+j437-03,j437,J,Trace Media International FZ-LLC,5813,نعم,منتج,Telecom Review TV,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://www.tracemedia.info/platforms,من صفحة موقع الشركة
+j437-04,j437,J,Trace Media International FZ-LLC,5813,نعم,خدمة,Telecom Review Leaders' Summit,8230,تنظيم المؤتمرات والمعارض التجارية,https://www.tracemedia.info/platforms,من صفحة موقع الشركة
+j437-05,j437,J,Trace Media International FZ-LLC,5813,نعم,خدمة,Webinars,8230,تنظيم المؤتمرات والمعارض التجارية,https://www.tracemedia.info/platforms,من صفحة موقع الشركة
+j437-06,j437,J,Trace Media International FZ-LLC,5813,نعم,خدمة,تنظيم فعاليات من A إلى Z,8230,تنظيم المؤتمرات والمعارض التجارية,https://www.tracemedia.info/platforms,من صفحة موقع الشركة
+j437-07,j437,J,Trace Media International FZ-LLC,5813,نعم,منتج,مجلات اتصالات وسيارات,5813,نشر الصُحف والمجلات والدوريات,https://www.tracemedia.info/platforms,من صفحة موقع الشركة
+m3173-01,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,خدمة,UI/UX Design,7410,أنشطة التصميم المتخصصة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-02,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,خدمة,Brand Design,7410,أنشطة التصميم المتخصصة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-03,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,خدمة,Webflow Development,6201,أنشطة البرمجة الحاسوبية,https://q1adv.com/,من صفحة موقع الشركة
+m3173-04,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,خدمة,No-Code Development,6201,أنشطة البرمجة الحاسوبية,https://q1adv.com/,من صفحة موقع الشركة
+m3173-05,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Display Stands,1811,الطباعة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-06,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Expo Stands,8230,تنظيم المؤتمرات والمعارض التجارية,https://q1adv.com/,من صفحة موقع الشركة
+m3173-07,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Flags Printing,1811,الطباعة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-08,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Hoardings,1811,الطباعة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-09,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Mall Brandings,1811,الطباعة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-10,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Media Walls,1811,الطباعة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-11,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Standees,1811,الطباعة,https://q1adv.com/,من صفحة موقع الشركة
+m3173-12,m3173,J,Q1 ADVERTISING (L.L.C),5819,لا,منتج,Vehicle Graphics,1811,الطباعة,https://q1adv.com/,من صفحة موقع الشركة
+j29268-01,j29268,J,ZEAL NOVA DMCC,5820,نعم,منتج,Eternal Crypt - Wizardry BC (لعبة بلوكتشين),5820,نشر البرمجيات,https://initial.inc/companies/A-LBXAD,من طرف ثالث (مقال/دليل)
+j29268-02,j29268,J,ZEAL NOVA DMCC,5820,نعم,منتج,SNPIT (لعبة Snap to Earn - عنوان خبر),5820,نشر البرمجيات,https://initial.inc/companies/A-LBXAD,من طرف ثالث (مقال/دليل)
+j442-01,j442,J,The Goldmine Films FZ-LLC,5911,نعم,—,لم يُعثر على معلومات مؤكدة,—,—,http://www.thegoldminefilms.com/,لم يُعثر على معلومات مؤكدة
+n72-01,n72,J,ITP Media Group FZ-LLC,5912,لا,خدمة,Publish / Produce / Activate / Partner (محتوى مدفوع وحلول إبداعية),7310,الإعلان,https://www.itp.com/services,من صفحة موقع الشركة
+n72-02,n72,J,ITP Media Group FZ-LLC,5912,لا,خدمة,Influencer marketing,7310,الإعلان,https://www.itp.com/services,من صفحة موقع الشركة
+n72-03,n72,J,ITP Media Group FZ-LLC,5912,لا,خدمة,Live events (200+ سنوياً),8230,تنظيم المؤتمرات والمعارض التجارية,https://www.itp.com/services,من صفحة موقع الشركة
+n72-04,n72,J,ITP Media Group FZ-LLC,5912,لا,منتج,"Arabian Business, Construction Week, Caterer Middle East, Hotelier Middle East",5813,نشر الصُحف والمجلات والدوريات,https://www.itp.com/services,من صفحة موقع الشركة
+n72-05,n72,J,ITP Media Group FZ-LLC,5912,لا,منتج,"Esquire, Grazia, Harper's Bazaar, Cosmopolitan, Time Out",5813,نشر الصُحف والمجلات والدوريات,https://www.itp.com/services,من صفحة موقع الشركة
+n72-06,n72,J,ITP Media Group FZ-LLC,5912,لا,منتج,"ahlan, Spartan, Tough Mudder",8230,تنظيم المؤتمرات والمعارض التجارية,https://www.itp.com/services,من صفحة موقع الشركة
+j1322-01,j1322,J,C Media FZ-LLC,5912,لا,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+j444-01,j444,J,GOLDEN CINEMA (L.L.C),5913,لا,خدمة,"سينما (1,500 مقعد في بر دبي، أفلام هندية وتاميلية ومالايالم)",5914,أنشطة عرض الأفلام السينمائية,https://www.thenationalnews.com/arts-culture/film/dubai-loses-a-piece-of-history-as-golden-cinema-prepares-to-close-uttama-villain-is-theatres-last-film-1.59069,من طرف ثالث (مقال/دليل)
+i56-01,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,THEATRE,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-02,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,GOLD,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-03,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,IMAX,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-04,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,4DX,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-05,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,MAX,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-06,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,KIDS,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-07,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,OUTDOOR,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-08,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,THEATRE PODS,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-09,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,PREMIER,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-10,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,MOONLIGHT,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+i56-11,i56,J,MAJID AL FUTTAIM CINEMAS LLC,5914,نعم,منتج,PRIVATE CINEMAS,5914,أنشطة عرض الأفلام السينمائية,https://uae.voxcinemas.com/ways-to-watch/summary,من صفحة موقع الشركة
+j49-01,j49,J,Havas Media Middle East FZ-LLC,5920,لا,خدمة,Media Strategy / Communications Strategy,7310,الإعلان,https://me.havas.com/havas-media/,من صفحة موقع الشركة
+j49-02,j49,J,Havas Media Middle East FZ-LLC,5920,لا,خدمة,Investment Planning and Buying,7310,الإعلان,https://me.havas.com/havas-media/,من صفحة موقع الشركة
+j49-03,j49,J,Havas Media Middle East FZ-LLC,5920,لا,خدمة,Data and KPI Planning / Data Analytics,7320,أبحاث السوق واستطلاعات الرأي,https://me.havas.com/havas-media/,من صفحة موقع الشركة
+j49-04,j49,J,Havas Media Middle East FZ-LLC,5920,لا,خدمة,Digital / Performance Marketing / Programmatic / eCommerce / Social Media,7310,الإعلان,https://me.havas.com/havas-media/,من صفحة موقع الشركة
+j49-05,j49,J,Havas Media Middle East FZ-LLC,5920,لا,خدمة,OOH and Experiential / Mobile and Geolocal,7310,الإعلان,https://me.havas.com/havas-media/,من صفحة موقع الشركة
+j49-06,j49,J,Havas Media Middle East FZ-LLC,5920,لا,منتج,Media Experience (Mx),7310,الإعلان,https://me.havas.com/havas-media/,من صفحة موقع الشركة
+j132-01,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Al-Majd Satellite Channel,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j132-02,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Al-Majd Hadeeth,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j132-03,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Al-Ilmiya (Religious Sciences),6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j132-04,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Al-Majd Kids (Majd),6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j132-05,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Al-Majd Documentary,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j132-06,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Al-Majd Nature,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j132-07,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Al-Majd News Service,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j132-08,j132,J,Al Majd Satellite Broadcasting FZ-LLC,6010,لا,منتج,Basma / Rawdah / Taghareed / Masah / Al-Ajaweed,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Al-Majd_TV_Network,من طرف ثالث (مقال/دليل)
+j3-01,j3,J,MBC FZ-LLC,6020,نعم,منتج,"قنوات مجانية: MBC1, MBC2, MBC3, MBC4, MBC5, MBC MASR, MBC IRAQ (13+ قناة)",6020,أنشطة البرمجة والإذاعة التلفزيونية,https://www.mbc.net/about-us,من صفحة موقع الشركة
+j3-02,j3,J,MBC FZ-LLC,6020,نعم,منتج,MBC SHAHID (منصة بث),6020,أنشطة البرمجة والإذاعة التلفزيونية,https://www.mbc.net/about-us,من صفحة موقع الشركة
+j3-03,j3,J,MBC FZ-LLC,6020,نعم,منتج,إذاعة MBC LOUD FM (3 محطات),6010,الإذاعة الصوتية,https://www.mbc.net/about-us,من صفحة موقع الشركة
+j3-04,j3,J,MBC FZ-LLC,6020,نعم,خدمة,MBC STUDIOS (إنتاج),5911,أنشطة إنتاج الأفلام والفيديو والبرامج التلفزيونية,https://www.mbc.net/about-us,من صفحة موقع الشركة
+j3-05,j3,J,MBC FZ-LLC,6020,نعم,خدمة,MBC ACADEMY (تدريب),8549,أنواع التعليم الأخرى غير المصنّفة في موضع آخر,https://www.mbc.net/about-us,من صفحة موقع الشركة
+j3-06,j3,J,MBC FZ-LLC,6020,نعم,خدمة,MBC Media Solutions (إعلانات),7310,الإعلان,https://www.mbc.net/about-us,من صفحة موقع الشركة
+j7-01,j7,J,Gulf DTH FZ-LLC,6020,نعم,منتج,OSN+ (بث بالاشتراك),6020,أنشطة البرمجة والإذاعة التلفزيونية,https://www.osn.com/en-ae/tv-packages/osn-home-plus,من عناوين نتائج البحث فقط
+j7-02,j7,J,Gulf DTH FZ-LLC,6020,نعم,منتج,OSN Home Plus,6130,أنشطة الاتصالات الساتلية,https://www.osn.com/en-ae/tv-packages/osn-home-plus,من عناوين نتائج البحث فقط
+j7-03,j7,J,Gulf DTH FZ-LLC,6020,نعم,منتج,OSN Home Premium,6130,أنشطة الاتصالات الساتلية,https://www.osn.com/en-ae/tv-packages/osn-home-plus,من عناوين نتائج البحث فقط
+j7-04,j7,J,Gulf DTH FZ-LLC,6020,نعم,منتج,OSNtv Connect,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://www.osn.com/en-ae/tv-packages/osn-home-plus,من عناوين نتائج البحث فقط
+j1-01,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,منتج,eLife Lite (12 / 25 / 50),6110,أنشطة الاتصالات السلكية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-02,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,منتج,خطط الهاتف المفوترة (Postpaid plans),6120,أنشطة الاتصالات اللاسلكية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-03,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,منتج,خطط Emirati,6120,أنشطة الاتصالات اللاسلكية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-04,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,منتج,Business First Plus (خطة أعمال),6120,أنشطة الاتصالات اللاسلكية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-05,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,خدمة,Business Internet,6110,أنشطة الاتصالات السلكية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-06,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,منتج,Business Devices,4652,بيع المعدات الإلكترونية ومعدات الاتصالات وقطع غيارها بالجملة,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-07,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,خدمة,Business Pro,6110,أنشطة الاتصالات السلكية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-08,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,خدمة,Ultra Sports (ترفيه),6020,أنشطة البرمجة والإذاعة التلفزيونية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j1-09,j1,J,مؤسسه الامارات للاتصالات-اتصالات منطقه دبى,6110,نعم,خدمة,باقات الإنترنت المنزلي,6110,أنشطة الاتصالات السلكية,https://www.eand.ae/en/smb/index.html,من عناوين نتائج البحث فقط
+j2-01,j2,J,EMIRATES INTEGRATED TELECOMMUNICATIONS COMPANY P.J.S.C.,6110,نعم,منتج,Ultimate Plans,6110,أنشطة الاتصالات السلكية,https://www.du.ae/ultimate,من عناوين نتائج البحث فقط
+j2-02,j2,J,EMIRATES INTEGRATED TELECOMMUNICATIONS COMPANY P.J.S.C.,6110,نعم,منتج,Business Wi-Fi 5G,6120,أنشطة الاتصالات اللاسلكية,https://www.du.ae/ultimate,من عناوين نتائج البحث فقط
+j2-03,j2,J,EMIRATES INTEGRATED TELECOMMUNICATIONS COMPANY P.J.S.C.,6110,نعم,منتج,Business Data SIM,6120,أنشطة الاتصالات اللاسلكية,https://www.du.ae/ultimate,من عناوين نتائج البحث فقط
+j2-04,j2,J,EMIRATES INTEGRATED TELECOMMUNICATIONS COMPANY P.J.S.C.,6110,نعم,منتج,خطط الأعمال الصغيرة اللاسلكية,6120,أنشطة الاتصالات اللاسلكية,https://www.du.ae/ultimate,من عناوين نتائج البحث فقط
+j2-05,j2,J,EMIRATES INTEGRATED TELECOMMUNICATIONS COMPANY P.J.S.C.,6110,نعم,خدمة,إنترنت ثابت للشركات (SME / Enterprise),6110,أنشطة الاتصالات السلكية,https://www.du.ae/ultimate,من عناوين نتائج البحث فقط
+j2-06,j2,J,EMIRATES INTEGRATED TELECOMMUNICATIONS COMPANY P.J.S.C.,6110,نعم,خدمة,Business solutions (du Business / Grow),6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.du.ae/ultimate,من عناوين نتائج البحث فقط
+j446-01,j446,J,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,لا,خدمة,NexusWave,6130,أنشطة الاتصالات الساتلية,https://www.inmarsat.com/,من صفحة موقع الشركة
+j446-02,j446,J,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,لا,خدمة,Fleet Xpress (Fleet Care، Fleet Secure، Fleet Hotspot، Fleet Mail),6130,أنشطة الاتصالات الساتلية,https://www.inmarsat.com/,من صفحة موقع الشركة
+j446-03,j446,J,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,لا,خدمة,Inmarsat C / RescueNET / SafetyNET,6130,أنشطة الاتصالات الساتلية,https://www.inmarsat.com/,من صفحة موقع الشركة
+j446-04,j446,J,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,لا,خدمة,FleetBroadband,6130,أنشطة الاتصالات الساتلية,https://www.inmarsat.com/,من صفحة موقع الشركة
+j446-05,j446,J,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,لا,خدمة,Fleet One,6130,أنشطة الاتصالات الساتلية,https://www.inmarsat.com/,من صفحة موقع الشركة
+j446-06,j446,J,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,لا,خدمة,L-band services,6130,أنشطة الاتصالات الساتلية,https://www.inmarsat.com/,من صفحة موقع الشركة
+j446-07,j446,J,INMARSAT COMMUNICATIONS COMPANY L.L.C,6120,لا,خدمة,Jet ConneX (طيران - من عنوان بحث),6130,أنشطة الاتصالات الساتلية,https://www.inmarsat.com/,من صفحة موقع الشركة
+j7144-01,j7144,J,C S S EMEA SATELLITE COMMUNICATION SERVICES L.L.C,6120,لا,خدمة,Enterprise VSAT (شبكات أقمار صناعية للشركات),6130,أنشطة الاتصالات الساتلية,https://caspiansat.com/solutions/maritime/,من صفحة موقع الشركة
+j7144-02,j7144,J,C S S EMEA SATELLITE COMMUNICATION SERVICES L.L.C,6120,لا,خدمة,Maritime: Fleet management، Broadband internet، TV، VoIP,6130,أنشطة الاتصالات الساتلية,https://caspiansat.com/solutions/maritime/,من صفحة موقع الشركة
+j7144-03,j7144,J,C S S EMEA SATELLITE COMMUNICATION SERVICES L.L.C,6120,لا,خدمة,Passenger and Ferry: Wi-Fi spots، Voice، TV، Crew call and internet card,6130,أنشطة الاتصالات الساتلية,https://caspiansat.com/solutions/maritime/,من صفحة موقع الشركة
+j7144-04,j7144,J,C S S EMEA SATELLITE COMMUNICATION SERVICES L.L.C,6120,لا,خدمة,Yachts: Broadband، TV,6130,أنشطة الاتصالات الساتلية,https://caspiansat.com/solutions/maritime/,من صفحة موقع الشركة
+j7144-05,j7144,J,C S S EMEA SATELLITE COMMUNICATION SERVICES L.L.C,6120,لا,خدمة,Oil & Gas,6130,أنشطة الاتصالات الساتلية,https://caspiansat.com/solutions/maritime/,من صفحة موقع الشركة
+j29263-01,j29263,J,TRUSTSWAP DMCC,6120,لا,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+j7345-01,j7345,J,Teads Middle East FZ-LLC,6130,لا,منتج,CTV: HomeScreen، InStream، Performance,7310,الإعلان,https://www.teads.com/ad-formats/ad-specifications/,من صفحة موقع الشركة
+j7345-02,j7345,J,Teads Middle East FZ-LLC,6130,لا,منتج,"Custom Display / Custom Video (3D Cube, Carousel, Scratch ...)",7310,الإعلان,https://www.teads.com/ad-formats/ad-specifications/,من صفحة موقع الشركة
+j7345-03,j7345,J,Teads Middle East FZ-LLC,6130,لا,منتج,"Native: App Install, Carousel, Clip, Standard Native",7310,الإعلان,https://www.teads.com/ad-formats/ad-specifications/,من صفحة موقع الشركة
+j7345-04,j7345,J,Teads Middle East FZ-LLC,6130,لا,منتج,"Performance: Carousel, MPU Banner, Shoppable Carousel, Social Image/Video",7310,الإعلان,https://www.teads.com/ad-formats/ad-specifications/,من صفحة موقع الشركة
+j7345-05,j7345,J,Teads Middle East FZ-LLC,6130,لا,منتج,"Standard Display: Cinemagraph, Flow, InterScroller, Stories",7310,الإعلان,https://www.teads.com/ad-formats/ad-specifications/,من صفحة موقع الشركة
+j7345-06,j7345,J,Teads Middle East FZ-LLC,6130,لا,منتج,"Standard Video: Endcard, Footer, Header, Overlay, Skin, Smart6, Video Loop",7310,الإعلان,https://www.teads.com/ad-formats/ad-specifications/,من صفحة موقع الشركة
+j7345-07,j7345,J,Teads Middle East FZ-LLC,6130,لا,خدمة,Teads Ad Manager,7310,الإعلان,https://www.teads.com/ad-formats/ad-specifications/,من صفحة موقع الشركة
+j308-01,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,خدمة,Deployment services (Deploy and Integrate),6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-02,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,خدمة,Network Planning and Optimization,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-03,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,خدمة,Mobile Network Care,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-04,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,خدمة,Managed services,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-05,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,خدمة,Nokia Energy Solutions,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-06,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,خدمة,Nokia Digital Care Services,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-07,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,منتج,AI-RAN / Cloud RAN / AnyRAN,4652,بيع المعدات الإلكترونية ومعدات الاتصالات وقطع غيارها بالجملة,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-08,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,منتج,Baseband / Macro radio / Small cells (ReefShark),4652,بيع المعدات الإلكترونية ومعدات الاتصالات وقطع غيارها بالجملة,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-09,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,منتج,MantaRay SMO / SON / AutoPilot / NM,5820,نشر البرمجيات,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j308-10,j308,J,Nokia Solutions and Networks AE FZ-LLC,6190,لا,منتج,Core networks (مثل Cloud Mobile Gateway),4652,بيع المعدات الإلكترونية ومعدات الاتصالات وقطع غيارها بالجملة,https://www.nokia.com/mobile-networks/services/,من صفحة موقع الشركة
+j5-01,j5,J,Oracle Systems Limited,6201,نعم,منتج,ERP: Financials، Accounting Hub، Procurement، Project Management، Risk Management,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-02,j5,J,Oracle Systems Limited,6201,نعم,منتج,EPM: Planning، Financial Consolidation and Close، Account Reconciliation، Tax Reporting، Narrative Reporting,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-03,j5,J,Oracle Systems Limited,6201,نعم,منتج,SCM: Inventory، Manufacturing، Maintenance، Order Management، Logistics، PLM,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-04,j5,J,Oracle Systems Limited,6201,نعم,منتج,HCM: Human Resources، Talent Management، Learning، Payroll، Recruiting,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-05,j5,J,Oracle Systems Limited,6201,نعم,منتج,CX: Marketing، Sales، Service,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-06,j5,J,Oracle Systems Limited,6201,نعم,منتج,Oracle Analytics / Fusion Analytics,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-07,j5,J,Oracle Systems Limited,6201,نعم,منتج,Oracle NetSuite,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-08,j5,J,Oracle Systems Limited,6201,نعم,خدمة,Oracle Cloud Infrastructure (OCI),6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+j5-09,j5,J,Oracle Systems Limited,6201,نعم,منتج,Oracle Database / APEX,5820,نشر البرمجيات,https://www.oracle.com/applications/products/,من صفحة موقع الشركة
+g138-01,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Business Suite,5820,نشر البرمجيات,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-02,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Cloud ERP,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-03,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Ariba (Strategic Sourcing Suite),6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-04,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Concur (Expense),6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-05,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Fieldglass,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-06,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP SuccessFactors Employee Central,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-07,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Integrated Business Planning,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-08,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Build,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-09,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Commerce Cloud,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-10,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,SAP Business Technology Platform,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+g138-11,g138,J,S A P  MIDDLE EAST & NORTH AFRICA (L L C),6201,نعم,منتج,Business AI / Business Data Cloud,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.sap.com/products.html,من صفحة موقع الشركة
+j10-01,j10,J,Cisco Systems International FZ-LLC,6202,نعم,منتج,Networking: Cisco Silicon One، Access networking، Data centre networking، Industrial IoT، WAN,4652,بيع المعدات الإلكترونية ومعدات الاتصالات وقطع غيارها بالجملة,https://www.cisco.com/site/my/en/products/index.html,من صفحة موقع الشركة
+j10-02,j10,J,Cisco Systems International FZ-LLC,6202,نعم,منتج,Security: Cisco Duo، Firewall، Hypershield، ISE، Secure Access، Security Cloud، Umbrella، XDR,4652,بيع المعدات الإلكترونية ومعدات الاتصالات وقطع غيارها بالجملة,https://www.cisco.com/site/my/en/products/index.html,من صفحة موقع الشركة
+j10-03,j10,J,Cisco Systems International FZ-LLC,6202,نعم,منتج,Collaboration: Webex Suite، Unified communications، Calling، Contact center، Conferencing، أجهزة,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.cisco.com/site/my/en/products/index.html,من صفحة موقع الشركة
+j10-04,j10,J,Cisco Systems International FZ-LLC,6202,نعم,منتج,Computing: Intersight، UCS X-Series، Servers، Hyperconverged infrastructure,4651,بيع الحواسيب والمعدات الطرفية للحواسيب والبرمجيات بالجملة,https://www.cisco.com/site/my/en/products/index.html,من صفحة موقع الشركة
+j10-05,j10,J,Cisco Systems International FZ-LLC,6202,نعم,منتج,Observability: Splunk AppDynamics، ThousandEyes، Intersight Workload Optimizer,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.cisco.com/site/my/en/products/index.html,من صفحة موقع الشركة
+n47-01,n47,J,We One FZE,6202,نعم,خدمة,IT Infrastructure and Wi-Fi,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-02,n47,J,We One FZE,6202,نعم,خدمة,ELV Security Systems (CCTV),8020,أنشطة خدمات نُظم الأمن,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-03,n47,J,We One FZE,6202,نعم,خدمة,AV Systems,4321,التركيبات الكهربائية,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-04,n47,J,We One FZE,6202,نعم,خدمة,Home and Office Automation,4321,التركيبات الكهربائية,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-05,n47,J,We One FZE,6202,نعم,خدمة,Power Systems,4321,التركيبات الكهربائية,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-06,n47,J,We One FZE,6202,نعم,خدمة,Facility Entrance Systems,4329,تركيبات إنشائية أخرى,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-07,n47,J,We One FZE,6202,نعم,خدمة,ICT Solutions,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-08,n47,J,We One FZE,6202,نعم,خدمة,Security (حراسة، نقل أموال، حماية بحرية),8010,أنشطة الأمن الخاصة,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-09,n47,J,We One FZE,6202,نعم,خدمة,Staffing,7830,تقديم موارد بشرية أخرى,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+n47-10,n47,J,We One FZE,6202,نعم,خدمة,Facility services (MEP، نظافة، مكافحة آفات),8110,أنشطة متكاملة لدعم المرافق,https://www.weone.com/what-we-do/solutions/,من صفحة موقع الشركة
+j8400-01,j8400,J,OTC SERVICES DMCC,6202,نعم,—,لم يُعثر على معلومات مؤكدة,—,—,,لم يُعثر على معلومات مؤكدة
+j168-01,j168,J,ACCENTURE MIDDLE  EAST B.V.(DUBAI BRANCH),6202,نعم,خدمة,Strategy & Consulting,7020,أنشطة الخبرة الاستشارية في مجال الإدارة,https://newsroom.accenture.com/news/2022/accenture-announces-accenture-interactives-evolution,من عناوين نتائج البحث فقط
+j168-02,j168,J,ACCENTURE MIDDLE  EAST B.V.(DUBAI BRANCH),6202,نعم,خدمة,Technology services (Cloud وغيرها),6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://newsroom.accenture.com/news/2022/accenture-announces-accenture-interactives-evolution,من عناوين نتائج البحث فقط
+j168-03,j168,J,ACCENTURE MIDDLE  EAST B.V.(DUBAI BRANCH),6202,نعم,خدمة,Operations,8299,أنشطة خدمات الدعم للأعمال غير المصنّفة في موضع آخر,https://newsroom.accenture.com/news/2022/accenture-announces-accenture-interactives-evolution,من عناوين نتائج البحث فقط
+j168-04,j168,J,ACCENTURE MIDDLE  EAST B.V.(DUBAI BRANCH),6202,نعم,خدمة,Accenture Song (تجربة العملاء والتسويق),7310,الإعلان,https://newsroom.accenture.com/news/2022/accenture-announces-accenture-interactives-evolution,من عناوين نتائج البحث فقط
+j168-05,j168,J,ACCENTURE MIDDLE  EAST B.V.(DUBAI BRANCH),6202,نعم,خدمة,Cloud Consulting,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://newsroom.accenture.com/news/2022/accenture-announces-accenture-interactives-evolution,من عناوين نتائج البحث فقط
+j218-01,j218,J,CA Mena FZ-LLC,6209,نعم,منتج,برمجيات CA / Broadcom (مثل برمجيات الـ mainframe),4651,بيع الحواسيب والمعدات الطرفية للحواسيب والبرمجيات بالجملة,https://mbcom.com/local-offices/ca-mena-fz-llc-6,من عناوين نتائج البحث فقط
+j4987-01,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Managed SOC,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-02,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,SOAR,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-03,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Managed Detection and Response (MDR),6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-04,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Vulnerability Management,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-05,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Device Management / Helpdesk / IT Infrastructure Support,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-06,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Compliance,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-07,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Technology Consulting & Transformation,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-08,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,IT Cost Optimization,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-09,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Vulnerability Assessment / Penetration Testing / Application Audit / Code Review,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-10,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,SOC Assessment / Infrastructure Assessment,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-11,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,خدمة,Hybrid SOC Management / SIEM Consulting,6202,أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j4987-12,j4987,J,SATTRIX INFORMATION SECURITY DMCC,6311,نعم,منتج,"حلول شريكة: Splunk, Palo Alto, Fortinet, Cortex, ArcSight, Zoho, Google Security Operations",4651,بيع الحواسيب والمعدات الطرفية للحواسيب والبرمجيات بالجملة,https://www.sattrix.com/cybersecurity-expertise.php,من صفحة موقع الشركة
+j198-01,j198,J,WebBeds FZ-LLC,6312,نعم,خدمة,WebBeds Marketplace,7990,خدمات الحجز الأخرى والأنشطة المتصلة بها,https://www.webbeds.com/about/what-we-do/,من صفحة موقع الشركة
+j198-02,j198,J,WebBeds FZ-LLC,6312,نعم,خدمة,Hotel and supplier solutions (إدارة أسعار ومخزون وتوزيع),7990,خدمات الحجز الأخرى والأنشطة المتصلة بها,https://www.webbeds.com/about/what-we-do/,من صفحة موقع الشركة
+j198-03,j198,J,WebBeds FZ-LLC,6312,نعم,خدمة,Travel buyer solutions (API / موقع حجز للتجار),7990,خدمات الحجز الأخرى والأنشطة المتصلة بها,https://www.webbeds.com/about/what-we-do/,من صفحة موقع الشركة
+j198-04,j198,J,WebBeds FZ-LLC,6312,نعم,خدمة,WebBeds Central,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.webbeds.com/about/what-we-do/,من صفحة موقع الشركة
+j198-05,j198,J,WebBeds FZ-LLC,6312,نعم,خدمة,Parity Monitor,6311,تجهيز البيانات واستضافة المواقع على الشبكة وما يتصل بذلك من أنشطة,https://www.webbeds.com/about/what-we-do/,من صفحة موقع الشركة
+j198-06,j198,J,WebBeds FZ-LLC,6312,نعم,خدمة,WebBeds Booking Site,7990,خدمات الحجز الأخرى والأنشطة المتصلة بها,https://www.webbeds.com/about/what-we-do/,من صفحة موقع الشركة
+j198-07,j198,J,WebBeds FZ-LLC,6312,نعم,خدمة,Marketing Services,7310,الإعلان,https://www.webbeds.com/about/what-we-do/,من صفحة موقع الشركة
+j85-01,j85,J,propertyfinder FZ-LLC,6312,نعم,منتج,PF Expert (لوحة CRM وإدارة إعلانات),6312,بوابات الشبكة,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-02,j85,J,propertyfinder FZ-LLC,6312,نعم,منتج,PF Expert App,6312,بوابات الشبكة,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-03,j85,J,propertyfinder FZ-LLC,6312,نعم,خدمة,Exposure Products: Premium / Featured / Spotlight / Community Top Spot,7310,الإعلان,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-04,j85,J,propertyfinder FZ-LLC,6312,نعم,منتج,SuperAgent,6312,بوابات الشبكة,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-05,j85,J,propertyfinder FZ-LLC,6312,نعم,منتج,SuperAgent Arena,6312,بوابات الشبكة,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-06,j85,J,propertyfinder FZ-LLC,6312,نعم,منتج,Credit Optimizer,6312,بوابات الشبكة,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-07,j85,J,propertyfinder FZ-LLC,6312,نعم,خدمة,PF Academy,8549,أنواع التعليم الأخرى غير المصنّفة في موضع آخر,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-08,j85,J,propertyfinder FZ-LLC,6312,نعم,منتج,Area Insights,6399,أنشطة خدمات المعلومات الأخرى غير المصنّفة في موضع آخر,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-09,j85,J,propertyfinder FZ-LLC,6312,نعم,خدمة,Partner Program (Emerald / Sapphire / Ruby / Diamond),6312,بوابات الشبكة,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j85-10,j85,J,propertyfinder FZ-LLC,6312,نعم,منتج,Home Valuation Feature,6312,بوابات الشبكة,https://www.propertyfinder.ae/partnerhub/knowledge-center/,من صفحة موقع الشركة
+j712-01,j712,J,Bayut Web Publishing FZ-LLC,6312,نعم,منتج,Profolio™,6312,بوابات الشبكة,https://www.bayut.com/agentportal/products-solutions/,من صفحة موقع الشركة
+j712-02,j712,J,Bayut Web Publishing FZ-LLC,6312,نعم,منتج,TruEstimate™,6312,بوابات الشبكة,https://www.bayut.com/agentportal/products-solutions/,من صفحة موقع الشركة
+j712-03,j712,J,Bayut Web Publishing FZ-LLC,6312,نعم,منتج,Search 2.0,6312,بوابات الشبكة,https://www.bayut.com/agentportal/products-solutions/,من صفحة موقع الشركة
+j712-04,j712,J,Bayut Web Publishing FZ-LLC,6312,نعم,منتج,DevConnect™,6312,بوابات الشبكة,https://www.bayut.com/agentportal/products-solutions/,من صفحة موقع الشركة
+j712-05,j712,J,Bayut Web Publishing FZ-LLC,6312,نعم,منتج,TruBroker™ (وTruBroker Stories),6312,بوابات الشبكة,https://www.bayut.com/agentportal/products-solutions/,من صفحة موقع الشركة
+j712-06,j712,J,Bayut Web Publishing FZ-LLC,6312,نعم,خدمة,Area Prime Slot,7310,الإعلان,https://www.bayut.com/agentportal/products-solutions/,من صفحة موقع الشركة
+r10-01,r10,J,Refinitiv Limited,6391,لا,منتج,LSEG Workspace (بديل Eikon),6399,أنشطة خدمات المعلومات الأخرى غير المصنّفة في موضع آخر,https://www.lseg.com/en/data-analytics/refinitiv,من صفحة موقع الشركة
+r10-02,r10,J,Refinitiv Limited,6391,لا,منتج,LSEG Data and Analytics,6399,أنشطة خدمات المعلومات الأخرى غير المصنّفة في موضع آخر,https://www.lseg.com/en/data-analytics/refinitiv,من صفحة موقع الشركة
+r10-03,r10,J,Refinitiv Limited,6391,لا,منتج,FTSE Russell (المؤشرات),6619,الأنشطة الأخرى المساعدة لأنشطة الخدمات المالية,https://www.lseg.com/en/data-analytics/refinitiv,من صفحة موقع الشركة
+r10-04,r10,J,Refinitiv Limited,6391,لا,منتج,LSEG Risk Intelligence,6399,أنشطة خدمات المعلومات الأخرى غير المصنّفة في موضع آخر,https://www.lseg.com/en/data-analytics/refinitiv,من صفحة موقع الشركة
+r10-05,r10,J,Refinitiv Limited,6391,لا,منتج,Tick History,6399,أنشطة خدمات المعلومات الأخرى غير المصنّفة في موضع آخر,https://www.lseg.com/en/data-analytics/refinitiv,من صفحة موقع الشركة
+j1330-01,j1330,J,Korean Broadcasting System,6391,لا,منتج,KBS1 / KBS2 / KBS News 24 / KBS Drama / KBS Joy / KBS Kids,6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Korean_Broadcasting_System,من طرف ثالث (مقال/دليل)
+j1330-02,j1330,J,Korean Broadcasting System,6391,لا,منتج,KBS World (تلفزيون وإذاعة وإنترنت),6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Korean_Broadcasting_System,من طرف ثالث (مقال/دليل)
+j1330-03,j1330,J,Korean Broadcasting System,6391,لا,منتج,KBS Korea (للمغتربين),6020,أنشطة البرمجة والإذاعة التلفزيونية,https://en.wikipedia.org/wiki/Korean_Broadcasting_System,من طرف ثالث (مقال/دليل)
+n799-01,n799,J,VFS (GCC) (L.L.C),6399,لا,خدمة,VFS Service Fees (خدمة تقديم طلب تأشيرة),8299,أنشطة خدمات الدعم للأعمال غير المصنّفة في موضع آخر,https://www.vfsglobal.com/visa-at-your-doorstep/,من صفحة موقع الشركة
+n799-02,n799,J,VFS (GCC) (L.L.C),6399,لا,خدمة,Visa at Your Doorstep (VAYD) - داخل حدود المدينة,8299,أنشطة خدمات الدعم للأعمال غير المصنّفة في موضع آخر,https://www.vfsglobal.com/visa-at-your-doorstep/,من صفحة موقع الشركة
+n799-03,n799,J,VFS (GCC) (L.L.C),6399,لا,خدمة,VAYD - خارج حدود المدينة,8299,أنشطة خدمات الدعم للأعمال غير المصنّفة في موضع آخر,https://www.vfsglobal.com/visa-at-your-doorstep/,من صفحة موقع الشركة
+n799-04,n799,J,VFS (GCC) (L.L.C),6399,لا,خدمة,Value Added Services: Courier Return Fee,5320,أنشطة شركات نقل البريد الخاصة,https://www.vfsglobal.com/visa-at-your-doorstep/,من صفحة موقع الشركة
+n799-05,n799,J,VFS (GCC) (L.L.C),6399,لا,خدمة,Value Added Services: Photograph Fee,7420,أنشطة التصوير,https://www.vfsglobal.com/visa-at-your-doorstep/,من صفحة موقع الشركة

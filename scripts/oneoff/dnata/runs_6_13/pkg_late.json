@@ -39,5 +39,37 @@
   "seen_names": [],
   "board_rule": "cheapest (no B&B)",
   "note": "hotel not found on dnata for these dates"
+ },
+ "17": {
+  "row": 17,
+  "city": "Kuala Lumpur",
+  "sheet_name": "Traders Hotel",
+  "destination": "Kuala Lumpur, Malaysia (485)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Traders Hotel Kuala Lumpur",
+  "estab_id": "321298",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 4489.6,
+  "default_flight": "SriLankan Airlines / SriLankan Airlines / SriLankan Airlines / SriLankan Airlines",
+  "flight": "EK0344 21:30 / EK0343 01:25",
+  "flight_delta": 1211.4,
+  "total": 5701.0
+ },
+ "18": {
+  "row": 18,
+  "city": "Kuala Lumpur",
+  "sheet_name": "Dorsett Kuala Lumpur",
+  "destination": "Kuala Lumpur, Malaysia (485)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Dorsett Kuala Lumpur",
+  "estab_id": "218579",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 3577.6,
+  "default_flight": "SriLankan Airlines / SriLankan Airlines / SriLankan Airlines / SriLankan Airlines",
+  "flight": "EK0344 21:30 / EK0343 01:25",
+  "flight_delta": 1211.4,
+  "total": 4789.0
  }
 }

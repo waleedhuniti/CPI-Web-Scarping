@@ -13,6 +13,16 @@
   "default_flight": "Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines",
   "flight": "EK0123 10:00 / EK0118 23:40",
   "flight_delta": 1005.6,
-  "total": 3998.6
+  "total": 3998.6,
+  "note": "Golden Horn غير معروض للحجز على دناتا لهذه التواريخ؛ استُخدم فرع Dosso Dossi Downtown"
+ },
+ "22": {
+  "row": 22,
+  "city": "Maldives",
+  "sheet_name": "Summer Island Maldives",
+  "destination": "Maldives, None (65)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "Summer Island غير معروض للحجز على دناتا لهذه التواريخ"
  }
 }

@@ -1,7 +1,7 @@
 """Pinas Express Cargo (pinascargo.com/pricing): rate cards published as images.
 
 The page text has no prices; the rate cards are JPEGs. Prices come from the readings in
-config/sppi_image_transcriptions.json, and only while the image on the site is byte-identical (sha256) to the one
+data/sppi/config/sppi_image_transcriptions.json, and only while the image on the site is byte-identical (sha256) to the one
 that was read. tesseract, when installed, gives an independent cross-check (how many of the read values it finds).
 """
 import io

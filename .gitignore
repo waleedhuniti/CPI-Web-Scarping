@@ -5,3 +5,5 @@ __pycache__/
 .env
 storage/
 apify_storage/
+# SPPI sample data, configs and run outputs (company information - never committed)
+data/sppi/

@@ -1,12 +1,16 @@
 """One collection run over the SPPI H & J sample.
 
-  1. Every page in config/sppi_pages.json is fetched (robots.txt first) and parsed.
+Everything about the sample - companies, products, serials, ISIC codes, which page belongs to which product, the
+availability reasons - lives in data/sppi/ (config/, sample/, runs/), which is git-ignored: it never goes to the
+repository.
+
+  1. Every page in data/sppi/config/sppi_pages.json is fetched (robots.txt first) and parsed.
   2. Every source URL of the products sheet (data/sppi/sample/products.csv) that is not already a page is probed,
      so each company has at least one logged request.
   3. Each extracted price is linked to the sample products by the page's map rules (product_id + section H/J +
      registered ISIC + product ISIC come from the products sheet).
   4. Every product gets an availability: Scraping (price collected here) / Online فقط (shown to a person but not
-     collectable automatically, config/sppi_status.json) / لا هذا ولا ذاك (no public price found).
+     collectable automatically, data/sppi/config/sppi_status.json) / لا هذا ولا ذاك (no public price found).
 """
 import csv
 import gzip
@@ -41,7 +45,7 @@ def load_companies(path: Path | None = None) -> dict:
 
 
 def load_pages(products: dict, path: Path | None = None) -> tuple[list[dict], str]:
-    cfg = json.load(open(path or ROOT / "config/sppi_pages.json", encoding="utf-8"))
+    cfg = json.load(open(path or ROOT / "data/sppi/config/sppi_pages.json", encoding="utf-8"))
     pages = cfg["pages"]
     for page in pages:
         for rule in page.get("map", []):
@@ -154,7 +158,7 @@ def _pinas(page: dict, res: FetchResult, net: Net, run_dir: Path, readings: list
         if img.sha256 != reading["sha256"]:
             notes.append(f"{reading['id']}: image_changed (sha256 {img.sha256[:12]}... vs read "
                          f"{reading['sha256'][:12]}...) - no prices emitted; read the new image and update "
-                         "config/sppi_image_transcriptions.json")
+                         "data/sppi/config/sppi_image_transcriptions.json")
             continue
         check = pinas.ocr_agreement(reading, pinas.ocr_numbers(img.body))
         notes.append(f"{reading['id']}: image unchanged; {check}")
@@ -246,11 +250,11 @@ def availability(products: dict, companies: dict, prices: list[dict], status_cfg
 # ---- run -----------------------------------------------------------------------------------------------
 METHOD = [
     "المنهجية - جمع أسعار SPPI للقسمين H و J (كل شركات العينة) باستخدام Scrapling",
-    "1) قائمة المنتجات (446 بنداً، 73 شركة) مأخوذة من ملف SPPI_HJ_Red_Companies.xlsx: الرقم المتسلسل (h/j...)، القسم H/J، رمز النشاط المسجل، رمز ISIC الفعلي للبند.",
+    "1) قائمة الشركات والمنتجات مأخوذة من ملف العينة (scripts/sppi_import_products.py): الرقم المتسلسل (h/j...)، القسم H/J، رمز النشاط المسجل، رمز ISIC الفعلي للبند. هذه البيانات تبقى في data/sppi/ ولا تُرفع إلى المستودع.",
     "2) قبل أي طلب يُقرأ robots.txt (قواعد Google عبر protego). 2xx = تُطبَّق القواعد؛ 4xx = لا قواعد؛ 5xx أو تعذّر القراءة = لا يُجلب.",
     "3) طلب واحد لكل موقع كل ثانيتين على الأقل. لا يتم تجاوز أي حماية (Cloudflare / CAPTCHA) ولا تسجيل دخول.",
     "4) كل صفحة/ملف يُحفظ مضغوطاً في snapshots مع بصمة sha256، وكل سعر يحمل الرابط وحالة HTTP ووقت الجلب ونص السعر كما ورد.",
-    "5) ربط السعر بالمنتج يتم بقواعد مكتوبة في config/sppi_pages.json (رابط الصفحة + نمط نصي) وليس بالتخمين. بند يبدأ بـ '+' سعر منشور لخدمة غير موجودة في قائمة المنتجات.",
+    "5) ربط السعر بالمنتج يتم بقواعد مكتوبة في data/sppi/config/sppi_pages.json (رابط الصفحة + نمط نصي) وليس بالتخمين. بند يبدأ بـ '+' سعر منشور لخدمة غير موجودة في قائمة المنتجات.",
     "6) إمكانية الحصول على السعر: Scraping = جُمع آلياً في هذا التشغيل؛ Online فقط = يظهر للشخص على الموقع/التطبيق لكن لا يمكن جمعه آلياً (robots.txt يمنع، حماية، خطوة حجز أو تسجيل)؛ لا هذا ولا ذاك = لا يوجد سعر منشور (عرض سعر/عقد B2B أو لا يوجد موقع).",
     "7) عمود 'تم التحقق' في حالة Online فقط: yes = شوهد السعر فعلاً، no = متوقع من طبيعة الخدمة ويحتاج تأكيداً يدوياً.",
     "8) عنوان IP المستخدم في التشغيل ليس إماراتياً؛ المواقع التي تغيّر المحتوى حسب الدولة (مثل OSN) مذكورة في الملاحظات.",
@@ -262,8 +266,8 @@ def run(run_date: str | None = None, only: list[str] | None = None, out_root: Pa
     run_date = run_date or date.today().isoformat()
     products, companies = load_products(), load_companies()
     pages, drop_labels = load_pages(products)
-    status_cfg = json.load(open(ROOT / "config/sppi_status.json", encoding="utf-8"))
-    readings = json.load(open(ROOT / "config/sppi_image_transcriptions.json", encoding="utf-8"))
+    status_cfg = json.load(open(ROOT / "data/sppi/config/sppi_status.json", encoding="utf-8"))
+    readings = json.load(open(ROOT / "data/sppi/config/sppi_image_transcriptions.json", encoding="utf-8"))
     if only:
         pages = [p for p in pages if p["id"] in only or p["ser"] in only]
     run_dir = (out_root or ROOT / "data/sppi/runs") / run_date

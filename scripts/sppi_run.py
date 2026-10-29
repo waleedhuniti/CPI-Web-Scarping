@@ -1,7 +1,7 @@
-"""Collect SPPI H & J prices from the sources in config/sppi_sources.json.
+"""Collect SPPI H & J prices for the sample (configs in data/sppi/config/, kept out of git).
 
     python scripts/sppi_run.py                      # all sources, today's date
-    python scripts/sppi_run.py --only rta_nol,j1 --out /tmp/try   # page ids or company serials
+    python scripts/sppi_run.py --only <page id or serial>,... --out /tmp/try
     python scripts/sppi_run.py --date 2026-10-29
 
 Writes data/sppi/runs/<date>/: products_availability.csv, prices.csv, pages.csv, fetch_log.csv,

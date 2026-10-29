@@ -1,6 +1,6 @@
 """Import the SPPI H & J sample (companies + products/services) from the officer's workbook.
 
-    python scripts/sppi_import_products.py SPPI_HJ_Red_Companies.xlsx
+    python scripts/sppi_import_products.py <sample workbook>.xlsx
 
 Writes data/sppi/sample/companies.csv and data/sppi/sample/products.csv. Only identifying and classification columns
 are copied (no contact names, phones or e-mails).

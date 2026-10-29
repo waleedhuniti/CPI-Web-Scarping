@@ -5,7 +5,7 @@ For each amount the record keeps:
   * context    - the nearest heading above it and the text just before its list/table/block,
   * label      - the words in front of the amount inside the element ('Per KM Rate:', 'Daily:' ...),
   * after      - the short text right after it ('/Month 5% VAT Excluded 12 Month Contract').
-Which product of the sample a page's prices belong to is decided in config/sppi_pages.json, not guessed here.
+Which product of the sample a page's prices belong to is decided in data/sppi/config/sppi_pages.json, not guessed here.
 Amounts inside <header>, <nav> and <footer> are site chrome and are skipped unless the page config says the site
 lists its prices there; the run also drops price texts that repeat on most pages of the same site (banners such as
 'Trade in and save up to AED 4,500'). Table cells get their row label and column header as context.

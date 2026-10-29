@@ -1,9 +1,8 @@
 # CPI Web Scraping
 
-> **SPPI H & J (services producer prices)** - see [`docs/sppi.md`](docs/sppi.md): Scrapling-based collector for all 73
-> sampled transport/storage and information/communication companies (446 products, each with its serial, section H/J,
-> registered activity and product ISIC, and whether its price can be had by Scraping, Online only, or neither):
-> `python scripts/sppi_run.py`.
+> **SPPI H & J (services producer prices)** - see [`docs/sppi.md`](docs/sppi.md): Scrapling-based price collector
+> for the SPPI sample (`python scripts/sppi_run.py`). The sample itself and every output stay in `data/sppi/`,
+> which is git-ignored.
 
 Collect online grocery prices for the UAE CPI food basket (COICOP 011), matching each scraped product to a basket
 line **barcode first**, then name/description, with **quantity as a hard rule** (it must never change).

@@ -55,8 +55,8 @@ def test_bot_wall_detection():
 def test_robots_rules_are_obeyed(monkeypatch):
     net = Net(delay=0)
     monkeypatch.setattr(net, "_http", lambda url: (200, b"User-Agent: *\nDisallow: /\n", {}, url))
-    assert net.robots_state("https://www.du.ae/ultimate")[0] == "disallowed"
-    res = net.get("https://www.du.ae/ultimate")
+    assert net.robots_state("https://shop.example/plans")[0] == "disallowed"
+    res = net.get("https://shop.example/plans")
     assert res.outcome == "robots_disallowed" and res.body == b""
 
 
@@ -143,15 +143,17 @@ def test_oracle_api_items_and_tiers():
 
 
 # ---- Pinas Cargo ---------------------------------------------------------------------------------------
-def test_pinas_readings_are_consistent():
-    readings = json.loads((ROOT / "config/sppi_image_transcriptions.json").read_text(encoding="utf-8"))["pinas_cargo"]
-    for r in readings:
-        assert len(r["sha256"]) == 64
-        assert all(len(row["values"]) == len(r["columns"]) for row in r["rows"])
-    recs = [x for r in readings for x in pinas.records_from_reading(r)]
-    assert len(recs) == 52
-    air = next(r for r in readings if r["id"] == "pinas_air_cargo")
-    assert air["rows"][0]["values"][0] == 465.0     # also stated in the site's alt text ('AED 465')
+def test_pinas_records_from_reading():
+    reading = {"id": "air", "sha256": "0" * 64, "read_on": "2026-10-29", "currency": "AED",
+               "currency_basis": "printed on the image", "title": "Air cargo UAE -> Philippines, temporary rates",
+               "effective": "", "columns": ["Manila", "Luzon"],
+               "rows": [{"label": "31 kg (flat rate)", "unit": "per box", "values": [465.0, 465.0]}],
+               "extras": [{"label": "Airway bill fee", "unit": "per shipment", "price": 15.0}]}
+    recs = pinas.records_from_reading(reading)
+    assert [(r["item"], r["spec"], r["price"]) for r in recs] == [
+        ("Air cargo UAE -> Philippines - 31 kg (flat rate)", "destination Manila", 465.0),
+        ("Air cargo UAE -> Philippines - 31 kg (flat rate)", "destination Luzon", 465.0),
+        ("Air cargo UAE -> Philippines - Airway bill fee", "", 15.0)]
 
 
 def test_pinas_ocr_agreement_counts_each_value_once():
@@ -220,16 +222,16 @@ def test_ups_fee_lines():
 
 # ---- linking to the sample products --------------------------------------------------------------------
 PRODUCTS = {
-    "h4-01": dict(product_id="h4-01", ser="h4", section="H", company="Dubai Taxi", isic_registered="4922", red="نعم",
+    "x1-01": dict(product_id="x1-01", ser="x1", section="H", company="Taxi Co", isic_registered="4922", red="نعم",
                   type="خدمة", product="Taxi", isic_product="4922", isic_product_name="", source_url=""),
-    "h4-02": dict(product_id="h4-02", ser="h4", section="H", company="Dubai Taxi", isic_registered="4922", red="نعم",
+    "x1-02": dict(product_id="x1-02", ser="x1", section="H", company="Taxi Co", isic_registered="4922", red="نعم",
                   type="خدمة", product="Limousine", isic_product="4922", isic_product_name="", source_url=""),
-    "j2-01": dict(product_id="j2-01", ser="j2", section="J", company="du", isic_registered="6110", red="نعم",
-                  type="منتج", product="Ultimate Plans", isic_product="6110", isic_product_name="", source_url=""),
+    "y1-01": dict(product_id="y1-01", ser="y1", section="J", company="Telecom Co", isic_registered="6110", red="نعم",
+                  type="منتج", product="Home plans", isic_product="6110", isic_product_name="", source_url=""),
 }
-COMPANIES = {"h4": dict(ser="h4", section="H", name_en="Dubai Taxi", isic="4922", red="نعم",
+COMPANIES = {"x1": dict(ser="x1", section="H", name_en="Taxi Co", isic="4922", red="نعم",
                         scraping_reason="sheet reason"),
-             "j2": dict(ser="j2", section="J", name_en="du", isic="6110", red="نعم", scraping_reason="")}
+             "y1": dict(ser="y1", section="J", name_en="Telecom Co", isic="6110", red="نعم", scraping_reason="")}
 
 
 def _rec(item, price, text):
@@ -239,15 +241,15 @@ def _rec(item, price, text):
 
 
 def test_map_records_rules_extras_and_dedupe():
-    page = dict(id="p", ser="h4", map=[{"match": "Limo", "product": "h4-02"}, {"product": "h4-01"},
+    page = dict(id="p", ser="x1", map=[{"match": "Limo", "product": "x1-02"}, {"product": "x1-01"},
                                        {"match": "Rental", "product": "+Taxi rental"}])
     recs = [_rec("Limousine | Per KM Rate", 3.9, "Per KM Rate: AED 3.90"),
             _rec("Limousine | Per KM Rate", 3.9, "Per KM Rate: AED 3.90"),       # same text twice on the page
             _rec("Rental | 2 hours", 400.0, "2 hours - AED 400")]
     out = sppi_run.map_records(page, recs, PRODUCTS, COMPANIES, "2026-10-29")
     got = sorted((r["product_id"] or "+" + r["product"], r["price"]) for r in out)
-    assert got == [("+Taxi rental", 400.0), ("h4-01", 3.9), ("h4-01", 400.0), ("h4-02", 3.9)]
-    limo = next(r for r in out if r["product_id"] == "h4-02")
+    assert got == [("+Taxi rental", 400.0), ("x1-01", 3.9), ("x1-01", 400.0), ("x1-02", 3.9)]
+    limo = next(r for r in out if r["product_id"] == "x1-02")
     assert (limo["section"], limo["isic_registered"], limo["isic_product"], limo["in_sample"]) == ("H", "4922", "4922",
                                                                                                     "نعم")
     assert "_context" not in limo
@@ -256,14 +258,14 @@ def test_map_records_rules_extras_and_dedupe():
 
 
 def test_availability_scraping_online_and_neither():
-    prices = [dict(product_id="h4-01", currency="AED", price=5.0, source_url="https://x.ae/a"),
-              dict(product_id="h4-01", currency="AED", price=2.45, source_url="https://x.ae/a")]
-    status = {"companies": {"j2": {"status": "online", "verified": "yes", "reason": "robots.txt forbids"}},
+    prices = [dict(product_id="x1-01", currency="AED", price=5.0, source_url="https://x.ae/a"),
+              dict(product_id="x1-01", currency="AED", price=2.45, source_url="https://x.ae/a")]
+    status = {"companies": {"y1": {"status": "online", "verified": "yes", "reason": "robots.txt forbids"}},
               "products": {}}
     rows = {r["product_id"]: r for r in sppi_run.availability(PRODUCTS, COMPANIES, prices, status)}
-    assert rows["h4-01"]["availability"] == sppi_run.SCRAPING and rows["h4-01"]["price_range"] == "2.45 - 5.00"
-    assert rows["j2-01"]["availability"] == sppi_run.ONLINE and rows["j2-01"]["verified"] == "yes"
-    assert rows["h4-02"]["availability"] == sppi_run.NEITHER and rows["h4-02"]["reason"] == "sheet reason"
+    assert rows["x1-01"]["availability"] == sppi_run.SCRAPING and rows["x1-01"]["price_range"] == "2.45 - 5.00"
+    assert rows["y1-01"]["availability"] == sppi_run.ONLINE and rows["y1-01"]["verified"] == "yes"
+    assert rows["x1-02"]["availability"] == sppi_run.NEITHER and rows["x1-02"]["reason"] == "sheet reason"
 
 
 def test_drop_repeated_removes_site_banner_only():
@@ -273,6 +275,9 @@ def test_drop_repeated_removes_site_banner_only():
     assert all([r["price"] for r in recs] == [float(i)] for i, recs in enumerate(out.values()))
 
 
+@pytest.mark.skipif(not (ROOT / "data/sppi/config/sppi_pages.json").exists()
+                    or not (ROOT / "data/sppi/sample/products.csv").exists(),
+                    reason="the sample config lives in data/sppi/ on the officer's machine (not in git)")
 def test_pages_config_points_at_existing_products():
     products = sppi_run.load_products()
     pages, drop_labels = sppi_run.load_pages(products)       # raises on an unknown product_id

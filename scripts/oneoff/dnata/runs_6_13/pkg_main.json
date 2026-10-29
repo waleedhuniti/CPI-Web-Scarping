@@ -117,5 +117,14 @@
   "flight": "EK0051 15:50 / EK0052 21:25",
   "flight_delta": 571.5,
   "total": 7079.3
+ },
+ "12": {
+  "row": 12,
+  "city": "Munich",
+  "sheet_name": "Pullman Munich",
+  "destination": "Munich, Germany (462)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
  }
 }

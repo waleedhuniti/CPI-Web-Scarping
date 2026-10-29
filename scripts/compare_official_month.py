@@ -18,7 +18,9 @@ import openpyxl
 from openpyxl.chart import BarChart, Reference
 from openpyxl.styles import Font, PatternFill, Alignment
 
-WEIGHT = re.compile(r"(\d|^)\s*(كغ|كجم|كيلو|غ|غم|غرام|جرام|جم|مل|ملل|لتر|ل\b|kg|g\b|ml|l\b)", re.I)
+# a quantity in a weight or volume unit ("400 غ", "1.5 ليتر", "6 * 125 ml", "ا لتر"); a unit followed by a letter does not count
+# (غرفه، غسالة، ملم، كيلووات). The Dataiku flow (docs/dataiku_flow_official_vs_scraped.md) uses the same pattern.
+WEIGHT = re.compile(r"(?:^|[\d\s*x×.])\s*(كغم?|كجم?|كيلو(?:غرام)?|غم?|غرام|جرام|جم|ملل?|لتر|ليتر|kg|gm?|gr|ml|cl|ltr|lt|l)(?![^\W\d_])", re.I)
 FAR = 3.0
 SHORT = {"أجهزة أخرى (غير كهربائية) وأصناف ومنتجات معدة للعناية الشخصية": "منتجات العناية الشخصية",
          "منتجات الاغذية غير المصنفة تحت بند اخر": "أغذية أخرى", "السكر والمربي والعسل والشوكلاتة والحلوي": "السكر والحلويات",

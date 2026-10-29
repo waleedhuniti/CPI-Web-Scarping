@@ -1,0 +1,303 @@
+{
+ "DEL": {
+  "airport": "DEL",
+  "out": {
+   "date": "2026-11-07",
+   "shifted_days": 1,
+   "lowest": 3993.0,
+   "highest": 3993.0,
+   "flights": [
+    {
+     "flight": "FZ 441",
+     "dep": "2026-11-07T05:05:00",
+     "from": 3993.0,
+     "route": "DXB-DEL"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-14",
+   "shifted_days": 1,
+   "lowest": 1169.0,
+   "highest": 1169.0,
+   "flights": [
+    {
+     "flight": "FZ 442",
+     "dep": "2026-11-14T10:55:00",
+     "from": 1169.0,
+     "route": "DEL-DXB"
+    }
+   ]
+  }
+ },
+ "RUH": {
+  "airport": "RUH",
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 530.0,
+   "highest": 680.0,
+   "flights": [
+    {
+     "flight": "FZ 847",
+     "dep": "2026-11-06T07:50:00",
+     "from": 530.0,
+     "route": "DXB-RUH"
+    },
+    {
+     "flight": "FZ 855",
+     "dep": "2026-11-06T19:20:00",
+     "from": 680.0,
+     "route": "DXB-RUH"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 505.0,
+   "highest": 740.0,
+   "flights": [
+    {
+     "flight": "FZ 856",
+     "dep": "2026-11-13T21:25:00",
+     "from": 505.0,
+     "route": "RUH-DXB"
+    },
+    {
+     "flight": "FZ 848",
+     "dep": "2026-11-13T09:55:00",
+     "from": 740.0,
+     "route": "RUH-DXB"
+    }
+   ]
+  }
+ },
+ "KHI": {
+  "airport": "KHI",
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 450.0,
+   "highest": 796.0,
+   "flights": [
+    {
+     "flight": "FZ 335",
+     "dep": "2026-11-06T12:25:00",
+     "from": 450.0,
+     "route": "DXB-KHI"
+    },
+    {
+     "flight": "FZ 329",
+     "dep": "2026-11-06T19:55:00",
+     "from": 650.0,
+     "route": "DXB-KHI"
+    },
+    {
+     "flight": "FZ 333",
+     "dep": "2026-11-06T06:00:00",
+     "from": 796.0,
+     "route": "DXB-KHI"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 560.0,
+   "highest": 560.0,
+   "flights": [
+    {
+     "flight": "FZ 330",
+     "dep": "2026-11-13T23:55:00",
+     "from": 560.0,
+     "route": "KHI-DXB"
+    },
+    {
+     "flight": "FZ 336",
+     "dep": "2026-11-13T16:25:00",
+     "from": 560.0,
+     "route": "KHI-DXB"
+    },
+    {
+     "flight": "FZ 334",
+     "dep": "2026-11-13T10:00:00",
+     "from": 560.0,
+     "route": "KHI-DXB"
+    }
+   ]
+  }
+ },
+ "CMB": {
+  "airport": "CMB",
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 655.0,
+   "highest": 760.0,
+   "flights": [
+    {
+     "flight": "FZ 549",
+     "dep": "2026-11-06T10:20:00",
+     "from": 655.0,
+     "route": "DXB-CMB"
+    },
+    {
+     "flight": "FZ 569",
+     "dep": "2026-11-06T18:45:00",
+     "from": 655.0,
+     "route": "DXB-CMB"
+    },
+    {
+     "flight": "FZ 579",
+     "dep": "2026-11-06T02:15:00",
+     "from": 760.0,
+     "route": "DXB-CMB"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 755.0,
+   "highest": 755.0,
+   "flights": [
+    {
+     "flight": "FZ 550",
+     "dep": "2026-11-13T17:20:00",
+     "from": 755.0,
+     "route": "CMB-DXB"
+    },
+    {
+     "flight": "FZ 570",
+     "dep": "2026-11-13T01:45:00",
+     "from": 755.0,
+     "route": "CMB-DXB"
+    },
+    {
+     "flight": "FZ 580",
+     "dep": "2026-11-13T09:15:00",
+     "from": 755.0,
+     "route": "CMB-DXB"
+    }
+   ]
+  }
+ },
+ "IST": {
+  "airport": "IST",
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 765.0,
+   "highest": 765.0,
+   "flights": [
+    {
+     "flight": "FZ 727",
+     "dep": "2026-11-06T13:20:00",
+     "from": 765.0,
+     "route": "DXB-IST"
+    },
+    {
+     "flight": "FZ 755",
+     "dep": "2026-11-06T20:35:00",
+     "from": 765.0,
+     "route": "DXB-IST"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 745.0,
+   "highest": 745.0,
+   "flights": [
+    {
+     "flight": "FZ 728",
+     "dep": "2026-11-13T18:35:00",
+     "from": 745.0,
+     "route": "IST-DXB"
+    },
+    {
+     "flight": "FZ 756",
+     "dep": "2026-11-13T01:55:00",
+     "from": 745.0,
+     "route": "IST-DXB"
+    }
+   ]
+  }
+ },
+ "ALY": {
+  "airport": "ALY",
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 635.0,
+   "highest": 635.0,
+   "flights": [
+    {
+     "flight": "FZ 175",
+     "dep": "2026-11-06T19:10:00",
+     "from": 635.0,
+     "route": "DXB-ALY"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 645.0,
+   "highest": 645.0,
+   "flights": [
+    {
+     "flight": "FZ 176",
+     "dep": "2026-11-13T22:45:00",
+     "from": 645.0,
+     "route": "ALY-DXB"
+    }
+   ]
+  }
+ },
+ "AMM": {
+  "airport": "AMM",
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 435.0,
+   "highest": 435.0,
+   "flights": [
+    {
+     "flight": "FZ 143",
+     "dep": "2026-11-06T19:30:00",
+     "from": 435.0,
+     "route": "DXB-AMM"
+    },
+    {
+     "flight": "FZ 147",
+     "dep": "2026-11-06T07:00:00",
+     "from": 435.0,
+     "route": "DXB-AMM"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 615.0,
+   "highest": 615.0,
+   "flights": [
+    {
+     "flight": "FZ 148",
+     "dep": "2026-11-13T10:55:00",
+     "from": 615.0,
+     "route": "AMM-DXB"
+    },
+    {
+     "flight": "FZ 144",
+     "dep": "2026-11-13T23:15:00",
+     "from": 615.0,
+     "route": "AMM-DXB"
+    }
+   ]
+  }
+ }
+}

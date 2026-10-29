@@ -1,0 +1,35 @@
+{
+ "RUH": {
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 520.0,
+   "highest": 520.0,
+   "flights": [
+    {
+     "flight": "SV597",
+     "dep": "13:20",
+     "from": 520.0
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 430.0,
+   "highest": 470.0,
+   "flights": [
+    {
+     "flight": "SV596",
+     "dep": "09:05",
+     "from": 470.0
+    },
+    {
+     "flight": "SV552",
+     "dep": "18:05",
+     "from": 430.0
+    }
+   ]
+  }
+ }
+}

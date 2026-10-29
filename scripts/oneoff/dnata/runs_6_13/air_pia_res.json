@@ -1,0 +1,36 @@
+{
+ "ISB": {
+  "out": {
+   "date": "2026-11-06",
+   "shifted_days": 0,
+   "lowest": 580.0,
+   "highest": 580.0,
+   "flights": [
+    {
+     "flight": "PK-212",
+     "dep": "11:00 AM",
+     "from": 580.0,
+     "brands": {
+      "LITE": 580.0,
+      "STANDARD": 615.0,
+      "FREEDOM": 635.0
+     }
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "lowest": 690.0,
+   "highest": 690.0,
+   "flights": [
+    {
+     "flight": "PK-233",
+     "dep": "01:45 AM",
+     "from": 690.0,
+     "brands": {}
+    }
+   ]
+  }
+ }
+}

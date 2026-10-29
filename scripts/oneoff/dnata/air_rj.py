@@ -42,7 +42,7 @@ async def search(ctx, out, back):
             s = g["segments"]
             if len(s) != 1 or s[0].get("nbrOfStops") or s[0]["airline"]["code"] != "RJ": continue
             flights[g["proposedBoundId"]] = {"flight": "RJ " + s[0]["flightNumber"],
-                                             "dep": str(dt.datetime.strptime(s[0]["beginDate"], "%b %d, %Y %I:%M:%S %p"))}
+                                             "dep": str(dt.datetime.strptime(" ".join(s[0]["beginDate"].replace(",", " ").split()), "%b %d %Y %I:%M:%S %p"))}
         fares = defaultdict(dict)
         for r in A["recommendationList"]:
             b = r["bounds"][bi]

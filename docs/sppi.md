@@ -53,7 +53,9 @@ On every product (sheet `المنتجات`), page (`ملخص الصفحات`) an
    priced service that is not in the product list). Every source URL of the products sheet is also probed, so each
    company has at least one logged request.
 2. Parsers: `rta`, `megayachts`, `ups` (tariff PDF: rate tables + additional fees), `oracle` (price-list API in AED),
-   `pinas` (image rate cards), `tables` (HTML price matrices) and `generic`, which finds the smallest element that
+   `pinas` (image rate cards), `tables` (HTML price matrices), `airfares` (airlines' published 'from' fares:
+   the Emirates offers page and flydubai's route pages - never the booking engine, which robots.txt disallows)
+   and `generic`, which finds the smallest element that
    prints an amount and keeps its heading, card title, list labels ('Friday'), table row/column and the text after it
    ('/Month 5% VAT Excluded'). Banners repeated on most pages of a site are dropped.
 3. Rules: robots.txt first; at least 2 s between requests to a host; no challenge solving, no login; every fetched

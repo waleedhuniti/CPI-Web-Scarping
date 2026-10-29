@@ -19,11 +19,11 @@ import re
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urljoin, urlsplit
 
 from .fetch import FetchResult, Net
 from .output import write_tables
-from .sources import generic, megayachts, oracle, pinas, probe, rta, tables, ups
+from .sources import airfares, generic, megayachts, oracle, pinas, probe, rta, tables, ups
 
 ROOT = Path(__file__).resolve().parent.parent
 STALE_DAYS = 365        # a tariff whose effective date is older than this is flagged: look for a newer edition
@@ -117,6 +117,15 @@ def parse_page(page: dict, res: FetchResult, net: Net, run_dir: Path, run_date: 
         recs, img_notes = _pinas(page, res, net, run_dir, readings.get("pinas_cargo", []))
         notes += img_notes
         mentions = probe.mentions(res.text())
+    elif parser == "emirates_featured":
+        dep = page.get("departure", "DXB")
+        parsed, seen = airfares.emirates_featured(res.text(), dep)
+        recs = [dict(r, status="parsed_page") for r in parsed]
+        if not parsed:
+            notes.append(f"no {dep} departures on the page (it lists departures for the visitor's country: "
+                         f"{', '.join(sorted(seen)) or 'none'}) - run from a UAE network")
+    elif parser == "flydubai_routes":
+        recs = _flydubai_routes(page, res, net, run_dir, notes)
     elif parser == "tables":
         recs = [dict(r, status="parsed_page") for r in tables.parse(res.text(), page.get("unit", ""))]
     elif parser == "generic":
@@ -141,6 +150,32 @@ def parse_page(page: dict, res: FetchResult, net: Net, run_dir: Path, run_date: 
             continue
         out.append(r if "source_url" in r else dict(ev, **r))
     return out, mentions, notes
+
+
+def _flydubai_routes(page: dict, res: FetchResult, net: Net, run_dir: Path, notes: list[str]) -> list[dict]:
+    """The 'Lowest fares' page gives the route pages; each route page gives its lowest one-way / return fare.
+    page['routes'] (optional) fixes the basket of route slugs, e.g. ["baku", "tbilisi"]."""
+    links = airfares.flydubai_route_links(res.text())
+    if page.get("routes"):
+        wanted = {f"/en-ae/flights-from-dubai-to-{r}/" for r in page["routes"]}
+        missing = wanted - {link.rstrip("/") + "/" for link in links}
+        if missing:
+            notes.append(f"routes not linked from the page: {', '.join(sorted(missing))}")
+        links = sorted(wanted)
+    records = []
+    for link in links:
+        url = urljoin(res.final_url or res.url, link)
+        r = net.get(url, tag=page["id"])
+        snap = save_snapshot(r, run_dir, f"{page['id']}__{link.strip('/').split('/')[-1]}")
+        if not r.ok:
+            notes.append(f"{link}: {r.outcome} {r.status}")
+            continue
+        found = airfares.flydubai_route(r.text())
+        if not found:
+            notes.append(f"{link}: no 'Route information' fares on the page")
+        records += [dict(evidence(r, snap), **x, status="parsed_page") for x in found]
+    notes.append(f"{len(links)} route pages read")
+    return records
 
 
 def _pinas(page: dict, res: FetchResult, net: Net, run_dir: Path, readings: list[dict]):

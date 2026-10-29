@@ -284,3 +284,32 @@ def test_pages_config_points_at_existing_products():
     assert drop_labels
     assert len({p["id"] for p in pages}) == len(pages)
     assert all(p["ser"] in {x["ser"] for x in products.values()} for p in pages)
+
+
+# ---- airline 'from' fares -----------------------------------------------------------------------------
+from sppi.sources import airfares  # noqa: E402
+
+
+def test_emirates_featured_reads_card_code_and_keeps_only_the_departure_airport():
+    card = ('<li data-departure="{dep}"><a href="/ae/english/book/featured-fares/?intc_name={code}"></a>'
+            '<p>India</p><p>Mumbai (Bombay)</p><p>Book until 29 Oct 26</p><p>Economy Class Return</p>'
+            '<p>from {cur} {price}*</p></li>')
+    html = "<ul>" + card.format(dep="DXB", code="Y:DXB-BOM:AED%201,050*", cur="AED", price="1,050") + \
+        card.format(dep="BOS", code="Y:BOS-BOM:USD%20874*", cur="USD", price="874") + "</ul>"
+    recs, seen = airfares.emirates_featured(html, "DXB")
+    assert seen == {"DXB", "BOS"}
+    assert [(r["item"], r["price"], r["currency"], r["spec"]) for r in recs] == [
+        ("Emirates fare DXB-BOM (Mumbai (Bombay)) - Economy Class Return", 1050.0, "AED", "Book until 29 Oct 26")]
+
+
+def test_flydubai_route_links_and_route_fares():
+    index = ('<a href="/en-ae/flights-from-dubai-to-baku/">Baku</a><a href="/en-ae/flights-from-baku-to-dubai/">x</a>'
+             '<a href="/en-ae/flights-from-dubai-to-baku/">again</a>')
+    assert airfares.flydubai_route_links(index) == ["/en-ae/flights-from-dubai-to-baku/"]
+    page = ('<h2>Route information for Dubai to Baku Flights</h2><ul>'
+            '<li><p>Lowest fare (One way)</p><p>AED 840</p></li><li><p>Lowest fare (Return)</p><p>AED 1,711</p></li>'
+            '</ul><h2>Frequently asked questions</h2><p>a ticket costs a minimum of AED 788</p>')
+    recs = airfares.flydubai_route(page)
+    assert [(r["item"], r["price"]) for r in recs] == [
+        ("flydubai fare Dubai to Baku - lowest fare (One way)", 840.0),
+        ("flydubai fare Dubai to Baku - lowest fare (Return)", 1711.0)]

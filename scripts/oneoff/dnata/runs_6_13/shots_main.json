@@ -30,5 +30,37 @@
   "page_url": "https://www.dnatatravel.com/holidays/hotels/123600?sort=PRICE_LOWEST_FIRST&tripId=9a5ba314-c47c-4a7e-8a0c-51f9793ad17a&checkIn=2026-11-06&checkOut=2026-11-10&destIds=25943&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
   "nights_shown": 4,
   "notice": null
+ },
+ "11": {
+  "shown_total": 7079.0,
+  "flight_delta_shown": 572.0,
+  "screenshot": "runs_6_13/shots/11_Holiday_Inn_Munich_City_Centre_.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/113055?sort=PRICE_LOWEST_FIRST&tripId=3458dcbe-999b-4c1d-b079-1ba094cad9db&checkIn=2026-11-06&checkOut=2026-11-10&destIds=462&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "20": {
+  "shown_total": 12506.0,
+  "flight_delta_shown": 1879.0,
+  "screenshot": "runs_6_13/shots/20_Sun_Siyam_Olhuveli.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1490933?sort=PRICE_LOWEST_FIRST&tripId=38a462b7-777b-4e59-a9e8-a8491a63c483&checkIn=2026-11-06&checkOut=2026-11-10&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 07 Nov 2026 - Tue 10 Nov 2026 (3 nights)  To Fri 06 Nov 2026 - Tue 10 Nov 2026 (4 nights)  Proceed Cancel"
+ },
+ "21": {
+  "shown_total": 10019.0,
+  "flight_delta_shown": 1879.0,
+  "screenshot": "runs_6_13/shots/21_Meeru_Maldives_Resort_Island.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1490812?sort=PRICE_LOWEST_FIRST&tripId=af489ebc-a77a-4b0a-b4fd-5a50cb069f2b&checkIn=2026-11-06&checkOut=2026-11-10&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 07 Nov 2026 - Tue 10 Nov 2026 (3 nights)  To Fri 06 Nov 2026 - Tue 10 Nov 2026 (4 nights)  Proceed Cancel"
+ },
+ "24": {
+  "shown_total": 3210.0,
+  "flight_delta_shown": 404.0,
+  "screenshot": "runs_6_13/shots/24_Corp_Amman_Hotel.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/3778112?sort=PRICE_LOWEST_FIRST&tripId=813b60c5-bfb1-484d-b3be-03a520457d12&checkIn=2026-11-06&checkOut=2026-11-10&destIds=311&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
  }
 }

@@ -1,0 +1,22 @@
+{
+ "14": {
+  "shown_total": 4710.0,
+  "flight_delta_shown": 1802.0,
+  "screenshot": "runs_6_13/shots/14_Holiday_Inn_Bangkok_Silom.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/320684?sort=PRICE_LOWEST_FIRST&tripId=d56bb644-be34-443b-baf5-67d95a8d123c&checkIn=2026-11-06&checkOut=2026-11-11&destIds=364&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "15": {
+  "error": "TimeoutError: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Change flight\").first\n    - locator resolved to <button tabindex=\"0\" type=\"button\" class=\"c"
+ },
+ "17": {
+  "error": "TimeoutError: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Change flight\").first\n    - locator resolved to <button tabindex=\"0\" type=\"button\" class=\"c"
+ },
+ "18": {
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+ },
+ "19": {
+  "error": "no Emirates direct flight in the list"
+ }
+}

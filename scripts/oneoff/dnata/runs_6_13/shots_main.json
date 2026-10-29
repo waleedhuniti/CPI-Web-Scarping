@@ -1,0 +1,34 @@
+{
+ "4": {
+  "shown_total": 5036.0,
+  "flight_delta_shown": 1006.0,
+  "screenshot": "runs_6_13/shots/04_Radisson_Blu_Hotel_Istanbul_Sisli.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/3692611?sort=PRICE_LOWEST_FIRST&tripId=8785ff59-0665-4e0b-b036-81c959ff2107&checkIn=2026-11-06&checkOut=2026-11-10&destIds=384&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "6": {
+  "shown_total": 4058.0,
+  "flight_delta_shown": 1006.0,
+  "screenshot": "runs_6_13/shots/06_Titanic_City_Taksim.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/740947?sort=PRICE_LOWEST_FIRST&tripId=88f33a70-eb8e-4662-854b-df49352d35fe&checkIn=2026-11-06&checkOut=2026-11-10&destIds=384&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "7": {
+  "shown_total": 7520.0,
+  "flight_delta_shown": 1287.0,
+  "screenshot": "runs_6_13/shots/07_DoubleTree_by_Hilton_London_Tower_of_Lon.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/2237703?sort=PRICE_LOWEST_FIRST&tripId=ba5d6585-4eac-43e5-be12-bdcf66b7dfbc&checkIn=2026-11-06&checkOut=2026-11-10&destIds=25943&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "9": {
+  "shown_total": 7769.0,
+  "flight_delta_shown": 1287.0,
+  "screenshot": "runs_6_13/shots/09_Hilton_London_Metropole.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/123600?sort=PRICE_LOWEST_FIRST&tripId=9a5ba314-c47c-4a7e-8a0c-51f9793ad17a&checkIn=2026-11-06&checkOut=2026-11-10&destIds=25943&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ }
+}

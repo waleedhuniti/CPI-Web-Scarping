@@ -1,0 +1,10 @@
+{
+ "5": {
+  "shown_total": 3999.0,
+  "flight_delta_shown": 1006.0,
+  "screenshot": "runs_6_13/shots/05_Dosso_Dossi_Hotels_Downtown.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/4960808?sort=PRICE_LOWEST_FIRST&tripId=8feeb44e-9601-4830-8738-3c86753c3e20&checkIn=2026-11-06&checkOut=2026-11-10&destIds=384&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ }
+}

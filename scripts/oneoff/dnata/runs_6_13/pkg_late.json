@@ -71,5 +71,21 @@
   "flight": "EK0344 21:30 / EK0343 01:25",
   "flight_delta": 1211.4,
   "total": 4789.0
+ },
+ "19": {
+  "row": 19,
+  "city": "Kuala Lumpur",
+  "sheet_name": "The Royale Chulan Kuala Lumpur",
+  "destination": "Kuala Lumpur, Malaysia (485)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "The Royale Chulan Kuala Lumpur",
+  "estab_id": "1670773",
+  "stars": 5,
+  "board": "Bed And Breakfast",
+  "package_default": 3528.6,
+  "default_flight": "SriLankan Airlines / SriLankan Airlines / SriLankan Airlines / SriLankan Airlines",
+  "flight": "EK0344 21:30 / EK0343 01:25",
+  "flight_delta": 1211.4,
+  "total": 4740.0
  }
 }

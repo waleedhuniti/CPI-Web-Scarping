@@ -12,3 +12,5 @@ data/catalogue/*/catalogue.json
 data/exports/*_screenshots.zip
 scripts/oneoff/dnata/runs_*/*.log
 scripts/oneoff/dnata/runs_*/shots/
+scripts/oneoff/dnata/cmp/
+scripts/oneoff/dnata/maldives_next_*.txt

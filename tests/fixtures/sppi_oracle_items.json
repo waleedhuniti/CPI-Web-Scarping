@@ -1,0 +1,47 @@
+{
+ "lastUpdated": "2026-10-08T14:38:16.165Z",
+ "items": [
+  {
+   "partNumber": "B107951",
+   "displayName": "Oracle Exadata Exascale VM Filesystem Storage",
+   "metricName": "Gigabyte (GB) Storage Capacity Per Month",
+   "serviceCategory": "Exadata Exascale Infrastructure",
+   "currencyCodeLocalizations": [
+    {
+     "currencyCode": "AED",
+     "prices": [
+      {
+       "model": "PAY_AS_YOU_GO",
+       "value": 0.3669327
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "partNumber": "B108190",
+   "displayName": "Oracle Cloud Guard Instance Security Adhoc Queries Enterprise",
+   "metricName": "Request",
+   "serviceCategory": "Cloud Guard - Security",
+   "currencyCodeLocalizations": [
+    {
+     "currencyCode": "AED",
+     "prices": [
+      {
+       "model": "PAY_AS_YOU_GO",
+       "value": 0,
+       "rangeMin": 0,
+       "rangeMax": 950000
+      },
+      {
+       "model": "PAY_AS_YOU_GO",
+       "value": 0.003673,
+       "rangeMin": 950000,
+       "rangeMax": 999999999999999
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,5 +1,8 @@
 # CPI Web Scraping
 
+> **SPPI H & J (services producer prices)** - see [`docs/sppi.md`](docs/sppi.md): Scrapling-based collector for the
+> sampled transport/storage and information/communication companies (`python scripts/sppi_run.py`).
+
 Collect online grocery prices for the UAE CPI food basket (COICOP 011), matching each scraped product to a basket
 line **barcode first**, then name/description, with **quantity as a hard rule** (it must never change).
 
@@ -78,7 +81,7 @@ python -m pytest
 
 ## Status
 
-* 87 offline tests (`python -m pytest`).
+* 107 offline tests (`python -m pytest`): 87 CPI + 20 SPPI.
 * Run 2026-10-05 done for Carrefour and Lulu (Dubai delivery area for Carrefour; Lulu showed no area in cheap mode and an
   Abu Dhabi area in browser mode - prices were the same in the cases compared).
 * Next: supply last month's price per basket line (the anchor for the +/-30% origin rule and for a month-on-month

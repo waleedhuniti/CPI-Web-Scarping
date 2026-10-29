@@ -160,5 +160,14 @@
   "flight": "EK0656 02:25 / EK0653 23:00",
   "flight_delta": 1879.3,
   "total": 10019.28
+ },
+ "22": {
+  "row": 22,
+  "city": "Maldives",
+  "sheet_name": "Summer Island Maldives",
+  "destination": "Maldives, None (65)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
  }
 }

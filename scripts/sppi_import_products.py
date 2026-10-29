@@ -2,10 +2,12 @@
 
     python scripts/sppi_import_products.py <sample workbook>.xlsx
 
-Writes data/sppi/sample/companies.csv and data/sppi/sample/products.csv. Only identifying and classification columns
-are copied (no contact names, phones or e-mails).
-  companies: ser, section (H/J), name_ar, name_en, isic (registered activity), isic_name, red, website,
-             scraping_rating, scraping_reason (from sheet 'تقييم Scraping')
+Writes data/sppi/sample/companies.csv, products.csv and activities.csv (all git-ignored). Only identifying,
+classification and production columns are copied (no contact names, phones or e-mails).
+  companies:  ser, section (H/J), name_ar, name_en, isic (registered activity), isic_name, red, website,
+              production_adjusted, weight (% of the full frame), scraping_rating, scraping_reason
+  activities: the frame's summary rows - code (SPPI, H/J, 2-, 3- and 4-digit ISIC), level, names,
+              production_adjusted, weight
   products:  product_id (ser-NN), ser, section, company, isic_registered, red, type (منتج/خدمة), product,
              isic_product, isic_product_name, source_url, certainty
 """
@@ -21,12 +23,19 @@ OUT = ROOT / "data/sppi/sample"
 
 def main(path):
     wb = load_workbook(path, data_only=True)
-    companies = {}
+    companies, activities = {}, []
     for r in wb["اطار المصادر - H و J (الأحمر)"].iter_rows(min_row=2, values_only=True):
         if not r[0]:
+            # frame summary rows: SPPI total, section (H/J), division (2 digits), group (3), class (4)
+            code = str(r[5] if r[5] is not None else (r[4] or "")).strip()
+            if code:
+                level = {"SPPI": "total"}.get(code, "section" if code.isalpha() else f"{len(code)}-digit")
+                activities.append(dict(code=code, level=level, name_en=r[6] or "", name_ar=r[7] or "",
+                                       production_adjusted=r[12] or 0, weight=r[19] or 0))
             continue
         companies[r[0]] = dict(ser=r[0], section=r[4] or "", name_ar=r[2] or "", name_en=r[3] or "",
                                isic=r[5] or "", isic_name=r[6] or "", red=r[20] or "", website=r[17] or "",
+                               production_adjusted=r[12] or 0, weight=r[19] or 0,
                                scraping_rating="", scraping_reason="")
     for r in wb["تقييم Scraping"].iter_rows(min_row=2, values_only=True):
         if r[0] in companies:
@@ -43,12 +52,12 @@ def main(path):
                              product=r[5] or "", isic_product=r[6] or "", isic_product_name=r[7] or "",
                              source_url=r[11] or "", certainty=r[12] or ""))
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, rows in (("companies", list(companies.values())), ("products", products)):
+    for name, rows in (("companies", list(companies.values())), ("products", products), ("activities", activities)):
         with open(OUT / f"{name}.csv", "w", newline="", encoding="utf-8-sig") as f:
             w = csv.DictWriter(f, fieldnames=list(rows[0]))
             w.writeheader()
             w.writerows(rows)
-    print(f"{len(companies)} companies, {len(products)} products -> {OUT}")
+    print(f"{len(companies)} companies, {len(products)} products, {len(activities)} activity rows -> {OUT}")
 
 
 if __name__ == "__main__":

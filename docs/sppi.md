@@ -26,6 +26,7 @@ pip install -r requirements.txt
 python scripts/sppi_import_products.py <sample workbook>.xlsx   # -> data/sppi/sample/
 python scripts/sppi_run.py                                     # -> data/sppi/runs/<today>/
 python scripts/sppi_run.py --only <ser or page id>,... --out /tmp/try
+python scripts/sppi_run.py --rebuild <date>                    # rewrite a run's workbook, no fetching
 python -m pytest tests/test_sppi.py
 ```
 
@@ -65,6 +66,8 @@ On every product (sheet `المنتجات`), page (`ملخص الصفحات`) an
 
 | File / sheet | What |
 |---|---|
+| `coverage_by_activity.csv` / `ملخص التغطية`, `التغطية حسب النشاط` | weight reachable by Scraping / Online فقط / form for the SPPI total, H/J and every 2-, 3- and 4-digit activity of the frame (needs `activities.csv` from the importer) |
+| `coverage_by_company.csv` / `التغطية - الشركات` | each company: collection method (best of its products), products per method, adjusted production, weight |
 | `products_availability.csv` / `المنتجات` | one row per product: codes, availability, verified, number of prices, price range, reason |
 | `prices.csv` / `الأسعار` | one row per price x product: codes, item, price, currency, unit, price text, URL, HTTP status, time, method, snapshot, sha256 |
 | `pages.csv` / `ملخص الصفحات` | one row per page: outcome, robots, counts, notes |

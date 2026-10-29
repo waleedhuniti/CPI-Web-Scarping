@@ -22,7 +22,8 @@ from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 
 from .fetch import FetchResult, Net
-from .output import write_tables
+from . import coverage
+from .output import CSV_NAMES, write_tables
 from .sources import airfares, generic, megayachts, oracle, pinas, probe, rta, tables, ups
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -352,6 +353,32 @@ def run(run_date: str | None = None, only: list[str] | None = None, out_root: Pa
                               url=r.url, final_url=r.final_url, redirects="; ".join(r.redirects), mode=r.mode,
                               http_status=r.status, robots=r.robots, outcome=r.outcome, fetched_at=r.fetched_at,
                               seconds=r.seconds, bytes=len(r.body), sha256=r.sha256 if r.body else "", note=r.note))
-    write_tables(run_dir, run_date, dict(prices=prices, products=prod_rows, pages=list(page_rows.values()),
-                                          mentions=mentions, fetch_log=fetch_log), METHOD)
+    tables = dict(prices=prices, products=prod_rows, pages=list(page_rows.values()), mentions=mentions,
+                  fetch_log=fetch_log)
+    write_tables(run_dir, run_date, dict(tables, **coverage_tables(prod_rows, companies)), METHOD)
+    return run_dir
+
+
+def coverage_tables(prod_rows: list[dict], companies: dict) -> dict:
+    """Coverage by activity and by company, when the sample has production figures (activities.csv)."""
+    path = ROOT / "data/sppi/sample/activities.csv"
+    if not path.exists() or not any(c.get("production_adjusted") for c in companies.values()):
+        return {}
+    activities = list(csv.DictReader(open(path, encoding="utf-8-sig")))
+    total = next((float(a["production_adjusted"]) for a in activities if a["level"] == "total"), 0.0)
+    comp = coverage.company_rows(companies, coverage.company_classes(prod_rows), total)
+    act = coverage.activity_rows(activities, comp)
+    return dict(coverage=act, coverage_companies=comp, coverage_summary=coverage.summary_lines(act))
+
+
+def rebuild(run_date: str) -> Path:
+    """Rewrite a run's workbook (and coverage CSVs) from its CSVs and the current sample - no fetching."""
+    run_dir = ROOT / "data/sppi/runs" / run_date
+    read = (lambda key: list(csv.DictReader(open(run_dir / CSV_NAMES[key], encoding="utf-8-sig"))))
+    tables = {k: read(k) for k in ("prices", "products", "pages", "fetch_log", "mentions")}
+    for r in tables["prices"]:
+        r["price"] = float(r["price"])
+    for r in tables["products"]:
+        r["n_prices"] = int(r["n_prices"] or 0)
+    write_tables(run_dir, run_date, dict(tables, **coverage_tables(tables["products"], load_companies())), METHOD)
     return run_dir

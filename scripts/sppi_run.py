@@ -3,6 +3,7 @@
     python scripts/sppi_run.py                      # all sources, today's date
     python scripts/sppi_run.py --only <page id or serial>,... --out /tmp/try
     python scripts/sppi_run.py --date 2026-10-29
+    python scripts/sppi_run.py --rebuild 2026-10-29  # rewrite that run's workbook (e.g. after re-importing the sample)
 
 Writes data/sppi/runs/<date>/: products_availability.csv, prices.csv, pages.csv, fetch_log.csv,
 price_mentions.csv, SPPI_HJ_prices_<date>.xlsx and snapshots/ (every fetched page, PDF, JSON and image, gzipped).
@@ -13,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from sppi.run import run  # noqa: E402
+from sppi.run import rebuild, run  # noqa: E402
 
 
 def main():
@@ -21,7 +22,11 @@ def main():
     ap.add_argument("--only", help="comma-separated source ids")
     ap.add_argument("--date", help="run date YYYY-MM-DD (also the folder name), default today")
     ap.add_argument("--out", help="parent folder for the run, default data/sppi/runs")
+    ap.add_argument("--rebuild", metavar="DATE", help="rewrite the workbook of an existing run (no fetching)")
     args = ap.parse_args()
+    if args.rebuild:
+        print(f"rewritten: {rebuild(args.rebuild)}")
+        return
     run_dir = run(args.date, args.only.split(",") if args.only else None, Path(args.out) if args.out else None)
     print(f"\nwritten to {run_dir}")
 

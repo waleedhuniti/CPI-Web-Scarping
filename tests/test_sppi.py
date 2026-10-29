@@ -322,3 +322,30 @@ def test_unreadable_robots_is_read_again_on_the_next_page(monkeypatch):
     monkeypatch.setattr("sppi.fetch.time.sleep", lambda s: None)
     assert net.robots_state("https://shop.example/a")[0] == "unreadable"
     assert net.robots_state("https://shop.example/b")[0] == "allowed"
+
+
+# ---- coverage by activity ------------------------------------------------------------------------------
+from sppi import coverage  # noqa: E402
+
+
+def test_coverage_by_activity_levels_and_classes():
+    products = [dict(ser="a", availability="Scraping"), dict(ser="a", availability="لا هذا ولا ذاك"),
+                dict(ser="b", availability="Online فقط"), dict(ser="c", availability="لا هذا ولا ذاك")]
+    companies = {"a": dict(section="H", isic="5110", name_en="A", production_adjusted="60"),
+                 "b": dict(section="H", isic="5320", name_en="B", production_adjusted="10"),
+                 "c": dict(section="J", isic="5811", name_en="C", production_adjusted="30")}
+    activities = [dict(code="SPPI", level="total", production_adjusted="100"),
+                  dict(code="H", level="section", production_adjusted="70"),
+                  dict(code="51", level="2-digit", name_ar="النقل الجوي", production_adjusted="60"),
+                  dict(code="53", level="2-digit", name_ar="البريد", production_adjusted="10"),
+                  dict(code="J", level="section", production_adjusted="30"),
+                  dict(code="58", level="2-digit", name_ar="النشر", production_adjusted="30")]
+    comp = coverage.company_rows(companies, coverage.company_classes(products), 100.0)
+    assert [(c["ser"], c["collection"], c["n_scraping"], c["n_form"]) for c in comp] == [
+        ("a", coverage.SCRAPING, 1, 1), ("c", coverage.FORM, 0, 1), ("b", coverage.ONLINE, 0, 0)]
+    act = {r["code"]: r for r in coverage.activity_rows(activities, comp)}
+    assert (act["SPPI"]["share_scraping"], act["SPPI"]["share_online"], act["SPPI"]["share_form"]) == (60, 10, 30)
+    assert act["H"]["share_online_total"] == 100.0 and act["58"]["has_online"] == "لا"
+    assert all(r["check_sum"] == 0 for r in act.values())
+    summary = coverage.summary_lines(list(act.values()))
+    assert "2 من 3" in summary[1] and "58 النشر" in summary[2]

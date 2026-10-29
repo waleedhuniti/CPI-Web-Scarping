@@ -11,3 +11,4 @@ data/catalogue/*/thumbs.json
 data/catalogue/*/catalogue.json
 data/exports/*_screenshots.zip
 scripts/oneoff/dnata/runs_*/*.log
+scripts/oneoff/dnata/runs_*/shots/

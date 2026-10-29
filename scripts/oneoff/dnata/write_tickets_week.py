@@ -41,7 +41,7 @@ def flights(det, airline, city, res):
     for i, leg in enumerate(("out", "back")):
         x = (res or {}).get(leg) or {}
         for f in x.get("flights", []):
-            dep = str(f.get("dep", "")); dep = dep[11:16] if "T" in dep else dep
+            dep = str(f.get("dep", "")); dep = dep[11:16] if len(dep) >= 16 and dep[10] in "T " else dep
             det.append([airline, city, ("ذهاب", "عودة")[i], x.get("date"), f.get("flight"), dep, f.get("from")])
 wb = openpyxl.load_workbook(SRC)
 title = f"ذهاب {day(OUT_D)}، عودة {day(BACK_D)} 2026 (بحث ذهاب وعودة، موقع كل شركة)"
@@ -49,7 +49,7 @@ det = wb.create_sheet("الرحلات"); det.sheet_view.rightToLeft = True
 det.append(["الشركة", "الوجهة", "الاتجاه", "التاريخ", "الرحلة", "الإقلاع", "أرخص سعر سياحي (درهم)"])
 # domestic sheet: flydubai (C-E); Emirates (F-H) stays empty - its site blocks automated browsers
 src = wb["الطيران المحلى"]
-dom = wb.copy_worksheet(src); dom.title = f"محلي {day(OUT_D)[:-6]}-{day(BACK_D)[:-6]} نوفمبر"; dom.sheet_view.rightToLeft = src.sheet_view.rightToLeft
+dom = wb.copy_worksheet(src); dom.title = f"محلي {dt.date.fromisoformat(OUT_D).day}-{dt.date.fromisoformat(BACK_D).day} نوفمبر"; dom.sheet_view.rightToLeft = src.sheet_view.rightToLeft
 dom.cell(1, 3).value = title
 for r in range(4, dom.max_row + 1):
     for c in range(3, dom.max_column + 1):
@@ -69,11 +69,11 @@ FOREIGN = {
     "riyadh": ("الخطوط السعودية", "air_saudia_res.json", "RUH", "لم يكتمل السحب"),
     "isb": ("الخطوط الباكستانية", "air_pia_res.json", "ISB", "لم يكتمل السحب"),
     "istanbul": ("الخطوط التركية", "air_turkish_res.json", "IST", "موقع الخطوط التركية يطلب تحقق بشري؛ يبقى يدوياً"),
-    "cairo": ("مصر للطيران", "air_egyptair_res.json", "CAI", "لم يكتمل السحب"),
+    "cairo": ("مصر للطيران", "air_egyptair_res.json", "CAI", "موقع مصر للطيران أظهر تحقق Cloudflare قبل نموذج البحث في هذا السحب؛ لم يُسحب"),
     "amman": ("الملكية الأردنية", "air_rj_res.json", "AMM", "لم يكتمل السحب"),
 }
 src = wb["الطيران الاجنبى"]
-fo = wb.copy_worksheet(src); fo.title = f"أجنبي {day(OUT_D)[:-6]}-{day(BACK_D)[:-6]} نوفمبر"; fo.sheet_view.rightToLeft = src.sheet_view.rightToLeft
+fo = wb.copy_worksheet(src); fo.title = f"أجنبي {dt.date.fromisoformat(OUT_D).day}-{dt.date.fromisoformat(BACK_D).day} نوفمبر"; fo.sheet_view.rightToLeft = src.sheet_view.rightToLeft
 fo.cell(1, 2).value = title
 for r in range(3, 24):
     for c in range(3, fo.max_column + 1):
@@ -103,4 +103,5 @@ for ws in (dom, fo):                                            # the summary ro
                 c.value = c.value.replace("'الطيران المحلى'!", f"'{dom.title}'!").replace("'الطيران الاجنبى'!", f"'{fo.title}'!")
 for name in ("الطيران المحلى", "الطيران الاجنبى"):            # keep only our sheets; the team's own sheets are the template
     wb.remove(wb[name])
-wb.save(OUT); print(OUT)
+wb.move_sheet(det, offset=len(wb.sheetnames) - 1 - wb.sheetnames.index(det.title) - 1)   # flights and method after the two sheets
+wb.save(OUT); print(OUT, wb.sheetnames)

@@ -6,7 +6,7 @@ from playwright.async_api import async_playwright
 import os
 CHECKIN, CHECKOUT = os.environ.get("CHECKIN", "2026-10-25"), os.environ.get("CHECKOUT", "2026-10-29")
 Q = json.load(open("queries.json"))
-TARGETS = json.load(open(sys.argv[1]))          # [{row, city, term, keys}]
+TARGETS = json.load(open(sys.argv[1]))          # [{row, city, term, keys, estab (optional: pin a dnata hotel id)}]
 OUT = sys.argv[2]
 
 JS = """async ([op, query, variables]) => {
@@ -77,7 +77,10 @@ async def main():
                         await pg.wait_for_timeout(3000)             # results may still be loading on the server
                     return []
                 def pick(hs):
-                    ok = [h for h in hs if all(k in norm(h["hotel"]["name"]) for k in t["keys"]) and not any(x in norm(h["hotel"]["name"]) for x in t.get("exclude", []))]
+                    if t.get("estab"):                       # pinned: the same dnata hotel as the earlier file
+                        ok = [h for h in hs if str(h["hotel"]["estabId"]) == str(t["estab"])]
+                    else:
+                        ok = [h for h in hs if all(k in norm(h["hotel"]["name"]) for k in t["keys"]) and not any(x in norm(h["hotel"]["name"]) for x in t.get("exclude", []))]
                     if not ok: r.setdefault("seen_names", []).extend(h["hotel"]["name"] for h in hs[:8])
                     return ok[0] if ok else None
                 h = pick(await hotels("2"))

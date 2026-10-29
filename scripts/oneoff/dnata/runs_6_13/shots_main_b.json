@@ -8,7 +8,12 @@
   "notice": null
  },
  "25": {
-  "error": "TimeoutError: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Change flight\").first\n    - locator resolved to <button tabindex=\"0\" type=\"button\" class=\"c"
+  "shown_total": 4051.0,
+  "flight_delta_shown": 404.0,
+  "screenshot": "runs_6_13/shots/25_Grand_Hyatt_Hotel.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1431163?sort=PRICE_LOWEST_FIRST&tripId=60f94109-e7a1-4491-8353-6f08e1a1e3ab&checkIn=2026-11-06&checkOut=2026-11-10&destIds=311&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
  },
  "26": {
   "shown_total": 6771.0,

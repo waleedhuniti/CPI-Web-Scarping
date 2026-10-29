@@ -1,0 +1,26 @@
+{
+ "17": {
+  "shown_total": 5109.0,
+  "flight_delta_shown": 1211.0,
+  "screenshot": "runs_6_13/shots_kl/17_Traders_Hotel_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/321298?sort=PRICE_LOWEST_FIRST&tripId=cca3680a-8d23-49c5-a5bf-72d3e84a7cdb&checkIn=2026-11-06&checkOut=2026-11-10&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 07 Nov 2026 - Tue 10 Nov 2026 (3 nights)  To Fri 06 Nov 2026 - Tue 10 Nov 2026 (4 nights)  Proceed Cancel"
+ },
+ "18": {
+  "shown_total": 4425.0,
+  "flight_delta_shown": 1211.0,
+  "screenshot": "runs_6_13/shots_kl/18_Dorsett_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/218579?sort=PRICE_LOWEST_FIRST&tripId=5861426a-135a-439f-a2de-549327fcb11b&checkIn=2026-11-06&checkOut=2026-11-10&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 07 Nov 2026 - Tue 10 Nov 2026 (3 nights)  To Fri 06 Nov 2026 - Tue 10 Nov 2026 (4 nights)  Proceed Cancel"
+ },
+ "19": {
+  "shown_total": 4335.0,
+  "flight_delta_shown": 1211.0,
+  "screenshot": "runs_6_13/shots_kl/19_The_Royale_Chulan_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1670773?sort=PRICE_LOWEST_FIRST&tripId=a5c37bed-02cb-4df9-9010-0526aa352d66&checkIn=2026-11-06&checkOut=2026-11-10&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 07 Nov 2026 - Tue 10 Nov 2026 (3 nights)  To Fri 06 Nov 2026 - Tue 10 Nov 2026 (4 nights)  Proceed Cancel"
+ }
+}

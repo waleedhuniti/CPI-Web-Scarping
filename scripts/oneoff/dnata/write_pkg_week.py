@@ -21,8 +21,9 @@ for pj, sj in pairs:
     p, s = json.load(open(pj)), json.load(open(sj))
     for k, v in p.items():
         sh = s.get(k, {})
+        if v.get("note") == "hotel not found on dnata for these dates": v = dict(v, note="الفندق غير معروض للحجز على دناتا لهذه التواريخ")
         v = dict(v, shown_total=sh.get("shown_total"), screenshot=sh.get("screenshot"), nights_shown=sh.get("nights_shown"), page_error=sh.get("error"))
-        co = (v.get("page_url") or sh.get("page_url") or "")
+        co = (sh.get("page_url") or v.get("page_url") or "")
         v["checkout"] = co.split("checkOut=")[1][:10] if "checkOut=" in co else CO
         if v.get("shown_total"): v["final"] = v["shown_total"]
         elif v.get("total"): v["final"] = v["total"]; v["note"] = ((v.get("note") or "") + " | السعر محسوب (الصفحة لم تُحمّل للقطة)").strip(" |")
@@ -71,7 +72,7 @@ for col, w in zip("ABCDEFGHIJKLMNOPQR", (6, 22, 30, 32, 7, 18, 18, 11, 11, 13, 3
     d.column_dimensions[col].width = w
 n = wb.create_sheet("المنهجية"); n.sheet_view.rightToLeft = True
 for line in [f"المصدر: dnatatravel.com (طيران + فندق)، تاريخ السحب {dt.date.today().isoformat()}.",
-             f"الإقامة: {day(CI)} إلى {day(CO)} نوفمبر 2026 ({nights} ليالي)، شخص بالغ واحد، المغادرة من دبي (DXB). إذا وصلت رحلة الإماراتية في اليوم التالي (بانكوك، كوالالمبور) يُمدّد السفر يوماً لتبقى الإقامة {nights} ليالي كاملة.",
+             f"الإقامة: {day(CI)} إلى {day(CO)} نوفمبر 2026 ({nights} ليالي)، شخص بالغ واحد، المغادرة من دبي (DXB). إذا وصلت رحلة الإماراتية في اليوم التالي وقلّت الليالي يُمدّد السفر يوماً لتبقى الإقامة {nights} ليالي كاملة (بانكوك)؛ عدد الليالي في كل لقطة شاشة.",
              "الطيران: طيران الإمارات فقط، بدون توقف ذهاباً وعودة، الأرخص المتاح.",
              "الوجبة: إقامة مع إفطار (Bed & Breakfast) إذا كانت متاحة للفندق، وإلا الأرخص؛ وأرخص غرفة لهذه الوجبة.",
              "السعر النهائي = إجمالي الباقة كما يظهر بصفحة دناتا بعد اختيار رحلة الإماراتية المباشرة (Total holiday)، شامل الضرائب والرسوم. المالديف: شامل نقل المنتجع الإلزامي (يظهر بعد «Continue to book»).",

@@ -8,15 +8,30 @@
   "notice": null
  },
  "15": {
-  "error": "TimeoutError: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Change flight\").first\n    - locator resolved to <button tabindex=\"0\" type=\"button\" class=\"c"
+  "shown_total": 5226.0,
+  "flight_delta_shown": 1802.0,
+  "screenshot": "runs_6_13/shots/15_DoubleTree_by_Hilton_Bangkok_Ploenchit.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/320581?sort=PRICE_LOWEST_FIRST&tripId=b2f13e44-db68-45a3-80c0-609a9dca608d&checkIn=2026-11-06&checkOut=2026-11-11&destIds=364&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
  },
  "17": {
-  "error": "TimeoutError: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Change flight\").first\n    - locator resolved to <button tabindex=\"0\" type=\"button\" class=\"c"
+  "shown_total": 5701.0,
+  "flight_delta_shown": 1211.0,
+  "screenshot": "runs_6_13/shots/17_Traders_Hotel_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/321298?sort=PRICE_LOWEST_FIRST&tripId=818437b9-2966-470d-849c-59a53b03ad45&checkIn=2026-11-06&checkOut=2026-11-11&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 5,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 07 Nov 2026 - Wed 11 Nov 2026 (4 nights)  To Fri 06 Nov 2026 - Wed 11 Nov 2026 (5 nights)  Proceed Cancel"
  },
  "18": {
-  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+  "shown_total": 4789.0,
+  "flight_delta_shown": 1211.0,
+  "screenshot": "runs_6_13/shots/18_Dorsett_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/218579?sort=PRICE_LOWEST_FIRST&tripId=85c87c4d-135c-4b85-b745-07c36b01f454&checkIn=2026-11-06&checkOut=2026-11-11&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 5,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 07 Nov 2026 - Wed 11 Nov 2026 (4 nights)  To Fri 06 Nov 2026 - Wed 11 Nov 2026 (5 nights)  Proceed Cancel"
  },
  "19": {
-  "error": "no Emirates direct flight in the list"
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
  }
 }

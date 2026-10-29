@@ -169,5 +169,62 @@
   "seen_names": [],
   "board_rule": "cheapest (no B&B)",
   "note": "hotel not found on dnata for these dates"
+ },
+ "24": {
+  "row": 24,
+  "city": "Amman",
+  "sheet_name": "Corp Executive Hotel",
+  "destination": "Amman, Jordan (311)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Corp Amman Hotel",
+  "estab_id": "3778112",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 2806,
+  "default_flight": "Flydubai / Flydubai",
+  "flight": "EK0901 07:55 / EK0904 18:45",
+  "flight_delta": 404,
+  "total": 3210
+ },
+ "25": {
+  "row": 25,
+  "city": "Amman",
+  "sheet_name": "Grand Hyatt Amman Hotel",
+  "destination": "Amman, Jordan (311)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Grand Hyatt Hotel",
+  "estab_id": "1431163",
+  "stars": 5,
+  "board": "Bed And Breakfast",
+  "package_default": 3647,
+  "default_flight": "Flydubai / Flydubai",
+  "flight": "EK0901 07:55 / EK0904 18:45",
+  "flight_delta": 404,
+  "total": 4051
+ },
+ "26": {
+  "row": 26,
+  "city": "Cairo",
+  "sheet_name": "Le Meridien Cairo Airport",
+  "destination": "Cairo, Egypt (199)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Le Meridien Cairo Airport",
+  "estab_id": "4421918",
+  "stars": 5,
+  "board": "Bed And Breakfast",
+  "package_default": 6627.4,
+  "default_flight": "Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines",
+  "flight": "EK0929 04:10 / EK0930 08:00",
+  "flight_delta": 143.9,
+  "total": 6771.3
+ },
+ "27": {
+  "row": 27,
+  "city": "Cairo",
+  "sheet_name": "Novotel Cairo El Borg",
+  "destination": "Cairo, Egypt (199)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
  }
 }

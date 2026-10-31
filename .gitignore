@@ -16,3 +16,4 @@ scripts/oneoff/dnata/cmp/
 scripts/oneoff/dnata/maldives_next_*.txt
 data/exports/CPI_basket_*_Oct.csv
 data/exports/catalogue_daily_prices_*
+scripts/oneoff/dnata/ek_debug/

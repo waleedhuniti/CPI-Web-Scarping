@@ -20,23 +20,26 @@ def rows_of(ws, keys, first=3):
         for k in keys:
             if k in a: out[k] = r
     return out
-def fill(ws, r0, res, why, note=""):
-    """lowest / highest per leg in C/D (highest empty when equal), the trip's formulas, and a note in F (domestic J)."""
+def fill(ws, r0, res, why, note="", c0=3):
+    """lowest / highest per leg in the airline's first two columns (C/D, Emirates F/G; highest empty when equal), the trip's
+    formulas, and the note text (written by the caller)."""
     notes = [note] if note else []
+    L, H, A = (openpyxl.utils.get_column_letter(c0 + i) for i in range(3))
     for i, leg in enumerate(("out", "back")):
         x = (res or {}).get(leg)
         lo, hi = (x["lowest"], x["highest"]) if x else (None, None)
-        ws.cell(r0 + i, 3).value = lo; ws.cell(r0 + i, 4).value = hi if hi != lo else None
+        ws.cell(r0 + i, c0).value = lo; ws.cell(r0 + i, c0 + 1).value = hi if hi != lo else None
         if x and x.get("shifted_days"):
-            ws.cell(r0 + i, 3).fill = yellow
+            ws.cell(r0 + i, c0).fill = yellow
             notes.append(f"{'الذهاب' if i == 0 else 'العودة'}: لا توجد رحلة يوم {day((OUT_D, BACK_D)[i])}، أُخذ {day(x['date'])}")
     if res and res.get("out") and res.get("back"):
-        ws.cell(r0 + 2, 3).value = f"=SUM(C{r0}:C{r0+1})"
-        ws.cell(r0 + 2, 4).value = f'=IF(AND(D{r0}="",D{r0+1}=""),"",IF(D{r0}="",C{r0},D{r0})+IF(D{r0+1}="",C{r0+1},D{r0+1}))'
-        ws.cell(r0 + 2, 5).value = f"=AVERAGE(C{r0+2}:D{r0+2})"
+        ws.cell(r0 + 2, c0).value = f"=SUM({L}{r0}:{L}{r0+1})"
+        ws.cell(r0 + 2, c0 + 1).value = f'=IF(AND({H}{r0}="",{H}{r0+1}=""),"",IF({H}{r0}="",{L}{r0},{H}{r0})+IF({H}{r0+1}="",{L}{r0+1},{H}{r0+1}))'
+        ws.cell(r0 + 2, c0 + 2).value = f"=AVERAGE({L}{r0+2}:{H}{r0+2})"
     elif why:
         notes.append(why)
     return " · ".join(notes)
+
 def flights(det, airline, city, res):
     for i, leg in enumerate(("out", "back")):
         x = (res or {}).get(leg) or {}
@@ -47,7 +50,7 @@ wb = openpyxl.load_workbook(SRC)
 title = f"ذهاب {day(OUT_D)}، عودة {day(BACK_D)} 2026 (بحث ذهاب وعودة، موقع كل شركة)"
 det = wb.create_sheet("الرحلات"); det.sheet_view.rightToLeft = True
 det.append(["الشركة", "الوجهة", "الاتجاه", "التاريخ", "الرحلة", "الإقلاع", "أرخص سعر سياحي (درهم)"])
-# domestic sheet: flydubai (C-E); Emirates (F-H) stays empty - its site blocks automated browsers
+# domestic sheet: flydubai (C-E) and Emirates (F-H, ek_fares.py, one one-way search per leg)
 src = wb["الطيران المحلى"]
 dom = wb.copy_worksheet(src); dom.title = f"محلي {dt.date.fromisoformat(OUT_D).day}-{dt.date.fromisoformat(BACK_D).day} نوفمبر"; dom.sheet_view.rightToLeft = src.sheet_view.rightToLeft
 dom.cell(1, 3).value = title
@@ -62,6 +65,22 @@ for key, r0 in rows_of(dom, FZ, 4).items():
     note = fill(dom, r0, res, "لا توجد رحلات فلاي دبي على هذا الخط")
     if note: dom.cell(r0, 10).value = note; dom.cell(r0, 10).fill = yellow
     flights(det, "فلاي دبي", dom.cell(r0, 1).value, res)
+EK = {"delhi": "DEL", "london": "LHR", "riyadh": "RUH", "karachi": "KHI", "new york": "JFK", "colombo": "CMB", "bangkok": "BKK",
+      "istanbul": "IST", "cairo": "CAI", "amman": "AMM"}
+ek = json.load(open(os.path.join(RD, "ek_res.json"), encoding="utf-8")) if os.path.exists(os.path.join(RD, "ek_res.json")) else None
+for key, r0 in rows_of(dom, EK, 4).items():
+    if ek is None:
+        why = "موقع الإماراتية يرفض البحث من المتصفح الآلي؛ يبقى يدوياً"
+        res = None
+    else:
+        res = ek.get(EK[key]) or {}
+        why = res.get("out_error") or res.get("back_error") or "لم يكتمل السحب"
+        why = "موقع الإماراتية رفض البحث في هذا السحب؛ يبقى يدوياً" if "access restricted" in why else "الإماراتية: " + why
+        res = res if (res.get("out") or res.get("back")) else None
+    note = fill(dom, r0, res, why, c0=6)
+    if note:
+        c = dom.cell(r0, 10); c.value = " · ".join(v for v in (c.value, note) if v); c.fill = yellow
+    flights(det, "الإماراتية", dom.cell(r0, 1).value, res)
 # foreign sheet: each country's carrier from its own site
 FOREIGN = {
     "delhi": ("طيران الهند", "air_airindia_res.json", "DEL", "موقع طيران الهند يحجب المتصفح الآلي؛ يبقى يدوياً"),
@@ -89,10 +108,11 @@ for c in det[1]: c.font = Font(bold=True)
 for col, w in zip("ABCDEFG", (16, 22, 9, 12, 10, 9, 18)): det.column_dimensions[col].width = w
 m = wb.create_sheet("المنهجية"); m.sheet_view.rightToLeft = True
 for line in [f"تاريخ السحب {dt.date.today().isoformat()}. بحث ذهاب وعودة من دبي: ذهاب {day(OUT_D)}، عودة {day(BACK_D)} 2026، بالغ واحد، الدرجة السياحية، رحلات مباشرة للشركة نفسها، بالدرهم.",
-             "المصدر: موقع كل شركة مباشرة (flydubai.com، saudia.com، egyptair.com، rj.com، book-pia.crane.aero، britishairways.com).",
+             "المصدر: موقع كل شركة مباشرة (flydubai.com، emirates.com، saudia.com، egyptair.com، rj.com، book-pia.crane.aero، britishairways.com).",
              "لكل رحلة يؤخذ أرخص سعر سياحي لها. أقل سعر = أرخص رحلة في اليوم، أعلى سعر = أغلى رحلة؛ إذا تساويا يُترك أعلى سعر فارغاً، ويحسب مجموع أعلى سعر من أقل سعر لذلك الاتجاه.",
              "إذا لم توجد رحلة يوم الذهاب أو العودة يؤخذ اليوم الذي بعده (مظلل بالأصفر مع ملاحظة).",
-             "الإماراتية وطيران الهند والخطوط التركية: مواقعها تحجب المتصفح الآلي، فتبقى يدوية. البريطانية: أقل سعر للذهاب فقط.",
+             "الإماراتية: بحث باتجاه واحد لكل رحلة (دبي إلى المدينة يوم الذهاب، والمدينة إلى دبي يوم العودة)، أرخص سعر سياحي لكل رحلة مباشرة وغير مباشرة كما تظهر.",
+             "طيران الهند والخطوط التركية: مواقعها تحجب المتصفح الآلي أو تطلب تحقق بشري، فتبقى يدوية. البريطانية: أقل سعر للذهاب فقط.",
              "الأسعار تتغير خلال اليوم، خاصة عند آخر المقاعد."]:
     m.append([line])
 m.column_dimensions["A"].width = 140

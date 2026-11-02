@@ -184,6 +184,13 @@ def crawl_store(store, sources, collected, delay, progress, part=None):
                 else:
                     for parse, url in listing_pages(s, src):
                         page = s.get(url)
+                        for wait in (30, 90, 180):     # the shop asks us to slow down (429) or is busy (503): wait, then ask again
+                            if page.status not in (429, 503):
+                                break
+                            time.sleep(wait)
+                            page = s.get(url)
+                        if page.status != 200:
+                            log.append(f"{store} | {src['category']}: HTTP {page.status} for {url}")
                         got += parse(page, src.get("query", src["category"])) if page.status == 200 else []
                         time.sleep(delay + random.random())
             except Exception as e:

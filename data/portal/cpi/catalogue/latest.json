@@ -1,43 +1,43 @@
 {
- "counts": {
-  "clothing": 2843,
-  "electronics": 1951,
-  "food": 1828,
-  "household": 1611,
-  "other": 604,
-  "personal": 886
- },
- "date": "2026-11-01",
+ "date": "2026-11-02",
+ "rows": 15528,
+ "photos": 14945,
  "groups": {
-  "clothing": "Clothing & shoes",
-  "electronics": "Electronics, phones & accessories",
   "food": "Food & groceries",
   "household": "Household & cleaning",
-  "other": "Transport, recreation & education",
-  "personal": "Personal care & health"
+  "personal": "Personal care & health",
+  "electronics": "Electronics, phones & accessories",
+  "clothing": "Clothing & shoes",
+  "other": "Transport, recreation & education"
  },
- "history_asset": "893d117e58205af602bb59adb9b19241",
- "photos": 9536,
- "rows": 9723,
- "rows_asset": "4f6a914a6324d26155800c12756120d2",
+ "counts": {
+  "clothing": 3363,
+  "food": 3329,
+  "household": 2793,
+  "personal": 1819,
+  "electronics": 2862,
+  "other": 1362
+ },
  "stores": {
-  "Babyshop (Centrepoint)": 132,
-  "Carrefour": 60,
-  "Centrepoint (Centrepoint)": 97,
-  "Lulu": 5594,
-  "Max": 892,
-  "Sharaf DG": 1579,
-  "Shoe Mart (Centrepoint)": 260,
-  "Shoexpress (Centrepoint)": 95,
-  "Splash (Centrepoint)": 234,
-  "Zara": 780
+  "Splash (Centrepoint)": 232,
+  "Centrepoint (Centrepoint)": 102,
+  "Babyshop (Centrepoint)": 129,
+  "Shoexpress (Centrepoint)": 93,
+  "Shoe Mart (Centrepoint)": 258,
+  "Lulu": 5591,
+  "Max": 888,
+  "Sharaf DG": 1580,
+  "Zara": 756,
+  "Carrefour": 5899
  },
+ "rows_asset": "82f3b207f90ce59f79da0c19379ec8a9",
+ "history_asset": "70bca625085eea6943fbdc57d822588c",
  "thumbs_assets": {
-  "clothing": "aeed628b7485f071a27e67e8ecbc38ea",
-  "electronics": "9128a899ef72436826e4c94304979d99",
-  "food": "02b28424dd8c72044efd35d2cf641a22",
-  "household": "bfbf52396296a93f0f7f1af9e4cf7f87",
-  "other": "1a14250a7a60f46dcb301b2fc7ac69b6",
-  "personal": "049cff576f9dd54b6e2d3e3ffad89dd7"
+  "food": "d4baf3d60f8ab75e4506aeb360d575b9",
+  "household": "d31ec616be53f2fb43f2a1500552a16e",
+  "personal": "bb6afebc72c39aeb07912eb517117ba3",
+  "electronics": "a577c274cd4878f829f9e6a1228234d0",
+  "clothing": "5b19c6a937c638f80084a0da18b1c406",
+  "other": "23cec774f288821e70f7e54b944e4c23"
  }
 }

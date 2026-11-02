@@ -13,7 +13,9 @@ Method (matched-model, chained - how price statisticians handle products that co
     days (Jevons). A product going out of stock, or a new one appearing, adds no jump: the mortadella that costs 10 today and
     is replaced by one that costs 18 tomorrow does not make the line rise 80%. The index is chained from day to day.
   * The line's price level is the first day's median unit price moved by that index (a constant-quality price), per shop.
-Outputs of `series`: line_prices.csv (one row per line, shop and day: price, index, number of products and pairs) and
+A day whose crawl of a shop came back mostly empty (update() records it under "skipped") gives that shop's lines no price that day
+(observed = no, price empty): the last price is not carried forward as if it had been seen.
+Outputs of `series`: line_prices.csv (one row per line, shop and day: price, index, number of products and pairs, observed) and
 product_panel.csv (every product of every line and day, for the Dataiku team to recompute with their own method).
 """
 import csv
@@ -138,6 +140,7 @@ def series(hist_path, out_dir):
     out_dir.mkdir(parents=True, exist_ok=True)
     rows, panel = [], []
     covered = {}
+    skipped = hist.get("skipped", {})                  # day -> shops whose crawl came back mostly empty (see update())
     raw = {b["item_code"]: b for b in json.load(open(ROOT / "data/basket/basket.json", encoding="utf-8"))}
     grp = lambda ic: re.sub(r"^\d+\s*-\s*", "", str(raw.get(ic, {}).get("group_name", ""))).strip()
     for it, want, ok in lines():
@@ -147,6 +150,12 @@ def series(hist_path, out_dir):
                 continue
             idx, base, prev = 100.0, None, None
             for d, day in enumerate(days):
+                if shop in skipped.get(day, []):        # nothing seen in that shop that day: the line has no price (not the last one
+                    if base is not None:               # carried forward); the chain goes on from the last day it was seen
+                        rows.append(dict(date=day, item_code=it["item_code"], cpi_group=grp(it["item_code"]), retailer=shop, unit=want,
+                                         price="", index="", n_products=0, n_pairs=0, cheapest="", dearest="", rep_title="", rep_url="",
+                                         rep_photo="", rep_unit_price="", observed="no"))
+                    continue
                 cur = {k: price_on(p, d) for k, p in prods}
                 cur = {k: v for k, v in cur.items() if v}
                 if not cur:
@@ -165,7 +174,7 @@ def series(hist_path, out_dir):
                 rows.append(dict(date=day, item_code=it["item_code"], cpi_group=grp(it["item_code"]), retailer=shop, unit=want, price=round(base * idx / 100, 2),
                                  index=round(idx, 3), n_products=len(cur), n_pairs=pairs, cheapest=round(min(cur.values()), 2),
                                  dearest=round(max(cur.values()), 2), rep_title=P[rep_k]["t"], rep_url=P[rep_k]["u"],
-                                 rep_photo=P[rep_k].get("f", ""), rep_unit_price=round(cur[rep_k], 2)))
+                                 rep_photo=P[rep_k].get("f", ""), rep_unit_price=round(cur[rep_k], 2), observed="yes"))
                 for k, v in cur.items():
                     panel.append(dict(date=day, item_code=it["item_code"], cpi_group=grp(it["item_code"]), retailer=shop, product_id=k.split("|", 1)[1],
                                       title=P[k]["t"], unit_price=v, price_basis=want, url=P[k]["u"]))

@@ -132,6 +132,16 @@ def main(run_dir, started):
             lines.setdefault((r["retailer"], r["name_ar"]), set()).add(r["item_code"])
         for r in crows:
             ln = today_lines.get((r["item_code"], r["retailer"]))
+            if ln and ln.get("observed") == "no":     # the shop's crawl came back mostly empty today: no price, not yesterday's
+                rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],
+                                 actor=LABEL[r["retailer"]] + " (category)", item_code=r["item_code"], group_code=r["group"],
+                                 name=r["name_ar"], brand="", basket_qty=r["basket_qty"], barcode="", status="not_observed",
+                                 detail="shop crawl incomplete today", accepted="no", title="", price="", regular_price="",
+                                 unit_price="", price_basis=r["price_basis"], basket_origin=r["basket_origin"], origin_seen="",
+                                 currency="AED", url="", photo="", size="", group_name=GROUP.get(r["group"], ""), section="",
+                                 retailer_id="", line_index="", n_products=0,
+                                 note="the shop's category pages came back (almost) empty today; the last price is not carried forward"))
+                continue
             if lp.exists():                           # product-set method: any origin, any brand, matched products chained from day to day
                 rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],
                                  actor=LABEL[r["retailer"]] + " (category)", item_code=r["item_code"], group_code=r["group"],

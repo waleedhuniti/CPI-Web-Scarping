@@ -65,7 +65,7 @@ def category_rows():
             lines.setdefault((r["retailer"], r["name_ar"]), set()).add(r["item_code"])
         for r in crows:
             ok = category_found(r["status"], len(lines[(r["retailer"], r["name_ar"])]) == 1)
-            keep = (lambda v: v) if ok else (lambda v: "")
+            keep = lambda v: v  # preserve candidate evidence even when not accepted
             yield dict(run_date=m.group(1), run_id=run, source=source_of(run, "scrapling-category"), retailer=r["retailer"],
                        item_code=r["item_code"], group_code=r["group"], name_ar=r["name_ar"], brand_ar="",
                        basket_qty=r["basket_qty"], barcode="", status="found" if ok else "not_found",
@@ -88,3 +88,4 @@ def main(dest=ROOT / "data/exports/cpi_prices_long.csv"):
 
 if __name__ == "__main__":
     main()
+

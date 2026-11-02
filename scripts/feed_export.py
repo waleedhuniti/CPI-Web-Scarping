@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BASKET_COLS = ["run_date", "source", "retailer", "item_code", "group_code", "name", "brand", "basket_qty", "barcode", "status",
                "detail", "accepted", "title", "price", "regular_price", "unit_price", "price_basis", "basket_origin",
-               "origin_seen", "currency", "url", "photo", "size", "group_name", "section", "retailer_id", "note"]
+               "origin_seen", "currency", "url", "photo", "size", "group_name", "section", "retailer_id", "note", "estimated_price", "line_index", "n_products"]
 
 
 def main(run_dir, cat_dir=None):
@@ -46,3 +46,4 @@ def main(run_dir, cat_dir=None):
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
+

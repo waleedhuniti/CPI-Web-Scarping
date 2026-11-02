@@ -146,14 +146,14 @@ def main(run_dir, started):
                 rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],
                                  actor=LABEL[r["retailer"]] + " (category)", item_code=r["item_code"], group_code=r["group"],
                                  name=r["name_ar"], brand="", basket_qty=r["basket_qty"], barcode="",
-                                 status="found" if ln else "not_found", detail="product_set" if ln else "no_match",
-                                 accepted="yes" if ln else "no", title=ln["rep_title"] if ln else "",
-                                 price=num(ln["price"]) if ln else "", regular_price="",
-                                 unit_price=num(ln["price"]) if ln else "", price_basis=r["price_basis"], basket_origin=r["basket_origin"],
+                                 status="review" if ln else "not_found", detail="review_product_set" if ln else "no_match",
+                                 accepted="no", title=ln["rep_title"] if ln else "",
+                                 price="", estimated_price=num(ln["price"]) if ln else "", regular_price="",
+                                 unit_price="", price_basis=r["price_basis"], basket_origin=r["basket_origin"],
                                  origin_seen="", currency="AED", url=ln["rep_url"] if ln else "", photo=(ln["rep_photo"] if ln else ""),
                                  size="", group_name=GROUP.get(r["group"], ""), section="", retailer_id=retailer_id(ln["rep_url"]) if ln else "",
                                  line_index=num(ln["index"]) if ln else "", n_products=int(ln["n_products"]) if ln else 0,
-                                 note=(f"{ln['n_products']} products ({ln['cheapest']}-{ln['dearest']} AED per {BASIS.get(r['price_basis'], r['price_basis'])}), "
+                                 note=(f"REVIEW: calculated product-set estimate, not a verified basket price. {ln['n_products']} products ({ln['cheapest']}-{ln['dearest']} AED per {BASIS.get(r['price_basis'], r['price_basis'])}), "
                                        f"index {ln['index']}") if ln else ""))
                 continue
             ok = category_found(r["status"], len(lines[(r["retailer"], r["name_ar"])]) == 1)
@@ -251,3 +251,4 @@ def main(run_dir, started):
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
+

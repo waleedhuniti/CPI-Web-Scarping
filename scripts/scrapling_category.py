@@ -17,8 +17,7 @@ Barcoded basket lines are not touched here: they keep the barcode search (script
       match             one listing (or several within 15% per kg) of the basket origin - accepted
       review_multiple   several listings of the basket origin with prices that differ by more than 15%
       review_origin / substitute_origin  the product is there but without the basket origin (none stated, or another one):
-                        taken (as 'match') when it is within the allowed move of the line's last accepted price (under AED 10: 15% or AED 3; AED 10 and over: 30%), else origin_skipped;
-                        the first price of a line is its base
+                        kept for officer review; price proximity never approves an origin substitution
       no_match          nothing fits
 """
 import argparse
@@ -61,23 +60,27 @@ NOT_FRESH = ["organic", "marinated", "ready to cook", "seasoned", "cooked", "smo
 # ---------------------------------------------------------------- pinned reference products
 # A basket line without a barcode is matched to one listing; without a memory the pick changes day to day (the median
 # listing moves when the candidates move), which looks like inflation. The first accepted listing of a line at a
-# retailer is pinned (CPI_PINS=<json file>) and priced on the following days by its URL, so the same product is compared.
+# retailer is pinned (data/state/category_pins.json; override with CPI_PINS=<json file>) and priced on the following days by its URL, so the same product is compared.
 # If the pinned listing is gone from the catalogue the line is "not found" that day; after PIN_MAX_MISS days in a row a
 # new listing is chosen and pinned (the officer should link the old and new price then).
 PIN_MAX_MISS = 3
 
 
+def pins_path():
+    return Path(os.environ.get("CPI_PINS") or ROOT / "data/state/category_pins.json")
+
+
 def load_pins():
-    f = os.environ.get("CPI_PINS")
-    if f and Path(f).exists():
-        return json.load(open(f, encoding="utf-8"))
-    return {}
+    f = pins_path()
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
 
 
 def save_pins(pins):
-    f = os.environ.get("CPI_PINS")
-    if f:
-        json.dump(pins, open(f, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    f = pins_path()
+    f.parent.mkdir(parents=True, exist_ok=True)
+    temp = f.with_suffix(f.suffix + ".tmp")
+    temp.write_text(json.dumps(pins, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    temp.replace(f)
 
 
 # ---------------------------------------------------------------- crawl
@@ -272,6 +275,8 @@ def make_filter(it, spec):
         t, tw = row["title"].lower(), words(row["title"])
         if "frozen" in str(row.get("category", "")).lower():     # the frozen section: the title need not say 'frozen'
             tw = tw + ["frozen"]
+        if not musts and not words(spec.get("query_en", "")):
+            return False
         if not musts and not all(has_word(tw, w) for w in words(spec.get("query_en", "")) if w not in STOP):
             return False
         if musts and not all(phrase_ok(tw, m) for m in musts):
@@ -329,21 +334,20 @@ def match(run_dir, catalog=None, delay=1.5):
     for i in items:
         names[i["name_ar"]] = names.get(i["name_ar"], 0) + 1
     today = run_dir.name[:10]
-    by_url = {(r["retailer"], r["url"]): r for r in catalog}
     out = []
     for it, spec, want, retailer, cands in plan:
-            same = [c for c in cands if it["origin_iso"] in c["origin_seen"].split(",")]
+            same = [c for c in cands if it["origin_iso"] and it["origin_iso"] in c["origin_seen"].split(",")]
             unknown = [c for c in cands if not c["origin_seen"]]
             other = [c for c in cands if c["origin_seen"] and it["origin_iso"] not in c["origin_seen"].split(",")]
             pick, status, pin_state = None, "no_match", ""
             key = f"{it['item_code']}|{retailer}"
             pin = pins.get(key)
-            cur = by_url.get((retailer, pin["url"])) if pin else None
+            cur = next((c for c in same if c["url"] == pin["url"]), None) if pin else None
             if cur is not None and (cur["price_basis"] != want or not cur["unit_price"]):
                 cur = None
-            if pin and cur is not None:                      # the same listing as before
+            if pin and cur is not None and pin.get("policy_version") == 2:                      # the same listing as before
                 pick, status, pin_state = cur, "match", "pinned"
-            elif pin and pin.get("miss", 0) + (pin.get("last") != today) < PIN_MAX_MISS:   # gone today: not found, wait
+            elif pin and pin.get("policy_version") == 2 and pin.get("miss", 0) + (pin.get("last") != today) < PIN_MAX_MISS:   # gone today: not found, wait
                 pin_state = "pinned_missing"
             elif same:
                 per = sorted(float(c["unit_price"]) for c in same)
@@ -356,12 +360,8 @@ def match(run_dir, catalog=None, delay=1.5):
                 per = sorted(float(c["unit_price"]) for c in pool)
                 target = last if last else statistics.median(per)
                 pick = min(pool, key=lambda c: abs(float(c["unit_price"]) - target))
-                if last is None:                             # first price of the line: it becomes the base
-                    status, pin_state = "match", "origin_base"
-                elif origin_change_ok(last, float(pick["unit_price"])):
-                    status, pin_state = "match", "origin_rule_ok"
-                else:
-                    status, pin_state = "origin_skipped", "origin_rule_skip"
+                # Price proximity is not identity evidence. Keep origin candidates in review.
+                pin_state = "origin_review"
             if pin_state == "" and pin:
                 pin_state = "repinned"
             alts = sorted(cands, key=lambda c: float(c["unit_price"]))
@@ -377,14 +377,12 @@ def match(run_dir, catalog=None, delay=1.5):
             if pin_state == "pinned_missing":
                 if pin.get("last") != today:
                     pin["miss"], pin["last"] = pin.get("miss", 0) + 1, today
-            elif pin_state == "origin_rule_skip":            # price jump on a change of origin: skipped, the last accepted price stays the reference
-                pin["miss"], pin["last"] = 0, today
-            elif (status in ("match", "review_multiple")) and pick is not None:
+            elif status == "match" and pick is not None:
                 if pin_state == "pinned":
                     pin["miss"], pin["last"] = 0, today
                     pin["unit"] = float(pick["unit_price"])
                 else:
-                    pins[key] = {"url": pick["url"], "title": pick["title"], "since": today, "last": today, "miss": 0,
+                    pins[key] = {"policy_version": 2, "url": pick["url"], "title": pick["title"], "since": today, "last": today, "miss": 0,
                                  "unit": float(pick["unit_price"])}
     save_pins(pins)
     with open(run_dir / "category_matches.csv", "w", newline="", encoding="utf-8-sig") as f:
@@ -425,3 +423,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

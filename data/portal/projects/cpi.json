@@ -1,0 +1,104 @@
+{
+ "actors": {
+  "carrefour": {
+   "actor": "blackfalcondata/carrefour-maf-scraper",
+   "batch_size": 10,
+   "call_options": {},
+   "dataset_fields": "searchQuery,title,price,regularPrice,url,in_stock",
+   "enabled": true,
+   "fields": {},
+   "input": {
+    "language": "en",
+    "market": "mafuae",
+    "maxResults": 200,
+    "query": "{barcodes_json}"
+   },
+   "label": "Carrefour UAE",
+   "mode": "barcodes",
+   "notes": "Batches of 10 barcodes only: bigger runs silently return nothing for later barcodes (docs/retailers.md).",
+   "parallel_runs": 5,
+   "parser": "carrefour_actor"
+  },
+  "lulu": {
+   "actor": "apify/website-content-crawler",
+   "batch_size": 50,
+   "call_options": {},
+   "dataset_fields": "url,markdown",
+   "enabled": true,
+   "fields": {},
+   "input": {
+    "crawlerType": "playwright:firefox",
+    "htmlTransformer": "none",
+    "ignoreCanonicalUrl": true,
+    "maxCrawlDepth": 0,
+    "readableTextCharThreshold": 0,
+    "saveMarkdown": true,
+    "startUrls": "{start_urls}"
+   },
+   "label": "Lulu Hypermarket UAE",
+   "mode": "search_urls",
+   "notes": "ignoreCanonicalUrl must stay true, otherwise every search page counts as one page.",
+   "parallel_runs": 3,
+   "parser": "lulu_search_markdown",
+   "url_template": "https://gcc.luluhypermarket.com/en-ae/list/?search_text={barcode}"
+  }
+ },
+ "barcodeCount": 384,
+ "columns": [
+  {
+   "key": "item_code",
+   "label": "الكود",
+   "type": "code"
+  },
+  {
+   "key": "name_ar",
+   "label": "الصنف"
+  },
+  {
+   "key": "brand_ar",
+   "label": "الماركة"
+  },
+  {
+   "key": "barcode_raw",
+   "label": "الباركود",
+   "type": "code"
+  },
+  {
+   "key": "qty_raw",
+   "label": "الكمية"
+  },
+  {
+   "key": "origin_raw",
+   "label": "المنشأ"
+  },
+  {
+   "key": "cpi_group",
+   "label": "المجموعة"
+  },
+  {
+   "key": "match_mode",
+   "label": "طريقة التسعير"
+  }
+ ],
+ "description": "سلة أسعار المستهلك الكاملة (1,301 صنفاً في 45 مجموعة): الأغذية بالباركود والمسح الشامل مع تثبيت المنتج المرجعي، والأصناف الأخرى بالاسم/الموديل من الكتالوج اليومي، والخدمات بلا سعر رفّ.",
+ "itemCount": 1301,
+ "kind": "barcode",
+ "lastRun": {
+  "accepted": 818,
+  "at": "2026-11-02T02:49:41+00:00",
+  "status": "error"
+ },
+ "list_key": "",
+ "name": "CPI · سلة أسعار دبي",
+ "nameCount": 550,
+ "order": 1,
+ "runner": "routine",
+ "schedule": {
+  "trigger_id": "trig_018GydPXyp4MkLmnMj8dAoqY",
+  "tz": "Asia/Dubai"
+ },
+ "serviceCount": 114,
+ "short": "CPI",
+ "specCount": 253,
+ "status": "live"
+}

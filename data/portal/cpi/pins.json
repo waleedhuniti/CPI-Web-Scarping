@@ -1,0 +1,3708 @@
+{
+ "pins": {
+  "011110503|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Los Pinos Harees Hab",
+   "unit": 8.39,
+   "url": "https://www.carrefouruae.com/mafuae/en/other-pulses/vn-harees-hab/p/1785632"
+  },
+  "011110503|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Al Fares Harees (Peeled Wheat) 2 kg",
+   "unit": 7.67,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-fares-harees-peeled-wheat-2-kg/p/470888/"
+  },
+  "011110901|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "El Basha Red Burgul, 800g",
+   "unit": 10.86,
+   "url": "https://www.carrefouruae.com/mafuae/en/sri-lankan-rice/el-basha-red-burgul-800g/p/2200087"
+  },
+  "011110901|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Bayara Burghul Rough 400 g",
+   "unit": 14.62,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bayara-burghul-rough-400-g/p/1158814/"
+  },
+  "011110902|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "El Basha Red Burgul, 800g",
+   "unit": 10.86,
+   "url": "https://www.carrefouruae.com/mafuae/en/sri-lankan-rice/el-basha-red-burgul-800g/p/2200087"
+  },
+  "011110902|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Bayara Burghul Rough 400 g",
+   "unit": 14.62,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bayara-burghul-rough-400-g/p/1158814/"
+  },
+  "011110904|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "El Basha Red Burgul, 800g",
+   "unit": 10.86,
+   "url": "https://www.carrefouruae.com/mafuae/en/sri-lankan-rice/el-basha-red-burgul-800g/p/2200087"
+  },
+  "011110904|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Bayara Burghul Rough 400 g",
+   "unit": 14.62,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bayara-burghul-rough-400-g/p/1158814/"
+  },
+  "011130101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Al Baker, Frozen Paratha Malabar, 400g",
+   "unit": 17.47,
+   "url": "https://www.carrefouruae.com/mafuae/en/paratha-chapatti/al-baker-malabar-paratha-400g/p/1642141"
+  },
+  "011130101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "iD Frozen Plain Paratha 3 x 350 g",
+   "unit": 15.19,
+   "url": "https://gcc.luluhypermarket.com/en-ae/id-frozen-plain-paratha-3-x-350-g/p/1955584/"
+  },
+  "011130504|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-20",
+   "title": "Bake Art LuLu Vanilla Butter Cream Cake Medium 1 kg",
+   "unit": 44.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bake-art-lulu-vanilla-butter-cream-cake-medium-1-kg/p/18194/"
+  },
+  "011130505|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-20",
+   "title": "Bake Art LuLu Vanilla Butter Cream Cake Medium 1 kg",
+   "unit": 44.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bake-art-lulu-vanilla-butter-cream-cake-medium-1-kg/p/18194/"
+  },
+  "011130506|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-20",
+   "title": "Bake Art LuLu Vanilla Butter Cream Cake Medium 1 kg",
+   "unit": 44.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bake-art-lulu-vanilla-butter-cream-cake-medium-1-kg/p/18194/"
+  },
+  "011130507|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Schar Pausa Ciok Gluten Free Chocolate Coated Sponge Cakes with Milk Cream Filling, 350g",
+   "unit": 136.54,
+   "url": "https://www.carrefouruae.com/mafuae/en/mousse-cream-cakes/schar-gluten-f-cake-350g/p/956041"
+  },
+  "011130507|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Deemah Brownie Cake With Chocolate Cream 12 x 37g",
+   "unit": 51.58,
+   "url": "https://gcc.luluhypermarket.com/en-ae/deemah-brownie-cake-with-chocolate-cream-37g/p/1895443-ea/"
+  },
+  "011130508|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Schar Pausa Ciok Gluten Free Chocolate Coated Sponge Cakes with Milk Cream Filling, 350g",
+   "unit": 136.54,
+   "url": "https://www.carrefouruae.com/mafuae/en/mousse-cream-cakes/schar-gluten-f-cake-350g/p/956041"
+  },
+  "011130508|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Deemah Brownie Cake With Chocolate Cream 12 x 37g",
+   "unit": 51.58,
+   "url": "https://gcc.luluhypermarket.com/en-ae/deemah-brownie-cake-with-chocolate-cream-37g/p/1895443-ea/"
+  },
+  "011130509|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Schar Pausa Ciok Gluten Free Chocolate Coated Sponge Cakes with Milk Cream Filling, 350g",
+   "unit": 136.54,
+   "url": "https://www.carrefouruae.com/mafuae/en/mousse-cream-cakes/schar-gluten-f-cake-350g/p/956041"
+  },
+  "011130509|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Deemah Brownie Cake With Chocolate Cream 12 x 37g",
+   "unit": 51.58,
+   "url": "https://gcc.luluhypermarket.com/en-ae/deemah-brownie-cake-with-chocolate-cream-37g/p/1895443-ea/"
+  },
+  "011130510|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Strawberry Cream Cake Cup",
+   "unit": 56.63,
+   "url": "https://www.carrefouruae.com/mafuae/en/single-muffins/strawberry-cream-cake-cup/p/2320795"
+  },
+  "011130511|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Strawberry Cream Cake Cup",
+   "unit": 56.63,
+   "url": "https://www.carrefouruae.com/mafuae/en/single-muffins/strawberry-cream-cake-cup/p/2320795"
+  },
+  "011130512|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Strawberry Cream Cake Cup",
+   "unit": 56.63,
+   "url": "https://www.carrefouruae.com/mafuae/en/single-muffins/strawberry-cream-cake-cup/p/2320795"
+  },
+  "011130801|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Al Qamar Premium Baklawa 150g",
+   "unit": 143.27,
+   "url": "https://www.carrefouruae.com/mafuae/en/baklava/bmb-baklawa-mix-150g-pc/p/1354836"
+  },
+  "011130801|lulu": {
+   "last": "2026-11-01",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Al Mealim Finest Arabian Sweets Baklava 250 g",
+   "unit": 118,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-mealim-finest-arabian-sweets-baklava-250-g/p/2617769/"
+  },
+  "011130802|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Al Qamar Premium Baklawa 150g",
+   "unit": 143.27,
+   "url": "https://www.carrefouruae.com/mafuae/en/baklava/bmb-baklawa-mix-150g-pc/p/1354836"
+  },
+  "011130802|lulu": {
+   "last": "2026-11-01",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Al Mealim Finest Arabian Sweets Baklava 250 g",
+   "unit": 118,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-mealim-finest-arabian-sweets-baklava-250-g/p/2617769/"
+  },
+  "011130803|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Al Qamar Premium Baklawa 150g",
+   "unit": 143.27,
+   "url": "https://www.carrefouruae.com/mafuae/en/baklava/bmb-baklawa-mix-150g-pc/p/1354836"
+  },
+  "011130803|lulu": {
+   "last": "2026-11-01",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Al Mealim Finest Arabian Sweets Baklava 250 g",
+   "unit": 118,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-mealim-finest-arabian-sweets-baklava-250-g/p/2617769/"
+  },
+  "011131001|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Royal Harvest Cheese Sambousek, 240g",
+   "unit": 51.21,
+   "url": "https://www.carrefouruae.com/mafuae/en/samousa-vegetarian-cheese/royal-harvest-cheese-sambousek-240g/p/2290435"
+  },
+  "011131001|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Lamesa Cheese Rolls 300 g",
+   "unit": 99.17,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lamesa-cheese-rolls-300-g/p/1231015/"
+  },
+  "011131003|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Butter Croissant 1 Piece",
+   "unit": 66.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/plain-croissants/croissant-butter-pc/p/1646734"
+  },
+  "011131003|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "LuLu Strawberry Croissant 2 x 330 g",
+   "unit": 21.97,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-strawberry-croissant-2-330-g/p/1692067/"
+  },
+  "011220101|carrefour": {
+   "last": "2026-10-17",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Syrian Awassi Mutton Leg Bone In",
+   "unit": 92.99,
+   "url": "https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-leg-bin-dc-/p/2288968"
+  },
+  "011220101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Pakistani Mutton Cuts Bone In 500 g",
+   "unit": 54.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/154716-ea/"
+  },
+  "011220102|carrefour": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-13",
+   "title": "Indian Mutton Ribs",
+   "unit": 59,
+   "url": "https://www.carrefouruae.com/mafuae/en/mutton/ind-mutton-ribs-dc-tr-/p/69116"
+  },
+  "011220102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Indian Mutton Rib Chops 200 g",
+   "unit": 57,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/41556-ea/"
+  },
+  "011220103|carrefour": {
+   "last": "2026-11-02",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Syrian Awassi Mutton Caracass",
+   "unit": 89.99,
+   "url": "https://www.carrefouruae.com/mafuae/en/mutton/syr-awassi-mutton-carcass-dc-/p/2288871"
+  },
+  "011220103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Pakistani Mutton Cuts Bone In 500 g",
+   "unit": 54.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/154716-ea/"
+  },
+  "011220104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Indian Mutton Biriyani Cut Bone In 500 g",
+   "unit": 49.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/indian-mutton-biriyani-cut-bone-in-500-g/p/1948269/"
+  },
+  "011220105|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-18",
+   "title": "Australian Lamb Cube Boneless Import",
+   "unit": 87,
+   "url": "https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-cubes-boneless-dc-/p/2288872"
+  },
+  "011220105|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Australian Lamb Leg Steak Boneless 350 g",
+   "unit": 75.14,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/137772-ea/"
+  },
+  "011220301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Dutch Veal Striploin Steak Import",
+   "unit": 100,
+   "url": "https://www.carrefouruae.com/mafuae/en/holand-beef/dutch-veal-striploin-steak-di/p/2288405"
+  },
+  "011220301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Indian Veal Steak 300 g",
+   "unit": 45.83,
+   "url": "https://gcc.luluhypermarket.com/en-ae/indian-veal-steak-300-g/p/365778-ea/"
+  },
+  "011220302|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-11-01",
+   "title": "Australian Beef Ribeye Steak",
+   "unit": 119,
+   "url": "https://www.carrefouruae.com/mafuae/en/australian-beef/aus-beef-ribeye-steak-dc-/p/264650"
+  },
+  "011220302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-21",
+   "title": "Pryme Grass Fed Beef Striploin Steak 250 g",
+   "unit": 220.4,
+   "url": "https://gcc.luluhypermarket.com/en-ae/pryme-grass-fed-beef-striploin-steak-250-g/p/2581424/"
+  },
+  "011220303|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-11-01",
+   "title": "Australian Beef Cubes Boneless",
+   "unit": 71,
+   "url": "https://www.carrefouruae.com/mafuae/en/australian-beef/aus-beef-cubes-boneless-dc-/p/264674"
+  },
+  "011220303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Pakistani Beef Boneless 500 g",
+   "unit": 42.2,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/195911-ea/"
+  },
+  "011220304|carrefour": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-14",
+   "title": "New Zealand T-Bone Beef Steak",
+   "unit": 129,
+   "url": "https://www.carrefouruae.com/mafuae/en/new-zealand-beef/nz-beef-t-bone-dc-/p/69810"
+  },
+  "011220304|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Fresh Beef Bones 500 g",
+   "unit": 8.1,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/40678-ea/"
+  },
+  "011220401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "LuLu Frozen Boneless Buffalo Meat Slices 900 g",
+   "unit": 30.83,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-frozen-boneless-buffalo-meat-slices-900-g/p/384797-ea/"
+  },
+  "011220402|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "LuLu Frozen Boneless Buffalo Meat Slices 900 g",
+   "unit": 30.83,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-frozen-boneless-buffalo-meat-slices-900-g/p/384797-ea/"
+  },
+  "011220403|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "LuLu Frozen Boneless Buffalo Meat Slices 900 g",
+   "unit": 30.83,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-frozen-boneless-buffalo-meat-slices-900-g/p/384797-ea/"
+  },
+  "011220404|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "LuLu Frozen Boneless Buffalo Meat Slices 900 g",
+   "unit": 30.83,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-frozen-boneless-buffalo-meat-slices-900-g/p/384797-ea/"
+  },
+  "011220503|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-20",
+   "title": "Jenan Fresh Chicken Gizzards, 500g",
+   "unit": 15.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/poultry-offals/jenan-frsh-chkn-gizzard-500g/p/2293017"
+  },
+  "011220503|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-30",
+   "title": "Jenan Fresh Chicken Gizzard 500 g",
+   "unit": 18.2,
+   "url": "https://gcc.luluhypermarket.com/en-ae/jenan-fresh-chicken-gizzard-500-g/p/2661669/"
+  },
+  "011220507|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-11-02",
+   "title": "Saha Fresh Chicken Whole Legs 500g",
+   "unit": 20.58,
+   "url": "https://www.carrefouruae.com/mafuae/en/chicken-leg/saha-fresh-chicken-whole-legs-500g/p/1795213"
+  },
+  "011220507|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-15",
+   "title": "Al Rawdah Fresh Chicken Legs 500 g",
+   "unit": 34.8,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-rawdah-fresh-chicken-legs-500-g/p/2456364/"
+  },
+  "011220511|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "Saha Fresh Chicken Breast Fillet 450g",
+   "unit": 52.87,
+   "url": "https://www.carrefouruae.com/mafuae/en/chicken-breast/saha-fresh-chk-breast-fillet-450g/p/1795215"
+  },
+  "011220511|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-24",
+   "title": "Al Rawdah Fresh Chicken Breast 500 g",
+   "unit": 57,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-rawdah-fresh-chicken-breast-500-g/p/2462251/"
+  },
+  "011220601|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-18",
+   "title": "Al Islami Frozen Chicken Griller, 1.1kg",
+   "unit": 21.17,
+   "url": "https://www.carrefouruae.com/mafuae/en/whole-chicken/al-islami-w-chicken-1-1kg/p/136745"
+  },
+  "011220601|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "Seara Frozen Whole Chicken Griller 1.1 kg",
+   "unit": 15.82,
+   "url": "https://gcc.luluhypermarket.com/en-ae/seara-frozen-whole-chicken-griller-11-kg/p/418066-ea/"
+  },
+  "011220603|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-15",
+   "title": "Sadia Frozen Tender Chicken Breasts Boneless Skinless, 2kg",
+   "unit": 23.15,
+   "url": "https://www.carrefouruae.com/mafuae/en/chicken-breast/sadia-tender-chicken-breast-2kg/p/1122584"
+  },
+  "011220603|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "LuLu Frozen Tender Chicken Breast IQF 1 kg",
+   "unit": 22.6,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-frozen-tender-chicken-breast-iqf-1-kg/p/658707/"
+  },
+  "011220605|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-15",
+   "title": "Al Salwa Chicken Legs 1kg",
+   "unit": 17.49,
+   "url": "https://www.carrefouruae.com/mafuae/en/chicken-w-leg/al-salwa-frozen-chicken-legs/p/1262525"
+  },
+  "011220605|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "Sadia Frozen Chicken Thighs 900 g",
+   "unit": 22.78,
+   "url": "https://gcc.luluhypermarket.com/en-ae/sadia-frozen-chicken-thighs-900-g/p/1202283/"
+  },
+  "011220607|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-11-01",
+   "title": "Alyoum Chicken Breast Fillet 500g",
+   "unit": 52.58,
+   "url": "https://www.carrefouruae.com/mafuae/en/chicken-breast/alyoum-chicken-breast-fillet-fr-500/p/1936288"
+  },
+  "011220607|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-31",
+   "title": "Al Ain Farms Fresh Chicken Breast Fillet 500 g",
+   "unit": 57.7,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-ain-farms-fresh-chicken-breast-fillet-500-g/p/310427/"
+  },
+  "011220701|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "New Zealand Beef Mince",
+   "unit": 78,
+   "url": "https://www.carrefouruae.com/mafuae/en/minced-meat/nz-beef-mince-meat-dc-/p/909991"
+  },
+  "011220701|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-23",
+   "title": "New Zealand Beef Mince 500 g",
+   "unit": 69,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/40348-ea/"
+  },
+  "011220702|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Australian Lamb Mince Import",
+   "unit": 73,
+   "url": "https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-meat-minced-dc-/p/2258105"
+  },
+  "011220702|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Australian Lamb Mince 300 g",
+   "unit": 82.33,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/41661-ea/"
+  },
+  "011220703|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "New Zealand Beef Mince",
+   "unit": 78,
+   "url": "https://www.carrefouruae.com/mafuae/en/minced-meat/nz-beef-mince-meat-dc-/p/909991"
+  },
+  "011220703|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Pakistani Beef Mince 500 g",
+   "unit": 42.2,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/195922-ea/"
+  },
+  "011220704|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Indian Mutton Mince 500 g",
+   "unit": 71.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/41565-ea/"
+  },
+  "011230104|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Nova Randa Mexican Chicken Mortadella",
+   "unit": 33,
+   "url": "https://www.carrefouruae.com/mafuae/en/chicken/nova-randa-chicken-mort-mexican/p/1871971"
+  },
+  "011230104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-28",
+   "title": "Prime Chicken Mortadella Plain 500 g",
+   "unit": 31.4,
+   "url": "https://gcc.luluhypermarket.com/en-ae/prime-chicken-mortadella-plain-500-g/p/1012913/"
+  },
+  "011230105|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Carrefour Plain Beef Mortadella Roll, 500g",
+   "unit": 31.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/beef/crf-mortad-roll-beef-plain-500g/p/1450350"
+  },
+  "011230105|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "LuLu Beef Mortadella Plain 250 g",
+   "unit": 32.52,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/297991-ea/"
+  },
+  "011230106|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Arabella Beef Mortadella Pain 500g",
+   "unit": 41.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/smoked-roasted-turkey/arabella-beef-mortadela-plain-500/p/2296313"
+  },
+  "011230106|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "LuLu Beef Mortadella Plain 250 g",
+   "unit": 32.52,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/297991-ea/"
+  },
+  "011240102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-15",
+   "title": "Qualiko Frozen Chicken Wings 900g",
+   "unit": 24.21,
+   "url": "https://www.carrefouruae.com/mafuae/en/chicken-wings/qualiko-chicken-wings-900g/p/1485851"
+  },
+  "011240102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "Sadia Frozen Chicken Wings 900 g",
+   "unit": 23.89,
+   "url": "https://gcc.luluhypermarket.com/en-ae/sadia-frozen-chicken-wings-900-g/p/9591-ea/"
+  },
+  "011250101|carrefour": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-11-01",
+   "title": "Australian Lamb Mince Import",
+   "unit": 73,
+   "url": "https://www.carrefouruae.com/mafuae/en/australian-lamb/aus-lamb-meat-minced-dc-/p/2258105"
+  },
+  "011250101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Australian Lamb Shank 500 g",
+   "unit": 66.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/137776-ea/"
+  },
+  "011250102|lulu": {
+   "last": "2026-10-20",
+   "miss": 2,
+   "since": "2026-10-18",
+   "title": "Australian Beef Liver 500 g",
+   "unit": 37,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/165595-ea/"
+  },
+  "011250303|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-28",
+   "title": "Alyoum Frozen Chicken Livers 450g",
+   "unit": 19.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/poultry-offals/alyoum-fr-liver-375g-75g-free/p/2129002"
+  },
+  "011250303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-15",
+   "title": "Al Islami Frozen Chicken Liver 450 g",
+   "unit": 20.33,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-islami-frozen-chicken-liver-450-g/p/601860/"
+  },
+  "011250305|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-23",
+   "title": "Seara Chicken Gizzard, 450g",
+   "unit": 19.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/offal-variety-meats/seara-chciken-gizzard-450g/p/1597472"
+  },
+  "011250305|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-21",
+   "title": "Nat Frozen Chicken Giblets Gizzards 450 g",
+   "unit": 15,
+   "url": "https://gcc.luluhypermarket.com/en-ae/nat-frozen-chicken-giblets-gizzards-450-g/p/855303/"
+  },
+  "011310101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Kingfish Steak",
+   "unit": 94,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521"
+  },
+  "011310102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Fresh Kingfish Steak",
+   "unit": 94,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/king-fish-steaks/p/1817521"
+  },
+  "011310201|carrefour": {
+   "last": "2026-10-27",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Grouper Half Spotty",
+   "unit": 47,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/grouper-half-spotty/p/318301"
+  },
+  "011310301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-27",
+   "title": "Fresh Sheri Local Butterfly Cut Approx. 700 g - 800 g",
+   "unit": 49.86,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-sheri-local-butterfly-cut-approx-700-g-800-g/p/35640-ybc/"
+  },
+  "011310302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-27",
+   "title": "Fresh Sheri Shikali Big Whole Cleaned 1 kg",
+   "unit": 25.65,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-sheri-shikali-big-whole-cleaned-1-kg/p/1222029-ea/"
+  },
+  "011310401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-28",
+   "title": "Fresh Safi Fish Medium Whole Not Cleaned Approx. 900 g - 1 kg",
+   "unit": 19.33,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-safi-fish-medium-whole-not-cleaned-approx-900-g-1-kg/p/74524-ea/"
+  },
+  "011310402|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-28",
+   "title": "Fresh Safi Fish Medium Whole Not Cleaned Approx. 900 g - 1 kg",
+   "unit": 19.33,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-safi-fish-medium-whole-not-cleaned-approx-900-g-1-kg/p/74524-ea/"
+  },
+  "011310501|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Local Sultan Ibrahim",
+   "unit": 40.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-local/p/72782"
+  },
+  "011310501|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-27",
+   "title": "Fresh Sultan Ibrahim Whole Not Cleaned Approx. 450 g - 500 g",
+   "unit": 34.22,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-sultan-ibrahim-whole-not-cleaned-approx-450-g-500-g/p/35702-ea/"
+  },
+  "011310502|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Sultan Ibrahim (Oman)",
+   "unit": 26.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/sultan-ibrahim-omani/p/334469"
+  },
+  "011310502|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-27",
+   "title": "Fresh Sultan Ibrahim Whole Not Cleaned Approx. 450 g - 500 g",
+   "unit": 34.22,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-sultan-ibrahim-whole-not-cleaned-approx-450-g-500-g/p/35702-ea/"
+  },
+  "011310601|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-18",
+   "title": "Fresh Trevally",
+   "unit": 32.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/malabar-trevally/p/72818"
+  },
+  "011310601|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-27",
+   "title": "Fresh Jest Trevally Small Whole Not Cleaned Approx. 900 g - 1 kg",
+   "unit": 38.78,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-jest-trevally-small-whole-not-cleaned-approx-900-g-1-kg/p/16922-ea/"
+  },
+  "011310602|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-18",
+   "title": "Fresh Trevally",
+   "unit": 32.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/malabar-trevally/p/72818"
+  },
+  "011310602|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-27",
+   "title": "Fresh Jest Trevally Small Whole Not Cleaned Approx. 900 g - 1 kg",
+   "unit": 38.78,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-jest-trevally-small-whole-not-cleaned-approx-900-g-1-kg/p/16922-ea/"
+  },
+  "011310701|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-19",
+   "title": "Fresh Seabream Import",
+   "unit": 50.4,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/fresh-seabream-di/p/1605768"
+  },
+  "011310701|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Black Seabream Fish Butterfly Cut 1 kg",
+   "unit": 50.35,
+   "url": "https://gcc.luluhypermarket.com/en-ae/black-seabream-fish-butterfly-cut-1-kg/p/438976-ybc/"
+  },
+  "011310702|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Fresh Seabream",
+   "unit": 52.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/seabream-400-600g-fresh/p/165311"
+  },
+  "011310702|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Black Seabream Fish Butterfly Cut 1 kg",
+   "unit": 50.35,
+   "url": "https://gcc.luluhypermarket.com/en-ae/black-seabream-fish-butterfly-cut-1-kg/p/438976-ybc/"
+  },
+  "011310801|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Whole Norwegian Salmon 2/3Kg",
+   "unit": 73.49,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/salmon-2-3-norway/p/1249672"
+  },
+  "011310801|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-24",
+   "title": "Norwegian Salmon Whole Superior Not Cleaned Approx. 4.050 kg- 4.5 kg",
+   "unit": 73.09,
+   "url": "https://gcc.luluhypermarket.com/en-ae/norwegian-salmon-whole-superior-not-cleaned-approx-4-050-kg-4-5-kg/p/760321-ea/"
+  },
+  "011310901|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Tilapia Fresh",
+   "unit": 18.88,
+   "url": "https://www.carrefouruae.com/mafuae/en/fish/tilapia-fresh/p/939008"
+  },
+  "011310901|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-26",
+   "title": "Fresh Tilapia Fish Whole Not Cleaned Approx. 900 g - 1 kg",
+   "unit": 17.06,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-tilapia-fish-whole-not-cleaned-approx-900-g-1-kg/p/72192-ea/"
+  },
+  "011340101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Fresh Shrimps 20/30",
+   "unit": 58.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/fresh-shrimp/fresh-shrimps-20-30/p/73218"
+  },
+  "011340101|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-13",
+   "title": "Fresh Farmed Prawns Large Head On Fully Cleaned 500 g",
+   "unit": 39,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-farmed-prawns-large-head-on-fully-cleaned-500-g/p/1401115-yhc/"
+  },
+  "011340102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Fresh Shrimps 20/30",
+   "unit": 58.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/fresh-shrimp/fresh-shrimps-20-30/p/73218"
+  },
+  "011340102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Fresh Prawns Farmed Medium 350 g",
+   "unit": 24.57,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/78785-ea/"
+  },
+  "011340103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Fresh Shrimps 20/30",
+   "unit": 58.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/fresh-shrimp/fresh-shrimps-20-30/p/73218"
+  },
+  "011340103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Fresh Farmed Prawns Small 500 g",
+   "unit": 41.1,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1036033-ea/"
+  },
+  "011340201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Lobster",
+   "unit": 119,
+   "url": "https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster-100-300g/p/2140266"
+  },
+  "011340202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Lobster",
+   "unit": 119,
+   "url": "https://www.carrefouruae.com/mafuae/en/frozen-lobster-shrimp-cigal/lobster-100-300g/p/2140266"
+  },
+  "011340301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Fresh Female Blue Crab",
+   "unit": 32,
+   "url": "https://www.carrefouruae.com/mafuae/en/crab/blue-crab-female/p/408646"
+  },
+  "011340301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-27",
+   "title": "Fresh Crab Female 500 g",
+   "unit": 33.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-crab-female-500-g/p/1387928-ea/"
+  },
+  "011340401|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Squid",
+   "unit": 30.4,
+   "url": "https://www.carrefouruae.com/mafuae/en/shellfish-molluscs/squid-fresh/p/981472"
+  },
+  "011340401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Fresh Squid Whole Not Cleaned 500 g",
+   "unit": 33.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-squid-whole-not-cleaned-500-g/p/1583012-ync/"
+  },
+  "011340501|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Freshly Foods Premium Peeled Shrimps, 800g",
+   "unit": 52.86,
+   "url": "https://www.carrefouruae.com/mafuae/en/shrimps/fff-prem-peeled-shrimps-800g/p/812823"
+  },
+  "011340501|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Aqua Marine Peeled Shrimps Medium 500 g",
+   "unit": 60.3,
+   "url": "https://gcc.luluhypermarket.com/en-ae/aqua-marine-peeled-shrimps-medium-500-g/p/694918/"
+  },
+  "011340502|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Freshly Foods Premium Peeled Shrimps, 800g",
+   "unit": 52.86,
+   "url": "https://www.carrefouruae.com/mafuae/en/shrimps/fff-prem-peeled-shrimps-800g/p/812823"
+  },
+  "011340502|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Aqua Marine Peeled Shrimps Medium 500 g",
+   "unit": 60.3,
+   "url": "https://gcc.luluhypermarket.com/en-ae/aqua-marine-peeled-shrimps-medium-500-g/p/694918/"
+  },
+  "011340503|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Freshly Foods Premium Peeled Shrimps, 800g",
+   "unit": 52.86,
+   "url": "https://www.carrefouruae.com/mafuae/en/shrimps/fff-prem-peeled-shrimps-800g/p/812823"
+  },
+  "011340503|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Aqua Marine Peeled Shrimps Medium 500 g",
+   "unit": 60.3,
+   "url": "https://gcc.luluhypermarket.com/en-ae/aqua-marine-peeled-shrimps-medium-500-g/p/694918/"
+  },
+  "011450301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Kaval White Bulgarian Cow Cheese",
+   "unit": 64.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/feta-white-cheese/kaval-white-bulgarian-cows/p/2130280"
+  },
+  "011450301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Egyptian Old White Cheese 300 g",
+   "unit": 27.97,
+   "url": "https://gcc.luluhypermarket.com/en-ae/egyptian-old-white-cheese-300-g/p/2576709-ea/"
+  },
+  "011450302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Chtoora Full Fat Fresh Halloumi Cheese, 250g",
+   "unit": 55.16,
+   "url": "https://www.carrefouruae.com/mafuae/en/halloumi-akawi-kashkawal/chtoora-fresh-halloumi-250g/p/1087774"
+  },
+  "011450302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Halloumi With Habat Baraka 250 g",
+   "unit": 44.92,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/325657-ea/"
+  },
+  "011450303|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Fresh Akkawi Cheese",
+   "unit": 49.29,
+   "url": "https://www.carrefouruae.com/mafuae/en/soft-cheese-cottage/akawi-al-baraka/p/71471"
+  },
+  "011450303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Fresh Akkawi Cheese 450 g",
+   "unit": 46.91,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/39793-ea/"
+  },
+  "011610101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Kingdom Dates With Nuts 300g",
+   "unit": 59.3,
+   "url": "https://www.carrefouruae.com/mafuae/en/dates/dates-with-nuts-kd/p/1450698"
+  },
+  "011610101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Dates UAE 250 g",
+   "unit": 27.8,
+   "url": "https://gcc.luluhypermarket.com/en-ae/dates-uae-250-g/p/1218785/"
+  },
+  "011610201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Chiquita Banana",
+   "unit": 9.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/banana/banana-chiquita/p/1078988"
+  },
+  "011610201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Banana Chiquita Ecuador 1 kg",
+   "unit": 8.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/380260-ea/"
+  },
+  "011610202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Banana",
+   "unit": 6.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/banana/banana-ep/p/71399"
+  },
+  "011610202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-30",
+   "title": "Banana Chiquita Ecuador 1 kg",
+   "unit": 8.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/380260-ea/"
+  },
+  "011610203|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Dole Sweetio Super Sweet Highland Bananas 600g",
+   "unit": 18.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/banana/banana-sweetio-pp/p/739830"
+  },
+  "011610203|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Banana Mysore 500 g",
+   "unit": 9.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/21745-ea/"
+  },
+  "011610301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Mango Alphonso",
+   "unit": 22.7,
+   "url": "https://www.carrefouruae.com/mafuae/en/mango/mango-alphonso/p/446964"
+  },
+  "011610301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Green Mango India 500 g",
+   "unit": 16.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/40421-ea/"
+  },
+  "011610302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Round Mango",
+   "unit": 17,
+   "url": "https://www.carrefouruae.com/mafuae/en/mango/mango-round/p/421991"
+  },
+  "011610302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Kenya Mangoes Round Kenya 1 kg",
+   "unit": 19.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/19016-ea/"
+  },
+  "011610303|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Mango Alphonso Premium",
+   "unit": 25,
+   "url": "https://www.carrefouruae.com/mafuae/en/mango/di-mango-alphonso-premium/p/421985"
+  },
+  "011610303|lulu": {
+   "last": "2026-11-02",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Mango Kent 500 g",
+   "unit": 12.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/mango-kent-500-g/p/1090755-ea/"
+  },
+  "011610401|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Guava",
+   "unit": 9,
+   "url": "https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902"
+  },
+  "011610401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Guava Egypt 500 g",
+   "unit": 13.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/383762-ea/"
+  },
+  "011610402|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Guava",
+   "unit": 9,
+   "url": "https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902"
+  },
+  "011610402|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Guava Egypt 500 g",
+   "unit": 13.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/383762-ea/"
+  },
+  "011610403|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Guava",
+   "unit": 9,
+   "url": "https://www.carrefouruae.com/mafuae/en/exotic-fruit/guava/p/446902"
+  },
+  "011610403|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Guava Egypt 500 g",
+   "unit": 13.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/383762-ea/"
+  },
+  "011610501|carrefour": {
+   "last": "2026-10-26",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Fresh Figs",
+   "unit": 19,
+   "url": "https://www.carrefouruae.com/mafuae/en/exotic-fruit/fig-fresh/p/446889"
+  },
+  "011610601|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Apple Red 6-Piece Pack",
+   "unit": 12.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-red-x6-pp/p/445929"
+  },
+  "011610601|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Coconut Whole India 1 pc",
+   "unit": 3.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/"
+  },
+  "011610602|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Apple Red 6-Piece Pack",
+   "unit": 12.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-red-x6-pp/p/445929"
+  },
+  "011610602|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Coconut Whole India 1 pc",
+   "unit": 3.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/"
+  },
+  "011610603|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Apple Red 6-Piece Pack",
+   "unit": 12.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-red-x6-pp/p/445929"
+  },
+  "011610603|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Coconut Whole India 1 pc",
+   "unit": 3.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/"
+  },
+  "011610604|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Apple Red 6-Piece Pack",
+   "unit": 12.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-red-x6-pp/p/445929"
+  },
+  "011610604|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Coconut Whole India 1 pc",
+   "unit": 3.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/"
+  },
+  "011610701|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Green Papaya",
+   "unit": 5.69,
+   "url": "https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-green/p/458503"
+  },
+  "011610701|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Papaya Fruit India 1.5 kg",
+   "unit": 14.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18671-ea/"
+  },
+  "011610702|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Solo Papaya",
+   "unit": 24.99,
+   "url": "https://www.carrefouruae.com/mafuae/en/exotic-fruit/papaya-solo/p/446974"
+  },
+  "011610801|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Coconut Whole India 1 pc",
+   "unit": 3.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/"
+  },
+  "011610802|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Coconut Whole India 1 pc",
+   "unit": 3.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/"
+  },
+  "011610803|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Coconut Whole India 1 pc",
+   "unit": 3.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coconut-whole-india-1-pc/p/42555/"
+  },
+  "011610901|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-23",
+   "title": "Carrefour Avocado Ettinger",
+   "unit": 17,
+   "url": "https://www.carrefouruae.com/mafuae/en/avocado/mf-avocado-ettinger/p/2263595"
+  },
+  "011610901|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Avocado Hass Mexico 500 g",
+   "unit": 34.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1113595-ea/"
+  },
+  "011610902|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-23",
+   "title": "Carrefour Avocado Ettinger",
+   "unit": 17,
+   "url": "https://www.carrefouruae.com/mafuae/en/avocado/mf-avocado-ettinger/p/2263595"
+  },
+  "011610902|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Avocado Kenya 1 kg",
+   "unit": 16.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/avocado-kenya-1-kg/p/19009-ea/"
+  },
+  "011620101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-22",
+   "title": "Carrefour Navel Oranges 3Kg",
+   "unit": 8.23,
+   "url": "https://www.carrefouruae.com/mafuae/en/orange/crf-orange-navel-3kg/p/2175462"
+  },
+  "011620101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Orange Navel Net Bag 2.5 kg",
+   "unit": 8.38,
+   "url": "https://gcc.luluhypermarket.com/en-ae/orange-navel-net-bag-2-5-kg/p/736733/"
+  },
+  "011620102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-22",
+   "title": "Carrefour Navel Oranges 3Kg",
+   "unit": 8.23,
+   "url": "https://www.carrefouruae.com/mafuae/en/orange/crf-orange-navel-3kg/p/2175462"
+  },
+  "011620102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Orange Navel Net Bag 2.5 kg",
+   "unit": 8.38,
+   "url": "https://gcc.luluhypermarket.com/en-ae/orange-navel-net-bag-2-5-kg/p/736733/"
+  },
+  "011620103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-22",
+   "title": "Carrefour Navel Oranges 3Kg",
+   "unit": 8.23,
+   "url": "https://www.carrefouruae.com/mafuae/en/orange/crf-orange-navel-3kg/p/2175462"
+  },
+  "011620103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Orange Navel Net Bag 2.5 kg",
+   "unit": 8.38,
+   "url": "https://gcc.luluhypermarket.com/en-ae/orange-navel-net-bag-2-5-kg/p/736733/"
+  },
+  "011620104|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Orange Valencia",
+   "unit": 8.89,
+   "url": "https://www.carrefouruae.com/mafuae/en/orange/orange-valencia/p/446565"
+  },
+  "011620104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Orange Valencia 2.5 kg",
+   "unit": 8.6,
+   "url": "https://gcc.luluhypermarket.com/en-ae/orange-valencia-2-5-kg/p/736734/"
+  },
+  "011620105|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Orange Valencia",
+   "unit": 8.89,
+   "url": "https://www.carrefouruae.com/mafuae/en/orange/orange-valencia/p/446565"
+  },
+  "011620105|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Orange Valencia 2.5 kg",
+   "unit": 8.6,
+   "url": "https://gcc.luluhypermarket.com/en-ae/orange-valencia-2-5-kg/p/736734/"
+  },
+  "011620201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Yellow Lime",
+   "unit": 6,
+   "url": "https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440"
+  },
+  "011620201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Lime Egypt 250 g",
+   "unit": 4.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lime-egypt-250-g/p/36388-ea/"
+  },
+  "011620202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Yellow Lime",
+   "unit": 6,
+   "url": "https://www.carrefouruae.com/mafuae/en/lemon-lime/lime-yellow/p/446440"
+  },
+  "011620202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Lime Egypt 250 g",
+   "unit": 4.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lime-egypt-250-g/p/36388-ea/"
+  },
+  "011620203|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Carrefour Lemons 2Kg",
+   "unit": 6.64,
+   "url": "https://www.carrefouruae.com/mafuae/en/lemon-lime/crf-lemon-bag-2kg/p/2175743"
+  },
+  "011620203|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Lemon Bag 2 kg",
+   "unit": 7.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lemon-bag-2-kg/p/795633/"
+  },
+  "011620204|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Carrefour Lemons 2Kg",
+   "unit": 6.64,
+   "url": "https://www.carrefouruae.com/mafuae/en/lemon-lime/crf-lemon-bag-2kg/p/2175743"
+  },
+  "011620204|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Lemon Turkey Big 500 g",
+   "unit": 7.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/520922-ea/"
+  },
+  "011620301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Grapefruit Star Ruby",
+   "unit": 8.58,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417"
+  },
+  "011620301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-29",
+   "title": "Grapefruit Turkey 1 kg",
+   "unit": 7.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/36326-ea/"
+  },
+  "011620302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Grapefruit Star Ruby",
+   "unit": 8.58,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapefruit-pomelo/grapefruit-star-ruby/p/446417"
+  },
+  "011620401|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Carrefour Mandarin Nadorcott",
+   "unit": 10,
+   "url": "https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056"
+  },
+  "011620401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-28",
+   "title": "Mandarin Australia 1 kg",
+   "unit": 16.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/191465-ea/"
+  },
+  "011620402|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Carrefour Mandarin Nadorcott",
+   "unit": 10,
+   "url": "https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056"
+  },
+  "011620402|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-28",
+   "title": "Mandarin Australia 1 kg",
+   "unit": 16.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/191465-ea/"
+  },
+  "011620403|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Carrefour Mandarin Nadorcott",
+   "unit": 10,
+   "url": "https://www.carrefouruae.com/mafuae/en/clementine-mandarin/mf-mandarin-nadorcott/p/2282056"
+  },
+  "011620403|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-28",
+   "title": "Mandarin Australia 1 kg",
+   "unit": 16.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/191465-ea/"
+  },
+  "011630101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Red Apple",
+   "unit": 12.4,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442"
+  },
+  "011630101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Red Apple Azerbaijan 1 kg",
+   "unit": 6.45,
+   "url": "https://gcc.luluhypermarket.com/en-ae/red-apple-azerbaijan-1-kg/p/1248480-ea/"
+  },
+  "011630102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Red Apple",
+   "unit": 12.4,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-red/p/351442"
+  },
+  "011630102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Red Apple USA 1 kg",
+   "unit": 18.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/red-apple-usa-1-kg/p/19047-ea/"
+  },
+  "011630103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Royal Gala Apple",
+   "unit": 9.78,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-royal-gala-ep/p/1551790"
+  },
+  "011630103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Royal Gala Apple 1 kg",
+   "unit": 12.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/royal-gala-apple-1-kg/p/797574/"
+  },
+  "011630104|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-17",
+   "title": "Golden Apple",
+   "unit": 12,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-golden/p/351437"
+  },
+  "011630104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Golden Apple 1 kg",
+   "unit": 14.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/golden-apple-1-kg/p/750751/"
+  },
+  "011630105|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-17",
+   "title": "Golden Apple",
+   "unit": 12,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-golden/p/351437"
+  },
+  "011630105|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Golden Apple 1 kg",
+   "unit": 14.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/golden-apple-1-kg/p/750751/"
+  },
+  "011630106|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-20",
+   "title": "Green Apple",
+   "unit": 11.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385"
+  },
+  "011630106|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Green Apple 1 kg",
+   "unit": 12.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/green-apple-1-kg/p/19057-ea/"
+  },
+  "011630107|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Green Apple",
+   "unit": 11.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/apple/apple-green/p/1026385"
+  },
+  "011630107|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Green Apple 1 kg",
+   "unit": 12.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/green-apple-1-kg/p/19057-ea/"
+  },
+  "011630201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-29",
+   "title": "Apricot Pack 500g",
+   "unit": 49.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/apricot-plums/apricot-ep-pack/p/486155"
+  },
+  "011630201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-29",
+   "title": "Apricot South Africa 500 g",
+   "unit": 44.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/377344-ea/"
+  },
+  "011630202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-29",
+   "title": "Apricot Pack 500g",
+   "unit": 49.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/apricot-plums/apricot-ep-pack/p/486155"
+  },
+  "011630202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-29",
+   "title": "Apricot South Africa 500 g",
+   "unit": 44.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/377344-ea/"
+  },
+  "011630301|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-24",
+   "title": "Peach Import",
+   "unit": 16.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/peaches-nectarines/di-peach-trk/p/446762"
+  },
+  "011630301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Anjeer Peaches 500 g",
+   "unit": 17.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/anjeer-peaches-500-g/p/260911-ea/"
+  },
+  "011630302|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-24",
+   "title": "Peach Import",
+   "unit": 16.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/peaches-nectarines/di-peach-trk/p/446762"
+  },
+  "011630302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Anjeer Peaches 500 g",
+   "unit": 17.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/anjeer-peaches-500-g/p/260911-ea/"
+  },
+  "011630303|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-24",
+   "title": "Peach Import",
+   "unit": 16.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/peaches-nectarines/di-peach-trk/p/446762"
+  },
+  "011630303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Anjeer Peaches 500 g",
+   "unit": 17.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/anjeer-peaches-500-g/p/260911-ea/"
+  },
+  "011630401|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-28",
+   "title": "Plum Black",
+   "unit": 15,
+   "url": "https://www.carrefouruae.com/mafuae/en/apricot-plums/plum-black-kg/p/984348"
+  },
+  "011630401|lulu": {
+   "last": "2026-11-02",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Plums Angelino 500 g",
+   "unit": 17.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/982754-ea/"
+  },
+  "011630402|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-28",
+   "title": "Plum Black",
+   "unit": 15,
+   "url": "https://www.carrefouruae.com/mafuae/en/apricot-plums/plum-black-kg/p/984348"
+  },
+  "011630402|lulu": {
+   "last": "2026-11-02",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Plums Angelino 500 g",
+   "unit": 17.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/982754-ea/"
+  },
+  "011630501|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-28",
+   "title": "Red Cherries 250g Pack",
+   "unit": 99.96,
+   "url": "https://www.carrefouruae.com/mafuae/en/cherries/cherry-red-pp-250-gm/p/1206803"
+  },
+  "011630501|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-16",
+   "title": "Cherry South Africa 250 g",
+   "unit": 99.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/cherry-south-africa-250-g/p/1912580-ea/"
+  },
+  "011630502|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-28",
+   "title": "Red Cherries 250g Pack",
+   "unit": 99.96,
+   "url": "https://www.carrefouruae.com/mafuae/en/cherries/cherry-red-pp-250-gm/p/1206803"
+  },
+  "011630502|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-16",
+   "title": "Cherry South Africa 250 g",
+   "unit": 99.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/cherry-south-africa-250-g/p/1912580-ea/"
+  },
+  "011630503|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-28",
+   "title": "Red Cherries 250g Pack",
+   "unit": 99.96,
+   "url": "https://www.carrefouruae.com/mafuae/en/cherries/cherry-red-pp-250-gm/p/1206803"
+  },
+  "011630503|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-16",
+   "title": "Cherry South Africa 250 g",
+   "unit": 99.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/cherry-south-africa-250-g/p/1912580-ea/"
+  },
+  "011630601|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-27",
+   "title": "Vermont Beauty Pear",
+   "unit": 13.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/pears/pear-vermont-beauty/p/71628"
+  },
+  "011630601|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Vermonte Beauty Pears South Africa 500 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/382137-ea/"
+  },
+  "011630602|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-27",
+   "title": "Vermont Beauty Pear",
+   "unit": 13.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/pears/pear-vermont-beauty/p/71628"
+  },
+  "011630602|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Vermonte Beauty Pears South Africa 500 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/382137-ea/"
+  },
+  "011630603|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-27",
+   "title": "Vermont Beauty Pear",
+   "unit": 13.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/pears/pear-vermont-beauty/p/71628"
+  },
+  "011630603|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Vermonte Beauty Pears South Africa 500 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/382137-ea/"
+  },
+  "011640101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Strawberry 250g",
+   "unit": 79.56,
+   "url": "https://www.carrefouruae.com/mafuae/en/berries/strawberry-250g-pp/p/425359"
+  },
+  "011640101|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-14",
+   "title": "Driscolls Strawberry 250 g",
+   "unit": 75.8,
+   "url": "https://gcc.luluhypermarket.com/en-ae/driscolls-strawberry-250-g/p/18955/"
+  },
+  "011640102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Strawberry 250g",
+   "unit": 79.56,
+   "url": "https://www.carrefouruae.com/mafuae/en/berries/strawberry-250g-pp/p/425359"
+  },
+  "011640102|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-14",
+   "title": "Driscolls Strawberry 250 g",
+   "unit": 75.8,
+   "url": "https://gcc.luluhypermarket.com/en-ae/driscolls-strawberry-250-g/p/18955/"
+  },
+  "011650101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-21",
+   "title": "Red Grapes Globe Import",
+   "unit": 18,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892"
+  },
+  "011650101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Grapes Red Globe Lebanon 500 g",
+   "unit": 16.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/"
+  },
+  "011650102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Red Grapes Globe Import",
+   "unit": 18,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892"
+  },
+  "011650102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Grapes Red Globe Lebanon 500 g",
+   "unit": 16.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/"
+  },
+  "011650103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Red Grapes Globe Import",
+   "unit": 18,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/grapes-red-globe-import/p/489892"
+  },
+  "011650103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Grapes Red Globe Lebanon 500 g",
+   "unit": 16.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/grapes-red-globe-lebanon-500-g/p/1764047-ea/"
+  },
+  "011650104|carrefour": {
+   "last": "2026-10-28",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "White Grapes 500g",
+   "unit": 19.78,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/grapes-white-pp-ep/p/1490826"
+  },
+  "011650104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-18",
+   "title": "Grapes White Small Egypt 500 g",
+   "unit": 19.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/grapes-white-small-egypt-500-g/p/2734229-ea/"
+  },
+  "011650105|carrefour": {
+   "last": "2026-10-27",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "White Seedless Grapes Import",
+   "unit": 30,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972"
+  },
+  "011650105|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-18",
+   "title": "Grapes White Small Egypt 500 g",
+   "unit": 19.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/grapes-white-small-egypt-500-g/p/2734229-ea/"
+  },
+  "011650106|carrefour": {
+   "last": "2026-10-27",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "White Seedless Grapes Import",
+   "unit": 30,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-white-seedless/p/70972"
+  },
+  "011650106|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-18",
+   "title": "Grapes White Small Egypt 500 g",
+   "unit": 19.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/grapes-white-small-egypt-500-g/p/2734229-ea/"
+  },
+  "011650107|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Black Grapes Ponet",
+   "unit": 18.58,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/grapes-black-pp-ep/p/901008"
+  },
+  "011650107|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-30",
+   "title": "Grapes Sweet Sapphire 500 g",
+   "unit": 26.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1153953-ea/"
+  },
+  "011650108|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-26",
+   "title": "Grapes Black USA",
+   "unit": 62.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-black-usa/p/2263578"
+  },
+  "011650108|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-30",
+   "title": "Grapes Sweet Sapphire 500 g",
+   "unit": 26.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1153953-ea/"
+  },
+  "011650109|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-26",
+   "title": "Grapes Black USA",
+   "unit": 62.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/grapes/di-grapes-black-usa/p/2263578"
+  },
+  "011650109|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-30",
+   "title": "Grapes Sweet Sapphire 500 g",
+   "unit": 26.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1153953-ea/"
+  },
+  "011650201|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-19",
+   "title": "Green Watermelon Long",
+   "unit": 3.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/melon/watermelon-long-green/p/489894"
+  },
+  "011650201|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-16",
+   "title": "Watermelon Kiran India 1 kg",
+   "unit": 5.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/watermelon-kiran-india-1-kg/p/1411290-ea/"
+  },
+  "011650202|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Green Watermelon Long",
+   "unit": 3.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/melon/watermelon-long-green/p/489894"
+  },
+  "011650202|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-16",
+   "title": "Watermelon Kiran India 1 kg",
+   "unit": 5.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/watermelon-kiran-india-1-kg/p/1411290-ea/"
+  },
+  "011650203|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-19",
+   "title": "Green Watermelon Long",
+   "unit": 3.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/melon/watermelon-long-green/p/489894"
+  },
+  "011650203|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-16",
+   "title": "Watermelon Kiran India 1 kg",
+   "unit": 5.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/watermelon-kiran-india-1-kg/p/1411290-ea/"
+  },
+  "011650301|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Melon Long Sweet",
+   "unit": 5.99,
+   "url": "https://www.carrefouruae.com/mafuae/en/melon/melon-long-sweet/p/489895"
+  },
+  "011650301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Sweet Melon Jordan 2.2 kg - 2.6 kg Approx.",
+   "unit": 7.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/sweet-melon-jordan-2-2-kg-2-6-kg-approx/p/1284725-ea/"
+  },
+  "011650302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Rock Melon",
+   "unit": 3.99,
+   "url": "https://www.carrefouruae.com/mafuae/en/melon/melon-rock/p/1571802"
+  },
+  "011650302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Rock Melon Oman 2 kg",
+   "unit": 5.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/377392-ea/"
+  },
+  "011650303|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Hello Fruits Tricolor Melon Mix",
+   "unit": 49.16,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-fruits/h-fruits-tri-colour-melon-250g/p/1556079"
+  },
+  "011650303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Sliced Rock Melon 250 g",
+   "unit": 26.52,
+   "url": "https://gcc.luluhypermarket.com/en-ae/sliced-rock-melon-250-g/p/42907-ea/"
+  },
+  "011650401|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Kiwi Zespri",
+   "unit": 30,
+   "url": "https://www.carrefouruae.com/mafuae/en/kiwi/kiwi-zespri/p/1137681"
+  },
+  "011650401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Fresh Cut Kiwi Fruit 250 g",
+   "unit": 39.92,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-cut-kiwi-fruit-250-g/p/1055536-ea/"
+  },
+  "011650402|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Kiwi Zespri",
+   "unit": 30,
+   "url": "https://www.carrefouruae.com/mafuae/en/kiwi/kiwi-zespri/p/1137681"
+  },
+  "011650402|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Fresh Cut Kiwi Fruit 250 g",
+   "unit": 39.92,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-cut-kiwi-fruit-250-g/p/1055536-ea/"
+  },
+  "011650403|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Kiwi Zespri",
+   "unit": 30,
+   "url": "https://www.carrefouruae.com/mafuae/en/kiwi/kiwi-zespri/p/1137681"
+  },
+  "011650403|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Kiwi Fruit New Zealand 500 g",
+   "unit": 25.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18956-ea/"
+  },
+  "011650501|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Hello Fruits Pomegranate Seeds",
+   "unit": 78.36,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-fruits/h-fruits-pomegranate-seeds-250g/p/1556075"
+  },
+  "011650501|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Pomegranate (Anar) India 1 kg",
+   "unit": 16.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/377341-ea/"
+  },
+  "011650502|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Hello Fruits Pomegranate Seeds",
+   "unit": 78.36,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-fruits/h-fruits-pomegranate-seeds-250g/p/1556075"
+  },
+  "011650502|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Fresh Pomegranate Seeds 250 g",
+   "unit": 56.92,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-pomegranate-seeds-250-g/p/1055539-ea/"
+  },
+  "011650503|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Hello Fruits Pomegranate Seeds",
+   "unit": 78.36,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-fruits/h-fruits-pomegranate-seeds-250g/p/1556075"
+  },
+  "011650503|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Pomegranate (Anar) India 1 kg",
+   "unit": 16.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/377341-ea/"
+  },
+  "011670101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Date Crown Khalas Thermoform Dates 1kg",
+   "unit": 28.29,
+   "url": "https://www.carrefouruae.com/mafuae/en/dates/date-crown-khalas-1kg-thermo-foam/p/870762"
+  },
+  "011670101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Al Momin Royal Khalas Al Ahsa 1 kg",
+   "unit": 12.75,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-momin-royal-khalas-al-ahsa-1-kg/p/976299/"
+  },
+  "011670102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Zwad Fard Dates Premium 500 g",
+   "unit": 20.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/zwad-fard-dates-premium-500-g/p/2431398-ea/"
+  },
+  "011670201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Los Pinos Black Raisins",
+   "unit": 49,
+   "url": "https://www.carrefouruae.com/mafuae/en/dried-fruits/vn-raisins-black/p/1778293"
+  },
+  "011670201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Green Raisins 500 g",
+   "unit": 25.7,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/42888-ea/"
+  },
+  "011670202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Los Pinos Black Raisins",
+   "unit": 49,
+   "url": "https://www.carrefouruae.com/mafuae/en/dried-fruits/vn-raisins-black/p/1778293"
+  },
+  "011670202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Green Raisins 500 g",
+   "unit": 25.7,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/42888-ea/"
+  },
+  "011670301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-15",
+   "title": "Los Pinos Dried Figs",
+   "unit": 71.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/dried-fruits/vn-figs-dried-jumbo/p/1778355"
+  },
+  "011670302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-15",
+   "title": "Los Pinos Dried Figs",
+   "unit": 71.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/dried-fruits/vn-figs-dried-jumbo/p/1778355"
+  },
+  "011680103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-29",
+   "title": "Crunchos Roasted and Salted Almond Can, 100g",
+   "unit": 157.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/almonds/crunchos-almond-100g-can/p/1220489"
+  },
+  "011680103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "LuLu Almond Roasted Lemon 500 g",
+   "unit": 57.6,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-almond-roasted-lemon-500-g/p/191793/"
+  },
+  "011680201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Wonderful Roasted Salted XXL Pistachios, 115g",
+   "unit": 146,
+   "url": "https://www.carrefouruae.com/mafuae/en/pistachios/wonderful-pistachios-s-p-115g/p/1179392"
+  },
+  "011680201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Fancy Nuts Roasted & Salted Pistachio 125 g",
+   "unit": 100,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fancy-nuts-roasted-salted-pistachio-125-g/p/2535051/"
+  },
+  "011680301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Carrefour Oil Roasted and Salted Cashews, 110g",
+   "unit": 107.18,
+   "url": "https://www.carrefouruae.com/mafuae/en/cashew/crf-cashew-slt-rst-110g-can/p/1764386"
+  },
+  "011680301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-21",
+   "title": "May Finest Unsalted Roasted Cashew 450 g",
+   "unit": 66.44,
+   "url": "https://gcc.luluhypermarket.com/en-ae/may-finest-unsalted-roasted-cashew-450-g/p/2114708/"
+  },
+  "011680402|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Los Pinos Walnut USA, 250g",
+   "unit": 105.16,
+   "url": "https://www.carrefouruae.com/mafuae/en/nuts/los-pinos-walnut-usa-250gm/p/2297152"
+  },
+  "011680402|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Walnut USA 500 g",
+   "unit": 65,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1271186-ea/"
+  },
+  "011680403|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Bayara Walnut 300g",
+   "unit": 36.63,
+   "url": "https://www.carrefouruae.com/mafuae/en/mixed-nuts/bayara-walnuts-300g/p/1604358"
+  },
+  "011680403|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "LuLu Walnut Regular 250 g",
+   "unit": 84.4,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-walnut-regular-250-g/p/235218/"
+  },
+  "011680801|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-23",
+   "title": "Carrefour Premium Mixed Nuts, 450g",
+   "unit": 75.53,
+   "url": "https://www.carrefouruae.com/mafuae/en/mixed-nuts/crf-mix-nuts-premium-450g-can/p/1764395"
+  },
+  "011680801|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Mixed Nuts Deluxe Without Shell 500 g",
+   "unit": 100.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/632366-ea/"
+  },
+  "011710101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Bustanica Spinach 150g",
+   "unit": 82.6,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-leaves-salad/bst-spinach-150g/p/1914566"
+  },
+  "011710101|lulu": {
+   "last": "2026-11-01",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Barakat Spinach 200 g",
+   "unit": 39.75,
+   "url": "https://gcc.luluhypermarket.com/en-ae/barakat-spinach-200-g/p/2038818/"
+  },
+  "011710201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Cabbage White Flat",
+   "unit": 7.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-flat/p/472448"
+  },
+  "011710201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Cabbage White 500 g",
+   "unit": 3.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18555-ea/"
+  },
+  "011710202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "White Round Cabbage",
+   "unit": 4,
+   "url": "https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-round-kg-ep/p/70727"
+  },
+  "011710202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Cabbage White 500 g",
+   "unit": 3.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18555-ea/"
+  },
+  "011710203|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "White Round Cabbage",
+   "unit": 4,
+   "url": "https://www.carrefouruae.com/mafuae/en/cabbage/cabbage-white-round-kg-ep/p/70727"
+  },
+  "011710203|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Cabbage White 500 g",
+   "unit": 3.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18555-ea/"
+  },
+  "011710301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Barakat Broccoli Carrot & Cauliflower 350g",
+   "unit": 20.83,
+   "url": "https://www.carrefouruae.com/mafuae/en/cut-vegetables/broccolli-carot-cauliflower-350g-bk/p/1887016"
+  },
+  "011710301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Cauliflower Holland 800 g",
+   "unit": 23.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18803-ea/"
+  },
+  "011710302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Cauliflower",
+   "unit": 9,
+   "url": "https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043"
+  },
+  "011710302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Cauliflower Holland 800 g",
+   "unit": 23.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18803-ea/"
+  },
+  "011710303|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Cauliflower",
+   "unit": 9,
+   "url": "https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043"
+  },
+  "011710303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Cauliflower Holland 800 g",
+   "unit": 23.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18803-ea/"
+  },
+  "011710304|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Cauliflower",
+   "unit": 9,
+   "url": "https://www.carrefouruae.com/mafuae/en/broccoli-cauliflower/cauliflower-ep/p/490043"
+  },
+  "011710304|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Cauliflower Holland 800 g",
+   "unit": 23.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18803-ea/"
+  },
+  "011710401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Arugula Leaves (Gerger) 1 Bunch",
+   "unit": 1,
+   "url": "https://gcc.luluhypermarket.com/en-ae/arugula-leaves-gerger-1-bunch/p/2502795/"
+  },
+  "011710501|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Pure Harvest Crispy Green Lettuce 125g",
+   "unit": 68.72,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-leaves-salad/ph-crispy-green-lettuce/p/1880454"
+  },
+  "011710501|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Lettuce Lollo Biondo Flow Pack 125 g",
+   "unit": 70,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lettuce-lollo-biondo-flow-pack-125-g/p/1884725/"
+  },
+  "011710502|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Pure Harvest Crispy Green Lettuce 125g",
+   "unit": 68.72,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-leaves-salad/ph-crispy-green-lettuce/p/1880454"
+  },
+  "011710502|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Lettuce Lollo Biondo Flow Pack 125 g",
+   "unit": 70,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lettuce-lollo-biondo-flow-pack-125-g/p/1884725/"
+  },
+  "011710503|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Romaine Lettuce",
+   "unit": 8.59,
+   "url": "https://www.carrefouruae.com/mafuae/en/salads/lettuce-romaine-ep/p/449348"
+  },
+  "011710503|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Lettuce Lollo Biondo Flow Pack 125 g",
+   "unit": 70,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lettuce-lollo-biondo-flow-pack-125-g/p/1884725/"
+  },
+  "011710601|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Mint Import Bunch 100g",
+   "unit": 0.89,
+   "url": "https://www.carrefouruae.com/mafuae/en/fresh-herbs/fresh-mint-import/p/70820"
+  },
+  "011710601|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Mint Leaves 1 Bunch",
+   "unit": 1,
+   "url": "https://gcc.luluhypermarket.com/en-ae/mint-leaves-1-bunch/p/2502794/"
+  },
+  "011720101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-23",
+   "title": "Pure Harvest Tomato Sharing Box 680g",
+   "unit": 41.01,
+   "url": "https://www.carrefouruae.com/mafuae/en/tomato/tomato-sharing-box-680g-ph/p/1631480"
+  },
+  "011720101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Tomato 1.5 kg",
+   "unit": 7,
+   "url": "https://gcc.luluhypermarket.com/en-ae/tomato-1-5-kg/p/883908/"
+  },
+  "011720103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-23",
+   "title": "Pure Harvest Tomato Sharing Box 680g",
+   "unit": 41.01,
+   "url": "https://www.carrefouruae.com/mafuae/en/tomato/tomato-sharing-box-680g-ph/p/1631480"
+  },
+  "011720103|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-14",
+   "title": "Tomato 5 kg",
+   "unit": 6.2,
+   "url": "https://gcc.luluhypermarket.com/en-ae/tomato-5-kg/p/1382441/"
+  },
+  "011720104|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Tomato",
+   "unit": 6.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/tomato/tomato-ep/p/1767482"
+  },
+  "011720104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Tomato Jordan 500 g",
+   "unit": 5.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/372444-ea/"
+  },
+  "011720105|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-19",
+   "title": "Carrefour Red Candy Tomato 500g",
+   "unit": 17.63,
+   "url": "https://www.carrefouruae.com/mafuae/en/tomato/mf-red-candy-tomato-500g/p/1801435"
+  },
+  "011720105|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-14",
+   "title": "Tomato 5 kg",
+   "unit": 6.2,
+   "url": "https://gcc.luluhypermarket.com/en-ae/tomato-5-kg/p/1382441/"
+  },
+  "011720201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-19",
+   "title": "Cucumber",
+   "unit": 5.3,
+   "url": "https://www.carrefouruae.com/mafuae/en/cucumber/cucumber-kg-ep/p/449729"
+  },
+  "011720201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Cucumber 1.5 kg",
+   "unit": 5.67,
+   "url": "https://gcc.luluhypermarket.com/en-ae/cucumber-1-5-kg/p/883763/"
+  },
+  "011720202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-19",
+   "title": "Carrefour Fresh Cucumbers 500g",
+   "unit": 8.58,
+   "url": "https://www.carrefouruae.com/mafuae/en/cucumber/mf-fresh-cucumber-500g/p/1876556"
+  },
+  "011720202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Cucumber 1.5 kg",
+   "unit": 5.67,
+   "url": "https://gcc.luluhypermarket.com/en-ae/cucumber-1-5-kg/p/883763/"
+  },
+  "011720203|carrefour": {
+   "last": "2026-10-17",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Long Cucumber",
+   "unit": 17,
+   "url": "https://www.carrefouruae.com/mafuae/en/cucumber/cucumber-long/p/70658"
+  },
+  "011720301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Green Zucchini",
+   "unit": 12,
+   "url": "https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green/p/1851273"
+  },
+  "011720302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Green Zucchini",
+   "unit": 12,
+   "url": "https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green/p/1851273"
+  },
+  "011720303|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Green Zucchini",
+   "unit": 12,
+   "url": "https://www.carrefouruae.com/mafuae/en/zucchini/zucchini-green/p/1851273"
+  },
+  "011720401|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Premium Eggplant",
+   "unit": 8.4,
+   "url": "https://www.carrefouruae.com/mafuae/en/eggplant/eggplant-premium/p/1536066"
+  },
+  "011720401|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Long Eggplant 500 g",
+   "unit": 9.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18585-ea/"
+  },
+  "011720402|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Eggplant Purple Long",
+   "unit": 8,
+   "url": "https://www.carrefouruae.com/mafuae/en/eggplant/eggplant-purple-long/p/457765"
+  },
+  "011720402|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Long Eggplant 500 g",
+   "unit": 9.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18585-ea/"
+  },
+  "011720403|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Eggplant Purple Long",
+   "unit": 8,
+   "url": "https://www.carrefouruae.com/mafuae/en/eggplant/eggplant-purple-long/p/457765"
+  },
+  "011720403|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Long Eggplant 500 g",
+   "unit": 9.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18585-ea/"
+  },
+  "011720501|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Ash Pumpkin (Kaddoo)",
+   "unit": 4,
+   "url": "https://www.carrefouruae.com/mafuae/en/pumpkin-squash/pumpkin-ash/p/406650"
+  },
+  "011720501|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Red Pumpkin 1 kg",
+   "unit": 4.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18625-ea/"
+  },
+  "011720601|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Green Bird's Eye Chillies",
+   "unit": 11,
+   "url": "https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-green-bird/p/327895"
+  },
+  "011720601|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Green Chilli India 100 g",
+   "unit": 16,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/373185-ea/"
+  },
+  "011720602|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Thai Red Chillies 125g",
+   "unit": 47.92,
+   "url": "https://www.carrefouruae.com/mafuae/en/capsicum-chilli/chili-red-pp/p/447569"
+  },
+  "011720602|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Chilli Oman 150 g",
+   "unit": 12.93,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18563-ea/"
+  },
+  "011720701|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Green Capsicum",
+   "unit": 9.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966"
+  },
+  "011720701|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Capsicum Green 500 g",
+   "unit": 9.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18558-ea/"
+  },
+  "011720702|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Green Capsicum",
+   "unit": 9.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-green/p/489966"
+  },
+  "011720702|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Capsicum Green 500 g",
+   "unit": 9.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18558-ea/"
+  },
+  "011720703|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Red Capsicum",
+   "unit": 13,
+   "url": "https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-red/p/490008"
+  },
+  "011720703|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Capsicum Red 500 g",
+   "unit": 13.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/372374-ea/"
+  },
+  "011720704|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Red Capsicum",
+   "unit": 13,
+   "url": "https://www.carrefouruae.com/mafuae/en/capsicum-chilli/capsicum-red/p/490008"
+  },
+  "011720704|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Capsicum Red 500 g",
+   "unit": 13.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/372374-ea/"
+  },
+  "011720801|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Long Okra (Bhindi)",
+   "unit": 13,
+   "url": "https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577"
+  },
+  "011720801|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Okra 250 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/386248-ea/"
+  },
+  "011720802|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Long Okra (Bhindi)",
+   "unit": 13,
+   "url": "https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577"
+  },
+  "011720802|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Okra 250 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/386248-ea/"
+  },
+  "011720803|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Long Okra (Bhindi)",
+   "unit": 13,
+   "url": "https://www.carrefouruae.com/mafuae/en/beans-peas/okra/p/447577"
+  },
+  "011720803|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Okra 250 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/386248-ea/"
+  },
+  "011730101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Green Beans Cut 150g",
+   "unit": 47.93,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-leaves-salad/green-beans-cut-150g-bk/p/1797752"
+  },
+  "011730101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-23",
+   "title": "Beans Sprout Local 300 g",
+   "unit": 9.97,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/383763-ea/"
+  },
+  "011730102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Green Beans Cut 150g",
+   "unit": 47.93,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-leaves-salad/green-beans-cut-150g-bk/p/1797752"
+  },
+  "011730102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "String Beans 500 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18606-ea/"
+  },
+  "011730103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Green Beans Cut 150g",
+   "unit": 47.93,
+   "url": "https://www.carrefouruae.com/mafuae/en/packed-leaves-salad/green-beans-cut-150g-bk/p/1797752"
+  },
+  "011730103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "String Beans 500 g",
+   "unit": 11.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18606-ea/"
+  },
+  "011730201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Snow Peas ( Mangetout)",
+   "unit": 35.96,
+   "url": "https://www.carrefouruae.com/mafuae/en/beans-peas/snow-peas-pp/p/460582"
+  },
+  "011730201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Green Peas Sprouts UAE 250 g",
+   "unit": 15.8,
+   "url": "https://gcc.luluhypermarket.com/en-ae/green-peas-sprouts-uae-250-g/p/898566/"
+  },
+  "011740101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Barakat Red Onion Chopped 250g",
+   "unit": 14.36,
+   "url": "https://www.carrefouruae.com/mafuae/en/cut-vegetables/red-onion-chopped-250g-bk/p/466341"
+  },
+  "011740101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-11-01",
+   "title": "Onion India 1 kg",
+   "unit": 5.45,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18652-ea/"
+  },
+  "011740102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Barakat Red Onion Chopped 250g",
+   "unit": 14.36,
+   "url": "https://www.carrefouruae.com/mafuae/en/cut-vegetables/red-onion-chopped-250g-bk/p/466341"
+  },
+  "011740102|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-11-01",
+   "title": "Barakat Fresh Red Onion Chopped 250 g",
+   "unit": 13,
+   "url": "https://gcc.luluhypermarket.com/en-ae/barakat-fresh-red-onion-chopped-250-g/p/457071/"
+  },
+  "011740103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Onion Brown/Yellow",
+   "unit": 9.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/onion-shalots/onion-brown-yellow/p/447545"
+  },
+  "011740103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-24",
+   "title": "Lulu Fresh Onion Bag 5 kg",
+   "unit": 4.85,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-fresh-onion-bag-5-kg/p/878447/"
+  },
+  "011740104|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Onion Pearl White Import",
+   "unit": 105.68,
+   "url": "https://www.carrefouruae.com/mafuae/en/onion-shalots/di-onion-pearl-white-pp-usa/p/2262546"
+  },
+  "011740104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Onion White China 1 kg",
+   "unit": 5.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/onion-white-china-1-kg/p/2589862-ea/"
+  },
+  "011740201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Barakat Finely-Cut Beetroot 150g",
+   "unit": 15.93,
+   "url": "https://www.carrefouruae.com/mafuae/en/cut-vegetables/beetroot-finely-cut-150g-bk/p/1797754"
+  },
+  "011740201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Beetroot 500 g",
+   "unit": 4.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/40192-ea/"
+  },
+  "011740301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-21",
+   "title": "Carrot Loose",
+   "unit": 7.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/carrot/carrot-loose-ep/p/1078651"
+  },
+  "011740301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-23",
+   "title": "Fresh Carrots 1 kg",
+   "unit": 10.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/"
+  },
+  "011740302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-21",
+   "title": "Carrot Loose",
+   "unit": 7.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/carrot/carrot-loose-ep/p/1078651"
+  },
+  "011740302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Fresh Carrots 1 kg",
+   "unit": 10.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/"
+  },
+  "011740303|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-21",
+   "title": "Carrot Loose",
+   "unit": 7.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/carrot/carrot-loose-ep/p/1078651"
+  },
+  "011740303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Fresh Carrots 1 kg",
+   "unit": 10.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/fresh-carrots-1-kg/p/796541/"
+  },
+  "011740501|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Ginger",
+   "unit": 15,
+   "url": "https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-india/p/1140969"
+  },
+  "011740501|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Ginger India 200 g",
+   "unit": 16.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/363130-ea/"
+  },
+  "011740502|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Ginger",
+   "unit": 12.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/garlic-ginger/ginger-kg/p/70854"
+  },
+  "011740502|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Ginger China 250 g",
+   "unit": 10.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18660-ea/"
+  },
+  "011740601|carrefour": {
+   "last": "2026-10-27",
+   "miss": 2,
+   "since": "2026-10-20",
+   "title": "Red Radish Bunch 200g",
+   "unit": 16.79,
+   "url": "https://www.carrefouruae.com/mafuae/en/root-vegetables/radish-red-bunch-pp/p/2236944"
+  },
+  "011740601|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Radish Leaves 1 Bunch",
+   "unit": 1,
+   "url": "https://gcc.luluhypermarket.com/en-ae/radish-leaves-1-bunch/p/2502809/"
+  },
+  "011740602|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Radish Red Round 125g",
+   "unit": 47.92,
+   "url": "https://www.carrefouruae.com/mafuae/en/salads/radish-red-round-pp/p/71393"
+  },
+  "011740602|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Local White Radish 1 kg",
+   "unit": 7.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18650-ea/"
+  },
+  "011740701|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Garlic",
+   "unit": 10.9,
+   "url": "https://www.carrefouruae.com/mafuae/en/garlic-ginger/garlic-kg-ep/p/499952"
+  },
+  "011740701|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Garlic Pure White China 250 g",
+   "unit": 10.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/18658-ea/"
+  },
+  "011750101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Potato",
+   "unit": 5,
+   "url": "https://www.carrefouruae.com/mafuae/en/potato/potato-ep/p/1552234"
+  },
+  "011750101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Potato Bag 5 kg",
+   "unit": 5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/potato-bag-5-kg/p/376844/"
+  },
+  "011750102|carrefour": {
+   "last": "2026-10-29",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Potato Red Cocktails 500g",
+   "unit": 25.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/potato/potato-red-cocktails-500-g/p/1794452"
+  },
+  "011750102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Potato Lebanon 1 kg",
+   "unit": 4.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/521928-ea/"
+  },
+  "011750201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Sweet Potato",
+   "unit": 5.89,
+   "url": "https://www.carrefouruae.com/mafuae/en/potato/potato-sweet-ep/p/447485"
+  },
+  "011750201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Sweet Potato Egypt 500 g",
+   "unit": 5.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/sweet-potato-egypt-500-g/p/1752477-ea/"
+  },
+  "011750202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Sweet Potato",
+   "unit": 5.89,
+   "url": "https://www.carrefouruae.com/mafuae/en/potato/potato-sweet-ep/p/447485"
+  },
+  "011750202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Sweet Potato Uganda 500 g",
+   "unit": 20.96,
+   "url": "https://gcc.luluhypermarket.com/en-ae/sweet-potato-uganda-500-g/p/1107186-ea/"
+  },
+  "011760201|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Bayara Turkey Chickpeas, 400g",
+   "unit": 19.23,
+   "url": "https://www.carrefouruae.com/mafuae/en/peas/bayara-chickpeas-turkey-400g/p/822339"
+  },
+  "011760201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-19",
+   "title": "Chickpeas (Chana) Sprout UAE 250 g",
+   "unit": 15.8,
+   "url": "https://gcc.luluhypermarket.com/en-ae/chickpeas-chana-sprout-uae-250-g/p/898565/"
+  },
+  "011760202|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Los Pinos Large Chickpeas",
+   "unit": 16.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/other-pulses/vn-chick-peas-large/p/1785635"
+  },
+  "011760202|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-19",
+   "title": "Chickpeas (Chana) Sprout UAE 250 g",
+   "unit": 15.8,
+   "url": "https://gcc.luluhypermarket.com/en-ae/chickpeas-chana-sprout-uae-250-g/p/898565/"
+  },
+  "011760403|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Bayara White Beans, 400g",
+   "unit": 18.97,
+   "url": "https://www.carrefouruae.com/mafuae/en/beans/bayara-white-beans-400g/p/773245"
+  },
+  "011760405|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Bayara White Beans, 400g",
+   "unit": 18.97,
+   "url": "https://www.carrefouruae.com/mafuae/en/beans/bayara-white-beans-400g/p/773245"
+  },
+  "011790701|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Sliced Green Olives (Spain)",
+   "unit": 31.5,
+   "url": "https://www.carrefouruae.com/mafuae/en/olives/olives-green-sliced-spanish/p/66512"
+  },
+  "011790701|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Lebanese Green Olives 300 g",
+   "unit": 23.97,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1175910-ea/"
+  },
+  "011790703|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Black Olives (Spain)",
+   "unit": 27.4,
+   "url": "https://www.carrefouruae.com/mafuae/en/olives/olives-black-spanish/p/66510"
+  },
+  "011790703|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Egyptian Sliced Black Olives 300 g",
+   "unit": 24.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/970636-ea/"
+  },
+  "011790801|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Mixed Pickles (Egypt)",
+   "unit": 5,
+   "url": "https://www.carrefouruae.com/mafuae/en/pickles/mixed-pickle-egypt/p/66058"
+  },
+  "011790801|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Egyptian Premium Mixed Pickles 300 g",
+   "unit": 10.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/1035733-ea/"
+  },
+  "011790802|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Egyptian Onion Pickles 300 g",
+   "unit": 15.97,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/970620-ea/"
+  },
+  "011790803|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Special Mixed Pickles",
+   "unit": 18.88,
+   "url": "https://www.carrefouruae.com/mafuae/en/pickles/mix-pickles-special-lebanon/p/1256878"
+  },
+  "011790803|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Mixed Pickles With Olives 300 g",
+   "unit": 14.9,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/255568-ea/"
+  },
+  "011940101|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Bayara Whole Black Pepper, 200g",
+   "unit": 87.45,
+   "url": "https://www.carrefouruae.com/mafuae/en/black-pepper/bayara-black-pepper-whole-200gr/p/69431"
+  },
+  "011940101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Bayara Black Pepper Whole 500 g",
+   "unit": 106.3,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bayara-black-pepper-whole-500-g/p/11826/"
+  },
+  "011940102|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-21",
+   "title": "Los Pinos Crushed Black Pepper",
+   "unit": 92.8,
+   "url": "https://www.carrefouruae.com/mafuae/en/spices/vn-black-pepper-crushed/p/1790499"
+  },
+  "011940102|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Bayara Black Pepper Whole 500 g",
+   "unit": 106.3,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bayara-black-pepper-whole-500-g/p/11826/"
+  },
+  "011940103|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Eastern Black Pepper Powder 170g",
+   "unit": 148.76,
+   "url": "https://www.carrefouruae.com/mafuae/en/masala-and-mix/eastern-black-pepper-powder-170gm/p/1867206"
+  },
+  "011940103|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-14",
+   "title": "Al Fares Black Pepper Powder 250 g",
+   "unit": 113.2,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-fares-black-pepper-powder-250-g/p/471027/"
+  },
+  "011940104|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Bayara Black Pepper Powder, 200g",
+   "unit": 108.95,
+   "url": "https://www.carrefouruae.com/mafuae/en/black-pepper/bayara-black-pepper-powder-200gr/p/69434"
+  },
+  "011940104|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "LuLu Black Pepper Powder 200 g",
+   "unit": 46.25,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-black-pepper-powder-200-g/p/1803911-ea/"
+  },
+  "011940303|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Bayara Cumin Powder, 500g",
+   "unit": 49.98,
+   "url": "https://www.carrefouruae.com/mafuae/en/spices/bayara-cumin-powder-500gr/p/69478"
+  },
+  "011940303|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "LuLu Cumin Powder 200 g",
+   "unit": 25.5,
+   "url": "https://gcc.luluhypermarket.com/en-ae/lulu-cumin-powder-200-g/p/67224/"
+  },
+  "011940501|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Rainbow Evaporated Milk Cardamom Vitamin D 170g",
+   "unit": 18.76,
+   "url": "https://www.carrefouruae.com/mafuae/en/evaporated-flavour-milk/rainbow-evap-cardamom-vd-170g/p/8260"
+  },
+  "011940501|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Eastern Cardamom Whole 100 g",
+   "unit": 314,
+   "url": "https://gcc.luluhypermarket.com/en-ae/eastern-cardamom-whole-100-g/p/895908/"
+  },
+  "011940502|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Rainbow Evaporated Milk Cardamom Vitamin D 170g",
+   "unit": 18.76,
+   "url": "https://www.carrefouruae.com/mafuae/en/evaporated-flavour-milk/rainbow-evap-cardamom-vd-170g/p/8260"
+  },
+  "011940502|lulu": {
+   "last": "2026-11-02",
+   "miss": 1,
+   "since": "2026-10-24",
+   "title": "Cardamom Green 100 g",
+   "unit": 180,
+   "url": "https://gcc.luluhypermarket.com/en-ae/p/480699-ea/"
+  },
+  "011940701|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Los Pinos Ginger Powder",
+   "unit": 50.6,
+   "url": "https://www.carrefouruae.com/mafuae/en/spices/vn-ginger-powder/p/1778446"
+  },
+  "011940701|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Al Fares Ginger Powder 250 g",
+   "unit": 69.6,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-fares-ginger-powder-250-g/p/470902/"
+  },
+  "011940702|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Bayara Ginger Powder, 200g",
+   "unit": 64.95,
+   "url": "https://www.carrefouruae.com/mafuae/en/spices/bayara-ginger-powder-200gr/p/69395"
+  },
+  "011940702|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Al Fares Ginger Powder 250 g",
+   "unit": 69.6,
+   "url": "https://gcc.luluhypermarket.com/en-ae/al-fares-ginger-powder-250-g/p/470902/"
+  },
+  "011941001|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "QAT Pasta Spices Mixed Herb Seasoning, 200g",
+   "unit": 97.45,
+   "url": "https://www.carrefouruae.com/mafuae/en/spices/qat-pasta-spice-200g/p/2309312"
+  },
+  "011941001|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Bab Elsham Mixed Meat Spices 190 g",
+   "unit": 118.95,
+   "url": "https://gcc.luluhypermarket.com/en-ae/bab-elsham-mixed-meat-spices-190-g/p/2526713/"
+  },
+  "011941002|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Nestle Maggi Chicken Natural Shawarma Mix 40g",
+   "unit": 189.75,
+   "url": "https://www.carrefouruae.com/mafuae/en/seasoning/maggi-chkn-shawarma-mix-natural-40g/p/1654944"
+  },
+  "011941002|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-16",
+   "title": "Eastern Shawarma Spices 140 g",
+   "unit": 141.43,
+   "url": "https://gcc.luluhypermarket.com/en-ae/eastern-shawarma-spices-140-g/p/1832567/"
+  },
+  "011941101|carrefour": {
+   "last": "2026-10-30",
+   "miss": 2,
+   "since": "2026-10-13",
+   "title": "Fresh Coriander Bunch",
+   "unit": 0.49,
+   "url": "https://www.carrefouruae.com/mafuae/en/fresh-herbs/coriander-fresh-bunche/p/1264804"
+  },
+  "011941101|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Coriander Leaves 1 Bunch",
+   "unit": 1,
+   "url": "https://gcc.luluhypermarket.com/en-ae/coriander-leaves-1-bunch/p/2502793/"
+  },
+  "011941201|carrefour": {
+   "last": "2026-10-21",
+   "miss": 2,
+   "since": "2026-10-14",
+   "title": "Parsley Import Bunch 100g",
+   "unit": 0.89,
+   "url": "https://www.carrefouruae.com/mafuae/en/fresh-herbs/fresh-parsley-import/p/447432"
+  },
+  "011941201|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-13",
+   "title": "Parsley Leaves 1 Bunch",
+   "unit": 1,
+   "url": "https://gcc.luluhypermarket.com/en-ae/parsley-leaves-1-bunch/p/2502792/"
+  },
+  "011990301|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Carrefour Original Baker's Yeast, 30g",
+   "unit": 183,
+   "url": "https://www.carrefouruae.com/mafuae/en/baking-soda-yeast/crf-baking-yeast-30g/p/902329"
+  },
+  "011990301|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-20",
+   "title": "Doobi Instant Dry Yeast 10 g",
+   "unit": 90,
+   "url": "https://gcc.luluhypermarket.com/en-ae/doobi-instant-dry-yeast-10-g/p/2473796/"
+  },
+  "011990302|carrefour": {
+   "last": "2026-10-31",
+   "miss": 2,
+   "since": "2026-10-16",
+   "title": "Carrefour Original Baker's Yeast, 30g",
+   "unit": 183,
+   "url": "https://www.carrefouruae.com/mafuae/en/baking-soda-yeast/crf-baking-yeast-30g/p/902329"
+  },
+  "011990302|lulu": {
+   "last": "2026-11-02",
+   "miss": 0,
+   "since": "2026-10-20",
+   "title": "Doobi Instant Dry Yeast 10 g",
+   "unit": 90,
+   "url": "https://gcc.luluhypermarket.com/en-ae/doobi-instant-dry-yeast-10-g/p/2473796/"
+  }
+ }
+}

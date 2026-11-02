@@ -1,0 +1,89 @@
+{
+ "accepted": 1054,
+ "chunks": 27,
+ "count": 1478,
+ "finishedAt": "2026-10-28T04:50:27+00:00",
+ "log": [
+  "Carrefour UAE barcode: 343 pages read, 20 failed",
+  "Lulu Hypermarket UAE barcode: 363 pages read, 0 failed",
+  "carrefour | Meat & Poultry: 385 products from 8 pages",
+  "carrefour | Fish & Seafood: 122 products from 4 pages",
+  "carrefour | Fruits: 208 products from 5 pages",
+  "carrefour | Vegetables: 187 products from 5 pages",
+  "carrefour | Herbs: 24 products from 2 pages",
+  "carrefour | Bakery: 490 products from 10 pages",
+  "carrefour | Chilled Food Counter: 392 products from 8 pages",
+  "carrefour | Food To Go: 105 products from 3 pages",
+  "carrefour | Cooking Ingredients: 956 products from 18 pages",
+  "carrefour | World Specialities: 877 products from 16 pages",
+  "carrefour | Dairy & Eggs: 1252 products from 22 pages",
+  "carrefour | Rice, Pasta & Pulses: 377 products from 8 pages",
+  "carrefour | Baking Essentials: 60 products from 2 pages",
+  "carrefour | Nuts, Dates & Dried Fruits: 119 products from 3 pages",
+  "carrefour | Jams, Honey & Spreads: 0 products from 1 pages",
+  "carrefour | Tins, Jars & Packets: 0 products from 1 pages",
+  "carrefour | Frozen Food: 0 products from 1 pages",
+  "carrefour | Sauces & Dressings: 347 products from 7 pages",
+  "carrefour | Breakfast Cereals & Bars: 195 products from 5 pages",
+  "carrefour | Chocolate & Confectionery: 964 products from 18 pages",
+  "carrefour | Biscuits & Crackers: 601 products from 12 pages",
+  "lulu | Fresh Meat & Poultry: 170 products from 5 pages",
+  "lulu | Fresh Fish & Seafood: 166 products from 5 pages",
+  "lulu | Fruits & Vegetables: 391 products from 9 pages",
+  "lulu | Bakery: 591 products from 13 pages",
+  "lulu | Deli: 439 products from 10 pages",
+  "lulu | Cooking Ingredients: 1622 products from 34 pages",
+  "lulu | World Foods: 714 products from 16 pages",
+  "lulu | Dairy, Eggs & Cheese: 1221 products from 26 pages",
+  "lulu | Rice, Pasta & Noodles: 638 products from 14 pages",
+  "lulu | Home Baking & Sweeteners: 583 products from 13 pages",
+  "lulu | Frozen Food: 1574 products from 33 pages",
+  "lulu | Canned Foods: 490 products from 11 pages",
+  "lulu | Breakfast & Spreads: 785 products from 17 pages",
+  "lulu | Biscuits & Confectionery: 1896 products from 39 pages",
+  "lulu | Sauces & Dressings: 665 products from 15 pages",
+  "lulu | Nuts (search): 459 products from 24 pages",
+  "lulu | Dates (search): 610 products from 32 pages"
+ ],
+ "startedAt": "2026-10-28T02:49:09+00:00",
+ "status": "error",
+ "summary": {
+  "carrefour_barcode": {
+   "accepted": 191,
+   "label": "Carrefour UAE (barcode)",
+   "lines": 343,
+   "statuses": {
+    "found": 191,
+    "not_found": 152
+   }
+  },
+  "carrefour_category": {
+   "accepted": 207,
+   "label": "Carrefour UAE (category)",
+   "lines": 274,
+   "statuses": {
+    "found": 207,
+    "not_found": 67
+   }
+  },
+  "lulu_barcode": {
+   "accepted": 209,
+   "label": "Lulu Hypermarket UAE (barcode)",
+   "lines": 363,
+   "statuses": {
+    "found": 209,
+    "not_found": 154
+   }
+  },
+  "lulu_category": {
+   "accepted": 223,
+   "label": "Lulu Hypermarket UAE (category)",
+   "lines": 274,
+   "statuses": {
+    "found": 223,
+    "not_found": 51
+   }
+  }
+ },
+ "thumbs_asset": "33071a105e8e70d3d3f136b237bfde52"
+}

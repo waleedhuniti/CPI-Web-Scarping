@@ -1,0 +1,61 @@
+{
+ "actors": {
+  "te": {
+   "actor": "apify/web-fetch",
+   "batch_size": 1,
+   "call_options": {},
+   "dataset_fields": "url,html",
+   "enabled": true,
+   "fields": {},
+   "input": {
+    "formats": [
+     "html"
+    ],
+    "url": "https://tradingeconomics.com/commodities"
+   },
+   "label": "Trading Economics",
+   "mode": "single",
+   "notes": "One page, all commodities. Basket = the commodities to keep.",
+   "parallel_runs": 1,
+   "parser": "te_commodities"
+  }
+ },
+ "columns": [
+  {
+   "key": "category",
+   "label": "الفئة"
+  },
+  {
+   "key": "commodity",
+   "label": "السلعة"
+  },
+  {
+   "key": "unit",
+   "label": "الوحدة",
+   "type": "code"
+  },
+  {
+   "key": "enabled",
+   "label": "مفعّل",
+   "type": "bool"
+  }
+ ],
+ "description": "أسعار إغلاق السلع العالمية من Trading Economics.",
+ "itemCount": 107,
+ "kind": "list",
+ "lastRun": {
+  "accepted": 107,
+  "at": "2026-11-01T23:09:08+00:00",
+  "status": "done"
+ },
+ "list_key": "commodity",
+ "name": "TrendX · أسعار السلع",
+ "order": 2,
+ "runner": "routine",
+ "schedule": {
+  "trigger_id": "trig_01FWxfp4cQQtbe3CJxqw9EH4",
+  "tz": "Asia/Dubai"
+ },
+ "short": "TX",
+ "status": "live"
+}

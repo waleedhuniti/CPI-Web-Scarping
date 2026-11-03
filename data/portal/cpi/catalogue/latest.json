@@ -1,7 +1,7 @@
 {
- "date": "2026-11-02",
- "rows": 15528,
- "photos": 14945,
+ "date": "2026-11-03",
+ "rows": 15460,
+ "photos": 14866,
  "groups": {
   "food": "Food & groceries",
   "household": "Household & cleaning",
@@ -11,33 +11,33 @@
   "other": "Transport, recreation & education"
  },
  "counts": {
-  "clothing": 3363,
-  "food": 3329,
-  "household": 2793,
-  "personal": 1819,
-  "electronics": 2862,
-  "other": 1362
+  "clothing": 3338,
+  "food": 3284,
+  "household": 2780,
+  "personal": 1843,
+  "electronics": 2859,
+  "other": 1356
  },
  "stores": {
-  "Splash (Centrepoint)": 232,
-  "Centrepoint (Centrepoint)": 102,
-  "Babyshop (Centrepoint)": 129,
-  "Shoexpress (Centrepoint)": 93,
-  "Shoe Mart (Centrepoint)": 258,
-  "Lulu": 5591,
-  "Max": 888,
-  "Sharaf DG": 1580,
-  "Zara": 756,
-  "Carrefour": 5899
+  "Splash (Centrepoint)": 231,
+  "Centrepoint (Centrepoint)": 104,
+  "Babyshop (Centrepoint)": 131,
+  "Shoexpress (Centrepoint)": 94,
+  "Shoe Mart (Centrepoint)": 261,
+  "Lulu": 5581,
+  "Max": 887,
+  "Sharaf DG": 1578,
+  "Zara": 760,
+  "Carrefour": 5833
  },
- "rows_asset": "82f3b207f90ce59f79da0c19379ec8a9",
- "history_asset": "70bca625085eea6943fbdc57d822588c",
+ "rows_asset": "d58095cb04c9e407d98d5b155babaa82",
+ "history_asset": "130d23f2eb91107d62e61f47eaf40e9a",
  "thumbs_assets": {
-  "food": "d4baf3d60f8ab75e4506aeb360d575b9",
-  "household": "d31ec616be53f2fb43f2a1500552a16e",
-  "personal": "bb6afebc72c39aeb07912eb517117ba3",
-  "electronics": "a577c274cd4878f829f9e6a1228234d0",
-  "clothing": "5b19c6a937c638f80084a0da18b1c406",
-  "other": "23cec774f288821e70f7e54b944e4c23"
+  "food": "6e1216cceff7088aa21f04f28dd236df",
+  "household": "6c50f9df373e21ebb2898f6100ee9169",
+  "personal": "021de269ecd0321b19aab31db94044f1",
+  "electronics": "131ad95aac4b97c095fa94ba25b07b35",
+  "clothing": "4e1a6be9448ff6ec0fa9b452819be168",
+  "other": "59d11d0777ae4703b012b8deb8dacc3b"
  }
 }

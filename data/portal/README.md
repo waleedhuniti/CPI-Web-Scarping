@@ -9,7 +9,7 @@ Made with `python scripts/portal_backup.py <download> data/portal` from the pane
 - `cpi/prices_all_runs.csv.gz`: all runs in one file (`run_id` first).
 - `cpi/basket.json` (1,301 lines as edited in the panel), `cpi/pins.json` (reference listings of the product-set lines).
 - `cpi/products/`: product-set price history (`history.json`, `scripts/product_panel.py`) and `product_panel.csv.gz`.
-- `cpi/catalogue/`: the latest catalogue (`catalogue.json.gz`, 2 Nov, Carrefour re-crawled by hand: 5,899 products) and the catalogue price history (`history.json.gz`).
+- `cpi/catalogue/`: the latest catalogue (`catalogue.json.gz`, 3 Nov, Carrefour re-crawled by hand: 5,833 products) and the catalogue price history (`history.json.gz`).
 - `te/`: TrendX commodity prices per day and `commodity_prices.csv` (2 Oct - 2 Nov).
 - `projects/`, `system/`: the panel's project and code documents. The code itself is the repository; `system_bundle_files.txt`
   lists the files the routines load.

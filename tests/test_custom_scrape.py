@@ -274,8 +274,43 @@ def test_script_errors_are_caught_per_page(site, chromium, tmp_path):
     script = "if (location.pathname === '/list') throw new Error('boom'); return [{title: 'x'}]"
     r = cs.run(scraper(site, target_urls=[site + "/list", site + "/item/5"], list_script=script, details_script=""),
                tmp_path, quick()[0])
-    assert r["count"] == 1 and r["status"] == "error" and r["pages"]["script_errors"] == 1
+    assert r["count"] == 1 and r["status"] == "error" and r["pages"]["list_script_errors"] == 1
+    assert r["pages"]["list_read"] == 2 and r["pages"]["list_not_read"] == 0
     assert "SCRIPT ERROR list_script" in (tmp_path / "log.txt").read_text() and "boom" in (tmp_path / "log.txt").read_text()
+
+
+def test_detail_script_errors_are_not_pages_not_read(site, chromium, tmp_path):
+    script = "return [{title: 'a', url: '/item/1'}, {title: 'b', url: '/item/2'}, {title: 'c', url: '/nowhere'}]"
+    details = "if (location.pathname === '/item/2') throw new Error('no table'); " + DETAILS_SCRIPT
+    r = cs.run(scraper(site, list_script=script, details_script=details), tmp_path, quick()[0])
+    p, rows = r["pages"], rows_of(tmp_path)
+    assert (p["detail_read"], p["detail_not_read"], p["detail_script_errors"]) == (2, 1, 1)
+    assert rows[1]["detail_error"].startswith("script error: Error: no table") and rows[2]["detail_error"] == "not read: HTTP 404"
+    log = (tmp_path / "log.txt").read_text()
+    assert "pages read 3, not read 1, script errors 1; status error" in log
+    assert "SCRIPT ERROR details_script" in log and "NOT READ detail" in log
+
+
+def test_a_detail_script_error_alone_makes_the_run_an_error(site, chromium, tmp_path):
+    script = "return [{title: 'a', url: '/item/1'}, {title: 'b', url: '/item/2'}]"
+    details = "if (location.pathname === '/item/2') throw new Error('no table'); " + DETAILS_SCRIPT
+    r = cs.run(scraper(site, list_script=script, details_script=details), tmp_path, quick()[0])
+    assert r["status"] == "error" and r["pages"]["detail_not_read"] == 0
+
+
+def test_each_script_runs_once_per_page(site, chromium):
+    with cs.Reader("http", pacer=quick()[0], log=lambda m: None) as reader:
+        assert reader.read(site + "/list").ok
+        body = "window.__n = (window.__n || 0) + 1;\ndocument.title = 'n' + window.__n"   # a body, no return
+        assert reader.run(body) == (None, "")
+        assert reader.run("return window.__n") == (1, "")
+        assert reader.run("window.__m = (window.__m || 0) + 1") == (1, "")              # an expression
+        assert reader.run("return window.__m") == (1, "")
+        assert reader.run("[...document.querySelectorAll('li.p a')].length;") == (3, "")
+        assert reader.run("() => ({ n: 2 })") == ({"n": 2}, "")
+        assert reader.run("function pageFunction(context) { return context.request.url; }") == (site + "/list", "")
+        v, err = reader.run("JSON.parse('{oops')")                                     # a run-time SyntaxError
+        assert v is None and "SyntaxError" in err
 
 
 def test_link_selector_when_the_list_script_gives_no_urls(site, chromium, tmp_path):

@@ -19,14 +19,16 @@ Polite: one page at a time, at least 2 s (+ up to 1 s) between two requests to t
 Retry-After or 30, 90, 180 s. A page that cannot be read (refused, challenge page, timeout) is logged and counted as
 not read, never as an empty result; an item whose detail page was not read keeps its list values and gets
 `detail_error`. No challenge solving, no proxy of our own, no stealth tricks. The run is "error" when a listing page
-was not read (or its script failed), or more than 5% of the detail pages were not read; otherwise "done".
+was not read or its script failed, or when more than 5% of the detail pages were not read or more than 5% of them had a
+script error; otherwise "done".
 
 Writes into <out dir>, in the panel's storage format (scrapers/<id>/runs/<run id> and .../rows/cNNN):
-  run.json        {startedAt, finishedAt, status, count, chunks, log, engine, pages}
+  run.json        {startedAt, finishedAt, status, count, chunks, log, engine, pages: the counts of new_pages()}
   rows/cNNN.json  {rows: [{...item, source_url, scraped_at}], i}, about 40 KB each
   log.txt         the whole log
   last.json       {last_run, last_scraped, run_request: null}: the update of the scraper document
-Prints RUN_ID <id> status <done|error> items <n> pages read <r> not read <f>.
+Prints RUN_ID <id> status <done|error> items <n> chunks <c> pages read <r>, not read <f>, script errors <e>
+(read = fetched; not read = could not be fetched; script errors = a script failed on a page that was read).
 """
 import json
 import logging
@@ -179,6 +181,7 @@ class Reader:
         self.mode, self.wait_until, self.log, self.timeout = mode, wait_until, log, timeout
         self.pacer = pacer or Pacer()
         self.doc = None                                  # (url, body, content type) the local page serves in http mode
+        self.forms = {}                                  # script -> True when it is an expression, False for a body
 
     def __enter__(self):
         from playwright.sync_api import sync_playwright
@@ -272,19 +275,22 @@ class Reader:
         self.page.goto(url, wait_until="load", timeout=self.timeout * 1000)
 
     def run(self, script):
-        """Run a script in the page: (value, error). The script is a function body ending in `return ...`, or an
-        expression / function (`() => ...`, `function pageFunction(context) {...}`), which is called."""
+        """Run a script in the page once: (value, error). The script is an expression or a function (`[...]`,
+        `() => ...`, `function pageFunction(context) {...}`, which is called), or else a function body ending in
+        `return ...`."""
         try:
-            v = self.page.evaluate(wrap(script), SCRIPT_TIMEOUT)
-            if v is None:
-                try:
-                    v = self.page.evaluate(wrap(script, expression=True), SCRIPT_TIMEOUT)
-                except Exception as e:
-                    if "SyntaxError" not in str(e):
-                        raise
-            return v, ""
+            if script not in self.forms:
+                self.forms[script] = self._parses(wrap(script, expression=True))
+            return self.page.evaluate(wrap(script, self.forms[script]), SCRIPT_TIMEOUT), ""
         except Exception as e:
             return None, short(e)
+
+    def _parses(self, fn):
+        """Whether `fn` compiles; it is only defined, never called, so nothing of the script runs."""
+        try:
+            return self.page.evaluate(f"() => {{ const __unused = {fn}; return true; }}") is True
+        except Exception:
+            return False
 
     def links(self, selector):
         """Absolute http(s) hrefs of the elements matched by `selector`, in page order, without duplicates."""
@@ -300,7 +306,7 @@ class Reader:
 
 
 def wrap(script, expression=False):
-    body = (f"const __v = (\n{script}\n);\nreturn typeof __v === 'function' ? await __v(__ctx) : __v;"
+    body = (f"const __v = (\n{script.rstrip().rstrip(';')}\n);\nreturn typeof __v === 'function' ? await __v(__ctx) : __v;"
             if expression else script)
     return ("async (t) => {\nconst __ctx = { url: location.href, request: { url: location.href } };\n"
             f"const __run = async () => {{\n{body}\n}};\n"
@@ -333,7 +339,7 @@ def scrape(doc, reader, log):
     """Listing pages, then detail pages -> (rows, page counts)."""
     limit, lst, det, sel = doc["target_items"], doc["list_script"], doc["details_script"], doc["link_selector"]
     full = lambda: limit and len(found) >= limit
-    pages = dict(list_read=0, list_not_read=0, detail_read=0, detail_not_read=0, script_errors=0)
+    pages = new_pages()
     found = []                                            # [item, source url, read at, detail url]
     seen = {}                                             # detail url -> details() result, each page read once
     for url in doc["target_urls"]:
@@ -348,8 +354,8 @@ def scrape(doc, reader, log):
         if lst:
             v, err = reader.run(lst)
             if err:
-                pages["script_errors"] += 1
-                pages["list_not_read"] += 1
+                pages["list_read"] += 1
+                pages["list_script_errors"] += 1
                 log(f"SCRIPT ERROR list_script on {page.url}: {err}")
                 continue
             got, note = as_items(v)
@@ -360,8 +366,8 @@ def scrape(doc, reader, log):
             try:
                 hrefs = reader.links(sel)
             except Exception as e:
-                pages["script_errors"] += 1
-                pages["list_not_read"] += 1
+                pages["list_read"] += 1
+                pages["list_script_errors"] += 1
                 log(f"SCRIPT ERROR link_selector {sel!r} on {page.url}: {short(e)}")
                 continue
             found += [[{"url": h}, page.url, page.at, h if det else ""] for h in hrefs]
@@ -403,22 +409,37 @@ def details(reader, script, url, log, pages, here="", at=""):
         v = v[0]
     if not err and v is not None and not isinstance(v, dict):
         err = f"returned a {type(v).__name__}, not an object"
+    if url:
+        pages["detail_read"] += 1
     if err:
-        pages["script_errors"] += 1
-        pages["detail_not_read"] += 1
+        pages["detail_script_errors"] += 1
         log(f"SCRIPT ERROR details_script on {here}: {err}")
         return False, {}, here, at, f"script error: {err}"
-    pages["detail_read"] += 1
     if v is None:
         log(f"detail {here}: details_script returned nothing")
     return True, v or {}, here, at, ""
 
 
+def new_pages():
+    """Pages fetched (read), pages that could not be fetched (not read) and script errors on pages that were read."""
+    return dict(list_read=0, list_not_read=0, list_script_errors=0, detail_read=0, detail_not_read=0, detail_script_errors=0)
+
+
 def status_of(pages):
-    if pages["list_not_read"] or not pages["list_read"]:
+    """'error' when a listing page was not read or its script failed, or more than 5% of the detail pages were not
+    read or their script failed (either way those items lack their detail values); else 'done'."""
+    if pages["list_not_read"] or pages["list_script_errors"] or not pages["list_read"]:
         return "error"
     tried = pages["detail_read"] + pages["detail_not_read"]
-    return "error" if tried and pages["detail_not_read"] > DETAIL_FAIL_SHARE * tried else "done"
+    bad = pages["detail_not_read"] > DETAIL_FAIL_SHARE * tried
+    broken = pages["detail_script_errors"] > DETAIL_FAIL_SHARE * pages["detail_read"]
+    return "error" if bad or broken else "done"
+
+
+def summary(pages):
+    return (f"pages read {pages['list_read'] + pages['detail_read']}, not read "
+            f"{pages['list_not_read'] + pages['detail_not_read']}, script errors "
+            f"{pages['list_script_errors'] + pages['detail_script_errors']}")
 
 
 def chunks_of(rows):
@@ -459,7 +480,7 @@ def run(doc, out, pacer=None, started=None):
     log(f"scraper {doc.get('map_name') or doc.get('name') or '?'}: {len(doc['target_urls'])} target URLs, "
         f"{doc['browser_type']}" + (f" (wait until {doc['wait_until']})" if doc["browser_type"] == "chromium" else "")
         + f", target items {doc.get('target_items') or 'no limit'}")
-    pages = dict(list_read=0, list_not_read=0, detail_read=0, detail_not_read=0, script_errors=0)
+    pages = new_pages()
     rows = []
     if problems:
         for p in problems:
@@ -472,9 +493,7 @@ def run(doc, out, pacer=None, started=None):
             log(f"ERROR {short(e)}")
             pages["list_not_read"] += 1
     status = "error" if problems else status_of(pages)
-    read = pages["list_read"] + pages["detail_read"]
-    log(f"{len(rows)} items; pages read {read}, not read {pages['list_not_read'] + pages['detail_not_read']}, "
-        f"script errors {pages['script_errors']}; status {status}")
+    log(f"{len(rows)} items; {summary(pages)}; status {status}")
     if not rows and status == "done":
         log("WARNING every page was read but the scripts found no items")
     chunks = chunks_of(rows)
@@ -554,9 +573,7 @@ def main(argv):
         if len(argv) == 4 and not started:
             sys.exit(f"not an ISO time: {argv[3]}")
         r = run(doc, argv[2], started=started)
-        p = r["pages"]
-        print("RUN_ID", r["run_id"], "status", r["status"], "items", r["count"], "chunks", r["chunks"],
-              "pages read", p["list_read"] + p["detail_read"], "not read", p["list_not_read"] + p["detail_not_read"])
+        print("RUN_ID", r["run_id"], "status", r["status"], "items", r["count"], "chunks", r["chunks"], summary(r["pages"]))
         return
     if len(argv) == 3 and argv[0] == "due":
         now = parse_time(argv[2])

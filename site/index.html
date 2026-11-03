@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>منصة جمع الأسعار</title>
+<meta name="description" content="أسعار المتاجر في دبي وأسعار السلع العالمية، تُجمع آلياً من مصادر عامة على الإنترنت.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: navy top band, side navigation on the right, one working column of white cards (the portal's look). */
+:root {
+  --navy: #1b2a52; --blue: #1a75b8; --blue-ink: #155f97; --soft: #e8f2fc; --soft-line: #cfe2f5;
+  --ground: #f5f7fb; --card: #ffffff; --line: #e2e8f0; --text: #1e293b; --muted: #5b6779; --tile: #f1f5f9;
+  --ok: #2f7d32; --bad: #c2412a; --warn: #9a6a00;
+  --sans: "Nunito", "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--ground); color: var(--text); font: 15px/1.6 var(--sans); }
+a { color: var(--blue); }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+.top { background: var(--navy); color: #fff; padding-block: 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; align-items: center; gap: 12px; }
+.top h1 { margin: 0; font-size: 20px; font-weight: 800; flex: 1; text-align: center; }
+.top .pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 6px 12px; font-size: 13px; white-space: nowrap; }
+
+.app { display: grid; grid-template-columns: 270px minmax(0, 1fr); min-height: calc(100vh - 60px); }
+nav.side { background: var(--card); border-inline-end: 1px solid var(--line); padding: 18px 14px; display: grid; align-content: start; gap: 6px; }
+nav.side .head { display: flex; gap: 10px; align-items: center; padding: 4px 6px 14px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+nav.side .head small { display: block; color: var(--blue); font-weight: 700; font-size: 11px; letter-spacing: .04em; }
+nav.side .head b { font-size: 14px; }
+.tile { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--tile); color: var(--navy); flex: none; }
+.tile.blue { background: var(--blue); color: #fff; }
+nav.side a { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid transparent; text-decoration: none; color: var(--text); font-weight: 700; }
+nav.side a:hover { background: var(--tile); }
+nav.side a[aria-current="page"] { background: var(--soft); border-color: var(--soft-line); color: var(--blue-ink); }
+nav.side a[aria-current="page"] .tile { background: var(--blue); color: #fff; }
+nav.side a .chev { margin-inline-start: auto; color: var(--muted); }
+svg.i { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+main { padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 20px; align-content: start; min-width: 0; }
+.wrap { width: 100%; max-width: 1200px; margin-inline: auto; display: grid; gap: 20px; min-width: 0; }
+h2.title { margin: 0; color: var(--blue); font-size: clamp(24px, 2.4vw, 32px); font-weight: 800; text-wrap: balance; }
+.lead { margin: 0; color: var(--muted); max-width: 70ch; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: 0 1px 3px rgba(27,42,82,.05); display: grid; gap: 14px; min-width: 0; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+.kpi { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; display: grid; gap: 4px; }
+.kpi .l { color: var(--muted); font-size: 13px; font-weight: 700; }
+.kpi .v { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.proj { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: grid; gap: 12px; text-decoration: none; color: inherit; }
+a.proj:hover { border-color: var(--soft-line); box-shadow: 0 4px 14px rgba(27,42,82,.08); }
+.proj .ph { display: flex; gap: 12px; align-items: center; }
+.proj .ph b { font-size: 18px; font-weight: 800; }
+.proj p { margin: 0; color: var(--muted); }
+.figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; border-top: 1px dashed var(--line); padding-top: 12px; }
+.figs div { display: grid; }
+.figs b { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.figs small { color: var(--muted); }
+.chip { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--soft); color: var(--blue-ink); border: 1px solid var(--soft-line); white-space: nowrap; }
+.chip.grey { background: var(--tile); color: var(--muted); border-color: var(--line); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.filters label { display: grid; gap: 4px; font-size: 13px; font-weight: 700; color: var(--muted); flex: 1 1 180px; min-width: 0; }
+.filters input, .filters select { border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; background: #fff; width: 100%; }
+.btn { border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 9px 16px; font-weight: 700; cursor: pointer; }
+.btn.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn:disabled { opacity: .45; cursor: default; }
+.meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; color: var(--muted); font-size: 13px; }
+.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: middle; }
+th { background: var(--tile); color: var(--muted); font-size: 13px; white-space: nowrap; position: sticky; top: 0; }
+tbody tr:last-child td { border-bottom: 0; }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; direction: ltr; text-align: right; }
+td .was { color: var(--muted); text-decoration: line-through; font-size: 12px; display: block; }
+td.title a { color: var(--text); text-decoration: none; font-weight: 600; }
+td.title a:hover { color: var(--blue); text-decoration: underline; }
+img.ph { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid var(--line); display: block; }
+.up { color: var(--bad); } .down { color: var(--ok); }
+.pager { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.chart { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--muted); font: 11px var(--sans); }
+.cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.cats div { border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; display: grid; }
+.cats b { font-size: 20px; font-variant-numeric: tabular-nums; }
+.cats small { color: var(--muted); }
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+.empty { text-align: center; color: var(--muted); padding: 28px; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  nav.side { display: flex; overflow-x: auto; gap: 6px; padding: 10px 16px; border-inline-end: 0; border-bottom: 1px solid var(--line); }
+  nav.side .head { display: none; }
+  nav.side a { flex: none; padding: 6px 10px 6px 8px; }
+  nav.side a .chev { display: none; }
+  .top h1 { font-size: 17px; text-align: start; }
+  .figs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>منصة جمع الأسعار</h1>
+  <span class="pill" id="day-pill">…</span>
+</header>
+<div class="app">
+  <nav class="side" aria-label="صفحات المنصة">
+    <div class="head"><span class="tile blue"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><span><small>التنقل الرئيسي</small><b>صفحات المنصة</b></span></div>
+    <a href="#home" data-view="home"><span class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></span>الرئيسية<span class="chev">‹</span></a>
+    <a href="#catalogue" data-view="catalogue"><span class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2"/><circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></span>أسعار المتاجر<span class="chev">‹</span></a>
+    <a href="#trendx" data-view="trendx"><span class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>TrendX · السلع العالمية<span class="chev">‹</span></a>
+  </nav>
+  <main>
+    <div class="wrap">
+      <section id="view-home">
+        <div class="wrap">
+          <h2 class="title">أسعار المتاجر والسلع العالمية، تُجمع آلياً</h2>
+          <p class="lead">أسعار المنتجات كما تظهر في مواقع المتاجر في دبي، وأسعار إغلاق السلع العالمية، لتاريخ واحد. كل سعر يحمل رابط صفحته.</p>
+          <div class="kpis" id="home-kpis"></div>
+          <div class="projects" id="home-cards"></div>
+        </div>
+      </section>
+
+      <section id="view-catalogue" hidden>
+        <div class="wrap">
+          <h2 class="title">أسعار المتاجر</h2>
+          <div class="card">
+            <div class="filters">
+              <label for="c-q">بحث<input id="c-q" type="search" placeholder="اسم المنتج"></label>
+              <label for="c-store">المتجر<select id="c-store"><option value="">كل المتاجر</option></select></label>
+              <label for="c-group">القسم<select id="c-group"><option value="">كل الأقسام</option></select></label>
+              <label for="c-sort">الترتيب<select id="c-sort"><option value="">بدون</option><option value="p">السعر: الأقل أولاً</option><option value="-p">السعر: الأعلى أولاً</option><option value="t">الاسم</option></select></label>
+              <button class="btn" id="c-csv" type="button">تنزيل CSV</button>
+            </div>
+            <div class="meta" id="c-meta"></div>
+            <div class="tw"><table><thead><tr><th>الصورة</th><th>المنتج</th><th>المتجر</th><th>الفئة</th><th>الحجم</th><th>السعر (درهم)</th><th>سعر الوحدة</th></tr></thead><tbody id="c-rows"></tbody></table></div>
+            <div class="pager"><button class="btn" id="c-prev" type="button">السابق</button><span class="meta" id="c-page"></span><button class="btn" id="c-next" type="button">التالي</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-trendx" hidden>
+        <div class="wrap">
+          <h2 class="title">TrendX · أسعار السلع العالمية</h2>
+          <div class="kpis" id="t-kpis"></div>
+          <div class="card">
+            <b>الرقم القياسي العالمي لأسعار السلع</b>
+            <p class="lead" id="t-method"></p>
+            <svg class="chart" id="t-chart" viewBox="0 0 800 240" role="img" aria-label="تطور الرقم القياسي"></svg>
+            <div class="cats" id="t-cats"></div>
+          </div>
+          <div class="card">
+            <div class="filters">
+              <label for="t-q">بحث<input id="t-q" type="search" placeholder="اسم السلعة"></label>
+              <label for="t-cat">الفئة<select id="t-cat"><option value="">كل الفئات</option></select></label>
+            </div>
+            <div class="tw"><table><thead><tr><th>السلعة</th><th>الفئة</th><th>الوحدة</th><th>السعر</th><th>اليوم %</th><th>شهر %</th><th>سنة %</th></tr></thead><tbody id="t-rows"></tbody></table></div>
+          </div>
+        </div>
+      </section>
+
+      <footer><span>منصة جمع الأسعار</span><span>المصادر: مواقع المتاجر العامة وTrading Economics. الأسعار للاطلاع وتُراجع قبل أي استخدام رسمي.</span></footer>
+    </div>
+  </main>
+</div>
+
+<script>
+"use strict";
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = (n, d = 2) => (n == null || isNaN(n) ? "—" : Number(n).toLocaleString("en", { minimumFractionDigits: d, maximumFractionDigits: d }));
+const pct = (n) => (n == null || n === "" || isNaN(n) ? "—" : `<span class="${n > 0 ? "up" : n < 0 ? "down" : ""}">${n > 0 ? "+" : ""}${fmt(n)}</span>`);
+const day = (iso) => new Date(iso + "T12:00:00Z").toLocaleDateString("ar", { day: "numeric", month: "long", year: "numeric" });
+const CAT_AR = { Energy: "الطاقة", Metals: "المعادن", Agricultural: "السلع الزراعية", Industrial: "السلع الصناعية", Livestock: "الثروة الحيوانية", Electricity: "الكهرباء", Index: "مؤشرات منشورة" };
+const BASIS = { kg: "كغ", l: "لتر", piece: "حبة", pc: "حبة" };
+let CAT = null, TX = null;
+
+async function load() {
+  const [c, t] = await Promise.all([fetch("data/catalogue.json").then((r) => r.json()), fetch("data/trendx.json").then((r) => r.json())]);
+  CAT = c; TX = t;
+  $("#day-pill").textContent = "أسعار " + day(CAT.date);
+  home(); catalogueSetup(); trendxSetup(); route();
+}
+
+function home() {
+  const stores = new Set(CAT.rows.map((r) => r.s));
+  const idx = TX.index.all, last = idx[idx.length - 1];
+  $("#home-kpis").innerHTML = [
+    ["منتج بسعر اليوم", CAT.rows.length.toLocaleString("en")],
+    ["متجر", stores.size],
+    ["سلعة ومؤشر عالمي", TX.rows.length],
+    ["الرقم القياسي العالمي للسلع", fmt(last, 1)],
+  ].map(([l, v]) => `<div class="kpi"><span class="l">${esc(l)}</span><span class="v">${esc(v)}</span></div>`).join("");
+  const card = (href, icon, name, desc, figs, chip) => `<${href ? `a href="${href}"` : "div"} class="proj">
+      <span class="ph"><span class="tile">${icon}</span><b>${esc(name)}</b></span><p>${esc(desc)}</p>
+      <div class="figs">${figs.map(([v, l]) => `<div><b>${esc(v)}</b><small>${esc(l)}</small></div>`).join("")}</div>
+      <span>${chip}</span></${href ? "a" : "div"}>`;
+  const cart = document.querySelector('[data-view="catalogue"] .tile').innerHTML, line = document.querySelector('[data-view="trendx"] .tile').innerHTML;
+  $("#home-cards").innerHTML =
+    card("#catalogue", cart, "CPI · أسعار متاجر دبي", "أسعار المنتجات في مواقع المتاجر، لكل أقسام الرقم القياسي لأسعار المستهلك.",
+      [[CAT.rows.length.toLocaleString("en"), "منتج"], [stores.size, "متجر"], [Object.keys(CAT.groups).length, "أقسام"]], `<span class="chip">${esc(day(CAT.date))}</span>`) +
+    card("#trendx", line, "TrendX · السلع العالمية", "أسعار إغلاق السلع العالمية والرقم القياسي المحسوب منها.",
+      [[TX.rows.length, "سلسلة"], [fmt(last, 1), "الرقم القياسي"], [TX.dates.length, "يوماً"]], `<span class="chip">${esc(day(TX.date))}</span>`) +
+    card("", '<svg class="i" viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>', "SPPI · أسعار المنتجين للخدمات", "أسعار خدمات النقل والاتصالات المنشورة.", [["H و J", "قسما ISIC"], ["—", ""], ["—", ""]], '<span class="chip grey">قيد الإعداد</span>') +
+    card("", '<svg class="i" viewBox="0 0 24 24"><path d="M2 16l20-6-3-3-7 2-5-4-2 1 3 5-4 1-2-1-1 1z"/></svg>', "الفنادق والعطلات", "باقات العطلات وتذاكر الطيران.", [["—", ""], ["—", ""], ["—", ""]], '<span class="chip grey">قيد الإعداد</span>');
+}
+
+// ---------------- catalogue
+let cPage = 0, cList = [];
+const PER = 50;
+function catalogueSetup() {
+  const stores = [...new Set(CAT.rows.map((r) => r.s))].sort();
+  $("#c-store").insertAdjacentHTML("beforeend", stores.map((s) => `<option>${esc(s)}</option>`).join(""));
+  $("#c-group").insertAdjacentHTML("beforeend", Object.entries(CAT.groups).map(([k, v]) => `<option value="${esc(k)}">${esc(v)}</option>`).join(""));
+  for (const id of ["#c-q", "#c-store", "#c-group", "#c-sort"]) $(id).addEventListener("input", () => { cPage = 0; cFilter(); });
+  $("#c-prev").addEventListener("click", () => { cPage--; cDraw(); });
+  $("#c-next").addEventListener("click", () => { cPage++; cDraw(); });
+  $("#c-csv").addEventListener("click", cCsv);
+  cFilter();
+}
+function cFilter() {
+  const q = $("#c-q").value.trim().toLowerCase(), s = $("#c-store").value, g = $("#c-group").value, sort = $("#c-sort").value;
+  cList = CAT.rows.filter((r) => (!s || r.s === s) && (!g || r.g === g) && (!q || (r.t || "").toLowerCase().includes(q)));
+  if (sort === "p") cList.sort((a, b) => a.p - b.p);
+  if (sort === "-p") cList.sort((a, b) => b.p - a.p);
+  if (sort === "t") cList.sort((a, b) => (a.t || "").localeCompare(b.t || ""));
+  cDraw();
+}
+function cDraw() {
+  const pages = Math.max(1, Math.ceil(cList.length / PER));
+  cPage = Math.min(Math.max(0, cPage), pages - 1);
+  const rows = cList.slice(cPage * PER, cPage * PER + PER);
+  $("#c-meta").textContent = `${cList.length.toLocaleString("en")} منتج`;
+  $("#c-page").textContent = `صفحة ${cPage + 1} من ${pages}`;
+  $("#c-prev").disabled = cPage === 0; $("#c-next").disabled = cPage >= pages - 1;
+  $("#c-rows").innerHTML = rows.map((r) => `<tr>
+      <td>${r.f ? `<img class="ph" src="${esc(r.f)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}</td>
+      <td class="title">${r.l ? `<a href="${esc(r.l)}" target="_blank" rel="noopener">${esc(r.t)}</a>` : esc(r.t)}</td>
+      <td>${esc(r.s)}</td><td>${esc(r.c)}</td><td>${esc(r.z || "")}</td>
+      <td class="n">${fmt(r.p)}${r.r && r.r > r.p ? `<span class="was">${fmt(r.r)}</span>` : ""}</td>
+      <td class="n">${r.u ? `${fmt(r.u)} / ${esc(BASIS[r.b] || r.b || "")}` : ""}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">لا توجد منتجات بهذا البحث</td></tr>`;
+}
+function cCsv() {
+  const head = ["store", "group", "category", "title", "size", "price", "regular_price", "unit_price", "price_basis", "url"];
+  const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const lines = [head.join(",")].concat(cList.map((r) => [r.s, CAT.groups[r.g] || r.g, r.c, r.t, r.z, r.p, r.r, r.u, r.b, r.l].map(q).join(",")));
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + lines.join("\n")], { type: "text/csv" }));
+  a.download = `prices_${CAT.date}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+// ---------------- TrendX
+function trendxSetup() {
+  const idx = TX.index.all, last = idx[idx.length - 1], prev = idx[idx.length - 2];
+  $("#t-kpis").innerHTML = [
+    ["الرقم القياسي العام", fmt(last, 1)], ["التغير منذ " + day(TX.first), `${last >= 100 ? "+" : ""}${fmt(last - 100, 1)}%`],
+    ["التغير عن اليوم السابق", `${last >= prev ? "+" : ""}${fmt((last / prev - 1) * 100, 1)}%`], ["سلسلة سعرية", TX.rows.length],
+  ].map(([l, v]) => `<div class="kpi"><span class="l">${esc(l)}</span><span class="v" dir="ltr" style="text-align:right">${esc(v)}</span></div>`).join("");
+  $("#t-method").textContent = `طريقة Jevons: المتوسط الهندسي لتغيرات أسعار السلع اليومية بأوزان متساوية، مسلسل يومياً، والأساس ${day(TX.first)} = 100. لا يشمل المؤشرات المنشورة.`;
+  drawChart(idx);
+  $("#t-cats").innerHTML = Object.keys(TX.counts).map((c) => { const s = TX.index[c]; return `<div><small>${esc(CAT_AR[c] || c)} · ${TX.counts[c]} سلعة</small><b>${fmt(s[s.length - 1], 1)}</b></div>`; }).join("");
+  const cats = [...new Set(TX.rows.map((r) => r.category))];
+  $("#t-cat").insertAdjacentHTML("beforeend", cats.map((c) => `<option value="${esc(c)}">${esc(CAT_AR[c] || c)}</option>`).join(""));
+  for (const id of ["#t-q", "#t-cat"]) $(id).addEventListener("input", tDraw);
+  tDraw();
+}
+function tDraw() {
+  const q = $("#t-q").value.trim().toLowerCase(), c = $("#t-cat").value;
+  const rows = TX.rows.filter((r) => (!c || r.category === c) && (!q || (r.commodity || "").toLowerCase().includes(q)));
+  $("#t-rows").innerHTML = rows.map((r) => `<tr><td><b>${esc(r.commodity)}</b></td><td>${esc(CAT_AR[r.category] || r.category)}</td><td dir="ltr" style="text-align:right">${esc(r.unit || "")}</td>
+      <td class="n">${fmt(r.price, r.price >= 100 ? 2 : 4)}</td><td class="n">${pct(r.pct)}</td><td class="n">${pct(r.monthly)}</td><td class="n">${pct(r.yoy)}</td></tr>`).join("")
+    || `<tr><td colspan="7" class="empty">لا توجد سلع بهذا البحث</td></tr>`;
+}
+function drawChart(vals) {
+  const W = 800, H = 240, L = 44, R = 16, T = 16, B = 30;
+  const lo = Math.floor(Math.min(...vals, 100) - 1), hi = Math.ceil(Math.max(...vals, 100) + 1);
+  const x = (i) => L + (i * (W - L - R)) / Math.max(1, vals.length - 1), y = (v) => T + ((hi - v) * (H - T - B)) / (hi - lo);
+  const ticks = [lo, (lo + hi) / 2, hi].map((v) => Math.round(v * 10) / 10);
+  const pts = vals.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  const d0 = TX.dates[0], dn = TX.dates[TX.dates.length - 1];
+  $("#t-chart").innerHTML = `
+    ${ticks.map((v) => `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e2e8f0"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`).join("")}
+    <line x1="${L}" x2="${W - R}" y1="${y(100)}" y2="${y(100)}" stroke="#5b6779" stroke-dasharray="4 4"/>
+    <polygon points="${x(0)},${y(lo)} ${pts} ${x(vals.length - 1)},${y(lo)}" fill="#e8f2fc"/>
+    <polyline points="${pts}" fill="none" stroke="#1a75b8" stroke-width="2.5"/>
+    <circle cx="${x(vals.length - 1)}" cy="${y(vals[vals.length - 1])}" r="4.5" fill="#1a75b8"/>
+    <text x="${L}" y="${H - 8}">${esc(d0)}</text><text x="${W - R}" y="${H - 8}" text-anchor="end">${esc(dn)}</text>`;
+}
+
+// ---------------- routing
+function route() {
+  const v = (location.hash || "#home").slice(1);
+  const view = ["home", "catalogue", "trendx"].includes(v) ? v : "home";
+  for (const s of ["home", "catalogue", "trendx"]) $("#view-" + s).hidden = s !== view;
+  document.querySelectorAll("nav.side a").forEach((a) => {
+    if (a.dataset.view === view) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
+  window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", route);
+load().catch((e) => { document.querySelector("main .wrap").insertAdjacentHTML("afterbegin", `<div class="card empty">تعذّر تحميل البيانات: ${esc(e.message)}</div>`); });
+</script>
+</body>
+</html>

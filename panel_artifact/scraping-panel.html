@@ -1,331 +1,428 @@
 <title>منصة جمع الأسعار</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a project shelf on the home view; inside a project, one tab strip (run / basket / actors / results / settings) over a single working column. */
+/* Layout (office platform style): a navy top bar; under it a white side navigation (right, RTL) and the working column.
+   Home: four main project cards and a row of other projects. Inside a project: a page-head card (back, title, schedule)
+   with the tab pills, then the tab's white cards. Under 900px the side navigation becomes a scrolling strip. */
 :root {
-  /* Palette taken from the office's presentation (DG meeting deck): white page, cyan titles and section bars,
-     mid-blue and navy bars, navy table headers, light-grey zebra rows, blue figures, amber for a second figure. */
-  --bg: #ffffff; --surface: #ffffff; --sunk: #f2f2f2; --line: #d9dee6;
-  --fg: #14264b; --muted: #5a6478; --accent: #14264b; --accent-fg: #ffffff; --cyan: #1a8fd1;
-  --band: #ffffff; --band-fg: #14264b; --band-muted: #5a6478;
-  --title: #1ea5e0; --bar-cyan: #1ea5e0; --bar-blue: #1678be; --bar-steel: #2e88c2; --navy: #14264b; --amber: #c98d22;
+  --navy: #1b2a52; --primary: #1a75b8; --primary-hover: #15659f; --primary-ink: #155f97;
+  --soft: #e8f2fc; --soft-line: #cfe2f5;
+  --bg: #f5f7fb; --surface: #ffffff; --sunk: #f1f5f9; --tile: #f1f5f9; --line: #e2e8f0;
+  --fg: #1e293b; --muted: #5b6779; --amber: #d9a43a;
   --ok: #2f7d32; --warn: #9a6a00; --bad: #c2412a;
-  --dd-cyan: #1ea5e0; --dd-teal: #2e88c2; --dd-green: #1678be; --dd-yellow: #d9a43a; --dd-coral: #14264b; --dd-purple: #2e88c2;
-  --sans: "Dubai", "Dubai W23", "Tajawal", Arial, Tahoma, sans-serif;
+  --shadow: 0 1px 2px rgb(15 23 42 / .04), 0 6px 18px rgb(15 23 42 / .04);
+  --r-card: 18px; --r-ctl: 12px;
+  --sans: "Nunito", "Tajawal", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
   --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
-body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--sans); padding-inline: 16px; padding-block: 0 48px; }
-.wrap { max-width: 1180px; margin-inline: auto; }
-header.top { border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 16px 20px; margin: 0 -16px 22px; background: var(--band); color: var(--band-fg); position: relative; }
-header.top::after { content: ""; position: absolute; inset-inline: 0; bottom: -4px; height: 4px; background: linear-gradient(90deg, var(--dd-cyan) 0 17%, var(--dd-teal) 17% 34%, var(--dd-green) 34% 50%, var(--dd-yellow) 50% 67%, var(--dd-coral) 67% 84%, var(--dd-purple) 84%); }
-header.top h1 { font-size: 21px; margin: 0; font-weight: 700; text-wrap: balance; }
-header.top .brand { font-size: 12px; letter-spacing: .08em; color: #1d8fc0; font-weight: 700; text-transform: uppercase; }
-.crumb { color: var(--band-muted); }
-.crumb button { all: unset; cursor: pointer; color: #1d8fc0; font-weight: 600; }
-.crumb button:focus-visible { outline: 2px solid var(--accent); }
-.spacer { flex: 1; }
-.conn { font-size: 13px; color: var(--band-muted); display: flex; gap: 8px; align-items: center; }
-.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); display: inline-block; }
-.dot.ok { background: var(--ok); } .dot.bad { background: var(--bad); } .dot.warn { background: var(--warn); }
-h2 { font-size: 17px; margin: 0 0 12px; } h3 { font-size: 14px; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
+[hidden] { display: none !important; }
+html { background: var(--bg); direction: rtl; }
+body { margin: 0; direction: rtl; background: var(--bg); color: var(--fg); font: 400 15px/1.6 var(--sans); -webkit-text-size-adjust: 100%; }
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+h2 { font-size: 18px; font-weight: 800; margin: 0 0 12px; }
+h3 { font-size: 14px; color: var(--muted); margin: 0 0 8px; font-weight: 700; }
 .muted { color: var(--muted); font-size: 13px; }
 .mono, code { font-family: var(--mono); font-size: 13px; direction: ltr; unicode-bidi: isolate; }
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.spacer { flex: 1; }
 .stack { display: grid; gap: 18px; }
+.stack > *, .panel > * { min-width: 0; }   /* wide tables scroll inside their .tw box, never widen the page */
 .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .row > * { min-width: 0; }
-button, .btn { font: inherit; font-size: 14px; padding: 7px 14px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
-button:hover:not(:disabled) { border-color: var(--accent); }
-button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-button:disabled { opacity: .5; cursor: default; }
-button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
-button.danger { color: var(--bad); border-color: var(--bad); background: transparent; }
-button.ghost { border-color: transparent; background: transparent; color: var(--cyan); }
-button.big { font-size: 17px; padding: 11px 26px; }
-input, select, textarea { font: inherit; font-size: 14px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); color: var(--fg); width: 100%; min-width: 0; }
-input[type=checkbox] { width: auto; accent-color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 12px 16px; }
+.ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ico.fill { fill: currentColor; stroke: none; }
+.tile { width: 44px; height: 44px; flex: none; border-radius: 12px; background: var(--tile); color: #475569; display: grid; place-items: center; transition: background-color .15s, color .15s; }
+.tile .ini { font-size: 12px; font-weight: 800; line-height: 1; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* top bar */
+header.top { background: var(--navy); color: #fff; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px; padding: 14px 24px; min-height: 76px; }
+header.top .top-title { grid-column: 2; display: grid; text-align: center; }
+header.top .brand { font-size: 12px; font-weight: 700; color: #c3cee8; }
+header.top h1 { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 800; color: #fff; text-wrap: balance; }
+header.top .top-end { grid-column: 3; justify-self: end; min-width: 0; }
+header.top :focus-visible { outline-color: #fff; }
+.conn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #fff; background: rgb(255 255 255 / .08); border: 1px solid rgb(255 255 255 / .18); border-radius: var(--r-ctl); padding: 9px 14px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); display: inline-block; flex: none; }
+.dot.ok { background: var(--ok); } .dot.bad { background: var(--bad); } .dot.warn { background: var(--warn); }
+.conn .dot { background: #94a3b8; } .conn .dot.ok { background: #4ade80; } .conn .dot.bad { background: #f87171; } .conn .dot.warn { background: #fbbf24; }
+
+/* shell and side navigation */
+.shell { flex: 1; display: grid; grid-template-columns: 288px minmax(0, 1fr); }
+.side { background: var(--surface); border-inline-end: 1px solid var(--line); min-width: 0; }
+.side-in { position: sticky; top: 0; max-height: 100vh; overflow-y: auto; padding: 20px 14px; }
+.side-head { display: flex; align-items: center; gap: 12px; padding: 0 4px 16px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.side-head .tile { background: var(--primary); color: #fff; }
+.side-head .t { display: grid; flex: 1; min-width: 0; line-height: 1.35; }
+.side-head .t small { color: var(--primary-ink); font-size: 12px; font-weight: 800; }
+.side-head .t b { font-size: 15px; font-weight: 800; }
+button.side-toggle { width: 40px; height: 40px; padding: 0; flex: none; }
+#side-nav { display: grid; gap: 6px; }
+.nav-item { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 8px 10px; border: 1px solid transparent; border-radius: 14px; cursor: pointer; color: var(--fg); font-weight: 700; font-size: 15px; line-height: 1.35; transition: background-color .15s, border-color .15s; }
+.nav-item:not([aria-current]):hover { background: var(--tile); border-color: transparent; color: var(--fg); }
+.nav-item:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.nav-item[aria-current=page] { background: var(--soft); border-color: var(--soft-line); color: var(--primary-ink); }
+.nav-item[aria-current=page] .tile { background: var(--primary); color: #fff; }
+.nav-item .lbl { flex: 1; min-width: 0; }
+.nav-item .chev { width: 16px; height: 16px; color: #94a3b8; }
+.nav-sep { margin: 10px 4px 4px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 12px; font-weight: 800; color: var(--muted); }
+@media (min-width: 900px) {
+  .shell.collapsed { grid-template-columns: 90px minmax(0, 1fr); }
+  .shell.collapsed .side-head { flex-direction: column; }
+  .shell.collapsed .side-head .t, .shell.collapsed .nav-item .lbl, .shell.collapsed .nav-item .chev, .shell.collapsed .nav-sep span { display: none; }
+  .shell.collapsed .nav-item { justify-content: center; padding: 8px; }
+  .shell.collapsed .nav-sep { margin-inline: 8px; }
+  .shell.collapsed .side-toggle .ico { transform: scaleX(-1); }
+}
+.main { min-width: 0; padding: 28px 32px 48px; }
+.main-in { max-width: 1240px; margin-inline: auto; }
+
+/* controls */
+:where(button, .btn) { font: inherit; font-size: 14px; font-weight: 700; line-height: 1.35; padding: 9px 16px; border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: background-color .15s, border-color .15s, color .15s, box-shadow .15s; }
+:where(button, .btn):hover:not(:disabled) { border-color: var(--primary); color: var(--primary-ink); }
+:where(button):disabled { opacity: .5; cursor: default; }
+button.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+button.primary:hover:not(:disabled) { background: var(--primary-hover); border-color: var(--primary-hover); color: #fff; }
+button.danger { color: var(--bad); border-color: #efc3b8; background: var(--surface); }
+button.danger:hover:not(:disabled) { color: var(--bad); border-color: var(--bad); background: #fdf3f1; }
+button.ghost { border-color: transparent; background: transparent; color: var(--primary-ink); padding: 6px 10px; }
+button.ghost:hover:not(:disabled) { border-color: transparent; background: var(--soft); }
+button.big { font-size: 16px; padding: 12px 26px; }
+input, select, textarea { font: inherit; font-size: 14px; line-height: 1.4; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--surface); color: var(--fg); width: 100%; min-width: 0; transition: border-color .15s, box-shadow .15s; }
+input:hover, select:hover, textarea:hover { border-color: #cbd5e1; }
+input:focus, select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgb(26 117 184 / .15); }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+input[type=checkbox] { width: auto; accent-color: var(--primary); }
 textarea.code { font-family: var(--mono); font-size: 12.5px; line-height: 1.5; direction: ltr; text-align: left; }
-label.f { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
-label.f > span { font-weight: 500; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px 14px; }
+label.f { display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+label.f > span { font-weight: 800; color: var(--primary-ink); }
+
+/* cards */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); box-shadow: var(--shadow); padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.panel > h2 { margin: 0; }
+.panel > h2:first-child, .panel > .row > h2 { color: var(--fg); }
+.bar-title { padding-bottom: 12px; border-bottom: 1px dashed var(--line); color: var(--primary); font-weight: 800; font-size: 18px; line-height: 1.4; text-align: center; text-wrap: balance; }
+details.adv > summary { cursor: pointer; font-weight: 800; color: var(--primary-ink); border-radius: 8px; padding: 2px 0; }
+details.adv[open] > summary { margin-bottom: 12px; }
+details.panel.adv:not([open]) { padding-block: 14px; gap: 0; }
+.empty { text-align: center; padding: 28px 12px; color: var(--muted); }
+.notice { border: 1px solid var(--warn); color: var(--warn); border-radius: var(--r-ctl); padding: 10px 14px; font-size: 14px; }
+.notice.bad { border-color: var(--bad); color: var(--bad); }
+.confirm { border: 1px solid #efc3b8; background: #fdf6f4; border-radius: var(--r-ctl); padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; line-height: 1.5; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); }
+.chip.ok { color: var(--ok); border-color: #bfdfc1; background: #f1f8f1; }
+.chip.warn { color: var(--warn); border-color: #ead9a8; background: #fdf8ea; }
+.chip.bad { color: var(--bad); border-color: #efc3b8; background: #fdf3f1; }
+.chip.live { color: #236126; border-color: #bfdfc1; background: #eaf6eb; }
+.chip.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+.chip.planned { color: var(--primary-ink); border-color: var(--soft-line); background: var(--soft); }
+.chip.sched { color: var(--primary-ink); border-color: var(--soft-line); }
+
+/* page head inside a project */
+.ph { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); box-shadow: var(--shadow); margin-bottom: 20px; }
+.ph-top { display: grid; grid-template-columns: 1fr auto 1fr; grid-template-areas: "back title side"; align-items: center; gap: 12px; padding: 18px 24px; }
+#crumb { grid-area: back; justify-self: start; }
+button.back { width: 52px; height: 52px; padding: 0; border-radius: 14px; }
+.ph-title { grid-area: title; display: grid; text-align: center; min-width: 0; }
+.ph-title .eyebrow { font-size: 13px; font-weight: 700; color: var(--muted); }
+.ph-title h2 { margin: 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.25; font-weight: 800; color: var(--primary); text-wrap: balance; overflow-wrap: anywhere; }
+#ph-side { grid-area: side; justify-self: end; min-width: 0; }
+#ph-side .ph-link { white-space: nowrap; }
+.ph-link { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; color: var(--primary-ink); font-weight: 800; font-size: 15px; line-height: 1.35; border-radius: 8px; padding: 4px 6px; }
+button.ph-link { cursor: pointer; }
+button.ph-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.ph-link:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.ph-tabs { border-top: 1px dashed var(--line); padding: 14px 24px; }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.tabs button { border-color: transparent; background: transparent; color: var(--muted); border-radius: 999px; padding: 8px 18px; }
+@media (hover: hover) { nav.tabs button:not([aria-selected=true]):hover:not(:disabled) { border-color: transparent; background: var(--sunk); color: var(--fg); } }
+nav.tabs button[aria-selected=true] { background: var(--soft); border-color: var(--soft-line); color: var(--primary-ink); }
+.ov-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ov-head p { margin: 0; color: var(--muted); flex-basis: 100%; }
 
 /* home */
-.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.proj { all: unset; box-sizing: border-box; cursor: pointer; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; align-content: start; min-height: 170px; }
-.proj:hover { border-color: var(--dd-cyan); }
-.proj { border-top: 4px solid var(--dd-cyan); }
-.proj:nth-child(2n) { border-top-color: var(--dd-teal); }
-.proj:nth-child(3n) { border-top-color: var(--dd-purple); }
-.proj.new { border-top-width: 1px; border-top-color: var(--line); }
-.proj:focus-visible { outline: 2px solid var(--accent); }
-.proj .name { font-size: 19px; font-weight: 700; }
+.hero { display: grid; gap: 14px; margin-bottom: 8px; }
+.hero h2 { margin: 0; font-size: 28px; line-height: 1.3; font-weight: 800; color: var(--primary); text-wrap: balance; }
+.hero p { margin: 0; color: var(--muted); max-width: 72ch; font-size: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; display: grid; gap: 2px; align-content: start; min-width: 0; }
+.kpi .l { order: -1; display: flex; align-items: baseline; gap: 8px; color: var(--muted); font-size: 13px; font-weight: 700; }
+.kpi .l::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--kc, var(--primary)); }
+.kpi .v { font-size: 26px; line-height: 1.2; font-weight: 800; color: var(--fg); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.kpi .v.txt { font-size: 16px; line-height: 1.5; font-weight: 700; }
+.sec-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 30px 0 14px; }
+.sec-h h2 { margin: 0; font-size: 20px; }
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+.shelf.main-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1760px) { .shelf.main-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .shelf.main-cards { grid-template-columns: minmax(0, 1fr); } }
+button.proj { font-size: 15px; font-weight: 400; line-height: 1.6; text-align: start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); box-shadow: var(--shadow); padding: 20px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 12px; min-width: 0; color: var(--fg); }
+button.proj:hover:not(:disabled) { border-color: var(--soft-line); color: var(--fg); box-shadow: 0 10px 26px rgb(26 117 184 / .10); }
+button.proj:hover .tile { background: var(--primary); color: #fff; }
+.proj .top { display: flex; align-items: center; gap: 12px; }
+.proj .name { flex: 1; min-width: 0; font-size: 18px; line-height: 1.35; font-weight: 800; }
+.proj .top .chev { width: 18px; height: 18px; color: #94a3b8; }
 .proj .desc { color: var(--muted); font-size: 14px; }
 .proj .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-.proj.new { border-style: dashed; place-content: center; text-align: center; color: var(--cyan); font-weight: 600; }
-.chip { font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
-.chip.ok { color: var(--ok); border-color: var(--ok); } .chip.warn { color: var(--warn); border-color: var(--warn); } .chip.bad { color: var(--bad); border-color: var(--bad); }
+.figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: 8px 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.fig { display: grid; min-width: 0; }
+.fig b { display: flex; align-items: center; gap: 6px; font-size: 19px; line-height: 1.3; font-weight: 800; font-variant-numeric: tabular-nums; }
+.fig > span { font-size: 12px; color: var(--muted); }
+button.proj.mini { flex-direction: row; align-items: center; padding: 14px 16px; }
+.proj.mini .tile { width: 40px; height: 40px; }
+.proj.mini .txt { display: grid; gap: 4px; flex: 1; min-width: 0; }
+.proj.mini .name { font-size: 16px; }
+.proj.mini .meta { margin: 0; }
+button.proj.new { border-style: dashed; box-shadow: none; background: transparent; color: var(--primary-ink); font-weight: 800; justify-content: center; }
+button.proj.new:hover:not(:disabled) { background: var(--soft); color: var(--primary-ink); }
 
-/* tabs */
-nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
-nav.tabs button { border: none; background: none; border-radius: 0; padding: 9px 14px; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; }
-nav.tabs button[aria-selected=true] { color: var(--fg); border-bottom-color: var(--dd-cyan); font-weight: 600; }
-.picks { display: flex; flex-wrap: wrap; gap: 6px; }
-.picks label { display: flex; gap: 6px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; font-size: 14px; background: var(--bg); }
+/* run, basket, actors, results */
+.picks { display: flex; flex-wrap: wrap; gap: 8px; }
+.picks label { display: flex; gap: 6px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer; font-size: 14px; background: var(--surface); }
+.picks label:has(input:checked) { background: var(--soft); border-color: var(--soft-line); color: var(--primary-ink); }
 .picks.scroll { max-height: 170px; overflow: auto; }
 .bar { height: 8px; background: var(--sunk); border-radius: 999px; overflow: hidden; }
-.bar > i { display: block; height: 100%; background: var(--dd-cyan); transition: width .4s; }
-@media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
-pre.log { margin: 0; background: var(--sunk); border-radius: 8px; padding: 12px; max-height: 240px; overflow: auto; font: 12px/1.5 var(--mono); direction: ltr; text-align: left; white-space: pre-wrap; }
-.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+.bar > i { display: block; height: 100%; background: var(--primary); transition: width .4s; }
+pre.log { margin: 0; background: var(--sunk); border-radius: var(--r-ctl); padding: 12px; max-height: 240px; overflow: auto; font: 12px/1.5 var(--mono); direction: ltr; text-align: left; white-space: pre-wrap; }
+.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
 table { border-collapse: collapse; width: 100%; font-size: 14px; }
-th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: top; }
-th { background: var(--sunk); color: var(--muted); font-weight: 600; font-size: 13px; position: sticky; top: 0; white-space: nowrap; }
+th, td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: top; }
+th { background: #f8fafc; color: var(--muted); font-weight: 800; font-size: 13px; position: sticky; top: 0; white-space: nowrap; }
+tbody tr:nth-child(even) > td { background: #fbfcfe; }
 tr:last-child td { border-bottom: none; }
 td.num { font-variant-numeric: tabular-nums; direction: ltr; text-align: right; white-space: nowrap; }
-td a { color: var(--cyan); }
+td.num b { color: var(--primary-ink); }
+td a { color: var(--primary-ink); font-weight: 700; }
+img.thumb { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid var(--line); display: block; }
 .pager { display: flex; gap: 10px; align-items: center; justify-content: center; }
-.actor { border: 1px solid var(--line); border-radius: 9px; padding: 14px; display: grid; gap: 12px; background: var(--bg); }
-.empty { text-align: center; padding: 28px 12px; color: var(--muted); }
-.notice { border: 1px solid var(--warn); color: var(--warn); border-radius: 8px; padding: 10px 14px; font-size: 14px; }
-.notice.bad { border-color: var(--bad); color: var(--bad); }
-.confirm { border: 1px solid var(--bad); border-radius: 8px; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--fg); width: min(720px, 94vw); padding: 20px; }
-dialog::backdrop { background: rgb(0 0 0 / .45); }
-#toast { position: fixed; inset-inline: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); margin-inline: auto; width: fit-content; max-width: 92vw; background: var(--fg); color: var(--bg); padding: 9px 16px; border-radius: 8px; font-size: 14px; z-index: 10; }
-#toast.bad { background: var(--bad); color: #fff; }
-.stat { display: grid; gap: 2px; }
-.stat b { font-size: 22px; font-variant-numeric: tabular-nums; }
+.actor { border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; background: #fbfcfe; }
 .stats { display: flex; flex-wrap: wrap; gap: 28px; }
-
-/* presentation layer: hero, KPI tiles, sections, status chips, overview */
-.hero { display: grid; gap: 18px; padding-block: 8px 26px; }
-.hero h2 { font-size: 30px; line-height: 1.25; margin: 0; text-wrap: balance; }
-.hero p { margin: 0; color: var(--muted); max-width: 70ch; font-size: 16px; }
-.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-.kpi { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px; background: var(--surface); position: relative; overflow: hidden; }
-.kpi::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: 4px; background: var(--kc, var(--dd-cyan)); }
-.kpi .v { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.kpi .l { color: var(--muted); font-size: 13px; }
-.sec-h { display: flex; align-items: baseline; gap: 10px; margin: 28px 0 12px; }
-.sec-h h2 { margin: 0; font-size: 19px; }
-.sec-h .muted { font-size: 13px; }
-.proj .icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-weight: 700; font-size: 15px; color: #fff; background: var(--pc, var(--dd-cyan)); }
-.proj .top { display: flex; align-items: center; gap: 12px; }
-.proj.planned { background: var(--sunk); border-style: dashed; border-top-style: solid; }
-.chip.live { color: #fff; background: var(--ok); border-color: var(--ok); }
-.chip.planned { color: #fff; background: var(--dd-purple); border-color: var(--dd-purple); }
-.chip.sched { color: var(--cyan); border-color: var(--cyan); }
-.ov-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.ov-head p { margin: 0; color: var(--muted); flex-basis: 100%; }
+.stat { display: grid; gap: 2px; }
+.stat b { font-size: 22px; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
 .srcbars { display: grid; gap: 12px; }
 .srcbar { display: grid; grid-template-columns: minmax(150px, 230px) 1fr 110px; gap: 12px; align-items: center; }
 .srcbar .track { height: 14px; background: var(--sunk); border-radius: 999px; overflow: hidden; display: flex; }
 .srcbar .track i { display: block; height: 100%; }
-.srcbar .n { font-variant-numeric: tabular-nums; text-align: left; direction: ltr; font-size: 13px; color: var(--muted); }
-@media (max-width: 640px) { .srcbar { grid-template-columns: 1fr; gap: 4px; } .srcbar .n { text-align: right; } }
+.srcbar .n { font-variant-numeric: tabular-nums; text-align: left; direction: ltr; font-size: 13px; color: var(--primary-ink); font-weight: 800; }
 .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); }
 .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 6px; background: var(--c); vertical-align: middle; }
-.plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-.plan-grid .panel h3 { color: var(--fg); font-size: 15px; }
-.plan-grid ul, .plan-grid ol { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
+.plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; }
+.plan-h { margin: 0; padding-bottom: 10px; border-bottom: 1px dashed var(--line); color: var(--primary); font-size: 16px; font-weight: 800; }
+.plan-grid ul, .plan-grid ol, ol.steps { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
 .steps li.done { color: var(--ok); }
-details.adv > summary { cursor: pointer; font-weight: 600; padding: 4px 0; color: var(--muted); }
-details.adv[open] > summary { margin-bottom: 12px; }
+.ct-spark .ico { width: 14px; height: 14px; vertical-align: -2px; }
 
-/* ===== presentation style (DG deck) ===== */
-[hidden] { display: none !important; }
-.kpi .v.txt { font-size: 19px; line-height: 1.35; padding-block: 18px; }
-header.top { border-bottom: none; padding: 22px 4px 8px; margin: 0 0 14px; align-items: flex-end; }
-header.top::after { display: none; }
-header.top .brand { color: var(--fg); font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 700; }
-header.top h1 { color: var(--title); font-size: 30px; font-weight: 700; }
-.crumb button { color: var(--title); }
-.sec-h { margin: 26px 0 12px; padding: 10px 16px; background: var(--bar-cyan); color: #fff; justify-content: center; border-radius: 0; }
-.sec-h h2 { color: #fff; font-size: 18px; }
-.sec-h .muted { color: rgba(255,255,255,.85); }
-.sec-h.navy { background: var(--navy); }
-.hero h2 { color: var(--fg); font-size: 22px; }
-.kpis { gap: 14px; }
-.kpi { padding: 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.08); overflow: hidden; text-align: center; gap: 0; }
-.kpi::before { display: none; }
-.kpi .l { order: -1; background: var(--kc, var(--bar-cyan)); color: #fff; font-weight: 700; font-size: 14px; padding: 10px 12px; }
-.kpi .v { color: var(--fg); font-size: 30px; padding: 16px 12px 18px; }
-.panel { border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.06); }
-.panel > h2:first-child, .panel > .row > h2 { color: var(--fg); }
-.bar-title { margin: -18px -18px 4px; padding: 11px 16px; background: var(--bar-cyan); color: #fff; font-weight: 700; font-size: 16px; border-radius: 10px 10px 0 0; text-align: center; }
-.bar-title.navy { background: var(--navy); } .bar-title.blue { background: var(--bar-blue); }
-th { background: var(--navy); color: #fff; font-weight: 700; }
-tbody tr:nth-child(even) td { background: var(--sunk); }
-td.num b, td.num { color: var(--fg); }
-td.num b { color: var(--cyan); }
-.tw { border-color: var(--line); border-radius: 6px; }
-nav.tabs { border-bottom: 2px solid var(--line); }
-nav.tabs button[aria-selected=true] { color: #fff; background: var(--bar-cyan); border-bottom-color: var(--bar-cyan); border-radius: 8px 8px 0 0; }
-.proj { padding: 0; border: 1px solid var(--line); border-top: none; border-radius: 10px; box-shadow: 0 2px 8px rgba(20,38,75,.08); overflow: hidden; gap: 0; }
-.proj .top { background: var(--pc, var(--bar-cyan)); color: #fff; padding: 14px 16px; }
-.proj .top .name { color: #fff; font-size: 18px; }
-.proj .icon { background: rgba(255,255,255,.18); width: 36px; height: 36px; font-size: 13px; }
-.proj .desc { padding: 14px 16px 0; }
-.proj .meta { padding: 12px 16px 16px; }
-.proj.planned { background: var(--surface); border-style: solid; }
-.proj.new { padding: 20px; border: 1px dashed var(--line); box-shadow: none; color: var(--cyan); }
-.chip.live { background: var(--bar-blue); border-color: var(--bar-blue); }
-.chip.planned { background: var(--navy); border-color: var(--navy); }
-.srcbar .n { color: var(--cyan); font-weight: 700; }
-.plan-grid .panel h3 { margin: -18px -18px 4px; padding: 10px 14px; background: var(--bar-blue); color: #fff; border-radius: 10px 10px 0 0; text-align: center; }
-.plan-grid .panel:nth-child(2) h3 { background: var(--bar-steel); }
-.plan-grid .panel:nth-child(3) h3 { background: var(--bar-cyan); }
-.plan-grid .panel:nth-child(4) h3 { background: var(--navy); }
-footer.foot { margin-top: 36px; background: var(--navy); color: #fff; border-radius: 10px; padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; font-size: 13px; }
-button.primary { background: var(--navy); border-color: var(--navy); }
-  img.thumb { width: 44px; height: 44px; object-fit: contain; border-radius: 6px; background: #fff; border: 1px solid var(--line, #dde3ea); display: block; }
+/* dialog, toast, footer */
+dialog { border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); color: var(--fg); width: min(720px, calc(100vw - 32px)); padding: 22px; box-shadow: 0 24px 60px rgb(15 23 42 / .18); }
+dialog::backdrop { background: rgb(15 23 42 / .45); }
+#toast { position: fixed; inset-inline: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); margin-inline: auto; width: fit-content; max-width: calc(100vw - 32px); background: var(--navy); color: #fff; padding: 11px 18px; border-radius: var(--r-ctl); font-size: 14px; font-weight: 700; box-shadow: 0 10px 30px rgb(15 23 42 / .2); z-index: 10; }
+#toast.bad { background: var(--bad); }
+footer.foot { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; font-size: 13px; }
+
+/* phones and narrow windows */
+@media (max-width: 899px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .side { border-inline-end: 0; border-bottom: 1px solid var(--line); }
+  .side-in { position: relative; max-height: none; overflow-x: auto; overflow-y: hidden; padding: 10px 16px; padding-inline-end: 40px; overscroll-behavior-x: contain;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 36px); mask-image: linear-gradient(to right, transparent 0, #000 36px); }   /* RTL: the strip scrolls to the left */
+  .side-head { display: none; }
+  #side-nav { display: flex; gap: 8px; width: max-content; }
+  .nav-item { gap: 8px; padding: 5px 12px 5px 6px; font-size: 14px; white-space: nowrap; border-radius: 12px; }
+  .nav-item .tile { width: 32px; height: 32px; border-radius: 10px; }
+  .nav-item .chev { display: none; }
+  .nav-sep { margin: 4px 2px; padding: 0; border-top: 0; border-inline-start: 1px solid var(--line); }
+  .nav-sep span { display: none; }
+  .main { padding: 20px 16px 40px; }
+}
+@media (max-width: 640px) {
+  header.top { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 10px 16px; min-height: 0; }
+  header.top .top-title { grid-column: 1; text-align: start; }
+  header.top .top-end { grid-column: 2; }
+  header.top .brand { font-size: 11px; }
+  header.top h1 { font-size: 18px; }
+  .conn { font-size: 12px; padding: 6px 10px; gap: 6px; max-width: 52vw; }
+  .ph-top { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "back side" "title title"; padding: 14px 16px; }
+  button.back { width: 44px; height: 44px; }
+  .ph-title h2 { font-size: 24px; }
+  .ph-tabs { padding: 12px 16px; }
+  nav.tabs button { padding: 7px 14px; }
+  .hero h2 { font-size: 22px; }
+  .panel { padding: 16px; }
+  .srcbar { grid-template-columns: 1fr; gap: 4px; } .srcbar .n { text-align: right; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
 </style>
 
-<div class="wrap">
+<div class="app" dir="rtl" lang="ar">
   <header class="top">
-    <div style="display:grid;gap:2px"><span class="brand" id="eyebrow">Digital Dubai · بيانات الأسعار</span><h1 id="title">منصة جمع الأسعار</h1></div>
-    <span class="crumb" id="crumb" hidden><button id="go-home">← كل المشاريع</button></span>
-    <span class="spacer"></span>
-    <span class="conn" id="conn"><span class="dot" id="conn-dot"></span><span id="conn-text">جارٍ الاتصال…</span></span>
+    <div class="top-title"><span class="brand">Digital Dubai · بيانات الأسعار</span><h1>منصة جمع الأسعار</h1></div>
+    <div class="top-end"><span class="conn" id="conn" role="status"><span class="dot" id="conn-dot"></span><span id="conn-text">جارٍ الاتصال…</span></span></div>
   </header>
 
-  <!-- HOME -->
-  <section id="view-home">
-    <div class="hero">
-      <h2>أسعار من المتاجر والمواقع، تُجمع آلياً كل يوم</h2>
-      <p>كل مشروع يجمع أسعاره من مصادره على الإنترنت حسب جدول، ويطابقها مع سلته، ويحفظ النتائج جاهزة للتنزيل والتحليل في Dataiku.</p>
-      <div class="kpis" id="home-kpis"></div>
-    </div>
-    <div class="sec-h"><h2>المشاريع الفعّالة</h2><span class="muted">تعمل وتُحدَّث تلقائياً</span></div>
-    <div class="shelf" id="shelf">
-      <div class="panel empty" id="shelf-empty">تُحمَّل المشاريع…</div>
-    </div>
-    <div class="sec-h navy"><h2>المشاريع القادمة</h2><span class="muted">قيد التخطيط</span></div>
-    <div class="shelf" id="shelf-planned"></div>
-  </section>
-
-  <!-- PROJECT -->
-  <section id="view-project" hidden>
-    <nav class="tabs" role="tablist" id="tabs">
-      <button role="tab" data-tab="overview" aria-selected="true">نظرة عامة</button>
-      <button role="tab" data-tab="run" aria-selected="false">تشغيل</button>
-      <button role="tab" data-tab="basket" aria-selected="false">السلة</button>
-      <button role="tab" data-tab="actors" aria-selected="false">الـ Actors</button>
-      <button role="tab" data-tab="results" aria-selected="false">النتائج</button>
-      <button role="tab" data-tab="settings" aria-selected="false">إعدادات المشروع</button>
-    </nav>
-
-    <div class="tab stack" id="tab-overview">
-      <div class="panel"><div class="ov-head" id="ov-head"></div></div>
-      <div id="ov-body" class="stack"></div>
-    </div>
-
-    <div class="tab stack" id="tab-run" hidden>
-      <div class="panel" id="quick" hidden>
-        <h2>سحب الأسعار الآن</h2>
-        <p class="muted" id="quick-note">يشغّل السحب على خوادم Claude باستخدام Scrapling (بدون رصيد Apify)، ويحفظ النتيجة في قاعدة البيانات. تظهر في تبويب «النتائج» عند انتهائه (حوالي 30 دقيقة لـ CPI).</p>
-        <div class="row"><button class="primary big" id="btn-quick">▶ شغّل السحب الآن</button></div>
-        <div id="quick-confirm"></div>
-      </div>
-      <details class="panel adv" id="apify-run">
-        <summary id="apify-title">متقدم: تشغيل عبر Apify من المتصفح</summary>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-          <div><h3>الـ Actors</h3><div class="picks" id="run-actors"></div></div>
-          <div id="run-groups-box"><h3>المجموعات (بدون اختيار = الكل)</h3><div class="picks scroll" id="run-groups"></div></div>
+  <div class="shell" id="shell">
+    <aside class="side" aria-label="التنقل الرئيسي">
+      <div class="side-in">
+        <div class="side-head">
+          <span class="tile"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+          <span class="t"><small>التنقل الرئيسي</small><b>صفحات المنصة</b></span>
+          <button class="side-toggle" id="side-toggle" aria-expanded="true" aria-controls="side-nav" aria-label="طيّ القائمة" title="طيّ القائمة"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button>
         </div>
-        <label class="f" id="run-codes-box"><span>أكواد محددة (اختياري)</span><textarea id="run-codes" rows="2" placeholder="011110101, 011110102"></textarea></label>
-        <p class="muted" id="run-count"></p>
-        <div class="row">
-          <button class="primary big" id="btn-run">▶ ابدأ السكراب</button>
-          <button class="danger" id="btn-stop" disabled>إيقاف</button>
-          <span class="muted">أبقِ الصفحة مفتوحة حتى ينتهي التشغيل.</span>
-        </div>
-      </details>
-      <div class="panel" id="sched">
-        <div class="row"><h2 style="margin:0">التشغيل اليومي</h2><span class="chip" id="sched-state">—</span></div>
-        <div id="sched-body" class="muted">يُحمَّل موعد التشغيل…</div>
+        <nav id="side-nav" aria-label="صفحات المنصة">
+          <button class="nav-item" data-nav="" aria-current="page" aria-label="الرئيسية"><span class="tile"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg></span><span class="lbl">الرئيسية</span></button>
+        </nav>
       </div>
-      <div class="panel" id="job" hidden>
-        <div class="row"><h2 style="margin:0">التقدم</h2><span class="chip" id="job-state"></span></div>
-        <div id="job-bars" class="stack" style="gap:10px"></div>
-        <pre class="log" id="job-log"></pre>
-        <div id="job-summary"></div>
-      </div>
-    </div>
+    </aside>
 
-    <div class="tab stack" id="tab-basket" hidden>
-      <div class="panel">
-        <div class="row">
-          <input id="b-search" placeholder="ابحث في السلة" style="flex:2 1 220px">
-          <select id="b-group" style="flex:1 1 180px"></select>
+    <main class="main"><div class="main-in">
+      <!-- HOME -->
+      <section id="view-home">
+        <div class="hero">
+          <h2>أسعار من المتاجر والمواقع، تُجمع آلياً كل يوم</h2>
+          <p>كل مشروع يجمع أسعاره من مصادره على الإنترنت حسب جدول، ويطابقها مع سلته، ويحفظ النتائج جاهزة للتنزيل والتحليل في Dataiku.</p>
+          <div class="kpis" id="home-kpis"></div>
         </div>
-        <div class="row">
-          <button id="b-add">+ صنف</button>
-          <button class="primary" id="b-save">حفظ السلة</button>
-          <button id="b-export">تنزيل CSV</button>
-          <label class="btn" for="b-file" style="cursor:pointer">استيراد CSV</label>
-          <input type="file" id="b-file" accept=".csv,text/csv" hidden>
-          <span class="muted" id="b-info"></span>
+        <div class="sec-h"><h2>المشاريع الرئيسية</h2><span class="muted">افتح المشروع لرؤية أسعاره وتشغيله وسلته</span></div>
+        <div class="shelf main-cards" id="shelf">
+          <div class="panel empty" id="shelf-empty">تُحمَّل المشاريع…</div>
         </div>
-        <div id="b-import-confirm"></div>
-        <div class="tw"><table id="b-table"><thead></thead><tbody></tbody></table></div>
-        <div class="pager"><button id="b-prev">السابق</button><span class="muted" id="b-page"></span><button id="b-next">التالي</button></div>
-      </div>
-    </div>
+        <div class="sec-h"><h2>مشاريع أخرى</h2><span class="muted">قيد التخطيط أو مشاريع أُضيفت لاحقاً</span></div>
+        <div class="shelf" id="shelf-planned"></div>
+      </section>
 
-    <div class="tab stack" id="tab-actors" hidden>
-      <div class="panel">
-        <div class="row"><button id="a-add">+ Actor</button><button class="primary" id="a-save">حفظ الـ Actors</button></div>
-        <p class="muted">في الإدخال تُستبدل هذه القيم بكل دفعة: <code>"{barcodes}"</code> قائمة، <code>"{barcodes_json}"</code> القائمة كنص JSON، <code>"{barcodes_text}"</code> سطر لكل كود، <code>"{start_urls}"</code> روابط بصيغة Apify، <code>"{urls}"</code> روابط كنصوص. النمط <code>single</code> يشغّل الإدخال كما هو مرة واحدة.</p>
-        <div id="a-list" class="stack"></div>
-      </div>
-    </div>
-
-    <div class="tab stack" id="tab-results" hidden>
-      <div class="panel">
-        <div class="row"><h2 style="margin:0">التشغيلات</h2><span class="spacer"></span><button id="r-export-all">تنزيل كل الأسعار (Excel)</button></div>
-        <p class="muted">ملف واحد بكل التشغيلات المحفوظة، صف لكل عنصر في كل تشغيل، بأعمدة ثابتة وتاريخ <code>run_date</code>، جاهز للاستيراد في Dataiku.</p>
-        <div id="r-list"></div>
-      </div>
-      <div class="panel" id="r-view" hidden>
-        <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل Excel</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
-        <div id="r-del-confirm"></div>
-        <div class="stats" id="r-stats"></div>
-        <div class="row"><input id="r-search" placeholder="ابحث باسم المنتج أو المتجر أو القسم" style="flex:2 1 220px"><select id="r-filter" hidden><option value=""></option></select></div>
-        <div class="tw"><table id="r-table"><thead></thead><tbody></tbody></table></div>
-        <p class="muted" id="r-more"></p>
-      </div>
-    </div>
-
-    <div class="tab stack" id="tab-settings" hidden>
-      <div class="panel">
-        <div class="grid">
-          <label class="f"><span>اسم المشروع</span><input id="s-name"></label>
-          <label class="f"><span>نوع المطابقة</span><select id="s-kind"><option value="barcode">باركود + حجم (سلة أسعار)</option><option value="list">قائمة عناصر (جدول صفحة)</option><option value="raw">بدون مطابقة (كل الصفوف)</option></select></label>
+      <!-- PROJECT -->
+      <section id="view-project" hidden>
+        <div class="ph">
+          <div class="ph-top">
+            <span id="crumb" hidden><button class="back" id="go-home" aria-label="كل المشاريع" title="كل المشاريع"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button></span>
+            <div class="ph-title"><span class="eyebrow" id="eyebrow"></span><h2 id="title">منصة جمع الأسعار</h2></div>
+            <div id="ph-side"></div>
+          </div>
+          <div class="ph-tabs">
+            <nav class="tabs" role="tablist" id="tabs" aria-label="أقسام المشروع">
+              <button role="tab" data-tab="overview" aria-selected="true">نظرة عامة</button>
+              <button role="tab" data-tab="run" aria-selected="false">تشغيل</button>
+              <button role="tab" data-tab="basket" aria-selected="false">السلة</button>
+              <button role="tab" data-tab="actors" aria-selected="false">الـ Actors</button>
+              <button role="tab" data-tab="results" aria-selected="false">النتائج</button>
+              <button role="tab" data-tab="settings" aria-selected="false">إعدادات المشروع</button>
+            </nav>
+          </div>
         </div>
-        <label class="f"><span>الوصف</span><input id="s-desc"></label>
-        <label class="f"><span>أعمدة السلة (JSON)</span><textarea id="s-cols" class="code" rows="8"></textarea></label>
-        <p class="muted">كل عمود: <code>key</code> و <code>label</code>، و <code>type</code> اختياري (<code>bool</code> أو <code>code</code>). لمطابقة الباركود يلزم <code>barcode_raw</code> و <code>qty_raw</code>، وللقائمة يلزم عمود المفتاح المحدد في <code>list_key</code>.</p>
-        <label class="f"><span>مفتاح القائمة (list_key)</span><input id="s-listkey" class="mono" dir="ltr"></label>
-        <div class="row"><button class="primary" id="s-save">حفظ الإعدادات</button><span class="spacer"></span><button class="danger" id="s-delete">حذف المشروع</button></div>
-        <div id="s-del-confirm"></div>
-      </div>
-    </div>
-  </section>
-  <footer class="foot"><span>منصة جمع الأسعار · Digital Dubai</span><span>البيانات تُجمع من مصادر عامة على الإنترنت وتُراجع قبل الاستخدام</span></footer>
+        <div class="tab stack" id="tab-overview">
+          <div class="panel"><div class="ov-head" id="ov-head"></div></div>
+          <div id="ov-body" class="stack"></div>
+        </div>
+
+        <div class="tab stack" id="tab-run" hidden>
+          <div class="panel" id="quick" hidden>
+            <h2>سحب الأسعار الآن</h2>
+            <p class="muted" id="quick-note">يشغّل السحب على خوادم Claude باستخدام Scrapling (بدون رصيد Apify)، ويحفظ النتيجة في قاعدة البيانات. تظهر في تبويب «النتائج» عند انتهائه (حوالي 30 دقيقة لـ CPI).</p>
+            <div class="row"><button class="primary big" id="btn-quick"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>شغّل السحب الآن</button></div>
+            <div id="quick-confirm"></div>
+          </div>
+          <details class="panel adv" id="apify-run">
+            <summary id="apify-title">متقدم: تشغيل عبر Apify من المتصفح</summary>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+              <div><h3>الـ Actors</h3><div class="picks" id="run-actors"></div></div>
+              <div id="run-groups-box"><h3>المجموعات (بدون اختيار = الكل)</h3><div class="picks scroll" id="run-groups"></div></div>
+            </div>
+            <label class="f" id="run-codes-box"><span>أكواد محددة (اختياري)</span><textarea id="run-codes" rows="2" placeholder="011110101, 011110102"></textarea></label>
+            <p class="muted" id="run-count"></p>
+            <div class="row">
+              <button class="primary big" id="btn-run"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>ابدأ السكراب</button>
+              <button class="danger" id="btn-stop" disabled>إيقاف</button>
+              <span class="muted">أبقِ الصفحة مفتوحة حتى ينتهي التشغيل.</span>
+            </div>
+          </details>
+          <div class="panel" id="sched">
+            <div class="row"><h2 style="margin:0">التشغيل اليومي</h2><span class="chip" id="sched-state">—</span></div>
+            <div id="sched-body" class="muted">يُحمَّل موعد التشغيل…</div>
+          </div>
+          <div class="panel" id="job" hidden>
+            <div class="row"><h2 style="margin:0">التقدم</h2><span class="chip" id="job-state"></span></div>
+            <div id="job-bars" class="stack" style="gap:10px"></div>
+            <pre class="log" id="job-log"></pre>
+            <div id="job-summary"></div>
+          </div>
+        </div>
+
+        <div class="tab stack" id="tab-basket" hidden>
+          <div class="panel">
+            <div class="row">
+              <input id="b-search" placeholder="ابحث في السلة" style="flex:2 1 220px">
+              <select id="b-group" style="flex:1 1 180px"></select>
+            </div>
+            <div class="row">
+              <button id="b-add">+ صنف</button>
+              <button class="primary" id="b-save">حفظ السلة</button>
+              <button id="b-export">تنزيل CSV</button>
+              <label class="btn" for="b-file" style="cursor:pointer">استيراد CSV</label>
+              <input type="file" id="b-file" accept=".csv,text/csv" hidden>
+              <span class="muted" id="b-info"></span>
+            </div>
+            <div id="b-import-confirm"></div>
+            <div class="tw"><table id="b-table"><thead></thead><tbody></tbody></table></div>
+            <div class="pager"><button id="b-prev">السابق</button><span class="muted" id="b-page"></span><button id="b-next">التالي</button></div>
+          </div>
+        </div>
+
+        <div class="tab stack" id="tab-actors" hidden>
+          <div class="panel">
+            <div class="row"><button id="a-add">+ Actor</button><button class="primary" id="a-save">حفظ الـ Actors</button></div>
+            <p class="muted">في الإدخال تُستبدل هذه القيم بكل دفعة: <code>"{barcodes}"</code> قائمة، <code>"{barcodes_json}"</code> القائمة كنص JSON، <code>"{barcodes_text}"</code> سطر لكل كود، <code>"{start_urls}"</code> روابط بصيغة Apify، <code>"{urls}"</code> روابط كنصوص. النمط <code>single</code> يشغّل الإدخال كما هو مرة واحدة.</p>
+            <div id="a-list" class="stack"></div>
+          </div>
+        </div>
+
+        <div class="tab stack" id="tab-results" hidden>
+          <div class="panel">
+            <div class="row"><h2 style="margin:0">التشغيلات</h2><span class="spacer"></span><button id="r-export-all">تنزيل كل الأسعار (Excel)</button></div>
+            <p class="muted">ملف واحد بكل التشغيلات المحفوظة، صف لكل عنصر في كل تشغيل، بأعمدة ثابتة وتاريخ <code>run_date</code>، جاهز للاستيراد في Dataiku.</p>
+            <div id="r-list"></div>
+          </div>
+          <div class="panel" id="r-view" hidden>
+            <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export">تنزيل Excel</button><button class="danger" id="r-delete">حذف التشغيل</button></div>
+            <div id="r-del-confirm"></div>
+            <div class="stats" id="r-stats"></div>
+            <div class="row"><input id="r-search" placeholder="ابحث باسم المنتج أو المتجر أو القسم" style="flex:2 1 220px"><select id="r-filter" hidden><option value=""></option></select></div>
+            <div class="tw"><table id="r-table"><thead></thead><tbody></tbody></table></div>
+            <p class="muted" id="r-more"></p>
+          </div>
+        </div>
+
+        <div class="tab stack" id="tab-settings" hidden>
+          <div class="panel">
+            <div class="grid">
+              <label class="f"><span>اسم المشروع</span><input id="s-name"></label>
+              <label class="f"><span>نوع المطابقة</span><select id="s-kind"><option value="barcode">باركود + حجم (سلة أسعار)</option><option value="list">قائمة عناصر (جدول صفحة)</option><option value="raw">بدون مطابقة (كل الصفوف)</option></select></label>
+            </div>
+            <label class="f"><span>الوصف</span><input id="s-desc"></label>
+            <label class="f"><span>أعمدة السلة (JSON)</span><textarea id="s-cols" class="code" rows="8"></textarea></label>
+            <p class="muted">كل عمود: <code>key</code> و <code>label</code>، و <code>type</code> اختياري (<code>bool</code> أو <code>code</code>). لمطابقة الباركود يلزم <code>barcode_raw</code> و <code>qty_raw</code>، وللقائمة يلزم عمود المفتاح المحدد في <code>list_key</code>.</p>
+            <label class="f"><span>مفتاح القائمة (list_key)</span><input id="s-listkey" class="mono" dir="ltr"></label>
+            <div class="row"><button class="primary" id="s-save">حفظ الإعدادات</button><span class="spacer"></span><button class="danger" id="s-delete">حذف المشروع</button></div>
+            <div id="s-del-confirm"></div>
+          </div>
+        </div>
+      </section>
+      <footer class="foot"><span>منصة جمع الأسعار · Digital Dubai</span><span>البيانات تُجمع من مصادر عامة على الإنترنت وتُراجع قبل الاستخدام</span></footer>
+    </div></main>
+  </div>
+
+  <dialog id="dlg">
+    <form method="dialog" id="dlg-form" class="stack">
+      <h2 id="dlg-title">صنف</h2>
+      <div class="grid" id="dlg-fields"></div>
+      <p class="muted" id="dlg-preview"></p>
+      <div class="row"><button value="ok" class="primary">تم</button><button value="cancel" formnovalidate>إلغاء</button></div>
+    </form>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
 </div>
-
-<dialog id="dlg">
-  <form method="dialog" id="dlg-form" class="stack">
-    <h2 id="dlg-title">صنف</h2>
-    <div class="grid" id="dlg-fields"></div>
-    <p class="muted" id="dlg-preview"></p>
-    <div class="row"><button value="ok" class="primary">تم</button><button value="cancel" formnovalidate>إلغاء</button></div>
-  </form>
-</dialog>
-<div id="toast" hidden></div>
 
 <script>
 "use strict";
@@ -544,6 +641,8 @@ const P = () => projects[current];
 async function loadProjects() {
   const snap = await db.collection("projects").get();
   projects = {}; snap.docs.forEach((d) => (projects[d.id] = { ...plain(d) }));
+  // built-in plans only where the database has no such project; they stay in the page and are never saved
+  for (const [id, p] of Object.entries(BUILTIN)) if (!projects[id]) projects[id] = JSON.parse(JSON.stringify(p));
 }
 async function loadBasket(pid) {
   const snap = await db.collection(`projects/${pid}/basket`).get();
@@ -599,44 +698,186 @@ const photoSrc = (u) => (thumbs.has(u) ? "data:image/jpeg;base64," + thumbs.get(
 function dbErr(e) { return e?.code === "quota_exceeded" ? "امتلأت قاعدة البيانات؛ احذف تشغيلات قديمة ثم حاول" : e?.code === "revoked" ? "لم تعد لديك صلاحية على هذه الصفحة" : (e?.message || String(e)); }
 
 // ------------------------------------------------------------ home
-const PCOLORS = ["var(--bar-cyan)", "var(--bar-blue)", "var(--bar-steel)", "var(--navy)"];
 const isPlanned = (p) => p?.status === "planned";
 function initials(name) { const w = String(name || "?").replace(/[·|()]/g, " ").trim().split(/\s+/); return (w[0] || "?").slice(0, 4).toUpperCase(); }
 function fmtDate(iso) { if (!iso) return "—"; try { return new Date(iso).toLocaleDateString("ar", { timeZone: "Asia/Dubai", day: "numeric", month: "short" }); } catch (e) { return String(iso).slice(0, 10); } }
+
+// small stroke icons on a 24px grid, drawn inline like the platform's (static markup, no data in them)
+const ICONS = {
+  home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/>',
+  cart: '<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h2.6l2.3 11a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.4-1.1L21 7.5H6"/>',
+  truck: '<path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h4l3 3.5v3.5h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/>',
+  trend: '<path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+  plane: '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+  building: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-4h6v4M8.5 7h1M14.5 7h1M8.5 11h1M14.5 11h1"/>',
+  house: '<path d="M3 21h18"/><path d="M5 21V9l7-5.5L19 9v12"/><path d="M10 21v-5h4v5"/>',
+  folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  chev: '<path d="m14.5 6-6 6 6 6"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  chart: '<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
+};
+const ico = (name, cls = "") => `<svg class="ico ${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICONS[name] || ICONS.folder}</svg>`;
+
+// the four main projects, in this order, on the home page and at the top of the side navigation
+const MAIN = [["cpi", "CPI"], ["sppi", "SPPI"], ["te", "TrendX"], ["hotels", "الفنادق والعطلات"]];
+const PICON = { cpi: "cart", sppi: "truck", te: "trend", hotels: "plane", cci: "building", rent: "house" };
+const UNIT = { te: "سلعة" };
+// one-line taglines for the main cards (a project's own "tagline" field wins; the full description stays in the project view)
+const TAGLINE = { cpi: "أسعار سلة المستهلك من متاجر دبي يومياً", te: "أسعار إغلاق السلع العالمية يومياً" };
+const isMain = (id) => MAIN.some(([m]) => m === id);
+const byOrder = (a, b) => (a[1].order ?? 99) - (b[1].order ?? 99);
+const runState = (lr) => (lr ? (lr.status === "done" ? "ok" : lr.status === "error" ? "bad" : "warn") : "");
+const RUN_STATE = { ok: "انتهى", bad: "خطأ", warn: "أُوقف أو لم يكتمل" };
+const projTile = (id, p) => `<span class="tile">${PICON[id] ? ico(PICON[id]) : `<span class="ini">${esc(p.short || initials(p.name))}</span>`}</span>`;
+const statusChip = (p) => (isPlanned(p) ? `<span class="chip planned">${esc(p.badge || "قيد التخطيط")}</span>` : `<span class="chip live">فعّال</span>`);
+
+/* Built-in plans for projects that have no document in the database yet. Used only when projects/<id> is missing;
+   never written to the database (their settings tab is hidden and saving is refused). */
+const BUILTIN = {
+  sppi: {
+    name: "SPPI · مؤشر أسعار المنتجين للخدمات", short: "SPPI", tagline: "تعرفات خدمات النقل والاتصالات من مواقع الشركات", status: "planned", badge: "قيد الإعداد", order: 2, builtin: true,
+    kind: "list", list_key: "name", itemCount: 0, actors: {},
+    columns: [{ key: "name", label: "المنتج / الخدمة" }, { key: "company", label: "الشركة" }, { key: "isic", label: "النشاط (ISIC)" }, { key: "enabled", label: "مفعّل", type: "bool" }],
+    description: "أسعار خدمات النقل والتخزين والمعلومات والاتصالات من صفحات الشركات وتعرفاتها المنشورة، لمؤشر أسعار المنتجين للخدمات.",
+    plan: {
+      figures: [["73", "شركة في العينة"], ["446", "منتجاً وخدمة"], ["H و J", "قسما ISIC"]],
+      stage: "المُجمِّع جاهز", frequency: "شهري / ربع سنوي", target: "عينة 73 شركة و446 منتجاً أو خدمة في القسمين H و J",
+      measures: [
+        "القسم H من ISIC Rev.4: النقل والتخزين",
+        "القسم J من ISIC Rev.4: المعلومات والاتصالات",
+        "عينة من 73 شركة و446 منتجاً أو خدمة",
+        "تصنيف كل منتج: «Scraping» أو «Online فقط» أو «لا هذا ولا ذاك»",
+      ],
+      sources: [
+        "صفحات الأسعار والتعرفات المنشورة للشركات نفسها",
+        "تعرفات هيئة الطرق والمواصلات (RTA)",
+        "ملفات PDF لتعرفات شركات البريد السريع",
+        "قوائم أسعار شركات الاتصالات",
+        "قائمة أسعار Oracle عبر واجهتها البرمجية (API)",
+        "أسعار «ابتداءً من» المنشورة لشركات الطيران",
+      ],
+      method: [
+        "سحب آلي بـ Scrapling مع احترام ملف robots.txt لكل موقع",
+        "لقطة إثبات (snapshot) محفوظة مع كل سعر",
+        "تصنيف كل منتج حسب إمكانية جمع سعره قبل التشغيل",
+      ],
+      outputs: [
+        "ملف Excel لمسؤول المؤشر",
+        "التغطية حسب مستوى النشاط: الإجمالي، القسمان H و J، المستوى الثنائي والثلاثي والرباعي",
+      ],
+      steps: [
+        { text: "بناء المُجمِّع (الفرع claude/inspiring-hamilton-u7n6bv)", done: true },
+        { text: "حفظ بيانات العينة خارج المستودع", done: true },
+        { text: "تشغيل دوري ونشر النتائج في المنصة", done: false },
+      ],
+      notes: "بيانات العينة (الشركات والمنتجات) لا تُحفظ في المستودع.",
+    },
+  },
+  hotels: {
+    name: "الفنادق والعطلات", short: "سفر", tagline: "باقات العطلات وتذاكر الطيران لمؤشر المستهلك", status: "planned", badge: "أسبوعي يدوي", order: 4, builtin: true,
+    kind: "list", list_key: "name", itemCount: 0, actors: {},
+    columns: [{ key: "name", label: "البند" }, { key: "source", label: "المصدر" }, { key: "enabled", label: "مفعّل", type: "bool" }],
+    description: "أسعار السفر لمؤشر أسعار المستهلك: باقات العطلات (طيران + فندق) وتذاكر الطيران من موقع كل شركة.",
+    plan: {
+      figures: [["28", "فندقاً"], ["4", "ليالٍ لكل باقة"], ["9", "شركات طيران"]],
+      stage: "جمع أسبوعي يدوي", frequency: "أسبوعياً", target: "باقات 28 فندقاً وتذاكر الطيران لمؤشر أسعار المستهلك",
+      measures: [
+        "باقات العطلات (طيران + فندق): 28 فندقاً من ملف الفريق، 4 ليالٍ، طيران الإمارات بدون توقف، إقامة مع الإفطار",
+        "المالديف: السعر شامل النقل الإلزامي",
+        "تذاكر الطيران: أقل وأعلى سعر لكل رحلة",
+      ],
+      sources: [
+        "dnatatravel.com لباقات العطلات",
+        "ورقة الرحلات الداخلية: فلاي دبي وطيران الإمارات",
+        "الناقلات الوطنية من مواقعها: السعودية، PIA، الملكية الأردنية، مصر للطيران، الخطوط البريطانية، طيران الهند، الخطوط التركية",
+      ],
+      method: [
+        "السعر من موقع كل شركة طيران مباشرة",
+        "أقل وأعلى سعر لكل رحلة، في ملفات أسبوعية خلال الشهر",
+        "Emirates Holidays وبعض مواقع الطيران تمنع المتصفحات الآلية، فتبقى يدوية",
+      ],
+      outputs: ["ملفات Excel شهرية بتنسيق الفريق مع لقطات الشاشة"],
+      steps: [
+        { text: "جمع أسبوعي يدوي بملفات الفريق", done: true },
+        { text: "أتمتة المواقع التي تسمح بالمتصفح الآلي", done: false },
+        { text: "عرض الملفات الشهرية في المنصة", done: false },
+      ],
+      notes: "يظهر في المنصة كخطة؛ الجمع اليوم يدوي أسبوعياً.",
+    },
+  },
+};
+
+function projChips(id, p, figs) {
+  if (isPlanned(p)) return statusChip(p) + (p.plan?.frequency ? `<span class="chip">${esc(p.plan.frequency)}</span>` : "");
+  const lr = p.lastRun, st = runState(lr);
+  return statusChip(p)
+    + (figs ? "" : `<span class="chip">${(p.itemCount ?? 0).toLocaleString("en")} عنصر</span>`)
+    + (!lr ? `<span class="chip">لم يُشغّل بعد</span>` : figs ? "" : `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))} · ${(homeAcc[id] ?? lr.accepted ?? 0).toLocaleString("en")} سعر</span>`)
+    + (homeProducts[id] ? `<span class="chip">${homeProducts[id].toLocaleString("en")} منتج في المسح الشامل</span>` : "");
+}
+function projFigs(id, p) {
+  const lr = p.lastRun;
+  if (isPlanned(p)) {        // a plan has no live figures: show its own key numbers, or its stage and sources
+    const pl = p.plan || {}, figs = pl.figures || [[pl.stage || "تخطيط", "المرحلة"], [(pl.sources || []).length, "مصادر مقترحة"]];
+    return `<span class="figs">${figs.map(([v, l]) => `<span class="fig"><b>${esc(v)}</b><span>${esc(l)}</span></span>`).join("")}</span>`;
+  }
+  const st = runState(lr);
+  return `<span class="figs"><span class="fig"><b>${(p.itemCount ?? 0).toLocaleString("en")}</b><span>${esc(UNIT[id] || "عنصر")}</span></span>
+    ${lr ? `<span class="fig"><b>${(homeAcc[id] ?? lr.accepted ?? 0).toLocaleString("en")}</b><span>سعر في آخر تشغيل</span></span>
+    <span class="fig"><b><i class="dot ${st}" role="img" aria-label="حالة آخر تشغيل: ${esc(RUN_STATE[st])}" title="${esc(RUN_STATE[st])}"></i>${esc(fmtDate(lr.at))}</b><span>آخر تحديث</span></span>` : ""}</span>`;
+}
 function renderHome() {
-  $("#title").textContent = "منصة جمع الأسعار"; $("#eyebrow").textContent = "Digital Dubai · بيانات الأسعار"; $("#crumb").hidden = true;
+  $("#crumb").hidden = true;
   $("#view-home").hidden = false; $("#view-project").hidden = true;
-  const list = Object.entries(projects).sort((a, b) => (a[1].order ?? 99) - (b[1].order ?? 99));
+  const list = Object.entries(projects).sort(byOrder);
   const live = list.filter(([, p]) => !isPlanned(p)), planned = list.filter(([, p]) => isPlanned(p));
   const accepted = live.reduce((n, [id, p]) => n + (homeAcc[id] ?? p.lastRun?.accepted ?? 0), 0);
   const scraped = Object.values(homeProducts).reduce((n, x) => n + x, 0);
   const items = live.reduce((n, [, p]) => n + (p.itemCount || 0), 0);
   const latest = live.map(([, p]) => p.lastRun?.at).filter(Boolean).sort().pop();
   $("#home-kpis").innerHTML = [
-    ["var(--bar-cyan)", live.length, "مشاريع فعّالة"],
-    ["var(--bar-steel)", planned.length, "مشاريع قادمة"],
-    ["var(--bar-blue)", items.toLocaleString("en"), "عنصر تُتابَع أسعاره"],
-    ["var(--bar-cyan)", accepted.toLocaleString("en"), "سعر موجود في آخر التشغيلات"],
-    ["var(--bar-steel)", scraped.toLocaleString("en"), "منتج مسحوب في المسح الشامل"],
+    ["var(--ok)", live.length, "مشاريع فعّالة"],
+    ["var(--muted)", planned.length, "مشاريع قادمة"],
+    ["var(--primary)", items.toLocaleString("en"), "عنصر تُتابَع أسعاره"],
+    ["var(--primary)", accepted.toLocaleString("en"), "سعر موجود في آخر التشغيلات"],
+    ["var(--amber)", scraped.toLocaleString("en"), "منتج مسحوب في المسح الشامل"],
     ["var(--navy)", fmtDate(latest), "آخر تحديث"],
   ].map(([c, v, l]) => `<div class="kpi" style="--kc:${c}"><span class="v">${esc(v)}</span><span class="l">${esc(l)}</span></div>`).join("");
-  const card = ([id, p], i) => {
-    const lr = p.lastRun; const st = lr ? (lr.status === "done" ? "ok" : lr.status === "error" ? "bad" : "warn") : "";
-    const color = p.color || PCOLORS[i % PCOLORS.length];
-    const meta = isPlanned(p)
-      ? `<span class="chip planned">قيد التخطيط</span>${p.plan?.frequency ? `<span class="chip">${esc(p.plan.frequency)}</span>` : ""}`
-      : `<span class="chip live">فعّال</span><span class="chip">${(p.itemCount ?? 0).toLocaleString("en")} عنصر</span>
-         ${lr ? `<span class="chip ${st}">آخر تشغيل ${esc(fmtDate(lr.at))} · ${(homeAcc[id] ?? lr.accepted ?? 0).toLocaleString("en")} سعر</span>` : `<span class="chip">لم يُشغّل بعد</span>`}
-         ${homeProducts[id] ? `<span class="chip">${homeProducts[id].toLocaleString("en")} منتج في المسح الشامل</span>` : ""}`;
-    return `<button class="proj ${isPlanned(p) ? "planned" : ""}" data-open="${esc(id)}" style="border-top-color:${color}">
-      <span class="top"><span class="icon" style="--pc:${color}">${esc(p.short || initials(p.name))}</span><span class="name">${esc(p.name)}</span></span>
-      <span class="desc">${esc(p.description || "")}</span><span class="meta">${meta}</span></button>`;
-  };
-  $("#shelf").innerHTML = live.map(card).join("") || `<div class="panel empty">لا توجد مشاريع فعّالة بعد.</div>`;
-  $("#shelf-planned").innerHTML = planned.map((x, i) => card(x, i + live.length)).join("") + `<button class="proj new" id="new-proj">+ مشروع جديد</button>`;
+  const card = ([id, p]) => `<button class="proj" data-open="${esc(id)}">
+      <span class="top">${projTile(id, p)}<span class="name">${esc(p.name)}</span>${ico("chev", "chev")}</span>
+      <span class="desc">${esc(p.tagline || TAGLINE[id] || p.description || "")}</span>${projFigs(id, p)}<span class="meta">${projChips(id, p, true)}</span></button>`;
+  const mini = ([id, p]) => `<button class="proj mini" data-open="${esc(id)}">${projTile(id, p)}
+      <span class="txt"><span class="name">${esc(p.name)}</span><span class="meta">${projChips(id, p, false)}</span></span>${ico("chev", "chev")}</button>`;
+  const main = MAIN.filter(([id]) => projects[id]).map(([id]) => [id, projects[id]]);
+  $("#shelf").innerHTML = main.map(card).join("") || `<div class="panel empty">لا توجد مشاريع رئيسية بعد.</div>`;
+  $("#shelf-planned").innerHTML = list.filter(([id]) => !isMain(id)).map(mini).join("") + `<button class="proj mini new" id="new-proj">${ico("plus")}<span>مشروع جديد</span></button>`;
   $$("[data-open]").forEach((b) => b.addEventListener("click", () => openProject(b.dataset.open)));
   $("#new-proj").addEventListener("click", newProject);
+  renderSide();
 }
+
+// side navigation: home, the four main projects, then the others under a divider; the open page is marked
+function renderSide() {
+  const item = (key, label, tile) => `<button class="nav-item" data-nav="${esc(key)}" aria-label="${esc(label)}" title="${esc(label)}"${(current ?? "") === key ? ' aria-current="page"' : ""}>${tile}<span class="lbl">${esc(label)}</span>${ico("chev", "chev")}</button>`;
+  const other = Object.entries(projects).filter(([id]) => !isMain(id)).sort(byOrder);
+  $("#side-nav").innerHTML = item("", "الرئيسية", `<span class="tile">${ico("home")}</span>`)
+    + MAIN.filter(([id]) => projects[id]).map(([id, label]) => item(id, label, projTile(id, projects[id]))).join("")
+    + (other.length ? `<div class="nav-sep" role="separator" aria-label="مشاريع أخرى"><span aria-hidden="true">مشاريع أخرى</span></div>` + other.map(([id, p]) => item(id, p.short || p.name, projTile(id, p))).join("") : "");
+  // on phones the navigation is a scrolling strip: bring the open page's item into it
+  const on = $("#side-nav [aria-current]"), strip = $(".side-in");
+  if (on && matchMedia("(max-width: 899px)").matches) strip.scrollLeft += on.getBoundingClientRect().left - strip.getBoundingClientRect().left - (strip.clientWidth - on.offsetWidth) / 2;
+}
+$("#side-nav").addEventListener("click", (e) => { const b = e.target.closest("[data-nav]"); if (!b) return; if (b.dataset.nav) openProject(b.dataset.nav); else goHome(); });
+function setSideCollapsed(on) {
+  $("#shell").classList.toggle("collapsed", on);
+  const b = $("#side-toggle"), t = on ? "توسيع القائمة" : "طيّ القائمة";
+  b.setAttribute("aria-expanded", String(!on)); b.setAttribute("aria-label", t); b.title = t;
+  try { localStorage.setItem("side-collapsed", on ? "1" : ""); } catch (e) {}
+}
+$("#side-toggle").addEventListener("click", () => setSideCollapsed(!$("#shell").classList.contains("collapsed")));
+try { if (localStorage.getItem("side-collapsed") === "1") setSideCollapsed(true); } catch (e) {}
 
 // home figures per project from its runs (latest result per source), filled after load
 const homeAcc = {}, homeProducts = {};
@@ -657,33 +898,38 @@ async function loadHomeFigures() {
 // ------------------------------------------------------------ overview tab
 function renderOverviewHead() {
   const p = P(); if (!p) return;
-  const lr = p.lastRun;
-  $("#ov-head").innerHTML = `<h2 style="margin:0">${esc(p.name)}</h2>
-    ${isPlanned(p) ? `<span class="chip planned">قيد التخطيط</span>` : `<span class="chip live">فعّال</span>`}
+  const lr = p.lastRun, last = runs[0]?.startedAt || lr?.at;
+  $("#ov-head").innerHTML = `${statusChip(p)}
     ${p.schedule?.trigger_id && !isPlanned(p) ? `<span class="chip sched">تشغيل يومي</span>` : ""}
-    ${lr || runs[0] ? `<span class="chip">آخر تشغيل ${esc(fmtDate(runs[0]?.startedAt || lr.at))}</span>` : ""}
+    ${lr || runs[0] ? `<span class="chip">آخر تشغيل ${esc(fmtDate(last))}</span>` : ""}
+    ${p.builtin ? `<span class="chip">خطة مبدئية من الصفحة، لم تُحفظ في قاعدة البيانات</span>` : ""}
     <p>${esc(p.description || "")}</p>`;
+  // the page head's link on the other side: the plan's frequency, the daily schedule, or the last run
+  $("#ph-side").innerHTML = isPlanned(p) ? (p.plan?.frequency ? `<span class="ph-link">${ico("list")}${esc(p.plan.frequency)}</span>` : "")
+    : p.schedule?.trigger_id ? `<button class="ph-link" data-goto="run">${ico("clock")}تشغيل يومي</button>`
+    : last ? `<button class="ph-link" data-goto="results">${ico("clock")}آخر تشغيل ${esc(fmtDate(last))}</button>` : "";
 }
+$("#ph-side").addEventListener("click", (e) => { const b = e.target.closest("[data-goto]"); if (b) switchTab(b.dataset.goto); });
 function renderPlan(p) {
   const pl = p.plan || {};
   const li = (xs) => (xs || []).map((x) => `<li>${esc(x)}</li>`).join("");
   $("#ov-body").innerHTML = `
     <div class="kpis">
-      <div class="kpi" style="--kc:var(--dd-purple)"><span class="v">${esc(pl.stage || "تخطيط")}</span><span class="l">المرحلة</span></div>
-      <div class="kpi" style="--kc:var(--dd-cyan)"><span class="v">${esc(pl.frequency || "—")}</span><span class="l">تكرار الجمع المقترح</span></div>
-      <div class="kpi" style="--kc:var(--dd-teal)"><span class="v">${esc((pl.sources || []).length)}</span><span class="l">مصادر مقترحة</span></div>
-      <div class="kpi" style="--kc:var(--dd-coral)"><span class="v txt">${esc(pl.target || "—")}</span><span class="l">الهدف</span></div>
+      <div class="kpi" style="--kc:var(--navy)"><span class="v txt">${esc(pl.stage || "تخطيط")}</span><span class="l">المرحلة</span></div>
+      <div class="kpi" style="--kc:var(--primary)"><span class="v txt">${esc(pl.frequency || "—")}</span><span class="l">تكرار الجمع المقترح</span></div>
+      <div class="kpi" style="--kc:var(--amber)"><span class="v">${esc((pl.sources || []).length)}</span><span class="l">مصادر مقترحة</span></div>
+      <div class="kpi" style="--kc:var(--ok)"><span class="v txt">${esc(pl.target || "—")}</span><span class="l">الهدف</span></div>
     </div>
     <div class="plan-grid">
-      <div class="panel"><h3>ماذا نقيس</h3><ul>${li(pl.measures)}</ul></div>
-      <div class="panel"><h3>المصادر المقترحة</h3><ul>${li(pl.sources)}</ul></div>
-      <div class="panel"><h3>طريقة الجمع</h3><ul>${li(pl.method)}</ul></div>
-      <div class="panel"><h3>المخرجات</h3><ul>${li(pl.outputs)}</ul></div>
+      <div class="panel"><h3 class="plan-h">ماذا نقيس</h3><ul>${li(pl.measures)}</ul></div>
+      <div class="panel"><h3 class="plan-h">المصادر المقترحة</h3><ul>${li(pl.sources)}</ul></div>
+      <div class="panel"><h3 class="plan-h">طريقة الجمع</h3><ul>${li(pl.method)}</ul></div>
+      <div class="panel"><h3 class="plan-h">المخرجات</h3><ul>${li(pl.outputs)}</ul></div>
     </div>
-    <div class="panel"><h3 style="color:var(--fg)">خطة العمل</h3><ol class="steps">${(pl.steps || []).map((x) => `<li class="${x.done ? "done" : ""}">${x.done ? "✓ " : ""}${esc(x.text || x)}</li>`).join("")}</ol>
+    <div class="panel"><h3 class="plan-h">خطة العمل</h3><ol class="steps">${(pl.steps || []).map((x) => `<li class="${x.done ? "done" : ""}">${x.done ? "✓ " : ""}${esc(x.text || x)}</li>`).join("")}</ol>
       ${pl.notes ? `<p class="muted">${esc(pl.notes)}</p>` : ""}</div>`;
 }
-const BAR_COLORS = { accepted: "#1ea5e0", review: "#d9a43a", other: "#d9dee6" };   // review stays for runs saved before the yes/no rule
+const BAR_COLORS = { accepted: "#1a75b8", review: "#d9a43a", other: "#e2e8f0" };   // review stays for runs saved before the yes/no rule
 const REVIEW_RE = /review|substitute|multiple|unverified|differs|conflict|mismatch|size_|unit_label_x/;
 const isCat = (label) => /category|\(category\)/i.test(label || "");
 
@@ -736,8 +982,8 @@ function renderOverview() {
   if (isCpi) {
     $("#ov-body").innerHTML = `
     <div class="kpis">
-      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v" id="ov-n-prod">…</span><span class="l">منتج نتابع سعره يومياً</span></div>
-      <div class="kpi" style="--kc:var(--bar-blue)"><span class="v" id="ov-n-store">…</span><span class="l">متجر</span></div>
+      <div class="kpi" style="--kc:var(--primary)"><span class="v" id="ov-n-prod">…</span><span class="l">منتج نتابع سعره يومياً</span></div>
+      <div class="kpi" style="--kc:var(--amber)"><span class="v" id="ov-n-store">…</span><span class="l">متجر</span></div>
       <div class="kpi" style="--kc:var(--navy)"><span class="v" id="ov-n-days">…</span><span class="l">يوماً من الأسعار</span></div>
     </div>
     <div class="row"><button class="primary" id="ov-xlsx">تنزيل البيانات (Excel)</button></div>
@@ -753,8 +999,8 @@ function renderOverview() {
   }
   $("#ov-body").innerHTML = `
     <div class="kpis">
-      <div class="kpi" style="--kc:var(--bar-cyan)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
-      <div class="kpi" style="--kc:var(--bar-blue)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
+      <div class="kpi" style="--kc:var(--primary)"><span class="v">${(accBc + accCat).toLocaleString("en")}</span><span class="l">سعر موجود (آخر نتيجة لكل مصدر)</span></div>
+      <div class="kpi" style="--kc:var(--amber)"><span class="v">${(p.itemCount ?? 0).toLocaleString("en")}</span><span class="l">عنصر في السلة</span></div>
       <div class="kpi" style="--kc:var(--navy)"><span class="v">${esc(fmtDate(lastAt))}</span><span class="l">آخر تحديث</span></div>
     </div>
     <div class="panel">
@@ -869,7 +1115,7 @@ async function gcToggle(i, tr) {
 
 async function newProject() {
   let id = "p" + Date.now().toString(36);
-  const p = { name: "مشروع جديد", description: "", kind: "list", list_key: "name", order: Object.keys(projects).length + 1, itemCount: 0,
+  const p = { name: "مشروع جديد", description: "", kind: "list", list_key: "name", order: Object.values(projects).filter((x) => !x.builtin).length + 1, itemCount: 0,
     columns: [{ key: "name", label: "الاسم" }, { key: "enabled", label: "مفعّل", type: "bool" }],
     actors: { main: { label: "Actor", enabled: true, actor: "apify/web-fetch", mode: "single", input: { url: "https://example.com", formats: ["markdown"] }, parser: "generic", fields: {}, dataset_fields: "", batch_size: 10, parallel_runs: 1 } } };
   try { await db.doc(`projects/${id}`).set(p); projects[id] = p; await openProject(id); switchTab("settings"); toast("أُنشئ المشروع؛ سمّه وعدّل أعمدته"); }
@@ -878,9 +1124,11 @@ async function newProject() {
 async function openProject(id) {
   if (basketDirty && current && current !== id) { toast("احفظ تعديلات السلة أولاً أو أعد تحميل الصفحة لتجاهلها", true); return; }
   current = id; basketDirty = false;
-  $("#title").textContent = P().name; $("#eyebrow").textContent = isPlanned(P()) ? "مشروع قادم · قيد التخطيط" : "مشروع فعّال · منصة جمع الأسعار"; $("#crumb").hidden = false;
+  $("#title").textContent = P().name; $("#eyebrow").textContent = isPlanned(P()) ? "مشروع قادم · " + (P().badge || "قيد التخطيط") : "مشروع فعّال"; $("#crumb").hidden = false;
   $("#view-home").hidden = true; $("#view-project").hidden = false;
   $$("#tabs button").forEach((b) => (b.hidden = isPlanned(P()) && !["overview", "settings"].includes(b.dataset.tab)));
+  $("#tabs").closest(".ph-tabs").hidden = !!P().builtin;     // a built-in plan has only its overview
+  renderSide();
   switchTab("overview"); runs = []; renderOverview();
   try { location.hash = id.replace(/[^\w.~-]/g, ""); } catch (e) {}
   basket = []; renderBasket(); renderActors(); renderSettings(); renderRunPicks(); renderJob();
@@ -888,7 +1136,16 @@ async function openProject(id) {
   bPage = 0; fillGroupSelect(); renderBasket(); renderRunPicks(); renderQuick();
   if (!isPlanned(P())) { await loadRuns(); renderOverview(); renderSchedule(); }
 }
-$("#go-home").addEventListener("click", () => { if (basketDirty) return toast("احفظ تعديلات السلة أولاً", true); current = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} renderHome(); });
+function goHome() { if (basketDirty) return toast("احفظ تعديلات السلة أولاً", true); current = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} renderHome(); }
+$("#go-home").addEventListener("click", goHome);
+// browser back/forward: an empty hash goes home, #<project id> opens that project
+window.addEventListener("hashchange", () => {
+  const want = (location.hash || "").slice(1);
+  if (!want) { if (current) goHome(); }
+  else if (want !== current && projects[want]) openProject(want);
+  // refused (unsaved basket edits): keep the address on the project that stays open
+  if (current && want !== current.replace(/[^\w.~-]/g, "")) try { history.replaceState(null, "", "#" + current.replace(/[^\w.~-]/g, "")); } catch (e) {}
+});
 
 function switchTab(t) {
   $$("#tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
@@ -1353,15 +1610,18 @@ function renderSettings() {
   $("#s-cols").value = JSON.stringify(p.columns || [], null, 2); $("#s-listkey").value = p.list_key || "";
   $("#s-del-confirm").innerHTML = "";
 }
+const builtinRefused = () => P()?.builtin && (toast("هذه خطة مبدئية من الصفحة؛ لا تُحفظ في قاعدة البيانات", true), true);
 $("#s-save").addEventListener("click", async () => {
+  if (builtinRefused()) return;
   let columns; try { columns = JSON.parse($("#s-cols").value); if (!Array.isArray(columns) || columns.some((c) => !c.key)) throw new Error("كل عمود يحتاج key"); }
   catch (e) { return toast("أعمدة السلة: " + e.message, true); }
   try {
     await saveProject({ name: $("#s-name").value.trim() || "بدون اسم", description: $("#s-desc").value.trim(), kind: $("#s-kind").value, columns, list_key: $("#s-listkey").value.trim() });
-    $("#title").textContent = P().name; renderBasket(); renderRunPicks(); toast("حُفظت الإعدادات");
+    $("#title").textContent = P().name; renderBasket(); renderRunPicks(); renderSide(); toast("حُفظت الإعدادات");
   } catch (e) { toast(dbErr(e), true); }
 });
 $("#s-delete").addEventListener("click", () => {
+  if (builtinRefused()) return;
   $("#s-del-confirm").innerHTML = `<div class="confirm"><span>حذف مشروع «${esc(P().name)}» مع سلته؟ التشغيلات المحفوظة تُحذف أيضاً.</span><button class="danger" id="sd-yes">حذف المشروع</button><button id="sd-no">إلغاء</button></div>`;
   $("#sd-no").onclick = () => ($("#s-del-confirm").innerHTML = "");
   $("#sd-yes").onclick = async () => {
@@ -1932,7 +2192,7 @@ function ctDraw() {
     const open = ctOpen.has(n.code), leaf = n.prods.length > 0, nKids = leaf ? n.prods.length : n.kids.length;
     const noW = anyW && n.code && n.w === 0;
     return `<tr class="ct-row" data-code="${esc(n.code)}" style="cursor:pointer;background:${open ? "#eaf4fb" : depth % 2 ? "#fafbfc" : "#fff"}">
-      <td style="text-align:right;${pad(depth)}"><span style="color:var(--cyan);display:inline-block;width:16px;font-size:16px">${open ? "▾" : "◂"}</span>
+      <td style="text-align:right;${pad(depth)}"><span style="color:var(--primary);display:inline-block;width:16px;font-size:16px">${open ? "▾" : "◂"}</span>
         ${n.code ? `<span class="mono" style="color:var(--muted)">${esc(n.code.replace(/-[a-z]$/, ""))}</span> ` : ""}<b>${esc(n.ar)}</b>
         <div class="muted" style="font-size:12px;margin-inline-start:20px">${esc(ctLevel(n.code))} · ${esc(n.en)} · ${open ? "اضغط للإغلاق" : leaf ? `${nKids.toLocaleString("en")} منتجاً بالصور` : `${nKids} بنود تحته`}${noW ? ` · <span class="chip" title="لا وزن له في سلة دبي الرسمية، فلا يدخل في حساب المستوى الأعلى">بلا وزن رسمي</span>` : ""}</div></td>
       <td class="num">${(n.products || 0).toLocaleString("en")}</td>
@@ -1940,7 +2200,7 @@ function ctDraw() {
       <td class="num" style="color:${ctCol(n.chg)}">${ctPct(n.chg)}</td>
       <td class="num" style="color:${ctCol(n.day)}">${ctPct(n.day)}</td>
       <td class="num" style="color:${ctCol(n.imp ?? 0)}">${n.code ? (n.imp >= 0 ? "+" : "") + (n.imp ?? 0).toFixed(3) : ""}</td>
-      <td class="ct-spark" title="اضغط لعرض الرسم الكامل" style="cursor:zoom-in">${ctSpark(n.idx)}<div class="muted" style="font-size:11px">${ctChartOpen.has(n.code) ? "إخفاء الرسم" : "📈 الرسم الكامل"}</div></td></tr>`;
+      <td class="ct-spark" title="اضغط لعرض الرسم الكامل" style="cursor:zoom-in">${ctSpark(n.idx)}<div class="muted" style="font-size:11px">${ctChartOpen.has(n.code) ? "إخفاء الرسم" : ico("chart") + " الرسم الكامل"}</div></td></tr>`;
   };
   const chartRow = (n, depth) => {
     const top = n.kids.slice(0, 6);
@@ -2012,7 +2272,7 @@ async function ctExcel(btn) {
 }
 
 // ------------------------------------------------------------ boot
-function setConn(state, text) { $("#conn-dot").className = "dot " + state; $("#conn-text").textContent = text; }
+function setConn(state, text) { $("#conn-dot").className = "dot " + state; $("#conn-text").textContent = text; $("#conn").title = text; }
 (async function boot() {
   const C = window.claude;
   if (!C?.use) { setConn("bad", "افتح الصفحة من claude.ai"); $("#shelf-empty").textContent = "هذه اللوحة تعمل داخل claude.ai فقط، حيث تُحفظ المشاريع ويتصل Apify."; return; }

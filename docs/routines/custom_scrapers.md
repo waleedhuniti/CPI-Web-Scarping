@@ -1,8 +1,9 @@
 # Routine: the panel's own scrapers (Scrapling engine) → Scraping Projects panel
 
-- Scheduled task id: not created yet (the user decides first). Once it exists, store its id in the panel document
-  `system/scrapers_routine` as `{trigger_id}`, so the panel's "Run now" button can start it at once.
-- Schedule: hourly (`0 * * * *`; the server spreads it over the hour from the minute it is created).
+- Scheduled task id: `trig_01R9twPVtUNPjnTS2KHhFn4a`, stored in the panel document `system/scrapers_routine`
+  (`{trigger_id, mode: "on_demand"}`), so the panel's "Run now" button starts it (fire_trigger).
+- Schedule: none. The user runs scrapers on demand only (3 Nov 2026): the task fires only from "Run now", and the
+  form's daily auto trigger is hidden. The stored prompt (below, as created) runs only the scrapers with a Run now request.
 - Fresh cloud session each run; the code comes from the panel's `system_bundle` documents (same files as this branch),
   which must hold `scripts/custom_scrape.py`.
 

@@ -628,7 +628,7 @@ td.sc-cell a { word-break: break-all; }
               <label class="check-card" for="sc-active"><input type="checkbox" id="sc-active"><span><b>مفعّلة <span class="en">Active</span></b><small>فعّل الكاشطة أو أوقفها للتشغيل المجدول واليدوي معاً.</small></span></label>
             </section>
 
-            <section class="fsec" aria-labelledby="sc-h-auto">
+            <section class="fsec" aria-labelledby="sc-h-auto" hidden>
               <div class="fsec-h"><h3 id="sc-h-auto">التشغيل التلقائي <span class="en">Auto Trigger</span></h3><p>تشغيل يومي في موعد ثابت.</p></div>
               <label class="check-card" for="sc-auto"><input type="checkbox" id="sc-auto" aria-describedby="sc-auto-hint"><span><b>تفعيل التشغيل التلقائي <span class="en">Enable Auto Trigger</span></b><small id="sc-auto-hint"></small></span></label>
               <div class="fgrid">
@@ -3025,7 +3025,7 @@ async function scRequestRun(id) {
       if (tid) { await ccr("fire_trigger", { trigger_id: tid }); fired = true; scFired[id] = at; }
     } catch (e) { /* the request stays on the document; the routine picks it up on its next hourly run */ }
   }
-  toast(fired ? "بدأت المهمة المجدولة الآن على خوادم Claude؛ تظهر النتيجة في «التشغيلات» عند انتهائها" : "في الانتظار: سيتشغّل خلال الساعة القادمة على خوادم Claude");
+  toast(fired ? "بدأ التشغيل الآن على خوادم Claude؛ تظهر النتيجة في «التشغيلات» عند انتهائه" : "الطلب محفوظ، لكن تعذّر بدء التشغيل الآن؛ اضغط «شغّل الآن» مرة أخرى");
   scAfterRunChange(id);
   if (scRoute === id) scSwitchTab("runs");
 }
@@ -3038,7 +3038,7 @@ function scRenderPending() {
   if (!s || s.engine !== "scrapling" || !scPending(s)) { box.hidden = true; box.innerHTML = ""; return; }
   const fired = scFired[scId] === s.run_request.at;
   box.hidden = false;
-  box.innerHTML = `<div class="notice wait" role="status"><b>${fired ? "بدأت المهمة المجدولة على خوادم Claude" : "في الانتظار: سيتشغّل خلال الساعة القادمة على خوادم Claude"}</b>
+  box.innerHTML = `<div class="notice wait" role="status"><b>${fired ? "بدأ التشغيل على خوادم Claude" : "الطلب محفوظ، لكن تعذّر بدء التشغيل الآن"}</b>
     <span>طُلب التشغيل ${esc(fmtWhen(s.run_request.at))}. تظهر النتيجة في «التشغيلات» أدناه عند انتهائه.</span>
     <div class="row"><button type="button" data-act="refresh">تحديث الحالة</button><button type="button" class="danger" data-act="cancel">إلغاء الطلب</button></div></div>`;
 }

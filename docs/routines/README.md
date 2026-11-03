@@ -9,7 +9,7 @@ into the panel's database. A copy of that database, with the whole price history
 | Daily CPI scrape: barcode search, bulk categories, product set, catalogue fill | 06:47 | [cpi_daily_scrape.md](cpi_daily_scrape.md) |
 | Daily catalogue crawl: all CPI divisions, six stores, catalogue price history | 06:52 | [catalogue_daily_crawl.md](catalogue_daily_crawl.md) |
 | Daily TrendX commodity prices: Commodity Price Log artifact and the panel | 03:00 | below |
-| The panel's own scrapers (Scrapling engine, collection `scrapers`): the due ones, run now or by their auto trigger (not scheduled yet) | hourly | [custom_scrapers.md](custom_scrapers.md) |
+| The panel's own scrapers (Scrapling engine, collection `scrapers`): the ones with a "Run now" request | on demand only (started by the Run now button, no schedule) | [custom_scrapers.md](custom_scrapers.md) |
 
 TrendX (`trig_01FWxfp4cQQtbe3CJxqw9EH4`): reads `collect_te.py`, `build_xlsx.py` and `to_panel.py` from the panel document
 `system/te_daily` (copies in `panel_artifact/routines/`), captures the closing prices on tradingeconomics.com/commodities

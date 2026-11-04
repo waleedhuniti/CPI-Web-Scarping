@@ -22,26 +22,26 @@ for r in list(openpyxl.load_workbook(UP + "1eab1d7a-Book1.xlsx", read_only=True,
     except (TypeError, ValueError): pass
 basket = {b["item_code"]: b for b in json.load(open(REPO + "data/basket/basket.json", encoding="utf-8"))}
 
-TIER = {"barcode": "exact", "name_search": "exact", "category": "product set", "catalogue": "catalogue"}
+TIER = {"barcode": "exact", "name_search": "exact", "category": "product set", "catalogue": "catalogue"}   # product set = chained estimate over a set of listings, not a price
 obs = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 meta = defaultdict(lambda: dict(src=Counter(), shops=set(), titles=Counter(), unitbad=0))
 for r in csv.DictReader(open(REPO + "data/exports/CPI_basket_12-29_Oct.csv", encoding="utf-8")):
     c = r["item_code"].zfill(9)
     if r["accepted"] != "yes" or not c.startswith("011") or c not in off or not off[c]["sep"]: continue
-    byw = bool(WEIGHT.search(off[c]["unit"]))
-    try: p = float(r["price"])
+    # the price in the line's own unit: unit price x the line's quantity, only when the listing's price basis is in the
+    # same unit family as the line (kg<->g, l<->ml, piece<->piece, bunch<->bunch); anything else cannot be compared
+    try: p, up, tot = float(r["price"]), float(r["unit_price"] or 0), float(r["qty_total"] or 0)
     except ValueError: continue
-    if byw:
-        try: up, tot = float(r["unit_price"] or 0), float(r["qty_total"] or 0)
-        except ValueError: up = tot = 0
-        if (r["price_basis"], r["qty_unit"]) not in FAMILY or up <= 0 or tot <= 0:
-            meta[c]["unitbad"] += 1; continue
-        v = up * tot / {"g": 1000, "ml": 1000, "pc": 1}[r["qty_unit"]]
+    basis, lu = r["price_basis"], r["qty_unit"]
+    if basis == "" and lu in ("pc", "") and r["source"] != "category":
+        v = p                                               # a piece line priced from the shelf price
+    elif (basis, lu) in {("kg", "g"), ("l", "ml"), ("pc", "pc"), ("bunch", "bunch")} and up > 0 and tot > 0:
+        v = up * tot / {"g": 1000, "ml": 1000, "pc": 1, "bunch": 1}[lu]
     else:
-        v = p
+        meta[c]["unitbad"] += 1; continue
     if v <= 0: continue
     obs[c][r["run_date"]][r["retailer"]].append(v)
-    m = meta[c]; m["src"][TIER.get(r["source"], r["source"])] += 1; m["shops"].add(r["retailer"]); m["titles"][r["title"]] += 1
+    m = meta[c]; m["src"][TIER.get(r["source"], r["source"])] += 1; m["shops"].add(r["retailer"]); m["titles"][r["title"]] += 1; m.setdefault("notes", Counter())[r["note"][:90]] += 1
 
 items = []
 for c, days in obs.items():
@@ -53,7 +53,8 @@ for c, days in obs.items():
     items.append(dict(code=c, group=grp, cls=cls, desc=o["desc"], unit=o["unit"], sep=o["sep"], oct_off=o["oct"], ours=ours,
                       pct=(ratio - 1) * 100, off_chg=((o["oct"] / o["sep"] - 1) * 100) if o["oct"] else None,
                       far=not (1/3 <= ratio <= 3), tier=m["src"].most_common(1)[0][0], shops=", ".join(sorted(m["shops"])),
-                      days=len(days), title=m["titles"].most_common(1)[0][0], w=W.get(cls, 0.0)))
+                      days=len(days), title=m["titles"].most_common(1)[0][0], titles=" / ".join(t for t, _ in m["titles"].most_common(4)),
+                      note=m["notes"].most_common(1)[0][0], w=W.get(cls, 0.0)))
 nofood = sum(1 for c, o in off.items() if c.startswith("011") and o["sep"])
 unitbad = sorted(c for c, m in meta.items() if m["unitbad"] and c not in obs)
 

@@ -2677,3 +2677,8 @@ product pages 575/1171
 [2026-11-05 06:36:50] INFO: Cloudflare page didn't disappear after 10s, continuing...
 [2026-11-05 06:36:50] INFO: Looks like Cloudflare captcha is still present, solving again
 [2026-11-05 06:36:50] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:37:02] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:37:02] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:37:02] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:37:02] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/smartix-spvcipa11-p-sp-for-ip-air-11-m2/> (referer: https://www.google.com/)
+[2026-11-05 06:37:02] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/smartix-spvcipa11-p-sp-for-ip-air-11-m2/> (referer: https://www.google.com/)

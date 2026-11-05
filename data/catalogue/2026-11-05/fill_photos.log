@@ -2316,3 +2316,192 @@ product pages 550/1171
 [2026-11-05 06:17:07] INFO: Cloudflare page didn't disappear after 10s, continuing...
 [2026-11-05 06:17:07] INFO: Looks like Cloudflare captcha is still present, solving again
 [2026-11-05 06:17:07] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:17:19] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:17:19] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:17:19] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:17:19] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-256gb-with-standard-glass-midnight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:17:19] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-256gb-with-standard-glass-midnight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:17:23] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:17:34] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:17:34] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:17:34] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:17:46] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:17:46] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:17:46] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:17:57] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:17:57] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:17:57] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:17:57] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-256gb-with-standard-glass-starlight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:17:57] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-256gb-with-standard-glass-starlight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:18:02] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:18:13] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:18:13] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:18:13] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:18:24] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:18:24] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:18:24] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:18:36] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:18:36] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:18:36] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:18:36] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-128gb-with-standard-glass-starlight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:18:36] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-128gb-with-standard-glass-starlight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:18:40] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:18:52] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:18:52] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:18:52] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:19:03] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:19:03] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:19:03] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:19:14] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:19:14] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:19:14] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:19:14] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-128gb-with-standard-glass-midnight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:19:14] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/ipad-mini-2026-wi-fi-cellular-128gb-with-standard-glass-midnight-pre-order/> (referer: https://www.google.com/)
+[2026-11-05 06:19:19] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:19:32] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:19:32] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:19:32] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:19:43] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:19:43] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:19:43] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:19:55] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:19:55] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:19:55] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:19:55] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/lenovo-yoga-tab-plus-gen-2-wifi-512gb-16gb-ram-13inch-cosmic-blue/> (referer: https://www.google.com/)
+[2026-11-05 06:19:55] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/lenovo-yoga-tab-plus-gen-2-wifi-512gb-16gb-ram-13inch-cosmic-blue/> (referer: https://www.google.com/)
+[2026-11-05 06:20:00] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:20:12] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:20:12] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:20:12] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:20:23] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:20:23] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:20:23] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:20:34] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:20:34] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:20:34] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:20:34] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/wacom-intuos-pro-large-tablet-black-pth860/> (referer: https://www.google.com/)
+[2026-11-05 06:20:34] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/wacom-intuos-pro-large-tablet-black-pth860/> (referer: https://www.google.com/)
+[2026-11-05 06:20:39] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:20:50] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:20:50] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:20:50] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:21:02] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:21:02] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:21:02] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:21:14] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:21:14] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:21:14] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:21:14] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/remarkable-paper-pure-tablet-wifi-32gb-2gb-ram-11-8inch-gray-with-marker-rm92a-1000nw-international-version/> (referer: https://www.google.com/)
+[2026-11-05 06:21:14] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/remarkable-paper-pure-tablet-wifi-32gb-2gb-ram-11-8inch-gray-with-marker-rm92a-1000nw-international-version/> (referer: https://www.google.com/)
+[2026-11-05 06:21:18] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:21:29] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:21:29] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:21:29] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:21:41] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:21:41] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:21:41] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:21:52] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:21:52] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:21:52] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:21:52] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/amazon-kindle-kids-ereader-tablet-wifi-16gb-6inch-black-with-unicorn-valley-cover/> (referer: https://www.google.com/)
+[2026-11-05 06:21:52] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/amazon-kindle-kids-ereader-tablet-wifi-16gb-6inch-black-with-unicorn-valley-cover/> (referer: https://www.google.com/)
+[2026-11-05 06:21:56] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:22:07] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:22:07] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:22:07] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:22:19] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:22:19] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:22:19] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:22:30] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:22:30] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:22:30] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:22:30] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/samsung-galaxy-tab-s12-ultra-wifi-256gb-12gb-ram-14-6inch-silver-sm-x940nzsamea/> (referer: https://www.google.com/)
+[2026-11-05 06:22:30] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/samsung-galaxy-tab-s12-ultra-wifi-256gb-12gb-ram-14-6inch-silver-sm-x940nzsamea/> (referer: https://www.google.com/)
+[2026-11-05 06:22:35] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:22:46] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:22:46] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:22:46] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:22:58] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:22:58] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:22:58] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:23:09] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:23:09] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:23:09] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:23:09] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/samsung-galaxy-tab-s12-ultra-wifi5g-512gb-12gb-ram-14-6inch-gray-sm-x946bzaemea/> (referer: https://www.google.com/)
+[2026-11-05 06:23:09] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/samsung-galaxy-tab-s12-ultra-wifi5g-512gb-12gb-ram-14-6inch-gray-sm-x946bzaemea/> (referer: https://www.google.com/)
+[2026-11-05 06:23:14] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:23:25] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:23:25] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:23:25] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:23:36] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:23:36] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:23:36] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:23:48] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:23:48] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:23:48] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:23:48] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/lenovo-thinkpad-e14-gen-5-2023-laptop-13th-gen-intel-core-i5-1335u-14inch-wuxga-ips-512gb-ssd-8gb-ram-nvidia-geforce-mx550-2gb-gddr6-freedos-english-arabic-keyboard-graph/> (referer: https://www.google.com/)
+[2026-11-05 06:23:48] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/lenovo-thinkpad-e14-gen-5-2023-laptop-13th-gen-intel-core-i5-1335u-14inch-wuxga-ips-512gb-ssd-8gb-ram-nvidia-geforce-mx550-2gb-gddr6-freedos-english-arabic-keyboard-graph/> (referer: https://www.google.com/)
+[2026-11-05 06:23:52] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:24:04] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:24:04] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:24:04] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:24:15] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:24:15] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:24:15] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:24:27] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:24:27] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:24:27] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:24:27] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/wiwu-transformers-protect-case-purple-ipad-a16-10-11-jd-1061a1610-13pu/> (referer: https://www.google.com/)
+[2026-11-05 06:24:27] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/wiwu-transformers-protect-case-purple-ipad-a16-10-11-jd-1061a1610-13pu/> (referer: https://www.google.com/)
+[2026-11-05 06:24:31] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:24:43] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:24:43] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:24:43] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:24:55] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:24:55] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:24:55] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:25:06] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:25:06] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:25:06] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:25:06] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/wiwu-w-a03-tilt-palm-rejection-pencil-white/> (referer: https://www.google.com/)
+[2026-11-05 06:25:06] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/wiwu-w-a03-tilt-palm-rejection-pencil-white/> (referer: https://www.google.com/)
+[2026-11-05 06:25:10] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:25:22] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:25:22] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:25:22] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:25:33] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:25:33] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:25:33] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:25:45] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:25:45] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:25:45] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:25:45] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/wiwu-transformers-protect-case-black-ipad-a16-10-11-jd-1061a1610-11blk/> (referer: https://www.google.com/)
+[2026-11-05 06:25:45] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/wiwu-transformers-protect-case-black-ipad-a16-10-11-jd-1061a1610-11blk/> (referer: https://www.google.com/)
+[2026-11-05 06:25:49] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:26:01] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:26:01] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:26:01] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:26:12] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:26:12] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:26:12] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:26:23] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:26:23] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:26:23] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:26:23] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/fifth-element-sketch-universal-stylush-pencil-white-festsp1unw/> (referer: https://www.google.com/)
+[2026-11-05 06:26:23] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/fifth-element-sketch-universal-stylush-pencil-white-festsp1unw/> (referer: https://www.google.com/)
+[2026-11-05 06:26:28] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:26:39] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:26:39] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:26:39] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:26:51] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:26:51] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:26:51] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:27:02] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:27:02] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:27:02] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 06:27:02] INFO: Fetched (307) <GET https://uae.sharafdg.com/product/fifth-element-precise-palm-rejection-stylus-pencil-white-festsp1prw/> (referer: https://www.google.com/)
+[2026-11-05 06:27:02] INFO: Fetched (403) <GET https://uae.sharafdg.com/product/fifth-element-precise-palm-rejection-stylus-pencil-white-festsp1prw/> (referer: https://www.google.com/)
+[2026-11-05 06:27:07] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 06:27:18] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 06:27:18] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 06:27:18] INFO: The turnstile version discovered is "interactive"

@@ -1,0 +1,98 @@
+[2026-11-05 04:14:00] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=beef&currentPage=0> (referer: https://www.google.com/)
+[1/99] carrefour | food | beef: 60 products
+[2026-11-05 04:14:04] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=bread&currentPage=0> (referer: https://www.google.com/)
+[2/99] carrefour | food | bread: 60 products
+[2026-11-05 04:14:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=chicken&currentPage=0> (referer: https://www.google.com/)
+[3/99] carrefour | food | chicken: 66 products
+[2026-11-05 04:14:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=eggs&currentPage=0> (referer: https://www.google.com/)
+[4/99] carrefour | food | eggs: 60 products
+[2026-11-05 04:14:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=fish&currentPage=0> (referer: https://www.google.com/)
+[5/99] carrefour | food | fish: 61 products
+[2026-11-05 04:14:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=flour&currentPage=0> (referer: https://www.google.com/)
+[6/99] carrefour | food | flour: 60 products
+[2026-11-05 04:14:20] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=fruit&currentPage=0> (referer: https://www.google.com/)
+[7/99] carrefour | food | fruit: 61 products
+[2026-11-05 04:14:22] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=lamb&currentPage=0> (referer: https://www.google.com/)
+[8/99] carrefour | food | lamb: 40 products
+[2026-11-05 04:14:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=milk&currentPage=0> (referer: https://www.google.com/)
+[9/99] carrefour | food | milk: 60 products
+[2026-11-05 04:14:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=oil&currentPage=0> (referer: https://www.google.com/)
+[10/99] carrefour | food | oil: 66 products
+[2026-11-05 04:14:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=rice&currentPage=0> (referer: https://www.google.com/)
+[11/99] carrefour | food | rice: 62 products
+[2026-11-05 04:14:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=salt&currentPage=0> (referer: https://www.google.com/)
+[12/99] carrefour | food | salt: 60 products
+[2026-11-05 04:14:39] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=sugar&currentPage=0> (referer: https://www.google.com/)
+[13/99] carrefour | food | sugar: 58 products
+[2026-11-05 04:14:42] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=vegetables&currentPage=0> (referer: https://www.google.com/)
+[14/99] carrefour | food | vegetables: 60 products
+[2026-11-05 04:14:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=yoghurt&currentPage=0> (referer: https://www.google.com/)
+[15/99] carrefour | food | yoghurt: 64 products
+[2026-11-05 04:14:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=cheese&currentPage=0> (referer: https://www.google.com/)
+[16/99] carrefour | food | cheese: 65 products
+[2026-11-05 04:14:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=butter&currentPage=0> (referer: https://www.google.com/)
+[17/99] carrefour | food | butter: 59 products
+[2026-11-05 04:14:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=pasta&currentPage=0> (referer: https://www.google.com/)
+[18/99] carrefour | food | pasta: 67 products
+[2026-11-05 04:14:57] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=dates&currentPage=0> (referer: https://www.google.com/)
+[19/99] carrefour | food | dates: 60 products
+[2026-11-05 04:15:00] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=nuts&currentPage=0> (referer: https://www.google.com/)
+[20/99] carrefour | food | nuts: 63 products
+[2026-11-05 04:15:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=honey&currentPage=0> (referer: https://www.google.com/)
+[21/99] carrefour | food | honey: 60 products
+[2026-11-05 04:15:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=tea&currentPage=0> (referer: https://www.google.com/)
+[22/99] carrefour | food | tea: 66 products
+[2026-11-05 04:15:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=coffee&currentPage=0> (referer: https://www.google.com/)
+[23/99] carrefour | food | coffee: 64 products
+[2026-11-05 04:15:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=water&currentPage=0> (referer: https://www.google.com/)
+[24/99] carrefour | food | water: 62 products
+[2026-11-05 04:15:16] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=juice&currentPage=0> (referer: https://www.google.com/)
+[25/99] carrefour | food | juice: 60 products
+[2026-11-05 04:15:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=soft+drinks&currentPage=0> (referer: https://www.google.com/)
+[26/99] carrefour | food | soft drinks: 60 products
+[2026-11-05 04:15:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=detergent&currentPage=0> (referer: https://www.google.com/)
+[27/99] carrefour | household | detergent: 68 products
+[2026-11-05 04:15:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=dishwashing&currentPage=0> (referer: https://www.google.com/)
+[28/99] carrefour | household | dishwashing: 60 products
+[2026-11-05 04:15:29] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=cleaning&currentPage=0> (referer: https://www.google.com/)
+[29/99] carrefour | household | cleaning: 69 products
+[2026-11-05 04:15:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=tissue&currentPage=0> (referer: https://www.google.com/)
+[30/99] carrefour | household | tissue: 61 products
+[2026-11-05 04:15:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=air+freshener&currentPage=0> (referer: https://www.google.com/)
+[31/99] carrefour | household | air freshener: 59 products
+[2026-11-05 04:15:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=insecticide&currentPage=0> (referer: https://www.google.com/)
+[32/99] carrefour | household | insecticide: 54 products
+[2026-11-05 04:15:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=cookware&currentPage=0> (referer: https://www.google.com/)
+[33/99] carrefour | household | cookware: 58 products
+[2026-11-05 04:15:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=plates&currentPage=0> (referer: https://www.google.com/)
+[34/99] carrefour | household | plates: 61 products
+[2026-11-05 04:15:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=bedsheet&currentPage=0> (referer: https://www.google.com/)
+[35/99] carrefour | household | bedsheet: 59 products
+[2026-11-05 04:15:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=towel&currentPage=0> (referer: https://www.google.com/)
+[36/99] carrefour | household | towel: 60 products
+[2026-11-05 04:15:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=light+bulb&currentPage=0> (referer: https://www.google.com/)
+[37/99] carrefour | household | light bulb: 54 products
+[2026-11-05 04:15:57] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=batteries&currentPage=0> (referer: https://www.google.com/)
+[38/99] carrefour | household | batteries: 46 products
+[2026-11-05 04:16:00] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=kettle&currentPage=0> (referer: https://www.google.com/)
+[39/99] carrefour | household | kettle: 60 products
+[2026-11-05 04:16:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=iron&currentPage=0> (referer: https://www.google.com/)
+[40/99] carrefour | household | iron: 56 products
+[2026-11-05 04:16:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=blender&currentPage=0> (referer: https://www.google.com/)
+[41/99] carrefour | household | blender: 63 products
+[2026-11-05 04:16:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=vacuum+cleaner&currentPage=0> (referer: https://www.google.com/)
+[42/99] carrefour | household | vacuum cleaner: 67 products
+[2026-11-05 04:16:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=fan&currentPage=0> (referer: https://www.google.com/)
+[43/99] carrefour | household | fan: 56 products
+[2026-11-05 04:16:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=washing+machine&currentPage=0> (referer: https://www.google.com/)
+[44/99] carrefour | household | washing machine: 60 products
+[2026-11-05 04:16:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=refrigerator&currentPage=0> (referer: https://www.google.com/)
+[45/99] carrefour | household | refrigerator: 68 products
+[2026-11-05 04:16:24] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=air+conditioner&currentPage=0> (referer: https://www.google.com/)
+[46/99] carrefour | household | air conditioner: 58 products
+[2026-11-05 04:16:28] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=shampoo&currentPage=0> (referer: https://www.google.com/)
+[47/99] carrefour | personal | shampoo: 60 products
+[2026-11-05 04:16:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=soap&currentPage=0> (referer: https://www.google.com/)
+[48/99] carrefour | personal | soap: 58 products
+[2026-11-05 04:16:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=toothpaste&currentPage=0> (referer: https://www.google.com/)
+[49/99] carrefour | personal | toothpaste: 64 products

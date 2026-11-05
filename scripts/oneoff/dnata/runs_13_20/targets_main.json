@@ -1,0 +1,235 @@
+[
+ {
+  "row": 4,
+  "city": "Istanbul",
+  "term": "Radisson Blu Hotel, Istanbul Sisli",
+  "keys": [
+   "radisson"
+  ],
+  "sheet_name": "Radisson hotel president beyazit",
+  "estab": "3692611"
+ },
+ {
+  "row": 5,
+  "city": "Istanbul",
+  "term": "Dosso Dossi Hotels & SPA Golden Horn",
+  "keys": [
+   "dosso"
+  ],
+  "sheet_name": "Dosso Dossi Hotels Golden Horn",
+  "estab": "2844222"
+ },
+ {
+  "row": 6,
+  "city": "Istanbul",
+  "term": "Titanic City Taksim",
+  "keys": [
+   "titanic"
+  ],
+  "sheet_name": "Titanic City Hotel",
+  "exclude": [],
+  "estab": "740947"
+ },
+ {
+  "row": 7,
+  "city": "London",
+  "term": "DoubleTree by Hilton London - Tower of London",
+  "keys": [
+   "doubletree",
+   "tower"
+  ],
+  "sheet_name": "Doubletree by hilton london (Tower of London)",
+  "estab": "2237703"
+ },
+ {
+  "row": 8,
+  "city": "London",
+  "term": "Riverbank",
+  "keys": [
+   "riverbank"
+  ],
+  "sheet_name": "Park Plaza Riverbank London",
+  "exclude": []
+ },
+ {
+  "row": 9,
+  "city": "London",
+  "term": "Hilton London Metropole",
+  "keys": [
+   "metropole"
+  ],
+  "sheet_name": "Hilton London metropole",
+  "estab": "123600"
+ },
+ {
+  "row": 10,
+  "city": "Munich",
+  "term": "Hilton Munich",
+  "keys": [
+   "hilton",
+   "park"
+  ],
+  "sheet_name": "hilton munich park",
+  "exclude": []
+ },
+ {
+  "row": 11,
+  "city": "Munich",
+  "term": "Holiday Inn Munich City Centre ",
+  "keys": [
+   "holiday inn"
+  ],
+  "sheet_name": "holidaY INN MUNICH CITY",
+  "exclude": [
+   "express"
+  ],
+  "estab": "113055"
+ },
+ {
+  "row": 12,
+  "city": "Munich",
+  "term": "Pullman",
+  "keys": [
+   "pullman"
+  ],
+  "sheet_name": "Pullman Munich",
+  "exclude": []
+ },
+ {
+  "row": 20,
+  "city": "Maldives",
+  "term": "Siyam",
+  "keys": [
+   "siyam"
+  ],
+  "sheet_name": "Sun Siyam Olhuveli Maldives",
+  "exclude": []
+ },
+ {
+  "row": 21,
+  "city": "Maldives",
+  "term": "Meeru Maldives Resort Island",
+  "keys": [
+   "meeru"
+  ],
+  "sheet_name": "Meeru Island Resort Hotel",
+  "exclude": [],
+  "estab": "1490812"
+ },
+ {
+  "row": 22,
+  "city": "Maldives",
+  "term": "Summer Island Maldives",
+  "keys": [
+   "summer island"
+  ],
+  "sheet_name": "Summer Island Maldives",
+  "estab": "1507017"
+ },
+ {
+  "row": 24,
+  "city": "Amman",
+  "term": "Corp Amman Hotel",
+  "keys": [
+   "corp"
+  ],
+  "sheet_name": "Corp Executive Hotel",
+  "estab": "3778112"
+ },
+ {
+  "row": 25,
+  "city": "Amman",
+  "term": "Grand Hyatt Hotel",
+  "keys": [
+   "grand hyatt"
+  ],
+  "sheet_name": "Grand Hyatt Amman Hotel",
+  "estab": "1431163"
+ },
+ {
+  "row": 26,
+  "city": "Cairo",
+  "term": "Le Meridien Cairo Airport",
+  "keys": [
+   "meridien",
+   "airport"
+  ],
+  "sheet_name": "Le Meridien Cairo Airport",
+  "estab": "4421918"
+ },
+ {
+  "row": 27,
+  "city": "Cairo",
+  "term": "Borg",
+  "keys": [
+   "borg"
+  ],
+  "sheet_name": "Novotel Cairo El Borg",
+  "exclude": []
+ },
+ {
+  "row": 28,
+  "city": "Cairo",
+  "term": "Holiday Inn Cairo City Stars",
+  "keys": [
+   "city stars"
+  ],
+  "sheet_name": "Holiday Inn Cairo City Stars",
+  "exclude": [],
+  "estab": "749512"
+ },
+ {
+  "row": 30,
+  "city": "Los Angeles",
+  "term": "Hilton Los Angeles Airport Hotel",
+  "keys": [
+   "hilton",
+   "airport"
+  ],
+  "sheet_name": "Hilton Los Angeles Airport",
+  "exclude": [
+   "garden"
+  ],
+  "estab": "871463"
+ },
+ {
+  "row": 31,
+  "city": "Los Angeles",
+  "term": "Luxe",
+  "keys": [
+   "luxe city"
+  ],
+  "sheet_name": "Luxe City Center",
+  "exclude": []
+ },
+ {
+  "row": 32,
+  "city": "Los Angeles",
+  "term": "InterContinental",
+  "keys": [
+   "intercontinental",
+   "downtown"
+  ],
+  "sheet_name": "Intercontinental Los Angeles Downtown"
+ },
+ {
+  "row": 34,
+  "city": "Makkah",
+  "term": "Movenpick Hotel & Residences Hajar Tower Makkah",
+  "keys": [
+   "hajar"
+  ],
+  "sheet_name": "Movenpick Hajar Tower (Umrah)",
+  "estab": "1750320"
+ },
+ {
+  "row": 35,
+  "city": "Makkah",
+  "term": "Fairmont",
+  "keys": [
+   "fairmont"
+  ],
+  "sheet_name": "Fairmont Makkah Clock Royal Tower (Umrah)",
+  "exclude": []
+ }
+]

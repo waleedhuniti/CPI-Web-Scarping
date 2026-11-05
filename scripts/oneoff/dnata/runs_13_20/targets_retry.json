@@ -1,0 +1,20 @@
+[
+ {
+  "row": 5,
+  "city": "Istanbul",
+  "term": "Dosso",
+  "keys": [
+   "dosso"
+  ],
+  "sheet_name": "Dosso Dossi Hotels Golden Horn"
+ },
+ {
+  "row": 22,
+  "city": "Maldives",
+  "term": "Summer Island",
+  "keys": [
+   "summer island"
+  ],
+  "sheet_name": "Summer Island Maldives"
+ }
+]

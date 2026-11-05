@@ -534,8 +534,8 @@ Rules for this shape:
 | Custom scrapers view (`view-scrapers`, sc-*) | Scrapers list + workspace |
 
 ## 11. Out of scope for v1 (do not build; no dead buttons for them)
-- **SPPI:** manual entry, screenshot upload/lightbox, review queue, Lock month, browser-built office workbooks, scheduling.
-- **CPI:** official match rate and the locked comparison month, month close, product registry (pin approval, substitutes), alerts,
+- **SPPI:** screenshot upload/lightbox (manual entry IS in v1, see §14), review queue, Lock month, browser-built office workbooks, scheduling.
+- **CPI:** official match rate and the locked comparison month (permanently out, §14.5), month close, product registry (pin approval, substitutes), alerts,
   imputation share.
 - **TrendX:** emailed report, month-average lines on the chart, top movers, structure-change alerts, the build_pages_site.py fix.
 - **All:** donut click-through, run compare, per-outlet history strip, creating or deleting triggers from the page.
@@ -623,3 +623,67 @@ each check in §13, and known gaps.
     price_date and collected_dubai.
 25. No database write happens on page load. Writes happen only on Create outlet, Create Year, basket save, scraper save/delete,
     and settings.
+
+## 14. The user's answers (5 Nov). These OVERRIDE anything above that disagrees.
+The user answered the council's 6 questions (decision_ar.md "أسئلة لك"):
+
+1. **Language: English by default, like PIP.** First load = English, `dir="ltr"`, sidebar on the left. The AR toggle stays
+   (§13 check 5). The stored choice (localStorage, try/catch) wins over the default.
+
+2. **SPPI published figure: deferred. The user maintains the SPPI basket by hand in the portal.** So:
+   - No SPPI index / weekly figure in v1. SPPI pages show prices only (legs and the page-computed totals of §8.3).
+   - NEW in v1: **SPPI basket editor** under SPPI › Price History › Commodities ☰ (same place as the CPI basket editor).
+     It lists `meta.items`, `meta.outlets` and `meta.sample` in three tabs and lets the user add, edit and retire rows
+     (retire = `status:"retired"` / `until:<date>`, never a hard delete of an item that has observations). Required fields:
+     item {code, kind route|hotel, market, name_en, name_ar, city, country}; outlet {code, name_en, kind, market, access};
+     sample {survey, outlet, item, legs}. Codes are unique; validation errors show inline. Save writes `projects/sppi/meta`
+     through the existing db helper with the read version (`if_version`); on a version conflict show the pink box with
+     "Reload and retry", never overwrite.
+   - With no projects/sppi at all, the editor offers "Start SPPI basket" which creates an empty meta (only on click).
+
+3. **Manual-entry card: YES, build it in v1** (remove "manual entry" from §11). For outlets the scrapers cannot read
+   (blocked, pc_only, manual: e.g. Emirates, Air India, Turkish, Emirates Holidays, PIA when blocked):
+   - SPPI: on Price History (and from a "Blocked"/"Not read" cell) a card "Add price manually": period, survey, outlet,
+     item, leg, lowest, highest (optional), price, flags, note, date seen. Saves one row with `source:"manual"`,
+     `entered_by` (viewer name if the runtime gives one, else "manual"), `entered_at` (ISO) into
+     `projects/sppi/observations/<periodId>` (read-modify-write with if_version; conflict → pink box, no overwrite).
+     The grid then shows the cell with a "Manual" chip (state vocabulary §5.1 already has Manual). A manual row can be
+     edited or withdrawn by its card; withdrawn = `status:"withdrawn"`, kept in the doc, not shown as a price.
+   - Screenshot is OPTIONAL (not required to accept the cell); v1 has no upload field — a "screenshot ref / URL" text field only.
+   - CPI: the same card on CPI Price History for a Blocked outlet cell, saving to `projects/cpi/manual/<YYYY-MM-DD>`
+     `{rows:[{line_code, outlet, price, regular_price, unit, url, note, entered_by, entered_at, source:"manual"}]}`.
+     Manual CPI prices show with the "Manual" chip and are NOT mixed into the CPI monitor series (§5.3) in v1.
+   - Validation: price > 0, numeric, AED; no default value is ever prefilled from another day (no carry-forward).
+   - Writes happen only on the card's Save (add these to check 25's allowed writes).
+
+4. **TrendX base: keep 2 Oct 2026 = 100 (it stands for September).** October = mean of 2-31 Oct. No change to §13 checks
+   16-19. The "drop ratios whose price date did not change" question was not answered: keep today's behaviour (Stale shown).
+
+5. **Only prices are shown. No official weights, no official prices, no match-rate store.**
+   - Remove the COICOP weights from every page. The COICOP tree may stay as a category browser (codes, names, line counts)
+     with NO weight column, NO weight bars, NO "official" figures. Check: the strings "weight", "وزن", "الوزن" do not appear
+     next to any COICOP number on any page; no number from the official basket weights file appears.
+   - No official-price comparison or match-rate panel anywhere (stays out of scope permanently, not "later").
+
+6. **SPPI collection is MONTHLY; the collection timing of some items is still to be determined.**
+   - Periods are months: `meta.periods:[{id:"2026-11", month:"2026-11", label_en, label_ar, status}]`. The November
+     sample keeps its three collections as sub-windows inside the month: `meta.weeks` stays readable, each week is a
+     "collection" of period 2026-11 (W1/W2/W3 shown as "Collection 1/2/3" with both travel windows and collected_on).
+     Observations stay keyed by collection id (`2026-11-W1`…); a new month with one collection uses id `2026-12-C1`.
+   - Per-item timing: `meta.items[].collection` = `{frequency:"monthly", lead_days:null, note:"to be determined"}`.
+     Show "Timing: to be determined" where it is null. Do NOT hard-code a lead-days rule (drop the 8-days idea).
+   - Years & Months for SPPI: one row per month, expanding to its collections.
+   - Schedules for SPPI: still "No automated SPPI schedule yet" (no Run now), plus the text "Collected monthly; timing
+     per item to be determined".
+
+Acceptance additions (QA, same viewports, EN and AR):
+26. First load with empty localStorage is English/LTR; the toggle to AR survives a reload.
+27. SPPI basket editor: loads 46 items (11+7 routes, 28 hotels) and 11 outlets from the sample; add a test item → Save
+    writes projects/sppi/meta once with if_version; a duplicate code is refused inline; a stub version conflict shows the
+    pink box and does not overwrite.
+28. Manual card SPPI: add a price for PIA Karachi W3 out → the cell shows the price with a "Manual" chip; the doc has
+    source:"manual", entered_at; withdraw → the cell returns to "Blocked". Nothing is written on page load.
+29. Manual card CPI: on a Carrefour Blocked cell (30 Oct – 2 Nov) save a price → stored under projects/cpi/manual/<date>,
+    shown with "Manual"; the CPI monitor values are unchanged.
+30. No weights: string/number check per item 5 passes on all CPI pages.
+31. SPPI Years & Months shows "Nov 2026" with 3 collections; items show "Timing: to be determined".

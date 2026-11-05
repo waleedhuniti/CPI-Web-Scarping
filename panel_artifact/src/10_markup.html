@@ -1,0 +1,337 @@
+
+<div class="app" id="app">
+  <a class="skip" href="#main" id="skip-link" data-ar="تخطَّ إلى المحتوى">Skip to main content</a>
+  <header class="band">
+    <div class="band-start">
+      <a class="band-btn sq" id="band-home" href="#home" aria-label="Home: all projects" data-ar-al="الرئيسية: كل المشاريع" title="Home" data-ar-title="الرئيسية"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg></a>
+      <span class="pill-proj" id="band-proj" hidden></span>
+    </div>
+    <h1 class="band-title" id="band-title" data-ar="منصة جمع الأسعار">Price Collection Platform</h1>
+    <div class="band-end">
+      <button class="band-btn" id="lang-toggle" type="button" lang="ar">العربية</button>
+      <span class="conn" id="conn" role="status"><span class="dot" id="conn-dot"></span><span id="conn-text">Connecting…</span></span>
+    </div>
+  </header>
+
+  <div class="shell no-side" id="shell">
+    <aside class="side" id="side" hidden aria-label="Main navigation" data-ar-al="التنقل الرئيسي">
+      <div class="side-in">
+        <div class="side-head">
+          <span class="tile"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+          <span class="t"><small data-ar="التنقل الرئيسي">Main navigation</small><b data-ar="صفحات المنصة">Platform pages</b></span>
+          <button class="side-toggle" id="side-toggle" type="button" aria-expanded="true" aria-controls="side-nav" aria-label="Collapse menu" title="Collapse menu"><svg class="ico flip" viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg></button>
+        </div>
+        <nav id="side-nav" aria-label="Platform pages" data-ar-al="صفحات المنصة"></nav>
+        <div class="side-foot"><a id="side-settings" href="#cpi-settings"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span class="lbl" data-ar="إعدادات المشروع">Project settings</span></a></div>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1"><div class="main-in" id="page"><div class="loading" id="boot-msg">Loading…</div></div></main>
+  </div>
+
+  <!-- Legacy blocks: kept once in the document with their original ids (the original code binds to them at load) and moved
+       into the open page's slots by mount(). They return here when the page changes. -->
+  <div id="hold" hidden>
+    <!-- basket editor (CPI, TrendX, other projects): Price History > Commodities -->
+    <div class="panel" id="blk-basket">
+      <div class="card-h"><h2 data-ar="محرر السلة">Basket editor</h2><span class="muted" id="b-info"></span></div>
+      <div class="row">
+        <input id="b-search" placeholder="Search the basket" data-ar-ph="ابحث في السلة" aria-label="Search the basket" data-ar-al="ابحث في السلة" style="flex:2 1 220px">
+        <select id="b-group" style="flex:1 1 180px" aria-label="Group" data-ar-al="المجموعة"></select>
+      </div>
+      <div class="row">
+        <button id="b-add" type="button" data-ar="+ بند">+ Line</button>
+        <button class="primary" id="b-save" type="button" data-ar="حفظ السلة">Save basket</button>
+        <button id="b-export" type="button" data-ar="تنزيل CSV">Download CSV</button>
+        <label class="btn" for="b-file" style="cursor:pointer"><span data-ar="استيراد CSV">Import CSV</span></label>
+        <input type="file" id="b-file" accept=".csv,text/csv" hidden>
+      </div>
+      <div id="b-import-confirm"></div>
+      <div class="tw tall"><table id="b-table"><thead></thead><tbody></tbody></table></div>
+      <div class="pager"><button id="b-prev" type="button" data-ar="السابق">Previous</button><span class="muted" id="b-page"></span><button id="b-next" type="button" data-ar="التالي">Next</button></div>
+    </div>
+
+    <!-- Apify actors of the project: Scrapers > Apify actors -->
+    <div class="panel" id="blk-actors">
+      <div class="row"><button id="a-add" type="button">+ Actor</button><button class="primary" id="a-save" type="button" data-ar="حفظ الـ Actors">Save actors</button></div>
+      <p class="muted" data-ar-html='في الإدخال تُستبدل هذه القيم بكل دفعة: <code>"{barcodes}"</code> قائمة، <code>"{barcodes_json}"</code> القائمة كنص JSON، <code>"{barcodes_text}"</code> سطر لكل كود، <code>"{start_urls}"</code> روابط بصيغة Apify، <code>"{urls}"</code> روابط كنصوص. النمط <code>single</code> يشغّل الإدخال كما هو مرة واحدة.'>In the input these values are replaced for each batch: <code>"{barcodes}"</code> a list, <code>"{barcodes_json}"</code> the list as JSON text, <code>"{barcodes_text}"</code> one code per line, <code>"{start_urls}"</code> Apify-style URLs, <code>"{urls}"</code> plain URLs. Mode <code>single</code> runs the input once as it is.</p>
+      <div id="a-list" class="stack"></div>
+    </div>
+
+    <!-- Price Logs: the all-prices download and the run rows viewer -->
+    <button id="r-export-all" type="button"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-ar="تنزيل كل الأسعار (Excel)">Download all prices (Excel)</span></button>
+    <div id="r-list"></div>
+    <div class="panel" id="r-view" hidden>
+      <div class="row"><h2 style="margin:0" id="r-title"></h2><span class="spacer"></span><button id="r-export" type="button" data-ar="تنزيل Excel">Download Excel</button><button class="danger" id="r-delete" type="button" data-ar="حذف التشغيل">Delete run</button></div>
+      <div id="r-del-confirm"></div>
+      <div class="stats" id="r-stats"></div>
+      <div class="row"><input id="r-search" placeholder="Search by product, shop or section" data-ar-ph="ابحث باسم المنتج أو المتجر أو القسم" aria-label="Search rows" data-ar-al="ابحث في الصفوف" style="flex:2 1 220px">
+        <select id="r-filter" aria-label="Filter rows" data-ar-al="تصفية الصفوف" style="flex:1 1 180px"><option value="">All outlets and sources</option></select></div>
+      <div class="tw tall"><table id="r-table"><thead></thead><tbody></tbody></table></div>
+      <p class="muted" id="r-more"></p>
+    </div>
+
+    <!-- Schedules (CPI): quick server run and the legacy Apify run -->
+    <div class="panel" id="quick" hidden>
+      <h2 data-ar="سحب الأسعار الآن (الخادم، Scrapling)">Run now (server, Scrapling)</h2>
+      <p class="muted" id="quick-note" data-ar="يشغّل السحب على خوادم Claude باستخدام Scrapling (بدون رصيد Apify)، ويحفظ النتيجة في قاعدة البيانات. تظهر في «سجل الأسعار» عند انتهائه (حوالي 30 دقيقة لـ CPI).">Runs the scrape on Claude's servers with Scrapling (no Apify credit) and saves the result in the database. It appears in Price Logs when it finishes (about 30 minutes for CPI).</p>
+      <div class="row"><button class="primary big" id="btn-quick" type="button"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><span data-ar="شغّل السحب الآن">Run the scrape now</span></button></div>
+      <div id="quick-confirm"></div>
+    </div>
+    <details class="card adv" id="apify-run">
+      <summary id="apify-title">Legacy: Apify run (not part of the daily CPI method)</summary>
+      <div class="stack">
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));">
+          <div><h3>Actors</h3><div class="picks" id="run-actors"></div></div>
+          <div id="run-groups-box"><h3 data-ar="المجموعات (بدون اختيار = الكل)">Groups (none selected = all)</h3><div class="picks scroll" id="run-groups"></div></div>
+        </div>
+        <label class="f" id="run-codes-box"><span data-ar="أكواد محددة (اختياري)">Specific codes (optional)</span><textarea id="run-codes" rows="2" placeholder="011110101, 011110102"></textarea></label>
+        <p class="muted" id="run-count"></p>
+        <div class="row">
+          <button class="primary big" id="btn-run" type="button"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><span data-ar="ابدأ السكراب">Start the scrape</span></button>
+          <button class="danger" id="btn-stop" type="button" disabled data-ar="إيقاف">Stop</button>
+          <span class="muted" data-ar="أبقِ الصفحة مفتوحة حتى ينتهي التشغيل.">Keep the page open until the run ends.</span>
+        </div>
+        <div class="panel" id="job" hidden>
+          <div class="row"><h2 style="margin:0" data-ar="التقدم">Progress</h2><span class="chip" id="job-state"></span></div>
+          <div id="job-bars" class="stack" style="gap:10px"></div>
+          <pre class="log" id="job-log"></pre>
+          <div id="job-summary"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Project settings (#<p>-settings) -->
+    <div class="panel" id="blk-settings">
+      <div class="grid">
+        <label class="f"><span data-ar="اسم المشروع">Project name</span><input id="s-name"></label>
+        <label class="f"><span data-ar="نوع المطابقة">Matching</span><select id="s-kind"><option value="barcode" data-ar="باركود + حجم (سلة أسعار)">Barcode + size (price basket)</option><option value="list" data-ar="قائمة عناصر (جدول صفحة)">List of items (page table)</option><option value="raw" data-ar="بدون مطابقة (كل الصفوف)">No matching (all rows)</option></select></label>
+      </div>
+      <label class="f"><span data-ar="الوصف">Description</span><input id="s-desc"></label>
+      <label class="f"><span data-ar="أعمدة السلة (JSON)">Basket columns (JSON)</span><textarea id="s-cols" class="code" rows="8"></textarea></label>
+      <p class="muted" data-ar-html="كل عمود: <code>key</code> و <code>label</code>، و <code>type</code> اختياري (<code>bool</code> أو <code>code</code>). لمطابقة الباركود يلزم <code>barcode_raw</code> و <code>qty_raw</code>، وللقائمة يلزم عمود المفتاح المحدد في <code>list_key</code>.">Each column: <code>key</code> and <code>label</code>, optional <code>type</code> (<code>bool</code> or <code>code</code>). Barcode matching needs <code>barcode_raw</code> and <code>qty_raw</code>; a list needs the key column named in <code>list_key</code>.</p>
+      <label class="f"><span data-ar="مفتاح القائمة (list_key)">List key (list_key)</span><input id="s-listkey" class="mono" dir="ltr"></label>
+      <div class="row"><button class="primary" id="s-save" type="button" data-ar="حفظ الإعدادات">Save settings</button><span class="spacer"></span><button class="danger" id="s-delete" type="button" data-ar="حذف المشروع">Delete project</button></div>
+      <div id="s-del-confirm"></div>
+    </div>
+
+    <!-- Scraper workspace (#<p>-scrapers/new, #<p>-scrapers/<map name>) -->
+    <div id="blk-sc-ws" class="stack">
+      <div class="card">
+        <div class="ws-top">
+          <div>
+            <span class="ws-pill" data-ar="إدارة الكاشطات">Scraper management</span>
+            <h1 id="sc-title" data-ar="مساحة عمل الكاشطة">Scraper workspace</h1>
+            <p id="sc-eyebrow" data-ar="حدّث بيانات الكاشطة، واضبط إعدادات الاستخراج، وراجع بيانات التشغيل.">Update the scraper profile, fine-tune extraction settings, and review operational metadata.</p>
+          </div>
+          <div class="ws-actions" id="sc-ph-side">
+            <button class="primary" id="sc-back" type="button" data-ar="العودة إلى الكاشطات">Back to scrapers</button>
+            <button class="secondary" id="sc-save-top" type="button" data-ar="حفظ التغييرات">Save changes</button>
+            <button class="primary" id="sc-run-now" type="button" hidden><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><span data-ar="شغّل الآن">Run now</span></button>
+          </div>
+        </div>
+        <div id="sc-head-confirm"></div>
+        <div id="sc-tabs-box" hidden>
+          <nav class="tabs" role="tablist" id="sc-tabs" aria-label="Scraper sections" data-ar-al="أقسام الكاشطة">
+            <button role="tab" type="button" data-sctab="setup" aria-selected="true" aria-controls="sc-setup" data-ar="الإعداد">Setup</button>
+            <button role="tab" type="button" data-sctab="runs" aria-selected="false" aria-controls="sc-runs" data-ar="التشغيلات والنتائج">Runs and results</button>
+          </nav>
+        </div>
+      </div>
+      <div class="errbox" id="sc-banner" role="alert" hidden><span class="bang" aria-hidden="true">!</span><span class="msg" id="sc-banner-msg"></span></div>
+
+      <div id="sc-setup" class="sc-layout">
+        <form class="panel sc-form" id="sc-form" novalidate aria-label="Scraper setup" data-ar-al="إعداد الكاشطة">
+          <section class="fsec" aria-labelledby="sc-h-basic">
+            <div class="fsec-h"><h3 id="sc-h-basic" data-ar="الهوية">Identity</h3><p data-ar="اسم الكاشطة والمنفذ ونوعها.">Set the scraper label, target outlet, type, and project.</p></div>
+            <div class="fgrid">
+              <div class="fld">
+                <label for="sc-outlet" data-ar="المنفذ">Outlet</label>
+                <select id="sc-outlet" aria-describedby="sc-outlet-hint"></select>
+                <small class="hint" id="sc-outlet-hint" data-ar="المنفذ الذي تقرأ الكاشطة أسعاره.">The outlet whose prices the scraper reads.</small>
+              </div>
+              <div class="fld">
+                <label for="sc-name"><span data-ar="الاسم (Label)">Label</span> <em class="req" aria-hidden="true">*</em></label>
+                <input id="sc-name" maxlength="120" required aria-describedby="sc-name-hint sc-name-err" placeholder="e.g. Carrefour fresh milk" data-ar-ph="مثال: كارفور، الحليب الطازج">
+                <small class="hint" id="sc-name-hint" data-ar="اسم واضح يظهر في القائمة، بالعربية أو الإنجليزية.">A clear name shown in the list, in English or Arabic.</small>
+                <small class="f-err" id="sc-name-err" hidden></small>
+              </div>
+              <div class="fld">
+                <label for="sc-project" data-ar="المشروع">Project</label>
+                <select id="sc-project" aria-describedby="sc-project-hint"></select>
+                <small class="hint" id="sc-project-hint" data-ar="الكاشطة تظهر في صفحة «الكاشطات» لهذا المشروع.">The scraper is listed on this project's Scrapers page.</small>
+              </div>
+            </div>
+            <div class="fld" role="radiogroup" aria-labelledby="sc-engine-lbl" aria-describedby="sc-engine-hint sc-engine-err">
+              <span class="lbl" id="sc-engine-lbl"><span data-ar="نوع الكاشطة">Scraper type</span> <em class="req" aria-hidden="true">*</em></span>
+              <div class="seg">
+                <label for="sc-engine-scrapling"><input type="radio" name="sc-engine" id="sc-engine-scrapling" value="scrapling"><span><b>Scrapling</b><small data-ar="يعمل على خوادم Claude ضمن المهمة المجدولة، بدون رصيد Apify. «شغّل الآن» يضع طلباً تنفّذه المهمة.">Runs on Claude's servers in the scheduled routine, no Apify credit. "Run now" leaves a request the routine runs.</small></span></label>
+                <label for="sc-engine-apify"><input type="radio" name="sc-engine" id="sc-engine-apify" value="apify"><span><b>Apify</b><small data-ar="يعمل من هذه الصفحة عبر موصل Apify ويستهلك رصيده. يحتاج Actor ID، والصفحة مفتوحة حتى ينتهي.">Runs from this page through the Apify connector and uses its credit. Needs an Actor ID; keep the page open until it ends.</small></span></label>
+              </div>
+              <small class="hint" id="sc-engine-hint" data-ar="المدخلات نفسها للنوعين؛ إعدادات Apify الإضافية تظهر في قسم خاص عند اختياره.">Both types take the same inputs; the extra Apify settings appear in their own section.</small>
+              <small class="f-err" id="sc-engine-err" hidden></small>
+            </div>
+          </section>
+
+          <section class="fsec" aria-labelledby="sc-h-browser">
+            <div class="fsec-h"><h3 id="sc-h-browser" data-ar="إعدادات Playwright">Playwright Configuration</h3><p data-ar="كيف تُفتح الصفحات قبل تشغيل السكربتات عليها.">Browser automation settings and the unique map name.</p></div>
+            <div class="fgrid">
+              <div class="fld">
+                <label for="sc-browser" data-ar="نوع المتصفح">Browser Type</label>
+                <select id="sc-browser" aria-describedby="sc-browser-hint"><option value="http">http · direct request, no JavaScript</option><option value="chromium">chromium · real browser</option></select>
+                <small class="hint" id="sc-browser-hint" data-ar-html="<code>http</code> أسرع: يطلب الصفحة ببصمة Chrome ولا يشغّل JavaScript الموقع. <code>chromium</code> للمواقع التي تبني محتواها بـ JavaScript."><code>http</code> is faster: it requests the page with a Chrome fingerprint and does not run the site's JavaScript. <code>chromium</code> is for sites that build their content with JavaScript.</small>
+                <small class="hint" id="sc-browser-apify" hidden data-ar-html="مع Apify تعمل الصفحات دائماً في متصفح (<code>apify/web-scraper</code>)، فلا أثر لاختيار <code>http</code> هناك.">With Apify pages always run in a browser (<code>apify/web-scraper</code>), so <code>http</code> has no effect there.</small>
+              </div>
+              <div class="fld">
+                <label for="sc-wait" data-ar="انتظر حتى">Wait Until</label>
+                <select id="sc-wait" aria-describedby="sc-wait-hint"><option value="load">load · page fully loaded</option><option value="domcontentloaded">domcontentloaded · HTML ready</option><option value="networkidle">networkidle · network quiet</option></select>
+                <small class="hint" id="sc-wait-hint" data-ar-html="مع <code>chromium</code> فقط: متى تُعدّ الصفحة جاهزة لتشغيل السكربتات.">With <code>chromium</code> only: when the page counts as ready for the scripts.</small>
+              </div>
+              <div class="fld">
+                <label for="sc-link" data-ar="محدد روابط المنتجات">Link Selector</label>
+                <input id="sc-link" class="mono" dir="ltr" spellcheck="false" aria-describedby="sc-link-hint" placeholder="CSS selector for product links" data-ar-ph="محدد CSS لروابط المنتجات">
+                <small class="hint" id="sc-link-hint" data-ar-html="اختياري: محدد CSS لروابط المنتجات في صفحة القائمة، يُستخدم حين لا يرجع سكربت القائمة حقل <code>url</code>.">Optional: a CSS selector for product links on the listing page, used when the list script returns no <code>url</code>. With a details script the links open as detail pages; otherwise each link is saved as an item <code>{url}</code>.</small>
+              </div>
+              <div class="fld">
+                <label for="sc-map"><span data-ar="الاسم الفريد">Unique Map Name</span> <em class="req" aria-hidden="true">*</em></label>
+                <input id="sc-map" class="mono" dir="ltr" maxlength="64" required autocomplete="off" spellcheck="false" aria-describedby="sc-map-hint sc-map-err" placeholder="carrefour_milk">
+                <small class="hint" id="sc-map-hint"></small>
+                <small class="f-err" id="sc-map-err" hidden></small>
+              </div>
+            </div>
+          </section>
+
+          <section class="fsec" aria-labelledby="sc-h-scripts">
+            <div class="fsec-h"><h3 id="sc-h-scripts" data-ar="السكربتات والروابط">Scripts &amp; URLs</h3><p data-ar="روابط البداية ومنطق الاستخراج بـ JavaScript لصفحات القائمة والتفاصيل.">Define the target URLs and JavaScript extraction logic for list and detail pages.</p></div>
+            <div class="fld">
+              <label for="sc-urls"><span data-ar="روابط البداية">Target URLs</span> <em class="req" aria-hidden="true">*</em></label>
+              <textarea id="sc-urls" class="code" rows="4" spellcheck="false" aria-describedby="sc-urls-hint sc-urls-err" placeholder="One URL per line" data-ar-ph="رابط في كل سطر"></textarea>
+              <small class="hint" id="sc-urls-hint" data-ar-html="رابط في كل سطر، يبدأ بـ <code>http://</code> أو <code>https://</code>. كل رابط صفحة قائمة.">One URL per line, starting with <code>http://</code> or <code>https://</code>. Each URL is a listing page.</small>
+              <small class="f-err" id="sc-urls-err" hidden></small>
+            </div>
+            <div class="fld">
+              <label for="sc-list-script" data-ar="سكربت القائمة">List Script</label>
+              <textarea id="sc-list-script" class="code" rows="9" spellcheck="false" aria-describedby="sc-list-script-hint sc-list-script-err" placeholder="JavaScript to extract items from the listing page" data-ar-ph="JavaScript لاستخراج العناصر من صفحة القائمة"></textarea>
+              <small class="hint" id="sc-list-script-hint" data-ar-html="جسم دالة JavaScript يعمل في كل صفحة قائمة ويرجع مصفوفة كائنات (<code>return [...]</code>).">A JavaScript function body that runs on each listing page and returns an array of objects (<code>return [...]</code>). An object with <code>url</code> opens as a detail page when there is a details script.</small>
+              <small class="f-err" id="sc-list-script-err" hidden></small>
+            </div>
+            <div class="fld">
+              <label for="sc-details-script" data-ar="سكربت التفاصيل">Details Script</label>
+              <textarea id="sc-details-script" class="code" rows="7" spellcheck="false" aria-describedby="sc-details-script-hint sc-details-script-err" placeholder="JavaScript to extract details from a product page" data-ar-ph="JavaScript لاستخراج التفاصيل من صفحة المنتج"></textarea>
+              <small class="hint" id="sc-details-script-hint" data-ar="اختياري: يعمل في كل صفحة تفاصيل ويرجع كائناً واحداً يُدمج مع عنصر القائمة.">Optional: runs on each detail page and returns one object merged into the list item. On its own (no list script, no link selector) each target URL is one item read with this script.</small>
+              <small class="f-err" id="sc-details-script-err" hidden></small>
+            </div>
+          </section>
+
+          <section class="fsec" aria-labelledby="sc-h-behavior">
+            <div class="fsec-h"><h3 id="sc-h-behavior" data-ar="السلوك">Behavior</h3><p data-ar="عدد العناصر المتوقع وحالة التفعيل.">Target item count and the active state.</p></div>
+            <div class="fgrid">
+              <div class="fld">
+                <label for="sc-target" data-ar="العناصر المستهدفة">Target Items</label>
+                <input id="sc-target" type="number" min="0" step="1" inputmode="numeric" dir="ltr" aria-describedby="sc-target-hint sc-target-err">
+                <small class="hint" id="sc-target-hint" data-ar-html="يتوقف السحب عند هذا العدد. <code>0</code> = بلا حد.">The scrape stops at this count. <code>0</code> = no limit.</small>
+                <small class="f-err" id="sc-target-err" hidden></small>
+              </div>
+            </div>
+            <label class="check-card" for="sc-active"><input type="checkbox" id="sc-active"><span><b data-ar="مفعّلة">Active</b><small data-ar="فعّل الكاشطة أو أوقفها للتشغيل المجدول واليدوي معاً.">Turn the scraper on or off for both scheduled and manual runs.</small></span></label>
+          </section>
+
+          <section class="fsec" aria-labelledby="sc-h-auto">
+            <div class="fsec-h"><h3 id="sc-h-auto" data-ar="التشغيل التلقائي">Auto Trigger</h3><p data-ar="الكاشطات تعمل عند الطلب («شغّل الآن»).">Scrapers run on demand (Run now).</p></div>
+            <label class="check-card" for="sc-auto"><input type="checkbox" id="sc-auto" disabled aria-describedby="sc-auto-hint"><span><b data-ar="تفعيل التشغيل التلقائي (غير متاح)">Enable Auto Trigger (off)</b><small id="sc-auto-hint"></small></span></label>
+            <div class="fgrid">
+              <div class="fld">
+                <label for="sc-run-at" data-ar="وقت التشغيل اليومي">Run At (Daily)</label>
+                <input id="sc-run-at" type="time" dir="ltr" disabled aria-describedby="sc-run-at-err">
+                <small class="f-err" id="sc-run-at-err" hidden></small>
+              </div>
+              <div class="fld">
+                <label for="sc-tz" data-ar="المنطقة الزمنية">Time Zone</label>
+                <select id="sc-tz" dir="ltr" disabled></select>
+              </div>
+            </div>
+          </section>
+
+          <section class="fsec" id="sc-apify-sec" aria-labelledby="sc-h-apify" hidden>
+            <div class="fsec-h"><h3 id="sc-h-apify">Apify</h3><p data-ar="الـ Actor الذي يشغّل الكاشطة على Apify، وإدخاله.">The Actor that runs the scraper on Apify, and its input.</p></div>
+            <div class="fld">
+              <label for="sc-actor"><span>Apify Actor ID</span> <em class="req" aria-hidden="true">*</em></label>
+              <input id="sc-actor" class="mono" dir="ltr" spellcheck="false" autocomplete="off" aria-describedby="sc-actor-hint sc-actor-err" placeholder="e.g. apify/web-scraper">
+              <small class="hint" id="sc-actor-hint" data-ar-html="بصيغة <code>username/actor-name</code> أو <code>username~actor-name</code>.">As <code>username/actor-name</code> or <code>username~actor-name</code>, e.g. <code>apify/web-scraper</code>.</small>
+              <small class="f-err" id="sc-actor-err" hidden></small>
+            </div>
+            <div class="fld">
+              <label for="sc-input" data-ar="إدخال الـ Actor">Actor input (JSON)</label>
+              <textarea id="sc-input" class="code" rows="6" spellcheck="false" aria-describedby="sc-input-hint sc-input-err" placeholder="{ }"></textarea>
+              <small class="hint" id="sc-input-hint" data-ar-html="اختياري. إذا تُرك فارغاً تبني الصفحة إدخالاً بأسلوب <code>apify/web-scraper</code> من الحقول أعلاه.">Optional. Left empty, the page builds <code>apify/web-scraper</code> style input from the fields above: <code>startUrls</code>, <code>pageFunction</code> and <code>maxPagesPerCrawl</code>.</small>
+              <small class="f-err" id="sc-input-err" hidden></small>
+            </div>
+            <details class="sc-preview" id="sc-preview-box"><summary data-ar="معاينة الإدخال الذي سيُرسل إلى Apify">Preview the input sent to Apify</summary><pre class="log" id="sc-preview"></pre></details>
+          </section>
+
+          <section class="fsec" aria-labelledby="sc-h-payload">
+            <div class="fsec-h"><h3 id="sc-h-payload">Payload</h3><p data-ar="نص حر يُحفظ مع الكاشطة للاستخدام لاحقاً.">Free text saved with the scraper for later use.</p></div>
+            <div class="fld">
+              <label for="sc-payload">Payload <span class="en">Optional JSON/Text</span></label>
+              <textarea id="sc-payload" class="code" rows="4" spellcheck="false" aria-describedby="sc-payload-hint" placeholder="Optional payload for future use"></textarea>
+              <small class="hint" id="sc-payload-hint" data-ar="اختياري: JSON أو نص، يُحفظ كما هو ولا يؤثر في التشغيل.">Optional JSON or text, saved as it is; it does not change the run.</small>
+            </div>
+          </section>
+
+          <div class="savebar" id="sc-savebar">
+            <span class="state" id="sc-save-state" role="status" aria-live="polite"></span>
+            <button type="button" id="sc-cancel" data-ar="إلغاء">Cancel</button>
+            <button type="submit" class="primary" id="sc-save" data-ar="حفظ الكاشطة">Save scraper</button>
+            <div id="sc-leave-confirm" hidden></div>
+          </div>
+        </form>
+
+        <aside class="panel sc-sum" aria-labelledby="sc-ops-h">
+          <h2 id="sc-ops-h" style="font-size:24px;font-weight:500;margin:0" data-ar="العمليات">Operations</h2>
+          <p class="muted" style="margin:0" data-ar="حالة التشغيل وآخر تشغيل وتاريخ الإنشاء.">Review runtime status, last run metrics, and creation timestamp.</p>
+          <dl class="sum-list" id="sc-sum"></dl>
+          <p class="muted" id="sc-sum-note" style="margin:0"></p>
+          <div class="sum-actions" id="sc-sum-actions">
+            <button id="sc-dup" type="button"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span data-ar="نسخ">Duplicate</span></button>
+            <button class="danger" id="sc-del" type="button"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg><span data-ar="حذف">Delete</span></button>
+          </div>
+          <div id="sc-del-confirm"></div>
+        </aside>
+      </div>
+
+      <div id="sc-runs" class="stack" hidden>
+        <div id="sc-pending" hidden></div>
+        <div class="panel" id="sc-job" hidden>
+          <div class="row"><h2 style="margin:0" data-ar="التقدم">Progress</h2><span class="chip" id="sc-job-state"></span><span class="spacer"></span><button class="danger" id="sc-job-stop" type="button" disabled data-ar="إيقاف">Stop</button></div>
+          <ol class="sc-steps" id="sc-job-steps"></ol>
+          <div class="bar" role="progressbar" aria-label="Run progress" aria-valuemin="0" aria-valuemax="100" id="sc-job-bar"><i style="width:0%"></i></div>
+          <pre class="log" id="sc-job-log"></pre>
+        </div>
+        <div class="panel">
+          <div class="row"><h2 style="margin:0" data-ar="التشغيلات">Runs</h2><span class="spacer"></span><button id="sc-export-all" type="button" data-ar="تنزيل كل التشغيلات (Excel)">Download all runs (Excel)</button></div>
+          <div id="sc-run-list"></div>
+        </div>
+        <div class="panel" id="sc-run-view" hidden>
+          <div class="row"><h2 style="margin:0" id="sc-run-title"></h2><span class="spacer"></span><button id="sc-run-export" type="button" data-ar="تنزيل Excel">Download Excel</button><button class="danger" id="sc-run-delete" type="button" data-ar="حذف التشغيل">Delete run</button></div>
+          <div id="sc-run-confirm"></div>
+          <div class="stats" id="sc-run-stats"></div>
+          <details class="adv" id="sc-run-log-box"><summary data-ar="سجل التشغيل">Run log</summary><pre class="log" id="sc-run-log"></pre></details>
+          <div class="row"><input id="sc-run-q" type="search" placeholder="Search the items" data-ar-ph="ابحث في العناصر" aria-label="Search run items" data-ar-al="ابحث في عناصر التشغيل" style="flex:2 1 220px"></div>
+          <div class="tw tall"><table id="sc-run-table"><thead></thead><tbody></tbody></table></div>
+          <p class="muted" id="sc-run-more"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="dlg">
+    <form method="dialog" id="dlg-form" class="stack">
+      <h2 id="dlg-title">Line</h2>
+      <div class="grid" id="dlg-fields"></div>
+      <p class="muted" id="dlg-preview"></p>
+      <div class="row"><button value="ok" class="primary" data-ar="تم">Done</button><button value="cancel" formnovalidate data-ar="إلغاء">Cancel</button></div>
+    </form>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <div id="sp-root"></div>
+</div>

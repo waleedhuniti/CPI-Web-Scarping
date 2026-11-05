@@ -75,3 +75,356 @@
 [2026-11-05 04:20:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=dates&page=3> (referer: https://www.google.com/)
 [19/115] lulu | food | dates: 59 products
 [2026-11-05 04:20:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=nuts&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:36] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=nuts&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:38] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=nuts&page=3> (referer: https://www.google.com/)
+[20/115] lulu | food | nuts: 60 products
+[2026-11-05 04:20:41] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=honey&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:44] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=honey&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:46] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=honey&page=3> (referer: https://www.google.com/)
+[21/115] lulu | food | honey: 60 products
+[2026-11-05 04:20:48] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tea&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:51] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tea&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tea&page=3> (referer: https://www.google.com/)
+[22/115] lulu | food | tea: 60 products
+[2026-11-05 04:20:56] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=coffee&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:58] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=coffee&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=coffee&page=3> (referer: https://www.google.com/)
+[23/115] lulu | food | coffee: 59 products
+[2026-11-05 04:21:03] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=water&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:06] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=water&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:08] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=water&page=3> (referer: https://www.google.com/)
+[24/115] lulu | food | water: 59 products
+[2026-11-05 04:21:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=juice&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:11] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=juice&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:13] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=juice&page=3> (referer: https://www.google.com/)
+[25/115] lulu | food | juice: 59 products
+[2026-11-05 04:21:15] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=soft+drinks&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:18] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=soft+drinks&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:20] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=soft+drinks&page=3> (referer: https://www.google.com/)
+[26/115] lulu | food | soft drinks: 58 products
+[2026-11-05 04:21:22] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=detergent&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:24] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=detergent&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:26] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=detergent&page=3> (referer: https://www.google.com/)
+[27/115] lulu | household | detergent: 60 products
+[2026-11-05 04:21:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=dishwashing&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:30] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=dishwashing&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:32] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=dishwashing&page=3> (referer: https://www.google.com/)
+[28/115] lulu | household | dishwashing: 58 products
+[2026-11-05 04:21:34] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cleaning&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:37] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cleaning&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:39] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cleaning&page=3> (referer: https://www.google.com/)
+[29/115] lulu | household | cleaning: 30 products
+[2026-11-05 04:21:40] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tissue&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:42] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tissue&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:45] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tissue&page=3> (referer: https://www.google.com/)
+[30/115] lulu | household | tissue: 60 products
+[2026-11-05 04:21:47] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=air+freshener&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:49] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=air+freshener&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:51] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=air+freshener&page=3> (referer: https://www.google.com/)
+[31/115] lulu | household | air freshener: 60 products
+[2026-11-05 04:21:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=insecticide&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:21:57] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=insecticide&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:21:59] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=insecticide&page=3> (referer: https://www.google.com/)
+[32/115] lulu | household | insecticide: 30 products
+[2026-11-05 04:22:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cookware&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:04] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cookware&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:06] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cookware&page=3> (referer: https://www.google.com/)
+[33/115] lulu | household | cookware: 60 products
+[2026-11-05 04:22:08] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=plates&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:11] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=plates&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:13] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=plates&page=3> (referer: https://www.google.com/)
+[34/115] lulu | household | plates: 60 products
+[2026-11-05 04:22:15] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=bedsheet&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:17] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=bedsheet&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:19] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=bedsheet&page=3> (referer: https://www.google.com/)
+[35/115] lulu | household | bedsheet: 60 products
+[2026-11-05 04:22:21] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=towel&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=towel&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:26] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=towel&page=3> (referer: https://www.google.com/)
+[36/115] lulu | household | towel: 57 products
+[2026-11-05 04:22:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=light+bulb&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=light+bulb&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=light+bulb&page=3> (referer: https://www.google.com/)
+[37/115] lulu | household | light bulb: 55 products
+[2026-11-05 04:22:35] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=batteries&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:37] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=batteries&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:40] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=batteries&page=3> (referer: https://www.google.com/)
+[38/115] lulu | household | batteries: 60 products
+[2026-11-05 04:22:42] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=kettle&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:45] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=kettle&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:46] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=kettle&page=3> (referer: https://www.google.com/)
+[39/115] lulu | household | kettle: 60 products
+[2026-11-05 04:22:49] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=iron&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:51] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=iron&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:22:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=iron&page=3> (referer: https://www.google.com/)
+[40/115] lulu | household | iron: 59 products
+[2026-11-05 04:22:56] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=blender&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:22:58] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=blender&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:00] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=blender&page=3> (referer: https://www.google.com/)
+[41/115] lulu | household | blender: 60 products
+[2026-11-05 04:23:03] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vacuum+cleaner&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:05] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vacuum+cleaner&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:06] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vacuum+cleaner&page=3> (referer: https://www.google.com/)
+[42/115] lulu | household | vacuum cleaner: 60 products
+[2026-11-05 04:23:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=fan&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:11] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=fan&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:13] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=fan&page=3> (referer: https://www.google.com/)
+[43/115] lulu | household | fan: 60 products
+[2026-11-05 04:23:15] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=washing+machine&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:19] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=washing+machine&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:21] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=washing+machine&page=3> (referer: https://www.google.com/)
+[44/115] lulu | household | washing machine: 60 products
+[2026-11-05 04:23:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=refrigerator&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:25] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=refrigerator&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=refrigerator&page=3> (referer: https://www.google.com/)
+[45/115] lulu | household | refrigerator: 60 products
+[2026-11-05 04:23:30] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=air+conditioner&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=air+conditioner&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:36] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=air+conditioner&page=3> (referer: https://www.google.com/)
+[46/115] lulu | household | air conditioner: 60 products
+[2026-11-05 04:23:39] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=shampoo&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:41] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=shampoo&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:43] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=shampoo&page=3> (referer: https://www.google.com/)
+[47/115] lulu | personal | shampoo: 57 products
+[2026-11-05 04:23:45] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=soap&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:47] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=soap&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:49] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=soap&page=3> (referer: https://www.google.com/)
+[48/115] lulu | personal | soap: 57 products
+[2026-11-05 04:23:51] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=toothpaste&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:23:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=toothpaste&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:23:56] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=toothpaste&page=3> (referer: https://www.google.com/)
+[49/115] lulu | personal | toothpaste: 58 products
+[2026-11-05 04:23:59] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=deodorant&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=deodorant&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:03] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=deodorant&page=3> (referer: https://www.google.com/)
+[50/115] lulu | personal | deodorant: 59 products
+[2026-11-05 04:24:06] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=diapers&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:07] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=diapers&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=diapers&page=3> (referer: https://www.google.com/)
+[51/115] lulu | personal | diapers: 60 products
+[2026-11-05 04:24:11] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=razor&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:14] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=razor&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:16] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=razor&page=3> (referer: https://www.google.com/)
+[52/115] lulu | personal | razor: 60 products
+[2026-11-05 04:24:18] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sanitary+pads&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:21] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sanitary+pads&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sanitary+pads&page=3> (referer: https://www.google.com/)
+[53/115] lulu | personal | sanitary pads: 60 products
+[2026-11-05 04:24:25] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=body+lotion&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:27] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=body+lotion&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:29] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=body+lotion&page=3> (referer: https://www.google.com/)
+[54/115] lulu | personal | body lotion: 60 products
+[2026-11-05 04:24:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=hair+dryer&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=hair+dryer&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:35] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=hair+dryer&page=3> (referer: https://www.google.com/)
+[55/115] lulu | personal | hair dryer: 60 products
+[2026-11-05 04:24:38] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=perfume&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:40] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=perfume&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:42] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=perfume&page=3> (referer: https://www.google.com/)
+[56/115] lulu | personal | perfume: 60 products
+[2026-11-05 04:24:44] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=paracetamol&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:46] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=paracetamol&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:48] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=paracetamol&page=3> (referer: https://www.google.com/)
+[57/115] lulu | personal | paracetamol: 4 products
+[2026-11-05 04:24:50] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vitamins&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:24:53] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vitamins&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:24:55] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vitamins&page=3> (referer: https://www.google.com/)
+[58/115] lulu | personal | vitamins: 49 products
+[2026-11-05 04:24:58] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=first+aid&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:00] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=first+aid&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:03] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=first+aid&page=3> (referer: https://www.google.com/)
+[59/115] lulu | personal | first aid: 57 products
+[2026-11-05 04:25:05] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=thermometer&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:07] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=thermometer&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=thermometer&page=3> (referer: https://www.google.com/)
+[60/115] lulu | personal | thermometer: 12 products
+[2026-11-05 04:25:11] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=face+mask&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:14] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=face+mask&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:16] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=face+mask&page=3> (referer: https://www.google.com/)
+[61/115] lulu | personal | face mask: 58 products
+[2026-11-05 04:25:19] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=mobile+phone&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:21] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=mobile+phone&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=mobile+phone&page=3> (referer: https://www.google.com/)
+[62/115] lulu | electronics | mobile phone: 60 products
+[2026-11-05 04:25:26] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=phone+case&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=phone+case&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=phone+case&page=3> (referer: https://www.google.com/)
+[63/115] lulu | electronics | phone case: 58 products
+[2026-11-05 04:25:34] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=screen+protector&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:36] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=screen+protector&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:38] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=screen+protector&page=3> (referer: https://www.google.com/)
+[64/115] lulu | electronics | screen protector: 48 products
+[2026-11-05 04:25:40] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=charger&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:43] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=charger&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:45] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=charger&page=3> (referer: https://www.google.com/)
+[65/115] lulu | electronics | charger: 58 products
+[2026-11-05 04:25:48] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=usb+cable&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:50] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=usb+cable&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:52] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=usb+cable&page=3> (referer: https://www.google.com/)
+[66/115] lulu | electronics | usb cable: 54 products
+[2026-11-05 04:25:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=power+bank&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:25:56] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=power+bank&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:25:58] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=power+bank&page=3> (referer: https://www.google.com/)
+[67/115] lulu | electronics | power bank: 58 products
+[2026-11-05 04:26:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=earphones&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:04] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=earphones&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:06] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=earphones&page=3> (referer: https://www.google.com/)
+[68/115] lulu | electronics | earphones: 60 products
+[2026-11-05 04:26:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=laptop&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:11] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=laptop&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:15] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=laptop&page=3> (referer: https://www.google.com/)
+[69/115] lulu | electronics | laptop: 59 products
+[2026-11-05 04:26:17] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tablet&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:19] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tablet&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:22] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=tablet&page=3> (referer: https://www.google.com/)
+[70/115] lulu | electronics | tablet: 47 products
+[2026-11-05 04:26:24] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=router&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:26] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=router&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=router&page=3> (referer: https://www.google.com/)
+[71/115] lulu | electronics | router: 49 products
+[2026-11-05 04:26:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=smart+watch&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=smart+watch&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:36] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=smart+watch&page=3> (referer: https://www.google.com/)
+[72/115] lulu | electronics | smart watch: 60 products
+[2026-11-05 04:26:39] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=television&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:41] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=television&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:44] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=television&page=3> (referer: https://www.google.com/)
+[73/115] lulu | electronics | television: 57 products
+[2026-11-05 04:26:46] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=speaker&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:49] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=speaker&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:52] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=speaker&page=3> (referer: https://www.google.com/)
+[74/115] lulu | electronics | speaker: 59 products
+[2026-11-05 04:26:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=headphones&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:26:57] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=headphones&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:26:59] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=headphones&page=3> (referer: https://www.google.com/)
+[75/115] lulu | electronics | headphones: 59 products
+[2026-11-05 04:27:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=gaming+console&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:04] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=gaming+console&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:07] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=gaming+console&page=3> (referer: https://www.google.com/)
+[76/115] lulu | electronics | gaming console: 50 products
+[2026-11-05 04:27:10] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=camera&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:13] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=camera&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:16] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=camera&page=3> (referer: https://www.google.com/)
+[77/115] lulu | electronics | camera: 60 products
+[2026-11-05 04:27:18] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=men+t-shirt&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:20] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=men+t-shirt&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=men+t-shirt&page=3> (referer: https://www.google.com/)
+[78/115] lulu | clothing | men t-shirt: 46 products
+[2026-11-05 04:27:25] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=women+dress&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:27] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=women+dress&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:30] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=women+dress&page=3> (referer: https://www.google.com/)
+[79/115] lulu | clothing | women dress: 35 products
+[2026-11-05 04:27:32] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=jeans&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:34] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=jeans&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:36] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=jeans&page=3> (referer: https://www.google.com/)
+[80/115] lulu | clothing | jeans: 34 products
+[2026-11-05 04:27:38] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=kids+clothing&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:40] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=kids+clothing&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:43] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=kids+clothing&page=3> (referer: https://www.google.com/)
+[81/115] lulu | clothing | kids clothing: 46 products
+[2026-11-05 04:27:45] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=socks&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:47] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=socks&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:50] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=socks&page=3> (referer: https://www.google.com/)
+[82/115] lulu | clothing | socks: 13 products
+[2026-11-05 04:27:52] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=underwear&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:27:55] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=underwear&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:27:57] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=underwear&page=3> (referer: https://www.google.com/)
+[83/115] lulu | clothing | underwear: 36 products
+[2026-11-05 04:27:59] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=shoes&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=shoes&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:04] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=shoes&page=3> (referer: https://www.google.com/)
+[84/115] lulu | clothing | shoes: 58 products
+[2026-11-05 04:28:06] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sandals&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sandals&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:10] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sandals&page=3> (referer: https://www.google.com/)
+[85/115] lulu | clothing | sandals: 58 products
+[2026-11-05 04:28:13] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sports+shoes&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:15] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sports+shoes&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:18] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sports+shoes&page=3> (referer: https://www.google.com/)
+[86/115] lulu | clothing | sports shoes: 25 products
+[2026-11-05 04:28:20] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=engine+oil&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=engine+oil&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:25] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=engine+oil&page=3> (referer: https://www.google.com/)
+[87/115] lulu | other | engine oil: 1 products
+[2026-11-05 04:28:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=car+accessories&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:30] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=car+accessories&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:32] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=car+accessories&page=3> (referer: https://www.google.com/)
+[88/115] lulu | other | car accessories: 57 products
+[2026-11-05 04:28:35] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=car+battery&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:37] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=car+battery&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:39] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=car+battery&page=3> (referer: https://www.google.com/)
+[89/115] lulu | other | car battery: 26 products
+[2026-11-05 04:28:42] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=bicycle&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:44] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=bicycle&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:46] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=bicycle&page=3> (referer: https://www.google.com/)
+[90/115] lulu | other | bicycle: 49 products
+[2026-11-05 04:28:49] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=toys&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:51] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=toys&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:28:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=toys&page=3> (referer: https://www.google.com/)
+[91/115] lulu | other | toys: 57 products
+[2026-11-05 04:28:56] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=books&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:28:59] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=books&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=books&page=3> (referer: https://www.google.com/)
+[92/115] lulu | other | books: 60 products
+[2026-11-05 04:29:03] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=video+games&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:29:05] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=video+games&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:07] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=video+games&page=3> (referer: https://www.google.com/)
+[93/115] lulu | other | video games: 27 products
+[2026-11-05 04:29:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pet+food&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:29:12] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pet+food&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:14] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pet+food&page=3> (referer: https://www.google.com/)
+[94/115] lulu | other | pet food: 52 products
+[2026-11-05 04:29:17] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=garden&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:29:19] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=garden&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:21] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=garden&page=3> (referer: https://www.google.com/)
+[95/115] lulu | other | garden: 49 products
+[2026-11-05 04:29:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=notebook&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:29:26] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=notebook&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=notebook&page=3> (referer: https://www.google.com/)
+[96/115] lulu | other | notebook: 51 products
+[2026-11-05 04:29:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pens&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:29:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pens&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:35] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pens&page=3> (referer: https://www.google.com/)
+[97/115] lulu | other | pens: 60 products
+[2026-11-05 04:29:38] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=school+bag&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:29:40] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=school+bag&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:43] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=school+bag&page=3> (referer: https://www.google.com/)
+[98/115] lulu | other | school bag: 59 products
+[2026-11-05 04:29:46] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=stationery&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:29:49] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=stationery&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:29:51] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=stationery&page=3> (referer: https://www.google.com/)
+[99/115] lulu | other | stationery: 57 products
+[2026-11-05 04:29:53] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/fresh-food-dairy-eggs-cheese-eggs/?page_size=50> (referer: https://www.google.com/)
+[100/115] lulu | food | fresh food dairy eggs cheese eggs: 5 products
+[2026-11-05 04:29:56] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/fresh-food-dairy-eggs-cheese-fresh-milk/?page_size=50> (referer: https://www.google.com/)
+[101/115] lulu | food | fresh food dairy eggs cheese fresh milk: 19 products
+[2026-11-05 04:29:58] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/fresh-food-dairy-eggs-cheese-yoghurt-chilled-desserts/?page_size=50> (referer: https://www.google.com/)
+[102/115] lulu | food | fresh food dairy eggs cheese yoghurt chilled desserts: 16 products
+[2026-11-05 04:30:01] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-fish-seafoods/?page_size=50> (referer: https://www.google.com/)
+[103/115] lulu | food | fresh food fresh fish seafoods: 16 products
+[2026-11-05 04:30:04] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-meat-poultry-fresh-beef-veal/?page_size=50> (referer: https://www.google.com/)
+[104/115] lulu | food | fresh food fresh meat poultry fresh beef veal: 23 products
+[2026-11-05 04:30:07] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/fresh-food-fresh-meat-poultry-fresh-chicken/?page_size=50> (referer: https://www.google.com/)
+[105/115] lulu | food | fresh food fresh meat poultry fresh chicken: 36 products
+[2026-11-05 04:30:09] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/fresh-food-fruits-vegetables/?page_size=50> (referer: https://www.google.com/)
+[106/115] lulu | food | fresh food fruits vegetables: 24 products
+[2026-11-05 04:30:12] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-cooking-ingredients/?page_size=50> (referer: https://www.google.com/)
+[107/115] lulu | food | grocery food cupboard cooking ingredients: 31 products
+[2026-11-05 04:30:15] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-frozen-food/?page_size=50> (referer: https://www.google.com/)
+[108/115] lulu | food | grocery food cupboard frozen food: 44 products
+[2026-11-05 04:30:17] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-home-baking-sweeteners/?page_size=50> (referer: https://www.google.com/)
+[109/115] lulu | food | grocery food cupboard home baking sweeteners: 23 products
+[2026-11-05 04:30:20] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard-rice-pasta-noodles/?page_size=50> (referer: https://www.google.com/)
+[110/115] lulu | food | grocery food cupboard rice pasta noodles: 18 products
+[2026-11-05 04:30:23] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-food-cupboard/?page_size=50> (referer: https://www.google.com/)
+[111/115] lulu | food | grocery food cupboard: 14 products
+[2026-11-05 04:30:25] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-household-cleaning-essentials/?page_size=50> (referer: https://www.google.com/)
+[112/115] lulu | household | grocery household cleaning essentials: 48 products
+[2026-11-05 04:30:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-household-dishwashing-liquids-tablets/?page_size=50> (referer: https://www.google.com/)
+[113/115] lulu | household | grocery household dishwashing liquids tablets: 6 products
+[2026-11-05 04:30:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-household-laundry-essentials/?page_size=50> (referer: https://www.google.com/)
+[114/115] lulu | household | grocery household laundry essentials: 22 products
+[2026-11-05 04:30:35] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/grocery-household/?page_size=50> (referer: https://www.google.com/)
+[115/115] lulu | household | grocery household: 2 products
+5635 products in the part file
+STORE_DONE

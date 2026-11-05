@@ -1,0 +1,14 @@
+{
+ "20": {
+  "next_page_totals": [
+   "8,906"
+  ],
+  "next_url": "https://www.dnatatravel.com/holidays/hotels/1490933?sort=PRICE_LOWEST_FIRST&tripId=803a7af4-f150-47ab-831c-10ce34eff54a&checkIn=2026-11-13&checkOut=2026-11-17&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "shown_total": 8906.0,
+  "flight_delta_shown": 1808.0,
+  "screenshot": "runs_13_20/shots/20_Sun_Siyam_Olhuveli.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1490933?sort=PRICE_LOWEST_FIRST&tripId=803a7af4-f150-47ab-831c-10ce34eff54a&checkIn=2026-11-13&checkOut=2026-11-17&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 14 Nov 2026 - Tue 17 Nov 2026 (3 nights)  To Fri 13 Nov 2026 - Tue 17 Nov 2026 (4 nights)  Proceed Cancel"
+ }
+}

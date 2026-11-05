@@ -22,3 +22,56 @@
 [2026-11-05 04:18:54] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=flour&page=2> (referer: https://www.google.com/)
 [2026-11-05 04:18:56] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=flour&page=3> (referer: https://www.google.com/)
 [6/115] lulu | food | flour: 60 products
+[2026-11-05 04:18:59] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=fruit&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:02] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=fruit&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:05] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=fruit&page=3> (referer: https://www.google.com/)
+[7/115] lulu | food | fruit: 60 products
+[2026-11-05 04:19:07] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=lamb&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:10] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=lamb&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:12] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=lamb&page=3> (referer: https://www.google.com/)
+[8/115] lulu | food | lamb: 57 products
+[2026-11-05 04:19:15] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=milk&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:17] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=milk&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:19] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=milk&page=3> (referer: https://www.google.com/)
+[9/115] lulu | food | milk: 60 products
+[2026-11-05 04:19:22] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=oil&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:24] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=oil&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:28] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=oil&page=3> (referer: https://www.google.com/)
+[10/115] lulu | food | oil: 60 products
+[2026-11-05 04:19:30] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=rice&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=rice&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:35] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=rice&page=3> (referer: https://www.google.com/)
+[11/115] lulu | food | rice: 60 products
+[2026-11-05 04:19:37] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=salt&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:39] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=salt&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:42] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=salt&page=3> (referer: https://www.google.com/)
+[12/115] lulu | food | salt: 59 products
+[2026-11-05 04:19:44] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sugar&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:46] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sugar&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:48] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=sugar&page=3> (referer: https://www.google.com/)
+[13/115] lulu | food | sugar: 58 products
+[2026-11-05 04:19:51] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vegetables&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:53] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vegetables&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:19:55] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=vegetables&page=3> (referer: https://www.google.com/)
+[14/115] lulu | food | vegetables: 60 products
+[2026-11-05 04:19:57] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=yoghurt&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:19:59] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=yoghurt&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:02] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=yoghurt&page=3> (referer: https://www.google.com/)
+[15/115] lulu | food | yoghurt: 60 products
+[2026-11-05 04:20:04] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cheese&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:07] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cheese&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:10] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=cheese&page=3> (referer: https://www.google.com/)
+[16/115] lulu | food | cheese: 60 products
+[2026-11-05 04:20:12] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=butter&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:14] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=butter&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:17] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=butter&page=3> (referer: https://www.google.com/)
+[17/115] lulu | food | butter: 49 products
+[2026-11-05 04:20:19] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pasta&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:22] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pasta&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:24] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=pasta&page=3> (referer: https://www.google.com/)
+[18/115] lulu | food | pasta: 60 products
+[2026-11-05 04:20:27] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=dates&page=1> (referer: https://www.google.com/)
+[2026-11-05 04:20:29] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=dates&page=2> (referer: https://www.google.com/)
+[2026-11-05 04:20:31] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=dates&page=3> (referer: https://www.google.com/)
+[19/115] lulu | food | dates: 59 products
+[2026-11-05 04:20:33] INFO: Fetched (200) <GET https://gcc.luluhypermarket.com/en-ae/list/?search_text=nuts&page=1> (referer: https://www.google.com/)

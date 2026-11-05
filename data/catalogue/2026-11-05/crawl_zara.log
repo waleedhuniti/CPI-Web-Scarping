@@ -26,3 +26,23 @@
 [13/23] zara | clothing | Men > Suits: 1 products
 [2026-11-05 04:18:57] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2537410/products?ajax=true> (referer: https://www.google.com/)
 [14/23] zara | clothing | Men > Jackets: 31 products
+[2026-11-05 04:18:59] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2436372/products?ajax=true> (referer: https://www.google.com/)
+[15/23] zara | clothing | Men > Shoes: 41 products
+[2026-11-05 04:19:03] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2426140/products?ajax=true> (referer: https://www.google.com/)
+[16/23] zara | clothing | Girls > T-shirts: 28 products
+[2026-11-05 04:19:03] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2427560/products?ajax=true> (referer: https://www.google.com/)
+[17/23] zara | clothing | Girls > Dresses: 31 products
+[2026-11-05 04:19:05] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2426261/products?ajax=true> (referer: https://www.google.com/)
+[18/23] zara | clothing | Girls > Jeans: 32 products
+[2026-11-05 04:19:06] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2427563/products?ajax=true> (referer: https://www.google.com/)
+[19/23] zara | clothing | Girls > Shoes: 34 products
+[2026-11-05 04:19:08] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2426650/products?ajax=true> (referer: https://www.google.com/)
+[20/23] zara | clothing | Boys > T-shirts: 34 products
+[2026-11-05 04:19:09] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2426737/products?ajax=true> (referer: https://www.google.com/)
+[21/23] zara | clothing | Boys > Jeans: 17 products
+[2026-11-05 04:19:10] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2428521/products?ajax=true> (referer: https://www.google.com/)
+[22/23] zara | clothing | Boys > Shoes: 30 products
+[2026-11-05 04:19:11] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2428149/products?ajax=true> (referer: https://www.google.com/)
+[23/23] zara | clothing | Baby > T-shirts: 40 products
+726 products in the part file
+STORE_DONE

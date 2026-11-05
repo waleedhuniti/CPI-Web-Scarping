@@ -2,3 +2,27 @@
 [2026-11-05 04:18:53] INFO: Cloudflare page didn't disappear after 10s, continuing...
 [2026-11-05 04:18:53] INFO: Looks like Cloudflare captcha is still present, solving again
 [2026-11-05 04:18:53] INFO: The turnstile version discovered is "managed"
+[2026-11-05 04:19:06] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 04:19:06] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 04:19:06] INFO: The turnstile version discovered is "managed"
+[2026-11-05 04:19:18] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 04:19:18] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 04:19:18] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 04:19:18] INFO: Fetched (307) <GET https://www.maxfashion.com/ae/en/search?q=men%20t-shirts> (referer: https://www.google.com/)
+[2026-11-05 04:19:18] INFO: Fetched (403) <GET https://www.maxfashion.com/ae/en/search?q=men%20t-shirts> (referer: https://www.google.com/)
+[1/11] max | clothing | men t-shirts: 0 products
+[2026-11-05 04:19:22] INFO: The turnstile version discovered is "managed"
+[2026-11-05 04:19:34] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 04:19:34] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 04:19:34] INFO: The turnstile version discovered is "managed"
+[2026-11-05 04:19:46] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 04:19:46] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 04:19:46] INFO: The turnstile version discovered is "managed"
+[2026-11-05 04:19:58] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 04:19:58] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 04:19:58] ERROR: Failed to solve the Cloudflare challenge after 3 attempts, returning the page as is
+[2026-11-05 04:19:58] INFO: Fetched (307) <GET https://www.maxfashion.com/ae/en/search?q=men%20shirts> (referer: https://www.google.com/)
+[2026-11-05 04:19:58] INFO: Fetched (403) <GET https://www.maxfashion.com/ae/en/search?q=men%20shirts> (referer: https://www.google.com/)
+[2/11] max | clothing | men shirts: 0 products
+[2026-11-05 04:20:02] INFO: The turnstile version discovered is "managed"
+STORE_DONE

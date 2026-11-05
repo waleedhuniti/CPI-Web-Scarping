@@ -1,0 +1,28 @@
+{
+ "20": {
+  "next_page_totals": [
+   "8,906"
+  ],
+  "next_url": "https://www.dnatatravel.com/holidays/hotels/1490933?sort=PRICE_LOWEST_FIRST&tripId=b0bd9ffc-9c12-499c-8d27-001206be9255&checkIn=2026-11-13&checkOut=2026-11-17&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "shown_total": 8906.0,
+  "flight_delta_shown": 1808.0,
+  "screenshot": "runs_13_20/shots/20_Sun_Siyam_Olhuveli.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1490933?sort=PRICE_LOWEST_FIRST&tripId=b0bd9ffc-9c12-499c-8d27-001206be9255&checkIn=2026-11-13&checkOut=2026-11-17&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 14 Nov 2026 - Tue 17 Nov 2026 (3 nights)  To Fri 13 Nov 2026 - Tue 17 Nov 2026 (4 nights)  Proceed Cancel"
+ },
+ "21": {
+  "next_page_totals": [
+   "931",
+   "11,758",
+   "11,758"
+  ],
+  "next_url": "https://www.dnatatravel.com/holidays/flights/options?sort=PRICE_LOWEST_FIRST&checkIn=2026-11-13&checkOut=2026-11-17&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&flightFilters.airline=Emirates&tripId=124d3de9-324c-4d2e-a353-b20d52062301&priceDisplayMode=2",
+  "shown_total": 10019.0,
+  "flight_delta_shown": 1808.0,
+  "screenshot": "runs_13_20/shots/21_Meeru_Maldives_Resort_Island.png",
+  "page_url": "https://www.dnatatravel.com/holidays/flights/options?sort=PRICE_LOWEST_FIRST&checkIn=2026-11-13&checkOut=2026-11-17&destIds=65&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&flightFilters.airline=Emirates&tripId=124d3de9-324c-4d2e-a353-b20d52062301&priceDisplayMode=2",
+  "nights_shown": 4,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 14 Nov 2026 - Tue 17 Nov 2026 (3 nights)  To Fri 13 Nov 2026 - Tue 17 Nov 2026 (4 nights)  Proceed Cancel"
+ }
+}

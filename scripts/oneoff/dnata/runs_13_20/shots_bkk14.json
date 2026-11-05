@@ -1,0 +1,10 @@
+{
+ "14": {
+  "shown_total": 4718.0,
+  "flight_delta_shown": 1394.0,
+  "screenshot": "runs_13_20/shots/14_Holiday_Inn_Bangkok_Silom.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/320684?sort=PRICE_LOWEST_FIRST&tripId=0bd48cfa-9645-4e1e-92b3-df16a4c929dc&checkIn=2026-11-13&checkOut=2026-11-18&destIds=364&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ }
+}

@@ -1,0 +1,11 @@
+14 Holiday Inn Bangkok Silom calc 4717.9 shown None TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role("button", name="Change flight").first
+    - locator resolved to <button tabindex="0" type="button" class="c
+15 DoubleTree by Hilton Bangkok Ploenchit calc 5413.9 shown 5414.0 
+17 Traders Hotel Kuala Lumpur calc 6531.8 shown 6532.0 
+18 Dorsett Kuala Lumpur calc 5397.8 shown 5398.0 
+19 The Royale Chulan Kuala Lumpur calc 4774.8 shown None TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Your selected flights").first
+

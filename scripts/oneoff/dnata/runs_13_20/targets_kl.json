@@ -1,0 +1,32 @@
+[
+ {
+  "row": 17,
+  "city": "Kuala Lumpur",
+  "term": "Traders Hotel Kuala Lumpur",
+  "keys": [
+   "traders"
+  ],
+  "sheet_name": "Traders Hotel",
+  "estab": "321298"
+ },
+ {
+  "row": 18,
+  "city": "Kuala Lumpur",
+  "term": "Dorsett Kuala Lumpur",
+  "keys": [
+   "dorsett"
+  ],
+  "sheet_name": "Dorsett Kuala Lumpur",
+  "estab": "218579"
+ },
+ {
+  "row": 19,
+  "city": "Kuala Lumpur",
+  "term": "The Royale Chulan Kuala Lumpur",
+  "keys": [
+   "chulan"
+  ],
+  "sheet_name": "The Royale Chulan Kuala Lumpur",
+  "estab": "1670773"
+ }
+]

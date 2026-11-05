@@ -1,0 +1,83 @@
+Traceback (most recent call last):
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_saudia.py", line 93, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 196, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 726, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_saudia.py", line 82, in main
+    b = await search(pg, out, back)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_saudia.py", line 44, in search
+    await pg.wait_for_timeout(2000); await pg.locator(f'mat-option:has-text("{AP}")').first.click(); await pg.wait_for_timeout(2500)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/async_api/_generated.py", line 17714, in click
+    await self._impl_obj.click(
+    ...<11 lines>...
+    )
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_locator.py", line 138, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_frame.py", line 571, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 565, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+patchright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("mat-option:has-text(\"RUH\")").first
+
+SV2_DONE
+Traceback (most recent call last):
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_rj.py", line 75, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 196, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 726, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_rj.py", line 62, in main
+    legs = await search(ctx, o0, b0 + dt.timedelta(shift))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_rj.py", line 31, in search
+    await pg.locator(".bw-submit-btn:visible").first.click()
+  File "/usr/local/lib/python3.13/dist-packages/patchright/async_api/_generated.py", line 17714, in click
+    await self._impl_obj.click(
+    ...<11 lines>...
+    )
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_locator.py", line 138, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_frame.py", line 571, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 565, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+patchright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".bw-submit-btn:visible").first
+
+RJ2_DONE
+{"url": "https://www.britishairways.com/nx/b/airselect/en/are/book/search/?trip=return&departureDate=2026-11-13&returnDate=2026-11-20&from=DXB&to=LHR&travelClass=economy&adults=1&youngAdults=0&children=0&infants=0", "currency": "AED", "out_calendar": {"2026-11-10": 1225, "2026-11-11": 1225, "2026-11-12": 1225, "2026-11-13": 1325, "2026-11-14": 1325, "2026-11-15": 1645, "2026-11-16": 1225}, "out": {"date": "2026-11-13", "shifted_days": 0, "lowest": 1325.0, "highest": null, "flights": [], "source": "fare calendar (lowest fare of the day)"}, "back": null, "back_note": "return-leg prices load only after an outbound flight is selected; not reached"}
+BA2_DONE

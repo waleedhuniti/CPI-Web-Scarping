@@ -1,0 +1,50 @@
+{
+ "17": {
+  "row": 17,
+  "city": "Kuala Lumpur",
+  "sheet_name": "Traders Hotel",
+  "destination": "Kuala Lumpur, Malaysia (485)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Traders Hotel Kuala Lumpur",
+  "estab_id": "321298",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 4752.6,
+  "default_flight": "Gulf Air / Gulf Air / Gulf Air / Gulf Air / Gulf Air / Gulf Air",
+  "flight": "EK0346 03:40 / EK0347 18:25",
+  "flight_delta": 985.2,
+  "total": 5737.8
+ },
+ "18": {
+  "row": 18,
+  "city": "Kuala Lumpur",
+  "sheet_name": "Dorsett Kuala Lumpur",
+  "destination": "Kuala Lumpur, Malaysia (485)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Dorsett Kuala Lumpur",
+  "estab_id": "218579",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 3965.6,
+  "default_flight": "Gulf Air / Gulf Air / Gulf Air / Gulf Air / Gulf Air / Gulf Air",
+  "flight": "EK0346 03:40 / EK0347 18:25",
+  "flight_delta": 985.2,
+  "total": 4950.8
+ },
+ "19": {
+  "row": 19,
+  "city": "Kuala Lumpur",
+  "sheet_name": "The Royale Chulan Kuala Lumpur",
+  "destination": "Kuala Lumpur, Malaysia (485)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "The Royale Chulan Kuala Lumpur",
+  "estab_id": "1670773",
+  "stars": 5,
+  "board": "Bed And Breakfast",
+  "package_default": 3452.6,
+  "default_flight": "Gulf Air / Gulf Air / Gulf Air / Gulf Air / Gulf Air / Gulf Air",
+  "flight": "EK0346 03:40 / EK0347 18:25",
+  "flight_delta": 985.2,
+  "total": 4437.8
+ }
+}

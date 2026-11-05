@@ -1,0 +1,10 @@
+{
+ "5": {
+  "shown_total": 3929.0,
+  "flight_delta_shown": 995.0,
+  "screenshot": "runs_13_20/shots/05_Dosso_Dossi_Hotel_Sultanahmet.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/4263954?sort=PRICE_LOWEST_FIRST&tripId=9678e3b7-3eac-4b57-8094-01cd2b872bf1&checkIn=2026-11-13&checkOut=2026-11-17&destIds=384&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ }
+}

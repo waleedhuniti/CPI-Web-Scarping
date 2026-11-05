@@ -1,0 +1,82 @@
+{
+ "6": {
+  "shown_total": 4072.0,
+  "flight_delta_shown": 995.0,
+  "screenshot": "runs_13_20/shots/06_Titanic_City_Taksim.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/740947?sort=PRICE_LOWEST_FIRST&tripId=0a0db61e-8ccc-4a1a-81d2-8122157f3546&checkIn=2026-11-13&checkOut=2026-11-17&destIds=384&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "7": {
+  "shown_total": 8038.0,
+  "flight_delta_shown": 1502.0,
+  "screenshot": "runs_13_20/shots/07_DoubleTree_by_Hilton_London_Tower_of_Lon.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/2237703?sort=PRICE_LOWEST_FIRST&tripId=e4812ac8-dafe-4be7-9b61-802b067dd4fc&checkIn=2026-11-13&checkOut=2026-11-17&destIds=25943&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "9": {
+  "shown_total": 8115.0,
+  "flight_delta_shown": 1502.0,
+  "screenshot": "runs_13_20/shots/09_Hilton_London_Metropole.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/123600?sort=PRICE_LOWEST_FIRST&tripId=18347e85-00bf-4941-b8f7-71f98b13c11f&checkIn=2026-11-13&checkOut=2026-11-17&destIds=25943&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "11": {
+  "shown_total": 7385.0,
+  "flight_delta_shown": 419.0,
+  "screenshot": "runs_13_20/shots/11_Holiday_Inn_Munich_City_Centre_.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/113055?sort=PRICE_LOWEST_FIRST&tripId=35263de6-c418-47c3-9df0-f702f99233a2&checkIn=2026-11-13&checkOut=2026-11-17&destIds=462&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "24": {
+  "shown_total": 3210.0,
+  "flight_delta_shown": 343.0,
+  "screenshot": "runs_13_20/shots/24_Corp_Amman_Hotel.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/3778112?sort=PRICE_LOWEST_FIRST&tripId=d5dfca9a-0e6f-4440-a85a-2f7dd17aeac9&checkIn=2026-11-13&checkOut=2026-11-17&destIds=311&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "25": {
+  "shown_total": 4051.0,
+  "flight_delta_shown": 343.0,
+  "screenshot": "runs_13_20/shots/25_Grand_Hyatt_Hotel.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1431163?sort=PRICE_LOWEST_FIRST&tripId=7bc74a4d-1cc5-4c97-b410-2ebc6b33a667&checkIn=2026-11-13&checkOut=2026-11-17&destIds=311&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "28": {
+  "shown_total": 4732.0,
+  "flight_delta_shown": 256.0,
+  "screenshot": "runs_13_20/shots/28_Holiday_Inn_Cairo_City_Stars.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/749512?sort=PRICE_LOWEST_FIRST&tripId=beab6eb3-cb69-485e-a3c2-afe18e45ae8b&checkIn=2026-11-13&checkOut=2026-11-17&destIds=199&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "30": {
+  "shown_total": 9132.0,
+  "flight_delta_shown": 1747.0,
+  "screenshot": "runs_13_20/shots/30_Hilton_Los_Angeles_Airport_Hotel.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/871463?sort=PRICE_LOWEST_FIRST&tripId=5a50eeb4-051a-4e99-a9bc-104b389a13ae&checkIn=2026-11-13&checkOut=2026-11-17&destIds=28179&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "32": {
+  "shown_total": 14850.0,
+  "flight_delta_shown": 1747.0,
+  "screenshot": "runs_13_20/shots/32_Intercontinental_Los_Angeles_Downtown.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/7939094?sort=PRICE_LOWEST_FIRST&tripId=df9707a8-1ba3-4256-8781-a57b350c0539&checkIn=2026-11-13&checkOut=2026-11-17&destIds=28179&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "34": {
+  "shown_total": 5344.0,
+  "flight_delta_shown": 61.0,
+  "screenshot": "runs_13_20/shots/34_Movenpick_Hotel_Residences_Hajar_Tower_M.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1750320?sort=PRICE_LOWEST_FIRST&tripId=a9bdd293-fd29-45ed-b842-e1ba907e39be&checkIn=2026-11-13&checkOut=2026-11-17&destIds=531&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ }
+}

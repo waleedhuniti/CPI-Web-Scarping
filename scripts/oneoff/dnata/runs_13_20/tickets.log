@@ -1,0 +1,162 @@
+DEL 2026-11-14 3146.0 3146.0 | 2026-11-21 1221.0 1221.0  
+RUH 2026-11-13 2745.0 2745.0 | 2026-11-20 2807.0 2807.0  
+KHI 2026-11-13 500.0 500.0 | 2026-11-20 610.0 610.0  
+CMB 2026-11-13 695.0 969.0 | 2026-11-20 795.0 795.0  
+IST 2026-11-13 825.0 825.0 | 2026-11-20 810.0 810.0  
+ALY 2026-11-13 670.0 670.0 | 2026-11-20 680.0 680.0  
+AMM 2026-11-13 460.0 460.0 | 2026-11-20 645.0 645.0  
+FZ_DONE
+Traceback (most recent call last):
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_saudia.py", line 93, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 196, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 726, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_saudia.py", line 82, in main
+    b = await search(pg, out, back)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_saudia.py", line 44, in search
+    await pg.wait_for_timeout(2000); await pg.locator(f'mat-option:has-text("{AP}")').first.click(); await pg.wait_for_timeout(2500)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/async_api/_generated.py", line 17714, in click
+    await self._impl_obj.click(
+    ...<11 lines>...
+    )
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_locator.py", line 138, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_frame.py", line 571, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 565, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+patchright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("mat-option:has-text(\"RUH\")").first
+
+SV_DONE
+replay headers: ['accept', 'ama-client-facts', 'ama-client-ref', 'authorization', 'content-type', 'x-d-token', 'x-incap-spa-info', 'x-spa']
+{
+ "CAI": {
+  "out": {
+   "date": "2026-11-13",
+   "shifted_days": 0,
+   "currency": "AED",
+   "lowest": 835.0,
+   "highest": 905.0,
+   "flights": [
+    {
+     "flight": "MS 911",
+     "dep": "2026-11-13T05:00",
+     "from": 875.0
+    },
+    {
+     "flight": "MS 902",
+     "dep": "2026-11-13T10:40",
+     "from": 835.0
+    },
+    {
+     "flight": "MS 913",
+     "dep": "2026-11-13T16:20",
+     "from": 905.0
+    },
+    {
+     "flight": "MS 906",
+     "dep": "2026-11-13T20:00",
+     "from": 895.0
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-11-20",
+   "shifted_days": 0,
+   "currency": "AED",
+   "lowest": 825.0,
+   "highest": 885.0,
+   "flights": [
+    {
+     "flight": "MS 901",
+     "dep": "2026-11-20T04:05",
+     "from": 825.0
+    },
+    {
+     "flight": "MS 912",
+     "dep": "2026-11-20T09:35",
+     "from": 835.0
+    },
+    {
+     "flight": "MS 905",
+     "dep": "2026-11-20T13:35",
+     "from": 885.0
+    },
+    {
+     "flight": "MS 910",
+     "dep": "2026-11-20T22:10",
+     "from": 865.0
+    }
+   ]
+  },
+  "source": "egyptair.com (UAE point of sale), searched 2026-11-05"
+ }
+}
+MS_DONE
+Traceback (most recent call last):
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_rj.py", line 75, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 196, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 726, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_rj.py", line 62, in main
+    legs = await search(ctx, o0, b0 + dt.timedelta(shift))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/CPI-Web-Scarping/scripts/oneoff/dnata/air_rj.py", line 31, in search
+    await pg.locator(".bw-submit-btn:visible").first.click()
+  File "/usr/local/lib/python3.13/dist-packages/patchright/async_api/_generated.py", line 17714, in click
+    await self._impl_obj.click(
+    ...<11 lines>...
+    )
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_locator.py", line 138, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_frame.py", line 571, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/patchright/_impl/_connection.py", line 565, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+patchright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".bw-submit-btn:visible").first
+
+RJ_DONE
+[2026-11-05 02:51:12] INFO: The turnstile version discovered is "interactive"
+[2026-11-05 02:51:24] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 02:51:24] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 02:51:24] INFO: The turnstile version discovered is "interactive"
+Terminated
+PK_DONE
+{"url": "https://www.britishairways.com/nx/b/airselect/en/are/book/search/?trip=return&departureDate=2026-11-13&returnDate=2026-11-20&from=DXB&to=LHR&travelClass=economy&adults=1&youngAdults=0&children=0&infants=0", "currency": "AED", "out_calendar": {"2026-11-10": 1225, "2026-11-11": 1225, "2026-11-12": 1225, "2026-11-13": 1325, "2026-11-14": 1325, "2026-11-15": 1645, "2026-11-16": 1225}, "out": {"date": "2026-11-13", "shifted_days": 0, "lowest": 1325.0, "highest": null, "flights": [], "source": "fare calendar (lowest fare of the day)"}, "back": null, "back_note": "return-leg prices load only after an outbound flight is selected; not reached"}
+BA_DONE

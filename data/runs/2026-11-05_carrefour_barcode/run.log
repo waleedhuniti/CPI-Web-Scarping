@@ -807,3 +807,367 @@ written data/runs/2026-11-05_carrefour_barcode/carrefour_matched.csv
 [2026-11-05 04:48:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Modern+Bakery+Lebanese+bread> (referer: https://www.google.com/)
 [19/177] 1110000120123 565 غ: not found
 [2026-11-05 04:48:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Modern+Bakery+Brown+Arabic+Bread> (referer: https://www.google.com/)
+[2026-11-05 04:48:39] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Modern+Bakery+Arabic+bread+brown+large> (referer: https://www.google.com/)
+[20/177] 1110000120000 565 غ: not found
+[2026-11-05 04:48:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Yaumi+White+Bread> (referer: https://www.google.com/)
+[2026-11-05 04:48:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Yaumi+sliced+bread> (referer: https://www.google.com/)
+[21/177] 6291106450002 600 غ: not found
+[2026-11-05 04:48:57] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Yaumi+Whole+Wheat+Bread> (referer: https://www.google.com/)
+[2026-11-05 04:49:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Yaumi+brown+bread> (referer: https://www.google.com/)
+[22/177] 6291106450019 600 غ: not found
+[2026-11-05 04:49:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Lusine+Vanilla+Cupcake> (referer: https://www.google.com/)
+[2026-11-05 04:49:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=L%27usine+cupcakes+vanilla> (referer: https://www.google.com/)
+[23/177] 6281007044080 30gx18: not found
+[2026-11-05 04:49:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Barni+chocolate+cake> (referer: https://www.google.com/)
+[24/177] 7622300661106 30 غ: FOUND Barni Chocolate Hazelnut Cake Biscuits, 30g AED 2.19
+[2026-11-05 04:49:29] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Oreo+Original+Biscuits> (referer: https://www.google.com/)
+[2026-11-05 04:49:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Oreo+vanilla+cream+cookies> (referer: https://www.google.com/)
+[25/177] 7622210642301 38 غ: not found
+[2026-11-05 04:49:39] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Modern+Bakery+Kaak+Sticks> (referer: https://www.google.com/)
+[2026-11-05 04:49:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Modern+Bakery+bread+sticks+plain> (referer: https://www.google.com/)
+[26/177] 1110000870011 250 غ: not found
+[2026-11-05 04:49:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Golden+Loaf+Sesame+Kaak+Sticks> (referer: https://www.google.com/)
+[2026-11-05 04:49:55] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Golden+Loaf+bread+sticks+sesame> (referer: https://www.google.com/)
+[27/177] 6291062101444 500 غ: not found
+[2026-11-05 04:50:02] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Lusine+cheese+pie> (referer: https://www.google.com/)
+[2026-11-05 04:50:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=L%27usine+cheese+pastry> (referer: https://www.google.com/)
+[28/177] 6281100084013 حبة: not found
+[2026-11-05 04:50:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Weetabix+cereal> (referer: https://www.google.com/)
+[2026-11-05 04:50:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Weetabix+original+wholegrain> (referer: https://www.google.com/)
+[29/177] 5010029000023 430 غ: not found
+[2026-11-05 04:50:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kellogg%27s+Coco+Pops> (referer: https://www.google.com/)
+[2026-11-05 04:50:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kelloggs+Coco+Pops+cereal> (referer: https://www.google.com/)
+[30/177] 4003994150245 375 غ: not found
+[2026-11-05 04:50:38] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+vermicelli> (referer: https://www.google.com/)
+[2026-11-05 04:50:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+cut+vermicelli> (referer: https://www.google.com/)
+[31/177] 617950300557 450 غ: not found
+[2026-11-05 04:50:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Khaleejia+vermicelli> (referer: https://www.google.com/)
+[32/177] 6291013000024 400 غ: FOUND Al Khaleejia Vermicelli 400g, Pack of 3 AED 6.99
+[2026-11-05 04:50:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Panzani+vermicelli> (referer: https://www.google.com/)
+[2026-11-05 04:51:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Panzani+macaroni+vermicelli> (referer: https://www.google.com/)
+[33/177] 3038351161306 500 غ: not found
+[2026-11-05 04:51:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+macaroni+elbows> (referer: https://www.google.com/)
+[2026-11-05 04:51:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+elbow+pasta> (referer: https://www.google.com/)
+[34/177] 617950300014 450 غ: not found
+[2026-11-05 04:51:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Khaleejia+macaroni+pipe+cut> (referer: https://www.google.com/)
+[2026-11-05 04:51:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Khaleejia+macaroni> (referer: https://www.google.com/)
+[35/177] 6291013400091 400 غ: not found
+[2026-11-05 04:51:29] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+spaghetti> (referer: https://www.google.com/)
+[2026-11-05 04:51:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+spaghetti+no+7> (referer: https://www.google.com/)
+[36/177] 617950300236 400 غ: not found
+[2026-11-05 04:51:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Khaleejia+spaghetti> (referer: https://www.google.com/)
+[2026-11-05 04:51:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Khaleejia+spaghetti+pasta> (referer: https://www.google.com/)
+[37/177] 6291013000109 400 غ: not found
+[2026-11-05 04:51:53] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Switz+puff+pastry+squares> (referer: https://www.google.com/)
+[2026-11-05 04:51:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Switz+puff+pastry> (referer: https://www.google.com/)
+[38/177] 9501100600967 400g: not found
+[2026-11-05 04:52:04] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Karamah+puff+pastry> (referer: https://www.google.com/)
+[2026-11-05 04:52:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=puff+pastry+sheets+frozen> (referer: https://www.google.com/)
+[39/177] 732542000254 400g: not found
+[2026-11-05 04:52:16] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Sunbulah+samosa+pastry> (referer: https://www.google.com/)
+[2026-11-05 04:52:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Sunbulah+samosa+sheets> (referer: https://www.google.com/)
+[40/177] 6281073110429 500 غ: not found
+[2026-11-05 04:52:28] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Alwan+Dubai+popcorn> (referer: https://www.google.com/)
+[2026-11-05 04:52:35] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=popcorn+kernels> (referer: https://www.google.com/)
+[41/177] 6291104690462 1 kg: not found
+[2026-11-05 04:52:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+whole+kernel+corn> (referer: https://www.google.com/)
+[2026-11-05 04:52:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+sweet+corn> (referer: https://www.google.com/)
+[42/177] 617950701460 425g: not found
+[2026-11-05 04:52:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Jolly+Time+popcorn+kernels> (referer: https://www.google.com/)
+[2026-11-05 04:52:57] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Jolly+Time+America%27s+Best+popcorn> (referer: https://www.google.com/)
+[43/177] 028190063070 30oz: not found
+[2026-11-05 04:53:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+microwave+popcorn+natural> (referer: https://www.google.com/)
+[2026-11-05 04:53:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+popcorn> (referer: https://www.google.com/)
+[44/177] 017273550309 273 g: not found
+[2026-11-05 04:53:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Liwa+Gate+popcorn> (referer: https://www.google.com/)
+[2026-11-05 04:53:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=popcorn+kernels> (referer: https://www.google.com/)
+[45/177] 0682858101919 500 غ: not found
+[2026-11-05 04:53:24] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Kabeer+buffalo+meat+boneless> (referer: https://www.google.com/)
+[2026-11-05 04:53:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Kabeer+frozen+beef+boneless> (referer: https://www.google.com/)
+[46/177] 5033712115019 903غ: not found
+[2026-11-05 04:53:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Alyoum+fresh+whole+chicken> (referer: https://www.google.com/)
+[2026-11-05 04:53:42] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Youm+premium+fresh+chicken> (referer: https://www.google.com/)
+[47/177] 6281101340699 1200 غ: not found
+[2026-11-05 04:53:50] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Sadia+chicken+griller> (referer: https://www.google.com/)
+[2026-11-05 04:53:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Sadia+frozen+whole+chicken> (referer: https://www.google.com/)
+[48/177] 7893000557949 1 كغ: not found
+[2026-11-05 04:54:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Seara+frozen+chicken+griller> (referer: https://www.google.com/)
+[2026-11-05 04:54:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Seara+whole+chicken> (referer: https://www.google.com/)
+[49/177] 7894904052677 1100 غ: not found
+[2026-11-05 04:54:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Ajban+fresh+chicken+livers> (referer: https://www.google.com/)
+[2026-11-05 04:54:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Ajban+chicken+liver> (referer: https://www.google.com/)
+[50/177] 6297000102344 500غ: not found
+[2026-11-05 04:54:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Sadia+chicken+livers> (referer: https://www.google.com/)
+[2026-11-05 04:54:29] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Sadia+frozen+chicken+liver> (referer: https://www.google.com/)
+[51/177] 7893000463615 450غ: not found
+[2026-11-05 04:54:35] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Islami+chicken+burger> (referer: https://www.google.com/)
+[2026-11-05 04:54:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Islami+24+chicken+burger> (referer: https://www.google.com/)
+[52/177] 6291002100612 1200غ: not found
+[2026-11-05 04:54:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Islami+beef+burger> (referer: https://www.google.com/)
+[2026-11-05 04:54:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Islami+24+beef+burger> (referer: https://www.google.com/)
+[53/177] 6291002100520 1200غ: not found
+[2026-11-05 04:54:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bordon+corned+beef> (referer: https://www.google.com/)
+[2026-11-05 04:55:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=corned+beef> (referer: https://www.google.com/)
+[54/177] 019766300217 340غ: FOUND Bordon Corned Beef Loaf, 340g AED 12.29
+[2026-11-05 04:55:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Islami+squid+rings> (referer: https://www.google.com/)
+[2026-11-05 04:55:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Islami+frozen+squid> (referer: https://www.google.com/)
+[55/177] 6291002705923 500 غ: not found
+[2026-11-05 04:55:22] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+light+tuna+in+water> (referer: https://www.google.com/)
+[56/177] 0032894030955 185 غ: FOUND California Garden Light Chunk Tuna in Water and Salt, 185g AED 10.79
+[2026-11-05 04:55:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+sardines+sunflower+oil> (referer: https://www.google.com/)
+[2026-11-05 04:55:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+sardines> (referer: https://www.google.com/)
+[57/177] 617950145387 100غ: not found
+[2026-11-05 04:55:38] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=555+sardines+natural+oil> (referer: https://www.google.com/)
+[58/177] 748485200033 155 غ: FOUND 555 Spanish Sardines in Oil, 155g AED 4.19
+[2026-11-05 04:55:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Meliha+organic+full+fat+milk> (referer: https://www.google.com/)
+[59/177] 0745604632119 2 لتر: FOUND Meliha Fresh Organic Full Fat Milk, 2L AED 18.79
+[2026-11-05 04:55:50] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Safi+long+life+milk+full+fat> (referer: https://www.google.com/)
+[2026-11-05 04:55:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Safi+Danone+UHT+milk> (referer: https://www.google.com/)
+[60/177] 6281022180336 1*4لتر: not found
+[2026-11-05 04:55:59] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+long+life+milk+full+fat> (referer: https://www.google.com/)
+[2026-11-05 04:56:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+UHT+full+fat+milk> (referer: https://www.google.com/)
+[61/177] 6281007032391 4*1لتر: not found
+[2026-11-05 04:56:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+evaporated+milk> (referer: https://www.google.com/)
+[2026-11-05 04:56:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+evaporated+milk+full+fat> (referer: https://www.google.com/)
+[62/177] 6281007035187 170غ: not found
+[2026-11-05 04:56:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Luna+evaporated+milk> (referer: https://www.google.com/)
+[63/177] 6281020297036 170غ: FOUND Luna Full Cream Evaporated Milk 170g AED 2.99
+[2026-11-05 04:56:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Rainbow+full+cream+milk+powder> (referer: https://www.google.com/)
+[2026-11-05 04:56:35] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Rainbow+milk+powder> (referer: https://www.google.com/)
+[64/177] 8716200123419 400 غ: not found
+[2026-11-05 04:56:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+cream+vegetable+oil> (referer: https://www.google.com/)
+[2026-11-05 04:56:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+cream> (referer: https://www.google.com/)
+[65/177] 6281007042802 170 غ: not found
+[2026-11-05 04:56:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kraft+cheddar+cheese+spread> (referer: https://www.google.com/)
+[66/177] 6084012090222 480 غ: FOUND Kraft Cheddar Cheese Spread Jar, 480g AED 21.99
+[2026-11-05 04:56:55] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+mozzarella+cheese> (referer: https://www.google.com/)
+[2026-11-05 04:57:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+shredded+mozzarella> (referer: https://www.google.com/)
+[67/177] 6281007173605 200غ: not found
+[2026-11-05 04:57:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Milco+full+cream+yoghurt> (referer: https://www.google.com/)
+[2026-11-05 04:57:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Milco+fresh+yoghurt> (referer: https://www.google.com/)
+[68/177] 6291021111019 170 غ: not found
+[2026-11-05 04:57:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Rawabi+full+cream+laban> (referer: https://www.google.com/)
+[2026-11-05 04:57:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Rawabi+fresh+laban> (referer: https://www.google.com/)
+[69/177] 6291030300039 ا لتر: not found
+[2026-11-05 04:57:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Milco+labneh> (referer: https://www.google.com/)
+[2026-11-05 04:57:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Milco+fresh+labneh> (referer: https://www.google.com/)
+[70/177] 6291021113044 450غ: not found
+[2026-11-05 04:57:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Jenan+organic+free+range+eggs> (referer: https://www.google.com/)
+[2026-11-05 04:57:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Jenan+organic+eggs> (referer: https://www.google.com/)
+[71/177] 6290410013668 عدد 6: not found
+[2026-11-05 04:57:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Wazir+olive+oil> (referer: https://www.google.com/)
+[2026-11-05 04:57:58] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Wazir+olive+pomace+oil> (referer: https://www.google.com/)
+[72/177] 8428483200168 500غ: not found
+[2026-11-05 04:58:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Rahma+olive+pomace+oil> (referer: https://www.google.com/)
+[2026-11-05 04:58:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Rahma+olive+oil> (referer: https://www.google.com/)
+[73/177] 6291003056338 500غ: not found
+[2026-11-05 04:58:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Mazola+corn+oil> (referer: https://www.google.com/)
+[2026-11-05 04:58:20] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Mazola+pure+corn+oil> (referer: https://www.google.com/)
+[74/177] 6281003101305 1.8لتر: not found
+[2026-11-05 04:58:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Coroli+corn+oil> (referer: https://www.google.com/)
+[2026-11-05 04:58:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Coroli+pure+corn+oil> (referer: https://www.google.com/)
+[75/177] 6291059028051 1.8 لتر: not found
+[2026-11-05 04:58:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Alokozay+pure+sunflower+oil> (referer: https://www.google.com/)
+[2026-11-05 04:58:42] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Alokozay+sunflower+oil> (referer: https://www.google.com/)
+[76/177] 6291101138820 1.5 لتر: not found
+[2026-11-05 04:58:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Sunflow+sunflower+oil> (referer: https://www.google.com/)
+[77/177] 6291003304835 1.5 لتر: FOUND Carrefour Double Refined Sunflower Oil 1.5L AED 21.29
+[2026-11-05 04:58:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=CBC+coconut+oil> (referer: https://www.google.com/)
+[2026-11-05 04:58:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=coconut+oil> (referer: https://www.google.com/)
+[78/177] 8888011050052 680 g: not found
+[2026-11-05 04:59:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Parachute+coconut+oil> (referer: https://www.google.com/)
+[2026-11-05 04:59:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Parachute+pure+coconut+oil> (referer: https://www.google.com/)
+[79/177] 8901088200721 450 مل: not found
+[2026-11-05 04:59:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+spreadable+butter> (referer: https://www.google.com/)
+[2026-11-05 04:59:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Almarai+butter+spreadable> (referer: https://www.google.com/)
+[80/177] 6281007036429 250 غ: not found
+[2026-11-05 04:59:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kerrygold+pure+Irish+butter> (referer: https://www.google.com/)
+[2026-11-05 04:59:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kerrygold+butter> (referer: https://www.google.com/)
+[81/177] 5011038134747 200 غ: not found
+[2026-11-05 04:59:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Amul+pasteurised+butter> (referer: https://www.google.com/)
+[2026-11-05 04:59:50] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Amul+butter+salted> (referer: https://www.google.com/)
+[82/177] 8901262010016 100 غ: not found
+[2026-11-05 04:59:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Aseel+pure+butter+ghee> (referer: https://www.google.com/)
+[2026-11-05 05:00:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Aseel+butter+ghee> (referer: https://www.google.com/)
+[83/177] 6291113102482 1.6لتر: not found
+[2026-11-05 05:00:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Nawar+spreadable+margarine> (referer: https://www.google.com/)
+[2026-11-05 05:00:16] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Nawar+sunflower+margarine> (referer: https://www.google.com/)
+[84/177] 6291113105384 250 gm: not found
+[2026-11-05 05:00:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Dalda+vegetable+ghee> (referer: https://www.google.com/)
+[2026-11-05 05:00:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Dalda+vanaspati> (referer: https://www.google.com/)
+[85/177] 8901030000836 2000 غ: not found
+[2026-11-05 05:00:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hayat+vegetable+ghee> (referer: https://www.google.com/)
+[2026-11-05 05:00:42] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hayat+pure+vegetable+ghee> (referer: https://www.google.com/)
+[86/177] 6291003054310 2.5كغ: not found
+[2026-11-05 05:00:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Aseel+vegetable+ghee> (referer: https://www.google.com/)
+[2026-11-05 05:00:55] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Aseel+pure+vegetable+ghee> (referer: https://www.google.com/)
+[87/177] 6291113003659 1 لتر: not found
+[2026-11-05 05:01:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+roasted+almonds> (referer: https://www.google.com/)
+[2026-11-05 05:01:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+almonds> (referer: https://www.google.com/)
+[88/177] 3434410003769 1 كغ: not found
+[2026-11-05 05:01:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+pistachio+kernels+jumbo> (referer: https://www.google.com/)
+[2026-11-05 05:01:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+pistachio+kernels> (referer: https://www.google.com/)
+[89/177] 3434410057069 400جم: not found
+[2026-11-05 05:01:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+cashew+kernels> (referer: https://www.google.com/)
+[2026-11-05 05:01:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+cashew> (referer: https://www.google.com/)
+[90/177] 3434410005299 400 غ: FOUND Bayara Jumbo Cashew Kernels 400g AED 36.99
+[2026-11-05 05:01:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Castania+peanuts> (referer: https://www.google.com/)
+[2026-11-05 05:01:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Castania+fried+peanuts> (referer: https://www.google.com/)
+[91/177] 5281009118261 60 غ: not found
+[2026-11-05 05:01:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Rifai+seeds> (referer: https://www.google.com/)
+[2026-11-05 05:01:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Rifai+sunflower+seeds> (referer: https://www.google.com/)
+[92/177] 6271100041536 180 غ: not found
+[2026-11-05 05:02:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+pine+nuts> (referer: https://www.google.com/)
+[2026-11-05 05:02:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+pine+seeds> (referer: https://www.google.com/)
+[93/177] 3434410057489 100 غ: not found
+[2026-11-05 05:02:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+pineapple> (referer: https://www.google.com/)
+[2026-11-05 05:02:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+pineapple+slices> (referer: https://www.google.com/)
+[94/177] 617950803560 567غ: not found
+[2026-11-05 05:02:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Libby%27s+pineapple> (referer: https://www.google.com/)
+[2026-11-05 05:02:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Libby%27s+pineapple+slices> (referer: https://www.google.com/)
+[95/177] 7612500001246 570غ: not found
+[2026-11-05 05:02:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Libby%27s+fruit+cocktail> (referer: https://www.google.com/)
+[2026-11-05 05:02:47] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Libby%27s+mixed+fruit> (referer: https://www.google.com/)
+[96/177] 039000011082 420غ: not found
+[2026-11-05 05:02:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+fruit+cocktail> (referer: https://www.google.com/)
+[2026-11-05 05:02:58] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+mixed+fruit> (referer: https://www.google.com/)
+[97/177] 032894015259 415 غ: not found
+[2026-11-05 05:03:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+peach+halves> (referer: https://www.google.com/)
+[2026-11-05 05:03:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+peaches> (referer: https://www.google.com/)
+[98/177] 0032894015280 415 غ: not found
+[2026-11-05 05:03:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Shan+black+eye+beans> (referer: https://www.google.com/)
+[2026-11-05 05:03:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=black+eye+beans+lobia> (referer: https://www.google.com/)
+[99/177] 0788821005984 1kg: not found
+[2026-11-05 05:03:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Mona+black+eye+beans> (referer: https://www.google.com/)
+[2026-11-05 05:03:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=black+eye+beans> (referer: https://www.google.com/)
+[100/177] 6291104690325 1kg: not found
+[2026-11-05 05:03:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+red+kidney+beans> (referer: https://www.google.com/)
+[101/177] 0032894010278 400 غ: FOUND California Garden Dark Red Kidney Beans, 400g AED 5.19
+[2026-11-05 05:03:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+red+kidney+beans> (referer: https://www.google.com/)
+[2026-11-05 05:03:50] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+dark+red+kidney+beans> (referer: https://www.google.com/)
+[102/177] 5203912821007 420 غ: not found
+[2026-11-05 05:03:55] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+Red+Kidney+Beans> (referer: https://www.google.com/)
+[2026-11-05 05:04:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bayara+rajma> (referer: https://www.google.com/)
+[103/177] 2961570551249 400 غ: not found
+[2026-11-05 05:04:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Emborg+green+peas> (referer: https://www.google.com/)
+[2026-11-05 05:04:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Emborg+frozen+peas> (referer: https://www.google.com/)
+[104/177] 5701215058538 900 غ: not found
+[2026-11-05 05:04:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+frozen+peas> (referer: https://www.google.com/)
+[105/177] 5203912721109 900 غ: FOUND Green Giant Frozen Garden Peas 900g AED 19.79
+[2026-11-05 05:04:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+frozen+green+beans> (referer: https://www.google.com/)
+[2026-11-05 05:04:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+cut+green+beans> (referer: https://www.google.com/)
+[106/177] 5203912390800 900 غ: not found
+[2026-11-05 05:04:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+Frozen+Whole+Spinach> (referer: https://www.google.com/)
+[2026-11-05 05:04:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+leaf+spinach> (referer: https://www.google.com/)
+[107/177] 5203912725008 450 غ: not found
+[2026-11-05 05:04:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Basma+frozen+spinach> (referer: https://www.google.com/)
+[2026-11-05 05:04:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Basma+spinach> (referer: https://www.google.com/)
+[108/177] 6223000370353 400 غ: not found
+[2026-11-05 05:04:57] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+Broccoli+Florets> (referer: https://www.google.com/)
+[2026-11-05 05:05:02] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+frozen+broccoli> (referer: https://www.google.com/)
+[109/177] 5203912790198 450 غ: not found
+[2026-11-05 05:05:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Emborg+broccoli+florets> (referer: https://www.google.com/)
+[2026-11-05 05:05:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Emborg+frozen+broccoli> (referer: https://www.google.com/)
+[110/177] 5701215058453 450 غ: not found
+[2026-11-05 05:05:20] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+frozen+sweet+corn> (referer: https://www.google.com/)
+[2026-11-05 05:05:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Green+Giant+corn+kernels> (referer: https://www.google.com/)
+[111/177] 020000172590 453 غ: not found
+[2026-11-05 05:05:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Americana+sweet+corn> (referer: https://www.google.com/)
+[2026-11-05 05:05:35] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Americana+frozen+corn> (referer: https://www.google.com/)
+[112/177] 6281050520081 450 غ: not found
+[2026-11-05 05:05:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Maling+Tomato+Paste> (referer: https://www.google.com/)
+[2026-11-05 05:05:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Maling+tomato+paste+tin> (referer: https://www.google.com/)
+[113/177] 6901009041015 198 غ: not found
+[2026-11-05 05:05:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+fava+beans> (referer: https://www.google.com/)
+[114/177] 032894010308 450 غ: FOUND California Garden Premium Plain Medammes Fava Beans, 450g AED 4.69
+[2026-11-05 05:05:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+fava+beans+Egyptian+recipe> (referer: https://www.google.com/)
+[115/177] 0032894016560 450 غ: FOUND California Garden Peeled Fava Bean Egyptian Recipe with Cumi AED 6.49
+[2026-11-05 05:06:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+whole+mushrooms> (referer: https://www.google.com/)
+[116/177] 032894010445 425 غ: FOUND California Garden Whole Mushrooms, 425g AED 8.59
+[2026-11-05 05:06:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Libby+whole+mushrooms> (referer: https://www.google.com/)
+[2026-11-05 05:06:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=canned+whole+mushrooms> (referer: https://www.google.com/)
+[117/177] 788930061697 400 غ: not found
+[2026-11-05 05:06:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+Whole+Mushrooms> (referer: https://www.google.com/)
+[118/177] 617950701378 400 غ: FOUND Al Alali Whole Mushroom, 400g AED 7.79
+[2026-11-05 05:06:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+grape+leaves> (referer: https://www.google.com/)
+[119/177] 032894011077 908 غ: FOUND California Garden Premium Grape Leaves, 908g AED 22.29
+[2026-11-05 05:06:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Mara+green+peas> (referer: https://www.google.com/)
+[2026-11-05 05:06:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=canned+green+peas> (referer: https://www.google.com/)
+[120/177] 8000066447353 400 غ: not found
+[2026-11-05 05:06:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Del+Monte+Golden+Sweet+Corn> (referer: https://www.google.com/)
+[2026-11-05 05:06:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Del+Monte+sweet+corn+in+brine> (referer: https://www.google.com/)
+[121/177] 024000104582 410 غ: not found
+[2026-11-05 05:07:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+white+beans+tomato+sauce> (referer: https://www.google.com/)
+[2026-11-05 05:07:06] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+baked+beans> (referer: https://www.google.com/)
+[122/177] 032894010339 420 غ: FOUND California Garden Baked Beans In Tomato Sauce, 420g AED 7.39
+[2026-11-05 05:07:12] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Luna+white+beans> (referer: https://www.google.com/)
+[2026-11-05 05:07:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Luna+beans> (referer: https://www.google.com/)
+[123/177] 6281020010512 400 غ: not found
+[2026-11-05 05:07:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=California+Garden+chickpeas> (referer: https://www.google.com/)
+[124/177] 032894010247 400غ: FOUND California Garden Ready To Eat Chickpeas, 400g AED 4.49
+[2026-11-05 05:07:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Del+Monte+Chick+Peas> (referer: https://www.google.com/)
+[2026-11-05 05:07:33] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Del+Monte+chickpeas> (referer: https://www.google.com/)
+[125/177] 024000102328 400غ: not found
+[2026-11-05 05:07:38] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=McCain+Tradition+Straight+Cut> (referer: https://www.google.com/)
+[2026-11-05 05:07:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=McCain+Tradition+fries> (referer: https://www.google.com/)
+[126/177] 8710438040241 1.5 كغ: not found
+[2026-11-05 05:07:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=McCain+Thin+Cut+fries> (referer: https://www.google.com/)
+[127/177] 8710438047349 2.5كغ: FOUND McCain Thin Cut Fries, 2.5kg AED 18.99
+[2026-11-05 05:07:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Kabeer+French+Fries> (referer: https://www.google.com/)
+[2026-11-05 05:08:00] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Kabeer+frozen+fries> (referer: https://www.google.com/)
+[128/177] 5033712150164 2.5 كغ: not found
+[2026-11-05 05:08:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Lay%27s+Salted+potato+chips> (referer: https://www.google.com/)
+[2026-11-05 05:08:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Lays+classic+salted+chips> (referer: https://www.google.com/)
+[129/177] 6281036108005 170جم: not found
+[2026-11-05 05:08:16] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cordoba+green+olives> (referer: https://www.google.com/)
+[2026-11-05 05:08:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=green+olives+jar> (referer: https://www.google.com/)
+[130/177] 8411342006018 285 غ: not found
+[2026-11-05 05:08:29] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cordoba+black+olives> (referer: https://www.google.com/)
+[2026-11-05 05:08:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=black+olives+jar> (referer: https://www.google.com/)
+[131/177] 8411342006049 285 غ: not found
+[2026-11-05 05:08:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=SIS+sugar+cubes> (referer: https://www.google.com/)
+[2026-11-05 05:08:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=SIS+white+sugar+cubes> (referer: https://www.google.com/)
+[132/177] 8888167217989 454 غ: not found
+[2026-11-05 05:08:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Goody+date+spread> (referer: https://www.google.com/)
+[2026-11-05 05:08:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=date+spread> (referer: https://www.google.com/)
+[133/177] 6281014302388 400 غ: not found
+[2026-11-05 05:09:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Jomara+Date+Syrup> (referer: https://www.google.com/)
+[2026-11-05 05:09:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Jomara+dates+syrup+topping> (referer: https://www.google.com/)
+[134/177] 6281101691111 400 غ: not found
+[2026-11-05 05:09:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=samar+honey> (referer: https://www.google.com/)
+[2026-11-05 05:09:17] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=yemeni+samar+honey> (referer: https://www.google.com/)
+[135/177] 6679589261399 1 كغ: not found
+[2026-11-05 05:09:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hero+honey> (referer: https://www.google.com/)
+[2026-11-05 05:09:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hero+natural+honey> (referer: https://www.google.com/)
+[136/177] 6221024270208 365 غ: not found
+[2026-11-05 05:09:35] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=yemeni+sidr+honey> (referer: https://www.google.com/)
+[137/177] 0000006853914 1 كغ: FOUND Raw Yemeni Sidr Do'ani Honey 1Kg AED 635.0
+[2026-11-05 05:09:42] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hero+apricot+jam> (referer: https://www.google.com/)
+[2026-11-05 05:09:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hero+apricot+extra+jam> (referer: https://www.google.com/)
+[138/177] 6221024270024 350 غ: not found
+[2026-11-05 05:09:53] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Bassat+halawa+plain> (referer: https://www.google.com/)
+[2026-11-05 05:09:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=plain+halawa> (referer: https://www.google.com/)
+[139/177] 5285001020126 500 غ: not found
+[2026-11-05 05:10:03] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Nestle+KitKat+2+Finger> (referer: https://www.google.com/)
+[2026-11-05 05:10:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kit+Kat+2+finger+milk+chocolate> (referer: https://www.google.com/)
+[140/177] 6294003539153 17.5 غ: not found
+[2026-11-05 05:10:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cadbury+Dairy+Milk+Fruit+Nut> (referer: https://www.google.com/)
+[2026-11-05 05:10:22] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Dairy+Milk+Fruit+and+Nut+bar> (referer: https://www.google.com/)
+[141/177] 7622210432193 37 غ: not found
+[2026-11-05 05:10:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Snickers+chocolate+bar> (referer: https://www.google.com/)
+[2026-11-05 05:10:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Snickers+single+bar> (referer: https://www.google.com/)
+[142/177] 5000159461122 50 غ: not found
+[2026-11-05 05:10:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Chupa+Chups+Fruit+Lollipops> (referer: https://www.google.com/)
+[2026-11-05 05:10:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Chupa+Chups+lollipops+bag> (referer: https://www.google.com/)
+[143/177] 8410031996852 120غ: not found
+[2026-11-05 05:10:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cadbury+Cocoa+Powder> (referer: https://www.google.com/)
+[2026-11-05 05:10:56] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cadbury+Original+Chocolate+cocoa+powder> (referer: https://www.google.com/)
+[144/177] 5000312000694 125 غ: not found
+[2026-11-05 05:11:02] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hintz+Cocoa+Powder> (referer: https://www.google.com/)
+[2026-11-05 05:11:07] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Hintz+cocoa> (referer: https://www.google.com/)
+[145/177] 4104220122026 125 غ: not found
+[2026-11-05 05:11:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cadbury+drinking+hot+chocolate> (referer: https://www.google.com/)
+[2026-11-05 05:11:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cadbury+hot+chocolate+powder> (referer: https://www.google.com/)
+[146/177] 5000312000670 250غ: not found
+[2026-11-05 05:11:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Baskin+Robbins+vanilla+ice+cream> (referer: https://www.google.com/)
+[2026-11-05 05:11:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Baskin+Robbins+vanilla> (referer: https://www.google.com/)

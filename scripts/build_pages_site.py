@@ -8,7 +8,7 @@ closing prices. Nothing of the official CPI basket (item codes, groups, weights,
 catalogue.json is the panel's catalogue asset (scripts/catalogue_assets.py); the TrendX days dir holds one
 <date>.json per day as the Commodity Price Log stores them (data/portal/te/days). The commodity index is a chained
 Jevons index (geometric mean of the price relatives of the commodities quoted on both days, equal weights), first day = 100,
-over every commodity except the published indices.
+over every commodity except the published indices and electricity (90 series).
 """
 import glob
 import json
@@ -49,6 +49,9 @@ def day_rows(path):
     return d.get("run_date", Path(path).stem), rows
 
 
+EXCLUDED = ("Index", "Electricity")              # published indices, and electricity (left out of TrendX for now)
+
+
 def trendx(days_dir):
     days = dict(day_rows(f) for f in sorted(glob.glob(str(Path(days_dir) / "*.json"))))
     dates = sorted(days)
@@ -56,7 +59,7 @@ def trendx(days_dir):
     for day, rows in days.items():
         for r in rows:
             p = num(r.get("price"))
-            if p and p > 0 and r.get("category") != "Index":
+            if p and p > 0 and r.get("category") not in EXCLUDED:
                 price[(r["category"], r["commodity"])][day] = p
     cats = sorted({c for c, _ in price})
     series = {c: [] for c in ["all"] + cats}

@@ -1,0 +1,108 @@
+category,commodity,run_days,distinct_price_dates,distinct_prices,stale_runs,stale_gt3,max_lag_days,median_lag,first_price_date,last_price_date,unit,in_index
+Agricultural,Barley,31,17,17,31,5,5,2.0,2026-10-01,2026-10-29,INR/T,True
+Agricultural,Butter,31,20,5,31,1,4,1.0,2026-10-01,2026-10-30,EUR/T,True
+Agricultural,Canola,31,21,28,27,0,3,1.0,2026-10-02,2026-11-01,CAD/T,True
+Agricultural,Cheese,31,21,25,28,0,3,1.0,2026-10-02,2026-10-30,USD/Lbs,True
+Agricultural,Cocoa,31,20,26,30,0,3,1.0,2026-10-02,2026-10-30,USD/T,True
+Agricultural,Coffee,31,20,25,30,0,3,1.0,2026-10-02,2026-10-30,USd/Lbs,True
+Agricultural,Corn,31,23,24,27,0,3,1.0,2026-10-02,2026-11-01,USd/BU,True
+Agricultural,Cotton,31,20,26,27,0,3,1.0,2026-10-02,2026-10-30,USd/Lbs,True
+Agricultural,Lumber,31,20,21,30,0,3,1.0,2026-10-02,2026-10-30,USD/1000 board feet,True
+Agricultural,Milk,31,19,19,29,0,3,1.0,2026-10-02,2026-10-30,USD/CWT,True
+Agricultural,Oat,31,24,27,27,0,2,1.0,2026-10-02,2026-11-01,USd/Bu,True
+Agricultural,Orange Juice,31,21,24,30,0,3,1.0,2026-10-02,2026-11-01,USd/Lbs,True
+Agricultural,Palm Oil,31,20,20,30,0,3,1.0,2026-10-02,2026-10-30,MYR/T,True
+Agricultural,Rapeseed,31,20,23,30,0,3,1.0,2026-10-02,2026-10-30,EUR/T,True
+Agricultural,Rice,31,21,24,27,0,3,1.0,2026-10-02,2026-10-30,USD/cwt,True
+Agricultural,Rubber,31,20,19,30,0,3,1.0,2026-10-02,2026-10-30,USD Cents / Kg,True
+Agricultural,Soybeans,31,24,28,27,0,2,1.0,2026-10-02,2026-11-01,USd/Bu,True
+Agricultural,Sugar,31,21,23,30,0,3,1.0,2026-10-02,2026-11-01,USd/Lbs,True
+Agricultural,Sunflower Oil,31,18,18,31,4,4,2.0,2026-10-01,2026-10-29,INR/10 kg,True
+Agricultural,Tea,31,2,2,31,31,30,19.0,2026-09-19,2026-10-03,INR/Kgs,True
+Agricultural,Wheat,31,23,24,27,0,3,1.0,2026-10-02,2026-10-30,USd/Bu,True
+Agricultural,Wool,31,20,5,27,0,3,1.0,2026-10-02,2026-10-30,AUD/100Kg,True
+Electricity,France,31,20,20,31,1,4,1.0,2026-10-01,2026-10-29,EUR/MWh,False
+Electricity,Germany,31,20,20,31,1,4,1.0,2026-10-01,2026-10-29,EUR/MWh,False
+Electricity,Italy,31,20,20,27,0,3,1.0,2026-10-02,2026-10-30,EUR/MWh,False
+Electricity,Spain,31,20,20,27,0,3,1.0,2026-10-02,2026-10-30,EUR/MWh,False
+Electricity,United Kingdom,31,21,21,31,3,4,2.0,2026-10-01,2026-10-30,GBP/MWh,False
+Energy,Brent,31,24,30,27,0,2,1.0,2026-10-02,2026-11-01,USD/Bbl,True
+Energy,Coal,31,21,17,31,0,3,1.0,2026-10-01,2026-10-30,USD/T,True
+Energy,Coking Coal,31,18,8,31,3,4,2.0,2026-10-01,2026-10-30,USD/T,True
+Energy,Crude Oil,31,24,30,27,0,2,1.0,2026-10-02,2026-11-01,USD/Bbl,True
+Energy,EU Gas,31,20,26,27,0,3,1.0,2026-10-02,2026-10-30,EUR/MWh,True
+Energy,Ethanol,31,19,16,31,2,5,1.0,2026-10-01,2026-10-30,USD/Gal,True
+Energy,Gasoline,31,24,30,27,0,2,1.0,2026-10-02,2026-11-01,USD/Gal,True
+Energy,German Gas,31,20,21,30,0,3,1.0,2026-10-02,2026-10-30,EUR/MWh,True
+Energy,Heating Oil,31,24,29,27,0,2,1.0,2026-10-02,2026-11-01,USD/Gal,True
+Energy,LNG JKM,31,20,20,31,0,3,1.0,2026-10-01,2026-10-30,USD/MMBTU,True
+Energy,Methanol,31,18,17,31,4,8,1.0,2026-09-30,2026-10-30,CNY/T,True
+Energy,Naphtha,31,18,18,31,5,4,2.0,2026-10-01,2026-10-30,USD/T,True
+Energy,Natural gas,31,24,30,27,0,2,1.0,2026-10-02,2026-11-01,USD/MMBtu,True
+Energy,Propane,31,18,18,31,1,4,2.0,2026-10-01,2026-10-30,USD/Gal,True
+Energy,UK Gas,31,20,26,27,0,3,1.0,2026-10-02,2026-10-30,GBp/thm,True
+Energy,Urals Oil,31,21,21,31,7,4,2.0,2026-10-01,2026-10-29,USD/Bbl,True
+Energy,Uranium,31,21,14,31,2,4,2.0,2026-10-01,2026-10-30,USD/Lbs,True
+Index,CRB Index,31,22,22,31,3,4,2.0,2026-10-01,2026-10-30,Index Points,False
+Index,Commodity Index,31,21,22,28,0,3,1.0,2026-10-02,2026-10-30,Index Points,False
+Index,Containerized Freight Index,31,20,5,27,0,3,1.0,2026-10-02,2026-10-30,Points,False
+Index,EU Carbon Permits,31,21,27,28,0,3,1.0,2026-10-02,2026-10-30,EUR,False
+Index,Nuclear Energy Index,31,21,27,28,0,3,1.0,2026-10-02,2026-10-30,USD,False
+Index,SSE Commodity Index,31,18,19,30,3,6,1.0,2026-09-30,2026-10-30,Index Points,False
+Index,Solar Energy Index,31,20,22,30,0,3,1.0,2026-10-02,2026-10-30,USD,False
+Index,TE Crack Spread Index,31,20,22,27,0,3,1.0,2026-10-02,2026-10-30,Index Points,False
+Index,TE Grains Index,31,20,22,27,0,3,1.0,2026-10-02,2026-10-30,Index Points,False
+Index,TE Metals Index,31,20,22,27,0,3,1.0,2026-10-02,2026-10-30,Index Points,False
+Index,TE Soft Index,31,20,22,27,0,3,1.0,2026-10-02,2026-10-30,Index Points,False
+Index,Wind Energy Index,31,20,20,30,0,3,1.0,2026-10-02,2026-10-30,USD,False
+Industrial,Aluminum,31,20,21,30,0,3,1.0,2026-10-02,2026-10-30,USD/T,True
+Industrial,Bitumen,31,18,19,30,3,6,1.0,2026-09-30,2026-10-30,CNY/T,True
+Industrial,Cobalt,31,20,7,31,7,4,2.0,2026-10-01,2026-10-29,USD/T,True
+Industrial,Di-ammonium,31,18,3,31,2,4,2.0,2026-10-01,2026-10-30,USD/T,True
+Industrial,Gallium,31,18,2,30,3,6,1.0,2026-09-30,2026-10-30,CNY/Kg,True
+Industrial,Germanium,31,18,4,31,4,8,1.0,2026-09-30,2026-10-30,CNY/Kg,True
+Industrial,Indium,31,18,9,30,3,6,1.0,2026-09-30,2026-10-30,CNY/Kg,True
+Industrial,Kraft Pulp,31,18,18,31,4,8,1.0,2026-09-30,2026-10-30,CNY/T,True
+Industrial,Lead,31,20,22,27,0,3,1.0,2026-10-02,2026-10-30,USD/T,True
+Industrial,Magnesium,31,18,7,30,3,6,1.0,2026-09-30,2026-10-30,CNY/T,True
+Industrial,Manganese,31,18,2,31,4,8,1.0,2026-09-30,2026-10-30,CNY/mtu,True
+Industrial,Molybdenum,31,18,9,31,4,8,1.0,2026-09-30,2026-10-30,CNY/Kg,True
+Industrial,Neodymium,31,18,5,31,4,8,1.0,2026-09-30,2026-10-30,CNY/T,True
+Industrial,Nickel,31,20,20,27,0,3,1.0,2026-10-02,2026-10-30,USD/T,True
+Industrial,Palladium,31,24,29,27,0,2,1.0,2026-10-02,2026-11-01,USD/t.oz,True
+Industrial,Phosphorus,31,18,2,31,4,8,1.0,2026-09-30,2026-10-30,CNY/T,True
+Industrial,Polyethylene,31,19,16,29,0,3,1.0,2026-10-02,2026-10-30,CNY/T,True
+Industrial,Polypropylene,31,19,17,29,0,3,1.0,2026-10-02,2026-10-30,CNY/T,True
+Industrial,Polyvinyl,31,19,17,29,0,3,1.0,2026-10-02,2026-10-30,CNY/T,True
+Industrial,Rhodium,31,20,7,27,0,3,1.0,2026-10-02,2026-10-30,USD/t oz.,True
+Industrial,Soda Ash,31,20,2,30,0,3,1.0,2026-10-02,2026-10-30,CNY/T,True
+Industrial,Styrene,31,20,14,30,0,3,1.0,2026-10-02,2026-10-30,CNY/MT,True
+Industrial,Sulfur,31,20,15,30,0,3,1.0,2026-10-02,2026-10-30,CNY/T,True
+Industrial,Synthetic Rubber,31,20,16,30,0,3,1.0,2026-10-02,2026-10-30,CNY/T,True
+Industrial,Tellurium,31,18,1,31,4,8,1.0,2026-09-30,2026-10-30,CNY/Kg,True
+Industrial,Tin,31,20,22,31,9,4,2.0,2026-10-01,2026-10-29,USD/T,True
+Industrial,Urea,31,18,15,31,1,4,2.0,2026-10-01,2026-10-30,USD/T,True
+Industrial,Zinc,31,20,22,27,0,3,1.0,2026-10-02,2026-10-30,USD/T,True
+Livestock,Beef,31,19,17,31,1,4,1.0,2026-10-01,2026-10-30,BRL/15KG,True
+Livestock,Eggs CH,31,18,18,31,3,7,1.0,2026-10-01,2026-10-30,CNY/T,True
+Livestock,Eggs US,31,20,14,31,1,4,1.0,2026-10-01,2026-10-30,USD/Dozen,True
+Livestock,Feeder Cattle,31,20,24,30,0,3,1.0,2026-10-02,2026-10-30,USd/Lbs,True
+Livestock,Lean Hogs,31,20,22,30,0,3,1.0,2026-10-02,2026-10-30,USd/Lbs,True
+Livestock,Live Cattle,31,20,25,30,0,3,1.0,2026-10-02,2026-10-30,USd/Lbs,True
+Livestock,Poultry,31,19,11,31,1,4,1.0,2026-10-01,2026-10-30,BRL/Kgs,True
+Livestock,Salmon,31,5,5,31,31,12,9.0,2026-09-25,2026-10-23,NOK/KG,True
+Metals,Aluminum Alloy,31,18,19,30,3,6,1.0,2026-09-30,2026-10-30,CNY/T,True
+Metals,Cobalt Hydroxide,31,21,14,31,4,4,2.0,2026-10-01,2026-10-30,USD/MT,True
+Metals,Copper,31,24,30,27,0,2,1.0,2026-10-02,2026-11-01,USD/Lbs,True
+Metals,Gold,31,24,26,27,0,2,1.0,2026-10-02,2026-11-01,USD/t.oz,True
+Metals,HRC Steel,31,20,25,27,0,3,1.0,2026-10-02,2026-10-30,USD/T,True
+Metals,Iron Ore,31,21,18,31,0,3,1.0,2026-10-01,2026-10-30,USD/T,True
+Metals,Iron Ore CNY,31,18,14,30,3,6,1.0,2026-09-30,2026-10-30,CNY/T,True
+Metals,Lithium,31,18,17,31,4,8,1.0,2026-09-30,2026-10-30,CNY/T,True
+Metals,Platinum,31,20,26,27,0,3,1.0,2026-10-02,2026-10-30,USD/t.oz,True
+Metals,Scrap Aluminum,31,19,16,31,10,5,2.0,2026-10-01,2026-10-28,USD/T,True
+Metals,Scrap Steel,31,20,14,31,9,4,2.0,2026-10-01,2026-10-29,USD/T,True
+Metals,Silicon,31,18,17,30,3,6,1.0,2026-09-30,2026-10-30,CNY/T,True
+Metals,Silver,31,24,26,27,0,2,1.0,2026-10-02,2026-11-01,USD/t.oz,True
+Metals,Steel,31,18,17,30,3,6,1.0,2026-09-30,2026-10-30,CNY/T,True
+Metals,Titanium,31,18,3,31,4,8,1.0,2026-09-30,2026-10-30,CNY/KG,True

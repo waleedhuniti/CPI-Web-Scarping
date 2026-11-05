@@ -155,11 +155,13 @@ def packages(tpl, out):
         src = openpyxl.load_workbook(path)
         s = sheet(src, ref)
         ws.cell(1, PKG_COL[w]).value = title
-        by_name = {str(s.cell(r, 1).value).strip(): r for r in range(4, s.max_row + 1) if s.cell(r, 1).value}
+        # same template in every week: row r of the month sheet is row r of the week sheet (column A repeats the city for
+        # several hotels, so it cannot be the key); the hotel's English name in column A is checked when it is a hotel
         for r in rows:
-            rs = by_name.get(str(ws.cell(r, 1).value).strip())
-            if not rs:
-                continue
+            rs = r
+            a, b = str(ws.cell(r, 1).value or "").strip().lower(), str(s.cell(rs, 1).value or "").strip().lower()
+            if a != b:
+                print("row mismatch", w + 1, r, a, b); continue
             v = s.cell(rs, 3).value
             ws.cell(r, PKG_COL[w]).value = v
             if s.cell(rs, 3).fill.fgColor.rgb in ("00FFF2CC", "FFFFF2CC"):

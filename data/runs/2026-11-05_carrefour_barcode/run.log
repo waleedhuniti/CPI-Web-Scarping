@@ -1171,3 +1171,90 @@ written data/runs/2026-11-05_carrefour_barcode/carrefour_matched.csv
 [146/177] 5000312000670 250غ: not found
 [2026-11-05 05:11:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Baskin+Robbins+vanilla+ice+cream> (referer: https://www.google.com/)
 [2026-11-05 05:11:30] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Baskin+Robbins+vanilla> (referer: https://www.google.com/)
+[147/177] 0036631079702 1 لتر: not found
+[2026-11-05 05:11:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Indomie+special+chicken+noodles> (referer: https://www.google.com/)
+[2026-11-05 05:11:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Indomie+special+chicken+flavour> (referer: https://www.google.com/)
+[148/177] 5285000390602 5 x 75 g: not found
+[2026-11-05 05:11:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Koka+chicken+cup+noodles> (referer: https://www.google.com/)
+[2026-11-05 05:11:53] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Koka+cup+noodles> (referer: https://www.google.com/)
+[149/177] 8888056705108 70g: not found
+[2026-11-05 05:11:58] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Maggi+chicken+corn+soup> (referer: https://www.google.com/)
+[150/177] 8690632008769 47غ: FOUND Nestle Maggi Excellence Chicken with Corn Soup 47g AED 7.49
+[2026-11-05 05:12:04] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Knorr+instant+soup> (referer: https://www.google.com/)
+[2026-11-05 05:12:09] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Knorr+chicken+soup> (referer: https://www.google.com/)
+[151/177] 6281006794405 500 غ: not found
+[2026-11-05 05:12:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Cerelac+wheat+honey> (referer: https://www.google.com/)
+[152/177] 6294003557300 400غ: FOUND Nestle Cerelac Infant Cereal, Wheat and Honey, from 6 Months AED 34.49
+[2026-11-05 05:12:22] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=PediaSure+Complete+vanilla> (referer: https://www.google.com/)
+[153/177] 8886451002921 400غ: FOUND Pediasure Peptigro System Complete Balanced Nutrition, Vanil AED 47.79
+[2026-11-05 05:12:28] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Aptamil+Advance+Junior+3> (referer: https://www.google.com/)
+[154/177] 8718117609963 400 غ: FOUND Aptamil Advance Junior 3 Growing Up Formula Milk From 1-3 Ye AED 48.49
+[2026-11-05 05:12:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bebelac+Junior+4> (referer: https://www.google.com/)
+[2026-11-05 05:12:39] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Bebelac+junior+growing+up+formula+4> (referer: https://www.google.com/)
+[155/177] 5900852050787 400 غ: not found
+[2026-11-05 05:12:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=S-26+Gold+stage+1> (referer: https://www.google.com/)
+[2026-11-05 05:12:50] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=S26+Gold+infant+formula+1> (referer: https://www.google.com/)
+[156/177] 8886472105922 900 غ: not found
+[2026-11-05 05:12:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Nezo+iodized+table+salt> (referer: https://www.google.com/)
+[2026-11-05 05:12:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Nezo+fine+iodized+salt> (referer: https://www.google.com/)
+[157/177] 0000087158304 600 غ: not found
+[2026-11-05 05:13:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+apple+cider+vinegar> (referer: https://www.google.com/)
+[2026-11-05 05:13:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+cider+vinegar> (referer: https://www.google.com/)
+[158/177] 0717273501782 473ML: not found
+[2026-11-05 05:13:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Heinz+distilled+white+vinegar> (referer: https://www.google.com/)
+[2026-11-05 05:13:20] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Heinz+white+vinegar> (referer: https://www.google.com/)
+[159/177] 6290090018885 473 مل: not found
+[2026-11-05 05:13:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+tomato+ketchup> (referer: https://www.google.com/)
+[2026-11-05 05:13:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Alali+ketchup> (referer: https://www.google.com/)
+[160/177] 617950600053 585غ: not found
+[2026-11-05 05:13:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kimball+tomato+ketchup> (referer: https://www.google.com/)
+[2026-11-05 05:13:44] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Kimball+ketchup> (referer: https://www.google.com/)
+[161/177] 9556191011192 485غ: not found
+[2026-11-05 05:13:49] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Maggi+tomato+ketchup> (referer: https://www.google.com/)
+[2026-11-05 05:13:53] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Maggi+ketchup> (referer: https://www.google.com/)
+[162/177] 9556001821119 325 غ: not found
+[2026-11-05 05:13:59] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Knorr+light+mayonnaise> (referer: https://www.google.com/)
+[2026-11-05 05:14:05] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Knorr+mayonnaise> (referer: https://www.google.com/)
+[163/177] 6281006793279 946غ: not found
+[2026-11-05 05:14:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Heinz+creamy+classic+mayonnaise> (referer: https://www.google.com/)
+[2026-11-05 05:14:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Heinz+mayonnaise> (referer: https://www.google.com/)
+[164/177] 6290090009005 940غ: not found
+[2026-11-05 05:14:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Excellence+hot+sauce> (referer: https://www.google.com/)
+[165/177] 0087034040011 88 مل: FOUND Excellence Hot Sauce, 88ml AED 4.79
+[2026-11-05 05:14:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Indofood+extra+hot+chili+sauce> (referer: https://www.google.com/)
+[2026-11-05 05:14:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Indofood+chili+sauce+extra+hot> (referer: https://www.google.com/)
+[166/177] 0089686400861 340غ: not found
+[2026-11-05 05:14:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Indofood+sweet+soy+sauce> (referer: https://www.google.com/)
+[167/177] 0089686420654 340 ml: FOUND Indofood Sweet Soy Sauce 340ml AED 9.19
+[2026-11-05 05:14:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+soy+sauce> (referer: https://www.google.com/)
+[2026-11-05 05:14:47] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+classic+soy+sauce> (referer: https://www.google.com/)
+[168/177] 717273501874 295 ml: not found
+[2026-11-05 05:14:52] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Shan+cumin+powder> (referer: https://www.google.com/)
+[2026-11-05 05:14:56] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Shan+jeera+powder> (referer: https://www.google.com/)
+[169/177] 788821011114 200 غ: not found
+[2026-11-05 05:15:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Shan+turmeric+powder> (referer: https://www.google.com/)
+[2026-11-05 05:15:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Shan+haldi+powder> (referer: https://www.google.com/)
+[170/177] 0788821011107 200 g: not found
+[2026-11-05 05:15:13] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Taj+Mahal+saffron> (referer: https://www.google.com/)
+[2026-11-05 05:15:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Taj+Mahal+saffron+spain> (referer: https://www.google.com/)
+[171/177] 8413531002009 1 غ: not found
+[2026-11-05 05:15:25] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Golpeech+saffron> (referer: https://www.google.com/)
+[2026-11-05 05:15:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Gol+Peech+saffron> (referer: https://www.google.com/)
+[172/177] 6260317900583 3 غ: not found
+[2026-11-05 05:15:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Fares+cinnamon+powder> (referer: https://www.google.com/)
+[2026-11-05 05:15:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Fares+ground+cinnamon> (referer: https://www.google.com/)
+[173/177] 6291065071027 220جم: not found
+[2026-11-05 05:15:47] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Mother%27s+Recipe+Madras+curry+powder> (referer: https://www.google.com/)
+[2026-11-05 05:15:50] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Mothers+Recipe+curry+powder> (referer: https://www.google.com/)
+[174/177] 8906001051169 600g: not found
+[2026-11-05 05:15:53] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+ranch+dressing> (referer: https://www.google.com/)
+[2026-11-05 05:15:57] INFO: Fetched (429) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=American+Garden+ranch+dressing+dip> (referer: https://www.google.com/)
+[175/177] 0717273504790 473ml: not found
+[2026-11-05 05:16:04] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Al+Alali+baking+powder> (referer: https://www.google.com/)
+[2026-11-05 05:16:10] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Alali+baking+powder> (referer: https://www.google.com/)
+[176/177] 617950200642 200 غ: not found
+[2026-11-05 05:16:16] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Foster+Clark%27s+baking+powder> (referer: https://www.google.com/)
+[2026-11-05 05:16:22] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=Foster+Clarks+baking+powder> (referer: https://www.google.com/)
+[177/177] 5352101142611 225 غ: not found
+carrefour: name search on 177 lines not found by barcode -> 31 found
+BC_DONE

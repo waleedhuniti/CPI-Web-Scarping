@@ -1,0 +1,28 @@
+[2026-11-05 04:18:17] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2420416/products?ajax=true> (referer: https://www.google.com/)
+[1/23] zara | clothing | Women > T-shirts: 33 products
+[2026-11-05 04:18:21] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2420368/products?ajax=true> (referer: https://www.google.com/)
+[2/23] zara | clothing | Women > Shirts: 52 products
+[2026-11-05 04:18:26] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2419242/products?ajax=true> (referer: https://www.google.com/)
+[3/23] zara | clothing | Women > Jeans: 17 products
+[2026-11-05 04:18:39] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2420794/products?ajax=true> (referer: https://www.google.com/)
+[4/23] zara | clothing | Women > Trousers: 41 products
+[2026-11-05 04:18:41] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2420895/products?ajax=true> (referer: https://www.google.com/)
+[5/23] zara | clothing | Women > Dresses: 57 products
+[2026-11-05 04:18:42] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2420293/products?ajax=true> (referer: https://www.google.com/)
+[6/23] zara | clothing | Women > Knitwear: 36 products
+[2026-11-05 04:18:45] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2417770/products?ajax=true> (referer: https://www.google.com/)
+[7/23] zara | clothing | Women > Jackets: 48 products
+[2026-11-05 04:18:48] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2419159/products?ajax=true> (referer: https://www.google.com/)
+[8/23] zara | clothing | Women > Shoes: 39 products
+[2026-11-05 04:18:49] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2432040/products?ajax=true> (referer: https://www.google.com/)
+[9/23] zara | clothing | Men > T-shirts: 11 products
+[2026-11-05 04:18:51] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2431993/products?ajax=true> (referer: https://www.google.com/)
+[10/23] zara | clothing | Men > Shirts: 24 products
+[2026-11-05 04:18:53] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2432130/products?ajax=true> (referer: https://www.google.com/)
+[11/23] zara | clothing | Men > Jeans: 24 products
+[2026-11-05 04:18:55] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2432095/products?ajax=true> (referer: https://www.google.com/)
+[12/23] zara | clothing | Men > Trousers: 25 products
+[2026-11-05 04:18:56] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2432191/products?ajax=true> (referer: https://www.google.com/)
+[13/23] zara | clothing | Men > Suits: 1 products
+[2026-11-05 04:18:57] INFO: Fetched (200) <GET https://www.zara.com/ae/en/category/2537410/products?ajax=true> (referer: https://www.google.com/)
+[14/23] zara | clothing | Men > Jackets: 31 products

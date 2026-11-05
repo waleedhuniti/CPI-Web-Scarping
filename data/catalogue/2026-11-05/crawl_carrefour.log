@@ -96,3 +96,83 @@
 [48/99] carrefour | personal | soap: 58 products
 [2026-11-05 04:16:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=toothpaste&currentPage=0> (referer: https://www.google.com/)
 [49/99] carrefour | personal | toothpaste: 64 products
+[2026-11-05 04:16:37] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=deodorant&currentPage=0> (referer: https://www.google.com/)
+[50/99] carrefour | personal | deodorant: 60 products
+[2026-11-05 04:16:40] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=diapers&currentPage=0> (referer: https://www.google.com/)
+[51/99] carrefour | personal | diapers: 66 products
+[2026-11-05 04:16:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=razor&currentPage=0> (referer: https://www.google.com/)
+[52/99] carrefour | personal | razor: 100 products
+[2026-11-05 04:16:46] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=sanitary+pads&currentPage=0> (referer: https://www.google.com/)
+[53/99] carrefour | personal | sanitary pads: 59 products
+[2026-11-05 04:16:50] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=body+lotion&currentPage=0> (referer: https://www.google.com/)
+[54/99] carrefour | personal | body lotion: 61 products
+[2026-11-05 04:16:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=hair+dryer&currentPage=0> (referer: https://www.google.com/)
+[55/99] carrefour | personal | hair dryer: 64 products
+[2026-11-05 04:16:58] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=perfume&currentPage=0> (referer: https://www.google.com/)
+[56/99] carrefour | personal | perfume: 58 products
+[2026-11-05 04:17:00] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=paracetamol&currentPage=0> (referer: https://www.google.com/)
+[57/99] carrefour | personal | paracetamol: 58 products
+[2026-11-05 04:17:04] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=vitamins&currentPage=0> (referer: https://www.google.com/)
+[58/99] carrefour | personal | vitamins: 55 products
+[2026-11-05 04:17:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=first+aid&currentPage=0> (referer: https://www.google.com/)
+[59/99] carrefour | personal | first aid: 59 products
+[2026-11-05 04:17:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=thermometer&currentPage=0> (referer: https://www.google.com/)
+[60/99] carrefour | personal | thermometer: 57 products
+[2026-11-05 04:17:14] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=face+mask&currentPage=0> (referer: https://www.google.com/)
+[61/99] carrefour | personal | face mask: 76 products
+[2026-11-05 04:17:18] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=mobile+phone&currentPage=0> (referer: https://www.google.com/)
+[62/99] carrefour | electronics | mobile phone: 57 products
+[2026-11-05 04:17:21] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=phone+case&currentPage=0> (referer: https://www.google.com/)
+[63/99] carrefour | electronics | phone case: 50 products
+[2026-11-05 04:17:26] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=screen+protector&currentPage=0> (referer: https://www.google.com/)
+[64/99] carrefour | electronics | screen protector: 52 products
+[2026-11-05 04:17:29] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=charger&currentPage=0> (referer: https://www.google.com/)
+[65/99] carrefour | electronics | charger: 60 products
+[2026-11-05 04:17:32] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=usb+cable&currentPage=0> (referer: https://www.google.com/)
+[66/99] carrefour | electronics | usb cable: 42 products
+[2026-11-05 04:17:36] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=power+bank&currentPage=0> (referer: https://www.google.com/)
+[67/99] carrefour | electronics | power bank: 60 products
+[2026-11-05 04:17:39] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=earphones&currentPage=0> (referer: https://www.google.com/)
+[68/99] carrefour | electronics | earphones: 58 products
+[2026-11-05 04:17:43] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=laptop&currentPage=0> (referer: https://www.google.com/)
+[69/99] carrefour | electronics | laptop: 56 products
+[2026-11-05 04:17:47] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=tablet&currentPage=0> (referer: https://www.google.com/)
+[70/99] carrefour | electronics | tablet: 60 products
+[2026-11-05 04:17:50] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=router&currentPage=0> (referer: https://www.google.com/)
+[71/99] carrefour | electronics | router: 59 products
+[2026-11-05 04:17:54] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=smart+watch&currentPage=0> (referer: https://www.google.com/)
+[72/99] carrefour | electronics | smart watch: 61 products
+[2026-11-05 04:17:58] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=television&currentPage=0> (referer: https://www.google.com/)
+[73/99] carrefour | electronics | television: 59 products
+[2026-11-05 04:18:01] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=speaker&currentPage=0> (referer: https://www.google.com/)
+[74/99] carrefour | electronics | speaker: 58 products
+[2026-11-05 04:18:04] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=headphones&currentPage=0> (referer: https://www.google.com/)
+[75/99] carrefour | electronics | headphones: 59 products
+[2026-11-05 04:18:08] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=gaming+console&currentPage=0> (referer: https://www.google.com/)
+[76/99] carrefour | electronics | gaming console: 52 products
+[2026-11-05 04:18:11] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=camera&currentPage=0> (referer: https://www.google.com/)
+[77/99] carrefour | electronics | camera: 60 products
+[2026-11-05 04:18:15] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=men+t-shirt&currentPage=0> (referer: https://www.google.com/)
+[78/99] carrefour | clothing | men t-shirt: 58 products
+[2026-11-05 04:18:19] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=women+dress&currentPage=0> (referer: https://www.google.com/)
+[79/99] carrefour | clothing | women dress: 42 products
+[2026-11-05 04:18:23] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=jeans&currentPage=0> (referer: https://www.google.com/)
+[80/99] carrefour | clothing | jeans: 57 products
+[2026-11-05 04:18:27] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=kids+clothing&currentPage=0> (referer: https://www.google.com/)
+[81/99] carrefour | clothing | kids clothing: 109 products
+[2026-11-05 04:18:31] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=socks&currentPage=0> (referer: https://www.google.com/)
+[82/99] carrefour | clothing | socks: 74 products
+[2026-11-05 04:18:34] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=underwear&currentPage=0> (referer: https://www.google.com/)
+[83/99] carrefour | clothing | underwear: 57 products
+[2026-11-05 04:18:38] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=shoes&currentPage=0> (referer: https://www.google.com/)
+[84/99] carrefour | clothing | shoes: 70 products
+[2026-11-05 04:18:41] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=sandals&currentPage=0> (referer: https://www.google.com/)
+[85/99] carrefour | clothing | sandals: 60 products
+[2026-11-05 04:18:45] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=sports+shoes&currentPage=0> (referer: https://www.google.com/)
+[86/99] carrefour | clothing | sports shoes: 41 products
+[2026-11-05 04:18:48] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=engine+oil&currentPage=0> (referer: https://www.google.com/)
+[87/99] carrefour | other | engine oil: 66 products
+[2026-11-05 04:18:51] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=car+accessories&currentPage=0> (referer: https://www.google.com/)
+[88/99] carrefour | other | car accessories: 59 products
+[2026-11-05 04:18:55] INFO: Fetched (200) <GET https://www.carrefouruae.com/mafuae/en/search?keyword=car+battery&currentPage=0> (referer: https://www.google.com/)
+[89/99] carrefour | other | car battery: 59 products

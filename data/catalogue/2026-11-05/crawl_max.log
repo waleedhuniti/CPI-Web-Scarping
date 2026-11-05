@@ -1,0 +1,4 @@
+[2026-11-05 04:18:42] INFO: The turnstile version discovered is "managed"
+[2026-11-05 04:18:53] INFO: Cloudflare page didn't disappear after 10s, continuing...
+[2026-11-05 04:18:53] INFO: Looks like Cloudflare captcha is still present, solving again
+[2026-11-05 04:18:53] INFO: The turnstile version discovered is "managed"

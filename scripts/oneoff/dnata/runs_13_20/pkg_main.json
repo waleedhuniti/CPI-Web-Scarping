@@ -270,5 +270,30 @@
   "flight": "EK0215 08:30 / EK0216 15:50",
   "flight_delta": 1747.3,
   "total": 14850.2
+ },
+ "34": {
+  "row": 34,
+  "city": "Makkah",
+  "sheet_name": "Movenpick Hajar Tower (Umrah)",
+  "destination": "Makkah, Saudi Arabia (531)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Movenpick Hotel & Residences Hajar Tower Makkah",
+  "estab_id": "1750320",
+  "stars": 5,
+  "board": "Bed And Breakfast",
+  "package_default": 5283.4,
+  "default_flight": "Emirates / Emirates",
+  "flight": "EK0803 13:45 / EK0806 11:15",
+  "flight_delta": 0,
+  "total": 5283.4
+ },
+ "35": {
+  "row": 35,
+  "city": "Makkah",
+  "sheet_name": "Fairmont Makkah Clock Royal Tower (Umrah)",
+  "destination": "Makkah, Saudi Arabia (531)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
  }
 }

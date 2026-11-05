@@ -1,0 +1,36 @@
+{
+ "20": {
+  "row": 20,
+  "city": "Maldives",
+  "sheet_name": "Sun Siyam Olhuveli Maldives",
+  "destination": "Maldives, None (65)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "hotel_found": "Sun Siyam Olhuveli",
+  "estab_id": "1490933",
+  "stars": 4,
+  "board": "Full Board",
+  "package_default": 7097.78,
+  "default_flight": "SriLankan Airlines / SriLankan Airlines / SriLankan Airlines / SriLankan Airlines",
+  "flight": "EK0658 04:15 / EK0659 11:00",
+  "flight_delta": 1807.9,
+  "total": 8905.68
+ },
+ "21": {
+  "row": 21,
+  "city": "Maldives",
+  "sheet_name": "Meeru Island Resort Hotel",
+  "destination": "Maldives, None (65)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "hotel_found": "Meeru Maldives Resort Island",
+  "estab_id": "1490812",
+  "stars": 5,
+  "board": "Full Board",
+  "package_default": 8211.39,
+  "default_flight": "SriLankan Airlines / SriLankan Airlines / SriLankan Airlines / SriLankan Airlines",
+  "flight": "EK0658 04:15 / EK0659 11:00",
+  "flight_delta": 1807.9,
+  "total": 10019.29
+ }
+}

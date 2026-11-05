@@ -1,0 +1,27 @@
+{
+ "5": {
+  "row": 5,
+  "city": "Istanbul",
+  "sheet_name": "Dosso Dossi Hotels Golden Horn",
+  "destination": "Istanbul, Turkey (384)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Dosso Dossi Hotel Sultanahmet",
+  "estab_id": "4263954",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 2933.2,
+  "default_flight": "Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines",
+  "flight": "EK0123 10:00 / EK0122 20:05",
+  "flight_delta": 995.4,
+  "total": 3928.6
+ },
+ "22": {
+  "row": 22,
+  "city": "Maldives",
+  "sheet_name": "Summer Island Maldives",
+  "destination": "Maldives, None (65)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ }
+}

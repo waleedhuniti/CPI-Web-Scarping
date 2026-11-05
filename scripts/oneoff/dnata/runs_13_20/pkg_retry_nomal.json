@@ -1,0 +1,18 @@
+{
+ "5": {
+  "row": 5,
+  "city": "Istanbul",
+  "sheet_name": "Dosso Dossi Hotels Golden Horn",
+  "destination": "Istanbul, Turkey (384)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Dosso Dossi Hotel Sultanahmet",
+  "estab_id": "4263954",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 2933.2,
+  "default_flight": "Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines / Royal Jordanian Airlines",
+  "flight": "EK0123 10:00 / EK0122 20:05",
+  "flight_delta": 995.4,
+  "total": 3928.6
+ }
+}

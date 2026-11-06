@@ -58,3 +58,17 @@ json.dump(pins,open(S+'/pins.json','w'),ensure_ascii=False); print(len(pins),'pi
 
 7. Finish with one line: RUN_ID, status, accepted/lines for each retailer for barcode and category, how many no-barcode lines have a product-set price, how many lines were filled from the catalogue (and its date), how many lines came from the live name search, and the number of products in the history.
 ````
+
+## Carrefour category crawl through search pages (deployed 6 Nov 2026)
+Carrefour refuses its category pages (`/mafuae/en/c/F...`, HTTP 403 since 30 Oct). `scripts/scrapling_category.py` now reads
+Carrefour through its search pages instead: one query per basket spec line of the crawled groups (the first word of each
+`must_have` term, ~167 queries, at most 2 pages each), and keeps a product in a section only when the `productCategory`
+codes Carrefour embeds in the page contain that section's code (e.g. `f1670000` Meat & Poultry, `bakery`), so frozen or
+tinned goods found by a "beef" search never enter the fresh sections. Lulu keeps its category pages.
+- At least 2.5 s between requests (+0-1 s random); 429/503 wait for Retry-After (else 30/90/180 s).
+- A refused page (403, challenge, empty shell) is logged `REFUSED ... - not read` and counted, never "0 products";
+  after 5 refused pages in a row the shop is not asked again that run (the rest is "not asked", not "not found").
+- `crawl_status.json` in the run folder: pages read / refused and state (ok, partial, blocked) per retailer; the log ends
+  with `carrefour category: N pages read, M refused`.
+- The panel bundle (`system_bundle`/b0) carries this crawl on top of the deployed matching code (the GPT fix is still not
+  deployed), so only the crawl part differs from what ran before.

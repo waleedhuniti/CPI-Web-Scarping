@@ -5,8 +5,14 @@
 
 Barcoded basket lines are not touched here: they keep the barcode search (scripts/scrapling_search.py).
 
-1. Crawl: every page of each category in config/categories.json (Carrefour `currentPage=0,1,..`, Lulu `page=1,2,..`)
-   until a page brings no new product. One request at a time, --delay seconds apart.
+1. Crawl: Lulu reads every page of each category in config/categories.json (`page=1,2,..`) until a page brings no new
+   product. Carrefour refuses its category pages (/c/F...: HTTP 403 since 30 Oct 2026) but serves its search pages, so for
+   Carrefour the crawl searches the basket specs themselves (one query per spec: the first word of each must_have term)
+   and keeps a product in a category only when Carrefour's own product data on the page puts it in that section
+   (productCategory holds the category code, e.g. f1670000 = Meat & Poultry); a frozen or tinned product found by a
+   'beef' search therefore never lands in the fresh-meat section. One request at a time, at least 2.5 s apart; a 429/503
+   waits for Retry-After. A refused page (403, challenge, empty shell) stays unread: it is counted and logged as refused,
+   never as "0 products", and crawl_status.json records pages read / refused per retailer.
    -> <run_dir>/catalog.csv: retailer, group, category, title, price, regular_price, size, price_per_kg / per unit,
       origin seen in the title, url.
 2. Match each 'spec' basket line of those groups against its retailer's catalog with the English spec written for it
@@ -29,6 +35,7 @@ import re
 import statistics
 import sys
 import time
+import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -117,46 +124,199 @@ def price_basis(row):
     return None, ""
 
 
-def crawl(run_dir, delay, only=None):
+MIN_DELAY = 2.5            # seconds between two requests to the same shop (a random 0-1 s is added)
+CF_SEARCH = "https://www.carrefouruae.com/mafuae/en/search?keyword={q}&currentPage={page0}"
+STOP_AFTER = 5            # refused pages in a row: the shop is blocking us, stop asking it for this run (circuit breaker)
+CF_PAGES = 2               # search result pages read per query at most (60 products a page; the spec query puts the right products first)
+
+
+def cf_code(cat):
+    """Carrefour section code of a config category: 'code', else the id in its /c/<id> url (lower case, as on the page)."""
+    m = re.search(r"/c/([A-Za-z0-9]+)", cat.get("url", ""))
+    return str(cat.get("code") or (m.group(1) if m else "")).lower()
+
+
+def carrefour_sections(html):
+    """productId -> set of section codes, read from the product data embedded in a Carrefour search page."""
+    h = html.replace('\\"', '"')
+    marks = [(m.start(), m.group(1)) for m in re.finditer(r'"productId":"(\d+)"', h)]
+    out = {}
+    for n, (pos, pid) in enumerate(marks):
+        end = marks[n + 1][0] if n + 1 < len(marks) else len(h)
+        m = re.search(r'"productCategory":\[([^\]]*)\]', h[pos:end])
+        if m:
+            out.setdefault(pid, set()).update(c.strip().strip('"').lower() for c in m.group(1).split(",") if c.strip().strip('"'))
+    return out
+
+
+def search_query(spec):
+    """A shop search query from an English spec: the first alternative of each must_have term, at most 4 words."""
+    words = []
+    for term in spec.get("must_have") or []:
+        for w in str(term).lower().split():
+            w = w.split("/")[0]                      # 'kingfish/kanad fresh' -> kingfish fresh
+            if w and w not in words:
+                words.append(w)
+    if not words:
+        words = [w for w in str(spec.get("query_alt") or spec.get("product_en") or "").lower().split()]
+    return " ".join(words[:4])
+
+
+def carrefour_queries(cats):
+    """One query per basket spec line of the groups these Carrefour categories feed (deduplicated)."""
+    from dataclasses import asdict
+    from cpi.basket import load_basket_any
+    groups = {g for c in cats for g in str(c["group"]).split(",")}
+    specs = {x["c"]: x for x in json.load(open(SPECS, encoding="utf-8"))}
+    qs = []
+    for it in (asdict(i) for i in load_basket_any(ROOT)):
+        if it["match_mode"] == "spec" and it["group_code"] in groups:
+            q = search_query(specs.get(it["item_code"], {}))
+            if q and q not in qs:
+                qs.append(q)
+    return qs
+
+
+def get_page(s, url, delay, state):
+    """One polite request: waits its turn, honours Retry-After on 429/503 (three tries), and says whether it was read.
+    The first request of a Carrefour session can be refused while the session gets its cookies: it is asked once more."""
+    wait = state.get("next", 0) - time.time()
+    if wait > 0:
+        time.sleep(wait)
+    def fetch():
+        page = s.get(url)
+        for backoff in (30, 90, 180):
+            if page.status not in (429, 503):
+                break
+            hd = getattr(page, "headers", None) or {}
+            ra = str(hd.get("retry-after") or hd.get("Retry-After") or "").strip()
+            time.sleep(min(float(ra), 600) if ra.isdigit() else backoff)
+            page = s.get(url)
+        html = page.body.decode("utf-8", "ignore") if isinstance(page.body, bytes) else str(page.body)
+        ok = page.status == 200 and len(html) > 20_000 and ("carrefouruae" in html or "luluhypermarket" in html)
+        return page, html, ok
+    page, html, ok = fetch()
+    if not ok and not state.get("warm") and "carrefouruae" in url:
+        time.sleep(max(delay, MIN_DELAY) + random.random())
+        page, html, ok = fetch()
+    state["warm"] = True
+    state["next"] = time.time() + max(delay, MIN_DELAY) + random.random()
+    return page, html, ok
+
+
+def catalog_row(retailer, cat, r):
+    per, basis = price_basis(r)
+    return dict(retailer=retailer, group=cat["group"], category=cat["name"], title=r["title"],
+                price=r["price"], regular_price=r["regular_price"],
+                size=r.get("size_text", ""), unit_price=per if per is not None else "",
+                price_basis=basis, origin_seen=origin_of(r["title"]), url=r["url"],
+                photo_url=r.get("photo", ""))
+
+
+def crawl(run_dir, delay, only=None, max_queries=0):
     from scrapling.fetchers import FetcherSession
     cfg = json.load(open(CONFIG))
     if only:                                                   # crawl just these category names
         cfg = {r: [c for c in cfg[r] if c["name"] in only] for r in ("carrefour", "lulu")}
-    out, log = [], []
+    out, log, status = [], [], {}
     with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
-        for retailer in ("carrefour", "lulu"):
-            parse = ss.parse_carrefour if retailer == "carrefour" else ss.parse_lulu
-            for cat in cfg[retailer]:
-                seen, pages = {}, 0
-                for n in range(60):
-                    url = cat["url"].format(page0=n, page1=n + 1)
-                    try:
-                        page = s.get(url)
-                        rows = parse(page, cat["name"]) if page.status == 200 else []
-                    except Exception as e:
-                        log.append(f"{retailer} {cat['name']} page {n}: FAILED {str(e)[:100]}")
-                        print(log[-1]); rows = []
-                    new = [r for r in rows if r["url"] not in seen]
-                    for r in new:
-                        seen[r["url"]] = r
-                    pages += 1
-                    print(f"{retailer} | {cat['name']} | page {n + 1}: {len(rows)} cards, {len(new)} new", flush=True)
-                    time.sleep(delay + random.random())
-                    if not new:
-                        break
-                log.append(f"{retailer} | {cat['name']}: {len(seen)} products from {pages} pages")
-                for r in seen.values():
-                    per, basis = price_basis(r)
-                    out.append(dict(retailer=retailer, group=cat["group"], category=cat["name"], title=r["title"],
-                                    price=r["price"], regular_price=r["regular_price"],
-                                    size=r.get("size_text", ""), unit_price=per if per is not None else "",
-                                    price_basis=basis, origin_seen=origin_of(r["title"]), url=r["url"],
-                                    photo_url=r.get("photo", "")))
+        # Carrefour: search pages, products sorted into the config sections by the page's own section codes
+        cats = [c for c in cfg["carrefour"] if cf_code(c)]
+        st, state, found = {"read": 0, "refused": 0}, {}, {cf_code(c): {} for c in cats}
+        queries = carrefour_queries(cats) if cats else []
+        if max_queries:
+            queries = queries[:max_queries]
+        outside, pages_of, streak = set(), {c: set() for c in found}, 0
+        for qn, q in enumerate(queries, 1):
+            if streak >= STOP_AFTER:
+                st["not_asked"] = len(queries) - qn + 1
+                log.append(f"carrefour category: stopped after {streak} refused pages in a row (the shop is refusing us); "
+                           f"{st['not_asked']} queries not asked - not read, not 'not found'")
+                print(log[-1], flush=True)
+                break
+            seen_q = set()
+            for n in range(CF_PAGES):
+                url = CF_SEARCH.format(q=urllib.parse.quote(q), page0=n)
+                try:
+                    page, html, ok = get_page(s, url, delay, state)
+                except Exception as e:
+                    page, html, ok = None, "", False
+                    print(f"carrefour | '{q}' page {n + 1}: FAILED {str(e)[:100]}", flush=True)
+                if not ok:
+                    st["refused"] += 1
+                    streak += 1
+                    log.append(f"carrefour | search '{q}' page {n + 1}: REFUSED (HTTP {getattr(page, 'status', '-')}, {len(html)} bytes) - not read")
+                    print(log[-1], flush=True)
+                    break
+                streak = 0
+                st["read"] += 1
+                rows, secs = ss.parse_carrefour(page, q), carrefour_sections(html)
+                new = [r for r in rows if r["url"] not in seen_q]
+                for r in new:
+                    seen_q.add(r["url"])
+                    codes = secs.get(str(r.get("product_id")), set())
+                    hit = [c for c in found if c in codes]
+                    if not hit:
+                        outside.add(r["url"])
+                    for c in hit:
+                        found[c].setdefault(r["url"], r)
+                        pages_of[c].add((qn, n))
+                print(f"carrefour | [{qn}/{len(queries)}] '{q}' page {n + 1}: {len(rows)} cards, {len(new)} new", flush=True)
+                if len(rows) < 60 or not new:
+                    break
+        for c in cats:
+            got = found[cf_code(c)]
+            log.append(f"carrefour | {c['name']}: {len(got)} products from {len(pages_of[cf_code(c)])} pages (search, section {cf_code(c)})")
+            out += [catalog_row("carrefour", c, r) for r in got.values()]
+        log.append(f"carrefour category: {st['read']} pages read, {st['refused']} refused; {len(queries)} queries; "
+                   f"{len(outside)} products outside the crawled sections dropped")
+        status["carrefour"] = st
+        # Lulu: its category pages
+        st, state, streak = {"read": 0, "refused": 0}, {}, 0
+        for cat in cfg["lulu"]:
+            if streak >= STOP_AFTER:
+                log.append(f"lulu category: stopped after {streak} refused pages in a row; {cat['name']} and the rest not read")
+                print(log[-1], flush=True)
+                break
+            seen, pages = {}, 0
+            for n in range(60):
+                url = cat["url"].format(page0=n, page1=n + 1)
+                try:
+                    page, html, ok = get_page(s, url, delay, state)
+                except Exception as e:
+                    page, html, ok = None, "", False
+                    print(f"lulu | {cat['name']} page {n + 1}: FAILED {str(e)[:100]}", flush=True)
+                if not ok:
+                    st["refused"] += 1
+                    streak += 1
+                    log.append(f"lulu | {cat['name']} page {n + 1}: REFUSED (HTTP {getattr(page, 'status', '-')}, {len(html)} bytes) - not read")
+                    print(log[-1], flush=True)
+                    break
+                streak = 0
+                st["read"] += 1
+                pages += 1
+                rows = ss.parse_lulu(page, cat["name"])
+                new = [r for r in rows if r["url"] not in seen]
+                for r in new:
+                    seen[r["url"]] = r
+                print(f"lulu | {cat['name']} | page {n + 1}: {len(rows)} cards, {len(new)} new", flush=True)
+                if not new:
+                    break
+            log.append(f"lulu | {cat['name']}: {len(seen)} products from {pages} pages")
+            out += [catalog_row("lulu", cat, r) for r in seen.values()]
+        log.append(f"lulu category: {st['read']} pages read, {st['refused']} refused")
+        status["lulu"] = st
+    for k, v in status.items():
+        tot = v["read"] + v["refused"]
+        v["state"] = "not_read" if not tot else "ok" if v["refused"] <= 0.05 * tot else "blocked" if v["refused"] >= 0.9 * tot else "partial"
+    fields = ["retailer", "group", "category", "title", "price", "regular_price", "size", "unit_price", "price_basis",
+              "origin_seen", "url", "photo_url"]
     with open(run_dir / "catalog.csv", "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=list(out[0]))
+        w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(out)
     (run_dir / "crawl_log.txt").write_text("\n".join(log) + "\n", encoding="utf-8")
+    (run_dir / "crawl_status.json").write_text(json.dumps(status, indent=1) + "\n", encoding="utf-8")
     print("\n".join(log))
     return out
 
@@ -410,12 +570,13 @@ def main():
     ap.add_argument("--delay", type=float, default=1.5)
     ap.add_argument("--crawl-only", action="store_true", help="crawl without matching (merge later with combine_run.py)")
     ap.add_argument("--only", help="category names to crawl, separated by ';' (default: all)")
+    ap.add_argument("--max-queries", type=int, default=0, help="Carrefour: search only the first N spec queries (tests)")
     a = ap.parse_args()
     run_dir = Path(a.run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
     if not a.match:
         started = datetime.now(timezone.utc).isoformat(timespec="seconds")
-        crawl(run_dir, a.delay, set(a.only.split(";")) if a.only else None)
+        crawl(run_dir, a.delay, set(a.only.split(";")) if a.only else None, a.max_queries)
         (run_dir / "started.txt").write_text(started + "\n")
     if not a.crawl_only:
         match(run_dir, delay=a.delay)

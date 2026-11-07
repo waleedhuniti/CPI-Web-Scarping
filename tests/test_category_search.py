@@ -151,3 +151,37 @@ def test_lines_of_a_refused_shop_are_not_observed_not_not_found(tmp_path, monkey
     out = json.loads((tmp_path / "panel" / "c000.json").read_text())["rows"]
     st = {r["retailer"]: r["status"] for r in out}
     assert st == {"carrefour": "not_observed", "lulu": "not_found"}
+
+
+def test_barcode_search_stops_after_refusals_and_reports_blocked(monkeypatch, tmp_path):
+    import json
+    import types
+    import scrapling_search as ssearch
+    monkeypatch.setattr(ssearch.time, "sleep", lambda s: None)
+    calls = []
+
+    class Fake:
+        def __init__(self, **kw):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def get(self, url):
+            calls.append(url)
+            return Page(403, "Access Denied")
+
+    fetchers = types.ModuleType("scrapling.fetchers")
+    fetchers.FetcherSession = Fake
+    monkeypatch.setitem(sys.modules, "scrapling.fetchers", fetchers)
+    codes = tmp_path / "codes.json"
+    codes.write_text(json.dumps([f"890114431{i:04d}" for i in range(30)]))
+    monkeypatch.setattr(sys, "argv", ["x", "carrefour", str(tmp_path / "run"), "--codes", str(codes), "--stop-after", "5", "--no-names"])
+    ssearch.main()
+    assert len(calls) == 5                                  # five refusals, then the shop is not asked again, no retry rounds
+    st = json.loads((tmp_path / "run" / "carrefour_status.json").read_text())
+    assert st["state"] == "blocked" and st["read"] == 0 and st["failed"] == 30 and st["not_asked"] == 25
+    assert len(json.loads((tmp_path / "run" / "carrefour_failed.json").read_text())) == 30   # unread, never "not found"

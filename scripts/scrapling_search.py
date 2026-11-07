@@ -138,6 +138,8 @@ def main():
     ap.add_argument("--codes", help="JSON list of barcodes to search instead of the whole basket")
     ap.add_argument("--delay", type=float, default=1.5, help="seconds between requests (a random 0-1 s is added)")
     ap.add_argument("--no-names", action="store_true", help="skip the name search for barcodes not found")
+    ap.add_argument("--stop-after", type=int, default=0, help="stop asking the shop after N refused pages in a row (0 = never); "
+                    "the pages not asked stay unread (listed in <retailer>_failed.json), no retries, and <retailer>_status.json says 'blocked'")
     a = ap.parse_args()
 
     from scrapling.fetchers import FetcherSession   # imported here so --help works without Scrapling installed
@@ -153,22 +155,31 @@ def main():
         codes = codes[:a.limit]
 
     raw, searched, failed = [], [], []
+    halt = {"streak": 0, "on": False, "not_asked": 0}
 
     def read_pages(session, todo, label=""):
         """Search every barcode of `todo`; returns the ones whose page could not be read."""
         bad = []
         for n, code in enumerate(todo, 1):
+            if a.stop_after and halt["streak"] >= a.stop_after:      # the shop is refusing us: stop asking, leave the rest unread
+                halt["on"] = True
+                halt["not_asked"] += len(todo) - n + 1
+                bad.extend(todo[n - 1:])
+                print(f"{label}stopped after {halt['streak']} refused pages in a row; {len(todo) - n + 1} barcodes not asked (unread)", flush=True)
+                break
             try:
                 page = session.get(site["url"](code))
                 html = page.body.decode("utf-8", "ignore") if isinstance(page.body, bytes) else str(page.body)
                 if not site["page_ok"](page, html):
                     raise RuntimeError(f"HTTP {page.status}, {len(html)} bytes - not a search result page")
                 rows = site["parse"](page, code)
+                halt["streak"] = 0
                 raw.extend(rows)
                 searched.append(code)
                 print(f"{label}[{n}/{len(todo)}] {code}: {len(rows)} product(s)" + (f" - {rows[0]['title']} AED {rows[0]['price']}" if rows else ""))
             except Exception as e:                                   # one bad page must not stop the run
                 bad.append(code)
+                halt["streak"] += 1
                 print(f"{label}[{n}/{len(todo)}] {code}: FAILED {type(e).__name__}: {str(e)[:120]}")
             time.sleep(a.delay + random.random())
         return bad
@@ -176,7 +187,7 @@ def main():
     with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
         failed = read_pages(s, codes)
         for rnd, wait in enumerate((30, 90), 1):                     # pages that failed (a shop busy or blocking for a moment) get two more tries
-            if not failed:
+            if not failed or halt["on"]:
                 break
             print(f"\nretry {rnd}: {len(failed)} page(s) failed, waiting {wait} s", flush=True)
             time.sleep(wait)
@@ -188,7 +199,10 @@ def main():
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     (run_dir / f"{a.retailer}_searched.json").write_text(json.dumps(searched))
     (run_dir / f"{a.retailer}_failed.json").write_text(json.dumps(failed))
-    print(f"\n{a.retailer}: {len(codes)} barcodes, {len(searched)} pages read, {len(failed)} failed, {len(raw)} product rows")
+    tot = len(searched) + len(failed)
+    state = "not_read" if not tot else "blocked" if not searched or halt["on"] and len(failed) >= 0.9 * tot else "ok" if len(failed) <= 0.05 * tot else "partial"
+    (run_dir / f"{a.retailer}_status.json").write_text(json.dumps(dict(read=len(searched), failed=len(failed), not_asked=halt["not_asked"], state=state)) + "\n")
+    print(f"\n{a.retailer}: {len(codes)} barcodes, {len(searched)} pages read, {len(failed)} failed, {len(raw)} product rows ({state})")
     if raw:
         match_run.main(a.retailer, raw_path, run_dir / f"{a.retailer}_searched.json")
         if not a.no_names and not a.limit:

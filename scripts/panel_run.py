@@ -125,6 +125,8 @@ def main(run_dir, started):
         for r in csv.DictReader(open(lp, encoding="utf-8")):
             if r["date"] == started[:10]:
                 today_lines[(r["item_code"], r["retailer"])] = r
+    cs = run_dir / "crawl_status.json"               # scripts/scrapling_category.py: pages read / refused per shop
+    unread = {k for k, v in (json.loads(cs.read_text()) if cs.exists() else {}).items() if not v.get("read")}
     if cat.exists():
         crows = list(csv.DictReader(open(cat, encoding="utf-8-sig")))
         lines = {}
@@ -132,7 +134,7 @@ def main(run_dir, started):
             lines.setdefault((r["retailer"], r["name_ar"]), set()).add(r["item_code"])
         for r in crows:
             ln = today_lines.get((r["item_code"], r["retailer"]))
-            if ln and ln.get("observed") == "no":     # the shop's crawl came back mostly empty today: no price, not yesterday's
+            if (ln and ln.get("observed") == "no") or r["retailer"] in unread:   # the shop's crawl came back (mostly) empty or refused today: no price, not yesterday's, not "not found"
                 rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],
                                  actor=LABEL[r["retailer"]] + " (category)", item_code=r["item_code"], group_code=r["group"],
                                  name=r["name_ar"], brand="", basket_qty=r["basket_qty"], barcode="", status="not_observed",
@@ -140,7 +142,9 @@ def main(run_dir, started):
                                  unit_price="", price_basis=r["price_basis"], basket_origin=r["basket_origin"], origin_seen="",
                                  currency="AED", url="", photo="", size="", group_name=GROUP.get(r["group"], ""), section="",
                                  retailer_id="", line_index="", n_products=0,
-                                 note="the shop's category pages came back (almost) empty today; the last price is not carried forward"))
+                                 note=("the shop refused our pages today (no page read); the line was not observed, not 'not found'"
+                                       if r["retailer"] in unread else
+                                       "the shop's category pages came back (almost) empty today; the last price is not carried forward")))
                 continue
             if lp.exists():                           # product-set method: any origin, any brand, matched products chained from day to day
                 rows.append(dict(run_date=started[:10], source="category", retailer=r["retailer"],

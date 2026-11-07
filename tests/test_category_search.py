@@ -129,3 +129,25 @@ def test_blocked_shop_stops_after_five_refusals_and_is_reported(monkeypatch, tmp
     assert "stopped after 5 refused pages" in log and "15 queries not asked" in log
     assert "0 products from" in log                        # section line still written (portal parser) ...
     assert "carrefour category: 0 pages read, 5 refused" in log   # ... next to the refused count that explains it
+
+
+def test_lines_of_a_refused_shop_are_not_observed_not_not_found(tmp_path, monkeypatch):
+    import csv
+    import json
+    import panel_run
+    cols = ["item_code", "group", "name_ar", "basket_qty", "basket_origin", "spec_en", "retailer", "status", "accepted",
+            "title", "price", "regular_price", "unit_price", "price_basis", "origin_seen", "n_candidates",
+            "other_candidates", "url", "pin_state"]
+    rows = [dict.fromkeys(cols, "") | dict(item_code="011210101", group="0112", name_ar="لحم", retailer=r, status="no_match",
+                                            accepted="no", price_basis="kg") for r in ("carrefour", "lulu")]
+    with open(tmp_path / "category_matches.csv", "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=cols)
+        w.writeheader()
+        w.writerows(rows)
+    (tmp_path / "crawl_status.json").write_text(json.dumps({"carrefour": {"read": 0, "refused": 5, "state": "blocked"},
+                                                            "lulu": {"read": 300, "refused": 0, "state": "ok"}}))
+    monkeypatch.delenv("CPI_CATALOGUE_JSON", raising=False)
+    panel_run.main(tmp_path, "2026-11-07T02:49:01+00:00")
+    out = json.loads((tmp_path / "panel" / "c000.json").read_text())["rows"]
+    st = {r["retailer"]: r["status"] for r in out}
+    assert st == {"carrefour": "not_observed", "lulu": "not_found"}

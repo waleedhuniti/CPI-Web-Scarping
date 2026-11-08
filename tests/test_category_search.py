@@ -223,3 +223,35 @@ def test_rebuild_code_stops_if_a_pacing_default_moved(tmp_path):
         assert "pacing default not found" in str(e)
     else:
         raise AssertionError("must stop")
+
+
+def test_catalogue_crawl_stops_a_store_after_five_refused_pages(monkeypatch, tmp_path):
+    import types
+    import catalogue_crawl as cc
+    monkeypatch.setattr(cc.time, "sleep", lambda s: None)
+    calls = []
+
+    class Fake:
+        def __init__(self, **kw):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def get(self, url):
+            calls.append(url)
+            return Page(200, "x" * 53)                     # the empty 53-byte shell of a refused session
+
+    fetchers = types.ModuleType("scrapling.fetchers")
+    fetchers.FetcherSession = Fake
+    monkeypatch.setitem(sys.modules, "scrapling.fetchers", fetchers)
+    sources = [dict(store="carrefour", kind="search", query=f"q{i}", pages=1, group="food", category=f"q{i}", division="01")
+               for i in range(20)]
+    part = tmp_path / "part_carrefour.csv"
+    rows, log = cc.crawl_store("carrefour", sources, "2026-11-09 09:00", 2.5, lambda line: None, part)
+    assert len(calls) == 5 and rows == []
+    assert sum("REFUSED" in ln for ln in log) == 5 and any("stopped after 5 refused pages" in ln for ln in log)
+    assert part.exists()                                  # an empty part: the store was asked and refused, nothing is invented

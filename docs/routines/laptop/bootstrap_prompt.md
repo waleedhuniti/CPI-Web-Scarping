@@ -8,13 +8,13 @@ session on the laptop and give it this prompt. The repository carries the rules 
 3. Paste:
 
 ````text
-Continue the CPI price-collection work on this laptop. Everything is in the repo https://github.com/waleedhuniti/CPI-Web-Scarping, branch claude/sleepy-lamport-dwu4iw. Clone it into repo\ inside this folder (git clone --branch claude/sleepy-lamport-dwu4iw ...), open it, read CLAUDE.md (its rules bind you) and docs/routines/laptop/README_ar.md and docs/routines/laptop/daily_laptop.md.
+Continue the CPI price-collection work on this laptop. Everything is in the repo https://github.com/waleedhuniti/CPI-Web-Scarping, branch claude/sleepy-lamport-dwu4iw. Clone it into repo\ inside this folder (git clone --branch claude/sleepy-lamport-dwu4iw ...), open it, read CLAUDE.md (its rules bind you) and docs/routines/laptop/README_ar.md and docs/routines/laptop/carrefour_laptop.md (the plan is the hybrid one: cloud routines stay, this laptop adds only Carrefour; daily_laptop.md is the alternative that moves everything and is NOT the plan).
 
 Why we are here: Carrefour UAE refuses our requests from the cloud servers (HTTP 403 / empty pages since 30 Oct 2026). This laptop is on the office network; the plan is to run the whole daily collection (TrendX, CPI basket, product catalogue) from here, with the same code the panel stores. We do not use stealth, proxies or any bypass; if Carrefour refuses this laptop too, we report it as blocked and stop.
 
 Do, in order, and tell me the result of each:
 1. Check that ArtifactData and Artifact tools are available in this session (ToolSearch "select:ArtifactData"). Tell me if not.
 2. Run `python scripts/pc/carrefour_pc.py --test` from repo\ (20 Carrefour barcode pages, paced at 2.5 s, stops after 5 refusals). Report how many pages were read and the state in barcode\carrefour_status.json. Run it only once.
-3. If Carrefour read the pages (state ok): show me the scheduled-task steps from README_ar.md and create the scheduled task "Daily collection" if this app lets you (daily 08:30 Asia/Dubai, folder = this one, prompt = the text inside the ````text block of daily_laptop.md), otherwise tell me exactly what to click. If Carrefour refused: stop and tell me; do not retry.
+3. If Carrefour read the pages (state ok): show me the scheduled-task steps from README_ar.md and create the scheduled task "Daily collection" if this app lets you (daily 08:30 Asia/Dubai, folder = this one, prompt = the text inside the ````text block of carrefour_laptop.md, 09:00), otherwise tell me exactly what to click. If Carrefour refused: stop and tell me; do not retry.
 4. Do not turn off the cloud routines yourself; the cloud session that built this will do it after the first successful run here.
 ````

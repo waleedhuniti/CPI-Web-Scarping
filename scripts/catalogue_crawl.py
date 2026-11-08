@@ -167,10 +167,18 @@ def save_rows(path, rows):
         w.writerows(rows)
 
 
+STOP_AFTER = 5     # refused pages in a row: the shop is refusing us, stop asking it for this run (house rule)
+
+
+class Refused(Exception):
+    pass
+
+
 def crawl_store(store, sources, collected, delay, progress, part=None):
     """One store's sources, one request at a time; Carrefour, Lulu and Sharaf DG run side by side."""
     from scrapling.fetchers import FetcherSession
     rows, seen, log = [], set(), []
+    streak = 0
     with FetcherSession(impersonate="chrome", timeout=30, retries=3) as s:
         for src in sources:
             got = []
@@ -189,10 +197,22 @@ def crawl_store(store, sources, collected, delay, progress, part=None):
                                 break
                             time.sleep(wait)
                             page = s.get(url)
-                        if page.status != 200:
-                            log.append(f"{store} | {src['category']}: HTTP {page.status} for {url}")
-                        got += parse(page, src.get("query", src["category"])) if page.status == 200 else []
+                        body = page.body if isinstance(page.body, (bytes, str)) else b""
+                        if page.status != 200 or len(body) < 1000:     # refused, or the empty 53-byte shell: unread, never "0 products"
+                            streak += 1
+                            log.append(f"{store} | {src['category']}: REFUSED (HTTP {page.status}, {len(body)} bytes) for {url} - not read")
+                            if streak >= STOP_AFTER:
+                                raise Refused()
+                        else:
+                            streak = 0
+                            got += parse(page, src.get("query", src["category"]))
                         time.sleep(delay + random.random())
+            except Refused:
+                log.append(f"{store}: stopped after {streak} refused pages in a row; the remaining sources were not asked (not read, not 'not found')")
+                progress(log[-1])
+                if part:
+                    save_rows(part, rows)
+                break
             except Exception as e:
                 log.append(f"{store} | {src['category']}: FAILED {str(e)[:120]}")
             new = 0
@@ -224,7 +244,7 @@ def merge(out_dir):
     print(f"{len(rows)} products in {out_dir / 'catalog.csv'}  {by}")
 
 
-def main(out_dir, delay=1.0, only=None, append=False, part_only=False):
+def main(out_dir, delay=2.5, only=None, append=False, part_only=False):   # at least 2.5 s per shop (house rule)
     import threading
     from concurrent.futures import ThreadPoolExecutor
     cfg = json.load(open(CONFIG, encoding="utf-8"))

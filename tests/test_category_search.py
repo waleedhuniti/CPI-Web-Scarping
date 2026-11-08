@@ -185,3 +185,41 @@ def test_barcode_search_stops_after_refusals_and_reports_blocked(monkeypatch, tm
     st = json.loads((tmp_path / "run" / "carrefour_status.json").read_text())
     assert st["state"] == "blocked" and st["read"] == 0 and st["failed"] == 30 and st["not_asked"] == 25
     assert len(json.loads((tmp_path / "run" / "carrefour_failed.json").read_text())) == 30   # unread, never "not found"
+
+
+def test_rebuild_code_writes_files_basket_and_pins(tmp_path):
+    import json
+    sys.path.insert(0, str(ROOT / "scripts" / "pc"))
+    import rebuild_code
+    w = tmp_path / "w"
+    (w / "system_bundle").mkdir(parents=True)
+    (w / "projects/cpi/basket").mkdir(parents=True)
+    (w / "projects/cpi/pins").mkdir(parents=True)
+    (w / "system_bundle/b0.json").write_text(json.dumps({"data": {"files": {
+        "scripts/a.py": "print(1)\n", "cpi/b/c.py": "x = 'é'\n",
+        "scripts/catalogue_crawl.py": "def main(out_dir, delay=1.0, only=None):\n    pass\n",
+        "scripts/name_live.py": "def run(run_dir, delay=1.2):\n    pass\n"}}}))
+    (w / "projects/cpi/basket/b1.json").write_text(json.dumps({"data": {"items": [{"item_code": "1"}]}}))
+    (w / "projects/cpi/basket/b2.json").write_text(json.dumps({"items": [{"item_code": "2"}]}))
+    (w / "projects/cpi/pins/current.json").write_text(json.dumps({"data": {"pins": {"k": {"url": "u"}}}}))
+    rebuild_code.rebuild(str(tmp_path))
+    assert (tmp_path / "repo/cpi/b/c.py").read_text(encoding="utf-8") == "x = 'é'\n"
+    assert [i["item_code"] for i in json.loads((tmp_path / "repo/data/basket/basket.json").read_text())] == ["1", "2"]
+    assert json.loads((tmp_path / "pins.json").read_text()) == {"k": {"url": "u"}}
+    assert "delay=2.5" in (tmp_path / "repo/scripts/catalogue_crawl.py").read_text()      # paced at 2.5 s per shop
+    assert "delay=2.5" in (tmp_path / "repo/scripts/name_live.py").read_text()
+
+
+def test_rebuild_code_stops_if_a_pacing_default_moved(tmp_path):
+    import json
+    sys.path.insert(0, str(ROOT / "scripts" / "pc"))
+    import rebuild_code
+    (tmp_path / "w/system_bundle").mkdir(parents=True)
+    (tmp_path / "w/system_bundle/b0.json").write_text(json.dumps({"files": {
+        "scripts/catalogue_crawl.py": "def main(out_dir, delay=0.5):\n    pass\n", "scripts/name_live.py": "def run(run_dir, delay=1.2):\n    pass\n"}}))
+    try:
+        rebuild_code.rebuild(str(tmp_path), basket=False)
+    except SystemExit as e:
+        assert "pacing default not found" in str(e)
+    else:
+        raise AssertionError("must stop")

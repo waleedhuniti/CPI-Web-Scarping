@@ -151,11 +151,11 @@ const smFail = (x, again) => { $("#sm-err").hidden = true; $("#sm-box").innerHTM
         flags: $$("#sm-form .flags input:checked").map((i) => i.value), date_used: v("sm-date") || null, note: v("sm-note"), screenshot_ref: v("sm-shot") || null, source: "manual", entered_by: viewerName(), entered_at: new Date().toISOString(), id: cur?.id || "m" + Date.now().toString(36) };
       try {
         const ok = await write(wid, (rows) => { const i = cur ? rows.findIndex((x) => x.id === cur.id && x.source === "manual") : -1; if (i >= 0) rows[i] = { ...rows[i], ...row }; else rows.push(row); });
-        if (ok) { closeSidePanel(); toast(L("Manual price saved", "حُفظ السعر اليدوي")); drawSppiGrid(); }
+        if (ok) { closeSidePanel(); toast(L("Manual price saved", "حُفظ السعر اليدوي")); (pre.onSaved || drawSppiGrid)(); }
       } catch (x) { smFail(x, () => $("#sm-form").requestSubmit()); }
     };
     $("#sm-withdraw")?.addEventListener("click", async () => {
-      try { if (await write(cur.week, (rows) => { const i = rows.findIndex((x) => x.id === cur.id && x.source === "manual"); if (i >= 0) rows[i] = { ...rows[i], status: "withdrawn", withdrawn_at: new Date().toISOString() }; })) { closeSidePanel(); toast(L("Manual price withdrawn", "سُحب السعر اليدوي")); drawSppiGrid(); } }
+      try { if (await write(cur.week, (rows) => { const i = rows.findIndex((x) => x.id === cur.id && x.source === "manual"); if (i >= 0) rows[i] = { ...rows[i], status: "withdrawn", withdrawn_at: new Date().toISOString() }; })) { closeSidePanel(); toast(L("Manual price withdrawn", "سُحب السعر اليدوي")); (pre.onSaved || drawSppiGrid)(); } }
       catch (x) { smFail(x, () => $("#sm-withdraw").click()); }
     });
   });

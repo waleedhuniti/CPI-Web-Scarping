@@ -46,7 +46,7 @@ function renderSide() {
   if (!r || r.kind !== "page") { side.hidden = true; shell.classList.add("no-side"); $("#side-nav").innerHTML = ""; return; }
   side.hidden = false; shell.classList.remove("no-side");
   const p = routeOf(r.pid);
-  $("#side-nav").innerHTML = PAGES.map(([pg, icon, en, ar]) => { const lbl = L(en, ar);
+  $("#side-nav").innerHTML = PAGES.filter(([pg]) => pg !== "manual" || r.pid !== "te").map(([pg, icon, en, ar]) => { const lbl = L(en, ar);
     return `<a class="nav-item" href="#${p}-${pg}" data-pg="${pg}"${r.page === pg ? ' aria-current="page"' : ""} title="${esc(lbl)}" aria-label="${esc(lbl)}"><span class="tile">${ico(icon)}</span><span class="lbl">${esc(lbl)}</span>${ico("chevr", "chev flip")}</a>`; }).join("");
   const set = $("#side-settings"); set.href = `#${p}-settings`;
   if (r.page === "settings") set.setAttribute("aria-current", "page"); else set.removeAttribute("aria-current");
@@ -73,10 +73,11 @@ function parseRoute(h) {
   if (h === "other-projects") return { kind: "others", key: h };
   let m = /^other-([\w.~-]+)$/.exec(h);
   if (m && projects[m[1]] && !["cpi", "sppi", "te"].includes(m[1])) return { kind: "other", id: m[1], key: h };
-  m = /^(cpi|sppi|trendx)-(dashboard|outlets|price-history|schedules|years-months|scrapers|price-logs|settings)(?:\/(.+))?$/.exec(h);
+  m = /^(cpi|sppi|trendx)-(dashboard|outlets|price-history|schedules|years-months|scrapers|price-logs|manual|settings)(?:\/(.+))?$/.exec(h);
   if (m) {
     const sub = m[3] || "";
     if (sub && !(SUBS[m[2]] || []).includes(sub) && !(m[2] === "scrapers" && /^[a-z0-9_-]+$/.test(sub))) return { kind: "unknown", pid: ROUTE2ID[m[1]], key: h };
+    if (m[2] === "manual" && m[1] === "trendx") return { kind: "unknown", pid: "te", key: h };
     return { kind: "page", pid: ROUTE2ID[m[1]], page: m[2], sub, key: h };
   }
   // addresses of the previous layout
@@ -127,7 +128,7 @@ function renderPage(r) {
   if (!(r.kind === "page" && r.page === "price-history" && !r.sub)) { try { const keep = localStorage.getItem("side-collapsed") === "1"; if ($("#shell").classList.contains("collapsed") !== keep) setSideCollapsed(keep, false); } catch (e) {} }
   const fn = r.kind === "home" ? pgHome : r.kind === "others" ? pgOthers : r.kind === "other" ? pgOther : r.kind === "unknown" ? pgUnknown
     : { dashboard: pgDashboard, outlets: pgOutlets, "price-history": r.sub === "commodities" ? pgCommodities : pgHistory, schedules: pgSchedules,
-        "years-months": pgYears, scrapers: pgScrapers, "price-logs": pgLogs, settings: pgSettings }[r.page];
+        "years-months": pgYears, scrapers: pgScrapers, "price-logs": pgLogs, manual: pgManual, settings: pgSettings }[r.page];
   try { fn(r, seq); }
   catch (e) { $("#page").innerHTML = errBox(L("This page could not be drawn: ", "تعذّر رسم هذه الصفحة: ") + (e?.message || e)); }
   bindRetry();

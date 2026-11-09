@@ -11,6 +11,7 @@ const PAGES = [
   ["years-months", "calendar", "Years & Months", "السنوات والأشهر"],
   ["scrapers", "doc", "Scrapers", "الكاشطات"],
   ["price-logs", "file", "Price Logs", "سجل التشغيلات"],
+  ["manual", "hand", "Manual Entry", "الإدخال اليدوي"],      // CPI and SPPI only (not TrendX)
 ];
 const pageName = (pg) => { const x = PAGES.find((p) => p[0] === pg); return x ? L(x[2], x[3]) : pg; };
 

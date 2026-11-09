@@ -20,13 +20,15 @@ const TE_PAGES = [
   ["quarterly", "calendar", "Quarterly analysis", "التحليل الربعي"],
   ["price-history", "pulse", "Reference prices", "الأسعار المرجعية"],
   ["correlation", "hex", "Correlation", "تحليل الارتباط"],
+  ["network", "hex", "Network", "الشبكة"],
   ["forecasts", "chart", "Forecasts", "التوقعات"],
+  ["benchmarks", "chart", "Benchmarks", "المقارنات"],
   ["reports", "doc", "Reports", "التقارير والمخرجات"],
   ["data", "folder", "Data & integration", "البيانات والتكامل"],
   ["methodology", "list", "Methodology", "المنهجية"],
 ];
 const TE_HIDDEN = ["schedules", "scrapers", "price-logs"];                 // still routable for TrendX (linked from Data & integration), not in its menu
-const pagesOf = (pid) => (pid === "te" ? TE_PAGES : PAGES.filter(([pg]) => !["trends", "quarterly", "correlation", "forecasts", "reports", "data", "methodology"].includes(pg)));
+const pagesOf = (pid) => (pid === "te" ? TE_PAGES : PAGES.filter(([pg]) => !["trends", "quarterly", "correlation", "network", "forecasts", "benchmarks", "reports", "data", "methodology"].includes(pg)));
 const pageName = (pg, pid) => { const x = (pid === "te" ? [...TE_PAGES, ...PAGES] : PAGES).find((p) => p[0] === pg); return x ? L(x[2], x[3]) : pg; };
 
 // ---------------- formatting (Latin digits in both languages, Dubai time)

@@ -66,7 +66,7 @@ $("#lang-toggle").addEventListener("click", () => setLang(LANG === "ar" ? "en" :
 // ---------------- router: #home, #<p>-<page>[/sub], #<p>-settings, #other-projects, #other-<id>
 let routeKey = null, curRoute = null, renderSeq = 0, pendingDraft = null;
 const SUBS = { "price-history": ["commodities"] };
-const TE_ONLY = ["trends", "quarterly", "correlation", "forecasts", "reports", "data", "methodology"];
+const TE_ONLY = ["trends", "quarterly", "correlation", "network", "forecasts", "benchmarks", "reports", "data", "methodology"];
 function parseRoute(h) {
   h = String(h || "").replace(/^#/, "");
   try { h = decodeURIComponent(h); } catch (e) {}
@@ -74,7 +74,7 @@ function parseRoute(h) {
   if (h === "other-projects") return { kind: "others", key: h };
   let m = /^other-([\w.~-]+)$/.exec(h);
   if (m && projects[m[1]] && !["cpi", "sppi", "te"].includes(m[1])) return { kind: "other", id: m[1], key: h };
-  m = /^(cpi|sppi|trendx)-(dashboard|outlets|price-history|schedules|years-months|scrapers|price-logs|manual|settings|trends|quarterly|correlation|forecasts|reports|data|methodology)(?:\/(.+))?$/.exec(h);
+  m = /^(cpi|sppi|trendx)-(dashboard|outlets|price-history|schedules|years-months|scrapers|price-logs|manual|settings|trends|quarterly|correlation|network|forecasts|benchmarks|reports|data|methodology)(?:\/(.+))?$/.exec(h);
   if (m) {
     const sub = m[3] || "";
     if (TE_ONLY.includes(m[2]) && m[1] !== "trendx") return { kind: "unknown", pid: ROUTE2ID[m[1]], key: h };
@@ -132,7 +132,7 @@ function renderPage(r) {
   const fn = r.kind === "home" ? pgHome : r.kind === "others" ? pgOthers : r.kind === "other" ? pgOther : r.kind === "unknown" ? pgUnknown
     : { dashboard: pgDashboard, outlets: pgOutlets, "price-history": r.sub === "commodities" ? pgCommodities : pgHistory, schedules: pgSchedules,
         "years-months": pgYears, scrapers: pgScrapers, "price-logs": pgLogs, manual: pgManual, settings: pgSettings,
-        trends: pgTeTrends, quarterly: pgTeQuarterly, correlation: pgTeCorrelation, forecasts: pgTeForecasts, reports: pgTeReports, data: pgTeData, methodology: pgTeMethod }[r.page];
+        trends: pgTeTrends, quarterly: pgTeQuarterly, correlation: pgTeCorrelation, network: pgTeNetwork, forecasts: pgTeForecasts, benchmarks: pgTeBenchmarks, reports: pgTeReports, data: pgTeData, methodology: pgTeMethod }[r.page];
   try { fn(r, seq); }
   catch (e) { $("#page").innerHTML = errBox(L("This page could not be drawn: ", "تعذّر رسم هذه الصفحة: ") + (e?.message || e)); }
   bindRetry();

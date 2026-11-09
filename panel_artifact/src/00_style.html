@@ -479,4 +479,16 @@ tr.agg > td { background: #f8fafc; font-weight: 600; } tr.flagged > td:first-chi
 .report h3 { margin: 18px 0 8px; font-size: 16px; } .report h4 { margin: 14px 0 6px; font-size: 14.5px; } .report p, .report li { line-height: 1.75; max-width: 78ch; } .report .rep-head { border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 8px; } .report .rep-head h2 { margin: 4px 0; }
 tr.note-row > td { font-size: 13px; line-height: 1.6; white-space: normal; padding-top: 2px; padding-bottom: 10px; }
 td.note { font-size: 13px; line-height: 1.55; max-width: 460px; white-space: normal; }
+/* Network diagram (inline SVG, never mirrored; the horizontal layout on wide screens, the vertical one on phones) */
+.netdiag svg { display: block; width: 100%; height: auto; overflow: visible; }
+.netdiag text { font: 600 12.5px var(--sans); fill: var(--fg); } .netdiag text.lbl { font-size: 11px; font-weight: 600; fill: var(--muted); }
+.netdiag .node { cursor: pointer; } .netdiag .node:hover rect, .netdiag .node:focus-visible rect { stroke-width: 3; filter: drop-shadow(0 1px 3px rgba(26,117,184,.35)); } .netdiag .node:focus { outline: none; }
+.netdiag-v { display: none; } @media (max-width: 640px) { .netdiag-h { display: none; } .netdiag-v { display: block; } }
+/* series chips (multi-select toggles above the benchmark charts) and link-style buttons in tables */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chipbtn { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 800; line-height: 1.5; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--muted); cursor: pointer; }
+.chipbtn .sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; opacity: .35; } .chipbtn[aria-pressed=true] { color: var(--fg); border-color: var(--primary); background: var(--soft); } .chipbtn[aria-pressed=true] .sw { opacity: 1; }
+.chipbtn:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+button.link { background: none; border: 0; padding: 0; color: var(--primary-ink); font: inherit; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-align: start; min-height: 0; }
+button.link:hover { color: var(--primary); } button.link:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
 </style>

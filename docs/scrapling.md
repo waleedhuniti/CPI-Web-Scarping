@@ -61,7 +61,7 @@ selected URL batch, and uploads a JSON artifact for seven days.
 ### First test
 
 1. Open the repository's **Actions** tab.
-2. Select **Scrapling product-page batch** and click **Run workflow**.
+2. Select **Scrapling product-page batch**. In **Use workflow from**, select the branch `feat/scrapling-stealth-fetcher` (the workflow entry point is also copied to the default branch so GitHub exposes manual dispatch), then click **Run workflow**.
 3. Select `carrefour`.
 4. Paste a JSON array of Carrefour product-page URLs into **urls_json**. The
    accepted forms are a list of URL strings or objects with a `url` field.

@@ -464,4 +464,19 @@ label.f.inline { display: inline-flex; align-items: center; gap: 6px; }
 label.f.inline input { width: auto; }
 tr.off td { color: var(--muted); text-decoration: line-through; text-decoration-color: rgb(0 0 0 / .25); }
 tr.off td:last-child, tr.off td:nth-last-child(2) { text-decoration: none; }
+
+/* TrendX analytics */
+.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1100px) { .grid.two { grid-template-columns: minmax(0, 1fr); } }
+.section-h { font-size: 17px; margin: 8px 0 -4px; color: var(--muted); font-weight: 700; }
+.insights { margin: 10px 0 0; padding-inline-start: 20px; line-height: 1.7; } .insights li { margin: 4px 0; }
+.chg-dn { color: var(--ok); }
+.mov { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) 64px; gap: 10px; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.mov:last-child { border-bottom: 0; } .mov .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .mov .bar { height: 10px; background: #eef2f7; border-radius: 6px; overflow: hidden; } .mov .bar i { display: block; height: 100%; border-radius: 6px; } .mov .v { text-align: end; font-variant-numeric: tabular-nums; font-weight: 700; }
+table.hm td.num { font-variant-numeric: tabular-nums; font-size: 12.5px; padding: 6px 8px; } table.hm th.rot span { display: inline-block; max-width: 72px; white-space: normal; font-size: 11px; line-height: 1.2; }
+.lagprof { display: inline-flex; align-items: flex-end; gap: 2px; height: 24px; } .lagprof i { display: inline-block; width: 6px; border-radius: 2px 2px 0 0; }
+tr.agg > td { background: #f8fafc; font-weight: 600; } tr.flagged > td:first-child { box-shadow: inset 3px 0 0 var(--warn, #d97706); } tr.best > td { background: #f0fdf4; } tr.total > td { border-top: 2px solid var(--line); }
+.report h3 { margin: 18px 0 8px; font-size: 16px; } .report h4 { margin: 14px 0 6px; font-size: 14.5px; } .report p, .report li { line-height: 1.75; max-width: 78ch; } .report .rep-head { border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 8px; } .report .rep-head h2 { margin: 4px 0; }
+tr.note-row > td { font-size: 13px; line-height: 1.6; white-space: normal; padding-top: 2px; padding-bottom: 10px; }
+td.note { font-size: 13px; line-height: 1.55; max-width: 460px; white-space: normal; }
 </style>

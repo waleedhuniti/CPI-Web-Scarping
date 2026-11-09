@@ -7,11 +7,12 @@ function pgDashboard(r, seq) {
   const kp = (id, icon, tint, label, href) => kpiHtml({ id: "db-kpi-" + id, icon, tint, label, href, value: "—" });
   $("#page").innerHTML = `<h1 class="sr-only">${esc(pageName("dashboard"))} · ${esc(projLabel(pid))}</h1>
     <div class="kpis dash">
-      ${kp("outlets", "store", "", L("Total Outlets", "إجمالي المنافذ"), `#${p}-outlets`)}
+      ${pid === "te" ? kp("outlets", "hex", "", L("Series with real history", "سلاسل بتاريخ حقيقي"), `#${p}-data`) : kp("outlets", "store", "", L("Total Outlets", "إجمالي المنافذ"), `#${p}-outlets`)}
       ${kp("commodities", "box", "", L("Commodities Tracked", "السلع المتابَعة"), `#${p}-price-history/commodities`)}
       ${kp("records", "records", "", L("Price Records", "سجلات الأسعار"), `#${p}-price-logs`)}
       ${kp("scrapers", "gear", "", L("Active Scrapers", "الكاشطات الفعّالة"), `#${p}-scrapers`)}
     </div>
+    ${pid === "te" ? `<div id="db-te-an" class="stack">${loadingHtml(L("Computing the analyses…", "تُحسب التحليلات…"))}</div><h2 class="section-h">${esc(L("Daily collection", "الجمع اليومي"))}</h2>` : ""}
     <section class="card" id="db-trend" aria-labelledby="db-trend-h"><div class="card-h"><h2 id="db-trend-h">${esc(pid === "sppi" ? L("Collections", "مرات الجمع") : pid === "te" ? teTrendTitle() : L(TREND_TITLE[pid][0], TREND_TITLE[pid][1]))}</h2><span class="spacer"></span><span id="db-trend-chip"></span></div><div id="db-trend-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div></section>
     <section class="card" id="db-latest" aria-labelledby="db-latest-h"><div class="card-h"><h2 id="db-latest-h">${esc(L("Latest collection", "آخر جمع"))}</h2><span class="spacer"></span><span id="db-latest-chip"></span></div><div id="db-latest-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div></section>
     <section class="card" id="db-donut" aria-labelledby="db-donut-h"><div class="card-h"><h2 id="db-donut-h">${esc(pid === "cpi" ? L("Basket composition", "تكوين السلة") : L("Commodity distribution", "توزيع السلع"))}</h2><span class="spacer"></span><span id="db-donut-tools"></span></div><div id="db-donut-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div></section>
@@ -136,7 +137,8 @@ async function dashTe(seq, fail) {
   if (!alive(seq)) return;
   const last = days[days.length - 1], prev = days[days.length - 2];
   const outs = await outletRows("te"); if (!alive(seq)) return;
-  setKpi("db-kpi-outlets", fmtN(outs.length), "Trading Economics");
+  drawTeAnalytics(seq);
+  teModel().then((A) => alive(seq) && A && setKpi("db-kpi-outlets", fmtN(A.act.length), L(`of ${A.ser.filter((s) => s.inIdx).length} index series · ${A.ser.filter((s) => !s.real).length} carried back`, `من ${A.ser.filter((s) => s.inIdx).length} سلسلة · ${A.ser.filter((s) => !s.real).length} مُثبّتة`))).catch(() => {});
   if (!last) { ["db-latest-body", "db-trend-body", "db-donut-body", "db-activity-body"].forEach((b) => ($("#" + b).innerHTML = emptyHtml("file", L("No runs yet", "لا تشغيلات بعد"), ""))); return; }
   const inIdx = last.rows.filter((x) => !TE_EXCL.includes(x.category)).length;
   setKpi("db-kpi-commodities", fmtN(last.rows.length), L(`${inIdx} in index`, `${inIdx} في المؤشر`));

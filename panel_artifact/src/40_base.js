@@ -13,7 +13,21 @@ const PAGES = [
   ["price-logs", "file", "Price Logs", "سجل التشغيلات"],
   ["manual", "hand", "Manual Entry", "الإدخال اليدوي"],      // CPI and SPPI only (not TrendX)
 ];
-const pageName = (pg) => { const x = PAGES.find((p) => p[0] === pg); return x ? L(x[2], x[3]) : pg; };
+// TrendX has its own page set (the analyses of the PPI analysis prototype, on our data): no outlets, no operational pages in the menu
+const TE_PAGES = [
+  ["dashboard", "home", "Dashboard", "لوحة المتابعة"],
+  ["trends", "trend", "Trends", "الاتجاهات"],
+  ["quarterly", "calendar", "Quarterly analysis", "التحليل الربعي"],
+  ["price-history", "pulse", "Reference prices", "الأسعار المرجعية"],
+  ["correlation", "hex", "Correlation", "تحليل الارتباط"],
+  ["forecasts", "chart", "Forecasts", "التوقعات"],
+  ["reports", "doc", "Reports", "التقارير والمخرجات"],
+  ["data", "folder", "Data & integration", "البيانات والتكامل"],
+  ["methodology", "list", "Methodology", "المنهجية"],
+];
+const TE_HIDDEN = ["schedules", "scrapers", "price-logs"];                 // still routable for TrendX (linked from Data & integration), not in its menu
+const pagesOf = (pid) => (pid === "te" ? TE_PAGES : PAGES.filter(([pg]) => !["trends", "quarterly", "correlation", "forecasts", "reports", "data", "methodology"].includes(pg)));
+const pageName = (pg, pid) => { const x = (pid === "te" ? [...TE_PAGES, ...PAGES] : PAGES).find((p) => p[0] === pg); return x ? L(x[2], x[3]) : pg; };
 
 // ---------------- formatting (Latin digits in both languages, Dubai time)
 const fmtN = (n, d) => (n == null || n === "" || !isFinite(n) ? "—" : Number(n).toLocaleString("en", d == null ? {} : { minimumFractionDigits: d, maximumFractionDigits: d }));

@@ -27,7 +27,7 @@ function lineChart(o) {
   const first = series[0].points[0], last = series[0].points[series[0].points.length - 1];
   const summary = o.summary || `${o.title || ""}: ${series.map((s) => `${s.label} ${fy(s.points[0].y)} → ${fy(s.points[s.points.length - 1].y)}`).join("; ")} (${o.xFmt ? o.xFmt(first.x) : first.x} – ${o.xFmt ? o.xFmt(last.x) : last.x})`;
   const legend = series.length > 1 ? `<div class="legend">${series.map((s, si) => `<span><i class="sw" style="background:${s.color || PALETTE[si % PALETTE.length]}"></i>${esc(s.label)}</span>`).join("")}</div>` : "";
-  const table = `<table class="sr-only"><caption>${esc(o.title || "")}</caption><thead><tr><th scope="col">${esc(L("Date", "التاريخ"))}</th>${series.map((s) => `<th scope="col">${esc(s.label)}</th>`).join("")}</tr></thead><tbody>${xs.map((x) => `<tr><th scope="row">${esc(x)}</th>${series.map((s) => { const p = s.points.find((q) => q.x === x); return `<td>${p ? esc(fy(p.y)) : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody></table>`;
+  const table = `<div class="sr-only"><table><caption>${esc(o.title || "")}</caption><thead><tr><th scope="col">${esc(L("Date", "التاريخ"))}</th>${series.map((s) => `<th scope="col">${esc(s.label)}</th>`).join("")}</tr></thead><tbody>${xs.map((x) => `<tr><th scope="row">${esc(x)}</th>${series.map((s) => { const p = s.points.find((q) => q.x === x); return `<td>${p ? esc(fy(p.y)) : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>`;
   return `<div class="chart" ${o.id ? `id="${esc(o.id)}-svg"` : ""}><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(summary)}">${grid.join("")}${xl}${lines}</svg></div>${legend}${table}`;
 }
 // Donut + legend with count and share

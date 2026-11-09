@@ -90,7 +90,9 @@ python -m pytest
 
 For an alternative browser-based product-page crawl, see [docs/scrapling.md](docs/scrapling.md).
 Install the optional dependency with `pip install -r requirements-scrapling.txt`
-and `scrapling install`. The collector preserves the existing
+and `scrapling install`, or run a bounded batch in the manually triggered
+[GitHub Actions workflow](.github/workflows/scrapling-batch.yml). See
+[docs/scrapling.md](docs/scrapling.md) for the runner instructions. The collector preserves the existing
 `scripts/verify_pages.py` input format and the CPI barcode/quantity checks.
 
 Scrapling's stealth browser features are enabled, but CAPTCHA and human-verification

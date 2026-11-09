@@ -84,3 +84,16 @@ python -m pytest
 * Next: supply last month's price per basket line (the anchor for the +/-30% origin rule and for a month-on-month
   plausibility check), let an officer clear `review_queue.csv` once, then repeat monthly in one short collection window.
 * Spinneys and Nesto: not covered (see `docs/retailers.md`).
+
+
+## Optional Scrapling product-page fetcher
+
+For an alternative browser-based product-page crawl, see [docs/scrapling.md](docs/scrapling.md).
+Install the optional dependency with `pip install -r requirements-scrapling.txt`
+and `scrapling install`. The collector preserves the existing
+`scripts/verify_pages.py` input format and the CPI barcode/quantity checks.
+
+Scrapling's stealth browser features are enabled, but CAPTCHA and human-verification
+challenges are not automatically solved. Such pages are explicitly routed to the
+review queue; an authorized operator can use the visible-browser `--manual-check`
+workflow described in the documentation.

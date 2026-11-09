@@ -1,0 +1,54 @@
+series_id,commodity,first_actual_period,first_actual_value,unit,carried_back_from,carried_back_to,source_of_first_value,replaced_by,note
+uranium,Uranium,2026-10,90.3625,USD/Lbs,2024-01,2026-09,Trading Economics commodities table (our daily capture),,not in WB; IMF PCPS has a monthly uranium series (to add)
+methanol,Methanol,2026-09,3850.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,China NBS 10-day prices (to add)
+coking_coal,Coking Coal,2026-10,266.294194,USD/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,no free licensed monthly series verified
+naphtha,Naphtha,2026-10,895.49125,USD/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,no free history found
+ethanol,Ethanol,2026-10,1.941774,USD/Gal,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USDA AMS ethanol reports (to add)
+steel,Steel,2026-09,3109.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,Shanghai rebar: NBS 10-day 螺纹钢 (to add)
+hrc_steel,HRC Steel,2026-10,1353.822903,USD/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,no free licensed series verified
+scrap_steel,Scrap Steel,2026-10,396.46875,USD/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,no free licensed series verified
+scrap_aluminum,Scrap Aluminum,2026-10,2641.929062,USD/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,no free licensed series verified
+lithium,Lithium,2026-09,122800.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,no free licensed monthly series (USGS annual only)
+silicon,Silicon,2026-09,8540.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,no free licensed monthly series
+titanium,Titanium,2026-09,43.5,CNY/KG,2024-01,2026-08,Trading Economics commodities table (our daily capture),,USGS annual only
+aluminum_alloy,Aluminum Alloy,2026-09,23520.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,no free licensed series
+cobalt_hydroxide,Cobalt Hydroxide,2026-10,33760.310937,USD/MT,2024-01,2026-09,Trading Economics commodities table (our daily capture),,no free licensed series
+oat,Oat,2026-10,391.925013,USd/Bu,2024-01,2026-09,Trading Economics commodities table (our daily capture),,IMF PCPS oats (to add)
+barley,Barley,2026-10,3210.328125,INR/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,$/mt x INR per USD; TE quotes an Indian market
+butter,Butter,2026-10,4133.903226,EUR/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,EC agri-food portal butter EUR/100kg (to add)
+milk,Milk,2026-10,15.145161,USD/CWT,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USDA AMS / IMF dairy (to add)
+cheese,Cheese,2026-10,1.589319,USD/Lbs,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USDA AMS cheddar (to add)
+canola,Canola,2026-10,802.610667,CAD/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,StatCan canola CAD/t (to add)
+wool,Wool,2026-10,1795.516129,AUD/100Kg,2024-01,2026-09,Trading Economics commodities table (our daily capture),,IMF PCPS wool (to add)
+live_cattle,Live Cattle,2026-10,224.971052,USd/Lbs,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USDA AMS fed steers (to add)
+feeder_cattle,Feeder Cattle,2026-10,342.724142,USd/Lbs,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USDA AMS feeder steers (to add)
+lean_hogs,Lean Hogs,2026-10,68.913229,USd/Lbs,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USDA AMS hogs (to add)
+eggs_us,Eggs US,2026-10,0.359355,USD/Dozen,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USDA AMS egg markets (to add)
+eggs_ch,Eggs CH,2026-10,3463.322581,CNY/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,no free licensed series
+salmon,Salmon,2026-09,74.68,NOK/KG,2024-01,2026-08,Trading Economics commodities table (our daily capture),,Statistics Norway table 03024 weekly NOK/kg (to add)
+cobalt,Cobalt,2026-10,37043.28125,USD/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,IMF PCPS cobalt (to add)
+palladium,Palladium,2026-10,1101.333333,USD/t.oz,2024-01,2026-09,Trading Economics commodities table (our daily capture),,IMF PCPS palladium (to add)
+molybdenum,Molybdenum,2026-09,620.5,CNY/Kg,2024-01,2026-08,Trading Economics commodities table (our daily capture),,IMF PCPS molybdenum in USD (to add); TE quotes CNY/kg
+rhodium,Rhodium,2026-10,9107.258065,USD/t oz.,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USGS annual only
+bitumen,Bitumen,2026-09,4568.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,no free licensed series
+phosphorus,Phosphorus,2026-09,1021.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,no free licensed series
+polyethylene,Polyethylene,2026-10,8776.032258,CNY/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,NBS 10-day (to add)
+polyvinyl,Polyvinyl,2026-10,4992.741935,CNY/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,NBS 10-day (to add)
+polypropylene,Polypropylene,2026-10,9415.419355,CNY/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,NBS 10-day (to add)
+synthetic_rubber,Synthetic Rubber,2026-10,16447.580323,CNY/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,NBS 10-day (to add)
+soda_ash,Soda Ash,2026-10,1041.129032,CNY/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USGS annual only
+neodymium,Neodymium,2026-09,947500.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,USGS annual only
+styrene,Styrene,2026-10,11086.129032,CNY/MT,2024-01,2026-09,Trading Economics commodities table (our daily capture),,NBS 10-day (to add)
+sulfur,Sulfur,2026-10,6554.789032,CNY/T,2024-01,2026-09,Trading Economics commodities table (our daily capture),,USGS annual only
+tellurium,Tellurium,2026-09,798.5,CNY/Kg,2024-01,2026-08,Trading Economics commodities table (our daily capture),,USGS annual only
+magnesium,Magnesium,2026-09,16750.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,USGS annual only
+gallium,Gallium,2026-09,1740.0,CNY/Kg,2024-01,2026-08,Trading Economics commodities table (our daily capture),,USGS annual only
+germanium,Germanium,2026-09,27250.0,CNY/Kg,2024-01,2026-08,Trading Economics commodities table (our daily capture),,USGS annual only
+manganese,Manganese,2026-09,28.85,CNY/mtu,2024-01,2026-08,Trading Economics commodities table (our daily capture),,no free licensed series
+indium,Indium,2026-09,5250.0,CNY/Kg,2024-01,2026-08,Trading Economics commodities table (our daily capture),,USGS annual only
+kraft_pulp,Kraft Pulp,2026-09,4798.0,CNY/T,2024-01,2026-08,Trading Economics commodities table (our daily capture),,no free licensed series
+united_kingdom,United Kingdom,2026-10,171.70125,GBP/MWh,2024-01,2026-09,Trading Economics commodities table (our daily capture),,electricity: no free licensed day-ahead history verified
+germany,Germany,2026-10,165.485806,EUR/MWh,2024-01,2026-09,Trading Economics commodities table (our daily capture),,electricity: ENTSO-E transparency platform (registration; to assess)
+france,France,2026-10,121.852187,EUR/MWh,2024-01,2026-09,Trading Economics commodities table (our daily capture),,electricity: ENTSO-E (to assess)
+italy,Italy,2026-10,238.557419,EUR/MWh,2024-01,2026-09,Trading Economics commodities table (our daily capture),,electricity: GME publishes PUN (terms to check)
+spain,Spain,2026-10,172.599677,EUR/MWh,2024-01,2026-09,Trading Economics commodities table (our daily capture),,electricity: OMIE (terms to check)

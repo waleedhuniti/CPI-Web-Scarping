@@ -206,6 +206,7 @@ async function gridTe(outlet, f, t, seq) {
   const state = { tab: "prices", cat: "", q: "" };
   const draw = () => {
     if (state.tab === "index") return drawTeIndex(all, f, t);
+    if (state.tab === "history") return drawTeHistory($("#ph-te-body"));
     const list = keys.filter((k) => (!state.cat || k.category === state.cat) && (!state.q || [k.commodity, k.category].join(" ").toLowerCase().includes(state.q.toLowerCase())));
     const cats = [...new Set(list.map((k) => k.category))];
     $("#ph-te-body").innerHTML = `<div class="tw tall"><table class="pgrid" id="ph-grid"><caption class="sr-only">${esc(L("TrendX price grid", "جدول أسعار TrendX"))}</caption><thead><tr><th scope="col" class="stick">${esc(L("Commodity (category, unit)", "السلعة (الفئة، الوحدة)"))}</th>${cols.map(colHead).join("")}<th scope="col" class="num">${esc(L("Change over range", "التغير خلال المدى"))}</th><th scope="col">${esc(L("Trend", "الاتجاه"))}</th></tr></thead><tbody>
@@ -219,15 +220,15 @@ async function gridTe(outlet, f, t, seq) {
           <td class="num ${chg > 0 ? "chg-up" : chg < 0 ? "chg-down" : ""}">${chg == null ? "—" : (chg > 0 ? "+" : "") + chg.toFixed(2) + "%"}</td><td class="ltr">${sparkline(ps)}</td></tr>`; }).join("")).join("")}</tbody></table></div>
       <p class="muted" style="margin:0">${esc(L("The close as published by the source. Grey italic with a clock: the quote date is before the run date (hover for it); “Stale”: older than 7 days.", "سعر الإغلاق كما نشره المصدر. رمادي مائل مع ساعة: تاريخ التسعيرة قبل تاريخ التشغيل (مرّر المؤشر لرؤيته)؛ «قديم»: أقدم من 7 أيام."))}</p>`;
   };
-  box.innerHTML = `<div class="card-h"><h2>Trading Economics · ${esc(fmtDay(f))} – ${esc(fmtDay(t))}</h2><span class="spacer"></span>${segToggle("ph-tab", [["prices", L("Prices", "الأسعار")], ["index", L("Index", "المؤشر")]], "prices", L("View", "العرض"))}
+  box.innerHTML = `<div class="card-h"><h2>Trading Economics · ${esc(fmtDay(f))} – ${esc(fmtDay(t))}</h2><span class="spacer"></span>${segToggle("ph-tab", [["prices", L("Prices", "الأسعار")], ["index", L("Index", "المؤشر")], ["history", L("History 2024 = 100", "التاريخ 2024 = 100")]], "prices", L("View", "العرض"))}
       <button type="button" id="ph-xlsx">${ico("download")}Excel</button><button type="button" id="ph-csv">${ico("download")}CSV</button></div>
     <div class="filter-card" id="ph-te-filters"><select id="ph-cat" aria-label="${esc(L("Category", "الفئة"))}"><option value="">${esc(L("All categories", "كل الفئات"))}</option>${[...new Set(keys.map((k) => k.category))].map((c) => `<option value="${esc(c)}">${esc(teCatName(c))}</option>`).join("")}</select>
       <label class="search"><span class="sr-only">${esc(L("Search commodities", "ابحث في السلع"))}</span>${ico("search")}<input id="ph-search" type="search" placeholder="${esc(L("Search commodities", "ابحث في السلع"))}"></label></div>
     <div id="ph-te-body"></div>`;
-  bindSeg("ph-tab", (v) => { state.tab = v; $("#ph-te-filters").hidden = v === "index"; draw(); });
+  bindSeg("ph-tab", (v) => { state.tab = v; $("#ph-te-filters").hidden = v !== "prices"; draw(); });
   $("#ph-cat").onchange = (e) => { state.cat = e.target.value; draw(); };
   $("#ph-search").oninput = (e) => { state.q = e.target.value; draw(); };
-  const sheet = () => state.tab === "index" ? teIndexSheet(all, f, t) : { title: "TrendX prices", subtitle: `${f} to ${t} • close as published; stale quotes keep their price_date`, headers: ["Category", "Commodity", "Unit", ...cols.flatMap((d) => [d, `${d} price_date`])],
+  const sheet = () => state.tab === "history" ? (teHist ? teHistorySheet(teHist) : { title: "TrendX history", subtitle: "not loaded", headers: ["note"], rows: [["open the History tab first"]] }) : state.tab === "index" ? teIndexSheet(all, f, t) : { title: "TrendX prices", subtitle: `${f} to ${t} • close as published; stale quotes keep their price_date`, headers: ["Category", "Commodity", "Unit", ...cols.flatMap((d) => [d, `${d} price_date`])],
     widths: [16, 30, 16, ...cols.flatMap(() => [12, 12])], priceCols: cols.map((_, i) => 4 + i * 2),
     rows: keys.map((k) => [k.category, k.commodity, k.unit, ...cols.flatMap((d) => { const x = byDay[d]?.get(teKey(k)); return [x ? Number(x.price) : byDay[d] ? "Not found" : "No run", x?.price_date || ""]; })]) };
   $("#ph-xlsx").onclick = () => offerXlsx(`TrendX ${state.tab} ${f}_${t}.xlsx`, sheet());

@@ -1,0 +1,127 @@
+name: Scrapling product-page batch
+
+on:
+  workflow_dispatch:
+    inputs:
+      retailer:
+        description: Retailer to fetch
+        required: true
+        type: choice
+        options:
+          - carrefour
+          - lulu
+        default: carrefour
+      urls_json:
+        description: 'Paste a JSON URL list, e.g. ["https://www.carrefouruae.com/.../p/123"] or [{"url":"https://..."}].'
+        required: true
+        type: string
+      start_index:
+        description: Zero-based position in the supplied URL list (for the next chunk, advance by max_urls).
+        required: true
+        default: "0"
+        type: string
+      max_urls:
+        description: Batch size (1–200). Start with 100; increase only after checking the first run.
+        required: true
+        default: "100"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  scrape:
+    name: Fetch product pages with Scrapling
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install project and Scrapling dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt -r requirements-scrapling.txt
+          scrapling install
+
+      - name: Run offline tests
+        run: python -m pytest -q
+
+      - name: Write supplied URL list to runner temp storage
+        env:
+          URLS_JSON: ${{ inputs.urls_json }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          Path(os.environ["RUNNER_TEMP"], "scrapling_input_urls.json").write_text(
+              os.environ["URLS_JSON"], encoding="utf-8"
+          )
+          PY
+
+      - name: Validate and select bounded batch
+        env:
+          RETAILER: ${{ inputs.retailer }}
+          START_INDEX: ${{ inputs.start_index }}
+          MAX_URLS: ${{ inputs.max_urls }}
+        run: |
+          python scripts/prepare_scrapling_batch.py \
+            "$RUNNER_TEMP/scrapling_input_urls.json" \
+            "$RUNNER_TEMP/urls_batch.json" \
+            --retailer "$RETAILER" \
+            --offset "$START_INDEX" \
+            --limit "$MAX_URLS"
+
+      - name: Fetch product pages
+        env:
+          RETAILER: ${{ inputs.retailer }}
+        run: |
+          python scripts/scrapling_product_pages.py \
+            "$RETAILER" \
+            "$RUNNER_TEMP/urls_batch.json" \
+            "$RUNNER_TEMP/${RETAILER}_pages_scrapling.json"
+
+      - name: Summarize batch
+        if: always()
+        env:
+          RETAILER: ${{ inputs.retailer }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          output = Path(os.environ["RUNNER_TEMP"]) / f'{os.environ["RETAILER"]}_pages_scrapling.json'
+          if not output.exists():
+              print("No result file was produced.")
+              raise SystemExit(0)
+          rows = json.loads(output.read_text(encoding="utf-8"))
+          counts = {
+              "total": len(rows),
+              "ok": sum(r.get("fetch_status") == "ok" for r in rows),
+              "human_verification_required": sum(r.get("fetch_status") == "human_verification_required" for r in rows),
+              "fetch_error": sum(r.get("fetch_status") == "fetch_error" for r in rows),
+              "with_json_ld": sum(bool(r.get("jsonLd")) for r in rows),
+          }
+          lines = ["## Scrapling batch result", "", "| Metric | Count |", "|---|---:|"]
+          lines += [f"| {key.replace('_', ' ')} | {value} |" for key, value in counts.items()]
+          summary = "\n".join(lines) + "\n"
+          print(summary)
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+              f.write(summary)
+          PY
+
+      - name: Upload raw page results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scrapling-${{ inputs.retailer }}-${{ github.run_number }}
+          path: ${{ runner.temp }}/${{ inputs.retailer }}_pages_scrapling.json
+          if-no-files-found: warn
+          retention-days: 7

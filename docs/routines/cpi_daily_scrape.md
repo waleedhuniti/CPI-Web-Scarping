@@ -4,7 +4,7 @@
 - Schedule: `CRON_TZ=Asia/Dubai 47 6 * * *` (06:47 Dubai, every day)
 - Fresh cloud session each run; the code comes from the panel's `system_bundle` documents (same files as this branch).
 
-Prompt, as stored on 2 Nov 2026:
+Prompt, as stored on 9 Nov 2026 (barcode searches now paced at 2.5 s and stopped after 5 refused pages):
 
 ````text
 Daily job: price the whole CPI basket (Carrefour and Lulu, Dubai; the 1,301 lines) with the Scrapling Python library and store the run in the user's "Scraping Projects" panel artifact: https://claude.ai/artifact/FSURninVx3TmNCeFYDyxUn . Basket lines WITH a barcode are searched by barcode (then by name); lines WITHOUT a barcode are priced from bulk category listings as a PRODUCT SET: every listing that fits the line, any origin and brand, tracked product by product and chained from day to day (scripts/product_panel.py), so a product going out of stock or a new one appearing does not make the price jump. Food lines named in Latin letters are searched by name on the shop sites (scripts/name_live.py). Whatever the searches cannot price is then filled from the latest catalogue of the catalogue routine (barcoded lines by name with exact pack size, goods with a Latin model name, goods with an Arabic-only name by English specs), so the Dataiku download shows them. No Apify. Work unattended; do not ask questions. S below is the scratchpad directory; R is S/repo.
@@ -36,9 +36,10 @@ json.dump(pins,open(S+'/pins.json','w'),ensure_ascii=False); print(len(pins),'pi
    Save the current UTC time (ISO 8601, e.g. 2026-10-12T04:00:05+00:00) as STARTED and today's date as D.
 
 3. From R, with the environment variable CPI_PINS=S/pins.json set for the category crawl and for combine_run, start these three in the background at the same time (Bash run_in_background, timeout 3 hours each), all writing into data/runs/D_daily:
-   - `python3 -I scripts/scrapling_search.py carrefour data/runs/D_daily`
-   - `python3 -I scripts/scrapling_search.py lulu data/runs/D_daily`
+   - `python3 -I scripts/scrapling_search.py carrefour data/runs/D_daily --delay 2.5 --stop-after 5`
+   - `python3 -I scripts/scrapling_search.py lulu data/runs/D_daily --delay 2.5 --stop-after 5`
    - `CPI_PINS=S/pins.json python3 -I scripts/scrapling_category.py data/runs/D_daily`
+   (--delay 2.5: at least 2.5 s between requests to a shop; --stop-after 5: after 5 refused pages in a row the shop is not asked again this run, the rest stays unread. Do not remove them and do not retry a refused shop.)
    Wait for all three to finish (about 60-100 minutes; wait on their background task notifications or their PIDs, not on a pgrep pattern that matches your own watcher). Never invent or type prices.
 
 4. From R, in this order (CPI_PINS=S/pins.json set for the first command):

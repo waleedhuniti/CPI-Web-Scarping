@@ -54,6 +54,18 @@ def main(retailer, pages_path, matched_path):
         if not page:
             out.append(dict(rec, check="page_not_read", final_status=r["status"]))
             continue
+        if page.get("fetch_status") == "human_verification_required":
+            out.append(dict(rec, check="human_verification_required",
+                            fetch_status="human_verification_required",
+                            final_status="review_human_verification",
+                            final_price="", final_in_stock=""))
+            continue
+        if page.get("fetch_status") == "fetch_error":
+            out.append(dict(rec, check="fetch_error: " + str(page.get("error", "")),
+                            fetch_status="fetch_error",
+                            final_status="review_fetch_error",
+                            final_price="", final_in_stock=""))
+            continue
         p = read_page(retailer, page)
         it = basket[r["item_code"]]
         item_q = Quantity(it.qty_raw, it.qty_unit, it.qty_total, it.qty_count, it.qty_flag)
@@ -117,7 +129,11 @@ def main(retailer, pages_path, matched_path):
         w.writeheader()
         w.writerows(out)
 
-    read = [o for o in out if o["check"] != "page_not_read"]
+    read = [o for o in out if o["check"] not in ("page_not_read", "human_verification_required")
+            and not o["check"].startswith("fetch_error: ")]
+    challenges = sum(o["check"] == "human_verification_required" for o in out)
+    fetch_errors = sum(o["check"].startswith("fetch_error: ") for o in out)
+    print(f"  human verification required: {challenges} | fetch errors: {fetch_errors}")
     acc = [o for o in read if o["status"] in ACCEPTED]
     n = len(read)
     print(f"{retailer}: product pages read {n} of {len(out)}")

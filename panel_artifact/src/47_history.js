@@ -238,7 +238,7 @@ async function gridTe(outlet, f, t, seq) {
 function teIndexSheet(all, f, t) {
   const sers = ["All", ...TE_CATS].map((c) => [c, teIndex(all, c)]);
   const days = all.map((d) => d.day).filter((d) => d >= f && d <= t);
-  return { title: "TrendX Index (2 Oct 2026 = 100)", subtitle: `${f} to ${t} • chained Jevons • Electricity and Index excluded`, headers: ["Date", ...sers.flatMap(([c]) => [`${c} level`, `${c} % change`])], widths: [12, ...sers.flatMap(() => [12, 12])], priceCols: [],
+  return { title: `TrendX Index (${teBaseLabel()})`, subtitle: `${f} to ${t} • chained Jevons • Electricity and Index excluded`, headers: ["Date", ...sers.flatMap(([c]) => [`${c} level`, `${c} % change`])], widths: [12, ...sers.flatMap(() => [12, 12])], priceCols: [],
     rows: days.map((d) => [d, ...sers.flatMap(([, s]) => { const i = s.findIndex((p) => p.x === d); return [i >= 0 ? +s[i].y.toFixed(3) : null, i > 0 ? +((s[i].y / s[i - 1].y - 1) * 100).toFixed(3) : null]; })]) };
 }
 function drawTeIndex(all, f, t) {

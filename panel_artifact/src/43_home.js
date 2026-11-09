@@ -63,7 +63,7 @@ function pgHome(r, seq) {
       const n = last.rows.length, inIdx = last.rows.filter((r) => !TE_EXCL.includes(r.category)).length;
       set("home-te-n", L(`${fmtN(n)} commodities · ${fmtN(inIdx)} in index`, `${fmtN(n)} سلعة · ${fmtN(inIdx)} في المؤشر`));
       const idx = teIndex(days);
-      set("home-te-idx", `${idx[idx.length - 1].y.toFixed(2)} · ${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100`);
+      set("home-te-idx", `${idx[idx.length - 1].y.toFixed(2)} · ${teBaseLabel()}`);
       set("home-te-col", L(`${fmtDay(last.day)} ${fmtTimeDubai(last.run.startedAt)} Dubai`, `${fmtDay(last.day)} ${fmtTimeDubai(last.run.startedAt)} دبي`));
       const q = teQuoteDate(last.rows); set("home-te-q", fmtDay(q.mode), L(`the date most quotes carry; newest ${q.max}`, `التاريخ الذي تحمله أغلب التسعيرات؛ الأحدث ${q.max}`));
       const rs = runStatus("te", last.run), today = todayDubai();

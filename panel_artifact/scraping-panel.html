@@ -3297,11 +3297,12 @@ async function teDays() {
   }
   const pd = projects.te?.index; if (pd?.exclude_categories) TE_EXCL = pd.exclude_categories;
   s.teDays = out.sort((a, b) => a.day.localeCompare(b.day));
+  await teLinkLoad(s.teDays);          // the 2024 base; a failure only leaves the first-day base
   return s.teDays;
 }
 const teKey = (r) => `${r.category}|${r.commodity}|${r.unit}`;
 // chained Jevons over commodities priced on both consecutive run days (one chain per category, or All)
-function teIndex(days, cat = "All") {
+function teIndexRaw(days, cat = "All") {
   const out = []; let I = 100, prev = null;
   for (const d of days) {
     const m = new Map();
@@ -3313,6 +3314,26 @@ function teIndex(days, cat = "All") {
   return out;
 }
 const meanOf = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
+// 2024 = 100: the daily chained index is linked to the monthly store (projects/te/history, scripts/trendx/build_history_store.py) at
+// the store's last external month, so its level carries the manager's base (mean of 2024 = 100, carried-back series included, as
+// the store's "all series" index). Without the store the index falls back to its first day = 100 and the labels say so.
+let teLink = null;   // { ok, month, factor: {All, Energy, ...} }
+async function teLinkLoad(days) {
+  if (teLink) return teLink;
+  try {
+    const h = await teHistoryLoad(); if (!h) { teLink = { ok: false }; return teLink; }
+    const inIdx = new Set(h.series.filter((s) => +s.in_index).map((s) => s.series_id)), catOf = Object.fromEntries(h.series.map((s) => [s.series_id, s.category]));
+    const months = [...new Set(Object.values(h.obs).flat().filter((x) => x[3] !== "te" && x[3] !== "carried_back").map((x) => x[0]))].sort();
+    const Lm = months[months.length - 1];
+    const gm = (cat) => { const v = []; for (const [sid, o] of Object.entries(h.obs)) { if (!inIdx.has(sid) || (cat !== "All" && catOf[sid] !== cat)) continue; const p = o.find((x) => x[0] === Lm); if (p && p[2] > 0) v.push(Math.log(p[2])); } return v.length ? Math.exp(v.reduce((a, b) => a + b, 0) / v.length) : null; };
+    const factor = {};
+    for (const c of ["All", ...TE_CATS]) { const m = meanOf(teIndexRaw(days, c).filter((p) => p.x.startsWith(Lm)).map((p) => p.y)), g = gm(c); factor[c] = m && g ? g / m : 1; }
+    teLink = { ok: !!Lm, month: Lm, factor };
+  } catch (e) { teLink = { ok: false, error: e?.message || String(e) }; }
+  return teLink;
+}
+function teIndex(days, cat = "All") { const f = teLink?.ok ? (teLink.factor[cat] ?? 1) : 1; return teIndexRaw(days, cat).map((p) => ({ ...p, y: p.y * f })); }
+const teBaseLabel = () => (teLink?.ok ? L("mean of 2024 = 100", "متوسط 2024 = 100") : `${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100`);
 function teMonthly(series, month) { const v = series.filter((p) => p.x.startsWith(month)).map((p) => p.y); return { mean: meanOf(v), n: v.length }; }
 
 // ---------------- SPPI (project data under projects/sppi; §9 extended shape, the minimal draft shape also read)
@@ -3715,7 +3736,7 @@ function pgHome(r, seq) {
       const n = last.rows.length, inIdx = last.rows.filter((r) => !TE_EXCL.includes(r.category)).length;
       set("home-te-n", L(`${fmtN(n)} commodities · ${fmtN(inIdx)} in index`, `${fmtN(n)} سلعة · ${fmtN(inIdx)} في المؤشر`));
       const idx = teIndex(days);
-      set("home-te-idx", `${idx[idx.length - 1].y.toFixed(2)} · ${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100`);
+      set("home-te-idx", `${idx[idx.length - 1].y.toFixed(2)} · ${teBaseLabel()}`);
       set("home-te-col", L(`${fmtDay(last.day)} ${fmtTimeDubai(last.run.startedAt)} Dubai`, `${fmtDay(last.day)} ${fmtTimeDubai(last.run.startedAt)} دبي`));
       const q = teQuoteDate(last.rows); set("home-te-q", fmtDay(q.mode), L(`the date most quotes carry; newest ${q.max}`, `التاريخ الذي تحمله أغلب التسعيرات؛ الأحدث ${q.max}`));
       const rs = runStatus("te", last.run), today = todayDubai();
@@ -4025,7 +4046,7 @@ async function dashTe(seq, fail) {
   const drawT = (cat) => {
     const s = teIndex(days, cat);
     $("#db-trend-plot").innerHTML = lineChart({ id: "db-trend", title: L(TREND_TITLE.te[0], TREND_TITLE.te[1]) + " · " + teCatName(cat), series: [{ label: teCatName(cat), points: s }], xFmt: (x) => fmtDay(x), yFmt: (v) => v.toFixed(2) })
-      + `<p class="chart-note">${esc(L(`Base ${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100 · chained Jevons on the run date · ${teCatName(cat)} · latest ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} commodities on the last day · Electricity and Index excluded.`, `الأساس ${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100 · جيفونز متسلسل حسب تاريخ التشغيل · ${teCatName(cat)} · الأخير ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} سلعة في آخر يوم · الكهرباء والمؤشرات مستبعدة.`))}</p>`;
+      + `<p class="chart-note">${esc(L(`Base ${teBaseLabel()} · chained Jevons on the run date · ${teCatName(cat)} · latest ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} commodities on the last day · Electricity and Index excluded.`, `الأساس ${teBaseLabel()} · جيفونز متسلسل حسب تاريخ التشغيل · ${teCatName(cat)} · الأخير ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} سلعة في آخر يوم · الكهرباء والمؤشرات مستبعدة.`))}</p>`;
   };
   $("#db-trend-body").innerHTML = segToggle("db-te-cat", ["All", ...TE_CATS].map((c) => [c, teCatName(c)]), "All", L("Category", "الفئة")) + `<div id="db-trend-plot"></div>`;
   bindSeg("db-te-cat", drawT); drawT("All");
@@ -4412,7 +4433,7 @@ async function gridTe(outlet, f, t, seq) {
 function teIndexSheet(all, f, t) {
   const sers = ["All", ...TE_CATS].map((c) => [c, teIndex(all, c)]);
   const days = all.map((d) => d.day).filter((d) => d >= f && d <= t);
-  return { title: "TrendX Index (2 Oct 2026 = 100)", subtitle: `${f} to ${t} • chained Jevons • Electricity and Index excluded`, headers: ["Date", ...sers.flatMap(([c]) => [`${c} level`, `${c} % change`])], widths: [12, ...sers.flatMap(() => [12, 12])], priceCols: [],
+  return { title: `TrendX Index (${teBaseLabel()})`, subtitle: `${f} to ${t} • chained Jevons • Electricity and Index excluded`, headers: ["Date", ...sers.flatMap(([c]) => [`${c} level`, `${c} % change`])], widths: [12, ...sers.flatMap(() => [12, 12])], priceCols: [],
     rows: days.map((d) => [d, ...sers.flatMap(([, s]) => { const i = s.findIndex((p) => p.x === d); return [i >= 0 ? +s[i].y.toFixed(3) : null, i > 0 ? +((s[i].y / s[i - 1].y - 1) * 100).toFixed(3) : null]; })]) };
 }
 function drawTeIndex(all, f, t) {
@@ -5132,7 +5153,7 @@ async function teMonthReport(m, btn) {
     for (const d of md) for (const x of d.rows) ad.addRow([d.day, x.price_date || "", x.category, x.commodity, x.unit, Number(x.price), x.change ?? null, x.pct ?? null, dubaiDT(d.run.startedAt)]);
     const nt = wb.addWorksheet("Notes"); head(nt, ["Item", "Value"]);
     const all = days.length ? calDays(days[0].day > m + "-01" ? days[0].day : m + "-01", monthEnd(m) < todayDubai() ? monthEnd(m) : todayDubai()) : [];
-    [["Method", "Chained Jevons on the run date: geometric mean of price relatives of commodities priced on both consecutive run days"], ["Base", `${TE_DEFAULT_INDEX.base} = 100 (stands for September)`], ["Monthly", "Mean of the daily index values of the month"],
+    [["Method", "Chained Jevons on the run date: geometric mean of price relatives of commodities priced on both consecutive run days"], ["Base", `${teBaseLabel()}${teLink?.ok ? ` (daily index linked to the monthly history at ${teLink.month})` : " (stands for September)"}`], ["Monthly", "Mean of the daily index values of the month"],
       ["Exclusions", TE_EXCL.join(", ")], ["Missing days", all.filter((d) => !md.some((x) => x.day === d)).join(", ") || "none"], ["Stale quotes", "Shown as published; price_date kept per row"], ["Source", "Trading Economics commodities page"]].forEach((r) => nt.addRow(r));
     const buf = await wb.xlsx.writeBuffer();
     await downloads.save({ filename: `TrendX monthly report ${m}.xlsx`, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) });

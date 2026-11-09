@@ -145,7 +145,7 @@ async function dashTe(seq, fail) {
   const drawT = (cat) => {
     const s = teIndex(days, cat);
     $("#db-trend-plot").innerHTML = lineChart({ id: "db-trend", title: L(TREND_TITLE.te[0], TREND_TITLE.te[1]) + " · " + teCatName(cat), series: [{ label: teCatName(cat), points: s }], xFmt: (x) => fmtDay(x), yFmt: (v) => v.toFixed(2) })
-      + `<p class="chart-note">${esc(L(`Base ${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100 · chained Jevons on the run date · ${teCatName(cat)} · latest ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} commodities on the last day · Electricity and Index excluded.`, `الأساس ${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100 · جيفونز متسلسل حسب تاريخ التشغيل · ${teCatName(cat)} · الأخير ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} سلعة في آخر يوم · الكهرباء والمؤشرات مستبعدة.`))}</p>`;
+      + `<p class="chart-note">${esc(L(`Base ${teBaseLabel()} · chained Jevons on the run date · ${teCatName(cat)} · latest ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} commodities on the last day · Electricity and Index excluded.`, `الأساس ${teBaseLabel()} · جيفونز متسلسل حسب تاريخ التشغيل · ${teCatName(cat)} · الأخير ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} سلعة في آخر يوم · الكهرباء والمؤشرات مستبعدة.`))}</p>`;
   };
   $("#db-trend-body").innerHTML = segToggle("db-te-cat", ["All", ...TE_CATS].map((c) => [c, teCatName(c)]), "All", L("Category", "الفئة")) + `<div id="db-trend-plot"></div>`;
   bindSeg("db-te-cat", drawT); drawT("All");

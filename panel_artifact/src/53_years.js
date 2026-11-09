@@ -143,7 +143,7 @@ async function teMonthReport(m, btn) {
     for (const d of md) for (const x of d.rows) ad.addRow([d.day, x.price_date || "", x.category, x.commodity, x.unit, Number(x.price), x.change ?? null, x.pct ?? null, dubaiDT(d.run.startedAt)]);
     const nt = wb.addWorksheet("Notes"); head(nt, ["Item", "Value"]);
     const all = days.length ? calDays(days[0].day > m + "-01" ? days[0].day : m + "-01", monthEnd(m) < todayDubai() ? monthEnd(m) : todayDubai()) : [];
-    [["Method", "Chained Jevons on the run date: geometric mean of price relatives of commodities priced on both consecutive run days"], ["Base", `${TE_DEFAULT_INDEX.base} = 100 (stands for September)`], ["Monthly", "Mean of the daily index values of the month"],
+    [["Method", "Chained Jevons on the run date: geometric mean of price relatives of commodities priced on both consecutive run days"], ["Base", `${teBaseLabel()}${teLink?.ok ? ` (daily index linked to the monthly history at ${teLink.month})` : " (stands for September)"}`], ["Monthly", "Mean of the daily index values of the month"],
       ["Exclusions", TE_EXCL.join(", ")], ["Missing days", all.filter((d) => !md.some((x) => x.day === d)).join(", ") || "none"], ["Stale quotes", "Shown as published; price_date kept per row"], ["Source", "Trading Economics commodities page"]].forEach((r) => nt.addRow(r));
     const buf = await wb.xlsx.writeBuffer();
     await downloads.save({ filename: `TrendX monthly report ${m}.xlsx`, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) });

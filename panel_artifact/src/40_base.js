@@ -253,11 +253,12 @@ async function teDays() {
   }
   const pd = projects.te?.index; if (pd?.exclude_categories) TE_EXCL = pd.exclude_categories;
   s.teDays = out.sort((a, b) => a.day.localeCompare(b.day));
+  await teLinkLoad(s.teDays);          // the 2024 base; a failure only leaves the first-day base
   return s.teDays;
 }
 const teKey = (r) => `${r.category}|${r.commodity}|${r.unit}`;
 // chained Jevons over commodities priced on both consecutive run days (one chain per category, or All)
-function teIndex(days, cat = "All") {
+function teIndexRaw(days, cat = "All") {
   const out = []; let I = 100, prev = null;
   for (const d of days) {
     const m = new Map();
@@ -269,6 +270,26 @@ function teIndex(days, cat = "All") {
   return out;
 }
 const meanOf = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
+// 2024 = 100: the daily chained index is linked to the monthly store (projects/te/history, scripts/trendx/build_history_store.py) at
+// the store's last external month, so its level carries the manager's base (mean of 2024 = 100, carried-back series included, as
+// the store's "all series" index). Without the store the index falls back to its first day = 100 and the labels say so.
+let teLink = null;   // { ok, month, factor: {All, Energy, ...} }
+async function teLinkLoad(days) {
+  if (teLink) return teLink;
+  try {
+    const h = await teHistoryLoad(); if (!h) { teLink = { ok: false }; return teLink; }
+    const inIdx = new Set(h.series.filter((s) => +s.in_index).map((s) => s.series_id)), catOf = Object.fromEntries(h.series.map((s) => [s.series_id, s.category]));
+    const months = [...new Set(Object.values(h.obs).flat().filter((x) => x[3] !== "te" && x[3] !== "carried_back").map((x) => x[0]))].sort();
+    const Lm = months[months.length - 1];
+    const gm = (cat) => { const v = []; for (const [sid, o] of Object.entries(h.obs)) { if (!inIdx.has(sid) || (cat !== "All" && catOf[sid] !== cat)) continue; const p = o.find((x) => x[0] === Lm); if (p && p[2] > 0) v.push(Math.log(p[2])); } return v.length ? Math.exp(v.reduce((a, b) => a + b, 0) / v.length) : null; };
+    const factor = {};
+    for (const c of ["All", ...TE_CATS]) { const m = meanOf(teIndexRaw(days, c).filter((p) => p.x.startsWith(Lm)).map((p) => p.y)), g = gm(c); factor[c] = m && g ? g / m : 1; }
+    teLink = { ok: !!Lm, month: Lm, factor };
+  } catch (e) { teLink = { ok: false, error: e?.message || String(e) }; }
+  return teLink;
+}
+function teIndex(days, cat = "All") { const f = teLink?.ok ? (teLink.factor[cat] ?? 1) : 1; return teIndexRaw(days, cat).map((p) => ({ ...p, y: p.y * f })); }
+const teBaseLabel = () => (teLink?.ok ? L("mean of 2024 = 100", "متوسط 2024 = 100") : `${fmtDay(TE_DEFAULT_INDEX.base, { year: true })} = 100`);
 function teMonthly(series, month) { const v = series.filter((p) => p.x.startsWith(month)).map((p) => p.y); return { mean: meanOf(v), n: v.length }; }
 
 // ---------------- SPPI (project data under projects/sppi; §9 extended shape, the minimal draft shape also read)

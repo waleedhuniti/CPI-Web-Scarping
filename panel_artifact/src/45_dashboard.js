@@ -1,6 +1,7 @@
 
 // ============================================================ Dashboard (31.png, 32.png)
-const TREND_TITLE = { cpi: ["Internal price monitor (12 Oct = 100), not the CPI", "مؤشر أسعار داخلي (12 أكتوبر = 100)، ليس الرقم القياسي لأسعار المستهلك"], te: ["TrendX Index (2 Oct 2026 = 100)", "مؤشر TrendX (2 أكتوبر 2026 = 100)"] };
+const TREND_TITLE = { cpi: ["Internal price monitor (12 Oct = 100), not the CPI", "مؤشر أسعار داخلي (12 أكتوبر = 100)، ليس الرقم القياسي لأسعار المستهلك"], te: null };   // TrendX: see teTrendTitle(): the base follows the monthly store (mean of 2024 = 100)
+const teTrendTitle = () => L(`TrendX Index (${teBaseLabel()})`, `مؤشر TrendX (${teBaseLabel()})`);
 function pgDashboard(r, seq) {
   const pid = r.pid, p = routeOf(pid);
   const kp = (id, icon, tint, label, href) => kpiHtml({ id: "db-kpi-" + id, icon, tint, label, href, value: "—" });
@@ -11,7 +12,7 @@ function pgDashboard(r, seq) {
       ${kp("records", "records", "", L("Price Records", "سجلات الأسعار"), `#${p}-price-logs`)}
       ${kp("scrapers", "gear", "", L("Active Scrapers", "الكاشطات الفعّالة"), `#${p}-scrapers`)}
     </div>
-    <section class="card" id="db-trend" aria-labelledby="db-trend-h"><div class="card-h"><h2 id="db-trend-h">${esc(pid === "sppi" ? L("Collections", "مرات الجمع") : L(TREND_TITLE[pid][0], TREND_TITLE[pid][1]))}</h2><span class="spacer"></span><span id="db-trend-chip"></span></div><div id="db-trend-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div></section>
+    <section class="card" id="db-trend" aria-labelledby="db-trend-h"><div class="card-h"><h2 id="db-trend-h">${esc(pid === "sppi" ? L("Collections", "مرات الجمع") : pid === "te" ? teTrendTitle() : L(TREND_TITLE[pid][0], TREND_TITLE[pid][1]))}</h2><span class="spacer"></span><span id="db-trend-chip"></span></div><div id="db-trend-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div></section>
     <section class="card" id="db-latest" aria-labelledby="db-latest-h"><div class="card-h"><h2 id="db-latest-h">${esc(L("Latest collection", "آخر جمع"))}</h2><span class="spacer"></span><span id="db-latest-chip"></span></div><div id="db-latest-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div></section>
     <section class="card" id="db-donut" aria-labelledby="db-donut-h"><div class="card-h"><h2 id="db-donut-h">${esc(pid === "cpi" ? L("Basket composition", "تكوين السلة") : L("Commodity distribution", "توزيع السلع"))}</h2><span class="spacer"></span><span id="db-donut-tools"></span></div><div id="db-donut-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div></section>
     <section class="card" id="db-activity" aria-labelledby="db-activity-h"><div class="card-h"><h2 id="db-activity-h">${esc(L("Recent Activity", "النشاط الأخير"))}</h2></div><div id="db-activity-body">${loadingHtml(L("Loading…", "يُحمَّل…"))}</div><p style="margin:0"><a class="link-btn" style="font-size:15px" href="#${p}-price-logs">${esc(L("View all in Price Logs", "عرض الكل في سجل التشغيلات"))} ${ico("chevr", "flip")}</a></p></section>
@@ -143,8 +144,9 @@ async function dashTe(seq, fail) {
   // trend with a category toggle; each category is its own chain
   $("#db-trend-chip").innerHTML = chip(`${fmtDay(days[0].day)} – ${fmtDay(last.day)}`, "blue");
   const drawT = (cat) => {
+    const h2 = $("#db-trend-h"); if (h2) h2.textContent = teTrendTitle();      // the base label is known only once the days (and the 2024 store) are read
     const s = teIndex(days, cat);
-    $("#db-trend-plot").innerHTML = lineChart({ id: "db-trend", title: L(TREND_TITLE.te[0], TREND_TITLE.te[1]) + " · " + teCatName(cat), series: [{ label: teCatName(cat), points: s }], xFmt: (x) => fmtDay(x), yFmt: (v) => v.toFixed(2) })
+    $("#db-trend-plot").innerHTML = lineChart({ id: "db-trend", title: teTrendTitle() + " · " + teCatName(cat), series: [{ label: teCatName(cat), points: s }], xFmt: (x) => fmtDay(x), yFmt: (v) => v.toFixed(2) })
       + `<p class="chart-note">${esc(L(`Base ${teBaseLabel()} · chained Jevons on the run date · ${teCatName(cat)} · latest ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} commodities on the last day · Electricity and Index excluded.`, `الأساس ${teBaseLabel()} · جيفونز متسلسل حسب تاريخ التشغيل · ${teCatName(cat)} · الأخير ${s[s.length - 1].y.toFixed(2)} · n = ${s[s.length - 1].n} سلعة في آخر يوم · الكهرباء والمؤشرات مستبعدة.`))}</p>`;
   };
   $("#db-trend-body").innerHTML = segToggle("db-te-cat", ["All", ...TE_CATS].map((c) => [c, teCatName(c)]), "All", L("Category", "الفئة")) + `<div id="db-trend-plot"></div>`;

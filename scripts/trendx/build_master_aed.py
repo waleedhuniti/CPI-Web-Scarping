@@ -1,14 +1,13 @@
-"""TrendX master price sheet in UAE dirhams: one row per commodity, years on row 1, months on row 2, days on row 3.
+"""TrendX master price sheet in UAE dirhams: one row per commodity, years on row 1, months on row 2, one column per month.
 
     python3 scripts/trendx/build_master_aed.py <TE days dir> <ECB eurofxref-hist.csv> <out.xlsx> [store dir]
 
 - Monthly columns (Jan 2024 to the month before our daily collection starts): the official monthly history in the store
   (World Bank, EIA, IMF, USDA, NBS, Ember, SSB, StatCan), real observations only. Carried-back values and the BLS index
   proxies are not prices, so they are left empty.
-- Daily columns (from the first month of our collection): our Trading Economics capture, one column per quote date
-  (price_date), so every new day adds a column after the previous one; a stale quote is never repeated on a later day.
-- After each month's daily columns: the month's average as an Excel formula (=AVERAGE of that month's daily cells). The
-  history is built the same way (World Bank and EIA monthly values are averages of daily prices), so the two are comparable.
+- Months covered by our daily collection: the average of that month's daily Trading Economics closes (one per quote date,
+  a stale quote never counted twice), each converted at its day's rate. The history is built the same way (World Bank and
+  EIA monthly values are averages of daily prices), so every column is a monthly average. The current month is marked partial.
 - Currency: every price is converted to AED at the fixed peg 3.6725 AED per USD and the ECB reference rate of that day (daily
   columns) or the mean of that month (monthly columns); the physical unit is kept (AED/Bbl, AED/T, AED/Bu...).
   Cents and pence are divided by 100 first.
@@ -172,57 +171,59 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
     wb = Workbook(); ws = wb.active; ws.title = "Prices AED"
     F = Font(name="Arial", size=10); FB = Font(name="Arial", size=10, bold=True); FH = Font(name="Arial", size=10, bold=True, color="FFFFFF")
     HF = PatternFill("solid", fgColor="1B2A52"); AV = PatternFill("solid", fgColor="FFF3D6"); thin = Side(style="thin", color="CBD5E1")
-    C = Alignment(horizontal="center", vertical="center")
+    C = Alignment(horizontal="center", vertical="center"); BOX = Border(left=thin, right=thin, top=thin, bottom=thin)
     LEAD = ["الصنف", "الوحدة (درهم)", "ISIC Rev.4"]
-    for j, h in enumerate(LEAD, 1):
-        ws.cell(1, j, h); ws.merge_cells(start_row=1, start_column=j, end_row=3, end_column=j)
-    col = len(LEAD) + 1; layout = []   # (col, kind, key)
-    for m in months: layout.append((col, "M", m)); col += 1
-    for ym in ym_daily:
-        for d in [x for x in day_list if x.startswith(ym)]: layout.append((col, "D", d)); col += 1
-        layout.append((col, "A", ym)); col += 1
-    last_col = col - 1
-    # header rows: year (merged), month (merged), day
-    def merge_runs(row, keyf):
-        runs = []
-        for c_, kind, key in layout:
-            k = keyf(kind, key)
-            if runs and runs[-1][2] == k: runs[-1][1] = c_
-            else: runs.append([c_, c_, k])
-        for a, b, k in runs:
-            ws.cell(row, a, k)
-            if b > a: ws.merge_cells(start_row=row, start_column=a, end_row=row, end_column=b)
-    merge_runs(1, lambda kind, key: int(key[:4]))
-    merge_runs(2, lambda kind, key: MONTHS_AR[int(key[5:7]) - 1])
-    for c_, kind, key in layout:
-        ws.cell(3, c_, int(key[8:10]) if kind == "D" else ("متوسط الشهر" if kind == "A" else "شهري"))
-    for r in (1, 2, 3):
-        for c_ in range(1, last_col + 1):
-            cell = ws.cell(r, c_); cell.font = FH; cell.fill = HF; cell.alignment = C; cell.border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    # body
     partial_month = ym_daily[-1] if ym_daily and ym_daily[-1] >= date.today().isoformat()[:7] else None
-    for i, s in enumerate(S, 4):
-        name = s["commodity"]; cur, mult, aed_unit = parse_unit(s["unit"])
-        ws.cell(i, 1, name).font = FB; ws.cell(i, 2, aed_unit).font = F; ws.cell(i, 3, ISIC.get(name, ("", ""))[0]).font = F
-        for c_, kind, key in layout:
-            cell = ws.cell(i, c_)
+
+    def header(sh, layout, nrows):
+        """row 1 year, row 2 month (merged over their columns), row 3 day (daily sheet only)."""
+        for j, h in enumerate(LEAD, 1):
+            sh.cell(1, j, h)
+            if nrows > 1: sh.merge_cells(start_row=1, start_column=j, end_row=nrows, end_column=j)
+        def merge_runs(row, keyf):
+            runs_ = []
+            for c_, _, key in layout:
+                k = keyf(key)
+                if runs_ and runs_[-1][2] == k: runs_[-1][1] = c_
+                else: runs_.append([c_, c_, k])
+            for a_, b_, k in runs_:
+                sh.cell(row, a_, k)
+                if b_ > a_: sh.merge_cells(start_row=row, start_column=a_, end_row=row, end_column=b_)
+        merge_runs(1, lambda key: int(key[:4]))
+        merge_runs(2, lambda key: MONTHS_AR[int(key[5:7]) - 1] + (" (جزئي)" if nrows == 2 and key[:7] == partial_month else ""))
+        if nrows == 3:
+            for c_, _, key in layout: sh.cell(3, c_, int(key[8:10]))
+        last = layout[-1][0] if layout else len(LEAD)
+        for r in range(1, nrows + 1):
+            for c_ in range(1, last + 1):
+                cell = sh.cell(r, c_); cell.font = FH; cell.fill = HF; cell.alignment = C; cell.border = BOX
+        sh.freeze_panes = sh.cell(nrows + 1, len(LEAD) + 1)
+        sh.column_dimensions["A"].width = 20; sh.column_dimensions["B"].width = 18; sh.column_dimensions["C"].width = 10
+        for c_, _, _ in layout: sh.column_dimensions[get_column_letter(c_)].width = 11 if nrows == 2 else 9
+
+    # Monthly sheet: one column per month, same format for every year; months covered by the daily collection are the
+    # average of their daily columns (formula into the Daily sheet), the history is the official monthly average
+    mlay = [(len(LEAD) + 1 + j, "M", m) for j, m in enumerate(months)]
+    mlay += [(len(LEAD) + 1 + len(months) + j, "A", ym) for j, ym in enumerate(ym_daily)]
+    header(ws, mlay, 2)
+    for i, s in enumerate(S):
+        name = s["commodity"]; cur, mult, aed_unit = parse_unit(s["unit"]); rm, rd = 3 + i, 4 + i
+        ws.cell(rm, 1, name).font = FB; ws.cell(rm, 2, aed_unit).font = F; ws.cell(rm, 3, ISIC.get(name, ("", ""))[0]).font = F
+        for c_, kind, key in mlay:
+            cell = ws.cell(rm, c_)
             if kind == "M":
-                v = monthly.get((name, key)); rates = fxm.get(key)
-            elif kind == "D":
-                v = daily.get((name, key)); rates = fx_on(key)
-            else:
-                cols_ = [cc for cc, k2, kk in layout if k2 == "D" and kk.startswith(key)]
-                a, b = get_column_letter(cols_[0]), get_column_letter(cols_[-1])
-                cell.value = f'=IFERROR(AVERAGE({a}{i}:{b}{i}),"")'; cell.fill = AV; cell.font = FB; cell.number_format = "#,##0.00"; continue
-            if v is None or not rates: continue
-            k = aed_per(cur, rates)
-            if k is None: continue
-            cell.value = round(v * mult * k, 4); cell.number_format = "#,##0.00"; cell.font = F
-    ws.freeze_panes = ws.cell(4, len(LEAD) + 1)
-    ws.column_dimensions["A"].width = 20; ws.column_dimensions["B"].width = 18; ws.column_dimensions["C"].width = 10
-    for c_, kind, _ in layout: ws.column_dimensions[get_column_letter(c_)].width = 11 if kind != "D" else 9
-    if partial_month:
-        c_ = [cc for cc, k2, kk in layout if k2 == "A" and kk == partial_month][0]; ws.cell(3, c_, "متوسط (جزئي)")
+                v = monthly.get((name, key)); rates = fxm.get(key); k = aed_per(cur, rates) if rates else None
+                if v is None or k is None: continue
+                cell.value = round(v * mult * k, 4); cell.font = F
+            else:   # the month's average of our daily closes, each converted to AED at that day's rate
+                vals = []
+                for d in day_list:
+                    if not d.startswith(key) or (name, d) not in daily: continue
+                    rates = fx_on(d); k = aed_per(cur, rates) if rates else None
+                    if k is not None: vals.append(daily[(name, d)] * mult * k)
+                if not vals: continue
+                cell.value = round(statistics.fmean(vals), 4); cell.fill = AV; cell.font = F
+            cell.number_format = "#,##0.00"
 
     # ISIC sheet
     isx = wb.create_sheet("ISIC"); isx.sheet_view.rightToLeft = True
@@ -241,8 +242,8 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
     # notes
     nt = wb.create_sheet("ملاحظات"); nt.sheet_view.rightToLeft = True; nt.column_dimensions["A"].width = 130
     notes = [f"بُني {date.today().isoformat()}. الصفوف: {len(S)} سلعة. الأعمدة: {len(months)} شهراً من التاريخ الرسمي ({months[0]} → {months[-1]})، ثم {len(day_list)} يوماً من جمعنا ({day_list[0]} → {day_list[-1]}) مع متوسط لكل شهر.",
-             "الأشهر حتى سبتمبر 2026: متوسط شهري رسمي (البنك الدولي، EIA، IMF، USDA، NBS، Ember، الإحصاء النرويجي والكندي). من أكتوبر 2026: سعر الإغلاق اليومي من جمعنا، عمود لكل تاريخ تسعيرة؛ كل يوم جديد يُضاف بعد السابق.",
-             "متوسط الشهر = AVERAGE لأيام الشهر (صيغة Excel). هكذا يُحسب التاريخ أيضاً: القيمة الشهرية للبنك الدولي وEIA متوسط الأسعار اليومية، لا مجموعها. نوفمبر 2026 متوسط جزئي.",
+             "ورقة Prices AED: عمود لكل شهر بالشكل نفسه لكل السنوات (السنة في الصف 1، الشهر في الصف 2). حتى سبتمبر 2026: المتوسط الشهري الرسمي (البنك الدولي، EIA، IMF، USDA، NBS، Ember، الإحصاء النرويجي والكندي). من أكتوبر 2026: متوسط أيام الشهر من جمعنا اليومي (مظلل).",
+             "أكتوبر ونوفمبر 2026 (مظللان): متوسط أسعار الإغلاق اليومية من جمعنا خلال الشهر، كل سعر محوّل بسعر صرف يومه. المتوسط لا المجموع، كما في التاريخ الرسمي. الشهر الجاري مكتوب «(جزئي)» ويتحدث مع كل تشغيل.",
              "التحويل إلى الدرهم: 3.6725 درهم لكل دولار (الربط الرسمي)، والعملات الأخرى عبر أسعار البنك المركزي الأوروبي المرجعية لليوم نفسه (اليومي) أو متوسط الشهر (الشهري). السنت والبنس يُقسمان على 100 أولاً. الوحدة الفيزيائية لا تتغير (برميل، طن، بوشل...).",
              "خانة فارغة = لا سعر حقيقي: لا تثبيت رجوعي ولا ترحيل. السلاسل المُثبّتة الـ 13 فارغة قبل أكتوبر 2026. خردة الحديد والألمنيوم فارغة قبل أكتوبر لأن مصدرها مؤشر BLS لا سعر.",
              "السلاسل البديلة (منتج أو سوق قريب) مذكورة في data/trendx/store/series.csv عمود proxy_of. ترميز ISIC Rev.4 في ورقة ISIC: نشاط إنتاج السلعة حتى الفئة (4 أرقام)."]

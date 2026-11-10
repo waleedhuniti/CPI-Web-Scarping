@@ -27,6 +27,9 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
 AED_PER_USD = 3.6725
+# Trading Economics labels some quotes with the wrong unit; the multiplier brings the daily close to the unit shown.
+# Barley is the NCDEX Jaipur contract, quoted in INR per quintal (100 kg) although TE shows INR/T: x10 gives INR/T.
+TE_UNIT_FIX = {"Barley": 10.0}
 MONTHS_AR = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
 
 # ISIC Rev.4 class of the producing activity, per TrendX commodity (TE name). note: why, where a choice was needed.
@@ -164,7 +167,7 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
         for r in doc["rows"]:
             r = dict(zip(cols, r))
             if r.get("category") == "Index" or r.get("price") in (None, ""): continue
-            daily[(r["commodity"], (r.get("price_date") or run)[:10])] = float(r["price"])
+            daily[(r["commodity"], (r.get("price_date") or run)[:10])] = float(r["price"]) * TE_UNIT_FIX.get(r["commodity"], 1.0)
     # the daily part starts with the month of our first run; older quote dates seen on the first days were stale quotes
     first_daily_month = min(runs)[:7]
     daily = {k: v for k, v in daily.items() if k[1][:7] >= first_daily_month}
@@ -255,6 +258,7 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
              "ورقة Prices AED: عمود لكل شهر بالشكل نفسه لكل السنوات (السنة في الصف 1، الشهر في الصف 2). حتى سبتمبر 2026: المتوسط الشهري الرسمي (البنك الدولي، EIA، IMF، USDA، NBS، Ember، الإحصاء النرويجي والكندي). من أكتوبر 2026: متوسط أيام الشهر من جمعنا اليومي (مظلل).",
              "أكتوبر ونوفمبر 2026 (مظللان): متوسط أسعار الإغلاق اليومية من جمعنا خلال الشهر، كل سعر محوّل بسعر صرف يومه. المتوسط لا المجموع، كما في التاريخ الرسمي. الشهر الجاري مكتوب «(جزئي)» ويتحدث مع كل تشغيل.",
              "التحويل إلى الدرهم: 3.6725 درهم لكل دولار (الربط الرسمي)، والعملات الأخرى عبر أسعار البنك المركزي الأوروبي المرجعية لليوم نفسه (اليومي) أو متوسط الشهر (الشهري). السنت والبنس يُقسمان على 100 أولاً. الوحدة الفيزيائية لا تتغير (برميل، طن، بوشل...).",
+             "الشعير: سعر Trading Economics هو عقد NCDEX جايبور ومسعّر بالروبية لكل كنتال (100 كغ) رغم أن الموقع يكتب روبية/طن؛ ضُرب في 10 ليصير لكل طن. تاريخه قبل أكتوبر بديل (شعير كندي من IMF) فمستواه مختلف.",
              "خانة فارغة = لا سعر حقيقي: لا تثبيت رجوعي ولا ترحيل. السلاسل المُثبّتة الـ 13 فارغة قبل أكتوبر 2026. خردة الحديد والألمنيوم فارغة قبل أكتوبر لأن مصدرها مؤشر BLS لا سعر.",
              "السلاسل البديلة (منتج أو سوق قريب) مذكورة في data/trendx/store/series.csv عمود proxy_of. ترميز ISIC Rev.4 في ورقة ISIC: نشاط إنتاج السلعة حتى الفئة (4 أرقام).",
              "رمز الصنف: 6 أرقام فريدة لكل سلعة = فئة ISIC Rev.4 (4 أرقام) + تسلسل من رقمين داخل الفئة. مثال: 242001 الذهب، 242002 الفضة. الصنف الجديد يأخذ التسلسل التالي في فئته ولا تتغير الرموز القائمة."]

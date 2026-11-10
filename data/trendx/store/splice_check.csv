@@ -17,6 +17,10 @@ german_gas,German Gas,2026-10,86.8145,88.4348,1.0187,1,World Bank Pink Sheet
 uk_gas,UK Gas,2026-10,214.4375,217.2253,1.013,1,World Bank Pink Sheet
 lng_jkm,LNG JKM,2026-10,16.59,28.8481,1.7389,1,World Bank Pink Sheet
 urals_oil,Urals Oil,2026-10,102.7,112.8362,1.0987,1,World Bank Pink Sheet
+methanol,Methanol,2026-09,3627.77,3850.0,1.0613,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+methanol,Methanol,2026-10,3585.8,3692.64,1.0298,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+coking_coal,Coking Coal,2026-10,336.0349,266.2942,0.7925,1,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+ethanol,Ethanol,2026-10,2.04,1.9418,0.9519,0,USDA ERS U.S. Bioenergy Statistics (Table 14)
 gold,Gold,2026-10,4105.0,4099.6767,0.9987,0,World Bank Pink Sheet
 silver,Silver,2026-10,57.0,57.0076,1.0001,0,World Bank Pink Sheet
 platinum,Platinum,2026-10,1621.0,1615.8613,0.9968,0,World Bank Pink Sheet
@@ -24,6 +28,11 @@ copper,Copper,2026-10,6.5807,6.5537,0.9959,0,World Bank Pink Sheet
 iron_ore,Iron Ore,2026-10,90.8,90.91,1.0012,0,World Bank Pink Sheet
 iron_ore_cny,Iron Ore CNY,2026-09,655.4661,702.5,1.0718,1,World Bank Pink Sheet
 iron_ore_cny,Iron Ore CNY,2026-10,606.9999,676.5769,1.1146,1,World Bank Pink Sheet
+steel,Steel,2026-09,3174.57,3109.0,0.9793,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+steel,Steel,2026-10,3177.55,3069.6154,0.966,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+hrc_steel,HRC Steel,2026-10,486.4757,1353.8229,2.7829,1,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+lithium,Lithium,2026-09,971314.5343,122800.0,0.1264,1,"IMF Primary Commodity Price System (PCPS), SDMX 2.1 API"
+silicon,Silicon,2026-09,10694.7036,8540.0,0.7985,1,"IMF Primary Commodity Price System (PCPS), SDMX 2.1 API"
 soybeans,Soybeans,2026-10,1401.5983,1262.7117,0.9009,0,World Bank Pink Sheet
 wheat,Wheat,2026-10,708.4195,649.8048,0.9173,0,World Bank Pink Sheet
 corn,Corn,2026-10,575.3372,473.4417,0.8229,0,World Bank Pink Sheet
@@ -40,8 +49,17 @@ sunflower_oil,Sunflower Oil,2026-10,1349.8745,1553.4516,1.1508,1,World Bank Pink
 rapeseed,Rapeseed,2026-10,1254.2861,551.0629,0.4393,1,World Bank Pink Sheet
 orange_juice,Orange Juice,2026-10,34.0194,141.898,4.1711,1,World Bank Pink Sheet
 lumber,Lumber,2026-10,724.3,525.23,0.7252,1,World Bank Pink Sheet
+butter,Butter,2026-10,2686.699,4133.9032,1.5387,1,"USDA AMS Dairy Programs, Announcement of Class and Component Prices (datamart report 2991)"
+milk,Milk,2026-10,15.16,15.1452,0.999,0,"USDA AMS Dairy Programs, Announcement of Class and Component Prices (datamart report 2991)"
+cheese,Cheese,2026-10,1.4444,1.5893,1.1003,0,"USDA AMS Dairy Programs, Announcement of Class and Component Prices (datamart report 2991)"
 beef,Beef,2026-10,525.2581,380.0828,0.7236,1,World Bank Pink Sheet
 poultry,Poultry,2026-10,9.4336,8.3688,0.8871,1,World Bank Pink Sheet
+live_cattle,Live Cattle,2026-10,224.25,224.9711,1.0032,0,USDA ERS Livestock & Meat Domestic Data
+feeder_cattle,Feeder Cattle,2026-10,351.75,342.7241,0.9743,0,USDA ERS Livestock & Meat Domestic Data
+lean_hogs,Lean Hogs,2026-10,57.0,68.9132,1.209,1,USDA ERS Livestock & Meat Domestic Data
+eggs_us,Eggs US,2026-10,0.77,0.3594,0.4667,0,USDA ERS Livestock & Meat Domestic Data
+salmon,Salmon,2026-09,71.2225,74.68,1.0485,0,Statistics Norway table 03024
+salmon,Salmon,2026-10,74.284,74.19,0.9987,0,Statistics Norway table 03024
 aluminum,Aluminum,2026-10,3061.0,3053.7774,0.9976,0,World Bank Pink Sheet
 lead,Lead,2026-10,1860.0,1894.4355,1.0185,0,World Bank Pink Sheet
 tin,Tin,2026-10,51696.0,51528.125,0.9968,0,World Bank Pink Sheet
@@ -49,3 +67,22 @@ zinc,Zinc,2026-10,3818.0,3758.2406,0.9843,0,World Bank Pink Sheet
 nickel,Nickel,2026-10,15436.0,15599.2903,1.0106,0,World Bank Pink Sheet
 urea,Urea,2026-10,420.0,446.7812,1.0638,1,World Bank Pink Sheet
 di-ammonium,Di-ammonium,2026-10,803.1,801.2188,0.9977,0,World Bank Pink Sheet
+molybdenum,Molybdenum,2026-09,528.769,620.5,1.1735,1,"IMF Primary Commodity Price System (PCPS), SDMX 2.1 API"
+polyethylene,Polyethylene,2026-10,10100.2,8776.0323,0.8689,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+polypropylene,Polypropylene,2026-10,10806.9,9415.4194,0.8712,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+synthetic_rubber,Synthetic Rubber,2026-10,16203.55,16447.5803,1.0151,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+neodymium,Neodymium,2026-09,59368.5852,947500.0,15.9596,1,"IMF Primary Commodity Price System (PCPS), SDMX 2.1 API"
+sulfur,Sulfur,2026-10,1621.05,6554.789,4.0435,1,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+manganese,Manganese,2026-09,18663.4318,28.85,0.0015,1,"IMF Primary Commodity Price System (PCPS), SDMX 2.1 API"
+kraft_pulp,Kraft Pulp,2026-09,4978.0,4798.0,0.9638,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+kraft_pulp,Kraft Pulp,2026-10,4865.15,4701.44,0.9664,0,"China NBS, Market Prices of Important Means of Production in Circulation (10-day report)"
+united_kingdom,United Kingdom,2026-10,140.9197,171.7012,1.2184,0,Ember (CC BY 4.0)
+united_kingdom,United Kingdom,2026-11,208.094,177.3017,0.852,0,Ember (CC BY 4.0)
+germany,Germany,2026-10,169.53,165.4858,0.9761,0,Ember (CC BY 4.0)
+germany,Germany,2026-11,268.79,239.0671,0.8894,0,Ember (CC BY 4.0)
+france,France,2026-10,165.92,121.8522,0.7344,0,Ember (CC BY 4.0)
+france,France,2026-11,254.7,127.395,0.5002,0,Ember (CC BY 4.0)
+italy,Italy,2026-10,230.74,238.5574,1.0339,0,Ember (CC BY 4.0)
+italy,Italy,2026-11,272.01,280.16,1.03,0,Ember (CC BY 4.0)
+spain,Spain,2026-10,166.57,172.5997,1.0362,0,Ember (CC BY 4.0)
+spain,Spain,2026-11,212.67,226.4486,1.0648,0,Ember (CC BY 4.0)

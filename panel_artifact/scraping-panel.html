@@ -5589,6 +5589,7 @@ async function teHistoryLoad() {
   teHist = { ptr, ...(await r.json()) }; return teHist;
 }
 const fmtYM = (ym) => { try { return new Date(ym + "-15T12:00:00Z").toLocaleDateString(locale(), { timeZone: "UTC", month: "short", year: "2-digit" }); } catch (e) { return ym; } };
+const TE_SRC_NAMES = { wb: ["World Bank", "البنك الدولي"], eia: ["EIA", "EIA"], imf: ["IMF", "صندوق النقد"], usda: ["USDA", "USDA"], nbs: ["NBS China", "الإحصاء الصيني"], ember: ["Ember", "Ember"], bls: ["BLS PPI", "BLS PPI"], ssb: ["Statistics Norway", "الإحصاء النرويجي"], statcan: ["Statistics Canada", "الإحصاء الكندي"] };
 const baseChip = (s) => s.base_method === "actual" ? (s.proxy ? chip(L("Proxy history", "تاريخ بديل"), "yellow") : chip(L("Real history", "تاريخ حقيقي"), "ok")) : chip(L("Carried back", "مُثبّت رجوعاً"), "grey");
 async function drawTeHistory(box) {
   box.innerHTML = loadingHtml(L("Reading the 2024-based history…", "تُقرأ سلاسل أساس 2024…"));
@@ -5643,7 +5644,7 @@ function teSeriesPanel(h, s) {
       <dt>${esc(L("2024 mean", "متوسط 2024"))}</dt><dd>${s.base_2024_mean !== "" ? fmtN(+s.base_2024_mean, 4) : "—"} <span class="muted ltr">${esc(s.unit)}</span></dd>${s.link_month ? `<dt>${esc(L("Linked at", "موصول عند"))}</dt><dd>${esc(fmtYM(s.link_month))}</dd>` : ""}</dl>
     ${lineChart({ height: 220, title: s.commodity + " (2024 = 100)", xFmt: fmtYM, yFmt: (v) => v.toFixed(1), series: [{ label: L("2024 = 100", "2024 = 100"), points: (real.length ? real : o).map((x) => ({ x: x[0], y: x[2] })) }], empty: L("No real observations.", "لا مشاهدات حقيقية.") })}
     <div class="tw tall"><table><caption class="sr-only">${esc(s.commodity)}</caption><thead><tr><th scope="col">${esc(L("Month", "الشهر"))}</th><th scope="col" class="num">${esc(L("Value", "القيمة"))}</th><th scope="col" class="num">2024 = 100</th><th scope="col">${esc(L("Source", "المصدر"))}</th></tr></thead><tbody>
-      ${o.slice().reverse().map((x) => `<tr${x[4] ? ' class="muted-row"' : ""}><td>${esc(fmtYM(x[0]))}</td><td class="num">${fmtN(x[1], 4)}</td><td class="num">${x[2] != null ? fmtN(x[2], 1) : "—"}</td><td>${x[4] ? chip(L("E · carried back", "E · مُثبّت"), "grey") : x[3] === "te" ? chip(L("our collection", "جمعنا") + (x[5] ? " · " + L("linked", "موصول") : ""), "blue") : chip(x[3] === "eia" ? "EIA" : L("World Bank", "البنك الدولي"), "ok")}</td></tr>`).join("")}
+      ${o.slice().reverse().map((x) => `<tr${x[4] ? ' class="muted-row"' : ""}><td>${esc(fmtYM(x[0]))}</td><td class="num">${fmtN(x[1], 4)}</td><td class="num">${x[2] != null ? fmtN(x[2], 1) : "—"}</td><td>${x[4] ? chip(L("E · carried back", "E · مُثبّت"), "grey") : x[3] === "te" ? chip(L("our collection", "جمعنا") + (x[5] ? " · " + L("linked", "موصول") : ""), "blue") : chip(TE_SRC_NAMES[x[3]] ? L(TE_SRC_NAMES[x[3]][0], TE_SRC_NAMES[x[3]][1]) : String(x[3]).toUpperCase(), "ok")}</td></tr>`).join("")}
     </tbody></table></div></div>`, () => {});
 }
 function teHistorySheet(h) {

@@ -1,6 +1,6 @@
 """TrendX unified monthly store with a 2024 = 100 base, from free official history plus our own daily collection.
 
-    python3 scripts/trendx/build_history_store.py <WB CMO-Historical-Data-Monthly.xlsx> <EIA xls dir> <ECB eurofxref-hist.csv> <TE days dir> <out dir>
+    python3 scripts/trendx/build_history_store.py <WB CMO-Historical-Data-Monthly.xlsx> <EIA xls dir> <ECB eurofxref-hist.csv> <TE days dir> <out dir> [additions dir = data/trendx/raw/additions]
 
 Sources (all read from files downloaded from the publisher; nothing is typed by hand):
 - World Bank Commodity Price Data (Pink Sheet), monthly, CC BY 4.0: the long history for most commodities.
@@ -146,6 +146,82 @@ MAP = {
 }
 BASE_FROM, BASE_TO = "2024-01", "2024-12"
 
+# Additions: free official monthly series for the commodities the Pink Sheet / EIA do not cover, normalised by the fetch scripts
+# into data/trendx/raw/additions/<folder>/monthly.csv (series_key, commodity_te, period, value, unit, source, series_name, url).
+# cur_from/cur_to: the value's currency and the TE quote currency (converted with the ECB monthly mean rates); f: multiplier after FX.
+# proxy "" means the same product and market as the TE quote; otherwise the proxy is named and the series is flagged proxy = 1.
+ADD_LICENCE = {"imf": "IMF Special Terms for Statistical Data: free reuse with attribution (Source: IMF Primary Commodity Price System)",
+               "usda_norway_canada": "USDA ERS/AMS public domain; Statistics Norway (NLOD/CC BY 4.0); Statistics Canada Open Licence",
+               "eu_energy_misc": "Ember CC BY 4.0; US BLS public domain; ECB rates free with citation",
+               "nbs_china": "China NBS terms of service: free use of published statistics with citation of the NBS website"}
+ADD_SRC = {"imf": "imf", "usda_norway_canada": "usda", "eu_energy_misc": "ember", "nbs_china": "nbs"}
+ADD = {
+    "Uranium": dict(folder="imf", key="imf_pcps_PURAN", f=1, cur_from="USD", cur_to="USD", proxy="", note="IMF PCPS uranium NUEXCO spot $/lb"),
+    "Methanol": dict(folder="nbs_china", key="methanol", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day methanol (premium grade) CNY/t, monthly mean"),
+    "Coking Coal": dict(folder="nbs_china", key="coking_coal", f=1, cur_from="CNY", cur_to="USD", proxy="NBS China domestic coking coal (TE quotes Australian futures)", note="CNY/t / CNY per USD = $/t"),
+    "Ethanol": dict(folder="usda_norway_canada", key="ethanol", f=1, cur_from="USD", cur_to="USD", proxy="", note="USDA ERS fuel ethanol FOB $/gal"),
+    "Steel": dict(folder="nbs_china", key="steel", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day rebar HRB400E 20mm CNY/t, monthly mean (TE quotes Shanghai rebar)"),
+    "HRC Steel": dict(folder="nbs_china", key="热轧普通板卷", f=1, cur_from="CNY", cur_to="USD", proxy="NBS China hot-rolled coil Q235 (TE quotes US HRC)", note="CNY/t / CNY per USD = $/t", all_products=True, src="nbs"),
+    "Scrap Steel": dict(folder="eu_energy_misc", key="scrap_steel", f=1, cur_from="USD", cur_to="USD", proxy="BLS PPI iron and steel scrap (index 1982 = 100, movement only)", note="an index level, not a $/t price", src="bls"),
+    "Scrap Aluminum": dict(folder="eu_energy_misc", key="scrap_aluminum", f=1, cur_from="USD", cur_to="USD", proxy="BLS PPI aluminum base scrap (index 1982 = 100, movement only)", note="an index level, not a $/t price", src="bls"),
+    "Lithium": dict(folder="imf", key="imf_pcps_PLITH", f=1, cur_from="USD", cur_to="CNY", proxy="IMF lithium metal battery grade (TE quotes China lithium carbonate)", note="$/t x CNY per USD; different product, movement only"),
+    "Silicon": dict(folder="imf", key="imf_pcps_PSILLUMP", f=1, cur_from="USD", cur_to="CNY", proxy="IMF silicon lumps CIF NW Europe (TE quotes China silicon metal)", note="$/t x CNY per USD"),
+    "Cobalt Hydroxide": dict(folder="imf", key="imf_pcps_PCOBA", f=1, cur_from="USD", cur_to="USD", proxy="IMF cobalt metal LME (TE quotes China CIF hydroxide)", note="$/t; hydroxide is priced as a payable % of metal"),
+    "Oat": dict(folder="imf", key="imf_pcps_POATS", f=100, cur_from="USD", cur_to="USD", proxy="", note="IMF oats generic 1st future $/bu x 100 = cents/bu"),
+    "Barley": dict(folder="imf", key="imf_pcps_PBARL", f=1, cur_from="USD", cur_to="INR", proxy="IMF Canadian feed barley (TE quotes an Indian market)", note="$/t x INR per USD = INR/t"),
+    "Butter": dict(folder="usda_norway_canada", key="butter", f=LB_PER_KG * 1000, cur_from="USD", cur_to="EUR", proxy="USDA/CME butter (TE quotes EU butter)", note="$/lb x 2204.6 lb/t / USD per EUR = EUR/t"),
+    "Milk": dict(folder="usda_norway_canada", key="milk", f=1, cur_from="USD", cur_to="USD", proxy="", note="USDA Class III milk $/cwt (the CME contract settles on it)"),
+    "Cheese": dict(folder="usda_norway_canada", key="cheese", f=1, cur_from="USD", cur_to="USD", proxy="", note="USDA cheese price used in class formulas $/lb (CME cheese)"),
+    "Canola": dict(folder="usda_norway_canada", key="canola", f=1, cur_from="CAD", cur_to="CAD", proxy="Statistics Canada Saskatchewan farm price (TE quotes ICE futures)", note="CAD/t", src="statcan"),
+    "Wool": dict(folder="imf", key="imf_pcps_PWOOLF", f=1, cur_from="USD", cur_to="AUD", proxy="IMF AWEX 19-micron fine wool (TE quotes the Eastern Market Indicator)", note="US cents/kg = $/100kg, x AUD per USD = AUD/100kg"),
+    "Live Cattle": dict(folder="usda_norway_canada", key="live_cattle", f=1, cur_from="USD", cur_to="USD", proxy="", note="USDA fed steers Nebraska $/cwt = cents/lb"),
+    "Feeder Cattle": dict(folder="usda_norway_canada", key="feeder_cattle", f=1, cur_from="USD", cur_to="USD", proxy="", note="USDA feeder steers Oklahoma City $/cwt = cents/lb"),
+    "Lean Hogs": dict(folder="usda_norway_canada", key="lean_hogs", f=1, cur_from="USD", cur_to="USD", proxy="USDA barrows and gilts live weight (TE quotes lean carcass basis)", note="$/cwt live = cents/lb"),
+    "Eggs US": dict(folder="usda_norway_canada", key="eggs_us", f=0.01, cur_from="USD", cur_to="USD", proxy="", note="USDA New York wholesale grade A large cents/dozen / 100"),
+    "Salmon": dict(folder="usda_norway_canada", key="salmon", f=1, cur_from="NOK", cur_to="NOK", proxy="", note="Statistics Norway export price fresh farmed salmon NOK/kg (weekly, monthly mean)", src="ssb"),
+    "Cobalt": dict(folder="imf", key="imf_pcps_PCOBA", f=1, cur_from="USD", cur_to="USD", proxy="", note="IMF cobalt min 99.8% LME spot $/t"),
+    "Palladium": dict(folder="imf", key="imf_pcps_PPALLA", f=1, cur_from="USD", cur_to="USD", proxy="", note="IMF palladium $/troy oz"),
+    "Molybdenum": dict(folder="imf", key="imf_pcps_PLMMODY", f=1 / 1000, cur_from="USD", cur_to="CNY", proxy="IMF LME molybdenum concentrate (TE quotes China domestic)", note="$/t x CNY per USD / 1000 = CNY/kg"),
+    "Polyethylene": dict(folder="nbs_china", key="polyethylene", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day LLDPE CNY/t"),
+    "Polyvinyl": dict(folder="nbs_china", key="polyvinyl", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day PVC SG5 CNY/t (series ends Dec 2025 in the NBS tables)"),
+    "Polypropylene": dict(folder="nbs_china", key="polypropylene", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day PP raffia CNY/t"),
+    "Synthetic Rubber": dict(folder="nbs_china", key="synthetic_rubber", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day BR9000 CNY/t"),
+    "Styrene": dict(folder="nbs_china", key="styrene", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day styrene CNY/t (series ends Dec 2025 in the NBS tables)"),
+    "Sulfur": dict(folder="nbs_china", key="sulfur", f=1, cur_from="CNY", cur_to="CNY", proxy="NBS sulfuric acid 98% (TE quotes sulphur)", note="CNY/t, related product"),
+    "Neodymium": dict(folder="imf", key="imf_pcps_PREODOM", f=1, cur_from="USD", cur_to="CNY", proxy="IMF rare-earth carbonate REO 42-45% (TE quotes Nd metal)", note="$/t x CNY per USD; movement only"),
+    "Manganese": dict(folder="imf", key="imf_pcps_PMANGELE", f=1, cur_from="USD", cur_to="CNY", proxy="IMF electrolytic manganese metal (TE quotes 44% ore per mtu)", note="$/t x CNY per USD = CNY/t of metal; movement only"),
+    "Kraft Pulp": dict(folder="nbs_china", key="kraft_pulp", f=1, cur_from="CNY", cur_to="CNY", proxy="", note="NBS 10-day imported softwood pulp CNY/t"),
+    "United Kingdom": dict(folder="eu_energy_misc", key="united_kingdom", f=1, cur_from="EUR", cur_to="GBP", proxy="", note="Ember day-ahead monthly mean EUR/MWh / GBP per EUR"),
+    "Germany": dict(folder="eu_energy_misc", key="germany", f=1, cur_from="EUR", cur_to="EUR", proxy="", note="Ember day-ahead monthly mean EUR/MWh"),
+    "France": dict(folder="eu_energy_misc", key="france", f=1, cur_from="EUR", cur_to="EUR", proxy="", note="Ember day-ahead monthly mean EUR/MWh"),
+    "Italy": dict(folder="eu_energy_misc", key="italy", f=1, cur_from="EUR", cur_to="EUR", proxy="", note="Ember day-ahead monthly mean EUR/MWh"),
+    "Spain": dict(folder="eu_energy_misc", key="spain", f=1, cur_from="EUR", cur_to="EUR", proxy="", note="Ember day-ahead monthly mean EUR/MWh"),
+}
+# still without any free monthly source after the Nov 2026 search (kept carried back, flagged E): Naphtha (NY gasoline rejected as a
+# different product), Titanium, Aluminum Alloy, Eggs CH, Rhodium, Bitumen, Phosphorus, Soda Ash, Tellurium, Magnesium, Gallium,
+# Germanium, Indium (only paid Asian Metal / SMM quotes exist; USGS is annual).
+
+
+def read_additions(d):
+    """{(folder, series_key): {ym: value}} plus {(folder, key): meta} from the normalised monthly CSVs."""
+    vals, meta = defaultdict(dict), {}
+    for f in glob.glob(str(Path(d) / "*" / "monthly.csv")):
+        folder = Path(f).parent.name
+        for r in csv.DictReader(open(f, encoding="utf-8")):
+            try: v = float(r["value"])
+            except (ValueError, TypeError): continue
+            k = (folder, r["series_key"]); vals[k][r["period"][:7]] = v
+            meta.setdefault(k, dict(unit=r.get("unit", ""), source=r.get("source", ""), series_name=r.get("series_name", ""), url=r.get("url", "")))
+    f = Path(d) / "nbs_china" / "monthly_all_products.csv"
+    if f.exists():
+        for r in csv.DictReader(open(f, encoding="utf-8")):
+            try: v = float(r["value"])
+            except (ValueError, TypeError): continue
+            k = ("nbs_china", r["product"]); vals[k][r["period"][:7]] = v
+            meta.setdefault(k, dict(unit=f"CNY/{r.get('unit_cn', '')}", source="China NBS, Market Prices of Important Means of Production in Circulation (10-day report)", series_name=r.get("specs", r["product"]), url="https://www.stats.gov.cn/sj/zxfb/"))
+    return vals, meta
+
+
 
 def months(a, b):
     y, m = map(int, a.split("-")); out = []
@@ -220,9 +296,14 @@ def read_te_days(d):
     return series, meta
 
 
-def main(wb_path, eia_dir, ecb_csv, te_dir, out_dir):
+def main(wb_path, eia_dir, ecb_csv, te_dir, out_dir, add_dir="data/trendx/raw/additions"):
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     wb, wb_units, wb_stamp = read_wb(wb_path); eia = read_eia_dir(eia_dir); fx = read_ecb(ecb_csv); te, meta = read_te_days(te_dir)
+    adds, add_meta = read_additions(add_dir) if add_dir and Path(add_dir).exists() else ({}, {})
+    def conv_cur(ym, v, cur_from, cur_to):
+        if cur_from == cur_to: return v
+        a = 1.0 if cur_from == "USD" else fx(ym, cur_from); b = 1.0 if cur_to == "USD" else fx(ym, cur_to)
+        return None if a is None or b is None or not a else v / a * b
     last_te = max((ym for s in te.values() for ym in s), default="2026-10")
     span = months(BASE_FROM, last_te)
     series_rows, obs, backfill, splice, missing, link_months = [], [], [], [], [], {}
@@ -238,11 +319,19 @@ def main(wb_path, eia_dir, ecb_csv, te_dir, out_dir):
             e = eia.get(m["key"]); src, licence = "US EIA spot price", "US Government public domain (third-party caveat)"
             if e: src_series = e["title"]; ext = dict(e["monthly"])
             elif m.get("wb"): col = m["wb"]; src, src_series, licence = "World Bank Pink Sheet", f"{col} {wb_units.get(col, '')}", "CC BY 4.0"; ext = dict(wb.get(col, {}))
+        a = ADD.get(name) if (m["kind"] == "none" or not any(ym >= BASE_FROM for ym in ext)) else None   # a WB column that stopped before 2024 (barley) falls through to the additions
+        if a and (a["folder"], a["key"]) in adds:
+            am = add_meta[(a["folder"], a["key"])]; ext = dict(adds[(a["folder"], a["key"])])
+            src, src_series, licence = am["source"], f"{am['series_name']} [{am['unit']}]", ADD_LICENCE.get(a["folder"], "")
+            m = dict(m, kind="add", f=a["f"], proxy=a["proxy"], note=a["note"], add=a)
         conv = {}
         for ym, v in ext.items():
             if ym < BASE_FROM or ym > last_te: continue
             val = v * m["f"]
-            if m.get("fx"):
+            if m.get("add"):
+                val = conv_cur(ym, val, m["add"]["cur_from"], m["add"]["cur_to"])
+                if val is None: continue
+            elif m.get("fx"):
                 r = fx(ym, m["fx"])
                 if r is None: continue
                 val *= r
@@ -258,13 +347,17 @@ def main(wb_path, eia_dir, ecb_csv, te_dir, out_dir):
         # chain link: external history up to the last month both sources cover (L), then our TE monthly means continue the
         # index from the external level at L (a futures/spot or market level gap never shows as a jump in the index)
         overlap = sorted(set(conv) & set(te_m)); L = overlap[-1] if overlap else None
-        ext_src = "wb" if m["kind"] == "wb" or not eia.get(m.get("key", "")) else "eia"
+        ext_src = (m["add"].get("src") or ADD_SRC[m["add"]["folder"]]) if m.get("add") else "wb" if m["kind"] == "wb" or not eia.get(m.get("key", "")) else "eia"
+        # a proxy from an external source that has not yet published the first TE month cannot be chained: its TE months wait
+        # for the overlap month instead of being rebased onto a different level (same-product sources need no link)
+        wait_overlap = bool(m.get("add")) and bool(m.get("proxy")) and L is None
         for ym in span:
             linked = 0
             if ym in conv and (L is None or ym <= L):
                 val, source, status, bf = conv[ym], ext_src, "A", 0
                 idx = val / base * 100
             elif ym in te_m:
+                if wait_overlap: continue
                 val, source, status, bf = te_m[ym], "te", "A", 0
                 if L is not None: idx = conv[L] / base * 100 * te_m[ym] / te_m[L]; linked = 1
                 else: idx = val / base * 100 if base else None
@@ -305,6 +398,13 @@ def main(wb_path, eia_dir, ecb_csv, te_dir, out_dir):
     gm = lambda xs: round(statistics.geometric_mean(xs), 3) if xs else ""
     idx = [dict(period=p, trendx_2024eq100_actual_history=gm(v["act"]), n_series_actual=len(v["act"]), trendx_2024eq100_all_series=gm(v["all"]), n_series_all=len(v["all"])) for p, v in sorted(byp.items())]
     w("index_2024.csv", idx)
+    # the portal file: everything in one JSON (uploaded as an asset; pointer projects/te/history/latest)
+    obs_by = defaultdict(list)
+    for o in obs: obs_by[o["series_id"]].append([o["period"], o["value"], o["value_2024eq100"] if o["value_2024eq100"] != "" else None, o["source"], o["backfilled"], o["linked"]])
+    hist = dict(built=date.today().isoformat(), base="2024 mean = 100", span=[BASE_FROM, last_te], series=series_rows, obs=obs_by, index=idx, backfill=backfill,
+                sources=dict(wb="World Bank Commodity Price Data (Pink Sheet), CC BY 4.0", eia="US EIA spot prices, public domain", fx="ECB euro reference rates", te="our daily Trading Economics capture, monthly mean",
+                             imf="IMF Primary Commodity Price System (attribution)", usda="USDA ERS/AMS (public domain), Statistics Norway, Statistics Canada", nbs="China NBS 10-day market prices (citation)", ember="Ember European wholesale electricity (CC BY 4.0)", bls="US BLS producer price indexes (public domain)"))
+    (out / "history_2024.json").write_text(json.dumps(hist, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     n_act = sum(1 for s in series_rows if s["base_method"] == "actual"); n_proxy = sum(1 for s in series_rows if s["proxy"]); n_idx = sum(1 for s in series_rows if s["in_index"])
     (out / "README.md").write_text(f"""# TrendX monthly store, base 2024 = 100
 
@@ -324,4 +424,4 @@ Missing TE names (not in the capture): {missing}
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:6])
+    main(*sys.argv[1:7])

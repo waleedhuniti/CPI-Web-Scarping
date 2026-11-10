@@ -98,12 +98,21 @@ CLASS = {"0111": ("Growing of cereals (except rice), leguminous crops and oil se
          "3510": ("Electric power generation, transmission and distribution", "توليد الطاقة الكهربائية ونقلها وتوزيعها"), "3830": ("Materials recovery", "استرجاع المواد")}
 
 
+def item_codes():
+    """unique 6-digit item code: the ISIC Rev.4 class (4 digits) + a 2-digit serial within that class, in the order of ISIC
+    above. New commodities take the next serial in their class; existing codes never change."""
+    seen, out = defaultdict(int), {}
+    for name, (cls, _) in ISIC.items():
+        seen[cls] += 1; out[name] = f"{cls}{seen[cls]:02d}"
+    return out
+
+
 def isic_rows():
     """one row per commodity with the full ISIC Rev.4 path."""
-    out = []
+    out = []; codes = item_codes()
     for name, (cls, note) in ISIC.items():
         div, grp = cls[:2], cls[:3]; sec = DIVISION[div][0]
-        out.append(dict(commodity=name, section=sec, section_en=SECTION[sec][0], section_ar=SECTION[sec][1], division=div, division_en=DIVISION[div][1], division_ar=DIVISION[div][2],
+        out.append(dict(item_code=codes[name], commodity=name, section=sec, section_en=SECTION[sec][0], section_ar=SECTION[sec][1], division=div, division_en=DIVISION[div][1], division_ar=DIVISION[div][2],
                         group=grp, group_en=GROUP[grp][0], group_ar=GROUP[grp][1], isic_class=cls, class_en=CLASS[cls][0], class_ar=CLASS[cls][1], note=note))
     return out
 
@@ -172,7 +181,8 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
     F = Font(name="Arial", size=10); FB = Font(name="Arial", size=10, bold=True); FH = Font(name="Arial", size=10, bold=True, color="FFFFFF")
     HF = PatternFill("solid", fgColor="1B2A52"); AV = PatternFill("solid", fgColor="FFF3D6"); thin = Side(style="thin", color="CBD5E1")
     C = Alignment(horizontal="center", vertical="center"); BOX = Border(left=thin, right=thin, top=thin, bottom=thin)
-    LEAD = ["الصنف", "الوحدة (درهم)", "ISIC Rev.4"]
+    LEAD = ["رمز الصنف", "الصنف", "الوحدة (درهم)", "ISIC Rev.4"]
+    codes = item_codes(); S = sorted(S, key=lambda s: codes.get(s["commodity"], "999999"))
     partial_month = ym_daily[-1] if ym_daily and ym_daily[-1] >= date.today().isoformat()[:7] else None
 
     def header(sh, layout, nrows):
@@ -198,7 +208,7 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
             for c_ in range(1, last + 1):
                 cell = sh.cell(r, c_); cell.font = FH; cell.fill = HF; cell.alignment = C; cell.border = BOX
         sh.freeze_panes = sh.cell(nrows + 1, len(LEAD) + 1)
-        sh.column_dimensions["A"].width = 20; sh.column_dimensions["B"].width = 18; sh.column_dimensions["C"].width = 10
+        for col_, w_ in zip("ABCD", (10, 20, 18, 10)): sh.column_dimensions[col_].width = w_
         for c_, _, _ in layout: sh.column_dimensions[get_column_letter(c_)].width = 11 if nrows == 2 else 9
 
     # Monthly sheet: one column per month, same format for every year; months covered by the daily collection are the
@@ -208,7 +218,7 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
     header(ws, mlay, 2)
     for i, s in enumerate(S):
         name = s["commodity"]; cur, mult, aed_unit = parse_unit(s["unit"]); rm, rd = 3 + i, 4 + i
-        ws.cell(rm, 1, name).font = FB; ws.cell(rm, 2, aed_unit).font = F; ws.cell(rm, 3, ISIC.get(name, ("", ""))[0]).font = F
+        ws.cell(rm, 1, codes.get(name, "")).font = FB; ws.cell(rm, 2, name).font = FB; ws.cell(rm, 3, aed_unit).font = F; ws.cell(rm, 4, ISIC.get(name, ("", ""))[0]).font = F
         for c_, kind, key in mlay:
             cell = ws.cell(rm, c_)
             if kind == "M":
@@ -227,8 +237,8 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
 
     # ISIC sheet
     isx = wb.create_sheet("ISIC"); isx.sheet_view.rightToLeft = True
-    H = ["الصنف", "القسم (Section)", "اسم القسم", "Section", "الشعبة (Division)", "اسم الشعبة", "Division", "المجموعة (Group)", "اسم المجموعة", "Group", "الفئة (Class)", "اسم الفئة", "Class", "ملاحظة"]
-    keys = ["commodity", "section", "section_ar", "section_en", "division", "division_ar", "division_en", "group", "group_ar", "group_en", "isic_class", "class_ar", "class_en", "note"]
+    H = ["رمز الصنف", "الصنف", "القسم (Section)", "اسم القسم", "Section", "الشعبة (Division)", "اسم الشعبة", "Division", "المجموعة (Group)", "اسم المجموعة", "Group", "الفئة (Class)", "اسم الفئة", "Class", "ملاحظة"]
+    keys = ["item_code", "commodity", "section", "section_ar", "section_en", "division", "division_ar", "division_en", "group", "group_ar", "group_en", "isic_class", "class_ar", "class_en", "note"]
     for j, h in enumerate(H, 1):
         c = isx.cell(1, j, h); c.font = FH; c.fill = HF; c.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
     rows = {r["commodity"]: r for r in isic_rows()}
@@ -236,7 +246,7 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
         r = rows.get(s["commodity"])
         for j, k in enumerate(keys, 1):
             c = isx.cell(i, j, r[k] if r else ""); c.font = F; c.alignment = Alignment(vertical="top", wrap_text=k.endswith(("_ar", "_en", "note")))
-    for j, w in enumerate([18, 8, 30, 30, 8, 36, 36, 8, 40, 40, 8, 40, 40, 40], 1): isx.column_dimensions[get_column_letter(j)].width = w
+    for j, w in enumerate([10, 18, 8, 30, 30, 8, 36, 36, 8, 40, 40, 8, 40, 40, 40], 1): isx.column_dimensions[get_column_letter(j)].width = w
     isx.freeze_panes = "B2"; isx.auto_filter.ref = f"A1:{get_column_letter(len(H))}{len(S) + 1}"
 
     # notes
@@ -246,7 +256,8 @@ def main(days_dir, ecb_csv, out_path, store="data/trendx/store"):
              "أكتوبر ونوفمبر 2026 (مظللان): متوسط أسعار الإغلاق اليومية من جمعنا خلال الشهر، كل سعر محوّل بسعر صرف يومه. المتوسط لا المجموع، كما في التاريخ الرسمي. الشهر الجاري مكتوب «(جزئي)» ويتحدث مع كل تشغيل.",
              "التحويل إلى الدرهم: 3.6725 درهم لكل دولار (الربط الرسمي)، والعملات الأخرى عبر أسعار البنك المركزي الأوروبي المرجعية لليوم نفسه (اليومي) أو متوسط الشهر (الشهري). السنت والبنس يُقسمان على 100 أولاً. الوحدة الفيزيائية لا تتغير (برميل، طن، بوشل...).",
              "خانة فارغة = لا سعر حقيقي: لا تثبيت رجوعي ولا ترحيل. السلاسل المُثبّتة الـ 13 فارغة قبل أكتوبر 2026. خردة الحديد والألمنيوم فارغة قبل أكتوبر لأن مصدرها مؤشر BLS لا سعر.",
-             "السلاسل البديلة (منتج أو سوق قريب) مذكورة في data/trendx/store/series.csv عمود proxy_of. ترميز ISIC Rev.4 في ورقة ISIC: نشاط إنتاج السلعة حتى الفئة (4 أرقام)."]
+             "السلاسل البديلة (منتج أو سوق قريب) مذكورة في data/trendx/store/series.csv عمود proxy_of. ترميز ISIC Rev.4 في ورقة ISIC: نشاط إنتاج السلعة حتى الفئة (4 أرقام).",
+             "رمز الصنف: 6 أرقام فريدة لكل سلعة = فئة ISIC Rev.4 (4 أرقام) + تسلسل من رقمين داخل الفئة. مثال: 242001 الذهب، 242002 الفضة. الصنف الجديد يأخذ التسلسل التالي في فئته ولا تتغير الرموز القائمة."]
     for i, t in enumerate(notes, 1): nt.cell(i, 1, t).font = F; nt.cell(i, 1).alignment = Alignment(wrap_text=True, horizontal="right")
     wb.save(out_path)
     print(f"{len(S)} rows, {len(months)} monthly + {len(day_list)} daily columns ({day_list[0]} to {day_list[-1]}) -> {out_path}")

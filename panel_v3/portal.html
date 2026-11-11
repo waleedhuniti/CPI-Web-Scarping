@@ -156,7 +156,7 @@ tr.off td { color: var(--faint); text-decoration: line-through; }
 .set b { font-family: var(--display); font-weight: 600; color: var(--navy); }
 .set small { color: var(--muted); font-size: 12.5px; }
 .set:has(input:checked) { border-color: var(--primary); background: var(--soft); }
-.set .tag { justify-self: start; }
+.set .tag, .set > .chip { justify-self: start; }
 .progress { height: 6px; border-radius: 99px; background: var(--sunk); overflow: hidden; }
 .progress i { display: block; height: 100%; width: 0; background: var(--primary); transition: width .2s; }
 
@@ -789,70 +789,64 @@ async function cpiAllRows(from, to, chain, step) {
 }
 
 // ============================================================ desk 4: download (choose the data, get one Excel workbook)
-const D = { sets: new Set(["cpi_prices"]), from: null, to: dubaiDay(), outlet: "", busy: false };
-const SETS = [
-  ["cpi_prices", "CPI scraped prices", "أسعار CPI المسحوبة", "One row per line, outlet and day, with the price and the product found.", "صف لكل بند ومنفذ ويوم، مع السعر والمنتج.", true],
-  ["cpi_all", "All CPI prices, coded", "كل أسعار CPI مرمّزة", "Basket runs and catalogue crawl as one set: a row per product, shop and day, no duplicates, with the CPI code.", "تشغيلات السلة وزحف الكتالوج مجموعة واحدة: صف لكل منتج ومتجر ويوم، دون تكرار، مع رمز CPI.", true],
-  ["cpi_codes", "CPI product codes", "رموز منتجات CPI", "Every product’s 12-digit code, CPI class and COICOP 2018 subclass.", "رمز كل منتج من 12 خانة وفئة CPI وفئة COICOP 2018 الفرعية.", false],
-  ["cpi_manual", "CPI corrections", "تصحيحات CPI", "The prices entered by hand, withdrawn ones marked.", "الأسعار المدخلة يدوياً، والمسحوبة معلَّمة.", true],
-  ["te_prices", "TrendX daily closes", "إغلاقات TrendX اليومية", "Every commodity’s close per run day, with the quote date.", "إغلاق كل سلعة لكل يوم تشغيل، مع تاريخ التسعيرة.", true],
-  ["cpi_basket", "CPI scrape list", "قائمة سحب CPI", "All basket lines with codes, specs and barcodes.", "كل بنود السلة بالرموز والمواصفات والباركود.", false],
-  ["te_list", "TrendX commodity list", "قائمة سلع TrendX", "Commodities, units, ISIC codes and whether they are kept.", "السلع والوحدات ورموز ISIC وحالة الحفظ.", false],
-  ["sppi_items", "SPPI items", "بنود SPPI", "Routes and hotels with their codes.", "المسارات والفنادق برموزها.", false],
+const D = { proj: "cpi", from: null, to: dubaiDay(), outlet: "", busy: false };
+// three projects, one at a time; each gives one workbook with its own sheets
+const PROJ = [
+  ["cpi", "CPI", "CPI", "All prices in one set (basket + catalogue): one row per product, shop and day, no duplicates, with the CPI code.", "كل الأسعار مجموعة واحدة (السلة + الكتالوج): صف لكل منتج ومتجر ويوم، دون تكرار، مع رمز CPI.", true, ["cpi_all", "cpi_manual", "cpi_classes"]],
+  ["te", "TrendX", "TrendX", "Every commodity’s daily close with its quote date, and the commodity list with ISIC codes.", "إغلاق كل سلعة يومياً مع تاريخ التسعيرة، وقائمة السلع برموز ISIC.", true, ["te_prices", "te_list"]],
+  ["sppi", "SPPI", "SPPI", "Routes and hotels with their codes.", "المسارات والفنادق برموزها.", false, ["sppi_items"]],
 ];
+const SETS = [
+  ["cpi_all", "All CPI prices", "كل أسعار CPI"], ["cpi_manual", "CPI corrections", "تصحيحات CPI"], ["cpi_classes", "CPI classes", "فئات CPI"],
+  ["te_prices", "TrendX daily closes", "إغلاقات TrendX اليومية"], ["te_list", "TrendX commodity list", "قائمة سلع TrendX"], ["sppi_items", "SPPI items", "بنود SPPI"],
+];
+const projOf = (id) => PROJ.find((p) => p[0] === id) || PROJ[0];
 async function deskDownload(my) {
   if (!D.from) { const d = new Date(Date.now() - 6 * 864e5); D.from = dubaiDay(d); }
-  $("#desk").innerHTML = `<div class="desk-head"><div><h2>${esc(L("Download", "التنزيل"))}</h2><p>${esc(L("Tick the data you want, set the days, and get one Excel workbook with a sheet for each.", "اختر البيانات التي تريدها وحدد الأيام، واحصل على ملف Excel واحد فيه ورقة لكل منها."))}</p></div></div>
-    <section class="panel"><div class="sets" id="d-sets">${SETS.map(([id, en, ar, den, dar, dated]) => `<label class="set"><input type="checkbox" value="${id}" ${D.sets.has(id) ? "checked" : ""}><b>${esc(L(en, ar))}</b><small>${esc(L(den, dar))}</small>${chip(dated ? L("uses the days", "حسب الأيام") : L("current list", "القائمة الحالية"), dated ? "blue" : "")}</label>`).join("")}</div></section>
+  $("#desk").innerHTML = `<div class="desk-head"><div><h2>${esc(L("Download", "التنزيل"))}</h2><p>${esc(L("Choose one: CPI, TrendX or SPPI. Set the days and get one Excel workbook.", "اختر واحداً: CPI أو TrendX أو SPPI. حدد الأيام واحصل على ملف Excel واحد."))}</p></div></div>
+    <section class="panel"><div class="sets" id="d-sets" role="radiogroup">${PROJ.map(([id, en, ar, den, dar, dated]) => `<label class="set"><input type="radio" name="d-proj" value="${id}" ${D.proj === id ? "checked" : ""}><b>${esc(L(en, ar))}</b><small>${esc(L(den, dar))}</small>${chip(dated ? L("uses the days", "حسب الأيام") : L("current list", "القائمة الحالية"), dated ? "blue" : "")}</label>`).join("")}</div></section>
     <section class="panel"><div class="fields">
-        <label class="f"><span>${esc(L("From", "من"))}</span><input type="date" id="d-from" value="${D.from}" max="${dubaiDay()}"></label>
-        <label class="f"><span>${esc(L("To", "إلى"))}</span><input type="date" id="d-to" value="${D.to}" max="${dubaiDay()}"></label>
-        <label class="f"><span>${esc(L("Shop (CPI prices)", "المتجر (أسعار CPI)"))}</span><select id="d-outlet"><option value="">${esc(L("All shops", "كل المتاجر"))}</option>${CPI_CHAINS.map((c) => `<option value="${c}" ${D.outlet === c ? "selected" : ""}>${esc(outletName(c))}</option>`).join("")}</select></label>
+        <label class="f" data-dated><span>${esc(L("From", "من"))}</span><input type="date" id="d-from" value="${D.from}" max="${dubaiDay()}"></label>
+        <label class="f" data-dated><span>${esc(L("To", "إلى"))}</span><input type="date" id="d-to" value="${D.to}" max="${dubaiDay()}"></label>
+        <label class="f" id="d-shop"><span>${esc(L("Shop", "المتجر"))}</span><select id="d-outlet"><option value="">${esc(L("All shops", "كل المتاجر"))}</option>${CPI_CHAINS.map((c) => `<option value="${c}" ${D.outlet === c ? "selected" : ""}>${esc(outletName(c))}</option>`).join("")}</select></label>
       </div>
       <div class="row" style="margin-top:16px"><button class="btn primary" type="button" id="d-go">${esc(L("Build the Excel file", "أنشئ ملف Excel"))}</button><span class="sub" id="d-note"></span></div>
       <div class="progress" style="margin-top:12px" hidden id="d-prog"><i></i></div></section>`;
-  const note = () => { const days = Math.round((new Date(D.to) - new Date(D.from)) / 864e5) + 1; $("#d-note").textContent = days > 0 ? L(`${days} days · ${D.sets.size} sheets`, `${days} يوماً · ${D.sets.size} أوراق`) : L("The start day is after the end day", "يوم البداية بعد يوم النهاية"); };
-  $("#d-sets").onchange = (e) => { const cb = e.target.closest("input"); if (!cb) return; cb.checked ? D.sets.add(cb.value) : D.sets.delete(cb.value); note(); };
+  const note = () => {
+    const p = projOf(D.proj), days = Math.round((new Date(D.to) - new Date(D.from)) / 864e5) + 1;
+    document.querySelectorAll("#desk [data-dated]").forEach((x) => (x.hidden = !p[5])); $("#d-shop").hidden = D.proj !== "cpi";
+    $("#d-note").textContent = !p[5] ? L(`${p[1]} · current list`, `${p[2]} · القائمة الحالية`) : days > 0 ? L(`${p[1]} · ${days} days`, `${p[2]} · ${days} يوماً`) : L("The start day is after the end day", "يوم البداية بعد يوم النهاية");
+    setKey("download", L(`${p[1]} chosen`, `${p[2]} مختار`));
+  };
+  $("#d-sets").onchange = (e) => { const r = e.target.closest("input"); if (r?.checked) { D.proj = r.value; note(); } };
   $("#d-from").onchange = (e) => { D.from = e.target.value; note(); }; $("#d-to").onchange = (e) => { D.to = e.target.value; note(); }; $("#d-outlet").onchange = (e) => (D.outlet = e.target.value);
-  note(); setKey("download", L(`${D.sets.size} data sets ticked`, `${D.sets.size} مجموعات مختارة`));
+  note();
   $("#d-go").onclick = () => buildXlsx(my);
 }
 let excelLib = null;
 const loadExcel = () => (excelLib ??= new Promise((ok, fail) => { const s = document.createElement("script"); s.src = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"; s.onload = () => ok(window.ExcelJS); s.onerror = () => { excelLib = null; fail(new Error(L("The Excel library could not load", "تعذّر تحميل مكتبة Excel"))); }; document.head.appendChild(s); }));
 async function buildXlsx(my) {
-  if (D.busy) return; if (!D.sets.size) return toast(L("Tick at least one data set", "اختر مجموعة واحدة على الأقل"), true);
-  if (D.from > D.to) return toast(L("The start day is after the end day", "يوم البداية بعد يوم النهاية"), true);
+  if (D.busy) return; const P = projOf(D.proj);
+  if (P[5] && D.from > D.to) return toast(L("The start day is after the end day", "يوم البداية بعد يوم النهاية"), true);
   if (!dl) return toast(L("Downloads are not available in this view", "التنزيل غير متاح في هذا العرض"), true);
-  const days = Math.round((new Date(D.to) - new Date(D.from)) / 864e5) + 1; if (days > 62) return toast(L("Choose at most 62 days", "اختر 62 يوماً على الأكثر"), true);
+  const days = Math.round((new Date(D.to) - new Date(D.from)) / 864e5) + 1; if (P[5] && days > 62) return toast(L("Choose at most 62 days", "اختر 62 يوماً على الأكثر"), true);
   D.busy = true; const go = $("#d-go"), prog = $("#d-prog"); go.disabled = true; prog.hidden = false; const bar = $("i", prog);
   const step = (f, t) => { bar.style.width = Math.round(f * 100) + "%"; $("#d-note").textContent = t; };
   try {
     const sheets = [], inRange = (d) => d >= D.from && d <= D.to;
-    const order = SETS.map((s) => s[0]).filter((id) => D.sets.has(id)); let k = 0;
+    const order = P[6]; let k = 0;
     for (const id of order) {
       step(k / order.length, L(`Reading ${SETS.find((s) => s[0] === id)[1]}…`, `تُقرأ ${SETS.find((s) => s[0] === id)[2]}…`));
-      if (id === "cpi_prices") {
-        const runs = [...dayRuns(await loadRuns("cpi")).entries()].filter(([d]) => inRange(d)).sort((a, b) => a[0].localeCompare(b[0]));
-        const out = [];
-        for (let i = 0; i < runs.length; i++) { const [d, run] = runs[i]; step((k + i / Math.max(1, runs.length)) / order.length, L(`CPI prices: ${d}`, `أسعار CPI: ${d}`));
-          for (const r of await runRows("cpi", run)) if (r.accepted === "yes" && (!D.outlet || r.retailer === D.outlet)) out.push([d, r.item_code, r.name, r.brand, r.basket_qty || r.size, outletName(r.retailer), +r.price, +r.regular_price || +r.price, r.source, r.title, r.url]); }
-        sheets.push({ name: "CPI prices", head: ["Day", "Item code", "Line", "Brand", "Size", "Outlet", "Price (AED)", "Regular price (AED)", "Found by", "Product title", "Link"], widths: [12, 12, 30, 16, 10, 16, 12, 12, 12, 40, 40], money: [7, 8], rows: out });
-      } else if (id === "cpi_all") {
+      if (id === "cpi_all") {
         const at = k;
         const rows = await cpiAllRows(D.from, D.to, D.outlet, (f, t) => step((at + f) / order.length, t));
         sheets.push({ name: "All CPI prices", head: ["Day", "Web code", "CPI class", "Class", "COICOP 2018", "COICOP title", "Store", "Product id", "Title", "Brand", "Size", "Price (AED)", "Regular price (AED)", "On offer", "Unit price (AED)", "Unit", "Basket item codes", "Found by", "Sources", "Note", "Link"],
           widths: [12, 14, 10, 26, 10, 26, 20, 16, 44, 16, 10, 11, 11, 8, 11, 7, 20, 22, 10, 24, 36], money: [12, 13, 15], rows });
-      } else if (id === "cpi_codes") {
-        const reg = await loadCodes(); if (!reg) throw new Error(L("The CPI codes are not published yet", "لم تُنشر رموز CPI بعد"));
-        const h = await loadCatHistory().catch(() => null), titles = new Map();
-        if (h) for (const [k, p] of Object.entries(h.p)) { const bar = k.indexOf("|"), o = k.slice(0, bar), raw = k.slice(bar + 1); titles.set(chainOfOutlet(o) + "|" + pidOf(raw.startsWith("http") ? "" : raw, p.u), [o, p.t]); }
-        const out = Object.entries(reg.p).filter(([key]) => !D.outlet || key.startsWith(D.outlet + "|")).sort((a, b) => a[1].localeCompare(b[1])).map(([key, code]) => {
-          const bar = key.indexOf("|"), c = reg.classes[code.slice(0, 7)] || {}, s = code.slice(0, 5), t = titles.get(key) || [outletName(key.slice(0, bar)), ""];
-          return [code, code.slice(0, 7), L(c.en || c.ar, c.ar || c.en), c.web ? L("web", "ويب") : L("basket", "السلة"), `${s.slice(0, 2)}.${s[2]}.${s[3]}.${s[4]}`, reg.subclasses[s] || "", t[0], key.slice(bar + 1), t[1]]; });
-        sheets.push({ name: "CPI product codes", head: ["Web code", "CPI class", "Class", "Type from", "COICOP 2018", "COICOP title", "Store", "Product id", "Title"], widths: [14, 10, 28, 9, 10, 30, 20, 16, 50], money: [], rows: out });
-        const cls = Object.entries(reg.classes).sort((a, b) => a[0].localeCompare(b[0])), n = new Map(); for (const c of Object.values(reg.p)) n.set(c.slice(0, 7), (n.get(c.slice(0, 7)) || 0) + 1);
-        sheets.push({ name: "CPI classes", head: ["CPI class", "COICOP 2018", "COICOP title", "Type", "Class (Arabic)", "Class (English)", "Type from", "Products"], widths: [10, 10, 30, 6, 28, 28, 9, 9], money: [],
-          rows: cls.map(([c7, c]) => { const s = c7.slice(0, 5); return [c7, `${s.slice(0, 2)}.${s[2]}.${s[3]}.${s[4]}`, reg.subclasses[s] || "", c7.slice(5, 7), c.ar, c.en, c.web ? L("web", "ويب") : L("basket", "السلة"), n.get(c7) || 0]; }) });
+      } else if (id === "cpi_classes") {
+        const reg = await loadCodes();
+        if (reg) { const n = new Map(); for (const c of Object.values(reg.p)) n.set(c.slice(0, 7), (n.get(c.slice(0, 7)) || 0) + 1);
+          sheets.push({ name: "CPI classes", head: ["CPI class", "COICOP 2018", "COICOP title", "Type", "Class (Arabic)", "Class (English)", "Type from", "Products"], widths: [10, 10, 30, 6, 28, 28, 9, 9], money: [],
+            rows: Object.entries(reg.classes).sort((a, b) => a[0].localeCompare(b[0])).map(([c7, c]) => { const s = c7.slice(0, 5); return [c7, `${s.slice(0, 2)}.${s[2]}.${s[3]}.${s[4]}`, reg.subclasses[s] || "", c7.slice(5, 7), c.ar, c.en, c.web ? L("web", "ويب") : L("basket", "السلة"), n.get(c7) || 0]; }) }); }
       } else if (id === "cpi_manual") {
         const out = []; const ds = []; for (let t = new Date(D.from + "T12:00:00Z"); dubaiDay(t) <= D.to; t = new Date(t.getTime() + 864e5)) ds.push(t.toISOString().slice(0, 10));
         for (const d of ds) { const m = await loadManual(d, true); for (const r of m?.rows || []) out.push([d, r.line_code, (S.basket || []).find((x) => x.item_code === r.line_code)?.name_ar || "", outletName(r.outlet), +r.price, +r.regular_price || +r.price, r.seen_by, r.title, r.url, r.note, r.entered_by, r.entered_at, r.status]); }
@@ -862,8 +856,6 @@ async function buildXlsx(my) {
         const runs = [...dayRuns(await loadRuns("te")).entries()].filter(([d]) => inRange(d)).sort((a, b) => a[0].localeCompare(b[0])); const out = [];
         for (const [d, run] of runs) for (const r of await runRows("te", run)) out.push([d, ISIC_TE[r.commodity]?.[0] || "", r.commodity, r.category, r.unit, r.price === "" || r.price == null ? null : +r.price, r.price_date || d]);
         sheets.push({ name: "TrendX closes", head: ["Run day", "Item code", "Commodity", "Category", "Unit", "Close", "Quote date"], widths: [12, 10, 22, 14, 16, 12, 12], money: [6], rows: out });
-      } else if (id === "cpi_basket") {
-        const b = await loadBasket(); sheets.push({ name: "CPI scrape list", head: ["Item code", "Class", "Line", "Brand", "Size", "Barcode", "Origin", "Found by", "Kind"], widths: [12, 30, 30, 16, 12, 16, 14, 10, 10], money: [], rows: b.map((x) => [x.item_code, x.class_name, x.name_ar, x.brand_ar, x.qty_raw, x.barcode_raw, x.origin_raw, x.match_mode, x.kind]) });
       } else if (id === "te_list") {
         const t = await loadTe(); sheets.push({ name: "TrendX list", head: ["Item code", "Commodity", "Category", "Unit", "ISIC class", "ISIC class name", "Kept"], widths: [10, 22, 14, 16, 10, 40, 8], money: [], rows: t.items.map((x) => { const i = ISIC_TE[x.commodity]; return [x.item_code || i?.[0] || "", x.commodity, x.category, x.unit, x.isic_class || i?.[1] || "", i ? i[2] : "", x.enabled === false ? "No" : "Yes"]; }) });
       } else if (id === "sppi_items") {
@@ -881,7 +873,7 @@ async function buildXlsx(my) {
       if (s.rows.length) ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: 1, column: s.head.length } };
       if (!s.rows.length) ws.addRow([L("No data for these days", "لا بيانات لهذه الأيام")]);
     }
-    const buf = await wb.xlsx.writeBuffer(), name = `Price data ${D.from}_${D.to}.xlsx`;
+    const buf = await wb.xlsx.writeBuffer(), name = P[5] ? `${P[1]} ${D.from}_${D.to}.xlsx` : `${P[1]} ${dubaiDay()}.xlsx`;
     step(1, L(`${sheets.map((s) => `${s.name}: ${fmtN(s.rows.length)} rows`).join(" · ")}`, `${sheets.map((s) => `${s.name}: ${fmtN(s.rows.length)} صفاً`).join(" · ")}`));
     try { await dl.save({ filename: name, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) }); toast(L(`Saved ${name}`, `حُفظ ${name}`)); }
     catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || L("The download did not finish", "لم يكتمل التنزيل"), true); }

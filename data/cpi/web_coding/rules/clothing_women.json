@@ -1,0 +1,330 @@
+{
+ "categories": {
+  "abaya": {
+   "default": "0312201",
+   "rules": [],
+   "note": "Centrepoint abayas (with tarha/hijab). Basket codes put two of them in 0312201 (the abaya class); the other four carry shayla codes 0313104 and are overridden to 0312201 because the product is an abaya."
+  },
+  "women_dresses": {
+   "default": "0312203",
+   "rules": [
+    {
+     "re": "kaftan",
+     "class": "0312205"
+    }
+   ],
+   "note": "Women's dresses -> 0312203. Kaftan dresses -> 0312205 (jalabiya class), following the basket codes 03122050x on the Max/Centrepoint kaftans."
+  },
+  "women_jackets": {
+   "default": "0312208",
+   "rules": [
+    {
+     "re": "blazer|tailored",
+     "class": "0312202"
+    },
+    {
+     "re": "waistcoat|gilet",
+     "class": "N:03122:Women's waistcoats and gilets"
+    },
+    {
+     "re": "\\bshirt\\b",
+     "class": "0312207"
+    }
+   ],
+   "note": "Zara women's jackets and coats (bomber, leather, denim, trench, parka, puffer, kimono, cardigan) -> 0312208 as the basket varieties 031220805/06/08 show; blazers/tailored jackets -> 0312202 (suit jacket); waistcoats and gilets -> new type."
+  },
+  "women_jeans": {
+   "default": "0312206",
+   "rules": [],
+   "note": "Women's jeans -> 0312206."
+  },
+  "women_knitwear": {
+   "default": "N:03122:Women's jumpers and sweaters",
+   "rules": [
+    {
+     "re": "\\bdress\\b",
+     "class": "0312203"
+    },
+    {
+     "re": "skirt",
+     "class": "0312204"
+    },
+    {
+     "re": "trousers|shorts",
+     "class": "0312206"
+    },
+    {
+     "re": "cardi(gan|ngan)|jacket|bomber|\\bcoat\\b|\\bcape\\b",
+     "class": "0312208"
+    },
+    {
+     "re": "waistcoat|\\bvest\\b|gilet",
+     "class": "N:03122:Women's waistcoats and gilets"
+    },
+    {
+     "re": "\\btop\\b|polo shirt",
+     "class": "0312207"
+    }
+   ],
+   "note": "Zara knitwear. Cardigans, knit jackets/coats/capes -> 0312208 (basket varieties 031220801/09 are knit cardigans); pullovers, jumpers, knit hoodies and long-sleeve knit polos -> new type Jumpers and sweaters; knit tops and polo shirts -> 0312207; knit skirts/dresses/trousers to their classes; knit vests and waistcoats -> Waistcoats and gilets."
+  },
+  "women_shirts": {
+   "default": "0312207",
+   "rules": [
+    {
+     "re": "jacket",
+     "class": "0312208"
+    }
+   ],
+   "note": "Zara women's shirts and blouses -> 0312207."
+  },
+  "women_t_shirts": {
+   "default": "0312207",
+   "rules": [],
+   "note": "Zara women's T-shirts and tops -> 0312207 (basket variety 031220707 is a women's T-shirt)."
+  },
+  "women_tops": {
+   "default": "0312207",
+   "rules": [
+    {
+     "re": "kappa|performance",
+     "class": "0312211"
+    }
+   ],
+   "note": "Max/Centrepoint women's tops and T-shirts -> 0312207; Kappa performance T-shirts -> 0312211 (branded sportswear); Max ribbed vests keep basket 0312210."
+  },
+  "women_trousers": {
+   "default": "0312206",
+   "rules": [],
+   "note": "Zara women's trousers, leggings, joggers, capris and Bermuda shorts -> 0312206 (basket varieties include leggings and wide-leg trousers; girls' class 0312213 also mixes trousers and shorts). Two Zara rows have an empty title (only a colour); they are listed by Zara under Women > Trousers and stay in 0312206."
+  },
+  "women_dress": {
+   "default": "0312203",
+   "rules": [
+    {
+     "re": "\\bwatch(es)?\\b",
+     "class": "1321102"
+    },
+    {
+     "re": "\\bdogs?\\b|\\bpets?\\b|puppy",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "hangers?\\b",
+     "class": "0540304"
+    },
+    {
+     "re": "garment|dress bags?\\b|suit cover",
+     "class": "N:05219:Garment bags and clothes covers"
+    },
+    {
+     "re": "insoles?|inserts|shoe pads",
+     "class": "N:03212:Insoles and shoe accessories"
+    },
+    {
+     "re": "costume|cosplay",
+     "class": "N:09212:Costumes and disguises"
+    },
+    {
+     "re": "container|lunch box|bento",
+     "class": "N:05403:Food containers and lunch boxes"
+    },
+    {
+     "re": "prayer rug",
+     "class": "N:13220:Prayer rugs and devotional articles"
+    },
+    {
+     "re": "hair clip|barrette",
+     "class": "N:13120:Hair accessories"
+    },
+    {
+     "re": "brooch|sweater chain|sweater clips",
+     "class": "N:13211:Fashion jewellery"
+    },
+    {
+     "re": "sewing pattern",
+     "class": "N:03132:Haberdashery and knitting yarns"
+    },
+    {
+     "re": "\\bbibs?\\b",
+     "class": "N:03131:Aprons and bibs"
+    },
+    {
+     "re": "\\bveils?\\b",
+     "class": "N:03131:Bridal veils"
+    },
+    {
+     "re": "hoodie blanket|wearable blanket",
+     "class": "N:05212:Blankets and throws"
+    },
+    {
+     "re": "card sticker",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "\\bskirt\\b",
+     "class": "0312204"
+    },
+    {
+     "re": "\\bEDT\\b|\\bEDP\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "anti-?perspirant|roll[- ]?on|deodorant",
+     "class": "1312005"
+    },
+    {
+     "re": "shampoo",
+     "class": "1312009"
+    },
+    {
+     "re": "kotex|panty liners|maxi pads",
+     "class": "1312011"
+    },
+    {
+     "re": "hair remover",
+     "class": "1311101"
+    },
+    {
+     "re": "\\bblade\\b",
+     "class": "1312004"
+    },
+    {
+     "re": "mayonnaise",
+     "class": "0119304"
+    },
+    {
+     "re": "ketchup",
+     "class": "0119303"
+    },
+    {
+     "re": "dressing.*\\d+ ?ml",
+     "class": "0119901"
+    },
+    {
+     "re": "chil+[iy]",
+     "class": "0119402"
+    },
+    {
+     "re": "cumin",
+     "class": "0119403"
+    },
+    {
+     "re": "cinnamon",
+     "class": "0119408"
+    }
+   ],
+   "note": "Search term 'women dress' (Carrefour/Lulu): almost no dresses. Watches, garment bags, hangers, insoles, costumes, pet clothes, food (dressings, spices), toiletries and perfumes each go to their own class by what the product is."
+  }
+ },
+ "overrides": {
+  "centrepoint|1371MPBlack-CP": "0312201",
+  "centrepoint|1408MPBlack-CP": "0312201",
+  "centrepoint|1425MPPurple-CP": "0312201",
+  "centrepoint|1348MPBlack-CP": "0312201",
+  "max|B26WCLFSLEJ105GREENLIGHT": "0312203",
+  "zara|06318232": "N:03122:Women's waistcoats and gilets",
+  "max|C26WDNMSTRTWDE1UP01CREAMMEDIUM": "0312206",
+  "zara|05536010": "N:03122:Women's jumpers and sweaters",
+  "zara|05536043": "0312207",
+  "zara|08094611": "0312207",
+  "zara|09067581": "0312207",
+  "zara|02298165": "0312207",
+  "zara|08870572": "0312207",
+  "zara|07842256": "0312207",
+  "zara|08372322": "0312206",
+  "max|C26WCLFSNPR104REDDARK": "0312207"
+ },
+ "new_types": [
+  {
+   "subclass5": "03122",
+   "name_en": "Women's jumpers and sweaters",
+   "name_ar": "كنزات صوف نسائية (بلوفر)",
+   "why": "Basket 0312208 holds jackets and knit cardigans only; no class for pullover jumpers."
+  },
+  {
+   "subclass5": "03122",
+   "name_en": "Women's waistcoats and gilets",
+   "name_ar": "صديريات وسترات بدون أكمام نسائية",
+   "why": "No women's waistcoat/gilet class in the basket."
+  },
+  {
+   "subclass5": "09322",
+   "name_en": "Pet accessories",
+   "name_ar": "مستلزمات الحيوانات الأليفة",
+   "why": "Dog dresses/diapers; basket 0932201 is pet food."
+  },
+  {
+   "subclass5": "05219",
+   "name_en": "Garment bags and clothes covers",
+   "name_ar": "أكياس وأغطية حفظ الملابس",
+   "why": "COICOP 05.2.1.9 covers for clothes; no basket class."
+  },
+  {
+   "subclass5": "03212",
+   "name_en": "Insoles and shoe accessories",
+   "name_ar": "نعل داخلية وإكسسوارات أحذية",
+   "why": "No basket class for insoles."
+  },
+  {
+   "subclass5": "09212",
+   "name_en": "Costumes and disguises",
+   "name_ar": "أزياء تنكرية",
+   "why": "COICOP 09.2.1.2 disguises; not garments."
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Food containers and lunch boxes",
+   "name_ar": "حافظات طعام وعلب غداء",
+   "why": "No basket class for food containers."
+  },
+  {
+   "subclass5": "13220",
+   "name_en": "Prayer rugs and devotional articles",
+   "name_ar": "سجادات صلاة ومستلزمات دينية",
+   "why": "COICOP 13.2.2.0; no basket class."
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Hair accessories",
+   "name_ar": "إكسسوارات الشعر (مشابك وبكلات)",
+   "why": "COICOP 13.1.2.0 hairpins; no basket class."
+  },
+  {
+   "subclass5": "13211",
+   "name_en": "Fashion jewellery",
+   "name_ar": "مجوهرات وإكسسوارات أزياء",
+   "why": "Costume jewellery/brooches; basket 13211 classes are gold and watches."
+  },
+  {
+   "subclass5": "03132",
+   "name_en": "Haberdashery and knitting yarns",
+   "name_ar": "خيوط حياكة ومستلزمات خياطة (أزرار، باترونات)",
+   "why": "COICOP 03.1.3.2 accessories for making clothing; no basket class."
+  },
+  {
+   "subclass5": "03131",
+   "name_en": "Aprons and bibs",
+   "name_ar": "مرايل وصدريات حماية الملابس",
+   "why": "COICOP 03.1.3.1 bibs; no basket class."
+  },
+  {
+   "subclass5": "03131",
+   "name_en": "Bridal veils",
+   "name_ar": "طرحات زفاف",
+   "why": "Headwear not covered by shayla/cap classes."
+  },
+  {
+   "subclass5": "05212",
+   "name_en": "Blankets and throws",
+   "name_ar": "بطانيات وأغطية",
+   "why": "Wearable hoodie blanket; no basket class for blankets."
+  },
+  {
+   "subclass5": "09740",
+   "name_en": "Stationery",
+   "name_ar": "قرطاسية",
+   "why": "Decorative card stickers; no basket class."
+  }
+ ]
+}

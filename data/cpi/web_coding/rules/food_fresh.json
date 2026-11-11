@@ -1,0 +1,4356 @@
+{
+ "categories": {
+  "basket_0112_meat": {
+   "default": "0112203",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "noodles",
+     "class": "0119101"
+    },
+    {
+     "re": "\\bstock\\b|bouillon",
+     "class": "0119902"
+    },
+    {
+     "re": "corn dog",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "dumplings",
+     "class": "N:01115:Dumplings and filled pasta"
+    },
+    {
+     "re": "onion rings",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "lamb weston|fries|hash browns|potato dippers",
+     "class": "0117905"
+    },
+    {
+     "re": "corned beef",
+     "class": "0112507"
+    },
+    {
+     "re": "mortadella|luncheon",
+     "class": "0112301"
+    },
+    {
+     "re": "pepperoni|basturma|bacon|prosciutto|turkey breast|salami|breakfast strips|\\bham\\b",
+     "class": "N:01123:Cold cuts and cured meats"
+    },
+    {
+     "re": "sausage|franks?\\b|frankfurter|hot dog|boerewors",
+     "class": "0112505"
+    },
+    {
+     "re": "burger|patties",
+     "class": "0112506"
+    },
+    {
+     "re": "chicken (giblets )?(liver|gizzard|heart)|giblets (liver|gizzard)",
+     "class": "0112503"
+    },
+    {
+     "re": "liver",
+     "class": "0112501"
+    },
+    {
+     "re": "kidney|(?<!rump )\\bheart\\b|tripe|chicken feet|feets?\\b|\\bbones\\b|lamb fat|^bones",
+     "class": "N:01124:Offal, bones and fat"
+    },
+    {
+     "re": "nugget|breaded|zingz?\\b|crunchy|shish taouk",
+     "class": "0112509"
+    },
+    {
+     "re": "kofta|kebab|meat ?balls|kibbeh|marinated|tikka|taw[o]?ok|tawouk|tandoori|\\bbbq\\b|garlic butter|half chicken",
+     "class": "N:01125:Kofta, kebabs and marinated meat"
+    },
+    {
+     "re": "chicken.*wings",
+     "class": "0112401"
+    },
+    {
+     "re": "(frozen|defrost|griller|iqf|sadia|seara|qualiko|sultanah|al areesh|americana|al islami).*chicken|chicken.*(frozen|defrost|griller)",
+     "class": "0112206"
+    },
+    {
+     "re": "chicken",
+     "class": "0112205"
+    },
+    {
+     "re": "(al islami|americana|seara|super frozen|frozen|al kabeer).*(mince|minced|ground)",
+     "class": "0112208"
+    },
+    {
+     "re": "mince|minced|ground (beef|mutton)",
+     "class": "0112207"
+    },
+    {
+     "re": "frozen.*(lamb|mutton)",
+     "class": "0112202"
+    },
+    {
+     "re": "lamb|mutton|sheep",
+     "class": "0112201"
+    },
+    {
+     "re": "frozen.*(beef|veal|buffalo)|al tamam frozen",
+     "class": "0112204"
+    },
+    {
+     "re": "beef|veal|buffalo|steak|striploin",
+     "class": "0112203"
+    }
+   ]
+  },
+  "beef": {
+   "default": "0112203",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "noodles",
+     "class": "0119101"
+    },
+    {
+     "re": "\\bstock\\b|bouillon",
+     "class": "0119902"
+    },
+    {
+     "re": "corn dog",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "dumplings",
+     "class": "N:01115:Dumplings and filled pasta"
+    },
+    {
+     "re": "onion rings",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "lamb weston|fries|hash browns|potato dippers",
+     "class": "0117905"
+    },
+    {
+     "re": "corned beef",
+     "class": "0112507"
+    },
+    {
+     "re": "mortadella|luncheon",
+     "class": "0112301"
+    },
+    {
+     "re": "pepperoni|basturma|bacon|prosciutto|turkey breast|salami|breakfast strips|\\bham\\b",
+     "class": "N:01123:Cold cuts and cured meats"
+    },
+    {
+     "re": "sausage|franks?\\b|frankfurter|hot dog|boerewors",
+     "class": "0112505"
+    },
+    {
+     "re": "burger|patties",
+     "class": "0112506"
+    },
+    {
+     "re": "chicken (giblets )?(liver|gizzard|heart)|giblets (liver|gizzard)",
+     "class": "0112503"
+    },
+    {
+     "re": "liver",
+     "class": "0112501"
+    },
+    {
+     "re": "kidney|(?<!rump )\\bheart\\b|tripe|chicken feet|feets?\\b|\\bbones\\b|lamb fat|^bones",
+     "class": "N:01124:Offal, bones and fat"
+    },
+    {
+     "re": "nugget|breaded|zingz?\\b|crunchy|shish taouk",
+     "class": "0112509"
+    },
+    {
+     "re": "kofta|kebab|meat ?balls|kibbeh|marinated|tikka|taw[o]?ok|tawouk|tandoori|\\bbbq\\b|garlic butter|half chicken",
+     "class": "N:01125:Kofta, kebabs and marinated meat"
+    },
+    {
+     "re": "chicken.*wings",
+     "class": "0112401"
+    },
+    {
+     "re": "(frozen|defrost|griller|iqf|sadia|seara|qualiko|sultanah|al areesh|americana|al islami).*chicken|chicken.*(frozen|defrost|griller)",
+     "class": "0112206"
+    },
+    {
+     "re": "chicken",
+     "class": "0112205"
+    },
+    {
+     "re": "(al islami|americana|seara|super frozen|frozen|al kabeer).*(mince|minced|ground)",
+     "class": "0112208"
+    },
+    {
+     "re": "mince|minced|ground (beef|mutton)",
+     "class": "0112207"
+    },
+    {
+     "re": "frozen.*(lamb|mutton)",
+     "class": "0112202"
+    },
+    {
+     "re": "lamb|mutton|sheep",
+     "class": "0112201"
+    },
+    {
+     "re": "frozen.*(beef|veal|buffalo)|al tamam frozen",
+     "class": "0112204"
+    },
+    {
+     "re": "beef|veal|buffalo|steak|striploin",
+     "class": "0112203"
+    }
+   ]
+  },
+  "lamb": {
+   "default": "0112201",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "noodles",
+     "class": "0119101"
+    },
+    {
+     "re": "\\bstock\\b|bouillon",
+     "class": "0119902"
+    },
+    {
+     "re": "corn dog",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "dumplings",
+     "class": "N:01115:Dumplings and filled pasta"
+    },
+    {
+     "re": "onion rings",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "lamb weston|fries|hash browns|potato dippers",
+     "class": "0117905"
+    },
+    {
+     "re": "corned beef",
+     "class": "0112507"
+    },
+    {
+     "re": "mortadella|luncheon",
+     "class": "0112301"
+    },
+    {
+     "re": "pepperoni|basturma|bacon|prosciutto|turkey breast|salami|breakfast strips|\\bham\\b",
+     "class": "N:01123:Cold cuts and cured meats"
+    },
+    {
+     "re": "sausage|franks?\\b|frankfurter|hot dog|boerewors",
+     "class": "0112505"
+    },
+    {
+     "re": "burger|patties",
+     "class": "0112506"
+    },
+    {
+     "re": "chicken (giblets )?(liver|gizzard|heart)|giblets (liver|gizzard)",
+     "class": "0112503"
+    },
+    {
+     "re": "liver",
+     "class": "0112501"
+    },
+    {
+     "re": "kidney|(?<!rump )\\bheart\\b|tripe|chicken feet|feets?\\b|\\bbones\\b|lamb fat|^bones",
+     "class": "N:01124:Offal, bones and fat"
+    },
+    {
+     "re": "nugget|breaded|zingz?\\b|crunchy|shish taouk",
+     "class": "0112509"
+    },
+    {
+     "re": "kofta|kebab|meat ?balls|kibbeh|marinated|tikka|taw[o]?ok|tawouk|tandoori|\\bbbq\\b|garlic butter|half chicken",
+     "class": "N:01125:Kofta, kebabs and marinated meat"
+    },
+    {
+     "re": "chicken.*wings",
+     "class": "0112401"
+    },
+    {
+     "re": "(frozen|defrost|griller|iqf|sadia|seara|qualiko|sultanah|al areesh|americana|al islami).*chicken|chicken.*(frozen|defrost|griller)",
+     "class": "0112206"
+    },
+    {
+     "re": "chicken",
+     "class": "0112205"
+    },
+    {
+     "re": "(al islami|americana|seara|super frozen|frozen|al kabeer).*(mince|minced|ground)",
+     "class": "0112208"
+    },
+    {
+     "re": "mince|minced|ground (beef|mutton)",
+     "class": "0112207"
+    },
+    {
+     "re": "frozen.*(lamb|mutton)",
+     "class": "0112202"
+    },
+    {
+     "re": "lamb|mutton|sheep",
+     "class": "0112201"
+    },
+    {
+     "re": "frozen.*(beef|veal|buffalo)|al tamam frozen",
+     "class": "0112204"
+    },
+    {
+     "re": "beef|veal|buffalo|steak|striploin",
+     "class": "0112203"
+    }
+   ]
+  },
+  "chicken": {
+   "default": "0112205",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "noodles",
+     "class": "0119101"
+    },
+    {
+     "re": "\\bstock\\b|bouillon",
+     "class": "0119902"
+    },
+    {
+     "re": "corn dog",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "dumplings",
+     "class": "N:01115:Dumplings and filled pasta"
+    },
+    {
+     "re": "onion rings",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "lamb weston|fries|hash browns|potato dippers",
+     "class": "0117905"
+    },
+    {
+     "re": "corned beef",
+     "class": "0112507"
+    },
+    {
+     "re": "mortadella|luncheon",
+     "class": "0112301"
+    },
+    {
+     "re": "pepperoni|basturma|bacon|prosciutto|turkey breast|salami|breakfast strips|\\bham\\b",
+     "class": "N:01123:Cold cuts and cured meats"
+    },
+    {
+     "re": "sausage|franks?\\b|frankfurter|hot dog|boerewors",
+     "class": "0112505"
+    },
+    {
+     "re": "burger|patties",
+     "class": "0112506"
+    },
+    {
+     "re": "chicken (giblets )?(liver|gizzard|heart)|giblets (liver|gizzard)",
+     "class": "0112503"
+    },
+    {
+     "re": "liver",
+     "class": "0112501"
+    },
+    {
+     "re": "kidney|(?<!rump )\\bheart\\b|tripe|chicken feet|feets?\\b|\\bbones\\b|lamb fat|^bones",
+     "class": "N:01124:Offal, bones and fat"
+    },
+    {
+     "re": "nugget|breaded|zingz?\\b|crunchy|shish taouk",
+     "class": "0112509"
+    },
+    {
+     "re": "kofta|kebab|meat ?balls|kibbeh|marinated|tikka|taw[o]?ok|tawouk|tandoori|\\bbbq\\b|garlic butter|half chicken",
+     "class": "N:01125:Kofta, kebabs and marinated meat"
+    },
+    {
+     "re": "chicken.*wings",
+     "class": "0112401"
+    },
+    {
+     "re": "(frozen|defrost|griller|iqf|sadia|seara|qualiko|sultanah|al areesh|americana|al islami).*chicken|chicken.*(frozen|defrost|griller)",
+     "class": "0112206"
+    },
+    {
+     "re": "chicken",
+     "class": "0112205"
+    },
+    {
+     "re": "(al islami|americana|seara|super frozen|frozen|al kabeer).*(mince|minced|ground)",
+     "class": "0112208"
+    },
+    {
+     "re": "mince|minced|ground (beef|mutton)",
+     "class": "0112207"
+    },
+    {
+     "re": "frozen.*(lamb|mutton)",
+     "class": "0112202"
+    },
+    {
+     "re": "lamb|mutton|sheep",
+     "class": "0112201"
+    },
+    {
+     "re": "frozen.*(beef|veal|buffalo)|al tamam frozen",
+     "class": "0112204"
+    },
+    {
+     "re": "beef|veal|buffalo|steak|striploin",
+     "class": "0112203"
+    }
+   ]
+  },
+  "fresh_food_fresh_meat_poultry_fresh_beef_veal": {
+   "default": "0112203",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "noodles",
+     "class": "0119101"
+    },
+    {
+     "re": "\\bstock\\b|bouillon",
+     "class": "0119902"
+    },
+    {
+     "re": "corn dog",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "dumplings",
+     "class": "N:01115:Dumplings and filled pasta"
+    },
+    {
+     "re": "onion rings",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "lamb weston|fries|hash browns|potato dippers",
+     "class": "0117905"
+    },
+    {
+     "re": "corned beef",
+     "class": "0112507"
+    },
+    {
+     "re": "mortadella|luncheon",
+     "class": "0112301"
+    },
+    {
+     "re": "pepperoni|basturma|bacon|prosciutto|turkey breast|salami|breakfast strips|\\bham\\b",
+     "class": "N:01123:Cold cuts and cured meats"
+    },
+    {
+     "re": "sausage|franks?\\b|frankfurter|hot dog|boerewors",
+     "class": "0112505"
+    },
+    {
+     "re": "burger|patties",
+     "class": "0112506"
+    },
+    {
+     "re": "chicken (giblets )?(liver|gizzard|heart)|giblets (liver|gizzard)",
+     "class": "0112503"
+    },
+    {
+     "re": "liver",
+     "class": "0112501"
+    },
+    {
+     "re": "kidney|(?<!rump )\\bheart\\b|tripe|chicken feet|feets?\\b|\\bbones\\b|lamb fat|^bones",
+     "class": "N:01124:Offal, bones and fat"
+    },
+    {
+     "re": "nugget|breaded|zingz?\\b|crunchy|shish taouk",
+     "class": "0112509"
+    },
+    {
+     "re": "kofta|kebab|meat ?balls|kibbeh|marinated|tikka|taw[o]?ok|tawouk|tandoori|\\bbbq\\b|garlic butter|half chicken",
+     "class": "N:01125:Kofta, kebabs and marinated meat"
+    },
+    {
+     "re": "chicken.*wings",
+     "class": "0112401"
+    },
+    {
+     "re": "(frozen|defrost|griller|iqf|sadia|seara|qualiko|sultanah|al areesh|americana|al islami).*chicken|chicken.*(frozen|defrost|griller)",
+     "class": "0112206"
+    },
+    {
+     "re": "chicken",
+     "class": "0112205"
+    },
+    {
+     "re": "(al islami|americana|seara|super frozen|frozen|al kabeer).*(mince|minced|ground)",
+     "class": "0112208"
+    },
+    {
+     "re": "mince|minced|ground (beef|mutton)",
+     "class": "0112207"
+    },
+    {
+     "re": "frozen.*(lamb|mutton)",
+     "class": "0112202"
+    },
+    {
+     "re": "lamb|mutton|sheep",
+     "class": "0112201"
+    },
+    {
+     "re": "frozen.*(beef|veal|buffalo)|al tamam frozen",
+     "class": "0112204"
+    },
+    {
+     "re": "beef|veal|buffalo|steak|striploin",
+     "class": "0112203"
+    }
+   ]
+  },
+  "fresh_food_fresh_meat_poultry_fresh_chicken": {
+   "default": "0112205",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "noodles",
+     "class": "0119101"
+    },
+    {
+     "re": "\\bstock\\b|bouillon",
+     "class": "0119902"
+    },
+    {
+     "re": "corn dog",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "dumplings",
+     "class": "N:01115:Dumplings and filled pasta"
+    },
+    {
+     "re": "onion rings",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "lamb weston|fries|hash browns|potato dippers",
+     "class": "0117905"
+    },
+    {
+     "re": "corned beef",
+     "class": "0112507"
+    },
+    {
+     "re": "mortadella|luncheon",
+     "class": "0112301"
+    },
+    {
+     "re": "pepperoni|basturma|bacon|prosciutto|turkey breast|salami|breakfast strips|\\bham\\b",
+     "class": "N:01123:Cold cuts and cured meats"
+    },
+    {
+     "re": "sausage|franks?\\b|frankfurter|hot dog|boerewors",
+     "class": "0112505"
+    },
+    {
+     "re": "burger|patties",
+     "class": "0112506"
+    },
+    {
+     "re": "chicken (giblets )?(liver|gizzard|heart)|giblets (liver|gizzard)",
+     "class": "0112503"
+    },
+    {
+     "re": "liver",
+     "class": "0112501"
+    },
+    {
+     "re": "kidney|(?<!rump )\\bheart\\b|tripe|chicken feet|feets?\\b|\\bbones\\b|lamb fat|^bones",
+     "class": "N:01124:Offal, bones and fat"
+    },
+    {
+     "re": "nugget|breaded|zingz?\\b|crunchy|shish taouk",
+     "class": "0112509"
+    },
+    {
+     "re": "kofta|kebab|meat ?balls|kibbeh|marinated|tikka|taw[o]?ok|tawouk|tandoori|\\bbbq\\b|garlic butter|half chicken",
+     "class": "N:01125:Kofta, kebabs and marinated meat"
+    },
+    {
+     "re": "chicken.*wings",
+     "class": "0112401"
+    },
+    {
+     "re": "(frozen|defrost|griller|iqf|sadia|seara|qualiko|sultanah|al areesh|americana|al islami).*chicken|chicken.*(frozen|defrost|griller)",
+     "class": "0112206"
+    },
+    {
+     "re": "chicken",
+     "class": "0112205"
+    },
+    {
+     "re": "(al islami|americana|seara|super frozen|frozen|al kabeer).*(mince|minced|ground)",
+     "class": "0112208"
+    },
+    {
+     "re": "mince|minced|ground (beef|mutton)",
+     "class": "0112207"
+    },
+    {
+     "re": "frozen.*(lamb|mutton)",
+     "class": "0112202"
+    },
+    {
+     "re": "lamb|mutton|sheep",
+     "class": "0112201"
+    },
+    {
+     "re": "frozen.*(beef|veal|buffalo)|al tamam frozen",
+     "class": "0112204"
+    },
+    {
+     "re": "beef|veal|buffalo|steak|striploin",
+     "class": "0112203"
+    }
+   ]
+  },
+  "basket_0113_fish_seafood": {
+   "default": "N:01131:Other fresh fish",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "caviar|\\broe\\b|tarama|head & bones",
+     "class": "N:01137:Fish roe, caviar and fish offal"
+    },
+    {
+     "re": "smoked|dried|\\bdry\\b|renga",
+     "class": "N:01132:Smoked and dried fish"
+    },
+    {
+     "re": "crab stick|nuggets|asmak flavors.*fillet|peri peri|lemon and herbs",
+     "class": "N:01133:Fish preparations"
+    },
+    {
+     "re": "octopus salad",
+     "class": "N:01136:Seafood preparations"
+    },
+    {
+     "re": "tuna in|sardines in|salatuna|\\bcan\\b",
+     "class": "0113201"
+    },
+    {
+     "re": "(frozen|al areesh|aqua marine|freshly foods|marine gold|sailor).*(shrimp|prawn)",
+     "class": "0113405"
+    },
+    {
+     "re": "shrimp|prawn",
+     "class": "0113401"
+    },
+    {
+     "re": "lobster",
+     "class": "0113402"
+    },
+    {
+     "re": "\\bcrab\\b",
+     "class": "0113403"
+    },
+    {
+     "re": "(frozen|sailor|al islami|siblou).*(squid|calamar)",
+     "class": "0113110"
+    },
+    {
+     "re": "squid|cuttle ?fish|calamar",
+     "class": "0113404"
+    },
+    {
+     "re": "octopus|clams|mussels|oysters|seafood mix",
+     "class": "N:01134:Other seafood"
+    },
+    {
+     "re": "sailor|frozen|defrost",
+     "class": "0113110"
+    },
+    {
+     "re": "king ?fish|kanad",
+     "class": "0113101"
+    },
+    {
+     "re": "hamour|grouper",
+     "class": "0113102"
+    },
+    {
+     "re": "sheri|sherri|emperor",
+     "class": "0113103"
+    },
+    {
+     "re": "\\bsafi\\b|saafi",
+     "class": "0113104"
+    },
+    {
+     "re": "sultan ibrahim",
+     "class": "0113105"
+    },
+    {
+     "re": "trevally|trevely",
+     "class": "0113106"
+    },
+    {
+     "re": "sea ?bream",
+     "class": "0113107"
+    },
+    {
+     "re": "salmon",
+     "class": "0113108"
+    },
+    {
+     "re": "tilapia",
+     "class": "0113109"
+    }
+   ]
+  },
+  "fish": {
+   "default": "N:01131:Other fresh fish",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "caviar|\\broe\\b|tarama|head & bones",
+     "class": "N:01137:Fish roe, caviar and fish offal"
+    },
+    {
+     "re": "smoked|dried|\\bdry\\b|renga",
+     "class": "N:01132:Smoked and dried fish"
+    },
+    {
+     "re": "crab stick|nuggets|asmak flavors.*fillet|peri peri|lemon and herbs",
+     "class": "N:01133:Fish preparations"
+    },
+    {
+     "re": "octopus salad",
+     "class": "N:01136:Seafood preparations"
+    },
+    {
+     "re": "tuna in|sardines in|salatuna|\\bcan\\b",
+     "class": "0113201"
+    },
+    {
+     "re": "(frozen|al areesh|aqua marine|freshly foods|marine gold|sailor).*(shrimp|prawn)",
+     "class": "0113405"
+    },
+    {
+     "re": "shrimp|prawn",
+     "class": "0113401"
+    },
+    {
+     "re": "lobster",
+     "class": "0113402"
+    },
+    {
+     "re": "\\bcrab\\b",
+     "class": "0113403"
+    },
+    {
+     "re": "(frozen|sailor|al islami|siblou).*(squid|calamar)",
+     "class": "0113110"
+    },
+    {
+     "re": "squid|cuttle ?fish|calamar",
+     "class": "0113404"
+    },
+    {
+     "re": "octopus|clams|mussels|oysters|seafood mix",
+     "class": "N:01134:Other seafood"
+    },
+    {
+     "re": "sailor|frozen|defrost",
+     "class": "0113110"
+    },
+    {
+     "re": "king ?fish|kanad",
+     "class": "0113101"
+    },
+    {
+     "re": "hamour|grouper",
+     "class": "0113102"
+    },
+    {
+     "re": "sheri|sherri|emperor",
+     "class": "0113103"
+    },
+    {
+     "re": "\\bsafi\\b|saafi",
+     "class": "0113104"
+    },
+    {
+     "re": "sultan ibrahim",
+     "class": "0113105"
+    },
+    {
+     "re": "trevally|trevely",
+     "class": "0113106"
+    },
+    {
+     "re": "sea ?bream",
+     "class": "0113107"
+    },
+    {
+     "re": "salmon",
+     "class": "0113108"
+    },
+    {
+     "re": "tilapia",
+     "class": "0113109"
+    }
+   ]
+  },
+  "fresh_food_fresh_fish_seafoods": {
+   "default": "N:01131:Other fresh fish",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "caviar|\\broe\\b|tarama|head & bones",
+     "class": "N:01137:Fish roe, caviar and fish offal"
+    },
+    {
+     "re": "smoked|dried|\\bdry\\b|renga",
+     "class": "N:01132:Smoked and dried fish"
+    },
+    {
+     "re": "crab stick|nuggets|asmak flavors.*fillet|peri peri|lemon and herbs",
+     "class": "N:01133:Fish preparations"
+    },
+    {
+     "re": "octopus salad",
+     "class": "N:01136:Seafood preparations"
+    },
+    {
+     "re": "tuna in|sardines in|salatuna|\\bcan\\b",
+     "class": "0113201"
+    },
+    {
+     "re": "(frozen|al areesh|aqua marine|freshly foods|marine gold|sailor).*(shrimp|prawn)",
+     "class": "0113405"
+    },
+    {
+     "re": "shrimp|prawn",
+     "class": "0113401"
+    },
+    {
+     "re": "lobster",
+     "class": "0113402"
+    },
+    {
+     "re": "\\bcrab\\b",
+     "class": "0113403"
+    },
+    {
+     "re": "(frozen|sailor|al islami|siblou).*(squid|calamar)",
+     "class": "0113110"
+    },
+    {
+     "re": "squid|cuttle ?fish|calamar",
+     "class": "0113404"
+    },
+    {
+     "re": "octopus|clams|mussels|oysters|seafood mix",
+     "class": "N:01134:Other seafood"
+    },
+    {
+     "re": "sailor|frozen|defrost",
+     "class": "0113110"
+    },
+    {
+     "re": "king ?fish|kanad",
+     "class": "0113101"
+    },
+    {
+     "re": "hamour|grouper",
+     "class": "0113102"
+    },
+    {
+     "re": "sheri|sherri|emperor",
+     "class": "0113103"
+    },
+    {
+     "re": "\\bsafi\\b|saafi",
+     "class": "0113104"
+    },
+    {
+     "re": "sultan ibrahim",
+     "class": "0113105"
+    },
+    {
+     "re": "trevally|trevely",
+     "class": "0113106"
+    },
+    {
+     "re": "sea ?bream",
+     "class": "0113107"
+    },
+    {
+     "re": "salmon",
+     "class": "0113108"
+    },
+    {
+     "re": "tilapia",
+     "class": "0113109"
+    }
+   ]
+  },
+  "basket_0114_milk_cheese_eggs": {
+   "default": "0114503",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "dip & crunch|triangle|portions?\\b|squares|babybel|string cheese|cheese sticks|\\bsticks\\b",
+     "class": "0114504"
+    },
+    {
+     "re": "natural cheese slices|gouda|emmental|edam|parmesan|bega|so british|m food sliced|emborg cheddar sliced|kashkaval",
+     "class": "0114503"
+    },
+    {
+     "re": "slice",
+     "class": "0114504"
+    },
+    {
+     "re": "cheddar.*(spread|analogue)|processed cheddar cheese, 500g|spreadable processed cheddar",
+     "class": "0114502"
+    },
+    {
+     "re": "cream cheese|creamy cheese|kiri|philadelphia|cheese spread|white cheese jar|cream cheese analogue",
+     "class": "0114501"
+    }
+   ]
+  },
+  "milk": {
+   "default": "0114101",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "coconut milk",
+     "class": "N:01193:Coconut milk for cooking"
+    },
+    {
+     "re": "\\boat\\b.*milk|plant-based|almond milk|soy milk",
+     "class": "N:01144:Plant-based milks"
+    },
+    {
+     "re": "condensed",
+     "class": "N:01143:Sweetened condensed milk"
+    },
+    {
+     "re": "evaporated",
+     "class": "0114301"
+    },
+    {
+     "re": "powder",
+     "class": "0114302"
+    },
+    {
+     "re": "yakult|laban|lassi",
+     "class": "0114602"
+    },
+    {
+     "re": "chocolate|strawberry|banana|vanilla|mango|dates|flavou?red|milk ?shake",
+     "class": "0114702"
+    },
+    {
+     "re": "uht|long life|lacnor|unikai|saudia|koita|arla organic full|6 x 200 ml|180ml pack|lacto free",
+     "class": "0114102"
+    }
+   ]
+  },
+  "fresh_food_dairy_eggs_cheese_fresh_milk": {
+   "default": "0114101",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "coconut milk",
+     "class": "N:01193:Coconut milk for cooking"
+    },
+    {
+     "re": "\\boat\\b.*milk|plant-based|almond milk|soy milk",
+     "class": "N:01144:Plant-based milks"
+    },
+    {
+     "re": "condensed",
+     "class": "N:01143:Sweetened condensed milk"
+    },
+    {
+     "re": "evaporated",
+     "class": "0114301"
+    },
+    {
+     "re": "powder",
+     "class": "0114302"
+    },
+    {
+     "re": "yakult|laban|lassi",
+     "class": "0114602"
+    },
+    {
+     "re": "chocolate|strawberry|banana|vanilla|mango|dates|flavou?red|milk ?shake",
+     "class": "0114702"
+    },
+    {
+     "re": "uht|long life|lacnor|unikai|saudia|koita|arla organic full|6 x 200 ml|180ml pack|lacto free",
+     "class": "0114102"
+    }
+   ]
+  },
+  "yoghurt": {
+   "default": "0114601",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "danette|custard|creme caramel",
+     "class": "N:01147:Milk-based desserts"
+    },
+    {
+     "re": "actimel|drink|yakult|lassi|laban|balade kefir,|go wild",
+     "class": "0114602"
+    },
+    {
+     "re": "labn",
+     "class": "0114603"
+    },
+    {
+     "re": "strawberr|blueberr|berries|mango|cherry|raspberr|peach|pineapple|honey|vanilla|chocolate|granola|chia|fruit",
+     "class": "0114604"
+    }
+   ]
+  },
+  "fresh_food_dairy_eggs_cheese_yoghurt_chilled_desserts": {
+   "default": "0114601",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "danette|custard|creme caramel",
+     "class": "N:01147:Milk-based desserts"
+    },
+    {
+     "re": "actimel|drink|yakult|lassi|laban|balade kefir,|go wild",
+     "class": "0114602"
+    },
+    {
+     "re": "labn",
+     "class": "0114603"
+    },
+    {
+     "re": "strawberr|blueberr|berries|mango|cherry|raspberr|peach|pineapple|honey|vanilla|chocolate|granola|chia|fruit",
+     "class": "0114604"
+    }
+   ]
+  },
+  "cheese": {
+   "default": "0114503",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "dip & crunch|triangle|portions?\\b|squares|babybel|string cheese|cheese sticks|\\bsticks\\b",
+     "class": "0114504"
+    },
+    {
+     "re": "natural cheese slices|gouda|emmental|edam|parmesan|bega|so british|m food sliced|emborg cheddar sliced|kashkaval",
+     "class": "0114503"
+    },
+    {
+     "re": "slice",
+     "class": "0114504"
+    },
+    {
+     "re": "cheddar.*(spread|analogue)|processed cheddar cheese, 500g|spreadable processed cheddar",
+     "class": "0114502"
+    },
+    {
+     "re": "cream cheese|creamy cheese|kiri|philadelphia|cheese spread|white cheese jar|cream cheese analogue",
+     "class": "0114501"
+    }
+   ]
+  },
+  "butter": {
+   "default": "0115201",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "roasting spray|cooking (mist|spray)",
+     "class": "N:01151:Other vegetable oils"
+    },
+    {
+     "re": "croissant",
+     "class": "0111310"
+    },
+    {
+     "re": "butter cream",
+     "class": "0111305"
+    },
+    {
+     "re": "puff pastry",
+     "class": "0111901"
+    },
+    {
+     "re": "margarine|oil spread|flora|benecol|believe|utterly butterly|vitalite|vegetable butter|blended|butter blend|plant",
+     "class": "0115301"
+    },
+    {
+     "re": "vegetable ghee",
+     "class": "0115302"
+    },
+    {
+     "re": "ghee",
+     "class": "0115202"
+    }
+   ]
+  },
+  "basket_0115_oils_fats": {
+   "default": "0115201",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "roasting spray|cooking (mist|spray)",
+     "class": "N:01151:Other vegetable oils"
+    },
+    {
+     "re": "croissant",
+     "class": "0111310"
+    },
+    {
+     "re": "butter cream",
+     "class": "0111305"
+    },
+    {
+     "re": "puff pastry",
+     "class": "0111901"
+    },
+    {
+     "re": "margarine|oil spread|flora|benecol|believe|utterly butterly|vitalite|vegetable butter|blended|butter blend|plant",
+     "class": "0115301"
+    },
+    {
+     "re": "vegetable ghee",
+     "class": "0115302"
+    },
+    {
+     "re": "ghee",
+     "class": "0115202"
+    }
+   ]
+  },
+  "eggs": {
+   "default": "0114801",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "quail|egg whites|liquid white",
+     "class": "N:01148:Quail eggs and egg products"
+    }
+   ]
+  },
+  "fresh_food_dairy_eggs_cheese_eggs": {
+   "default": "0114801",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "quail|egg whites|liquid white",
+     "class": "N:01148:Quail eggs and egg products"
+    }
+   ]
+  },
+  "basket_0116_fruit_nuts": {
+   "default": "N:01165:Other fresh fruits and fruit mixes",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "juice|lemonade",
+     "class": "0121001"
+    },
+    {
+     "re": "in syrup|canned",
+     "class": "0116901"
+    },
+    {
+     "re": "\\bcooked\\b",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "filled dates|stuffed dates",
+     "class": "N:01189:Date confectionery"
+    },
+    {
+     "re": "candied|fruit roll",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "dried mixed vegetables",
+     "class": "N:01177:Dried vegetables"
+    },
+    {
+     "re": "emborg|frozen",
+     "class": "0117803"
+    },
+    {
+     "re": "plain noodles",
+     "class": "0111502"
+    },
+    {
+     "re": "chick ?peas",
+     "class": "0117602"
+    },
+    {
+     "re": "raisins",
+     "class": "0116702"
+    },
+    {
+     "re": "dried figs",
+     "class": "0116703"
+    },
+    {
+     "re": "tomato|plum cherry",
+     "class": "0117201"
+    },
+    {
+     "re": "capsicum",
+     "class": "0117207"
+    },
+    {
+     "re": "chill?i\\b|chillies|habanero",
+     "class": "0117206"
+    },
+    {
+     "re": "plantain|yam\\b|tapioca|cassava|colocasia|koorka",
+     "class": "N:01175:Other tubers and plantains"
+    },
+    {
+     "re": "banana flower|drumstick(?! leaves)|mango ginger|sweet corn|baby corns?|spring onion|leeks?\\b|garlic leaves|aviyal|sambar mix|mix vegetables|mixed vegetables|broccoli carrot",
+     "class": "N:01174:Other fresh vegetables"
+    },
+    {
+     "re": "banana leaf|aloe vera|\\bkale\\b|pak ?choi|paksoy|pechay|kangkong|cheera|fenugreek|purslane|selek|mustard leaves|drumstick leaves|asparagus|celery",
+     "class": "N:01171:Other leafy and stem vegetables"
+    },
+    {
+     "re": "broccoli|bimi",
+     "class": "N:01171:Broccoli"
+    },
+    {
+     "re": "mushroom",
+     "class": "N:01174:Fresh mushrooms"
+    },
+    {
+     "re": "bitter gourd|tindly|ivy gourd|chow chow|snake gourd",
+     "class": "N:01172:Other fruit-bearing vegetables"
+    },
+    {
+     "re": "sweet potato",
+     "class": "0117502"
+    },
+    {
+     "re": "potato",
+     "class": "0117501"
+    },
+    {
+     "re": "fruit salad|fruit platter|melon mix|fruit basket",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "coconut|coco thumb",
+     "class": "0116108"
+    },
+    {
+     "re": "banana",
+     "class": "0116102"
+    },
+    {
+     "re": "dates",
+     "class": "0116101"
+    },
+    {
+     "re": "custard apple|dragon fruit|passion fruit|mangosteen|rambutan|longan|jack ?fruit|chickoo|sapodilla",
+     "class": "N:01161:Other tropical fruits"
+    },
+    {
+     "re": "\\bmangoe?s?\\b(?! ginger| avocado)",
+     "class": "0116103"
+    },
+    {
+     "re": "guava",
+     "class": "0116104"
+    },
+    {
+     "re": "\\bfigs?\\b",
+     "class": "0116105"
+    },
+    {
+     "re": "pineapple",
+     "class": "0116106"
+    },
+    {
+     "re": "papaya",
+     "class": "0116107"
+    },
+    {
+     "re": "avocado",
+     "class": "0116109"
+    },
+    {
+     "re": "grapefruit|pomelo",
+     "class": "0116203"
+    },
+    {
+     "re": "mandarin|clementine|tangerine|murcot",
+     "class": "0116204"
+    },
+    {
+     "re": "orange",
+     "class": "0116201"
+    },
+    {
+     "re": "lemon|\\blimes?\\b",
+     "class": "0116202"
+    },
+    {
+     "re": "prickly pear|persimmon|kaka fruit|jujube|ber fruit",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "\\bapples?\\b|royal gala|pink lady|rockit",
+     "class": "0116301"
+    },
+    {
+     "re": "apricot",
+     "class": "0116302"
+    },
+    {
+     "re": "peach|nectarine",
+     "class": "0116303"
+    },
+    {
+     "re": "\\bplums?\\b",
+     "class": "0116304"
+    },
+    {
+     "re": "cherr",
+     "class": "0116305"
+    },
+    {
+     "re": "\\bpears?\\b",
+     "class": "0116306"
+    },
+    {
+     "re": "strawberr",
+     "class": "0116401"
+    },
+    {
+     "re": "blueberr|raspberr|blackberr|currant|golden berr|physalis",
+     "class": "N:01164:Other berries"
+    },
+    {
+     "re": "water ?melon",
+     "class": "0116502"
+    },
+    {
+     "re": "grape",
+     "class": "0116501"
+    },
+    {
+     "re": "melon",
+     "class": "0116503"
+    },
+    {
+     "re": "kiwi",
+     "class": "0116504"
+    },
+    {
+     "re": "pomegranate",
+     "class": "0116505"
+    },
+    {
+     "re": "cucumber",
+     "class": "0117202"
+    },
+    {
+     "re": "zucchini|marrow",
+     "class": "0117203"
+    },
+    {
+     "re": "eggplant|aubergine|brinjal",
+     "class": "0117204"
+    },
+    {
+     "re": "pumpkin|gourd",
+     "class": "0117205"
+    },
+    {
+     "re": "okra|bhindi",
+     "class": "0117208"
+    },
+    {
+     "re": "snow peas|mangetout|green peas",
+     "class": "0117302"
+    },
+    {
+     "re": "beans|bean sprouts",
+     "class": "0117301"
+    },
+    {
+     "re": "garlic",
+     "class": "0117407"
+    },
+    {
+     "re": "onion",
+     "class": "0117401"
+    },
+    {
+     "re": "beetroot",
+     "class": "0117402"
+    },
+    {
+     "re": "carrot",
+     "class": "0117403"
+    },
+    {
+     "re": "ginger",
+     "class": "0117405"
+    },
+    {
+     "re": "radish",
+     "class": "0117406"
+    },
+    {
+     "re": "spinach|palak",
+     "class": "0117101"
+    },
+    {
+     "re": "cabbage",
+     "class": "0117102"
+    },
+    {
+     "re": "cauliflower",
+     "class": "0117103"
+    },
+    {
+     "re": "rocket|arugula|gerger|gargeer|rocca",
+     "class": "0117104"
+    },
+    {
+     "re": "lettuce|salad|lollo|romaine|iceberg|everyday mix",
+     "class": "0117105"
+    },
+    {
+     "re": "\\bmint\\b",
+     "class": "0117106"
+    },
+    {
+     "re": "coriander",
+     "class": "0119411"
+    },
+    {
+     "re": "parsley",
+     "class": "0119412"
+    },
+    {
+     "re": "\\bdill\\b",
+     "class": "N:01194:Other fresh herbs"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "pistachio",
+     "class": "0116802"
+    },
+    {
+     "re": "cashew",
+     "class": "0116803"
+    },
+    {
+     "re": "walnut",
+     "class": "0116804"
+    },
+    {
+     "re": "peanut",
+     "class": "0116805"
+    },
+    {
+     "re": "seeds",
+     "class": "0116806"
+    },
+    {
+     "re": "mix nut",
+     "class": "0116808"
+    }
+   ]
+  },
+  "basket_0117_vegetables": {
+   "default": "N:01174:Other fresh vegetables",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "juice|lemonade",
+     "class": "0121001"
+    },
+    {
+     "re": "in syrup|canned",
+     "class": "0116901"
+    },
+    {
+     "re": "\\bcooked\\b",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "filled dates|stuffed dates",
+     "class": "N:01189:Date confectionery"
+    },
+    {
+     "re": "candied|fruit roll",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "dried mixed vegetables",
+     "class": "N:01177:Dried vegetables"
+    },
+    {
+     "re": "emborg|frozen",
+     "class": "0117803"
+    },
+    {
+     "re": "plain noodles",
+     "class": "0111502"
+    },
+    {
+     "re": "chick ?peas",
+     "class": "0117602"
+    },
+    {
+     "re": "raisins",
+     "class": "0116702"
+    },
+    {
+     "re": "dried figs",
+     "class": "0116703"
+    },
+    {
+     "re": "tomato|plum cherry",
+     "class": "0117201"
+    },
+    {
+     "re": "capsicum",
+     "class": "0117207"
+    },
+    {
+     "re": "chill?i\\b|chillies|habanero",
+     "class": "0117206"
+    },
+    {
+     "re": "plantain|yam\\b|tapioca|cassava|colocasia|koorka",
+     "class": "N:01175:Other tubers and plantains"
+    },
+    {
+     "re": "banana flower|drumstick(?! leaves)|mango ginger|sweet corn|baby corns?|spring onion|leeks?\\b|garlic leaves|aviyal|sambar mix|mix vegetables|mixed vegetables|broccoli carrot",
+     "class": "N:01174:Other fresh vegetables"
+    },
+    {
+     "re": "banana leaf|aloe vera|\\bkale\\b|pak ?choi|paksoy|pechay|kangkong|cheera|fenugreek|purslane|selek|mustard leaves|drumstick leaves|asparagus|celery",
+     "class": "N:01171:Other leafy and stem vegetables"
+    },
+    {
+     "re": "broccoli|bimi",
+     "class": "N:01171:Broccoli"
+    },
+    {
+     "re": "mushroom",
+     "class": "N:01174:Fresh mushrooms"
+    },
+    {
+     "re": "bitter gourd|tindly|ivy gourd|chow chow|snake gourd",
+     "class": "N:01172:Other fruit-bearing vegetables"
+    },
+    {
+     "re": "sweet potato",
+     "class": "0117502"
+    },
+    {
+     "re": "potato",
+     "class": "0117501"
+    },
+    {
+     "re": "fruit salad|fruit platter|melon mix|fruit basket",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "coconut|coco thumb",
+     "class": "0116108"
+    },
+    {
+     "re": "banana",
+     "class": "0116102"
+    },
+    {
+     "re": "dates",
+     "class": "0116101"
+    },
+    {
+     "re": "custard apple|dragon fruit|passion fruit|mangosteen|rambutan|longan|jack ?fruit|chickoo|sapodilla",
+     "class": "N:01161:Other tropical fruits"
+    },
+    {
+     "re": "\\bmangoe?s?\\b(?! ginger| avocado)",
+     "class": "0116103"
+    },
+    {
+     "re": "guava",
+     "class": "0116104"
+    },
+    {
+     "re": "\\bfigs?\\b",
+     "class": "0116105"
+    },
+    {
+     "re": "pineapple",
+     "class": "0116106"
+    },
+    {
+     "re": "papaya",
+     "class": "0116107"
+    },
+    {
+     "re": "avocado",
+     "class": "0116109"
+    },
+    {
+     "re": "grapefruit|pomelo",
+     "class": "0116203"
+    },
+    {
+     "re": "mandarin|clementine|tangerine|murcot",
+     "class": "0116204"
+    },
+    {
+     "re": "orange",
+     "class": "0116201"
+    },
+    {
+     "re": "lemon|\\blimes?\\b",
+     "class": "0116202"
+    },
+    {
+     "re": "prickly pear|persimmon|kaka fruit|jujube|ber fruit",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "\\bapples?\\b|royal gala|pink lady|rockit",
+     "class": "0116301"
+    },
+    {
+     "re": "apricot",
+     "class": "0116302"
+    },
+    {
+     "re": "peach|nectarine",
+     "class": "0116303"
+    },
+    {
+     "re": "\\bplums?\\b",
+     "class": "0116304"
+    },
+    {
+     "re": "cherr",
+     "class": "0116305"
+    },
+    {
+     "re": "\\bpears?\\b",
+     "class": "0116306"
+    },
+    {
+     "re": "strawberr",
+     "class": "0116401"
+    },
+    {
+     "re": "blueberr|raspberr|blackberr|currant|golden berr|physalis",
+     "class": "N:01164:Other berries"
+    },
+    {
+     "re": "water ?melon",
+     "class": "0116502"
+    },
+    {
+     "re": "grape",
+     "class": "0116501"
+    },
+    {
+     "re": "melon",
+     "class": "0116503"
+    },
+    {
+     "re": "kiwi",
+     "class": "0116504"
+    },
+    {
+     "re": "pomegranate",
+     "class": "0116505"
+    },
+    {
+     "re": "cucumber",
+     "class": "0117202"
+    },
+    {
+     "re": "zucchini|marrow",
+     "class": "0117203"
+    },
+    {
+     "re": "eggplant|aubergine|brinjal",
+     "class": "0117204"
+    },
+    {
+     "re": "pumpkin|gourd",
+     "class": "0117205"
+    },
+    {
+     "re": "okra|bhindi",
+     "class": "0117208"
+    },
+    {
+     "re": "snow peas|mangetout|green peas",
+     "class": "0117302"
+    },
+    {
+     "re": "beans|bean sprouts",
+     "class": "0117301"
+    },
+    {
+     "re": "garlic",
+     "class": "0117407"
+    },
+    {
+     "re": "onion",
+     "class": "0117401"
+    },
+    {
+     "re": "beetroot",
+     "class": "0117402"
+    },
+    {
+     "re": "carrot",
+     "class": "0117403"
+    },
+    {
+     "re": "ginger",
+     "class": "0117405"
+    },
+    {
+     "re": "radish",
+     "class": "0117406"
+    },
+    {
+     "re": "spinach|palak",
+     "class": "0117101"
+    },
+    {
+     "re": "cabbage",
+     "class": "0117102"
+    },
+    {
+     "re": "cauliflower",
+     "class": "0117103"
+    },
+    {
+     "re": "rocket|arugula|gerger|gargeer|rocca",
+     "class": "0117104"
+    },
+    {
+     "re": "lettuce|salad|lollo|romaine|iceberg|everyday mix",
+     "class": "0117105"
+    },
+    {
+     "re": "\\bmint\\b",
+     "class": "0117106"
+    },
+    {
+     "re": "coriander",
+     "class": "0119411"
+    },
+    {
+     "re": "parsley",
+     "class": "0119412"
+    },
+    {
+     "re": "\\bdill\\b",
+     "class": "N:01194:Other fresh herbs"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "pistachio",
+     "class": "0116802"
+    },
+    {
+     "re": "cashew",
+     "class": "0116803"
+    },
+    {
+     "re": "walnut",
+     "class": "0116804"
+    },
+    {
+     "re": "peanut",
+     "class": "0116805"
+    },
+    {
+     "re": "seeds",
+     "class": "0116806"
+    },
+    {
+     "re": "mix nut",
+     "class": "0116808"
+    }
+   ]
+  },
+  "fruit": {
+   "default": "N:01165:Other fresh fruits and fruit mixes",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "juice|lemonade",
+     "class": "0121001"
+    },
+    {
+     "re": "in syrup|canned",
+     "class": "0116901"
+    },
+    {
+     "re": "\\bcooked\\b",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "filled dates|stuffed dates",
+     "class": "N:01189:Date confectionery"
+    },
+    {
+     "re": "candied|fruit roll",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "dried mixed vegetables",
+     "class": "N:01177:Dried vegetables"
+    },
+    {
+     "re": "emborg|frozen",
+     "class": "0117803"
+    },
+    {
+     "re": "plain noodles",
+     "class": "0111502"
+    },
+    {
+     "re": "chick ?peas",
+     "class": "0117602"
+    },
+    {
+     "re": "raisins",
+     "class": "0116702"
+    },
+    {
+     "re": "dried figs",
+     "class": "0116703"
+    },
+    {
+     "re": "tomato|plum cherry",
+     "class": "0117201"
+    },
+    {
+     "re": "capsicum",
+     "class": "0117207"
+    },
+    {
+     "re": "chill?i\\b|chillies|habanero",
+     "class": "0117206"
+    },
+    {
+     "re": "plantain|yam\\b|tapioca|cassava|colocasia|koorka",
+     "class": "N:01175:Other tubers and plantains"
+    },
+    {
+     "re": "banana flower|drumstick(?! leaves)|mango ginger|sweet corn|baby corns?|spring onion|leeks?\\b|garlic leaves|aviyal|sambar mix|mix vegetables|mixed vegetables|broccoli carrot",
+     "class": "N:01174:Other fresh vegetables"
+    },
+    {
+     "re": "banana leaf|aloe vera|\\bkale\\b|pak ?choi|paksoy|pechay|kangkong|cheera|fenugreek|purslane|selek|mustard leaves|drumstick leaves|asparagus|celery",
+     "class": "N:01171:Other leafy and stem vegetables"
+    },
+    {
+     "re": "broccoli|bimi",
+     "class": "N:01171:Broccoli"
+    },
+    {
+     "re": "mushroom",
+     "class": "N:01174:Fresh mushrooms"
+    },
+    {
+     "re": "bitter gourd|tindly|ivy gourd|chow chow|snake gourd",
+     "class": "N:01172:Other fruit-bearing vegetables"
+    },
+    {
+     "re": "sweet potato",
+     "class": "0117502"
+    },
+    {
+     "re": "potato",
+     "class": "0117501"
+    },
+    {
+     "re": "fruit salad|fruit platter|melon mix|fruit basket",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "coconut|coco thumb",
+     "class": "0116108"
+    },
+    {
+     "re": "banana",
+     "class": "0116102"
+    },
+    {
+     "re": "dates",
+     "class": "0116101"
+    },
+    {
+     "re": "custard apple|dragon fruit|passion fruit|mangosteen|rambutan|longan|jack ?fruit|chickoo|sapodilla",
+     "class": "N:01161:Other tropical fruits"
+    },
+    {
+     "re": "\\bmangoe?s?\\b(?! ginger| avocado)",
+     "class": "0116103"
+    },
+    {
+     "re": "guava",
+     "class": "0116104"
+    },
+    {
+     "re": "\\bfigs?\\b",
+     "class": "0116105"
+    },
+    {
+     "re": "pineapple",
+     "class": "0116106"
+    },
+    {
+     "re": "papaya",
+     "class": "0116107"
+    },
+    {
+     "re": "avocado",
+     "class": "0116109"
+    },
+    {
+     "re": "grapefruit|pomelo",
+     "class": "0116203"
+    },
+    {
+     "re": "mandarin|clementine|tangerine|murcot",
+     "class": "0116204"
+    },
+    {
+     "re": "orange",
+     "class": "0116201"
+    },
+    {
+     "re": "lemon|\\blimes?\\b",
+     "class": "0116202"
+    },
+    {
+     "re": "prickly pear|persimmon|kaka fruit|jujube|ber fruit",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "\\bapples?\\b|royal gala|pink lady|rockit",
+     "class": "0116301"
+    },
+    {
+     "re": "apricot",
+     "class": "0116302"
+    },
+    {
+     "re": "peach|nectarine",
+     "class": "0116303"
+    },
+    {
+     "re": "\\bplums?\\b",
+     "class": "0116304"
+    },
+    {
+     "re": "cherr",
+     "class": "0116305"
+    },
+    {
+     "re": "\\bpears?\\b",
+     "class": "0116306"
+    },
+    {
+     "re": "strawberr",
+     "class": "0116401"
+    },
+    {
+     "re": "blueberr|raspberr|blackberr|currant|golden berr|physalis",
+     "class": "N:01164:Other berries"
+    },
+    {
+     "re": "water ?melon",
+     "class": "0116502"
+    },
+    {
+     "re": "grape",
+     "class": "0116501"
+    },
+    {
+     "re": "melon",
+     "class": "0116503"
+    },
+    {
+     "re": "kiwi",
+     "class": "0116504"
+    },
+    {
+     "re": "pomegranate",
+     "class": "0116505"
+    },
+    {
+     "re": "cucumber",
+     "class": "0117202"
+    },
+    {
+     "re": "zucchini|marrow",
+     "class": "0117203"
+    },
+    {
+     "re": "eggplant|aubergine|brinjal",
+     "class": "0117204"
+    },
+    {
+     "re": "pumpkin|gourd",
+     "class": "0117205"
+    },
+    {
+     "re": "okra|bhindi",
+     "class": "0117208"
+    },
+    {
+     "re": "snow peas|mangetout|green peas",
+     "class": "0117302"
+    },
+    {
+     "re": "beans|bean sprouts",
+     "class": "0117301"
+    },
+    {
+     "re": "garlic",
+     "class": "0117407"
+    },
+    {
+     "re": "onion",
+     "class": "0117401"
+    },
+    {
+     "re": "beetroot",
+     "class": "0117402"
+    },
+    {
+     "re": "carrot",
+     "class": "0117403"
+    },
+    {
+     "re": "ginger",
+     "class": "0117405"
+    },
+    {
+     "re": "radish",
+     "class": "0117406"
+    },
+    {
+     "re": "spinach|palak",
+     "class": "0117101"
+    },
+    {
+     "re": "cabbage",
+     "class": "0117102"
+    },
+    {
+     "re": "cauliflower",
+     "class": "0117103"
+    },
+    {
+     "re": "rocket|arugula|gerger|gargeer|rocca",
+     "class": "0117104"
+    },
+    {
+     "re": "lettuce|salad|lollo|romaine|iceberg|everyday mix",
+     "class": "0117105"
+    },
+    {
+     "re": "\\bmint\\b",
+     "class": "0117106"
+    },
+    {
+     "re": "coriander",
+     "class": "0119411"
+    },
+    {
+     "re": "parsley",
+     "class": "0119412"
+    },
+    {
+     "re": "\\bdill\\b",
+     "class": "N:01194:Other fresh herbs"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "pistachio",
+     "class": "0116802"
+    },
+    {
+     "re": "cashew",
+     "class": "0116803"
+    },
+    {
+     "re": "walnut",
+     "class": "0116804"
+    },
+    {
+     "re": "peanut",
+     "class": "0116805"
+    },
+    {
+     "re": "seeds",
+     "class": "0116806"
+    },
+    {
+     "re": "mix nut",
+     "class": "0116808"
+    }
+   ]
+  },
+  "vegetables": {
+   "default": "N:01174:Other fresh vegetables",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "juice|lemonade",
+     "class": "0121001"
+    },
+    {
+     "re": "in syrup|canned",
+     "class": "0116901"
+    },
+    {
+     "re": "\\bcooked\\b",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "filled dates|stuffed dates",
+     "class": "N:01189:Date confectionery"
+    },
+    {
+     "re": "candied|fruit roll",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "dried mixed vegetables",
+     "class": "N:01177:Dried vegetables"
+    },
+    {
+     "re": "emborg|frozen",
+     "class": "0117803"
+    },
+    {
+     "re": "plain noodles",
+     "class": "0111502"
+    },
+    {
+     "re": "chick ?peas",
+     "class": "0117602"
+    },
+    {
+     "re": "raisins",
+     "class": "0116702"
+    },
+    {
+     "re": "dried figs",
+     "class": "0116703"
+    },
+    {
+     "re": "tomato|plum cherry",
+     "class": "0117201"
+    },
+    {
+     "re": "capsicum",
+     "class": "0117207"
+    },
+    {
+     "re": "chill?i\\b|chillies|habanero",
+     "class": "0117206"
+    },
+    {
+     "re": "plantain|yam\\b|tapioca|cassava|colocasia|koorka",
+     "class": "N:01175:Other tubers and plantains"
+    },
+    {
+     "re": "banana flower|drumstick(?! leaves)|mango ginger|sweet corn|baby corns?|spring onion|leeks?\\b|garlic leaves|aviyal|sambar mix|mix vegetables|mixed vegetables|broccoli carrot",
+     "class": "N:01174:Other fresh vegetables"
+    },
+    {
+     "re": "banana leaf|aloe vera|\\bkale\\b|pak ?choi|paksoy|pechay|kangkong|cheera|fenugreek|purslane|selek|mustard leaves|drumstick leaves|asparagus|celery",
+     "class": "N:01171:Other leafy and stem vegetables"
+    },
+    {
+     "re": "broccoli|bimi",
+     "class": "N:01171:Broccoli"
+    },
+    {
+     "re": "mushroom",
+     "class": "N:01174:Fresh mushrooms"
+    },
+    {
+     "re": "bitter gourd|tindly|ivy gourd|chow chow|snake gourd",
+     "class": "N:01172:Other fruit-bearing vegetables"
+    },
+    {
+     "re": "sweet potato",
+     "class": "0117502"
+    },
+    {
+     "re": "potato",
+     "class": "0117501"
+    },
+    {
+     "re": "fruit salad|fruit platter|melon mix|fruit basket",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "coconut|coco thumb",
+     "class": "0116108"
+    },
+    {
+     "re": "banana",
+     "class": "0116102"
+    },
+    {
+     "re": "dates",
+     "class": "0116101"
+    },
+    {
+     "re": "custard apple|dragon fruit|passion fruit|mangosteen|rambutan|longan|jack ?fruit|chickoo|sapodilla",
+     "class": "N:01161:Other tropical fruits"
+    },
+    {
+     "re": "\\bmangoe?s?\\b(?! ginger| avocado)",
+     "class": "0116103"
+    },
+    {
+     "re": "guava",
+     "class": "0116104"
+    },
+    {
+     "re": "\\bfigs?\\b",
+     "class": "0116105"
+    },
+    {
+     "re": "pineapple",
+     "class": "0116106"
+    },
+    {
+     "re": "papaya",
+     "class": "0116107"
+    },
+    {
+     "re": "avocado",
+     "class": "0116109"
+    },
+    {
+     "re": "grapefruit|pomelo",
+     "class": "0116203"
+    },
+    {
+     "re": "mandarin|clementine|tangerine|murcot",
+     "class": "0116204"
+    },
+    {
+     "re": "orange",
+     "class": "0116201"
+    },
+    {
+     "re": "lemon|\\blimes?\\b",
+     "class": "0116202"
+    },
+    {
+     "re": "prickly pear|persimmon|kaka fruit|jujube|ber fruit",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "\\bapples?\\b|royal gala|pink lady|rockit",
+     "class": "0116301"
+    },
+    {
+     "re": "apricot",
+     "class": "0116302"
+    },
+    {
+     "re": "peach|nectarine",
+     "class": "0116303"
+    },
+    {
+     "re": "\\bplums?\\b",
+     "class": "0116304"
+    },
+    {
+     "re": "cherr",
+     "class": "0116305"
+    },
+    {
+     "re": "\\bpears?\\b",
+     "class": "0116306"
+    },
+    {
+     "re": "strawberr",
+     "class": "0116401"
+    },
+    {
+     "re": "blueberr|raspberr|blackberr|currant|golden berr|physalis",
+     "class": "N:01164:Other berries"
+    },
+    {
+     "re": "water ?melon",
+     "class": "0116502"
+    },
+    {
+     "re": "grape",
+     "class": "0116501"
+    },
+    {
+     "re": "melon",
+     "class": "0116503"
+    },
+    {
+     "re": "kiwi",
+     "class": "0116504"
+    },
+    {
+     "re": "pomegranate",
+     "class": "0116505"
+    },
+    {
+     "re": "cucumber",
+     "class": "0117202"
+    },
+    {
+     "re": "zucchini|marrow",
+     "class": "0117203"
+    },
+    {
+     "re": "eggplant|aubergine|brinjal",
+     "class": "0117204"
+    },
+    {
+     "re": "pumpkin|gourd",
+     "class": "0117205"
+    },
+    {
+     "re": "okra|bhindi",
+     "class": "0117208"
+    },
+    {
+     "re": "snow peas|mangetout|green peas",
+     "class": "0117302"
+    },
+    {
+     "re": "beans|bean sprouts",
+     "class": "0117301"
+    },
+    {
+     "re": "garlic",
+     "class": "0117407"
+    },
+    {
+     "re": "onion",
+     "class": "0117401"
+    },
+    {
+     "re": "beetroot",
+     "class": "0117402"
+    },
+    {
+     "re": "carrot",
+     "class": "0117403"
+    },
+    {
+     "re": "ginger",
+     "class": "0117405"
+    },
+    {
+     "re": "radish",
+     "class": "0117406"
+    },
+    {
+     "re": "spinach|palak",
+     "class": "0117101"
+    },
+    {
+     "re": "cabbage",
+     "class": "0117102"
+    },
+    {
+     "re": "cauliflower",
+     "class": "0117103"
+    },
+    {
+     "re": "rocket|arugula|gerger|gargeer|rocca",
+     "class": "0117104"
+    },
+    {
+     "re": "lettuce|salad|lollo|romaine|iceberg|everyday mix",
+     "class": "0117105"
+    },
+    {
+     "re": "\\bmint\\b",
+     "class": "0117106"
+    },
+    {
+     "re": "coriander",
+     "class": "0119411"
+    },
+    {
+     "re": "parsley",
+     "class": "0119412"
+    },
+    {
+     "re": "\\bdill\\b",
+     "class": "N:01194:Other fresh herbs"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "pistachio",
+     "class": "0116802"
+    },
+    {
+     "re": "cashew",
+     "class": "0116803"
+    },
+    {
+     "re": "walnut",
+     "class": "0116804"
+    },
+    {
+     "re": "peanut",
+     "class": "0116805"
+    },
+    {
+     "re": "seeds",
+     "class": "0116806"
+    },
+    {
+     "re": "mix nut",
+     "class": "0116808"
+    }
+   ]
+  },
+  "fresh_food_fruits_vegetables": {
+   "default": "N:01174:Other fresh vegetables",
+   "rules": [
+    {
+     "re": "cooking tool|fish scaler|fillet blade|vegetable (cutter|slicer)",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "game set",
+     "class": "0921201"
+    },
+    {
+     "re": "fishing|hooks\\b|crankbait|\\blures?\\b|tackle",
+     "class": "N:09221:Fishing equipment"
+    },
+    {
+     "re": "laxative|senokot|\\d+ tabs\\b",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "capsules|softgels|supplements?\\b|quercetin|fish oil",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "cat food|dog food|purina|whiskas|pedigree|friskies|fish flakes|for feeding",
+     "class": "0932201"
+    },
+    {
+     "re": "aquarium|incubator",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "football",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "\\blamp\\b",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "fake (eggs?|fish)|artificial (potatoes|fruit)|miniature fruits",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "stickers?\\b",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "for planting|seeds indoor|\\d+\\+? seeds|cucumber seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "hydroponic|fertilizer|protection bags|indoor garden",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "egg (cartons?|flats)|egg cartons",
+     "class": "N:05619:Egg cartons and trays"
+    },
+    {
+     "re": "churning machine",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "juice|lemonade",
+     "class": "0121001"
+    },
+    {
+     "re": "in syrup|canned",
+     "class": "0116901"
+    },
+    {
+     "re": "\\bcooked\\b",
+     "class": "N:01179:Other vegetable preparations"
+    },
+    {
+     "re": "filled dates|stuffed dates",
+     "class": "N:01189:Date confectionery"
+    },
+    {
+     "re": "candied|fruit roll",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "dried mixed vegetables",
+     "class": "N:01177:Dried vegetables"
+    },
+    {
+     "re": "emborg|frozen",
+     "class": "0117803"
+    },
+    {
+     "re": "plain noodles",
+     "class": "0111502"
+    },
+    {
+     "re": "chick ?peas",
+     "class": "0117602"
+    },
+    {
+     "re": "raisins",
+     "class": "0116702"
+    },
+    {
+     "re": "dried figs",
+     "class": "0116703"
+    },
+    {
+     "re": "tomato|plum cherry",
+     "class": "0117201"
+    },
+    {
+     "re": "capsicum",
+     "class": "0117207"
+    },
+    {
+     "re": "chill?i\\b|chillies|habanero",
+     "class": "0117206"
+    },
+    {
+     "re": "plantain|yam\\b|tapioca|cassava|colocasia|koorka",
+     "class": "N:01175:Other tubers and plantains"
+    },
+    {
+     "re": "banana flower|drumstick(?! leaves)|mango ginger|sweet corn|baby corns?|spring onion|leeks?\\b|garlic leaves|aviyal|sambar mix|mix vegetables|mixed vegetables|broccoli carrot",
+     "class": "N:01174:Other fresh vegetables"
+    },
+    {
+     "re": "banana leaf|aloe vera|\\bkale\\b|pak ?choi|paksoy|pechay|kangkong|cheera|fenugreek|purslane|selek|mustard leaves|drumstick leaves|asparagus|celery",
+     "class": "N:01171:Other leafy and stem vegetables"
+    },
+    {
+     "re": "broccoli|bimi",
+     "class": "N:01171:Broccoli"
+    },
+    {
+     "re": "mushroom",
+     "class": "N:01174:Fresh mushrooms"
+    },
+    {
+     "re": "bitter gourd|tindly|ivy gourd|chow chow|snake gourd",
+     "class": "N:01172:Other fruit-bearing vegetables"
+    },
+    {
+     "re": "sweet potato",
+     "class": "0117502"
+    },
+    {
+     "re": "potato",
+     "class": "0117501"
+    },
+    {
+     "re": "fruit salad|fruit platter|melon mix|fruit basket",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "coconut|coco thumb",
+     "class": "0116108"
+    },
+    {
+     "re": "banana",
+     "class": "0116102"
+    },
+    {
+     "re": "dates",
+     "class": "0116101"
+    },
+    {
+     "re": "custard apple|dragon fruit|passion fruit|mangosteen|rambutan|longan|jack ?fruit|chickoo|sapodilla",
+     "class": "N:01161:Other tropical fruits"
+    },
+    {
+     "re": "\\bmangoe?s?\\b(?! ginger| avocado)",
+     "class": "0116103"
+    },
+    {
+     "re": "guava",
+     "class": "0116104"
+    },
+    {
+     "re": "\\bfigs?\\b",
+     "class": "0116105"
+    },
+    {
+     "re": "pineapple",
+     "class": "0116106"
+    },
+    {
+     "re": "papaya",
+     "class": "0116107"
+    },
+    {
+     "re": "avocado",
+     "class": "0116109"
+    },
+    {
+     "re": "grapefruit|pomelo",
+     "class": "0116203"
+    },
+    {
+     "re": "mandarin|clementine|tangerine|murcot",
+     "class": "0116204"
+    },
+    {
+     "re": "orange",
+     "class": "0116201"
+    },
+    {
+     "re": "lemon|\\blimes?\\b",
+     "class": "0116202"
+    },
+    {
+     "re": "prickly pear|persimmon|kaka fruit|jujube|ber fruit",
+     "class": "N:01165:Other fresh fruits and fruit mixes"
+    },
+    {
+     "re": "\\bapples?\\b|royal gala|pink lady|rockit",
+     "class": "0116301"
+    },
+    {
+     "re": "apricot",
+     "class": "0116302"
+    },
+    {
+     "re": "peach|nectarine",
+     "class": "0116303"
+    },
+    {
+     "re": "\\bplums?\\b",
+     "class": "0116304"
+    },
+    {
+     "re": "cherr",
+     "class": "0116305"
+    },
+    {
+     "re": "\\bpears?\\b",
+     "class": "0116306"
+    },
+    {
+     "re": "strawberr",
+     "class": "0116401"
+    },
+    {
+     "re": "blueberr|raspberr|blackberr|currant|golden berr|physalis",
+     "class": "N:01164:Other berries"
+    },
+    {
+     "re": "water ?melon",
+     "class": "0116502"
+    },
+    {
+     "re": "grape",
+     "class": "0116501"
+    },
+    {
+     "re": "melon",
+     "class": "0116503"
+    },
+    {
+     "re": "kiwi",
+     "class": "0116504"
+    },
+    {
+     "re": "pomegranate",
+     "class": "0116505"
+    },
+    {
+     "re": "cucumber",
+     "class": "0117202"
+    },
+    {
+     "re": "zucchini|marrow",
+     "class": "0117203"
+    },
+    {
+     "re": "eggplant|aubergine|brinjal",
+     "class": "0117204"
+    },
+    {
+     "re": "pumpkin|gourd",
+     "class": "0117205"
+    },
+    {
+     "re": "okra|bhindi",
+     "class": "0117208"
+    },
+    {
+     "re": "snow peas|mangetout|green peas",
+     "class": "0117302"
+    },
+    {
+     "re": "beans|bean sprouts",
+     "class": "0117301"
+    },
+    {
+     "re": "garlic",
+     "class": "0117407"
+    },
+    {
+     "re": "onion",
+     "class": "0117401"
+    },
+    {
+     "re": "beetroot",
+     "class": "0117402"
+    },
+    {
+     "re": "carrot",
+     "class": "0117403"
+    },
+    {
+     "re": "ginger",
+     "class": "0117405"
+    },
+    {
+     "re": "radish",
+     "class": "0117406"
+    },
+    {
+     "re": "spinach|palak",
+     "class": "0117101"
+    },
+    {
+     "re": "cabbage",
+     "class": "0117102"
+    },
+    {
+     "re": "cauliflower",
+     "class": "0117103"
+    },
+    {
+     "re": "rocket|arugula|gerger|gargeer|rocca",
+     "class": "0117104"
+    },
+    {
+     "re": "lettuce|salad|lollo|romaine|iceberg|everyday mix",
+     "class": "0117105"
+    },
+    {
+     "re": "\\bmint\\b",
+     "class": "0117106"
+    },
+    {
+     "re": "coriander",
+     "class": "0119411"
+    },
+    {
+     "re": "parsley",
+     "class": "0119412"
+    },
+    {
+     "re": "\\bdill\\b",
+     "class": "N:01194:Other fresh herbs"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "pistachio",
+     "class": "0116802"
+    },
+    {
+     "re": "cashew",
+     "class": "0116803"
+    },
+    {
+     "re": "walnut",
+     "class": "0116804"
+    },
+    {
+     "re": "peanut",
+     "class": "0116805"
+    },
+    {
+     "re": "seeds",
+     "class": "0116806"
+    },
+    {
+     "re": "mix nut",
+     "class": "0116808"
+    }
+   ]
+  }
+ },
+ "overrides": {
+  "lulu|18629-ea": "0117205",
+  "carrefour|445929": "0116301",
+  "carrefour|445931": "0116301",
+  "carrefour|2296652": "0116102",
+  "lulu|2535649": "0116109",
+  "lulu|18829-ea": "N:01174:Other fresh vegetables",
+  "lulu|36429-ea": "0116203",
+  "lulu|900763-ea": "N:01171:Other leafy and stem vegetables",
+  "carrefour|1572415": "N:01161:Other tropical fruits",
+  "lulu|1387631-ea": "N:01161:Other tropical fruits",
+  "carrefour|458493": "N:01174:Other fresh vegetables",
+  "carrefour|499958": "0116504",
+  "carrefour|1137680": "0116504",
+  "carrefour|446444": "0116202",
+  "carrefour|574851": "0116106",
+  "carrefour|1065990": "N:01175:Other tubers and plantains",
+  "lulu|18799-ea": "0117207",
+  "carrefour|2258128": "0112201",
+  "carrefour|2258149": "0112201",
+  "lulu|137776-ea": "0112201",
+  "carrefour|2258104": "0112201",
+  "lulu|41611-ea": "0112201",
+  "lulu|959105-ea": "0112201",
+  "carrefour|2288954": "0112201",
+  "carrefour|996657": "N:01124:Offal, bones and fat",
+  "lulu|40678-ea": "N:01124:Offal, bones and fat",
+  "carrefour|2139717": "N:01131:Other fresh fish",
+  "carrefour|2281650": "0112201",
+  "carrefour|2311619": "0114504",
+  "carrefour|1886048": "N:01179:Other vegetable preparations"
+ }
+}

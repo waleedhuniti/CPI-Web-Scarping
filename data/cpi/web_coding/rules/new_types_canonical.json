@@ -1,0 +1,2784 @@
+{
+ "types": [
+  {
+   "class_value": "N:01111:Jasmine rice",
+   "name_en": "Jasmine rice",
+   "name_ar": "أرز ياسمين (تايلندي/فيتنامي)",
+   "subclass5": "01111",
+   "merged_from": [
+    "N:01111:Jasmine rice"
+   ]
+  },
+  {
+   "class_value": "N:01111:Other non-basmati rice",
+   "name_en": "Other non-basmati rice",
+   "name_ar": "أرز غير بسمتي آخر (سونا مسوري، مطة، بوني، جيراكسالا، أرز أبيض)",
+   "subclass5": "01111",
+   "merged_from": [
+    "N:01111:Other non-basmati rice"
+   ]
+  },
+  {
+   "class_value": "N:01112:Other cereal flours",
+   "name_en": "Other cereal flours",
+   "name_ar": "دقيق حبوب أخرى (أرز، راجي، شوفان، جاودار، دخن)",
+   "subclass5": "01112",
+   "merged_from": [
+    "N:01112:Other cereal flours"
+   ]
+  },
+  {
+   "class_value": "N:01113:Crackers and crispbreads",
+   "name_en": "Crackers and crispbreads",
+   "name_ar": "كراكرز ورقائق خبز محمصة",
+   "subclass5": "01113",
+   "merged_from": [
+    "N:01113:Crackers and crispbreads"
+   ]
+  },
+  {
+   "class_value": "N:01113:Tortillas and wraps",
+   "name_en": "Tortillas and wraps",
+   "name_ar": "خبز تورتيلا ورقائق لف",
+   "subclass5": "01113",
+   "merged_from": [
+    "N:01113:Tortillas and wraps"
+   ]
+  },
+  {
+   "class_value": "N:01114:Rice cakes",
+   "name_en": "Rice cakes",
+   "name_ar": "كعك الأرز المنفوخ",
+   "subclass5": "01114",
+   "merged_from": [
+    "N:01114:Rice cakes"
+   ]
+  },
+  {
+   "class_value": "N:01115:Dumplings and filled pasta",
+   "name_en": "Dumplings and filled pasta",
+   "name_ar": "زلابية وعجائن محشوة غير مطبوخة",
+   "subclass5": "01115",
+   "merged_from": [
+    "N:01115:Dumplings and filled pasta"
+   ]
+  },
+  {
+   "class_value": "N:01119:Baking mixes",
+   "name_en": "Baking mixes",
+   "name_ar": "خلطات خبز وحلويات جاهزة (كيك، بيتزا، لقيمات)",
+   "subclass5": "01119",
+   "merged_from": [
+    "N:01119:Baking mixes"
+   ]
+  },
+  {
+   "class_value": "N:01119:Savoury snacks",
+   "name_en": "Savoury snacks",
+   "name_ar": "وجبات خفيفة مالحة (سيف، بوندي، ماثري)",
+   "subclass5": "01119",
+   "merged_from": [
+    "N:01119:Savoury snacks"
+   ]
+  },
+  {
+   "class_value": "N:01119:Tortilla chips and taco shells",
+   "name_en": "Tortilla chips and taco shells",
+   "name_ar": "رقائق التورتيلا",
+   "subclass5": "01119",
+   "merged_from": [
+    "N:01119:Tortilla chips and taco shells"
+   ]
+  },
+  {
+   "class_value": "N:01123:Cold cuts and cured meats",
+   "name_en": "Cold cuts and cured meats",
+   "name_ar": "لحوم مقددة ومدخنة (بسطرمة، ببروني، لحم مقدد، ديك رومي مدخن)",
+   "subclass5": "01123",
+   "merged_from": [
+    "N:01123:Cold cuts and cured meats"
+   ]
+  },
+  {
+   "class_value": "N:01124:Offal, bones and fat",
+   "name_en": "Offal, bones and fat",
+   "name_ar": "أحشاء وعظام ودهون",
+   "subclass5": "01124",
+   "merged_from": [
+    "N:01124:Offal, bones and fat"
+   ]
+  },
+  {
+   "class_value": "N:01125:Kofta, kebabs and marinated meat",
+   "name_en": "Kofta, kebabs and marinated meat",
+   "name_ar": "كفتة وكباب ولحوم ودواجن متبلة",
+   "subclass5": "01125",
+   "merged_from": [
+    "N:01125:Kofta, kebabs and marinated meat"
+   ]
+  },
+  {
+   "class_value": "N:01131:Other fresh fish",
+   "name_en": "Other fresh fish",
+   "name_ar": "أسماك طازجة أخرى",
+   "subclass5": "01131",
+   "merged_from": [
+    "N:01131:Other fresh fish"
+   ]
+  },
+  {
+   "class_value": "N:01132:Smoked and dried fish",
+   "name_en": "Smoked and dried fish",
+   "name_ar": "أسماك مدخنة ومجففة",
+   "subclass5": "01132",
+   "merged_from": [
+    "N:01132:Smoked and dried fish"
+   ]
+  },
+  {
+   "class_value": "N:01133:Fish preparations",
+   "name_en": "Fish preparations",
+   "name_ar": "أسماك مصنعة ومغطاة بالبقسماط",
+   "subclass5": "01133",
+   "merged_from": [
+    "N:01133:Fish preparations"
+   ]
+  },
+  {
+   "class_value": "N:01134:Other seafood",
+   "name_en": "Other seafood",
+   "name_ar": "مأكولات بحرية أخرى (محار، بلح البحر، أخطبوط)",
+   "subclass5": "01134",
+   "merged_from": [
+    "N:01134:Other seafood"
+   ]
+  },
+  {
+   "class_value": "N:01136:Seafood preparations",
+   "name_en": "Seafood preparations",
+   "name_ar": "مأكولات بحرية مصنعة (روبيان مغطى بالبقسماط)",
+   "subclass5": "01136",
+   "merged_from": [
+    "N:01136:Seafood preparations"
+   ]
+  },
+  {
+   "class_value": "N:01137:Fish roe, caviar and fish offal",
+   "name_en": "Fish roe, caviar and fish offal",
+   "name_ar": "بطارخ وكافيار ومخلفات الأسماك",
+   "subclass5": "01137",
+   "merged_from": [
+    "N:01137:Fish roe, caviar and fish offal"
+   ]
+  },
+  {
+   "class_value": "N:01143:Sweetened condensed milk",
+   "name_en": "Sweetened condensed milk",
+   "name_ar": "حليب مكثف محلى",
+   "subclass5": "01143",
+   "merged_from": [
+    "N:01143:Sweetened condensed milk"
+   ]
+  },
+  {
+   "class_value": "N:01144:Plant-based milks",
+   "name_en": "Plant-based milks",
+   "name_ar": "حليب نباتي (شوفان، صويا، لوز)",
+   "subclass5": "01144",
+   "merged_from": [
+    "N:01144:Plant-based milk",
+    "N:01144:Plant-based milks"
+   ]
+  },
+  {
+   "class_value": "N:01147:Milk-based desserts",
+   "name_en": "Milk-based desserts",
+   "name_ar": "حلويات قائمة على الحليب (بودينغ)",
+   "subclass5": "01147",
+   "merged_from": [
+    "N:01147:Milk-based desserts"
+   ]
+  },
+  {
+   "class_value": "N:01148:Quail eggs and egg products",
+   "name_en": "Quail eggs and egg products",
+   "name_ar": "بيض السمان ومنتجات البيض",
+   "subclass5": "01148",
+   "merged_from": [
+    "N:01148:Quail eggs and egg products"
+   ]
+  },
+  {
+   "class_value": "N:01149:Coffee creamers",
+   "name_en": "Coffee creamers",
+   "name_ar": "مبيض القهوة",
+   "subclass5": "01149",
+   "merged_from": [
+    "N:01149:Coffee creamers"
+   ]
+  },
+  {
+   "class_value": "N:01151:Other vegetable oils",
+   "name_en": "Other vegetable oils",
+   "name_ar": "زيوت نباتية أخرى",
+   "subclass5": "01151",
+   "merged_from": [
+    "N:01151:Other vegetable oils"
+   ]
+  },
+  {
+   "class_value": "N:01161:Other tropical fruits",
+   "name_en": "Other tropical fruits",
+   "name_ar": "فواكه استوائية أخرى",
+   "subclass5": "01161",
+   "merged_from": [
+    "N:01161:Other tropical fruits"
+   ]
+  },
+  {
+   "class_value": "N:01164:Other berries",
+   "name_en": "Other berries",
+   "name_ar": "توت بأنواعه عدا الفراولة",
+   "subclass5": "01164",
+   "merged_from": [
+    "N:01164:Other berries"
+   ]
+  },
+  {
+   "class_value": "N:01165:Other fresh fruits and fruit mixes",
+   "name_en": "Other fresh fruits and fruit mixes",
+   "name_ar": "فواكه طازجة أخرى وخلطات الفواكه",
+   "subclass5": "01165",
+   "merged_from": [
+    "N:01165:Other fresh fruits and fruit mixes"
+   ]
+  },
+  {
+   "class_value": "N:01167:Other dried fruits",
+   "name_en": "Other dried fruits",
+   "name_ar": "فواكه مجففة أخرى (توت بري)",
+   "subclass5": "01167",
+   "merged_from": [
+    "N:01167:Other dried fruits"
+   ]
+  },
+  {
+   "class_value": "N:01168:Nut and dried fruit mixes",
+   "name_en": "Nut and dried fruit mixes",
+   "name_ar": "خلطات مكسرات وفواكه مجففة",
+   "subclass5": "01168",
+   "merged_from": [
+    "N:01168:Nut and dried fruit mixes"
+   ]
+  },
+  {
+   "class_value": "N:01168:Other nuts",
+   "name_en": "Other nuts",
+   "name_ar": "مكسرات أخرى (بندق، بقان، مكاديميا، جوز برازيلي)",
+   "subclass5": "01168",
+   "merged_from": [
+    "N:01168:Other nuts"
+   ]
+  },
+  {
+   "class_value": "N:01169:Coated nuts and nut snacks",
+   "name_en": "Coated nuts and nut snacks",
+   "name_ar": "مكسرات مغلفة ووجبات مكسرات خفيفة",
+   "subclass5": "01169",
+   "merged_from": [
+    "N:01169:Coated nuts and nut snacks"
+   ]
+  },
+  {
+   "class_value": "N:01169:Fruit pickles",
+   "name_en": "Fruit pickles",
+   "name_ar": "مخللات الفواكه (مخلل التمر والليمون)",
+   "subclass5": "01169",
+   "merged_from": [
+    "N:01169:Fruit pickles"
+   ]
+  },
+  {
+   "class_value": "N:01169:Nut and coconut flours",
+   "name_en": "Nut and coconut flours",
+   "name_ar": "دقيق المكسرات وجوز الهند (دقيق اللوز)",
+   "subclass5": "01169",
+   "merged_from": [
+    "N:01169:Nut and coconut flours"
+   ]
+  },
+  {
+   "class_value": "N:01171:Broccoli",
+   "name_en": "Broccoli",
+   "name_ar": "بروكلي",
+   "subclass5": "01171",
+   "merged_from": [
+    "N:01171:Broccoli"
+   ]
+  },
+  {
+   "class_value": "N:01171:Other leafy and stem vegetables",
+   "name_en": "Other leafy and stem vegetables",
+   "name_ar": "خضروات ورقية وساقية أخرى",
+   "subclass5": "01171",
+   "merged_from": [
+    "N:01171:Other leafy and stem vegetables"
+   ]
+  },
+  {
+   "class_value": "N:01172:Other fruit-bearing vegetables",
+   "name_en": "Other fruit-bearing vegetables",
+   "name_ar": "خضروات ثمرية أخرى",
+   "subclass5": "01172",
+   "merged_from": [
+    "N:01172:Other fruit-bearing vegetables"
+   ]
+  },
+  {
+   "class_value": "N:01174:Fresh mushrooms",
+   "name_en": "Fresh mushrooms",
+   "name_ar": "فطر طازج",
+   "subclass5": "01174",
+   "merged_from": [
+    "N:01174:Fresh mushrooms"
+   ]
+  },
+  {
+   "class_value": "N:01174:Other fresh vegetables",
+   "name_en": "Other fresh vegetables",
+   "name_ar": "خضروات طازجة أخرى",
+   "subclass5": "01174",
+   "merged_from": [
+    "N:01174:Other fresh vegetables"
+   ]
+  },
+  {
+   "class_value": "N:01175:Other tubers and plantains",
+   "name_en": "Other tubers and plantains",
+   "name_ar": "درنيات أخرى وموز الطبخ",
+   "subclass5": "01175",
+   "merged_from": [
+    "N:01175:Other tubers and plantains"
+   ]
+  },
+  {
+   "class_value": "N:01177:Dried vegetables",
+   "name_en": "Dried vegetables",
+   "name_ar": "خضروات مجففة",
+   "subclass5": "01177",
+   "merged_from": [
+    "N:01177:Dried vegetables"
+   ]
+  },
+  {
+   "class_value": "N:01179:Other vegetable preparations",
+   "name_en": "Other vegetable preparations",
+   "name_ar": "مستحضرات خضروات أخرى",
+   "subclass5": "01179",
+   "merged_from": [
+    "N:01179:Other vegetable preparations"
+   ]
+  },
+  {
+   "class_value": "N:01179:Pulse flours and starches",
+   "name_en": "Pulse flours and starches",
+   "name_ar": "دقيق البقوليات والنشويات (بيسان، تابيوكا، كونجاك)",
+   "subclass5": "01179",
+   "merged_from": [
+    "N:01179:Pulse flours and starches"
+   ]
+  },
+  {
+   "class_value": "N:01182:Other sugars",
+   "name_en": "Other sugars",
+   "name_ar": "سكريات أخرى (سكر جوز الهند، سكر التمر، سكر الفانيليا)",
+   "subclass5": "01182",
+   "merged_from": [
+    "N:01182:Other sugars"
+   ]
+  },
+  {
+   "class_value": "N:01182:Sugar substitutes",
+   "name_en": "Sugar substitutes",
+   "name_ar": "بدائل السكر (محليات)",
+   "subclass5": "01182",
+   "merged_from": [
+    "N:01182:Sugar substitutes"
+   ]
+  },
+  {
+   "class_value": "N:01182:Sugar syrups",
+   "name_en": "Sugar syrups",
+   "name_ar": "شراب السكر (شراب البان كيك)",
+   "subclass5": "01182",
+   "merged_from": [
+    "N:01182:Sugar syrups"
+   ]
+  },
+  {
+   "class_value": "N:01189:Date confectionery",
+   "name_en": "Date confectionery",
+   "name_ar": "حلويات التمر (تمر بالشوكولاتة، قطع وأصابع التمر)",
+   "subclass5": "01189",
+   "merged_from": [
+    "N:01189:Date confectionery"
+   ]
+  },
+  {
+   "class_value": "N:01189:Sugar confectionery",
+   "name_en": "Sugar confectionery",
+   "name_ar": "حلويات سكرية",
+   "subclass5": "01189",
+   "merged_from": [
+    "N:01189:Sugar confectionery"
+   ]
+  },
+  {
+   "class_value": "N:01191:Prepared salads",
+   "name_en": "Prepared salads",
+   "name_ar": "سلطات ومقبلات جاهزة",
+   "subclass5": "01191",
+   "merged_from": [
+    "N:01191:Prepared salads"
+   ]
+  },
+  {
+   "class_value": "N:01191:Ready meals",
+   "name_en": "Ready meals",
+   "name_ar": "وجبات جاهزة",
+   "subclass5": "01191",
+   "merged_from": [
+    "N:01191:Ready meals",
+    "N:01191:Ready-made meals"
+   ]
+  },
+  {
+   "class_value": "N:01193:Coconut milk for cooking",
+   "name_en": "Coconut milk for cooking",
+   "name_ar": "حليب جوز الهند للطبخ",
+   "subclass5": "01193",
+   "merged_from": [
+    "N:01193:Coconut milk for cooking"
+   ]
+  },
+  {
+   "class_value": "N:01193:Other sauces and dips",
+   "name_en": "Other sauces and dips",
+   "name_ar": "صلصات وغموسات أخرى",
+   "subclass5": "01193",
+   "merged_from": [
+    "N:01193:Other sauces and dips"
+   ]
+  },
+  {
+   "class_value": "N:01194:Dried herbs and other spices",
+   "name_en": "Dried herbs and other spices",
+   "name_ar": "أعشاب مجففة وتوابل أخرى (أوريغانو، كزبرة مطحونة)",
+   "subclass5": "01194",
+   "merged_from": [
+    "N:01194:Dried herbs and other spices"
+   ]
+  },
+  {
+   "class_value": "N:01194:Other fresh herbs",
+   "name_en": "Other fresh herbs",
+   "name_ar": "أعشاب طازجة أخرى",
+   "subclass5": "01194",
+   "merged_from": [
+    "N:01194:Other fresh herbs"
+   ]
+  },
+  {
+   "class_value": "N:01199:Food flavourings and essences",
+   "name_en": "Food flavourings and essences",
+   "name_ar": "منكهات وخلاصات الطعام (فانيليا)",
+   "subclass5": "01199",
+   "merged_from": [
+    "N:01199:Food flavourings and essences"
+   ]
+  },
+  {
+   "class_value": "N:01199:Meal replacement drinks",
+   "name_en": "Meal replacement drinks",
+   "name_ar": "مشروبات بديلة للوجبات",
+   "subclass5": "01199",
+   "merged_from": [
+    "N:01199:Meal replacement drinks"
+   ]
+  },
+  {
+   "class_value": "N:01199:Protein bars",
+   "name_en": "Protein bars",
+   "name_ar": "ألواح بروتين",
+   "subclass5": "01199",
+   "merged_from": [
+    "N:01199:Protein bars"
+   ]
+  },
+  {
+   "class_value": "N:01199:Sports energy gels and chews",
+   "name_en": "Sports energy gels and chews",
+   "name_ar": "جل وحلوى الطاقة الرياضية",
+   "subclass5": "01199",
+   "merged_from": [
+    "N:01199:Sports energy gels and chews"
+   ]
+  },
+  {
+   "class_value": "N:01210:Juice shots",
+   "name_en": "Juice shots",
+   "name_ar": "جرعات عصير (زنجبيل)",
+   "subclass5": "01210",
+   "merged_from": [
+    "N:01210:Juice shots"
+   ]
+  },
+  {
+   "class_value": "N:01220:Coffee beans",
+   "name_en": "Coffee beans",
+   "name_ar": "حبوب القهوة الكاملة",
+   "subclass5": "01220",
+   "merged_from": [
+    "N:01220:Coffee beans"
+   ]
+  },
+  {
+   "class_value": "N:01220:Coffee capsules",
+   "name_en": "Coffee capsules",
+   "name_ar": "كبسولات القهوة",
+   "subclass5": "01220",
+   "merged_from": [
+    "N:01220:Coffee capsules"
+   ]
+  },
+  {
+   "class_value": "N:01220:Instant coffee mixes",
+   "name_en": "Instant coffee mixes",
+   "name_ar": "خلطات القهوة سريعة التحضير (3 في 1)",
+   "subclass5": "01220",
+   "merged_from": [
+    "N:01220:Instant coffee mixes"
+   ]
+  },
+  {
+   "class_value": "N:01230:Iced tea drinks",
+   "name_en": "Iced tea drinks",
+   "name_ar": "مشروبات الشاي المثلج",
+   "subclass5": "01230",
+   "merged_from": [
+    "N:01230:Iced tea drinks"
+   ]
+  },
+  {
+   "class_value": "N:01230:Instant tea mixes",
+   "name_en": "Instant tea mixes",
+   "name_ar": "خلطات الشاي سريعة التحضير (كرك 3 في 1)",
+   "subclass5": "01230",
+   "merged_from": [
+    "N:01230:Instant tea mixes"
+   ]
+  },
+  {
+   "class_value": "N:01240:Malted and chocolate drink powders",
+   "name_en": "Malted and chocolate drink powders",
+   "name_ar": "مساحيق مشروبات الشوكولاتة والشعير",
+   "subclass5": "01240",
+   "merged_from": [
+    "N:01240:Malted and chocolate drink powders"
+   ]
+  },
+  {
+   "class_value": "N:01290:Electrolyte drink mixes",
+   "name_en": "Electrolyte drink mixes",
+   "name_ar": "مساحيق وأقراص الأملاح المعدنية للشرب",
+   "subclass5": "01290",
+   "merged_from": [
+    "N:01290:Electrolyte drink mixes"
+   ]
+  },
+  {
+   "class_value": "N:01290:Flavoured water",
+   "name_en": "Flavoured water",
+   "name_ar": "مياه منكهة",
+   "subclass5": "01290",
+   "merged_from": [
+    "N:01290:Flavoured water"
+   ]
+  },
+  {
+   "class_value": "N:01290:Protein and sports supplement powders",
+   "name_en": "Protein and sports supplement powders",
+   "name_ar": "مساحيق البروتين والمكملات الرياضية",
+   "subclass5": "01290",
+   "merged_from": [
+    "N:01290:Protein and sports supplement powders"
+   ]
+  },
+  {
+   "class_value": "N:01290:Sports drinks",
+   "name_en": "Sports drinks",
+   "name_ar": "مشروبات رياضية",
+   "subclass5": "01290",
+   "merged_from": [
+    "N:01290:Sports drinks"
+   ]
+  },
+  {
+   "class_value": "N:01290:Vitamin and functional drinks",
+   "name_en": "Vitamin and functional drinks",
+   "name_ar": "مشروبات الفيتامينات والمشروبات الوظيفية",
+   "subclass5": "01290",
+   "merged_from": [
+    "N:01290:Vitamin and functional drinks"
+   ]
+  },
+  {
+   "class_value": "N:03121:Boys' clothing sets",
+   "name_en": "Boys' clothing sets",
+   "name_ar": "أطقم ملابس للأولاد",
+   "subclass5": "03121",
+   "merged_from": [
+    "N:03121:Boys' clothing sets"
+   ]
+  },
+  {
+   "class_value": "N:03121:Boys' jumpers and sweatshirts",
+   "name_en": "Boys' jumpers and sweatshirts",
+   "name_ar": "كنزات وسويت شيرت وهوديز للأولاد",
+   "subclass5": "03121",
+   "merged_from": [
+    "N:03121:Boys' jumpers and sweatshirts"
+   ]
+  },
+  {
+   "class_value": "N:03121:Men's jackets and coats",
+   "name_en": "Men's jackets and coats",
+   "name_ar": "جاكيتات ومعاطف رجالية",
+   "subclass5": "03121",
+   "merged_from": [
+    "N:03121:Men's jackets and coats"
+   ]
+  },
+  {
+   "class_value": "N:03121:Men's jumpers and sweatshirts",
+   "name_en": "Men's jumpers and sweatshirts",
+   "name_ar": "كنزات وسويت شيرت رجالية",
+   "subclass5": "03121",
+   "merged_from": [
+    "N:03121:Men's jumpers and sweatshirts"
+   ]
+  },
+  {
+   "class_value": "N:03121:Men's waistcoats and gilets",
+   "name_en": "Men's waistcoats and gilets",
+   "name_ar": "صديريات وسترات بدون أكمام رجالية",
+   "subclass5": "03121",
+   "merged_from": [
+    "N:03121:Men's waistcoats and gilets"
+   ]
+  },
+  {
+   "class_value": "N:03122:Girls' jumpers and sweatshirts",
+   "name_en": "Girls' jumpers and sweatshirts",
+   "name_ar": "كنزات وسويت شيرت وهوديز للبنات",
+   "subclass5": "03122",
+   "merged_from": [
+    "N:03122:Girls' jumpers and sweatshirts"
+   ]
+  },
+  {
+   "class_value": "N:03122:Girls' jumpsuits and playsuits",
+   "name_en": "Girls' jumpsuits and playsuits",
+   "name_ar": "أوفرولات وجمبسوت للبنات",
+   "subclass5": "03122",
+   "merged_from": [
+    "N:03122:Girls' jumpsuits and playsuits"
+   ]
+  },
+  {
+   "class_value": "N:03122:Girls' swimwear",
+   "name_en": "Girls' swimwear",
+   "name_ar": "ملابس سباحة للبنات",
+   "subclass5": "03122",
+   "merged_from": [
+    "N:03122:Girls' swimwear"
+   ]
+  },
+  {
+   "class_value": "N:03122:Tights and pantyhose",
+   "name_en": "Tights and pantyhose",
+   "name_ar": "جوارب طويلة (كولون) للبنات والنساء",
+   "subclass5": "03122",
+   "merged_from": [
+    "N:03122:Tights and pantyhose"
+   ]
+  },
+  {
+   "class_value": "N:03122:Women's jumpers and sweaters",
+   "name_en": "Women's jumpers and sweaters",
+   "name_ar": "كنزات صوف نسائية (بلوفر)",
+   "subclass5": "03122",
+   "merged_from": [
+    "N:03122:Jumpers and sweaters"
+   ]
+  },
+  {
+   "class_value": "N:03122:Women's waistcoats and gilets",
+   "name_en": "Women's waistcoats and gilets",
+   "name_ar": "صديريات وسترات بدون أكمام نسائية",
+   "subclass5": "03122",
+   "merged_from": [
+    "N:03122:Waistcoats and gilets"
+   ]
+  },
+  {
+   "class_value": "N:03123:Infant clothing sets",
+   "name_en": "Infant clothing sets",
+   "name_ar": "أطقم ملابس للرضع",
+   "subclass5": "03123",
+   "merged_from": [
+    "N:03123:Infant clothing sets"
+   ]
+  },
+  {
+   "class_value": "N:03123:Infant dresses",
+   "name_en": "Infant dresses",
+   "name_ar": "فساتين للرضع",
+   "subclass5": "03123",
+   "merged_from": [
+    "N:03123:Infant dresses"
+   ]
+  },
+  {
+   "class_value": "N:03123:Infant jackets and cardigans",
+   "name_en": "Infant jackets and cardigans",
+   "name_ar": "جاكيتات وكارديغانات للرضع",
+   "subclass5": "03123",
+   "merged_from": [
+    "N:03123:Infant jackets and cardigans"
+   ]
+  },
+  {
+   "class_value": "N:03123:Infant tops and T-shirts",
+   "name_en": "Infant tops and T-shirts",
+   "name_ar": "بلوزات وتيشيرتات للرضع",
+   "subclass5": "03123",
+   "merged_from": [
+    "N:03123:Infant tops and T-shirts"
+   ]
+  },
+  {
+   "class_value": "N:03123:Infant trousers and shorts",
+   "name_en": "Infant trousers and shorts",
+   "name_ar": "بناطيل وشورتات للرضع",
+   "subclass5": "03123",
+   "merged_from": [
+    "N:03123:Infant trousers and shorts"
+   ]
+  },
+  {
+   "class_value": "N:03123:Infant underwear",
+   "name_en": "Infant underwear",
+   "name_ar": "ملابس داخلية للرضع",
+   "subclass5": "03123",
+   "merged_from": [
+    "N:03123:Infant underwear"
+   ]
+  },
+  {
+   "class_value": "N:03131:Aprons and bibs",
+   "name_en": "Aprons and bibs",
+   "name_ar": "مرايل وصدريات حماية الملابس",
+   "subclass5": "03131",
+   "merged_from": [
+    "N:03131:Aprons and bibs"
+   ]
+  },
+  {
+   "class_value": "N:03131:Arm sleeves",
+   "name_en": "Arm sleeves",
+   "name_ar": "أكمام الذراع",
+   "subclass5": "03131",
+   "merged_from": [
+    "N:03131:Arm sleeves"
+   ]
+  },
+  {
+   "class_value": "N:03131:Bridal veils",
+   "name_en": "Bridal veils",
+   "name_ar": "طرحات زفاف",
+   "subclass5": "03131",
+   "merged_from": [
+    "N:03131:Bridal veils"
+   ]
+  },
+  {
+   "class_value": "N:03132:Haberdashery and knitting yarns",
+   "name_en": "Haberdashery and knitting yarns",
+   "name_ar": "خيوط حياكة ومستلزمات خياطة (أزرار، باترونات)",
+   "subclass5": "03132",
+   "merged_from": [
+    "N:03132:Haberdashery and sewing patterns",
+    "N:03132:Knitting yarns"
+   ]
+  },
+  {
+   "class_value": "N:03211:Insoles and shoe accessories",
+   "name_en": "Insoles and shoe accessories",
+   "name_ar": "نعال داخلية وإكسسوارات أحذية",
+   "subclass5": "03211",
+   "merged_from": [
+    "N:03211:Insoles and shoe accessories"
+   ]
+  },
+  {
+   "class_value": "N:03211:Men's boots",
+   "name_en": "Men's boots",
+   "name_ar": "أحذية بوت رجالية",
+   "subclass5": "03211",
+   "merged_from": [
+    "N:03211:Men's boots"
+   ]
+  },
+  {
+   "class_value": "N:03211:Men's house slippers",
+   "name_en": "Men's house slippers",
+   "name_ar": "شباشب منزلية رجالية",
+   "subclass5": "03211",
+   "merged_from": [
+    "N:03211:Men's house slippers"
+   ]
+  },
+  {
+   "class_value": "N:03211:Water shoes",
+   "name_en": "Water shoes",
+   "name_ar": "أحذية مائية",
+   "subclass5": "03211",
+   "merged_from": [
+    "N:03211:Water shoes"
+   ]
+  },
+  {
+   "class_value": "N:03212:Insoles and shoe accessories",
+   "name_en": "Insoles and shoe accessories",
+   "name_ar": "نعل داخلية وإكسسوارات أحذية",
+   "subclass5": "03212",
+   "merged_from": [
+    "N:03212:Insoles and shoe accessories"
+   ]
+  },
+  {
+   "class_value": "N:03212:Women's boots",
+   "name_en": "Women's boots",
+   "name_ar": "أحذية بوت نسائية",
+   "subclass5": "03212",
+   "merged_from": [
+    "N:03212:Women's boots"
+   ]
+  },
+  {
+   "class_value": "N:03212:Women's house slippers",
+   "name_en": "Women's house slippers",
+   "name_ar": "شباشب منزلية نسائية",
+   "subclass5": "03212",
+   "merged_from": [
+    "N:03212:Women's house slippers"
+   ]
+  },
+  {
+   "class_value": "N:03213:Children's boots and wellies",
+   "name_en": "Children's boots and wellies",
+   "name_ar": "أحذية بوت وجزمات مطر للأطفال",
+   "subclass5": "03213",
+   "merged_from": [
+    "N:03213:Children's boots and wellies"
+   ]
+  },
+  {
+   "class_value": "N:03213:Children's house slippers",
+   "name_en": "Children's house slippers",
+   "name_ar": "شباشب منزلية للأطفال",
+   "subclass5": "03213",
+   "merged_from": [
+    "N:03213:Children's house slippers"
+   ]
+  },
+  {
+   "class_value": "N:03213:Children's sandals and flip-flops",
+   "name_en": "Children's sandals and flip-flops",
+   "name_ar": "صنادل وشباشب أطفال",
+   "subclass5": "03213",
+   "merged_from": [
+    "N:03213:Children's sandals and flip-flops"
+   ]
+  },
+  {
+   "class_value": "N:04311:Bathroom fittings",
+   "name_en": "Bathroom fittings",
+   "name_ar": "تجهيزات صحية للحمام (شطاف، رأس دش، مقعد مرحاض)",
+   "subclass5": "04311",
+   "merged_from": [
+    "N:04311:Bathroom fittings"
+   ]
+  },
+  {
+   "class_value": "N:04312:Security cameras",
+   "name_en": "Security cameras",
+   "name_ar": "كاميرات المراقبة المنزلية",
+   "subclass5": "04312",
+   "merged_from": [
+    "N:04312:Security cameras"
+   ]
+  },
+  {
+   "class_value": "N:05111:Baby furniture",
+   "name_en": "Baby furniture",
+   "name_ar": "أثاث الأطفال الرضع",
+   "subclass5": "05111",
+   "merged_from": [
+    "N:05111:Baby furniture"
+   ]
+  },
+  {
+   "class_value": "N:05111:Chairs",
+   "name_en": "Chairs",
+   "name_ar": "كراسي",
+   "subclass5": "05111",
+   "merged_from": [
+    "N:05111:Chairs"
+   ]
+  },
+  {
+   "class_value": "N:05111:Clothes racks and coat stands",
+   "name_en": "Clothes racks and coat stands",
+   "name_ar": "حوامل وعلاقات ملابس أرضية",
+   "subclass5": "05111",
+   "merged_from": [
+    "N:05111:Clothes racks and coat stands"
+   ]
+  },
+  {
+   "class_value": "N:05111:Desks and tables",
+   "name_en": "Desks and tables",
+   "name_ar": "مكاتب وطاولات",
+   "subclass5": "05111",
+   "merged_from": [
+    "N:05111:Desks and tables"
+   ]
+  },
+  {
+   "class_value": "N:05111:Shoe racks and cabinets",
+   "name_en": "Shoe racks and cabinets",
+   "name_ar": "رفوف وخزائن أحذية",
+   "subclass5": "05111",
+   "merged_from": [
+    "N:05111:Shoe racks and cabinets"
+   ]
+  },
+  {
+   "class_value": "N:05112:Garden furniture",
+   "name_en": "Garden furniture",
+   "name_ar": "أثاث الحدائق",
+   "subclass5": "05112",
+   "merged_from": [
+    "N:05112:Garden furniture"
+   ]
+  },
+  {
+   "class_value": "N:05113:Lamps and lighting fixtures",
+   "name_en": "Lamps and lighting fixtures",
+   "name_ar": "مصابيح وأدوات إنارة",
+   "subclass5": "05113",
+   "merged_from": [
+    "N:05113:Lamps and lighting fixtures"
+   ]
+  },
+  {
+   "class_value": "N:05114:Decorative articles",
+   "name_en": "Decorative articles",
+   "name_ar": "قطع ديكور",
+   "subclass5": "05114",
+   "merged_from": [
+    "N:05114:Decorative articles"
+   ]
+  },
+  {
+   "class_value": "N:05212:Bed sheets and bed linen sets",
+   "name_en": "Bed sheets and bed linen sets",
+   "name_ar": "شراشف وأطقم مفارش السرير",
+   "subclass5": "05212",
+   "merged_from": [
+    "N:05212:Bed sheets and bed linen sets"
+   ]
+  },
+  {
+   "class_value": "N:05212:Blankets and throws",
+   "name_en": "Blankets and throws",
+   "name_ar": "بطانيات وأغطية",
+   "subclass5": "05212",
+   "merged_from": [
+    "N:05212:Blankets and throws"
+   ]
+  },
+  {
+   "class_value": "N:05212:Comforters and bedspreads",
+   "name_en": "Comforters and bedspreads",
+   "name_ar": "لحافات وأغطية سرير (كومفورتر)",
+   "subclass5": "05212",
+   "merged_from": [
+    "N:05212:Comforters and bedspreads"
+   ]
+  },
+  {
+   "class_value": "N:05213:Towels",
+   "name_en": "Towels",
+   "name_ar": "مناشف",
+   "subclass5": "05213",
+   "merged_from": [
+    "N:05213:Towels"
+   ]
+  },
+  {
+   "class_value": "N:05219:Bath mats and bathroom textiles",
+   "name_en": "Bath mats and bathroom textiles",
+   "name_ar": "دواسات حمام ومنسوجات حمام",
+   "subclass5": "05219",
+   "merged_from": [
+    "N:05219:Bath mats and bathroom textiles"
+   ]
+  },
+  {
+   "class_value": "N:05219:Cushions and cushion covers",
+   "name_en": "Cushions and cushion covers",
+   "name_ar": "وسائد ومساند زينة وأغطيتها",
+   "subclass5": "05219",
+   "merged_from": [
+    "N:05219:Cushions and cushion covers"
+   ]
+  },
+  {
+   "class_value": "N:05219:Garment bags and clothes covers",
+   "name_en": "Garment bags and clothes covers",
+   "name_ar": "أكياس وأغطية حفظ الملابس",
+   "subclass5": "05219",
+   "merged_from": [
+    "N:05219:Garment bags and clothes covers"
+   ]
+  },
+  {
+   "class_value": "N:05219:Shopping, laundry and shoe bags",
+   "name_en": "Shopping, laundry and shoe bags",
+   "name_ar": "أكياس تسوق وغسيل وأحذية",
+   "subclass5": "05219",
+   "merged_from": [
+    "N:05219:Shopping, laundry and shoe bags"
+   ]
+  },
+  {
+   "class_value": "N:05311:Electric countertop ovens",
+   "name_en": "Electric countertop ovens",
+   "name_ar": "أفران كهربائية صغيرة (فرن طاولة)",
+   "subclass5": "05311",
+   "merged_from": [
+    "N:05311:Electric countertop ovens"
+   ]
+  },
+  {
+   "class_value": "N:05311:Freezers",
+   "name_en": "Freezers",
+   "name_ar": "مجمدات (فريزر صندوقي وعمودي)",
+   "subclass5": "05311",
+   "merged_from": [
+    "N:05311:Freezers"
+   ]
+  },
+  {
+   "class_value": "N:05311:Hobs and gas stoves",
+   "name_en": "Hobs and gas stoves",
+   "name_ar": "مواقد غاز سطحية (بدون فرن)",
+   "subclass5": "05311",
+   "merged_from": [
+    "N:05311:Hobs and gas stoves"
+   ]
+  },
+  {
+   "class_value": "N:05311:Microwave ovens",
+   "name_en": "Microwave ovens",
+   "name_ar": "أفران الميكروويف",
+   "subclass5": "05311",
+   "merged_from": [
+    "N:05311:Microwave ovens"
+   ]
+  },
+  {
+   "class_value": "N:05312:Clothes dryers",
+   "name_en": "Clothes dryers",
+   "name_ar": "مجففات الملابس",
+   "subclass5": "05312",
+   "merged_from": [
+    "N:05312:Clothes dryers"
+   ]
+  },
+  {
+   "class_value": "N:05313:Air coolers",
+   "name_en": "Air coolers",
+   "name_ar": "مبردات هواء (تبخيرية)",
+   "subclass5": "05313",
+   "merged_from": [
+    "N:05313:Air coolers"
+   ]
+  },
+  {
+   "class_value": "N:05313:Humidifiers and dehumidifiers",
+   "name_en": "Humidifiers and dehumidifiers",
+   "name_ar": "أجهزة ترطيب وإزالة الرطوبة",
+   "subclass5": "05313",
+   "merged_from": [
+    "N:05313:Humidifiers and dehumidifiers"
+   ]
+  },
+  {
+   "class_value": "N:05313:Space heaters",
+   "name_en": "Space heaters",
+   "name_ar": "دفايات كهربائية",
+   "subclass5": "05313",
+   "merged_from": [
+    "N:05313:Space heaters"
+   ]
+  },
+  {
+   "class_value": "N:05314:Carpet and spot cleaners",
+   "name_en": "Carpet and spot cleaners",
+   "name_ar": "أجهزة تنظيف السجاد والبقع",
+   "subclass5": "05314",
+   "merged_from": [
+    "N:05314:Carpet and spot cleaners"
+   ]
+  },
+  {
+   "class_value": "N:05314:Pool cleaning robots",
+   "name_en": "Pool cleaning robots",
+   "name_ar": "روبوتات تنظيف المسابح",
+   "subclass5": "05314",
+   "merged_from": [
+    "N:05314:Pool cleaning robots"
+   ]
+  },
+  {
+   "class_value": "N:05314:Robot vacuum cleaners",
+   "name_en": "Robot vacuum cleaners",
+   "name_ar": "مكانس روبوت",
+   "subclass5": "05314",
+   "merged_from": [
+    "N:05314:Robot vacuum cleaners"
+   ]
+  },
+  {
+   "class_value": "N:05314:Vacuum cleaner accessories",
+   "name_en": "Vacuum cleaner accessories",
+   "name_ar": "ملحقات المكانس الكهربائية",
+   "subclass5": "05314",
+   "merged_from": [
+    "N:05314:Vacuum cleaner accessories"
+   ]
+  },
+  {
+   "class_value": "N:05319:Sewing machines",
+   "name_en": "Sewing machines",
+   "name_ar": "ماكينات الخياطة",
+   "subclass5": "05319",
+   "merged_from": [
+    "N:05319:Sewing machines"
+   ]
+  },
+  {
+   "class_value": "N:05319:Water purifiers",
+   "name_en": "Water purifiers",
+   "name_ar": "أجهزة تنقية المياه المنزلية",
+   "subclass5": "05319",
+   "merged_from": [
+    "N:05319:Water purifiers"
+   ]
+  },
+  {
+   "class_value": "N:05321:Air fryers",
+   "name_en": "Air fryers",
+   "name_ar": "قلايات هوائية",
+   "subclass5": "05321",
+   "merged_from": [
+    "N:05321:Air fryers"
+   ]
+  },
+  {
+   "class_value": "N:05321:Hot plates",
+   "name_en": "Hot plates",
+   "name_ar": "سخانات طهي كهربائية (هوت بليت)",
+   "subclass5": "05321",
+   "merged_from": [
+    "N:05321:Hot plates"
+   ]
+  },
+  {
+   "class_value": "N:05321:Other small cooking appliances",
+   "name_en": "Other small cooking appliances",
+   "name_ar": "أجهزة طهي صغيرة أخرى (قلاية زيت، مفرمة لحم، صانعة آيس كريم...)",
+   "subclass5": "05321",
+   "merged_from": [
+    "N:05321:Other small cooking appliances"
+   ]
+  },
+  {
+   "class_value": "N:05321:Rice cookers and multi-cookers",
+   "name_en": "Rice cookers and multi-cookers",
+   "name_ar": "طباخات أرز وطناجر كهربائية متعددة الاستخدام",
+   "subclass5": "05321",
+   "merged_from": [
+    "N:05321:Rice cookers and multi-cookers"
+   ]
+  },
+  {
+   "class_value": "N:05321:Sandwich makers and grills",
+   "name_en": "Sandwich makers and grills",
+   "name_ar": "محضرات السندويش والشوايات الكهربائية",
+   "subclass5": "05321",
+   "merged_from": [
+    "N:05321:Sandwich makers and grills"
+   ]
+  },
+  {
+   "class_value": "N:05322:Coffee machines",
+   "name_en": "Coffee machines",
+   "name_ar": "ماكينات القهوة",
+   "subclass5": "05322",
+   "merged_from": [
+    "N:05322:Coffee machines"
+   ]
+  },
+  {
+   "class_value": "N:05322:Electric kettles and tea makers",
+   "name_en": "Electric kettles and tea makers",
+   "name_ar": "غلايات كهربائية وصانعات الشاي",
+   "subclass5": "05322",
+   "merged_from": [
+    "N:05322:Electric kettles and tea makers"
+   ]
+  },
+  {
+   "class_value": "N:05322:Juicers",
+   "name_en": "Juicers",
+   "name_ar": "عصارات",
+   "subclass5": "05322",
+   "merged_from": [
+    "N:05322:Juicers"
+   ]
+  },
+  {
+   "class_value": "N:05322:Soda makers",
+   "name_en": "Soda makers",
+   "name_ar": "أجهزة صنع المياه الغازية",
+   "subclass5": "05322",
+   "merged_from": [
+    "N:05322:Soda makers"
+   ]
+  },
+  {
+   "class_value": "N:05322:Water dispensers",
+   "name_en": "Water dispensers",
+   "name_ar": "موزعات ومضخات المياه",
+   "subclass5": "05322",
+   "merged_from": [
+    "N:05322:Water dispensers"
+   ]
+  },
+  {
+   "class_value": "N:05329:Aroma diffusers",
+   "name_en": "Aroma diffusers",
+   "name_ar": "أجهزة نشر العطور الكهربائية",
+   "subclass5": "05329",
+   "merged_from": [
+    "N:05329:Aroma diffusers"
+   ]
+  },
+  {
+   "class_value": "N:05329:Electric insect killers",
+   "name_en": "Electric insect killers",
+   "name_ar": "صواعق حشرات كهربائية",
+   "subclass5": "05329",
+   "merged_from": [
+    "N:05329:Electric insect killers"
+   ]
+  },
+  {
+   "class_value": "N:05329:Fans",
+   "name_en": "Fans",
+   "name_ar": "مراوح كهربائية",
+   "subclass5": "05329",
+   "merged_from": [
+    "N:05329:Fans"
+   ]
+  },
+  {
+   "class_value": "N:05329:Hand dryers",
+   "name_en": "Hand dryers",
+   "name_ar": "مجففات الأيدي الكهربائية",
+   "subclass5": "05329",
+   "merged_from": [
+    "N:05329:Hand dryers"
+   ]
+  },
+  {
+   "class_value": "N:05329:Other small household appliances",
+   "name_en": "Other small household appliances",
+   "name_ar": "أجهزة منزلية كهربائية صغيرة أخرى",
+   "subclass5": "05329",
+   "merged_from": [
+    "N:05329:Small household appliances"
+   ]
+  },
+  {
+   "class_value": "N:05329:Room thermometers and weather stations",
+   "name_en": "Room thermometers and weather stations",
+   "name_ar": "موازين حرارة ورطوبة الغرف ومحطات الطقس",
+   "subclass5": "05329",
+   "merged_from": [
+    "N:05329:Room thermometers and weather stations"
+   ]
+  },
+  {
+   "class_value": "N:05401:Dinnerware sets",
+   "name_en": "Dinnerware sets",
+   "name_ar": "أطقم صحون (طقم سفرة)",
+   "subclass5": "05401",
+   "merged_from": [
+    "N:05401:Dinnerware sets"
+   ]
+  },
+  {
+   "class_value": "N:05401:Mugs and cups",
+   "name_en": "Mugs and cups",
+   "name_ar": "أكواب وفناجين",
+   "subclass5": "05401",
+   "merged_from": [
+    "N:05401:Mugs and cups"
+   ]
+  },
+  {
+   "class_value": "N:05403:Bathroom accessories",
+   "name_en": "Bathroom accessories",
+   "name_ar": "إكسسوارات الحمام (حامل مناديل...)",
+   "subclass5": "05403",
+   "merged_from": [
+    "N:05403:Bathroom accessories"
+   ]
+  },
+  {
+   "class_value": "N:05403:Cookware sets",
+   "name_en": "Cookware sets",
+   "name_ar": "أطقم أواني طبخ (قدور ومقالي)",
+   "subclass5": "05403",
+   "merged_from": [
+    "N:05403:Cookware sets"
+   ]
+  },
+  {
+   "class_value": "N:05403:Food containers and lunch boxes",
+   "name_en": "Food containers and lunch boxes",
+   "name_ar": "حافظات طعام وعلب غداء",
+   "subclass5": "05403",
+   "merged_from": [
+    "N:05403:Food containers and lunch boxes"
+   ]
+  },
+  {
+   "class_value": "N:05403:Household storage and organizers",
+   "name_en": "Household storage and organizers",
+   "name_ar": "منظمات وصناديق تخزين منزلية",
+   "subclass5": "05403",
+   "merged_from": [
+    "N:05403:Household storage and organizers"
+   ]
+  },
+  {
+   "class_value": "N:05403:Kitchen storage and dish racks",
+   "name_en": "Kitchen storage and dish racks",
+   "name_ar": "حوامل تجفيف الصحون وأدوات تخزين المطبخ",
+   "subclass5": "05403",
+   "merged_from": [
+    "N:05403:Kitchen storage and dish racks"
+   ]
+  },
+  {
+   "class_value": "N:05403:Kitchen tools and gadgets",
+   "name_en": "Kitchen tools and gadgets",
+   "name_ar": "أدوات وملحقات مطبخ صغيرة",
+   "subclass5": "05403",
+   "merged_from": [
+    "N:05403:Kitchen tools and gadgets"
+   ]
+  },
+  {
+   "class_value": "N:05510:Pressure washers",
+   "name_en": "Pressure washers",
+   "name_ar": "غسالات ضغط عالي",
+   "subclass5": "05510",
+   "merged_from": [
+    "N:05510:Pressure washers"
+   ]
+  },
+  {
+   "class_value": "N:05521:Garden and DIY tools",
+   "name_en": "Garden and DIY tools",
+   "name_ar": "أدوات حدائق وأعمال يدوية",
+   "subclass5": "05521",
+   "merged_from": [
+    "N:05521:Garden and DIY tools"
+   ]
+  },
+  {
+   "class_value": "N:05521:Measuring tools",
+   "name_en": "Measuring tools",
+   "name_ar": "أدوات القياس (موازين حرارة صناعية)",
+   "subclass5": "05521",
+   "merged_from": [
+    "N:05521:Measuring tools"
+   ]
+  },
+  {
+   "class_value": "N:05521:Plungers and drain snakes",
+   "name_en": "Plungers and drain snakes",
+   "name_ar": "أدوات فتح المجاري (شفاط، سلك)",
+   "subclass5": "05521",
+   "merged_from": [
+    "N:05521:Plungers and drain snakes"
+   ]
+  },
+  {
+   "class_value": "N:05522:Electrical accessories",
+   "name_en": "Electrical accessories",
+   "name_ar": "ملحقات كهربائية",
+   "subclass5": "05522",
+   "merged_from": [
+    "N:05522:Electrical accessories"
+   ]
+  },
+  {
+   "class_value": "N:05522:Torches and emergency lights",
+   "name_en": "Torches and emergency lights",
+   "name_ar": "مصابيح يدوية وكشافات",
+   "subclass5": "05522",
+   "merged_from": [
+    "N:05522:Torches and emergency lights"
+   ]
+  },
+  {
+   "class_value": "N:05611:Appliance cleaners",
+   "name_en": "Appliance cleaners",
+   "name_ar": "منظفات الأجهزة (غسالات الملابس والصحون)",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Appliance cleaners"
+   ]
+  },
+  {
+   "class_value": "N:05611:Bleach",
+   "name_en": "Bleach",
+   "name_ar": "مبيض (كلور)",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Bleach"
+   ]
+  },
+  {
+   "class_value": "N:05611:Carpet and upholstery cleaners",
+   "name_en": "Carpet and upholstery cleaners",
+   "name_ar": "منظفات السجاد والمفروشات",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Carpet and upholstery cleaners"
+   ]
+  },
+  {
+   "class_value": "N:05611:Cleaning brushes and tools",
+   "name_en": "Cleaning brushes and tools",
+   "name_ar": "فرش وأدوات التنظيف",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Cleaning brushes and tools"
+   ]
+  },
+  {
+   "class_value": "N:05611:Cleaning cloths and sponges",
+   "name_en": "Cleaning cloths and sponges",
+   "name_ar": "فوط وإسفنج التنظيف",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Cleaning cloths and sponges"
+   ]
+  },
+  {
+   "class_value": "N:05611:Cleaning wipes",
+   "name_en": "Cleaning wipes",
+   "name_ar": "مناديل تنظيف وتطهير للأسطح",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Cleaning wipes"
+   ]
+  },
+  {
+   "class_value": "N:05611:Dishwasher detergents",
+   "name_en": "Dishwasher detergents",
+   "name_ar": "منظفات غسالة الصحون",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Dishwasher detergents"
+   ]
+  },
+  {
+   "class_value": "N:05611:Drain cleaners",
+   "name_en": "Drain cleaners",
+   "name_ar": "منظفات المجاري والمصارف",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Drain cleaners"
+   ]
+  },
+  {
+   "class_value": "N:05611:Furniture and metal polishes",
+   "name_en": "Furniture and metal polishes",
+   "name_ar": "ملمعات الأثاث والمعادن",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Furniture and metal polishes"
+   ]
+  },
+  {
+   "class_value": "N:05611:Shoe care products",
+   "name_en": "Shoe care products",
+   "name_ar": "مستلزمات العناية بالأحذية",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Shoe care products"
+   ]
+  },
+  {
+   "class_value": "N:05611:Stain removers and laundry aids",
+   "name_en": "Stain removers and laundry aids",
+   "name_ar": "مزيلات البقع ونشا الكي",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Stain removers and laundry aids"
+   ]
+  },
+  {
+   "class_value": "N:05611:Vacuum cleaner bags and filters",
+   "name_en": "Vacuum cleaner bags and filters",
+   "name_ar": "أكياس وفلاتر المكانس الكهربائية",
+   "subclass5": "05611",
+   "merged_from": [
+    "N:05611:Vacuum cleaner bags and filters"
+   ]
+  },
+  {
+   "class_value": "N:05619:Coffee filters",
+   "name_en": "Coffee filters",
+   "name_ar": "فلاتر القهوة الورقية",
+   "subclass5": "05619",
+   "merged_from": [
+    "N:05619:Coffee filters"
+   ]
+  },
+  {
+   "class_value": "N:05619:Egg cartons and trays",
+   "name_en": "Egg cartons and trays",
+   "name_ar": "كراتين وأطباق البيض",
+   "subclass5": "05619",
+   "merged_from": [
+    "N:05619:Egg cartons and trays"
+   ]
+  },
+  {
+   "class_value": "N:05619:Household gloves",
+   "name_en": "Household gloves",
+   "name_ar": "قفازات منزلية",
+   "subclass5": "05619",
+   "merged_from": [
+    "N:05619:Household gloves"
+   ]
+  },
+  {
+   "class_value": "N:05619:Kitchen paper towels",
+   "name_en": "Kitchen paper towels",
+   "name_ar": "مناشف ورقية للمطبخ",
+   "subclass5": "05619",
+   "merged_from": [
+    "N:05619:Kitchen paper towels"
+   ]
+  },
+  {
+   "class_value": "N:05619:Plastic storage bags",
+   "name_en": "Plastic storage bags",
+   "name_ar": "أكياس تخزين بلاستيكية",
+   "subclass5": "05619",
+   "merged_from": [
+    "N:05619:Plastic storage bags"
+   ]
+  },
+  {
+   "class_value": "N:05619:Sewing and knitting supplies",
+   "name_en": "Sewing and knitting supplies",
+   "name_ar": "أدوات الخياطة والحياكة",
+   "subclass5": "05619",
+   "merged_from": [
+    "N:05619:Sewing and knitting supplies"
+   ]
+  },
+  {
+   "class_value": "N:05619:Water filter cartridges",
+   "name_en": "Water filter cartridges",
+   "name_ar": "خراطيش فلاتر المياه",
+   "subclass5": "05619",
+   "merged_from": [
+    "N:05619:Water filter cartridges"
+   ]
+  },
+  {
+   "class_value": "N:06111:Medicines",
+   "name_en": "Medicines",
+   "name_ar": "أدوية",
+   "subclass5": "06111",
+   "merged_from": [
+    "N:06111:Medicines",
+    "N:06111:Medicines and vitamins"
+   ]
+  },
+  {
+   "class_value": "N:06111:Vitamins and dietary supplements",
+   "name_en": "Vitamins and dietary supplements",
+   "name_ar": "فيتامينات ومكملات غذائية",
+   "subclass5": "06111",
+   "merged_from": [
+    "N:06111:Vitamins and dietary supplements"
+   ]
+  },
+  {
+   "class_value": "N:06112:Herbal medicines",
+   "name_en": "Herbal medicines",
+   "name_ar": "أدوية عشبية ومعالجة مثلية",
+   "subclass5": "06112",
+   "merged_from": [
+    "N:06112:Herbal medicines"
+   ]
+  },
+  {
+   "class_value": "N:06121:Medical thermometers",
+   "name_en": "Medical thermometers",
+   "name_ar": "موازين حرارة طبية",
+   "subclass5": "06121",
+   "merged_from": [
+    "N:06121:Medical thermometers"
+   ]
+  },
+  {
+   "class_value": "N:06122:Compression stockings and medical socks",
+   "name_en": "Compression stockings and medical socks",
+   "name_ar": "جوارب ضاغطة وجوارب طبية",
+   "subclass5": "06122",
+   "merged_from": [
+    "N:06122:Compression stockings and medical socks"
+   ]
+  },
+  {
+   "class_value": "N:06122:Medical face masks",
+   "name_en": "Medical face masks",
+   "name_ar": "كمامات طبية",
+   "subclass5": "06122",
+   "merged_from": [
+    "N:06122:Medical face masks"
+   ]
+  },
+  {
+   "class_value": "N:06123:Bandages, plasters and dressings",
+   "name_en": "Bandages, plasters and dressings",
+   "name_ar": "ضمادات ولاصقات جروح وأشرطة طبية",
+   "subclass5": "06123",
+   "merged_from": [
+    "N:06123:Bandages, plasters and dressings"
+   ]
+  },
+  {
+   "class_value": "N:06123:First-aid kits and emergency supplies",
+   "name_en": "First-aid kits and emergency supplies",
+   "name_ar": "حقائب الإسعافات الأولية ومستلزمات الطوارئ",
+   "subclass5": "06123",
+   "merged_from": [
+    "N:06123:First-aid kits and bandages",
+    "N:06123:First-aid kits and emergency supplies"
+   ]
+  },
+  {
+   "class_value": "N:06123:Hot and cold packs",
+   "name_en": "Hot and cold packs",
+   "name_ar": "كمادات ساخنة وباردة",
+   "subclass5": "06123",
+   "merged_from": [
+    "N:06123:Hot and cold packs"
+   ]
+  },
+  {
+   "class_value": "N:06131:Reading glasses and spectacle frames",
+   "name_en": "Reading glasses and spectacle frames",
+   "name_ar": "نظارات قراءة وإطارات نظارات",
+   "subclass5": "06131",
+   "merged_from": [
+    "N:06131:Reading glasses and spectacle frames"
+   ]
+  },
+  {
+   "class_value": "N:06133:Adult incontinence products",
+   "name_en": "Adult incontinence products",
+   "name_ar": "مستلزمات سلس البول للكبار",
+   "subclass5": "06133",
+   "merged_from": [
+    "N:06133:Adult incontinence products",
+    "N:06133:Incontinence products"
+   ]
+  },
+  {
+   "class_value": "N:06133:Orthopaedic supports and daily living aids",
+   "name_en": "Orthopaedic supports and daily living aids",
+   "name_ar": "دعامات تقويمية ووسائل مساعدة يومية",
+   "subclass5": "06133",
+   "merged_from": [
+    "N:06133:Orthopaedic supports and daily living aids"
+   ]
+  },
+  {
+   "class_value": "N:06133:Therapeutic footwear",
+   "name_en": "Therapeutic footwear",
+   "name_ar": "أحذية علاجية (سكري وتقويمية)",
+   "subclass5": "06133",
+   "merged_from": [
+    "N:06133:Therapeutic footwear"
+   ]
+  },
+  {
+   "class_value": "N:07130:Bicycles",
+   "name_en": "Bicycles",
+   "name_ar": "دراجات هوائية (للكبار)",
+   "subclass5": "07130",
+   "merged_from": [
+    "N:07130:Bicycles"
+   ]
+  },
+  {
+   "class_value": "N:07211:Tyres and inner tubes",
+   "name_en": "Tyres and inner tubes",
+   "name_ar": "إطارات وأنابيب داخلية",
+   "subclass5": "07211",
+   "merged_from": [
+    "N:07211:Tyres and inner tubes"
+   ]
+  },
+  {
+   "class_value": "N:07212:Bicycle parts",
+   "name_en": "Bicycle parts",
+   "name_ar": "قطع غيار الدراجات",
+   "subclass5": "07212",
+   "merged_from": [
+    "N:07212:Bicycle parts"
+   ]
+  },
+  {
+   "class_value": "N:07212:Vehicle parts",
+   "name_en": "Vehicle parts",
+   "name_ar": "قطع غيار المركبات",
+   "subclass5": "07212",
+   "merged_from": [
+    "N:07212:Vehicle parts"
+   ]
+  },
+  {
+   "class_value": "N:07213:Bicycle accessories",
+   "name_en": "Bicycle accessories",
+   "name_ar": "إكسسوارات الدراجات",
+   "subclass5": "07213",
+   "merged_from": [
+    "N:07213:Bicycle accessories"
+   ]
+  },
+  {
+   "class_value": "N:07213:Car accessories",
+   "name_en": "Car accessories",
+   "name_ar": "إكسسوارات سيارات",
+   "subclass5": "07213",
+   "merged_from": [
+    "N:07213:Car accessories"
+   ]
+  },
+  {
+   "class_value": "N:07213:Car care and cleaning products",
+   "name_en": "Car care and cleaning products",
+   "name_ar": "منتجات العناية بالسيارات وتنظيفها",
+   "subclass5": "07213",
+   "merged_from": [
+    "N:07213:Car accessories and care products",
+    "N:07213:Car care and cleaning products"
+   ]
+  },
+  {
+   "class_value": "N:07213:Dash cameras",
+   "name_en": "Dash cameras",
+   "name_ar": "كاميرات لوحة القيادة",
+   "subclass5": "07213",
+   "merged_from": [
+    "N:07213:Dash cameras"
+   ]
+  },
+  {
+   "class_value": "N:07224:Engine oils",
+   "name_en": "Engine oils",
+   "name_ar": "زيوت المحركات",
+   "subclass5": "07224",
+   "merged_from": [
+    "N:07224:Engine oils"
+   ]
+  },
+  {
+   "class_value": "N:07224:Other lubricants, fluids and additives",
+   "name_en": "Other lubricants, fluids and additives",
+   "name_ar": "مزلقات وسوائل وإضافات أخرى للمركبات",
+   "subclass5": "07224",
+   "merged_from": [
+    "N:07224:Other lubricants, fluids and additives"
+   ]
+  },
+  {
+   "class_value": "N:08110:Fixed telephones",
+   "name_en": "Fixed telephones",
+   "name_ar": "هواتف أرضية",
+   "subclass5": "08110",
+   "merged_from": [
+    "N:08110:Fixed telephones"
+   ]
+  },
+  {
+   "class_value": "N:08120:Feature phones",
+   "name_en": "Feature phones",
+   "name_ar": "هواتف محمولة عادية (غير ذكية)",
+   "subclass5": "08120",
+   "merged_from": [
+    "N:08120:Feature phones"
+   ]
+  },
+  {
+   "class_value": "N:08131:Desktop computers",
+   "name_en": "Desktop computers",
+   "name_ar": "أجهزة حاسوب مكتبية",
+   "subclass5": "08131",
+   "merged_from": [
+    "N:08131:Desktop computers"
+   ]
+  },
+  {
+   "class_value": "N:08132:Calculators",
+   "name_en": "Calculators",
+   "name_ar": "آلات حاسبة",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:Calculators"
+   ]
+  },
+  {
+   "class_value": "N:08132:Keyboards and mice",
+   "name_en": "Keyboards and mice",
+   "name_ar": "لوحات مفاتيح وفأرات",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:Keyboards and mice"
+   ]
+  },
+  {
+   "class_value": "N:08132:Monitors",
+   "name_en": "Monitors",
+   "name_ar": "شاشات حاسوب",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:Monitors"
+   ]
+  },
+  {
+   "class_value": "N:08132:Printer ink, toner and labels",
+   "name_en": "Printer ink, toner and labels",
+   "name_ar": "أحبار ومساحيق حبر (تونر) وأشرطة ملصقات للطابعات",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:Printer ink, toner and labels"
+   ]
+  },
+  {
+   "class_value": "N:08132:Printers and scanners",
+   "name_en": "Printers and scanners",
+   "name_ar": "طابعات وماسحات ضوئية",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:Printers and scanners"
+   ]
+  },
+  {
+   "class_value": "N:08132:Routers and network equipment",
+   "name_en": "Routers and network equipment",
+   "name_ar": "أجهزة توجيه (راوتر) ومعدات شبكات",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:Routers and network equipment"
+   ]
+  },
+  {
+   "class_value": "N:08132:VR headsets",
+   "name_en": "VR headsets",
+   "name_ar": "نظارات الواقع الافتراضي",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:VR headsets"
+   ]
+  },
+  {
+   "class_value": "N:08132:Webcams",
+   "name_en": "Webcams",
+   "name_ar": "كاميرات ويب",
+   "subclass5": "08132",
+   "merged_from": [
+    "N:08132:Webcams"
+   ]
+  },
+  {
+   "class_value": "N:08140:Audio amplifiers",
+   "name_en": "Audio amplifiers",
+   "name_ar": "مضخمات صوت",
+   "subclass5": "08140",
+   "merged_from": [
+    "N:08140:Audio amplifiers"
+   ]
+  },
+  {
+   "class_value": "N:08140:Microphones",
+   "name_en": "Microphones",
+   "name_ar": "ميكروفونات",
+   "subclass5": "08140",
+   "merged_from": [
+    "N:08140:Microphones"
+   ]
+  },
+  {
+   "class_value": "N:08140:Radios",
+   "name_en": "Radios",
+   "name_ar": "أجهزة راديو",
+   "subclass5": "08140",
+   "merged_from": [
+    "N:08140:Radios"
+   ]
+  },
+  {
+   "class_value": "N:08140:Soundbars and home theatre systems",
+   "name_en": "Soundbars and home theatre systems",
+   "name_ar": "مكبرات صوت عمودية (ساوند بار) وأنظمة مسرح منزلي",
+   "subclass5": "08140",
+   "merged_from": [
+    "N:08140:Soundbars and home theatre systems"
+   ]
+  },
+  {
+   "class_value": "N:08140:Speakers",
+   "name_en": "Speakers",
+   "name_ar": "سماعات صوت (مكبرات صوت)",
+   "subclass5": "08140",
+   "merged_from": [
+    "N:08140:Speakers"
+   ]
+  },
+  {
+   "class_value": "N:08140:Streaming media players",
+   "name_en": "Streaming media players",
+   "name_ar": "أجهزة بث الوسائط للتلفاز",
+   "subclass5": "08140",
+   "merged_from": [
+    "N:08140:Streaming media players"
+   ]
+  },
+  {
+   "class_value": "N:08150:Storage media",
+   "name_en": "Storage media",
+   "name_ar": "وسائط تخزين (ذاكرة فلاش وأقراص خارجية)",
+   "subclass5": "08150",
+   "merged_from": [
+    "N:08150:Storage media"
+   ]
+  },
+  {
+   "class_value": "N:08191:Bluetooth item trackers",
+   "name_en": "Bluetooth item trackers",
+   "name_ar": "أجهزة تتبع الأغراض بالبلوتوث",
+   "subclass5": "08191",
+   "merged_from": [
+    "N:08191:Bluetooth item trackers"
+   ]
+  },
+  {
+   "class_value": "N:08191:E-book readers",
+   "name_en": "E-book readers",
+   "name_ar": "أجهزة قراءة الكتب الإلكترونية",
+   "subclass5": "08191",
+   "merged_from": [
+    "N:08191:E-book readers"
+   ]
+  },
+  {
+   "class_value": "N:08191:Smartwatches and fitness trackers",
+   "name_en": "Smartwatches and fitness trackers",
+   "name_ar": "ساعات ذكية وأجهزة تتبع لياقة",
+   "subclass5": "08191",
+   "merged_from": [
+    "N:08191:Smartwatches and fitness trackers"
+   ]
+  },
+  {
+   "class_value": "N:08192:Cables and adapters",
+   "name_en": "Cables and adapters",
+   "name_ar": "كابلات ومحولات",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Cables and adapters"
+   ]
+  },
+  {
+   "class_value": "N:08192:Computer components",
+   "name_en": "Computer components",
+   "name_ar": "مكونات الحاسوب (أقراص داخلية وذاكرة)",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Computer components"
+   ]
+  },
+  {
+   "class_value": "N:08192:Other ICT accessories",
+   "name_en": "Other ICT accessories",
+   "name_ar": "ملحقات أخرى للحاسوب والاتصالات",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Other ICT accessories"
+   ]
+  },
+  {
+   "class_value": "N:08192:Phone cases and covers",
+   "name_en": "Phone cases and covers",
+   "name_ar": "أغطية وحافظات الهواتف",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Phone cases and covers"
+   ]
+  },
+  {
+   "class_value": "N:08192:Screen protectors",
+   "name_en": "Screen protectors",
+   "name_ar": "واقيات الشاشة",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Screen protectors"
+   ]
+  },
+  {
+   "class_value": "N:08192:Smartwatch straps and cases",
+   "name_en": "Smartwatch straps and cases",
+   "name_ar": "أحزمة وأغطية الساعات الذكية",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Smartwatch straps and cases"
+   ]
+  },
+  {
+   "class_value": "N:08192:Stands, holders and mounts",
+   "name_en": "Stands, holders and mounts",
+   "name_ar": "حوامل وقواعد الأجهزة",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Stands, holders and mounts"
+   ]
+  },
+  {
+   "class_value": "N:08192:Stylus pens",
+   "name_en": "Stylus pens",
+   "name_ar": "أقلام لمس",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Stylus pens"
+   ]
+  },
+  {
+   "class_value": "N:08192:Tablet cases and keyboard covers",
+   "name_en": "Tablet cases and keyboard covers",
+   "name_ar": "أغطية الأجهزة اللوحية وأغطية لوحات المفاتيح",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:Tablet cases and keyboard covers"
+   ]
+  },
+  {
+   "class_value": "N:08192:USB hubs, docks and card readers",
+   "name_en": "USB hubs, docks and card readers",
+   "name_ar": "موزعات USB ومحطات توصيل وقارئات بطاقات",
+   "subclass5": "08192",
+   "merged_from": [
+    "N:08192:USB hubs, docks and card readers"
+   ]
+  },
+  {
+   "class_value": "N:09111:Action cameras",
+   "name_en": "Action cameras",
+   "name_ar": "كاميرات الحركة",
+   "subclass5": "09111",
+   "merged_from": [
+    "N:09111:Action cameras"
+   ]
+  },
+  {
+   "class_value": "N:09111:Digital cameras",
+   "name_en": "Digital cameras",
+   "name_ar": "كاميرات رقمية",
+   "subclass5": "09111",
+   "merged_from": [
+    "N:09111:Digital cameras"
+   ]
+  },
+  {
+   "class_value": "N:09111:Instant cameras",
+   "name_en": "Instant cameras",
+   "name_ar": "كاميرات فورية",
+   "subclass5": "09111",
+   "merged_from": [
+    "N:09111:Instant cameras"
+   ]
+  },
+  {
+   "class_value": "N:09112:Camera accessories",
+   "name_en": "Camera accessories",
+   "name_ar": "ملحقات الكاميرات",
+   "subclass5": "09112",
+   "merged_from": [
+    "N:09112:Camera accessories"
+   ]
+  },
+  {
+   "class_value": "N:09112:Photographic film",
+   "name_en": "Photographic film",
+   "name_ar": "أفلام التصوير",
+   "subclass5": "09112",
+   "merged_from": [
+    "N:09112:Photographic film"
+   ]
+  },
+  {
+   "class_value": "N:09123:Diving and water-sport gear",
+   "name_en": "Diving and water-sport gear",
+   "name_ar": "جوارب ومعدات غوص",
+   "subclass5": "09123",
+   "merged_from": [
+    "N:09123:Diving and water-sport gear"
+   ]
+  },
+  {
+   "class_value": "N:09211:Game controllers and gaming accessories",
+   "name_en": "Game controllers and gaming accessories",
+   "name_ar": "ملحقات ألعاب الفيديو",
+   "subclass5": "09211",
+   "merged_from": [
+    "N:09211:Game controllers and gaming accessories"
+   ]
+  },
+  {
+   "class_value": "N:09211:Video game consoles",
+   "name_en": "Video game consoles",
+   "name_ar": "أجهزة ألعاب الفيديو",
+   "subclass5": "09211",
+   "merged_from": [
+    "N:09211:Video game consoles"
+   ]
+  },
+  {
+   "class_value": "N:09211:Video games",
+   "name_en": "Video games",
+   "name_ar": "ألعاب الفيديو",
+   "subclass5": "09211",
+   "merged_from": [
+    "N:09211:Video games"
+   ]
+  },
+  {
+   "class_value": "N:09212:Arts and crafts supplies",
+   "name_en": "Arts and crafts supplies",
+   "name_ar": "مستلزمات الحرف اليدوية والهوايات",
+   "subclass5": "09212",
+   "merged_from": [
+    "N:09212:Arts and crafts supplies"
+   ]
+  },
+  {
+   "class_value": "N:09212:Costumes and disguises",
+   "name_en": "Costumes and disguises",
+   "name_ar": "أزياء تنكرية",
+   "subclass5": "09212",
+   "merged_from": [
+    "N:09212:Costumes and disguises"
+   ]
+  },
+  {
+   "class_value": "N:09212:Playground equipment",
+   "name_en": "Playground equipment",
+   "name_ar": "ألعاب الحدائق (مراجيح وزحاليق)",
+   "subclass5": "09212",
+   "merged_from": [
+    "N:09212:Playground equipment"
+   ]
+  },
+  {
+   "class_value": "N:09213:Celebration and party decorations",
+   "name_en": "Celebration and party decorations",
+   "name_ar": "زينة الحفلات والمناسبات",
+   "subclass5": "09213",
+   "merged_from": [
+    "N:09213:Celebration and party decorations"
+   ]
+  },
+  {
+   "class_value": "N:09221:Fishing equipment",
+   "name_en": "Fishing equipment",
+   "name_ar": "معدات صيد الأسماك",
+   "subclass5": "09221",
+   "merged_from": [
+    "N:09221:Fishing equipment"
+   ]
+  },
+  {
+   "class_value": "N:09221:Game-specific sports footwear",
+   "name_en": "Game-specific sports footwear",
+   "name_ar": "أحذية رياضية خاصة بالألعاب (جولف، بولينج، تزلج، كرة قدم)",
+   "subclass5": "09221",
+   "merged_from": [
+    "N:09221:Game-specific sports footwear"
+   ]
+  },
+  {
+   "class_value": "N:09221:Sports and fitness equipment",
+   "name_en": "Sports and fitness equipment",
+   "name_ar": "معدات رياضية ولياقة",
+   "subclass5": "09221",
+   "merged_from": [
+    "N:09221:Sports and fitness equipment"
+   ]
+  },
+  {
+   "class_value": "N:09222:Barbecue grills and accessories",
+   "name_en": "Barbecue grills and accessories",
+   "name_ar": "شوايات فحم وملحقاتها",
+   "subclass5": "09222",
+   "merged_from": [
+    "N:09222:Barbecue grills and accessories"
+   ]
+  },
+  {
+   "class_value": "N:09222:Inflatables and beach equipment",
+   "name_en": "Inflatables and beach equipment",
+   "name_ar": "منفوخات وأحواض سباحة ومستلزمات الشاطئ",
+   "subclass5": "09222",
+   "merged_from": [
+    "N:09222:Inflatable pools and spas",
+    "N:09222:Inflatables and beach equipment"
+   ]
+  },
+  {
+   "class_value": "N:09311:Garden products",
+   "name_en": "Garden products",
+   "name_ar": "مستلزمات الحدائق (تربة وأسمدة)",
+   "subclass5": "09311",
+   "merged_from": [
+    "N:09311:Garden products"
+   ]
+  },
+  {
+   "class_value": "N:09312:Seeds and bulbs",
+   "name_en": "Seeds and bulbs",
+   "name_ar": "بذور وأبصال زراعية",
+   "subclass5": "09312",
+   "merged_from": [
+    "N:09312:Plants, seeds and flowers",
+    "N:09312:Seeds and bulbs"
+   ]
+  },
+  {
+   "class_value": "N:09322:Cat litter",
+   "name_en": "Cat litter",
+   "name_ar": "رمل القطط",
+   "subclass5": "09322",
+   "merged_from": [
+    "N:09322:Cat litter"
+   ]
+  },
+  {
+   "class_value": "N:09322:Pet accessories",
+   "name_en": "Pet accessories",
+   "name_ar": "مستلزمات الحيوانات الأليفة",
+   "subclass5": "09322",
+   "merged_from": [
+    "N:09322:Pet accessories"
+   ]
+  },
+  {
+   "class_value": "N:09322:Pet grooming and health products",
+   "name_en": "Pet grooming and health products",
+   "name_ar": "منتجات العناية والصحة للحيوانات الأليفة",
+   "subclass5": "09322",
+   "merged_from": [
+    "N:09322:Pet grooming and health products"
+   ]
+  },
+  {
+   "class_value": "N:09711:Educational books and dictionaries",
+   "name_en": "Educational books and dictionaries",
+   "name_ar": "كتب تعليمية وقواميس",
+   "subclass5": "09711",
+   "merged_from": [
+    "N:09711:Educational books and dictionaries"
+   ]
+  },
+  {
+   "class_value": "N:09719:Activity, colouring and puzzle books",
+   "name_en": "Activity, colouring and puzzle books",
+   "name_ar": "كتب الأنشطة والتلوين والألغاز",
+   "subclass5": "09719",
+   "merged_from": [
+    "N:09719:Activity, colouring and puzzle books"
+   ]
+  },
+  {
+   "class_value": "N:09719:Children's books",
+   "name_en": "Children's books",
+   "name_ar": "كتب الأطفال",
+   "subclass5": "09719",
+   "merged_from": [
+    "N:09719:Children's books"
+   ]
+  },
+  {
+   "class_value": "N:09719:Fiction and non-fiction books",
+   "name_en": "Fiction and non-fiction books",
+   "name_ar": "كتب أدبية وعامة",
+   "subclass5": "09719",
+   "merged_from": [
+    "N:09719:Fiction and non-fiction books"
+   ]
+  },
+  {
+   "class_value": "N:09719:Religious books",
+   "name_en": "Religious books",
+   "name_ar": "كتب دينية (مصاحف)",
+   "subclass5": "09719",
+   "merged_from": [
+    "N:09719:Religious books"
+   ]
+  },
+  {
+   "class_value": "N:09740:Colouring and drawing materials",
+   "name_en": "Colouring and drawing materials",
+   "name_ar": "أدوات التلوين والرسم",
+   "subclass5": "09740",
+   "merged_from": [
+    "N:09740:Colouring and drawing materials"
+   ]
+  },
+  {
+   "class_value": "N:09740:Notebooks, exercise and drawing books",
+   "name_en": "Notebooks, exercise and drawing books",
+   "name_ar": "دفاتر وكراسات",
+   "subclass5": "09740",
+   "merged_from": [
+    "N:09740:Notebooks, exercise and drawing books"
+   ]
+  },
+  {
+   "class_value": "N:09740:Pens and writing instruments",
+   "name_en": "Pens and writing instruments",
+   "name_ar": "أقلام وأدوات كتابة",
+   "subclass5": "09740",
+   "merged_from": [
+    "N:09740:Pens and writing instruments"
+   ]
+  },
+  {
+   "class_value": "N:09740:Stationery",
+   "name_en": "Stationery",
+   "name_ar": "قرطاسية",
+   "subclass5": "09740",
+   "merged_from": [
+    "N:09740:Stationery"
+   ]
+  },
+  {
+   "class_value": "N:13111:Electric shaver replacement heads",
+   "name_en": "Electric shaver replacement heads",
+   "name_ar": "رؤوس بديلة لماكينات الحلاقة",
+   "subclass5": "13111",
+   "merged_from": [
+    "N:13111:Electric shaver replacement heads"
+   ]
+  },
+  {
+   "class_value": "N:13111:Electric skin care devices",
+   "name_en": "Electric skin care devices",
+   "name_ar": "أجهزة كهربائية للعناية بالبشرة",
+   "subclass5": "13111",
+   "merged_from": [
+    "N:13111:Electric skin care devices"
+   ]
+  },
+  {
+   "class_value": "N:13111:Epilators",
+   "name_en": "Epilators",
+   "name_ar": "أجهزة إزالة الشعر",
+   "subclass5": "13111",
+   "merged_from": [
+    "N:13111:Epilators"
+   ]
+  },
+  {
+   "class_value": "N:13111:Hair straighteners and curling irons",
+   "name_en": "Hair straighteners and curling irons",
+   "name_ar": "أجهزة فرد وتمويج الشعر",
+   "subclass5": "13111",
+   "merged_from": [
+    "N:13111:Hair straighteners and curling irons"
+   ]
+  },
+  {
+   "class_value": "N:13120:Bath salts and soaks",
+   "name_en": "Bath salts and soaks",
+   "name_ar": "أملاح ومنقوعات الاستحمام",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Bath salts and soaks"
+   ]
+  },
+  {
+   "class_value": "N:13120:Bath sponges and body scrubbers",
+   "name_en": "Bath sponges and body scrubbers",
+   "name_ar": "ليف وفرش الاستحمام",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Bath sponges and body scrubbers"
+   ]
+  },
+  {
+   "class_value": "N:13120:Combs and hairbrushes",
+   "name_en": "Combs and hairbrushes",
+   "name_ar": "أمشاط وفرش شعر",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Combs and hairbrushes"
+   ]
+  },
+  {
+   "class_value": "N:13120:Cosmetic applicators and tools",
+   "name_en": "Cosmetic applicators and tools",
+   "name_ar": "أدوات تطبيق مستحضرات التجميل",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Cosmetic applicators and tools"
+   ]
+  },
+  {
+   "class_value": "N:13120:Face serums and skin treatments",
+   "name_en": "Face serums and skin treatments",
+   "name_ar": "سيروم ومعالجات البشرة",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Face serums and skin treatments"
+   ]
+  },
+  {
+   "class_value": "N:13120:Facial masks",
+   "name_en": "Facial masks",
+   "name_ar": "أقنعة الوجه التجميلية",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Facial masks"
+   ]
+  },
+  {
+   "class_value": "N:13120:Foot care and pedicure products",
+   "name_en": "Foot care and pedicure products",
+   "name_ar": "منتجات العناية بالقدم",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Foot care and pedicure products"
+   ]
+  },
+  {
+   "class_value": "N:13120:Hair accessories",
+   "name_en": "Hair accessories",
+   "name_ar": "إكسسوارات الشعر (مشابك وبكلات)",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Hair accessories"
+   ]
+  },
+  {
+   "class_value": "N:13120:Hair conditioners",
+   "name_en": "Hair conditioners",
+   "name_ar": "بلسم الشعر",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Hair conditioners"
+   ]
+  },
+  {
+   "class_value": "N:13120:Hair removal products",
+   "name_en": "Hair removal products",
+   "name_ar": "منتجات إزالة الشعر",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Hair removal products"
+   ]
+  },
+  {
+   "class_value": "N:13120:Intimate washes",
+   "name_en": "Intimate washes",
+   "name_ar": "غسول المناطق الحساسة",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Intimate washes"
+   ]
+  },
+  {
+   "class_value": "N:13120:Lip balms",
+   "name_en": "Lip balms",
+   "name_ar": "مرطب الشفاه",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Lip balms"
+   ]
+  },
+  {
+   "class_value": "N:13120:Nail polish",
+   "name_en": "Nail polish",
+   "name_ar": "طلاء أظافر",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Nail polish"
+   ]
+  },
+  {
+   "class_value": "N:13120:Skin care gift sets",
+   "name_en": "Skin care gift sets",
+   "name_ar": "مجموعات هدايا العناية بالبشرة",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Skin care gift sets"
+   ]
+  },
+  {
+   "class_value": "N:13120:Sunscreens",
+   "name_en": "Sunscreens",
+   "name_ar": "واقيات الشمس",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Sunscreens"
+   ]
+  },
+  {
+   "class_value": "N:13120:Talcum powder",
+   "name_en": "Talcum powder",
+   "name_ar": "بودرة تلك",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Talcum powder"
+   ]
+  },
+  {
+   "class_value": "N:13120:Teeth whitening products",
+   "name_en": "Teeth whitening products",
+   "name_ar": "منتجات تبييض الأسنان",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Teeth whitening products"
+   ]
+  },
+  {
+   "class_value": "N:13120:Wet wipes",
+   "name_en": "Wet wipes",
+   "name_ar": "مناديل مبللة مضادة للبكتيريا",
+   "subclass5": "13120",
+   "merged_from": [
+    "N:13120:Wet wipes"
+   ]
+  },
+  {
+   "class_value": "N:13211:Fashion jewellery",
+   "name_en": "Fashion jewellery",
+   "name_ar": "مجوهرات وإكسسوارات أزياء",
+   "subclass5": "13211",
+   "merged_from": [
+    "N:13211:Fashion jewellery"
+   ]
+  },
+  {
+   "class_value": "N:13211:Watch straps",
+   "name_en": "Watch straps",
+   "name_ar": "أحزمة ساعات",
+   "subclass5": "13211",
+   "merged_from": [
+    "N:13211:Watch straps"
+   ]
+  },
+  {
+   "class_value": "N:13220:Prayer rugs and devotional articles",
+   "name_en": "Prayer rugs and devotional articles",
+   "name_ar": "سجادات صلاة ومستلزمات دينية",
+   "subclass5": "13220",
+   "merged_from": [
+    "N:13220:Prayer rugs and devotional articles",
+    "N:13220:Puja and devotional articles"
+   ]
+  },
+  {
+   "class_value": "N:13291:Baby articles",
+   "name_en": "Baby articles",
+   "name_ar": "مستلزمات الأطفال الرضع",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Baby articles"
+   ]
+  },
+  {
+   "class_value": "N:13291:Eyewear accessories",
+   "name_en": "Eyewear accessories",
+   "name_ar": "ملحقات النظارات (عدسات بديلة وأدوات تنظيف)",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Eyewear accessories",
+    "N:13291:Sunglass replacement lenses"
+   ]
+  },
+  {
+   "class_value": "N:13291:Gift sets",
+   "name_en": "Gift sets",
+   "name_ar": "أطقم هدايا مشكلة",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Gift sets"
+   ]
+  },
+  {
+   "class_value": "N:13291:Key rings and small personal accessories",
+   "name_en": "Key rings and small personal accessories",
+   "name_ar": "ميداليات المفاتيح",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Key rings and small personal accessories"
+   ]
+  },
+  {
+   "class_value": "N:13291:Laptop bags and backpacks",
+   "name_en": "Laptop bags and backpacks",
+   "name_ar": "حقائب الحاسوب المحمول",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Laptop bags and backpacks"
+   ]
+  },
+  {
+   "class_value": "N:13291:Reusable diaper covers",
+   "name_en": "Reusable diaper covers",
+   "name_ar": "أغطية حفاضات قابلة لإعادة الاستخدام",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Reusable diaper covers"
+   ]
+  },
+  {
+   "class_value": "N:13291:Shoe horns and shoe trees",
+   "name_en": "Shoe horns and shoe trees",
+   "name_ar": "لباسات وقوالب أحذية",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Shoe horns and shoe trees"
+   ]
+  },
+  {
+   "class_value": "N:13291:Sleep masks",
+   "name_en": "Sleep masks",
+   "name_ar": "أقنعة النوم",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Sleep masks"
+   ]
+  },
+  {
+   "class_value": "N:13291:Smoking accessories",
+   "name_en": "Smoking accessories",
+   "name_ar": "مستلزمات التدخين",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Smoking accessories"
+   ]
+  },
+  {
+   "class_value": "N:13291:Travel accessories",
+   "name_en": "Travel accessories",
+   "name_ar": "مستلزمات السفر",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Travel accessories"
+   ]
+  },
+  {
+   "class_value": "N:13291:Travel and sports bags",
+   "name_en": "Travel and sports bags",
+   "name_ar": "حقائب سفر ورياضة",
+   "subclass5": "13291",
+   "merged_from": [
+    "N:13291:Travel and sports bags"
+   ]
+  }
+ ],
+ "replaced": {
+  "N:01144:Plant-based milk": "N:01144:Plant-based milks",
+  "N:01191:Ready-made meals": "N:01191:Ready meals",
+  "N:03132:Haberdashery and sewing patterns": "N:03132:Haberdashery and knitting yarns",
+  "N:03132:Knitting yarns": "N:03132:Haberdashery and knitting yarns",
+  "N:06111:Medicines and vitamins": "N:06111:Medicines",
+  "N:06123:First-aid kits and bandages": "N:06123:First-aid kits and emergency supplies",
+  "N:06133:Incontinence products": "N:06133:Adult incontinence products",
+  "N:07213:Car accessories and care products": "N:07213:Car care and cleaning products",
+  "N:09222:Inflatable pools and spas": "N:09222:Inflatables and beach equipment",
+  "N:09312:Plants, seeds and flowers": "N:09312:Seeds and bulbs",
+  "N:13220:Puja and devotional articles": "N:13220:Prayer rugs and devotional articles",
+  "N:13291:Sunglass replacement lenses": "N:13291:Eyewear accessories",
+  "N:03122:Jumpers and sweaters": "N:03122:Women's jumpers and sweaters",
+  "N:03122:Waistcoats and gilets": "N:03122:Women's waistcoats and gilets",
+  "N:05329:Small household appliances": "N:05329:Other small household appliances",
+  "N:01178:Other frozen vegetables": "0117803",
+  "N:01210:Fruit juices": "0121001",
+  "N:03212:Women's sandals and flip-flops": "0321201",
+  "N:03213:Children's school shoes": "0321301",
+  "N:05313:Air purifiers": "0532901",
+  "N:05321:Toasters": "0532901",
+  "N:05619:Clothes pegs and hangers": "0540304",
+  "N:05619:Incense sticks and bakhoor": "1312002",
+  "N:09212:Toys and games": "0921201",
+  "N:13120:Toothpaste": "1312008",
+  "N:13120:Face powder and concealer": "1312016",
+  "N:13120:Lipsticks and lip liners": "1312016",
+  "N:13120:Shaving creams and gels": "1312004",
+  "N:13120:Shower gels and body washes": "1312010",
+  "N:13120:Liquid hand soaps": "1312010",
+  "N:13120:Skin cleansers and scrubs": "1312007"
+ }
+}

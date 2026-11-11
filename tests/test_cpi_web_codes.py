@@ -28,7 +28,7 @@ def setup(tmp_path, rows, rules):
 
 def run(tmp_path, out, prev=None):
     a = [sys.executable, "-I", SCRIPT, str(tmp_path / "u.csv"), str(out), "--rules", str(tmp_path / "rules"),
-         "--basket", str(tmp_path / "basket.json"), "--coicop", str(tmp_path / "coicop.tsv")]
+         "--basket", str(tmp_path / "basket.json"), "--coicop", str(tmp_path / "coicop.tsv"), "--names", str(tmp_path / "names")]
     if prev:
         a += ["--prev", str(prev)]
     subprocess.run(a, check=True, capture_output=True, text=True)

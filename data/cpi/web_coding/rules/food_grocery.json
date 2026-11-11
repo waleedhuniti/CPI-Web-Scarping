@@ -1,0 +1,1230 @@
+{
+ "categories": {
+  "basket_0111_bread_cereals": {
+   "default": "0111303",
+   "rules": [],
+   "note": "all products carry basket codes; one override for a mis-matched basket code"
+  },
+  "basket_0118_sugar_jam_honey_sweets": {
+   "default": "0118501",
+   "rules": [],
+   "note": "all products carry basket codes"
+  },
+  "basket_0119_other_food_products": {
+   "default": "0119410",
+   "rules": [],
+   "note": "all products carry basket codes; overrides for sauces/seasonings basket-matched to black pepper"
+  },
+  "basket_none": {
+   "default": "0121002",
+   "rules": [
+    {
+     "re": "black tea",
+     "class": "0123001"
+    }
+   ]
+  },
+  "grocery_food_cupboard": {
+   "default": "0118501",
+   "rules": [
+    {
+     "re": "milk powder",
+     "class": "0114302"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "walnut",
+     "class": "0116804"
+    },
+    {
+     "re": "pringles|chips",
+     "class": "0117906"
+    },
+    {
+     "re": "oreo|cookies",
+     "class": "0111306"
+    }
+   ]
+  },
+  "grocery_food_cupboard_cooking_ingredients": {
+   "default": "0119410",
+   "rules": [
+    {
+     "re": "coconut oil",
+     "class": "0115106"
+    },
+    {
+     "re": "olive|pomace",
+     "class": "0115101"
+    },
+    {
+     "re": "sunflower",
+     "class": "0115104"
+    },
+    {
+     "re": "canola",
+     "class": "N:01151:Other vegetable oils"
+    },
+    {
+     "re": "cooking cream",
+     "class": "0119906"
+    },
+    {
+     "re": "ghee",
+     "class": "0115202"
+    },
+    {
+     "re": "\\bdal\\b|moong",
+     "class": "0117601"
+    },
+    {
+     "re": "chickpea",
+     "class": "0117602"
+    },
+    {
+     "re": "oregano|coriander",
+     "class": "N:01194:Dried herbs and other spices"
+    },
+    {
+     "re": "chilli powder",
+     "class": "0119402"
+    },
+    {
+     "re": "paste",
+     "class": "0119901"
+    },
+    {
+     "re": "stock",
+     "class": "0119902"
+    },
+    {
+     "re": "masala|sambar|biriyani|biryani",
+     "class": "0119410"
+    }
+   ]
+  },
+  "grocery_food_cupboard_frozen_food": {
+   "default": "0112206",
+   "rules": [
+    {
+     "re": "ice cream|kulfi",
+     "class": "0118601"
+    },
+    {
+     "re": "fries",
+     "class": "0117905"
+    },
+    {
+     "re": "nugget|strips|sticks|zing|tempura",
+     "class": "0112509"
+    },
+    {
+     "re": "burger",
+     "class": "0112506"
+    },
+    {
+     "re": "franks",
+     "class": "0112505"
+    },
+    {
+     "re": "paneer",
+     "class": "0114503"
+    },
+    {
+     "re": "okra",
+     "class": "0117803"
+    },
+    {
+     "re": "sweet corn",
+     "class": "0117804"
+    },
+    {
+     "re": "green peas",
+     "class": "0117801"
+    },
+    {
+     "re": "konafah",
+     "class": "0111902"
+    },
+    {
+     "re": "paratha|parota",
+     "class": "0111301"
+    },
+    {
+     "re": "chicken",
+     "class": "0112206"
+    }
+   ]
+  },
+  "grocery_food_cupboard_home_baking_sweeteners": {
+   "default": "0111201",
+   "rules": [
+    {
+     "re": "rice powder|puttu|idiyappam|pathiri|appam",
+     "class": "N:01112:Other cereal flours"
+    },
+    {
+     "re": "corn meal",
+     "class": "0111202"
+    },
+    {
+     "re": "atta",
+     "class": "0111201"
+    },
+    {
+     "re": "dumpling mix",
+     "class": "N:01119:Baking mixes"
+    },
+    {
+     "re": "whipped topping",
+     "class": "0119906"
+    },
+    {
+     "re": "rava",
+     "class": "0111107"
+    },
+    {
+     "re": "bicarbonate|baking soda",
+     "class": "0119904"
+    },
+    {
+     "re": "essence",
+     "class": "N:01199:Food flavourings and essences"
+    },
+    {
+     "re": "brown sugar",
+     "class": "0118101"
+    },
+    {
+     "re": "stevia|sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "molasses",
+     "class": "0118201"
+    }
+   ]
+  },
+  "grocery_food_cupboard_rice_pasta_noodles": {
+   "default": "0111101",
+   "rules": [
+    {
+     "re": "noodle|ramen",
+     "class": "0119101"
+    },
+    {
+     "re": "spaghetti|macaroni",
+     "class": "0111502"
+    },
+    {
+     "re": "kolam|sona masoori|jeerakasala|matta",
+     "class": "N:01111:Other non-basmati rice"
+    },
+    {
+     "re": "sinnara",
+     "class": "0111102"
+    },
+    {
+     "re": "calrose",
+     "class": "0111104"
+    },
+    {
+     "re": "basmati",
+     "class": "0111101"
+    }
+   ]
+  },
+  "bread": {
+   "default": "0111303",
+   "rules": [
+    {
+     "re": "breaded fish",
+     "class": "N:01133:Fish preparations"
+    },
+    {
+     "re": "shrimp",
+     "class": "N:01136:Seafood preparations"
+    },
+    {
+     "re": "chicken burger",
+     "class": "0112506"
+    },
+    {
+     "re": "chicken",
+     "class": "0112509"
+    },
+    {
+     "re": "breading mix",
+     "class": "0119901"
+    },
+    {
+     "re": "bread crumbs",
+     "class": "0111106"
+    },
+    {
+     "re": "paratha",
+     "class": "0111301"
+    },
+    {
+     "re": "bread bites",
+     "class": "N:01113:Crackers and crispbreads"
+    },
+    {
+     "re": "short ?bread",
+     "class": "0111306"
+    },
+    {
+     "re": "arabic|lebanese|lebanon|pita|al quds|marqook|egyptian|reef |modern bakery (diet|protein|low calorie)",
+     "class": "0111302"
+    },
+    {
+     "re": "samoon|roll|hotdog|portuguese|small bread|mini special|small part baked|baked bread pack|pandesal|spanish bread",
+     "class": "0111304"
+    }
+   ]
+  },
+  "coffee": {
+   "default": "0122001",
+   "rules": [
+    {
+     "re": "capsule",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "creamer",
+     "class": "N:01149:Coffee creamers"
+    },
+    {
+     "re": "coffee filters",
+     "class": "N:05619:Coffee filters"
+    },
+    {
+     "re": "coffee drink",
+     "class": "0114702"
+    },
+    {
+     "re": "3 ?in ?1|2 ?in ?1|3-in-1|2-in-1|3inone|coffee mix|cappuccino|latte|kopiko",
+     "class": "N:01220:Instant coffee mixes"
+    },
+    {
+     "re": "beans|whole bean",
+     "class": "N:01220:Coffee beans"
+    },
+    {
+     "re": "instant|soluble|nescafe|\\bbru\\b|tata|coffee gold|gold roast|matinal|le cafe|morrisons",
+     "class": "0122002"
+    }
+   ]
+  },
+  "dates": {
+   "default": "0116701",
+   "rules": [
+    {
+     "re": "ice cream",
+     "class": "0118601"
+    },
+    {
+     "re": "chocolate|choco|date bites|date bars?\\b|honey dates",
+     "class": "N:01189:Date confectionery"
+    },
+    {
+     "re": "milk",
+     "class": "0114702"
+    },
+    {
+     "re": "cerelac|farley|rusk",
+     "class": "0119201"
+    },
+    {
+     "re": "maamoul|mamoul",
+     "class": "0111306"
+    },
+    {
+     "re": "tirsha",
+     "class": "0111310"
+    },
+    {
+     "re": "pickle",
+     "class": "N:01169:Fruit pickles"
+    },
+    {
+     "re": "date sugar",
+     "class": "N:01182:Other sugars"
+    },
+    {
+     "re": "syrup|paste",
+     "class": "0118201"
+    },
+    {
+     "re": "fresh yellow|with stick|rutab|rhutab",
+     "class": "0116101"
+    }
+   ]
+  },
+  "flour": {
+   "default": "0111201",
+   "rules": [
+    {
+     "re": "tortilla|wraps",
+     "class": "N:01113:Tortillas and wraps"
+    },
+    {
+     "re": "haldiram",
+     "class": "N:01119:Savoury snacks"
+    },
+    {
+     "re": "noodle",
+     "class": "0111502"
+    },
+    {
+     "re": "broasted",
+     "class": "0119901"
+    },
+    {
+     "re": "pizza mix",
+     "class": "N:01119:Baking mixes"
+    },
+    {
+     "re": "corn flour",
+     "class": "0111202"
+    },
+    {
+     "re": "besan|gram flour|tapioca|konjac",
+     "class": "N:01179:Pulse flours and starches"
+    },
+    {
+     "re": "almond flour|coconut flour",
+     "class": "N:01169:Nut and coconut flours"
+    },
+    {
+     "re": "rice flour|ragi|bajra|jawar|oat flour|quinoa flour|rye flour|puttu podi|gluten free",
+     "class": "N:01112:Other cereal flours"
+    },
+    {
+     "re": "semola",
+     "class": "0111107"
+    }
+   ]
+  },
+  "honey": {
+   "default": "0118301",
+   "rules": [
+    {
+     "re": "dates honey",
+     "class": "0118201"
+    }
+   ]
+  },
+  "juice": {
+   "default": "0121001",
+   "rules": [
+    {
+     "re": "salad|baba ghan|tabouleh",
+     "class": "N:01191:Prepared salads"
+    },
+    {
+     "re": "pan de coco",
+     "class": "0111304"
+    },
+    {
+     "re": "\\bshot\\b",
+     "class": "N:01210:Juice shots"
+    },
+    {
+     "re": "flavoured drink|fruit drink|juice drink|apple juice drink|suntop|capri|ceres|rubicon|vimto",
+     "class": "0121002"
+    }
+   ]
+  },
+  "nuts": {
+   "default": "0116808",
+   "rules": [
+    {
+     "re": "chocolate dates",
+     "class": "N:01189:Date confectionery"
+    },
+    {
+     "re": "chocolate|snickers|dragee",
+     "class": "0118501"
+    },
+    {
+     "re": "cracker|kri ?kri|coated|caramelised|vanilla|boy bawang|ding dong",
+     "class": "N:01169:Coated nuts and nut snacks"
+    },
+    {
+     "re": "dried cranberries",
+     "class": "N:01167:Other dried fruits"
+    },
+    {
+     "re": "almonds powder",
+     "class": "N:01169:Nut and coconut flours"
+    },
+    {
+     "re": "dried fruit|trail mix|nuts n berries|nuts and berries|nuts & fruit",
+     "class": "N:01168:Nut and dried fruit mixes"
+    },
+    {
+     "re": "mix|assorted|kernels|deluxe|extra|supreme|selection",
+     "class": "0116808"
+    },
+    {
+     "re": "macadamia|pecan|brazil|barazil|hazelnut",
+     "class": "N:01168:Other nuts"
+    },
+    {
+     "re": "pine seeds|pine nut",
+     "class": "0116807"
+    },
+    {
+     "re": "sunflower|pumpkin seeds",
+     "class": "0116806"
+    },
+    {
+     "re": "pistachio|pista",
+     "class": "0116802"
+    },
+    {
+     "re": "cashew",
+     "class": "0116803"
+    },
+    {
+     "re": "walnut",
+     "class": "0116804"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "peanut",
+     "class": "0116805"
+    }
+   ]
+  },
+  "oil": {
+   "default": "N:01151:Other vegetable oils",
+   "rules": [
+    {
+     "re": "tuna",
+     "class": "0113201"
+    },
+    {
+     "re": "shampoo",
+     "class": "1312009"
+    },
+    {
+     "re": "soap",
+     "class": "1312010"
+    },
+    {
+     "re": "hair oil",
+     "class": "1312006"
+    },
+    {
+     "re": "teeba (castor|clove|ginger|golden saffron|almond)",
+     "class": "1312006"
+    },
+    {
+     "re": "olive|pomace|extra virgin",
+     "class": "0115101"
+    },
+    {
+     "re": "coconut|coconad|parachute|koko kera",
+     "class": "0115106"
+    },
+    {
+     "re": "corn oil",
+     "class": "0115102"
+    },
+    {
+     "re": "sunflower|sun flower",
+     "class": "0115104"
+    }
+   ]
+  },
+  "pasta": {
+   "default": "0111502",
+   "rules": [
+    {
+     "re": "pasta sauce|pesto",
+     "class": "N:01193:Other sauces and dips"
+    },
+    {
+     "re": "seasoning",
+     "class": "0119410"
+    },
+    {
+     "re": "pasta soup",
+     "class": "0119102"
+    },
+    {
+     "re": "instant pasta|quick pasta|tangle",
+     "class": "0119101"
+    },
+    {
+     "re": "ready meal|gusto italiano|gusto-vero|in tomato sauce",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "vermicelli",
+     "class": "0111501"
+    }
+   ],
+   "note": "baby pasta with an age (months+) is baby food 0119201; fresh ravioli is filled pasta"
+  },
+  "rice": {
+   "default": "0111101",
+   "rules": [
+    {
+     "re": "burghol",
+     "class": "0111109"
+    },
+    {
+     "re": "penne",
+     "class": "0111502"
+    },
+    {
+     "re": "rice cake",
+     "class": "N:01114:Rice cakes"
+    },
+    {
+     "re": "ready to eat|cooked|steamed basmati|basmati & quinoa|risotto",
+     "class": "N:01191:Ready meals"
+    },
+    {
+     "re": "konjac",
+     "class": "0111502"
+    },
+    {
+     "re": "indian.*basmati|basmati.*indian",
+     "class": "0111101"
+    },
+    {
+     "re": "mehran|mumtaz|sinnara",
+     "class": "0111102"
+    },
+    {
+     "re": "egyptian|pharoes|calrose|jasponica|miponica|arborio|carnaroli|vialone",
+     "class": "0111104"
+    },
+    {
+     "re": "jasmine|thai|cambodia|vietnam",
+     "class": "N:01111:Jasmine rice"
+    },
+    {
+     "re": "basmati|biryani|abu kass",
+     "class": "0111101"
+    },
+    {
+     "re": "rice",
+     "class": "N:01111:Other non-basmati rice"
+    }
+   ]
+  },
+  "salt": {
+   "default": "0119301",
+   "rules": [
+    {
+     "re": "electric|battery|gravity",
+     "class": "0532901"
+    },
+    {
+     "re": "grinder|shaker|mill|dispenser|spice jars|spice rack|dredge|salt pepper set|pepper caps",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "butter",
+     "class": "0115201"
+    },
+    {
+     "re": "tortilla chips",
+     "class": "N:01119:Tortilla chips and taco shells"
+    },
+    {
+     "re": "chips|potato sticks",
+     "class": "0117906"
+    },
+    {
+     "re": "rice cakes",
+     "class": "N:01114:Rice cakes"
+    },
+    {
+     "re": "cracker",
+     "class": "N:01113:Crackers and crispbreads"
+    },
+    {
+     "re": "popcorn",
+     "class": "0111905"
+    },
+    {
+     "re": "protein bar",
+     "class": "N:01199:Protein bars"
+    },
+    {
+     "re": "peanut",
+     "class": "0116805"
+    },
+    {
+     "re": "almond",
+     "class": "0116801"
+    },
+    {
+     "re": "pistachio|pista",
+     "class": "0116802"
+    },
+    {
+     "re": "cheese",
+     "class": "0114503"
+    },
+    {
+     "re": "pudding",
+     "class": "N:01147:Milk-based desserts"
+    },
+    {
+     "re": "ice cream",
+     "class": "0118601"
+    },
+    {
+     "re": "ketchup",
+     "class": "0119303"
+    },
+    {
+     "re": "soy sauce",
+     "class": "0119306"
+    },
+    {
+     "re": "stock",
+     "class": "0119902"
+    },
+    {
+     "re": "sweet corn",
+     "class": "0117904"
+    },
+    {
+     "re": "tuna",
+     "class": "0113201"
+    },
+    {
+     "re": "toothpaste",
+     "class": "1312008"
+    },
+    {
+     "re": "body wash",
+     "class": "1312010"
+    },
+    {
+     "re": "dead sea salt",
+     "class": "N:13120:Bath salts and soaks"
+    },
+    {
+     "re": "dishwasher salt",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "dishwash",
+     "class": "0561105"
+    },
+    {
+     "re": "salt tablets",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "garlic salt|celery salt|chilli salt|lemon salt|seasoned salt|salt and pepper|seasoning",
+     "class": "0119901"
+    }
+   ]
+  },
+  "soft_drinks": {
+   "default": "0126001",
+   "rules": [
+    {
+     "re": "soda water|^lulu soda|star soda soft drink",
+     "class": "0125002"
+    },
+    {
+     "re": "complan",
+     "class": "N:01240:Malted and chocolate drink powders"
+    },
+    {
+     "re": "drinking powder",
+     "class": "0121003"
+    },
+    {
+     "re": "squash",
+     "class": "0129002"
+    }
+   ]
+  },
+  "sugar": {
+   "default": "0118101",
+   "rules": [
+    {
+     "re": "mold|mould|sugar keeper",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "7up|coca|pepsi|mirinda",
+     "class": "0126001"
+    },
+    {
+     "re": "ice tea",
+     "class": "N:01230:Iced tea drinks"
+    },
+    {
+     "re": "red bull",
+     "class": "0129001"
+    },
+    {
+     "re": "protein milk",
+     "class": "0114702"
+    },
+    {
+     "re": "oat drink|soya milk",
+     "class": "N:01144:Plant-based milks"
+    },
+    {
+     "re": "robinsons",
+     "class": "0129002"
+    },
+    {
+     "re": "fruit drink",
+     "class": "0121002"
+    },
+    {
+     "re": "juice|coconut water",
+     "class": "0121001"
+    },
+    {
+     "re": "coffee mix",
+     "class": "N:01220:Instant coffee mixes"
+    },
+    {
+     "re": "cake mix",
+     "class": "N:01119:Baking mixes"
+    },
+    {
+     "re": "cake",
+     "class": "0111305"
+    },
+    {
+     "re": "cookie|biscuit",
+     "class": "0111306"
+    },
+    {
+     "re": "crackers",
+     "class": "N:01113:Crackers and crispbreads"
+    },
+    {
+     "re": "compote|pur[eé]e",
+     "class": "0116901"
+    },
+    {
+     "re": "gum|candies|sugar shapes|gold pellets",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ketchup",
+     "class": "0119303"
+    },
+    {
+     "re": "sweet corn",
+     "class": "0117904"
+    },
+    {
+     "re": "stevia|sucralose|sweetener|truvia|monk fruit|trehalose",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "coconut sugar|vanilla sugar|palatinose",
+     "class": "N:01182:Other sugars"
+    }
+   ]
+  },
+  "tea": {
+   "default": "0123001",
+   "rules": [
+    {
+     "re": "ice tea",
+     "class": "N:01230:Iced tea drinks"
+    },
+    {
+     "re": "3in1|karak",
+     "class": "N:01230:Instant tea mixes"
+    },
+    {
+     "re": "herbal|infusion|camomile|chamomile|hibiscus|anise|verbena|peppermint|slimming|regime|rooibos|tea beauty|tea digest|tea energy|tea sleep|tea slim|quiet moments|sweet nights|after meal|lemon & ginger",
+     "class": "0123003"
+    },
+    {
+     "re": "tea ?bags|teabags|envelope|pyramid|\\d+ cup",
+     "class": "0123002"
+    }
+   ]
+  },
+  "water": {
+   "default": "0125001",
+   "rules": [
+    {
+     "re": "(lime|strawberry) sparkling",
+     "class": "N:01290:Flavoured water"
+    },
+    {
+     "re": "sparkling|carbonated|perrier|pellegrino",
+     "class": "0125002"
+    }
+   ]
+  }
+ },
+ "overrides": {
+  "lulu|42757-ea": "0111305",
+  "carrefour|98467": "N:01189:Sugar confectionery",
+  "lulu|1080440": "0119305",
+  "carrefour|1918532": "0119901",
+  "carrefour|799474": "0119901",
+  "lulu|2075030": "0119901",
+  "carrefour|1817646092806": "0119301",
+  "carrefour|1817646786450": "0119301",
+  "carrefour|2163044": "0119301",
+  "carrefour|1603793": "0119301",
+  "carrefour|1762141": "0119301",
+  "carrefour|2234292": "0119301",
+  "carrefour|1442105": "0123001",
+  "carrefour|2260693": "0126001",
+  "lulu|149667": "0117904",
+  "lulu|301713": "0119305",
+  "carrefour|2257938": "0119201",
+  "carrefour|2257939": "0119201",
+  "carrefour|2257940": "0119201",
+  "carrefour|2257934": "0119201",
+  "carrefour|1276619": "N:01115:Dumplings and filled pasta",
+  "lulu|774422": "N:01112:Other cereal flours",
+  "carrefour|2005573": "N:01112:Other cereal flours"
+ },
+ "new_types": [
+  {
+   "class": "N:01111:Jasmine rice",
+   "subclass5": "01111",
+   "name_en": "Jasmine rice",
+   "name_ar": "أرز ياسمين (تايلندي/فيتنامي)",
+   "why": "Basket rice classes are Indian basmati, Pakistani and Egyptian/short-grain only"
+  },
+  {
+   "class": "N:01111:Other non-basmati rice",
+   "subclass5": "01111",
+   "name_en": "Other non-basmati rice",
+   "name_ar": "أرز غير بسمتي آخر (سونا مسوري، مطة، بوني، جيراكسالا، أرز أبيض)",
+   "why": "Indian/other non-basmati long and short grain rice has no basket class"
+  },
+  {
+   "class": "N:01112:Other cereal flours",
+   "subclass5": "01112",
+   "name_en": "Other cereal flours",
+   "name_ar": "دقيق حبوب أخرى (أرز، راجي، شوفان، جاودار، دخن)",
+   "why": "0111201 is wheat flour and 0111202 corn starch only"
+  },
+  {
+   "class": "N:01113:Crackers and crispbreads",
+   "subclass5": "01113",
+   "name_en": "Crackers and crispbreads",
+   "name_ar": "كراكرز ورقائق خبز محمصة",
+   "why": "COICOP 01.1.1.3 crackers; basket has biscuits (0111306) and rusks only"
+  },
+  {
+   "class": "N:01113:Tortillas and wraps",
+   "subclass5": "01113",
+   "name_en": "Tortillas and wraps",
+   "name_ar": "خبز تورتيلا ورقائق لف",
+   "why": "Tortillas listed in 01.1.1.3; no basket bread class for them"
+  },
+  {
+   "class": "N:01114:Rice cakes",
+   "subclass5": "01114",
+   "name_en": "Rice cakes",
+   "name_ar": "كعك الأرز المنفوخ",
+   "why": "COICOP puts puffed rice cakes in 01.1.1.4; 0111401 is cornflakes"
+  },
+  {
+   "class": "N:01119:Baking mixes",
+   "subclass5": "01119",
+   "name_en": "Baking mixes",
+   "name_ar": "خلطات خبز وحلويات جاهزة (كيك، بيتزا، لقيمات)",
+   "why": "COICOP 01.1.1.9 mixes for bakery products; no basket class"
+  },
+  {
+   "class": "N:01119:Savoury snacks",
+   "subclass5": "01119",
+   "name_en": "Savoury snacks",
+   "name_ar": "وجبات خفيفة مالحة (سيف، بوندي، ماثري)",
+   "why": "Cereal/pulse-flour fried snacks; 01.1.1.9 cereal chips and crisps"
+  },
+  {
+   "class": "N:01119:Tortilla chips and taco shells",
+   "subclass5": "01119",
+   "name_en": "Tortilla chips and taco shells",
+   "name_ar": "رقائق التورتيلا",
+   "why": "same name as electronics batch"
+  },
+  {
+   "class": "N:01133:Fish preparations",
+   "subclass5": "01133",
+   "name_en": "Fish preparations",
+   "name_ar": "أسماك مصنعة ومغطاة بالبقسماط",
+   "why": "Breaded fish is 01.1.3.3; basket fish classes are fresh/frozen/canned"
+  },
+  {
+   "class": "N:01136:Seafood preparations",
+   "subclass5": "01136",
+   "name_en": "Seafood preparations",
+   "name_ar": "مأكولات بحرية مصنعة (روبيان مغطى بالبقسماط)",
+   "why": "Breaded shrimp is 01.1.3.6; basket shrimp classes are fresh/frozen"
+  },
+  {
+   "class": "N:01144:Plant-based milks",
+   "subclass5": "01144",
+   "name_en": "Plant-based milks",
+   "name_ar": "حليب نباتي (شوفان، صويا)",
+   "why": "No basket class for non-animal milk 01.1.4.4"
+  },
+  {
+   "class": "N:01147:Milk-based desserts",
+   "subclass5": "01147",
+   "name_en": "Milk-based desserts",
+   "name_ar": "حلويات قائمة على الحليب (بودينغ)",
+   "why": "0114702 is milk-based drinks only"
+  },
+  {
+   "class": "N:01149:Coffee creamers",
+   "subclass5": "01149",
+   "name_en": "Coffee creamers",
+   "name_ar": "مبيض القهوة",
+   "why": "Cream powder/whitener under 01.1.4.9; no basket class"
+  },
+  {
+   "class": "N:01151:Other vegetable oils",
+   "subclass5": "01151",
+   "name_en": "Other vegetable oils",
+   "name_ar": "زيوت نباتية أخرى (كانولا، سمسم، خردل، زيوت مخلوطة)",
+   "why": "Basket oils are olive, corn, sunflower, palm, coconut only"
+  },
+  {
+   "class": "N:01167:Other dried fruits",
+   "subclass5": "01167",
+   "name_en": "Other dried fruits",
+   "name_ar": "فواكه مجففة أخرى (توت بري)",
+   "why": "Basket dried fruit: dates, raisins, figs only"
+  },
+  {
+   "class": "N:01168:Nut and dried fruit mixes",
+   "subclass5": "01168",
+   "name_en": "Nut and dried fruit mixes",
+   "name_ar": "خلطات مكسرات وفواكه مجففة",
+   "why": "0116808 is mixed nuts; trail mixes contain dried fruit"
+  },
+  {
+   "class": "N:01168:Other nuts",
+   "subclass5": "01168",
+   "name_en": "Other nuts",
+   "name_ar": "مكسرات أخرى (بندق، بقان، مكاديميا، جوز برازيلي)",
+   "why": "Basket nut classes cover almond, pistachio, cashew, walnut, peanut, seeds, pine nuts only"
+  },
+  {
+   "class": "N:01169:Coated nuts and nut snacks",
+   "subclass5": "01169",
+   "name_en": "Coated nuts and nut snacks",
+   "name_ar": "مكسرات مغلفة ووجبات مكسرات خفيفة",
+   "why": "Coated/cracker nuts are 01.1.6.9 prepared nuts, not plain nuts"
+  },
+  {
+   "class": "N:01169:Fruit pickles",
+   "subclass5": "01169",
+   "name_en": "Fruit pickles",
+   "name_ar": "مخللات الفواكه (مخلل التمر والليمون)",
+   "why": "COICOP puts fruit pickles in 01.1.6.9; 0117908 is vegetable pickles"
+  },
+  {
+   "class": "N:01169:Nut and coconut flours",
+   "subclass5": "01169",
+   "name_en": "Nut and coconut flours",
+   "name_ar": "دقيق المكسرات وجوز الهند (دقيق اللوز)",
+   "why": "Nut flour is 01.1.6.9; no basket class"
+  },
+  {
+   "class": "N:01179:Pulse flours and starches",
+   "subclass5": "01179",
+   "name_en": "Pulse flours and starches",
+   "name_ar": "دقيق البقوليات والنشويات (بيسان، تابيوكا، كونجاك)",
+   "why": "Pulse flours and tapioca are 01.1.7.9; no basket class"
+  },
+  {
+   "class": "N:01182:Other sugars",
+   "subclass5": "01182",
+   "name_en": "Other sugars",
+   "name_ar": "سكريات أخرى (سكر جوز الهند، سكر التمر، سكر الفانيليا)",
+   "why": "COICOP 01.1.8.2 non-cane sugars and flavoured sugar; 0118101 is cane/beet sugar"
+  },
+  {
+   "class": "N:01182:Sugar substitutes",
+   "subclass5": "01182",
+   "name_en": "Sugar substitutes",
+   "name_ar": "بدائل السكر (محليات)",
+   "why": "same name as electronics batch"
+  },
+  {
+   "class": "N:01189:Date confectionery",
+   "subclass5": "01189",
+   "name_en": "Date confectionery",
+   "name_ar": "حلويات التمر (تمر بالشوكولاتة، قطع وأصابع التمر)",
+   "why": "Chocolate-coated dates and date bites are confectionery 01.1.8.9, not dried dates"
+  },
+  {
+   "class": "N:01189:Sugar confectionery",
+   "subclass5": "01189",
+   "name_en": "Sugar confectionery",
+   "name_ar": "حلويات سكرية",
+   "why": "same name as electronics batch"
+  },
+  {
+   "class": "N:01191:Prepared salads",
+   "subclass5": "01191",
+   "name_en": "Prepared salads",
+   "name_ar": "سلطات ومقبلات جاهزة",
+   "why": "COICOP 01.1.9.1 mixed salads; no basket class"
+  },
+  {
+   "class": "N:01191:Ready meals",
+   "subclass5": "01191",
+   "name_en": "Ready meals",
+   "name_ar": "وجبات جاهزة (أرز مطبوخ، معكرونة جاهزة)",
+   "why": "COICOP 01.1.9.1 ready-made dishes; no basket class"
+  },
+  {
+   "class": "N:01193:Other sauces and dips",
+   "subclass5": "01193",
+   "name_en": "Other sauces and dips",
+   "name_ar": "صلصات وغموسات أخرى",
+   "why": "same name as electronics batch (pasta sauces)"
+  },
+  {
+   "class": "N:01194:Dried herbs and other spices",
+   "subclass5": "01194",
+   "name_en": "Dried herbs and other spices",
+   "name_ar": "أعشاب مجففة وتوابل أخرى (أوريغانو، كزبرة مطحونة)",
+   "why": "Basket spice classes do not include oregano or ground coriander"
+  },
+  {
+   "class": "N:01199:Food flavourings and essences",
+   "subclass5": "01199",
+   "name_en": "Food flavourings and essences",
+   "name_ar": "منكهات وخلاصات الطعام (فانيليا)",
+   "why": "Other food products 01.1.9.9; no basket class"
+  },
+  {
+   "class": "N:01199:Protein bars",
+   "subclass5": "01199",
+   "name_en": "Protein bars",
+   "name_ar": "ألواح البروتين",
+   "why": "same name as electronics batch"
+  },
+  {
+   "class": "N:01210:Juice shots",
+   "subclass5": "01210",
+   "name_en": "Juice shots",
+   "name_ar": "جرعات العصير المركزة",
+   "why": "same name as electronics batch"
+  },
+  {
+   "class": "N:01220:Coffee beans",
+   "subclass5": "01220",
+   "name_en": "Coffee beans",
+   "name_ar": "حبوب القهوة الكاملة",
+   "why": "Basket coffee: ground (0122001) and instant (0122002) only"
+  },
+  {
+   "class": "N:01220:Coffee capsules",
+   "subclass5": "01220",
+   "name_en": "Coffee capsules",
+   "name_ar": "كبسولات القهوة",
+   "why": "same name as electronics batch"
+  },
+  {
+   "class": "N:01220:Instant coffee mixes",
+   "subclass5": "01220",
+   "name_en": "Instant coffee mixes",
+   "name_ar": "خلطات القهوة سريعة التحضير (3 في 1)",
+   "why": "3-in-1 mixes with sugar/creamer differ from plain instant coffee 0122002"
+  },
+  {
+   "class": "N:01230:Iced tea drinks",
+   "subclass5": "01230",
+   "name_en": "Iced tea drinks",
+   "name_ar": "مشروبات الشاي المثلج",
+   "why": "COICOP puts iced tea in 01.2.3.0; basket tea classes are loose, bags, herbal"
+  },
+  {
+   "class": "N:01230:Instant tea mixes",
+   "subclass5": "01230",
+   "name_en": "Instant tea mixes",
+   "name_ar": "خلطات الشاي سريعة التحضير (كرك 3 في 1)",
+   "why": "Premixed tea sachets differ from loose/bag tea"
+  },
+  {
+   "class": "N:01240:Malted and chocolate drink powders",
+   "subclass5": "01240",
+   "name_en": "Malted and chocolate drink powders",
+   "name_ar": "مساحيق مشروبات الشوكولاتة والشعير",
+   "why": "COICOP 01.2.4.0 cocoa drinks; no basket class"
+  },
+  {
+   "class": "N:01290:Flavoured water",
+   "subclass5": "01290",
+   "name_en": "Flavoured water",
+   "name_ar": "مياه منكهة",
+   "why": "COICOP excludes flavoured water from 01.2.5.0 and puts it in 01.2.9.0"
+  },
+  {
+   "class": "N:05403:Kitchen tools and gadgets",
+   "subclass5": "05403",
+   "name_en": "Kitchen tools and gadgets",
+   "name_ar": "أدوات وأجهزة مطبخ صغيرة غير كهربائية",
+   "why": "same name as household batch"
+  },
+  {
+   "class": "N:05611:Dishwasher detergents",
+   "subclass5": "05611",
+   "name_en": "Dishwasher detergents",
+   "name_ar": "منظفات غسالات الصحون",
+   "why": "same name as household batch"
+  },
+  {
+   "class": "N:05619:Coffee filters",
+   "subclass5": "05619",
+   "name_en": "Coffee filters",
+   "name_ar": "فلاتر القهوة الورقية",
+   "why": "Non-durable household article 05.6.1.9; no basket class"
+  },
+  {
+   "class": "N:06111:Medicines",
+   "subclass5": "06111",
+   "name_en": "Medicines",
+   "name_ar": "أدوية",
+   "why": "same name as electronics batch"
+  },
+  {
+   "class": "N:13120:Bath salts and soaks",
+   "subclass5": "13120",
+   "name_en": "Bath salts and soaks",
+   "name_ar": "أملاح ومنقوعات الاستحمام",
+   "why": "same name as clothing batch"
+  },
+  {
+   "class": "N:01115:Dumplings and filled pasta",
+   "subclass5": "01115",
+   "name_en": "Dumplings and filled pasta",
+   "name_ar": "زلابية وعجائن محشوة غير مطبوخة",
+   "why": "uncooked stuffed pasta (ravioli) is 01.1.1.5; canonical type"
+  }
+ ]
+}

@@ -1,0 +1,1171 @@
+{
+ "categories": {
+  "home_appliances_cooking": {
+   "default": "0531103",
+   "rules": [
+    {
+     "re": "coffee|espresso|\\bokka\\b|capsule machine|caf[eé] pro",
+     "class": "N:05322:Coffee machines"
+    },
+    {
+     "re": "microwave",
+     "class": "N:05311:Microwave ovens"
+    },
+    {
+     "re": "air ?fryer|airfryer|easy fry",
+     "class": "N:05321:Air fryers"
+    },
+    {
+     "re": "rice cooker|multi ?cooker|pressure cooker|hotpot|smart pot",
+     "class": "N:05321:Rice cookers and multi-cookers"
+    },
+    {
+     "re": "sandwich maker|grill|griddle",
+     "class": "N:05321:Sandwich makers and grills"
+    },
+    {
+     "re": "stand mixer",
+     "class": "0532101"
+    },
+    {
+     "re": "hotplate|hot plate|infrared cooker",
+     "class": "N:05321:Hot plates"
+    },
+    {
+     "re": "deep fryer|egg cooker|ice cream|pizza oven|meat grinder",
+     "class": "N:05321:Other small cooking appliances"
+    },
+    {
+     "re": "oven toaster|\\d+l electric oven|digital electric oven",
+     "class": "N:05311:Electric countertop ovens"
+    },
+    {
+     "re": "gas stove",
+     "class": "N:05311:Hobs and gas stoves"
+    }
+   ]
+  },
+  "home_appliances_cooling_heating": {
+   "default": "0531301",
+   "rules": [
+    {
+     "re": "air cooler",
+     "class": "N:05313:Air coolers"
+    },
+    {
+     "re": "heater",
+     "class": "N:05313:Space heaters"
+    },
+    {
+     "re": "\\bfan\\b",
+     "class": "N:05329:Fans"
+    }
+   ]
+  },
+  "home_appliances_dishwashers": {
+   "default": "0531102",
+   "rules": [
+    {
+     "re": "^(?!.*wash).*\\bdryer\\b",
+     "class": "N:05312:Clothes dryers"
+    }
+   ]
+  },
+  "home_appliances_floorcare": {
+   "default": "0531401",
+   "rules": [
+    {
+     "re": "vacuum bags|dust ?bag|filter kit|filter set",
+     "class": "N:05611:Vacuum cleaner bags and filters"
+    },
+    {
+     "re": "pool cleaner",
+     "class": "N:05314:Pool cleaning robots"
+    },
+    {
+     "re": "pressure washer",
+     "class": "N:05510:Pressure washers"
+    },
+    {
+     "re": "floor cleaner refill",
+     "class": "0561106"
+    },
+    {
+     "re": "surface cleaner",
+     "class": "N:05611:Carpet and upholstery cleaners"
+    },
+    {
+     "re": "robot|deebot",
+     "class": "N:05314:Robot vacuum cleaners"
+    },
+    {
+     "re": "spotclean|spot vacuum|carpet washer|carpet cleaner|deep cleaner|smart ?wash",
+     "class": "N:05314:Carpet and spot cleaners"
+    }
+   ]
+  },
+  "home_appliances_fridges_freezers": {
+   "default": "0531101",
+   "rules": [
+    {
+     "re": "chest freezer|upright freezer",
+     "class": "N:05311:Freezers"
+    }
+   ]
+  },
+  "refrigerator": {
+   "default": "0531101",
+   "rules": [
+    {
+     "re": "chest freezer|upright freezer",
+     "class": "N:05311:Freezers"
+    }
+   ]
+  },
+  "home_appliances_laundry": {
+   "default": "0531201",
+   "rules": [
+    {
+     "re": "^(?!.*wash).*\\bdryer\\b",
+     "class": "N:05312:Clothes dryers"
+    }
+   ]
+  },
+  "washing_machine": {
+   "default": "0531201",
+   "rules": [
+    {
+     "re": "^(?!.*wash).*\\bdryer\\b",
+     "class": "N:05312:Clothes dryers"
+    }
+   ]
+  },
+  "home_appliances_small_appliances": {
+   "default": "0532901",
+   "rules": [
+    {
+     "re": "coffee|espresso|\\bokka\\b|capsule machine|caf[eé] pro",
+     "class": "N:05322:Coffee machines"
+    },
+    {
+     "re": "blender|mixer grinder|food processor|stand mixer|bowl mixer|chopper",
+     "class": "0532101"
+    },
+    {
+     "re": "kettle|tea maker",
+     "class": "N:05322:Electric kettles and tea makers"
+    },
+    {
+     "re": "juicer|juice extractor",
+     "class": "N:05322:Juicers"
+    },
+    {
+     "re": "air purifier|air touch|pureprotect",
+     "class": "0532901"
+    },
+    {
+     "re": "purifier cartridge",
+     "class": "N:05619:Water filter cartridges"
+    },
+    {
+     "re": "water purifier",
+     "class": "N:05319:Water purifiers"
+    },
+    {
+     "re": "water dispenser|water generator",
+     "class": "N:05322:Water dispensers"
+    },
+    {
+     "re": "sewing machine",
+     "class": "N:05319:Sewing machines"
+    },
+    {
+     "re": "toaster",
+     "class": "0532901"
+    },
+    {
+     "re": "aroma diffuser",
+     "class": "N:05329:Aroma diffusers"
+    },
+    {
+     "re": "soda maker",
+     "class": "N:05322:Soda makers"
+    },
+    {
+     "re": "dehumidifier|humidifier",
+     "class": "N:05313:Humidifiers and dehumidifiers"
+    },
+    {
+     "re": "steamer|\\biron\\b",
+     "class": "0532901"
+    }
+   ]
+  },
+  "air_conditioner": {
+   "default": "0531301",
+   "rules": []
+  },
+  "air_freshener": {
+   "default": "0561103",
+   "rules": [
+    {
+     "re": "\\bcar air freshener",
+     "class": "N:07213:Car accessories"
+    },
+    {
+     "re": "rim block",
+     "class": "0561106"
+    },
+    {
+     "re": "laundry detergent",
+     "class": "0561101"
+    }
+   ]
+  },
+  "batteries": {
+   "default": "0552201",
+   "rules": [
+    {
+     "re": "jump starter",
+     "class": "N:07213:Car accessories"
+    }
+   ]
+  },
+  "bedsheet": {
+   "default": "N:05212:Bed sheets and bed linen sets",
+   "rules": [
+    {
+     "re": "comforter|bedspread",
+     "class": "N:05212:Comforters and bedspreads"
+    }
+   ]
+  },
+  "blender": {
+   "default": "0532101",
+   "rules": [
+    {
+     "re": "soda maker",
+     "class": "N:05322:Soda makers"
+    }
+   ]
+  },
+  "cleaning": {
+   "default": "0561106",
+   "rules": [
+    {
+     "re": "toothpaste",
+     "class": "1312008"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "conditioner",
+     "class": "N:13120:Hair conditioners"
+    },
+    {
+     "re": "shampoo",
+     "class": "1312009"
+    },
+    {
+     "re": "laundry|washing powder|power gel",
+     "class": "0561101"
+    },
+    {
+     "re": "cleansing bar",
+     "class": "1312010"
+    },
+    {
+     "re": "baby wipes",
+     "class": "1312014"
+    },
+    {
+     "re": "cleaning wet wipes",
+     "class": "N:13120:Wet wipes"
+    },
+    {
+     "re": "windshield",
+     "class": "N:07213:Car care and cleaning products"
+    },
+    {
+     "re": "eyeglass|spectacles",
+     "class": "N:13291:Eyewear accessories"
+    },
+    {
+     "re": "downstem|stemclenz",
+     "class": "N:13291:Smoking accessories"
+    },
+    {
+     "re": "wine rinser|bottle washer",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "disinfecting wipes|glass wipes|cleaning wipes|wood wipes|polish wipes|miraclewipes",
+     "class": "N:05611:Cleaning wipes"
+    },
+    {
+     "re": "dishwashing liquid",
+     "class": "0561105"
+    },
+    {
+     "re": "\\bbleach\\b",
+     "class": "N:05611:Bleach"
+    },
+    {
+     "re": "washing machine hygiene|machine cleaner",
+     "class": "N:05611:Appliance cleaners"
+    },
+    {
+     "re": "seat cover|bath mat",
+     "class": "N:05219:Bath mats and bathroom textiles"
+    },
+    {
+     "re": "shattaf|bidet|shower head|shower filter|faucet sprayer|toilet seat",
+     "class": "N:04311:Bathroom fittings"
+    },
+    {
+     "re": "plunger|wire snake|blockage cleaner",
+     "class": "N:05521:Plungers and drain snakes"
+    },
+    {
+     "re": "drain|hair filter",
+     "class": "N:05611:Drain cleaners"
+    },
+    {
+     "re": "body scrubber|bath scrubber|bath & shower brush|exfoliat|foot washing",
+     "class": "N:13120:Bath sponges and body scrubbers"
+    },
+    {
+     "re": "gloves",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "toilet brush|toilet bowl cleaning brush|toilet cleaning brush|toilet long handle cleaning brush|toilet cleaning wand|toilet brush magic sponge|toilet set brush|toiet cleaning brush|window cleaner magnetic|magnetic window|window glass cleaning brush|glass cleaning tool|reach and clean",
+     "class": "N:05611:Cleaning brushes and tools"
+    },
+    {
+     "re": "mop|bucket",
+     "class": "0561104"
+    },
+    {
+     "re": "sponge|scourer|dish cloth|cleaning cloth|microfiber|floor cloth|purpose cloth|steel wool",
+     "class": "N:05611:Cleaning cloths and sponges"
+    },
+    {
+     "re": "polish|piano|wood restoration|brass|clock oil",
+     "class": "N:05611:Furniture and metal polishes"
+    }
+   ]
+  },
+  "cookware": {
+   "default": "N:05403:Cookware sets",
+   "rules": [
+    {
+     "re": "infrared cooker",
+     "class": "N:05321:Hot plates"
+    },
+    {
+     "re": "^(?!.*cookware set).*(frypan|frying pan)",
+     "class": "0540301"
+    }
+   ]
+  },
+  "detergent": {
+   "default": "0561101",
+   "rules": [
+    {
+     "re": "softener",
+     "class": "0561102"
+    }
+   ]
+  },
+  "dishwashing": {
+   "default": "0561105",
+   "rules": [
+    {
+     "re": "dishwasher (machine )?cleaner|dishwasher hygiene|dishwasher freshener",
+     "class": "N:05611:Appliance cleaners"
+    },
+    {
+     "re": "tablet|capsule|dishwasher powder|rinse aid|dishwasher salt|powerball|dishwasher gel",
+     "class": "N:05611:Dishwasher detergents"
+    }
+   ]
+  },
+  "grocery_household_dishwashing_liquids_tablets": {
+   "default": "0561105",
+   "rules": [
+    {
+     "re": "tablet|capsule|dishwasher powder|rinse aid|dishwasher salt|powerball|dishwasher gel",
+     "class": "N:05611:Dishwasher detergents"
+    }
+   ]
+  },
+  "grocery_household": {
+   "default": "1312015",
+   "rules": [
+    {
+     "re": "softener",
+     "class": "0561102"
+    }
+   ]
+  },
+  "grocery_household_cleaning_essentials": {
+   "default": "0561106",
+   "rules": [
+    {
+     "re": "wipes",
+     "class": "N:05611:Cleaning wipes"
+    },
+    {
+     "re": "toilet|mold",
+     "class": "0561106"
+    },
+    {
+     "re": "\\bbleach\\b",
+     "class": "N:05611:Bleach"
+    },
+    {
+     "re": "carpet",
+     "class": "N:05611:Carpet and upholstery cleaners"
+    },
+    {
+     "re": "drain",
+     "class": "N:05611:Drain cleaners"
+    },
+    {
+     "re": "sponge|scrubber|scourer",
+     "class": "N:05611:Cleaning cloths and sponges"
+    }
+   ]
+  },
+  "grocery_household_laundry_essentials": {
+   "default": "0561101",
+   "rules": [
+    {
+     "re": "softener|fabric conditioner",
+     "class": "0561102"
+    },
+    {
+     "re": "stain remover",
+     "class": "N:05611:Stain removers and laundry aids"
+    }
+   ]
+  },
+  "fan": {
+   "default": "N:05329:Fans",
+   "rules": [
+    {
+     "re": "heater",
+     "class": "N:05313:Space heaters"
+    },
+    {
+     "re": "hand dryer",
+     "class": "N:05329:Hand dryers"
+    },
+    {
+     "re": "bbq fan",
+     "class": "N:09222:Barbecue grills and accessories"
+    },
+    {
+     "re": "surprise fan",
+     "class": "N:01189:Sugar confectionery"
+    }
+   ]
+  },
+  "insecticide": {
+   "default": "0561901",
+   "rules": [
+    {
+     "re": "glue board",
+     "class": "0561901"
+    },
+    {
+     "re": "bite relief",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "insect catcher",
+     "class": "0921201"
+    },
+    {
+     "re": "^(?!.*(spray|powder|liquid|\\d ?ml\\b|\\bgel\\b|crawling|all insect|multi insect|universal insect|cockroach|strip)).*(insect killer|insect damper|bug killer|mosquito trap lamp|pest killer)",
+     "class": "N:05329:Electric insect killers"
+    }
+   ]
+  },
+  "iron": {
+   "default": "0532901",
+   "rules": [
+    {
+     "re": "cerelac",
+     "class": "0119201"
+    },
+    {
+     "re": "curling iron|hair straightener",
+     "class": "N:13111:Hair straighteners and curling irons"
+    },
+    {
+     "re": "tawa|kadai|griddle pan|skillet",
+     "class": "0540301"
+    },
+    {
+     "re": "^(?!.*steamer).*(ironing board|board cover)|cloth dryer",
+     "class": "0540304"
+    },
+    {
+     "re": "starch",
+     "class": "N:05611:Stain removers and laundry aids"
+    },
+    {
+     "re": "dish rack",
+     "class": "N:05403:Kitchen storage and dish racks"
+    }
+   ]
+  },
+  "kettle": {
+   "default": "N:05322:Electric kettles and tea makers",
+   "rules": [
+    {
+     "re": "potato chips",
+     "class": "0117906"
+    },
+    {
+     "re": "lotion",
+     "class": "1312007"
+    },
+    {
+     "re": "bbq grill",
+     "class": "N:09222:Barbecue grills and accessories"
+    },
+    {
+     "re": "turkish coffee maker",
+     "class": "N:05322:Coffee machines"
+    },
+    {
+     "re": "sofram|^zebra|whistl",
+     "class": "0540305"
+    }
+   ]
+  },
+  "light_bulb": {
+   "default": "0552201",
+   "rules": [
+    {
+     "re": "whipping cream|cooking cream|mactop|whipped topping|cream spray",
+     "class": "0119906"
+    },
+    {
+     "re": "popcorn",
+     "class": "0111905"
+    },
+    {
+     "re": "\\btuna\\b",
+     "class": "0113201"
+    },
+    {
+     "re": "cream cheese",
+     "class": "0114501"
+    },
+    {
+     "re": "natural cheese",
+     "class": "0114504"
+    },
+    {
+     "re": "mayo",
+     "class": "0119304"
+    },
+    {
+     "re": "biscuits",
+     "class": "0111306"
+    },
+    {
+     "re": "\\bpads\\b|panty liners",
+     "class": "1312011"
+    },
+    {
+     "re": "makeup mirror|string lights|night lamp",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "camping|emergency light|head lamp|solar lighting system",
+     "class": "N:05522:Torches and emergency lights"
+    },
+    {
+     "re": "park and turn",
+     "class": "N:07212:Vehicle parts"
+    }
+   ]
+  },
+  "plates": {
+   "default": "0540201",
+   "rules": [
+    {
+     "re": "weight plate|roller wheel",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "hot plate",
+     "class": "N:05321:Hot plates"
+    },
+    {
+     "re": "sandwich maker",
+     "class": "N:05321:Sandwich makers and grills"
+    },
+    {
+     "re": "dinner set|dinnerware|tableware set",
+     "class": "N:05401:Dinnerware sets"
+    },
+    {
+     "re": "plastic plate|paper plate|bagasse|bio-?degradable|foam plate|palm leaf|pulp|^falcon|^fun |^green |^hot ?pack|^faani|^ngreen|^home mate",
+     "class": "0561903"
+    }
+   ]
+  },
+  "tissue": {
+   "default": "1312013",
+   "rules": [
+    {
+     "re": "toilet tissue|bath tissue|bathroom tissue|toilet paper",
+     "class": "1312015"
+    },
+    {
+     "re": "facial tissue",
+     "class": "1312013"
+    },
+    {
+     "re": "kitchen|hand towel|maxi roll",
+     "class": "N:05619:Kitchen paper towels"
+    },
+    {
+     "re": "face mask",
+     "class": "N:13120:Facial masks"
+    },
+    {
+     "re": "tissue holder",
+     "class": "N:05403:Bathroom accessories"
+    }
+   ]
+  },
+  "towel": {
+   "default": "N:05213:Towels",
+   "rules": [
+    {
+     "re": "microfiber cloth",
+     "class": "N:05611:Cleaning cloths and sponges"
+    },
+    {
+     "re": "\\d ?ply\\b|\\bply\\b|rolls?\\b|sheets|interfold|paper|kitchen towel|mega roll",
+     "class": "N:05619:Kitchen paper towels"
+    }
+   ]
+  },
+  "vacuum_cleaner": {
+   "default": "0531401",
+   "rules": [
+    {
+     "re": "robot|spot plus scrub",
+     "class": "N:05314:Robot vacuum cleaners"
+    },
+    {
+     "re": "spray-extraction|smart ?wash",
+     "class": "N:05314:Carpet and spot cleaners"
+    }
+   ]
+  }
+ },
+ "overrides": {
+  "lulu|1583012-ywc": "0113404",
+  "lulu|2118251": "0561105",
+  "carrefour|1256485844274": "N:05611:Cleaning cloths and sponges",
+  "lulu|1969843": "0540305",
+  "carrefour|3233006419599": "0561106",
+  "carrefour|3233006474734": "0561106"
+ },
+ "new_types": [
+  {
+   "subclass5": "01189",
+   "name_en": "Sugar confectionery",
+   "name_ar": "حلويات سكرية",
+   "why": "same name as electronics batch",
+   "class": "N:01189:Sugar confectionery"
+  },
+  {
+   "subclass5": "04311",
+   "name_en": "Bathroom fittings",
+   "name_ar": "تجهيزات صحية للحمام (شطاف، رأس دش، مقعد مرحاض)",
+   "why": "no class in basket; COICOP small plumbing items",
+   "class": "N:04311:Bathroom fittings"
+  },
+  {
+   "subclass5": "05113",
+   "name_en": "Lamps and lighting fixtures",
+   "name_ar": "مصابيح وإنارة (أباجورات وسلاسل إضاءة)",
+   "why": "bulbs are 0552201; light fittings are COICOP 05.1.1.3",
+   "class": "N:05113:Lamps and lighting fixtures"
+  },
+  {
+   "subclass5": "05212",
+   "name_en": "Bed sheets and bed linen sets",
+   "name_ar": "شراشف وأطقم مفارش السرير",
+   "why": "no household-textile class in basket",
+   "class": "N:05212:Bed sheets and bed linen sets"
+  },
+  {
+   "subclass5": "05212",
+   "name_en": "Comforters and bedspreads",
+   "name_ar": "لحافات وأغطية سرير (كومفورتر)",
+   "why": "no household-textile class in basket",
+   "class": "N:05212:Comforters and bedspreads"
+  },
+  {
+   "subclass5": "05213",
+   "name_en": "Towels",
+   "name_ar": "مناشف قماشية",
+   "why": "no household-textile class in basket",
+   "class": "N:05213:Towels"
+  },
+  {
+   "subclass5": "05219",
+   "name_en": "Bath mats and bathroom textiles",
+   "name_ar": "دواسات حمام ومنسوجات حمام",
+   "why": "no class in basket",
+   "class": "N:05219:Bath mats and bathroom textiles"
+  },
+  {
+   "subclass5": "05311",
+   "name_en": "Electric countertop ovens",
+   "name_ar": "أفران كهربائية صغيرة (فرن طاولة)",
+   "why": "counter-top electric ovens are not full cookers (0531103)",
+   "class": "N:05311:Electric countertop ovens"
+  },
+  {
+   "subclass5": "05311",
+   "name_en": "Freezers",
+   "name_ar": "مجمدات (فريزر صندوقي وعمودي)",
+   "why": "basket class 0531101 is a refrigerator; stand-alone chest/upright freezers are a different appliance",
+   "class": "N:05311:Freezers"
+  },
+  {
+   "subclass5": "05311",
+   "name_en": "Hobs and gas stoves",
+   "name_ar": "مواقد غاز سطحية (بدون فرن)",
+   "why": "table-top gas stoves without oven are not cookers (0531103)",
+   "class": "N:05311:Hobs and gas stoves"
+  },
+  {
+   "subclass5": "05311",
+   "name_en": "Microwave ovens",
+   "name_ar": "أفران الميكروويف",
+   "why": "no basket class for microwaves; 0531103 is a free-standing gas/electric cooker",
+   "class": "N:05311:Microwave ovens"
+  },
+  {
+   "subclass5": "05312",
+   "name_en": "Clothes dryers",
+   "name_ar": "مجففات الملابس",
+   "why": "0531201 is a washing machine / washer-dryer; stand-alone tumble dryers have no class",
+   "class": "N:05312:Clothes dryers"
+  },
+  {
+   "subclass5": "05313",
+   "name_en": "Air coolers",
+   "name_ar": "مبردات هواء (تبخيرية)",
+   "why": "evaporative coolers are not air conditioners (0531301)",
+   "class": "N:05313:Air coolers"
+  },
+  {
+   "subclass5": "05313",
+   "name_en": "Humidifiers and dehumidifiers",
+   "name_ar": "أجهزة ترطيب وإزالة الرطوبة",
+   "why": "no class in basket",
+   "class": "N:05313:Humidifiers and dehumidifiers"
+  },
+  {
+   "subclass5": "05313",
+   "name_en": "Space heaters",
+   "name_ar": "دفايات كهربائية",
+   "why": "no heater class in the basket",
+   "class": "N:05313:Space heaters"
+  },
+  {
+   "subclass5": "05314",
+   "name_en": "Carpet and spot cleaners",
+   "name_ar": "أجهزة تنظيف السجاد والبقع",
+   "why": "spray-extraction carpet washers are not vacuum cleaners",
+   "class": "N:05314:Carpet and spot cleaners"
+  },
+  {
+   "subclass5": "05314",
+   "name_en": "Pool cleaning robots",
+   "name_ar": "روبوتات تنظيف المسابح",
+   "why": "no class in basket",
+   "class": "N:05314:Pool cleaning robots"
+  },
+  {
+   "subclass5": "05314",
+   "name_en": "Robot vacuum cleaners",
+   "name_ar": "مكانس روبوت",
+   "why": "robot vacuums are a distinct appliance from the canister/stick vacuum in 0531401",
+   "class": "N:05314:Robot vacuum cleaners"
+  },
+  {
+   "subclass5": "05319",
+   "name_en": "Sewing machines",
+   "name_ar": "ماكينات الخياطة",
+   "why": "no class in basket",
+   "class": "N:05319:Sewing machines"
+  },
+  {
+   "subclass5": "05319",
+   "name_en": "Water purifiers",
+   "name_ar": "أجهزة تنقية المياه المنزلية",
+   "why": "no class in basket",
+   "class": "N:05319:Water purifiers"
+  },
+  {
+   "subclass5": "05321",
+   "name_en": "Air fryers",
+   "name_ar": "قلايات هوائية",
+   "why": "no class in basket",
+   "class": "N:05321:Air fryers"
+  },
+  {
+   "subclass5": "05321",
+   "name_en": "Hot plates",
+   "name_ar": "سخانات طهي كهربائية (هوت بليت)",
+   "why": "no class in basket",
+   "class": "N:05321:Hot plates"
+  },
+  {
+   "subclass5": "05321",
+   "name_en": "Other small cooking appliances",
+   "name_ar": "أجهزة طهي صغيرة أخرى (قلاية زيت، مفرمة لحم، صانعة آيس كريم...)",
+   "why": "no class in basket",
+   "class": "N:05321:Other small cooking appliances"
+  },
+  {
+   "subclass5": "05321",
+   "name_en": "Rice cookers and multi-cookers",
+   "name_ar": "طباخات أرز وطناجر كهربائية متعددة الاستخدام",
+   "why": "no class in basket",
+   "class": "N:05321:Rice cookers and multi-cookers"
+  },
+  {
+   "subclass5": "05321",
+   "name_en": "Sandwich makers and grills",
+   "name_ar": "محضرات السندويش والشوايات الكهربائية",
+   "why": "no class in basket",
+   "class": "N:05321:Sandwich makers and grills"
+  },
+  {
+   "subclass5": "05322",
+   "name_en": "Coffee machines",
+   "name_ar": "ماكينات القهوة",
+   "why": "no class in basket",
+   "class": "N:05322:Coffee machines"
+  },
+  {
+   "subclass5": "05322",
+   "name_en": "Electric kettles and tea makers",
+   "name_ar": "غلايات كهربائية وصانعات الشاي",
+   "why": "no class in basket",
+   "class": "N:05322:Electric kettles and tea makers"
+  },
+  {
+   "subclass5": "05322",
+   "name_en": "Juicers",
+   "name_ar": "عصارات",
+   "why": "no class in basket (blenders are 0532101)",
+   "class": "N:05322:Juicers"
+  },
+  {
+   "subclass5": "05322",
+   "name_en": "Soda makers",
+   "name_ar": "أجهزة صنع المياه الغازية",
+   "why": "no class in basket",
+   "class": "N:05322:Soda makers"
+  },
+  {
+   "subclass5": "05322",
+   "name_en": "Water dispensers",
+   "name_ar": "موزعات (برادات) مياه الشرب",
+   "why": "no class in basket",
+   "class": "N:05322:Water dispensers"
+  },
+  {
+   "subclass5": "05329",
+   "name_en": "Aroma diffusers",
+   "name_ar": "أجهزة نشر العطور الكهربائية",
+   "why": "no class in basket",
+   "class": "N:05329:Aroma diffusers"
+  },
+  {
+   "subclass5": "05329",
+   "name_en": "Electric insect killers",
+   "name_ar": "صواعق حشرات كهربائية",
+   "why": "durable device, not the insecticide class 0561901",
+   "class": "N:05329:Electric insect killers"
+  },
+  {
+   "subclass5": "05329",
+   "name_en": "Fans",
+   "name_ar": "مراوح كهربائية",
+   "why": "no class in basket; COICOP 05.3.2.9 fans",
+   "class": "N:05329:Fans"
+  },
+  {
+   "subclass5": "05329",
+   "name_en": "Hand dryers",
+   "name_ar": "مجففات الأيدي الكهربائية",
+   "why": "no class in basket",
+   "class": "N:05329:Hand dryers"
+  },
+  {
+   "subclass5": "05401",
+   "name_en": "Dinnerware sets",
+   "name_ar": "أطقم صحون (طقم سفرة)",
+   "why": "0540201 is a single plate",
+   "class": "N:05401:Dinnerware sets"
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Bathroom accessories",
+   "name_ar": "إكسسوارات الحمام (حامل مناديل...)",
+   "why": "no class in basket",
+   "class": "N:05403:Bathroom accessories"
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Cookware sets",
+   "name_ar": "أطقم أواني طبخ (قدور ومقالي)",
+   "why": "0540301 is a single frying pan",
+   "class": "N:05403:Cookware sets"
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Kitchen storage and dish racks",
+   "name_ar": "حوامل تجفيف الصحون وأدوات تخزين المطبخ",
+   "why": "no class in basket",
+   "class": "N:05403:Kitchen storage and dish racks"
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Kitchen tools and gadgets",
+   "name_ar": "أدوات وملحقات مطبخ صغيرة",
+   "why": "no class in basket",
+   "class": "N:05403:Kitchen tools and gadgets"
+  },
+  {
+   "subclass5": "05510",
+   "name_en": "Pressure washers",
+   "name_ar": "غسالات ضغط عالي",
+   "why": "no class in basket",
+   "class": "N:05510:Pressure washers"
+  },
+  {
+   "subclass5": "05521",
+   "name_en": "Plungers and drain snakes",
+   "name_ar": "أدوات فتح المجاري (شفاط، سلك)",
+   "why": "no class in basket",
+   "class": "N:05521:Plungers and drain snakes"
+  },
+  {
+   "subclass5": "05522",
+   "name_en": "Torches and emergency lights",
+   "name_ar": "كشافات ومصابيح طوارئ وتخييم",
+   "why": "0552201 holds bulbs and batteries, not portable lamps",
+   "class": "N:05522:Torches and emergency lights"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Appliance cleaners",
+   "name_ar": "منظفات الأجهزة (غسالات الملابس والصحون)",
+   "why": "no class in basket",
+   "class": "N:05611:Appliance cleaners"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Bleach",
+   "name_ar": "مبيض (كلور)",
+   "why": "no class in basket",
+   "class": "N:05611:Bleach"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Carpet and upholstery cleaners",
+   "name_ar": "منظفات السجاد والمفروشات",
+   "why": "no class in basket",
+   "class": "N:05611:Carpet and upholstery cleaners"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Cleaning brushes and tools",
+   "name_ar": "فرش المرحاض وأدوات تنظيف الزجاج",
+   "why": "0561104 is broom/mop",
+   "class": "N:05611:Cleaning brushes and tools"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Cleaning cloths and sponges",
+   "name_ar": "فوط وإسفنج وليف تنظيف",
+   "why": "no class in basket",
+   "class": "N:05611:Cleaning cloths and sponges"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Cleaning wipes",
+   "name_ar": "مناديل تنظيف وتطهير للأسطح",
+   "why": "no class in basket",
+   "class": "N:05611:Cleaning wipes"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Dishwasher detergents",
+   "name_ar": "منظفات غسالات الصحون",
+   "why": "0561105 is hand dishwashing liquid; same name as electronics batch",
+   "class": "N:05611:Dishwasher detergents"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Drain cleaners",
+   "name_ar": "منظفات المجاري والمصارف",
+   "why": "no class in basket",
+   "class": "N:05611:Drain cleaners"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Furniture and metal polishes",
+   "name_ar": "ملمعات الأثاث والمعادن",
+   "why": "no class in basket",
+   "class": "N:05611:Furniture and metal polishes"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Stain removers and laundry aids",
+   "name_ar": "مزيلات البقع ونشا الكي",
+   "why": "no class in basket",
+   "class": "N:05611:Stain removers and laundry aids"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Vacuum cleaner bags and filters",
+   "name_ar": "أكياس وفلاتر المكانس الكهربائية",
+   "why": "no class in basket",
+   "class": "N:05611:Vacuum cleaner bags and filters"
+  },
+  {
+   "subclass5": "05619",
+   "name_en": "Household gloves",
+   "name_ar": "قفازات منزلية",
+   "why": "no class in basket; same name as electronics batch",
+   "class": "N:05619:Household gloves"
+  },
+  {
+   "subclass5": "05619",
+   "name_en": "Kitchen paper towels",
+   "name_ar": "مناشف ورقية للمطبخ",
+   "why": "toilet (1312015) and facial (1312013) tissue are personal care; kitchen paper is COICOP 05.6.1.9",
+   "class": "N:05619:Kitchen paper towels"
+  },
+  {
+   "subclass5": "05619",
+   "name_en": "Water filter cartridges",
+   "name_ar": "خراطيش فلاتر المياه",
+   "why": "no class in basket",
+   "class": "N:05619:Water filter cartridges"
+  },
+  {
+   "subclass5": "07212",
+   "name_en": "Vehicle parts",
+   "name_ar": "قطع غيار المركبات (لمبات)",
+   "why": "no class in basket",
+   "class": "N:07212:Vehicle parts"
+  },
+  {
+   "subclass5": "09222",
+   "name_en": "Barbecue grills and accessories",
+   "name_ar": "شوايات فحم وملحقاتها",
+   "why": "COICOP puts barbecues in 09.2.2.2",
+   "class": "N:09222:Barbecue grills and accessories"
+  },
+  {
+   "subclass5": "13111",
+   "name_en": "Hair straighteners and curling irons",
+   "name_ar": "أجهزة فرد وتمويج الشعر",
+   "why": "1311101 trimmers and 1311102 hair dryers are different appliances",
+   "class": "N:13111:Hair straighteners and curling irons"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Bath sponges and body scrubbers",
+   "name_ar": "ليف وفرش الاستحمام",
+   "why": "no class in basket",
+   "class": "N:13120:Bath sponges and body scrubbers"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Hair conditioners",
+   "name_ar": "بلسم الشعر",
+   "why": "1312009 is shampoo",
+   "class": "N:13120:Hair conditioners"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Eyewear accessories",
+   "name_ar": "ملحقات النظارات (أدوات تنظيف العدسات)",
+   "why": "no class in basket",
+   "class": "N:13291:Eyewear accessories"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Smoking accessories",
+   "name_ar": "مستلزمات التدخين",
+   "why": "no class in basket",
+   "class": "N:13291:Smoking accessories"
+  },
+  {
+   "subclass5": "06111",
+   "name_en": "Medicines",
+   "name_ar": "أدوية",
+   "why": "canonical type",
+   "class": "N:06111:Medicines"
+  },
+  {
+   "subclass5": "07213",
+   "name_en": "Car accessories",
+   "name_ar": "إكسسوارات سيارات",
+   "why": "canonical type",
+   "class": "N:07213:Car accessories"
+  },
+  {
+   "subclass5": "07213",
+   "name_en": "Car care and cleaning products",
+   "name_ar": "منتجات العناية بالسيارات وتنظيفها",
+   "why": "canonical type",
+   "class": "N:07213:Car care and cleaning products"
+  },
+  {
+   "subclass5": "09221",
+   "name_en": "Sports and fitness equipment",
+   "name_ar": "معدات رياضية ولياقة",
+   "why": "canonical type",
+   "class": "N:09221:Sports and fitness equipment"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Facial masks",
+   "name_ar": "أقنعة الوجه التجميلية",
+   "why": "canonical type",
+   "class": "N:13120:Facial masks"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Wet wipes",
+   "name_ar": "مناديل مبللة مضادة للبكتيريا",
+   "why": "canonical type",
+   "class": "N:13120:Wet wipes"
+  }
+ ]
+}

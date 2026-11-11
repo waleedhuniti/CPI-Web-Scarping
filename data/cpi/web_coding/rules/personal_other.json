@@ -1,0 +1,1916 @@
+{
+ "categories": {
+  "health_fitness_beauty_fragrances": {
+   "default": "1312001",
+   "rules": [],
+   "note": "all Naseem eau de parfum"
+  },
+  "health_fitness_beauty_grooming_appliances": {
+   "default": "1311101",
+   "rules": [
+    {
+     "re": "replacement foil|replacement shaving heads|blade refill",
+     "class": "N:13111:Electric shaver replacement heads"
+    },
+    {
+     "re": "epilator|hair remover|hair removal",
+     "class": "N:13111:Epilators"
+    },
+    {
+     "re": "dryer",
+     "class": "1311102"
+    },
+    {
+     "re": "straighten|curler|curling|wand|volume boost",
+     "class": "N:13111:Hair straighteners and curling irons"
+    },
+    {
+     "re": "airwrap|airstyle|air styler|airsmooth|hot air|hair styler",
+     "class": "1311102"
+    }
+   ],
+   "note": "default = electric shavers, trimmers, clippers (1311101); hot-air stylers grouped with hair dryers"
+  },
+  "body_lotion": {
+   "default": "1312007",
+   "rules": [
+    {
+     "re": "eau de toilette",
+     "class": "1312001"
+    }
+   ]
+  },
+  "deodorant": {
+   "default": "1312005",
+   "rules": [
+    {
+     "re": "cat litter",
+     "class": "N:09322:Cat litter"
+    },
+    {
+     "re": "\\bsoap\\b",
+     "class": "1312010"
+    },
+    {
+     "re": "\\bedt\\b",
+     "class": "1312001"
+    }
+   ]
+  },
+  "diapers": {
+   "default": "1312012",
+   "rules": [
+    {
+     "re": "rash cream",
+     "class": "1312007"
+    }
+   ]
+  },
+  "face_mask": {
+   "default": "N:13120:Facial masks",
+   "rules": [
+    {
+     "re": "medical face mask|disposable face mask|3 ?ply|\\b50 ?(pcs|-piece)|earloop|protection mask",
+     "class": "N:06122:Medical face masks"
+    },
+    {
+     "re": "\\bled\\b|red light|light therapy|microcurrent|massager|foreo",
+     "class": "N:13111:Electric skin care devices"
+    },
+    {
+     "re": "sinus|hot cold|cold and hot|warm cold|cooling ice|ice face|cooling gel eye|jade|gel beads|heating pad|cold compress|face cooling mask",
+     "class": "N:06123:Hot and cold packs"
+    },
+    {
+     "re": "mixing bowl|spatula|makeup protector|lycra",
+     "class": "N:13120:Cosmetic applicators and tools"
+    },
+    {
+     "re": "gift ?set|giftset|skin ?care sets?|spa (kit|party)|essentials set|refining duo",
+     "class": "N:13120:Skin care gift sets"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "lip (balm|therapy)",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "^AS1 |fast clear booster serum|replumping and hydrating serum|toner pads|mask pad|wrinkle patch|anti-wrinkle patches|eye patches|ascorbic acid powder|booster duo",
+     "class": "N:13120:Face serums and skin treatments"
+    },
+    {
+     "re": "face wash|wash mask|wash scrub|charcoal cleanser|make-?up remover|cleansing wipes|face scrub\\b|facial scrub|scrub mask|mud scrub|facial polish|exfoliator cream|black sugar mask",
+     "class": "1312007"
+    },
+    {
+     "re": "skin (care )?wipes|antibacterial .*wipes",
+     "class": "N:13120:Wet wipes"
+    },
+    {
+     "re": "night cream mask",
+     "class": "1312007"
+    },
+    {
+     "re": "^(?!.*mask).*(cream|moisturi[sz]er|soothing gel|water gel|hydra genius)",
+     "class": "1312007"
+    }
+   ],
+   "note": "cosmetic face masks default; medical masks 06122; LED/microcurrent devices 13111; hot/cold gel masks 06123"
+  },
+  "first_aid": {
+   "default": "N:06123:Bandages, plasters and dressings",
+   "rules": [
+    {
+     "re": "corn starch",
+     "class": "0111202"
+    },
+    {
+     "re": "cream of tartar",
+     "class": "0119904"
+    },
+    {
+     "re": "baking cocoa",
+     "class": "0118502"
+    },
+    {
+     "re": "arrowroot cookies|baby snack",
+     "class": "0119201"
+    },
+    {
+     "re": "infant milk",
+     "class": "0119203"
+    },
+    {
+     "re": "coconut milk powder",
+     "class": "N:01193:Coconut milk for cooking"
+    },
+    {
+     "re": "olive oil",
+     "class": "0115101"
+    },
+    {
+     "re": "rinse aid",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "whitener",
+     "class": "N:05611:Stain removers and laundry aids"
+    },
+    {
+     "re": "chair rx",
+     "class": "N:05611:Furniture and metal polishes"
+    },
+    {
+     "re": "mosquito repellent",
+     "class": "0561901"
+    },
+    {
+     "re": "ethyl alcohol disinfectant",
+     "class": "0561106"
+    },
+    {
+     "re": "shampoo",
+     "class": "1312009"
+    },
+    {
+     "re": "maternity pads",
+     "class": "1312011"
+    },
+    {
+     "re": "pet wrap",
+     "class": "N:09322:Pet grooming and health products"
+    },
+    {
+     "re": "cradle",
+     "class": "N:05111:Baby furniture"
+    },
+    {
+     "re": "play gym|rattle",
+     "class": "0921201"
+    },
+    {
+     "re": "^first step ",
+     "class": "N:13291:Baby articles"
+    },
+    {
+     "re": "guide to basic first aid",
+     "class": "N:09719:Children's books"
+    },
+    {
+     "re": "corn (caps|cushions)",
+     "class": "N:13120:Foot care and pedicure products"
+    },
+    {
+     "re": "magnesium|vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "homeopathic|clove oil",
+     "class": "N:06112:Herbal medicines"
+    },
+    {
+     "re": "storage|organi[sz]er|container|booboo box|first aid box empty",
+     "class": "N:05403:Household storage and organizers"
+    },
+    {
+     "re": "\\bempty\\b",
+     "class": "N:13291:Travel and sports bags"
+    },
+    {
+     "re": "finger cots|bioswiss|quick clot gauze|alcohol prep|alcohol wipes|emergency bandage",
+     "class": "N:06123:Bandages, plasters and dressings"
+    },
+    {
+     "re": "first[- ]aid kits?\\b|ifak|packit|survival kit|trauma kit|care kit|office kit|refill kit|fanny pack|metal case|safety kit|tourniquet|anti-choking",
+     "class": "N:06123:First-aid kits and emergency supplies"
+    },
+    {
+     "re": "cooling gel sheet",
+     "class": "N:06123:Hot and cold packs"
+    },
+    {
+     "re": "ointment|first aid cream|burn (gel|cream|relief)|burnfix|lidocaine|emla|hydrogen peroxide|swan isopropyl|iodine|antiseptic|gentian|wound spray|pessar|betadine|artelac|eyelid wipes|salonpas|bacitracin|neosporin|heat plaster|glycerin|mebo (gold|ointment|scar)",
+     "class": "N:06111:Medicines"
+    }
+   ],
+   "note": "search term pulled in many off-topic foods and baby goods; default = plasters, tapes, gauze, wraps"
+  },
+  "hair_dryer": {
+   "default": "1311102",
+   "rules": [
+    {
+     "re": "shampoo",
+     "class": "1312009"
+    },
+    {
+     "re": "conditioner",
+     "class": "N:13120:Hair conditioners"
+    }
+   ],
+   "note": "air stylers and dryer brushes kept with hair dryers; dryer+straightener bundles = dryer"
+  },
+  "paracetamol": {
+   "default": "N:06111:Medicines",
+   "rules": [
+    {
+     "re": "seat cushion|sit ring",
+     "class": "N:06133:Orthopaedic supports and daily living aids"
+    },
+    {
+     "re": "herbal|tiger balm|zandu|olbas|axe brand universal oil|himani|\\bmoov\\b",
+     "class": "N:06112:Herbal medicines"
+    }
+   ],
+   "note": "Reviewer: Ayurvedic/traditional plant-oil balms and oils (Tiger Balm, Zandu, Olbas, Axe Brand, Himani, Moov) -> 06.1.1.2 herbal medicines; synthetic analgesics stay 06.1.1.1."
+  },
+  "perfume": {
+   "default": "1312001",
+   "rules": [
+    {
+     "re": "shower gel",
+     "class": "1312010"
+    },
+    {
+     "re": "attar(?!.*\\bedp\\b)|perfume oil|concentrated perfume|oil concentrated",
+     "class": "1312002"
+    }
+   ],
+   "note": "concentrated perfume oils / attar grouped with oud oil class 1312002"
+  },
+  "razor": {
+   "default": "1312004",
+   "rules": [
+    {
+     "re": "shave gel|shaving (gel|foam|cream)",
+     "class": "1312004"
+    },
+    {
+     "re": "styler 3-in-1 beard trimmer",
+     "class": "1311101"
+    }
+   ]
+  },
+  "sanitary_pads": {
+   "default": "1312011",
+   "rules": [
+    {
+     "re": "incontinence|medical care pads",
+     "class": "N:06133:Adult incontinence products"
+    }
+   ]
+  },
+  "shampoo": {
+   "default": "1312009",
+   "rules": [
+    {
+     "re": "\\bdogs?\\b|puppy|\\bcat shampoo|duvo\\+|animology|aminology|trixie",
+     "class": "N:09322:Pet grooming and health products"
+    },
+    {
+     "re": "abaya shampoo",
+     "class": "0561101"
+    }
+   ]
+  },
+  "soap": {
+   "default": "1312010",
+   "rules": [
+    {
+     "re": "soap powder|washing soap|laundry soap",
+     "class": "0561101"
+    },
+    {
+     "re": "hand ?wash|hand soap|liquid soap|hand & body wash|lotion soap",
+     "class": "1312010"
+    }
+   ]
+  },
+  "thermometer": {
+   "default": "N:06121:Medical thermometers",
+   "rules": [
+    {
+     "re": "luggage",
+     "class": "N:13291:Travel accessories"
+    },
+    {
+     "re": "facial steamer",
+     "class": "N:13111:Electric skin care devices"
+    },
+    {
+     "re": "baby bath",
+     "class": "N:13291:Baby articles"
+    },
+    {
+     "re": "vetnordic",
+     "class": "N:09322:Pet grooming and health products"
+    },
+    {
+     "re": "aquarium|floating thermometer|penn-plax",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "compost|\\bworm\\b",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "refrigerator|fridge|freezer|food thermometer|meat|bbq|grill|kitchen|frothing|steam thermometer|wine|winco|timer|with fahrenheit probe|^digital thermometer (black|silver)|^thermometer silver",
+     "class": "N:05403:Kitchen tools and gadgets"
+    },
+    {
+     "re": "pyrometer|industrial|thermocouple|terminator|dial thermometer|performance tool|gm1150|scantemp|etekcity|spectrum infra-red",
+     "class": "N:05521:Measuring tools"
+    },
+    {
+     "re": "hygro|humidity|weather|indoor|outdoor|room|window thermometer|probe sensor|switchbot|clock",
+     "class": "N:05329:Room thermometers and weather stations"
+    }
+   ],
+   "note": "default = body thermometers incl. probe covers; kitchen, room/weather, industrial and aquarium thermometers split out"
+  },
+  "toothpaste": {
+   "default": "1312008",
+   "rules": [
+    {
+     "re": "whitestrips",
+     "class": "N:13120:Teeth whitening products"
+    },
+    {
+     "re": "^(?!.*toothpaste).*toothbrush",
+     "class": "1312008"
+    }
+   ]
+  },
+  "vitamins": {
+   "default": "N:06111:Vitamins and dietary supplements",
+   "rules": [
+    {
+     "re": "face cream|moisturi[sz]ing cream|vita glow|petroleum jelly",
+     "class": "1312007"
+    },
+    {
+     "re": "sunscreen",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "serum",
+     "class": "N:13120:Face serums and skin treatments"
+    },
+    {
+     "re": "micellar|face wash",
+     "class": "1312007"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "intimate wash",
+     "class": "N:13120:Intimate washes"
+    },
+    {
+     "re": "body wash|shower cream",
+     "class": "1312010"
+    },
+    {
+     "re": "shampoo",
+     "class": "1312009"
+    },
+    {
+     "re": "hair oil",
+     "class": "1312006"
+    },
+    {
+     "re": "\\bsoap\\b",
+     "class": "1312010"
+    },
+    {
+     "re": "dishwashing",
+     "class": "0561105"
+    },
+    {
+     "re": "canola",
+     "class": "N:01151:Other vegetable oils"
+    },
+    {
+     "re": "corn oil",
+     "class": "0115102"
+    },
+    {
+     "re": "sunflower oil",
+     "class": "0115104"
+    },
+    {
+     "re": "\\beggs\\b",
+     "class": "0114801"
+    },
+    {
+     "re": "mushroom",
+     "class": "N:01174:Fresh mushrooms"
+    },
+    {
+     "re": "puck cream",
+     "class": "0114303"
+    },
+    {
+     "re": "red bull",
+     "class": "0129001"
+    },
+    {
+     "re": "vitamin well|vantori|oronamin|pokka",
+     "class": "N:01290:Vitamin and functional drinks"
+    },
+    {
+     "re": "electrolyte|hydration (mix|support)|karbolyn|replenisher|waterboy",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "gatorade",
+     "class": "N:01290:Sports drinks"
+    },
+    {
+     "re": "protein powder|whey|hyper mass|creatine|protein metabolism powder|l-?carnitine",
+     "class": "N:01290:Protein and sports supplement powders"
+    },
+    {
+     "re": "protein bar",
+     "class": "N:01199:Protein bars"
+    },
+    {
+     "re": "buckwheat bar",
+     "class": "0118501"
+    },
+    {
+     "re": "energy chews|energy gel",
+     "class": "N:01199:Sports energy gels and chews"
+    },
+    {
+     "re": "complete meal|power shake",
+     "class": "N:01199:Meal replacement drinks"
+    },
+    {
+     "re": "flavoured milk|juice drink with milk",
+     "class": "0114702"
+    },
+    {
+     "re": "weetabix",
+     "class": "0111401"
+    },
+    {
+     "re": "ginger shot|ginseng shot",
+     "class": "N:01210:Juice shots"
+    },
+    {
+     "re": "chyawanprash",
+     "class": "N:06112:Herbal medicines"
+    }
+   ],
+   "note": "search 'vitamins' pulled in many vitamin-enriched foods and cosmetics"
+  },
+  "bicycle": {
+   "default": "0921201",
+   "rules": [
+    {
+     "re": "tuna",
+     "class": "0113201"
+    },
+    {
+     "re": "karcher",
+     "class": "N:05510:Pressure washers"
+    },
+    {
+     "re": "jump starter",
+     "class": "N:07213:Car accessories"
+    },
+    {
+     "re": "led headlamp",
+     "class": "N:05522:Torches and emergency lights"
+    },
+    {
+     "re": "\\btube\\b",
+     "class": "N:07211:Tyres and inner tubes"
+    },
+    {
+     "re": "(24|26|27\\.5|29) ?(\"|”|inch|in\\b)|adult|\\bmtb\\b|city bi|hybrid|folding bike",
+     "class": "N:07130:Bicycles"
+    },
+    {
+     "re": "kids|girls|boys|junior|toddler|mountain bike|balance",
+     "class": "0921201"
+    },
+    {
+     "re": "saddle|seat cover|handle grip|training wheels|bicycle seat",
+     "class": "N:07212:Bicycle parts"
+    },
+    {
+     "re": "helmet|lock\\b|bicycle light|bicycle usb|light set|\\bbell\\b|horn|pumb?\\b|pump |mount|hanger|repair|tools?\\b|bicycle bag",
+     "class": "N:07213:Bicycle accessories"
+    },
+    {
+     "re": "knee|elbow|protective pads|gloves",
+     "class": "0922101"
+    },
+    {
+     "re": "arm sleeves",
+     "class": "N:03131:Arm sleeves"
+    },
+    {
+     "re": "\\bcap\\b",
+     "class": "0313102"
+    },
+    {
+     "re": "sweat jacket",
+     "class": "N:03121:Men's jackets and coats"
+    },
+    {
+     "re": "sweating vest",
+     "class": "N:03122:Women's waistcoats and gilets"
+    }
+   ],
+   "note": "children's bicycles (wheels under 24 in), balance bikes and tricycles = 0921201 like the basket's SPARTAN 16 kids bicycle; 24 in and larger, adult, MTB, city, hybrid, folding = 07130"
+  },
+  "books": {
+   "default": "N:09719:Children's books",
+   "rules": [
+    {
+     "re": "reading pen|talking pen|quran stand|quran holder|holder stand|quran stand holder|backrest rug",
+     "class": "N:13220:Prayer rugs and devotional articles"
+    },
+    {
+     "re": "stationery set|pencil box",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "drawing book|construction book|sketchbook for designers",
+     "class": "N:09740:Notebooks, exercise and drawing books"
+    },
+    {
+     "re": "quran|qur.an|mushaf|juz amma|surat|tajweed|tajwid|prophet|bukhari|supplication|prayer|enoch",
+     "class": "N:09719:Religious books"
+    },
+    {
+     "re": "dictionary|grammar|writing\\W+(practice\\W+)?book|cursive|hand ?writing|fluency|super fast english|1000 words|smart book|learn everyday|activity book - (maths|general knowledge)|gk quiz",
+     "class": "N:09711:Educational books and dictionaries"
+    },
+    {
+     "re": "colou?ring|colou?r by|colours? book|fun with colou?rs|copy colou?r|activity|sticker|dot.to.dot|maze|puzzle|sudoku|word search|i spy|spot the difference|invisible ink|water magic|water colouring|paint with water|scrap ?book|cut & paste|craft book|mandalas|clip art|fun with numbers",
+     "class": "N:09719:Activity, colouring and puzzle books"
+    },
+    {
+     "re": "lessons from my life|cat who saved|black book of change|by karine",
+     "class": "N:09719:Fiction and non-fiction books"
+    }
+   ]
+  },
+  "car_accessories": {
+   "default": "N:07213:Car accessories",
+   "rules": [
+    {
+     "re": "ashtray",
+     "class": "N:13291:Smoking accessories"
+    },
+    {
+     "re": "wheel spanner|manual pressure washer",
+     "class": "N:05521:Garden and DIY tools"
+    },
+    {
+     "re": "vacuum compressed sponge",
+     "class": "N:07213:Car care and cleaning products"
+    },
+    {
+     "re": "keychain|key chain|key rings",
+     "class": "N:13291:Key rings and small personal accessories"
+    },
+    {
+     "re": "cross charm|dua al safar|ayatul kursi",
+     "class": "N:13220:Prayer rugs and devotional articles"
+    },
+    {
+     "re": "car charger",
+     "class": "0819202"
+    },
+    {
+     "re": "phone holder|phone car holder|mobile holder|moble holder|phone bracket|phone mount",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "antenna",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "dash cam",
+     "class": "N:07213:Dash cameras"
+    },
+    {
+     "re": "air freshener|odou?r eliminator",
+     "class": "0561103"
+    },
+    {
+     "re": "intex",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "coolant|fuel system cleaner|injector cleaner|power booster|smoke treatment|steering fluid|wd-40|silicone spray",
+     "class": "N:07224:Other lubricants, fluids and additives"
+    },
+    {
+     "re": "outer handle|hose finisher|paddle shifter",
+     "class": "N:07212:Vehicle parts"
+    },
+    {
+     "re": "vacuum cleaner pipes",
+     "class": "N:05314:Vacuum cleaner accessories"
+    },
+    {
+     "re": "^colourful duster",
+     "class": "N:05611:Cleaning brushes and tools"
+    },
+    {
+     "re": "dustpro|mychoice",
+     "class": "N:05611:Cleaning cloths and sponges"
+    },
+    {
+     "re": "vacuum(?! compressed)|dustbuster",
+     "class": "0531401"
+    },
+    {
+     "re": "inspection lamp",
+     "class": "N:05522:Torches and emergency lights"
+    },
+    {
+     "re": "washer fluid|windshield fluid",
+     "class": "N:07213:Car care and cleaning products"
+    },
+    {
+     "re": "washer|wash gun|high.pressure",
+     "class": "N:05510:Pressure washers"
+    },
+    {
+     "re": "wax|polish|shine|protectant|protect spray|leather care|cleaner|wipes|wash|microfib|chamois|sponge|duster|mitt|squeegee|cleaning|detailing|bucket|scratch remover|drying towel|car towel|windshield repair|stain remover|tire form",
+     "class": "N:07213:Car care and cleaning products"
+    }
+   ],
+   "note": "Reviewer: handheld/12V car vacuums -> 0531401 (same as household vacuum_cleaner category); car ashtrays -> 13.2.9.1 smoking accessories; wheel spanner and manual pump sprayer -> 05.5.2.1 non-motorized tools."
+  },
+  "car_battery": {
+   "default": "N:07212:Vehicle parts",
+   "rules": [
+    {
+     "re": "samsung galaxy",
+     "class": "0812002"
+    },
+    {
+     "re": "airpods|earbud",
+     "class": "0819201"
+    },
+    {
+     "re": "gummy candy",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "keychain|key chain",
+     "class": "N:13291:Key rings and small personal accessories"
+    },
+    {
+     "re": "car fragrance|car freshener|freshener gel|power pod",
+     "class": "0561103"
+    },
+    {
+     "re": "water pump",
+     "class": "N:05322:Water dispensers"
+    },
+    {
+     "re": "carpet and upholstery cleaner",
+     "class": "N:05314:Carpet and spot cleaners"
+    },
+    {
+     "re": "karcher",
+     "class": "N:05510:Pressure washers"
+    },
+    {
+     "re": "jump start|jump adapter|emergency starter|battery booster|booster pack|jumper cables|battery charger(?! (binding|studs))|maintainer|smart charger|tester|checker|analy[sz]er|obd2|scanner|hydrometer|refractometer|capacity indicator|battery meter|voltage meter|measurement meter|battery indicator|car starter battery|portable handle|water filler|cargo carrier|storage box|tank bag|interior touch light|car jack|battery assistant|multibattery|load stops|o-?track|grab handles|student driver|baby on board|sticker|decal|emblem|hitch cover|mirror pendant",
+     "class": "N:07213:Car accessories"
+    },
+    {
+     "re": "cr1632|remote batteries|lead-acid battery|lifepo4",
+     "class": "0552201"
+    },
+    {
+     "re": "car charger|wireless charger|charging head",
+     "class": "0819202"
+    },
+    {
+     "re": "mobile holder|phone holder",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "jumper wire",
+     "class": "N:08192:Cables and adapters"
+    },
+    {
+     "re": "power ?bank",
+     "class": "0819202"
+    },
+    {
+     "re": "remote control (racing |stunt |climbing |door open )?car|\\bride on\\b|door opening car|light and sound car",
+     "class": "0921201"
+    }
+   ],
+   "note": "the 'car battery' search returns almost only parts, chargers and testers; no actual car battery in the list"
+  },
+  "engine_oil": {
+   "default": "N:07212:Vehicle parts",
+   "rules": [
+    {
+     "re": "conditioner",
+     "class": "N:13120:Hair conditioners"
+    },
+    {
+     "re": "flush",
+     "class": "N:07224:Other lubricants, fluids and additives"
+    },
+    {
+     "re": "\\b\\d{1,2}w-? ?\\d{2}\\b|nissan engine oil",
+     "class": "N:07224:Engine oils"
+    },
+    {
+     "re": "wrench|pliers",
+     "class": "N:05521:Garden and DIY tools"
+    },
+    {
+     "re": "funnel|liquivac|drain pan|sampling pump",
+     "class": "N:07213:Car accessories"
+    }
+   ],
+   "note": "default = engine parts (dipsticks, oil caps, filters, coolers, pumps, sensors) Reviewer: oil filter wrenches/pliers are hand tools (05.5.2.1 lists wrenches, spanners, pliers)."
+  },
+  "garden": {
+   "default": "N:05521:Garden and DIY tools",
+   "rules": [
+    {
+     "re": "mix vegetables",
+     "class": "0117803"
+    },
+    {
+     "re": "(?<!chick )\\bpeas\\b",
+     "class": "0117801"
+    },
+    {
+     "re": "vinegar",
+     "class": "0119302"
+    },
+    {
+     "re": "vienna sausages",
+     "class": "0112507"
+    },
+    {
+     "re": "peanut butter",
+     "class": "0118401"
+    },
+    {
+     "re": "hummus",
+     "class": "0117904"
+    },
+    {
+     "re": "tahina",
+     "class": "0118401"
+    },
+    {
+     "re": "pizza sauce|pasta sauce|bbq sauce|mustard",
+     "class": "N:01193:Other sauces and dips"
+    },
+    {
+     "re": "coconut (cream|milk)",
+     "class": "N:01193:Coconut milk for cooking"
+    },
+    {
+     "re": "dressing and dip",
+     "class": "0119901"
+    },
+    {
+     "re": "pickle|jalapeno",
+     "class": "0117908"
+    },
+    {
+     "re": "mayonnaise",
+     "class": "0119304"
+    },
+    {
+     "re": "popcorn",
+     "class": "0111905"
+    },
+    {
+     "re": "lemon juice",
+     "class": "0121001"
+    },
+    {
+     "re": "pancake (original )?syrup",
+     "class": "N:01182:Sugar syrups"
+    },
+    {
+     "re": "bread crumbs",
+     "class": "0111106"
+    },
+    {
+     "re": "ketchup",
+     "class": "0119303"
+    },
+    {
+     "re": "fava|medammes",
+     "class": "0117902"
+    },
+    {
+     "re": "baked beans|chick ?peas|grape leaves|sweet corn",
+     "class": "0117904"
+    },
+    {
+     "re": "mushroom",
+     "class": "0117903"
+    },
+    {
+     "re": "tuna",
+     "class": "0113201"
+    },
+    {
+     "re": "kidney beans",
+     "class": "0117604"
+    },
+    {
+     "re": "pineapple",
+     "class": "0116901"
+    },
+    {
+     "re": "jaggery",
+     "class": "0118101"
+    },
+    {
+     "re": "chicken bone",
+     "class": "N:01124:Offal, bones and fat"
+    },
+    {
+     "re": "fabric conditioner",
+     "class": "0561102"
+    },
+    {
+     "re": "gardening in the arabian|garden above the clouds",
+     "class": "N:09719:Fiction and non-fiction books"
+    },
+    {
+     "re": "chair",
+     "class": "N:05112:Garden furniture"
+    },
+    {
+     "re": "landscape lighting",
+     "class": "N:05113:Lamps and lighting fixtures"
+    },
+    {
+     "re": "pressure washer|high-pressure washer|car washer",
+     "class": "N:05510:Pressure washers"
+    },
+    {
+     "re": "seeds",
+     "class": "N:09312:Seeds and bulbs"
+    },
+    {
+     "re": "potting|planting mix|plant tonic|geotextile|pebbles|twine|plant ties",
+     "class": "N:09311:Garden products"
+    },
+    {
+     "re": "hydroponic",
+     "class": "N:05329:Other small household appliances"
+    }
+   ],
+   "note": "brand names 'American Garden' / 'California Garden' pull in groceries; default = hoses, sprayers, hand garden tools"
+  },
+  "notebook": {
+   "default": "N:09740:Notebooks, exercise and drawing books",
+   "rules": [
+    {
+     "re": "eau de toilette",
+     "class": "1312001"
+    },
+    {
+     "re": "laptop desk|lap desk|bed table|lap tray",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "laptop stand|laptop riser",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "backpack|sleeve case|notebook case",
+     "class": "N:13291:Laptop bags and backpacks"
+    },
+    {
+     "re": "cooling pad|keyboard skin",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "mouse",
+     "class": "N:08132:Keyboards and mice"
+    },
+    {
+     "re": "charger",
+     "class": "0819202"
+    },
+    {
+     "re": "highlighter",
+     "class": "N:09740:Pens and writing instruments"
+    },
+    {
+     "re": "self adhesive sheet",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "processor|\\bssd\\b|laptop|windows 11",
+     "class": "0813101"
+    }
+   ],
+   "note": "'notebook' = paper notebooks and laptops"
+  },
+  "pens": {
+   "default": "N:09740:Pens and writing instruments",
+   "rules": [
+    {
+     "re": "stain pen",
+     "class": "N:05611:Stain removers and laundry aids"
+    },
+    {
+     "re": "eye ?liner",
+     "class": "1312016"
+    },
+    {
+     "re": "stylus",
+     "class": "N:08192:Stylus pens"
+    },
+    {
+     "re": "3d pen",
+     "class": "0921201"
+    },
+    {
+     "re": "correction",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "brush pen|sketch pen|water colou?r|felt|fib(er|re) tip|colou?r pencil|crayon|colou?ring",
+     "class": "N:09740:Colouring and drawing materials"
+    }
+   ]
+  },
+  "stationery": {
+   "default": "N:09740:Stationery",
+   "rules": [
+    {
+     "re": "clothespins|clothes clips",
+     "class": "0540304"
+    },
+    {
+     "re": "yarn",
+     "class": "N:03132:Haberdashery and knitting yarns"
+    },
+    {
+     "re": "back ?pack",
+     "class": "1329101"
+    },
+    {
+     "re": "cutlery and stationery holder",
+     "class": "N:05403:Household storage and organizers"
+    },
+    {
+     "re": "uni-ball value pack|writing combo",
+     "class": "N:09740:Pens and writing instruments"
+    },
+    {
+     "re": "stationery (set|kit|box)|school kit|value pack|preschool kit|school case set|designer kit|writing kit|white ?board|dry-erase|pen holder",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "colou?r pencil|crayon|marker|colou?ring kit|colour fiesta",
+     "class": "N:09740:Colouring and drawing materials"
+    },
+    {
+     "re": "ball pen|mechanical pencil|graphite pencil|text liner|highlighter",
+     "class": "N:09740:Pens and writing instruments"
+    }
+   ]
+  },
+  "pet_food": {
+   "default": "0932201",
+   "rules": [
+    {
+     "re": "paneer",
+     "class": "0114503"
+    },
+    {
+     "re": "frangosul chicken",
+     "class": "0112206"
+    },
+    {
+     "re": "garlic pure",
+     "class": "0117407"
+    },
+    {
+     "re": "chicken franks",
+     "class": "0112505"
+    },
+    {
+     "re": "sadia chicken nuggets",
+     "class": "0112509"
+    },
+    {
+     "re": "deli container|pet jar",
+     "class": "N:05403:Food containers and lunch boxes"
+    },
+    {
+     "re": "lint roll",
+     "class": "N:05611:Cleaning brushes and tools"
+    },
+    {
+     "re": "cat litter",
+     "class": "N:09322:Cat litter"
+    },
+    {
+     "re": "bowl|dish\\b|can lids?|can cover|food mat|feeder|storage container|mouse pack",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "salmon oil|immune support supplement|weight gainer",
+     "class": "N:09322:Pet grooming and health products"
+    }
+   ]
+  },
+  "school_bag": {
+   "default": "1329101",
+   "rules": [
+    {
+     "re": "multifunctional waterproof travel bag|swimming bag",
+     "class": "N:13291:Travel and sports bags"
+    }
+   ],
+   "note": "school backpacks, trolleys, school sets and lunch bags (basket class 1329101 includes a school lunch bag)"
+  },
+  "toys": {
+   "default": "0921201",
+   "rules": [
+    {
+     "re": "kinder joy",
+     "class": "0118501"
+    },
+    {
+     "re": "nursery cleaner",
+     "class": "0561106"
+    },
+    {
+     "re": "trampoline",
+     "class": "0922101"
+    },
+    {
+     "re": "playpen|play fence",
+     "class": "N:05111:Baby furniture"
+    },
+    {
+     "re": "pool toy|noodle",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "mini football|soccer ball|hula",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bslides?\\b|\\bswings?\\b|climbing frame|monkey bar|playground|play house|fitness equipment",
+     "class": "N:09212:Playground equipment"
+    }
+   ]
+  },
+  "video_games": {
+   "default": "N:09211:Video games",
+   "rules": [
+    {
+     "re": "iphone",
+     "class": "0812001"
+    },
+    {
+     "re": "samsung",
+     "class": "0812002"
+    },
+    {
+     "re": "motorola|smartphone",
+     "class": "0812003"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "virtual reality|vr headset",
+     "class": "N:08132:VR headsets"
+    },
+    {
+     "re": "headset",
+     "class": "0819201"
+    },
+    {
+     "re": "capture adapter",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "cooling stand|charging station",
+     "class": "N:09211:Game controllers and gaming accessories"
+    },
+    {
+     "re": "\\btoy\\b|foam sword|rc vehicle",
+     "class": "0921201"
+    },
+    {
+     "re": "cartridge|game card",
+     "class": "N:09211:Video games"
+    },
+    {
+     "re": "console|game stick|handheld|game player|video game box|r35s|plug and play|plug & play",
+     "class": "N:09211:Video game consoles"
+    }
+   ]
+  }
+ },
+ "overrides": {
+  "carrefour|3233006330509": "1312007",
+  "carrefour|3233003311411": "N:13291:Sleep masks",
+  "carrefour|3233002106794": "N:13120:Facial masks",
+  "carrefour|3233005548605": "N:13120:Facial masks",
+  "carrefour|3233002071367": "N:13120:Facial masks",
+  "carrefour|1752944000005": "N:13120:Skin care gift sets",
+  "carrefour|8470002439726": "N:06123:First-aid kits and emergency supplies",
+  "carrefour|864473000239": "N:05329:Room thermometers and weather stations",
+  "carrefour|6033412664441": "N:05329:Room thermometers and weather stations",
+  "carrefour|1817646544716": "N:09719:Children's books",
+  "carrefour|4181163038508": "N:07213:Car accessories",
+  "carrefour|3574006001435": "N:07213:Car accessories",
+  "carrefour|1817646710372": "N:07213:Car accessories",
+  "carrefour|5060771872843": "N:07224:Other lubricants, fluids and additives",
+  "carrefour|2223312": "0921201",
+  "carrefour|3233002357475": "N:07213:Car accessories",
+  "carrefour|3233002806079": "N:07213:Car accessories",
+  "carrefour|3233002398178": "N:07213:Car accessories",
+  "carrefour|3233002585217": "N:07213:Car accessories",
+  "carrefour|1817646666184": "N:13120:Cosmetic applicators and tools",
+  "carrefour|1817646666430": "N:13120:Cosmetic applicators and tools"
+ },
+ "new_types": [
+  {
+   "subclass5": "01124",
+   "name_en": "Offal, bones and fat",
+   "name_ar": "أحشاء وعظام ودهون",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01151",
+   "name_en": "Other vegetable oils",
+   "name_ar": "زيوت نباتية أخرى (كانولا)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01174",
+   "name_en": "Fresh mushrooms",
+   "name_ar": "فطر طازج",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01182",
+   "name_en": "Sugar syrups",
+   "name_ar": "شراب السكر (شراب البان كيك)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01189",
+   "name_en": "Sugar confectionery",
+   "name_ar": "حلويات سكرية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01193",
+   "name_en": "Coconut milk for cooking",
+   "name_ar": "حليب جوز الهند للطبخ",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01193",
+   "name_en": "Other sauces and dips",
+   "name_ar": "صلصات وغموسات أخرى",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01199",
+   "name_en": "Meal replacement drinks",
+   "name_ar": "مشروبات بديلة للوجبات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01199",
+   "name_en": "Protein bars",
+   "name_ar": "ألواح البروتين",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01199",
+   "name_en": "Sports energy gels and chews",
+   "name_ar": "جل وحلوى الطاقة الرياضية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01210",
+   "name_en": "Fruit juices",
+   "name_ar": "عصائر الفاكهة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01210",
+   "name_en": "Juice shots",
+   "name_ar": "جرعات العصير (شوت الزنجبيل)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01290",
+   "name_en": "Electrolyte drink mixes",
+   "name_ar": "مساحيق وأقراص الأملاح المعدنية للشرب",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01290",
+   "name_en": "Protein and sports supplement powders",
+   "name_ar": "مساحيق البروتين والمكملات الرياضية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01290",
+   "name_en": "Sports drinks",
+   "name_ar": "مشروبات رياضية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "01290",
+   "name_en": "Vitamin and functional drinks",
+   "name_ar": "مشروبات الفيتامينات والمشروبات الوظيفية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "03121",
+   "name_en": "Men's jackets and coats",
+   "name_ar": "جاكيتات ومعاطف رجالية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "03122",
+   "name_en": "Waistcoats and gilets",
+   "name_ar": "صديريات نسائية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "03131",
+   "name_en": "Arm sleeves",
+   "name_ar": "أكمام الذراع",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "03132",
+   "name_en": "Knitting yarns",
+   "name_ar": "خيوط الحياكة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05111",
+   "name_en": "Baby furniture",
+   "name_ar": "أثاث الأطفال الرضع",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05111",
+   "name_en": "Chairs",
+   "name_ar": "كراسي",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05111",
+   "name_en": "Desks and tables",
+   "name_ar": "مكاتب وطاولات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05112",
+   "name_en": "Garden furniture",
+   "name_ar": "أثاث الحدائق",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05113",
+   "name_en": "Lamps and lighting fixtures",
+   "name_ar": "مصابيح وأدوات إنارة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05314",
+   "name_en": "Carpet and spot cleaners",
+   "name_ar": "أجهزة تنظيف السجاد والبقع",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05314",
+   "name_en": "Vacuum cleaner accessories",
+   "name_ar": "ملحقات المكانس الكهربائية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05322",
+   "name_en": "Water dispensers",
+   "name_ar": "موزعات ومضخات المياه",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05329",
+   "name_en": "Room thermometers and weather stations",
+   "name_ar": "موازين حرارة ورطوبة الغرف ومحطات الطقس",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05329",
+   "name_en": "Small household appliances",
+   "name_ar": "أجهزة منزلية صغيرة أخرى",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Food containers and lunch boxes",
+   "name_ar": "حاويات الطعام وعلب الغداء",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Household storage and organizers",
+   "name_ar": "صناديق التخزين والمنظمات المنزلية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05403",
+   "name_en": "Kitchen tools and gadgets",
+   "name_ar": "أدوات المطبخ (موازين حرارة الطعام)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05510",
+   "name_en": "Pressure washers",
+   "name_ar": "غسالات الضغط العالي",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05521",
+   "name_en": "Garden and DIY tools",
+   "name_ar": "أدوات الحديقة والعدد اليدوية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05521",
+   "name_en": "Measuring tools",
+   "name_ar": "أدوات القياس (موازين حرارة صناعية)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05522",
+   "name_en": "Torches and emergency lights",
+   "name_ar": "مصابيح يدوية وكشافات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Cleaning brushes and tools",
+   "name_ar": "فرش وأدوات التنظيف",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Cleaning cloths and sponges",
+   "name_ar": "مناشف وإسفنج التنظيف",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Dishwasher detergents",
+   "name_ar": "منظفات غسالة الصحون",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Furniture and metal polishes",
+   "name_ar": "ملمعات الأثاث والمعادن",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Stain removers and laundry aids",
+   "name_ar": "مزيلات البقع ومساعدات الغسيل",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "05619",
+   "name_en": "Clothes pegs and hangers",
+   "name_ar": "ملاقط وعلاقات الملابس",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06111",
+   "name_en": "Medicines",
+   "name_ar": "أدوية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06111",
+   "name_en": "Vitamins and dietary supplements",
+   "name_ar": "فيتامينات ومكملات غذائية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06112",
+   "name_en": "Herbal medicines",
+   "name_ar": "أدوية عشبية ومعالجة مثلية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06121",
+   "name_en": "Medical thermometers",
+   "name_ar": "موازين حرارة طبية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06122",
+   "name_en": "Medical face masks",
+   "name_ar": "كمامات طبية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06123",
+   "name_en": "Bandages, plasters and dressings",
+   "name_ar": "ضمادات ولاصقات جروح وأشرطة طبية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06123",
+   "name_en": "First-aid kits and emergency supplies",
+   "name_ar": "حقائب الإسعافات الأولية ومستلزمات الطوارئ",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06123",
+   "name_en": "Hot and cold packs",
+   "name_ar": "كمادات ساخنة وباردة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06133",
+   "name_en": "Adult incontinence products",
+   "name_ar": "مستلزمات سلس البول للكبار",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "06133",
+   "name_en": "Orthopaedic supports and daily living aids",
+   "name_ar": "دعامات وأدوات مساعدة للحياة اليومية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07130",
+   "name_en": "Bicycles",
+   "name_ar": "دراجات هوائية (للكبار)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07211",
+   "name_en": "Tyres and inner tubes",
+   "name_ar": "إطارات وأنابيب داخلية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07212",
+   "name_en": "Bicycle parts",
+   "name_ar": "قطع غيار الدراجات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07212",
+   "name_en": "Vehicle parts",
+   "name_ar": "قطع غيار المركبات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07213",
+   "name_en": "Bicycle accessories",
+   "name_ar": "إكسسوارات الدراجات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07213",
+   "name_en": "Car accessories",
+   "name_ar": "إكسسوارات السيارات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07213",
+   "name_en": "Car care and cleaning products",
+   "name_ar": "منتجات العناية بالسيارات وتنظيفها",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07213",
+   "name_en": "Dash cameras",
+   "name_ar": "كاميرات لوحة القيادة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07224",
+   "name_en": "Engine oils",
+   "name_ar": "زيوت المحركات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "07224",
+   "name_en": "Other lubricants, fluids and additives",
+   "name_ar": "مزلقات وسوائل وإضافات أخرى للمركبات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Keyboards and mice",
+   "name_ar": "لوحات مفاتيح وفأرات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "VR headsets",
+   "name_ar": "نظارات الواقع الافتراضي",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Cables and adapters",
+   "name_ar": "كابلات ومحولات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Other ICT accessories",
+   "name_ar": "ملحقات أخرى للحاسوب والاتصالات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Stands, holders and mounts",
+   "name_ar": "حوامل وقواعد الأجهزة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Stylus pens",
+   "name_ar": "أقلام اللمس",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09211",
+   "name_en": "Game controllers and gaming accessories",
+   "name_ar": "ملحقات ألعاب الفيديو",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09211",
+   "name_en": "Video game consoles",
+   "name_ar": "أجهزة ألعاب الفيديو",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09211",
+   "name_en": "Video games",
+   "name_ar": "ألعاب الفيديو",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09212",
+   "name_en": "Playground equipment",
+   "name_ar": "ألعاب الحدائق (مراجيح وزحاليق)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09222",
+   "name_en": "Inflatables and beach equipment",
+   "name_ar": "منفوخات ومستلزمات الشاطئ",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09311",
+   "name_en": "Garden products",
+   "name_ar": "مستلزمات الحدائق (تربة وأسمدة)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09312",
+   "name_en": "Seeds and bulbs",
+   "name_ar": "بذور وأبصال زراعية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09322",
+   "name_en": "Cat litter",
+   "name_ar": "رمل القطط",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09322",
+   "name_en": "Pet accessories",
+   "name_ar": "إكسسوارات الحيوانات الأليفة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09322",
+   "name_en": "Pet grooming and health products",
+   "name_ar": "منتجات العناية والصحة للحيوانات الأليفة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09711",
+   "name_en": "Educational books and dictionaries",
+   "name_ar": "كتب تعليمية وقواميس",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09719",
+   "name_en": "Activity, colouring and puzzle books",
+   "name_ar": "كتب الأنشطة والتلوين والألغاز",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09719",
+   "name_en": "Children's books",
+   "name_ar": "كتب الأطفال",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09719",
+   "name_en": "Fiction and non-fiction books",
+   "name_ar": "كتب أدبية وعامة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09719",
+   "name_en": "Religious books",
+   "name_ar": "كتب دينية (مصاحف)",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09740",
+   "name_en": "Colouring and drawing materials",
+   "name_ar": "أدوات التلوين والرسم",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09740",
+   "name_en": "Notebooks, exercise and drawing books",
+   "name_ar": "دفاتر وكراسات",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09740",
+   "name_en": "Pens and writing instruments",
+   "name_ar": "أقلام وأدوات كتابة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "09740",
+   "name_en": "Stationery",
+   "name_ar": "قرطاسية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13111",
+   "name_en": "Electric shaver replacement heads",
+   "name_ar": "رؤوس بديلة لماكينات الحلاقة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13111",
+   "name_en": "Electric skin care devices",
+   "name_ar": "أجهزة كهربائية للعناية بالبشرة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13111",
+   "name_en": "Epilators",
+   "name_ar": "أجهزة إزالة الشعر",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13111",
+   "name_en": "Hair straighteners and curling irons",
+   "name_ar": "مكواة فرد وتجعيد الشعر",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Cosmetic applicators and tools",
+   "name_ar": "أدوات تطبيق مستحضرات التجميل",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Face serums and skin treatments",
+   "name_ar": "سيروم ومعالجات البشرة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Facial masks",
+   "name_ar": "أقنعة الوجه التجميلية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Foot care and pedicure products",
+   "name_ar": "منتجات العناية بالقدم",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Hair conditioners",
+   "name_ar": "بلسم الشعر",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Intimate washes",
+   "name_ar": "غسول المناطق الحساسة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Lip balms",
+   "name_ar": "مرطب الشفاه",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Liquid hand soaps",
+   "name_ar": "صابون اليدين السائل",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Shaving creams and gels",
+   "name_ar": "كريم وجل الحلاقة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Shower gels and body washes",
+   "name_ar": "جل الاستحمام وغسول الجسم",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Skin care gift sets",
+   "name_ar": "مجموعات هدايا العناية بالبشرة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Skin cleansers and scrubs",
+   "name_ar": "منظفات ومقشرات البشرة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Sunscreens",
+   "name_ar": "واقيات الشمس",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Teeth whitening products",
+   "name_ar": "منتجات تبييض الأسنان",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Toothpaste",
+   "name_ar": "معجون الأسنان",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13120",
+   "name_en": "Wet wipes",
+   "name_ar": "مناديل مبللة مضادة للبكتيريا",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13220",
+   "name_en": "Prayer rugs and devotional articles",
+   "name_ar": "سجاد الصلاة والمستلزمات الدينية",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Baby articles",
+   "name_ar": "مستلزمات الأطفال الرضع",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Key rings and small personal accessories",
+   "name_ar": "ميداليات المفاتيح",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Laptop bags and backpacks",
+   "name_ar": "حقائب وحقائب ظهر للحاسوب",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Sleep masks",
+   "name_ar": "أقنعة النوم",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Travel accessories",
+   "name_ar": "مستلزمات السفر",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Travel and sports bags",
+   "name_ar": "حقائب السفر والرياضة",
+   "why": "no existing 7-digit class of this type in ref/cpi_classes.tsv"
+  },
+  {
+   "subclass5": "03132",
+   "name_en": "Haberdashery and knitting yarns",
+   "name_ar": "خيوط حياكة ومستلزمات خياطة (أزرار، باترونات)",
+   "why": "added by reviewer: canonical type used in this batch"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Smoking accessories",
+   "name_ar": "مستلزمات التدخين",
+   "why": "added by reviewer: canonical type used in this batch"
+  },
+  {
+   "subclass5": "05329",
+   "name_en": "Other small household appliances",
+   "name_ar": "أجهزة منزلية كهربائية صغيرة أخرى",
+   "why": "added by reviewer: canonical type used in this batch"
+  },
+  {
+   "subclass5": "03122",
+   "name_en": "Women's waistcoats and gilets",
+   "name_ar": "صديريات وسترات بدون أكمام نسائية",
+   "why": "added by reviewer: canonical type used in this batch"
+  }
+ ]
+}

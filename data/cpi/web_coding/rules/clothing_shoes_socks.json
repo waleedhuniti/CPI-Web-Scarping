@@ -1,0 +1,1020 @@
+{
+ "categories": {
+  "boys_shoes": {
+   "default": "0321301",
+   "rules": [
+    {
+     "re": "turf|football boot|soccer|cleat",
+     "class": "N:09221:Game-specific sports footwear"
+    },
+    {
+     "re": "\\bboots?\\b|welli",
+     "class": "N:03213:Children's boots and wellies"
+    },
+    {
+     "re": "sheepskin (slides|clog)|house slipper|bedroom slipper|\\bslippers\\b",
+     "class": "N:03213:Children's house slippers"
+    },
+    {
+     "re": "clog|aqua shoe|sandal|flip.?flop|slides",
+     "class": "N:03213:Children's sandals and flip-flops"
+    },
+    {
+     "re": "school",
+     "class": "0321301"
+    },
+    {
+     "re": "^(adidas|nike|puma|asics|under armour|skechers|new balance|reebok)\\b",
+     "class": "0321302"
+    }
+   ],
+   "note": "Zara boys footwear. Basket codes 032130104 put Zara boys trainers in 0321301, so fashion trainers/sneakers stay in 0321301; boots, slippers/clogs and school shoes split out."
+  },
+  "girls_shoes": {
+   "default": "0321301",
+   "rules": [
+    {
+     "re": "shoulder bag",
+     "class": "1329102"
+    },
+    {
+     "re": "turf|football boot|soccer|cleat",
+     "class": "N:09221:Game-specific sports footwear"
+    },
+    {
+     "re": "\\bboots?\\b|welli",
+     "class": "N:03213:Children's boots and wellies"
+    },
+    {
+     "re": "sheepskin (slides|clog)|house slipper|bedroom slipper|\\bslippers\\b",
+     "class": "N:03213:Children's house slippers"
+    },
+    {
+     "re": "clog|aqua shoe|sandal|flip.?flop|slides",
+     "class": "N:03213:Children's sandals and flip-flops"
+    },
+    {
+     "re": "school",
+     "class": "0321301"
+    },
+    {
+     "re": "^(adidas|nike|puma|asics|under armour|skechers|new balance|reebok)\\b",
+     "class": "0321302"
+    }
+   ],
+   "note": "Zara girls footwear; basket 0321301 for trainers, derby, deck and heeled shoes."
+  },
+  "kids_shoes": {
+   "default": "0321301",
+   "rules": [
+    {
+     "re": "turf|football boot|soccer|cleat",
+     "class": "N:09221:Game-specific sports footwear"
+    },
+    {
+     "re": "\\bboots?\\b|welli",
+     "class": "N:03213:Children's boots and wellies"
+    },
+    {
+     "re": "sheepskin (slides|clog)|house slipper|bedroom slipper|\\bslippers\\b",
+     "class": "N:03213:Children's house slippers"
+    },
+    {
+     "re": "clog|aqua shoe|sandal|flip.?flop|slides",
+     "class": "N:03213:Children's sandals and flip-flops"
+    },
+    {
+     "re": "^(adidas|nike|puma|asics|under armour|skechers|new balance|reebok)\\b",
+     "class": "0321302"
+    },
+    {
+     "re": "school",
+     "class": "0321301"
+    }
+   ],
+   "note": "Max/Centrepoint kids. Basket puts Kappa/Dash kids sports shoes in 0321301; only global athletic brands (Nike example of 0321302) go to 0321302."
+  },
+  "men_shoes": {
+   "default": "0321101",
+   "rules": [
+    {
+     "re": "shoe care|protector spray",
+     "class": "N:05611:Shoe care products"
+    },
+    {
+     "re": "turf|football boot|cleat",
+     "class": "N:09221:Game-specific sports footwear"
+    },
+    {
+     "re": "sandal|clog|flip.?flop|slides",
+     "class": "0321102"
+    },
+    {
+     "re": "\\bboots?\\b",
+     "class": "N:03211:Men's boots"
+    },
+    {
+     "re": "sports? shoe|sneaker|trainer|running|badminton|walking shoe",
+     "class": "0321103"
+    }
+   ],
+   "note": "Men's footwear: dress/casual closed shoes default 0321101; sports/sneakers 0321103; sandals/clogs 0321102."
+  },
+  "women_shoes": {
+   "default": "0321201",
+   "rules": [
+    {
+     "re": "toe support",
+     "class": "N:03212:Insoles and shoe accessories"
+    },
+    {
+     "re": "bedroom|house slipper|plush .*slipper",
+     "class": "N:03212:Women's house slippers"
+    },
+    {
+     "re": "sandal|beach slipper|flip.?flop|slides|clog",
+     "class": "0321201"
+    },
+    {
+     "re": "\\bboots?\\b",
+     "class": "N:03212:Women's boots"
+    },
+    {
+     "re": "sports? shoe|sneaker|trainer|running|badminton|school shoe",
+     "class": "0321202"
+    }
+   ],
+   "note": "Women's footwear: heels, ballerinas, mary janes, pointed/slingback default 0321201; sports/sneakers 0321202."
+  },
+  "sandals": {
+   "default": "0321201",
+   "rules": [
+    {
+     "re": "\\bsoap\\b",
+     "class": "1312010"
+    },
+    {
+     "re": "perfume oil|\\battar\\b|oud mautter",
+     "class": "1312002"
+    },
+    {
+     "re": "incense|dhoop",
+     "class": "1312002"
+    },
+    {
+     "re": "chandan|puja|pooja",
+     "class": "N:13220:Prayer rugs and devotional articles"
+    },
+    {
+     "re": "foundation|skin tint",
+     "class": "1312016"
+    },
+    {
+     "re": "concealer|compact powder|loose powder|facefinity compact|bronzer|makeup stick",
+     "class": "1312016"
+    },
+    {
+     "re": "lipstick|lipliner|lip liner",
+     "class": "1312016"
+    },
+    {
+     "re": "nail polish",
+     "class": "N:13120:Nail polish"
+    },
+    {
+     "re": "\\btalc\\b",
+     "class": "N:13120:Talcum powder"
+    },
+    {
+     "re": "hair removal",
+     "class": "N:13120:Hair removal products"
+    },
+    {
+     "re": "\\bscrub\\b",
+     "class": "1312007"
+    },
+    {
+     "re": "whitening beauty cream",
+     "class": "1312007"
+    },
+    {
+     "re": "\\bcomb\\b",
+     "class": "N:13120:Combs and hairbrushes"
+    },
+    {
+     "re": "wafer|gingerbread",
+     "class": "0111306"
+    },
+    {
+     "re": "chocolate",
+     "class": "0118501"
+    },
+    {
+     "re": "taco shells|tortilla",
+     "class": "N:01119:Tortilla chips and taco shells"
+    },
+    {
+     "re": "spice mix",
+     "class": "0119901"
+    },
+    {
+     "re": "santa maria (dip|hot taco sauce|taco sauce)",
+     "class": "N:01193:Other sauces and dips"
+    },
+    {
+     "re": "caviar",
+     "class": "0113201"
+    },
+    {
+     "re": "air freshener|diffuser",
+     "class": "0561103"
+    },
+    {
+     "re": "softener",
+     "class": "0561102"
+    },
+    {
+     "re": "drying rack",
+     "class": "0540304"
+    },
+    {
+     "re": "display stand|shoe rack|display rack",
+     "class": "N:05111:Shoe racks and cabinets"
+    },
+    {
+     "re": "shoe box|storage organizer",
+     "class": "N:05403:Household storage and organizers"
+    },
+    {
+     "re": "utensils set",
+     "class": "0540102"
+    },
+    {
+     "re": "spoon",
+     "class": "0540202"
+    },
+    {
+     "re": "barbie.*doll|clay sand|kids garden hand tool",
+     "class": "0921201"
+    },
+    {
+     "re": "green sand|aerator",
+     "class": "N:05521:Garden and DIY tools"
+    },
+    {
+     "re": "hot tub",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "headphone",
+     "class": "0819201"
+    },
+    {
+     "re": "ruler|fountain pen",
+     "class": "N:09740:Stationery"
+    },
+    {
+     "re": "fridge magnet",
+     "class": "N:05114:Decorative articles"
+    },
+    {
+     "re": "anklet|foot jewelry|foot chain|fukettchen",
+     "class": "N:13211:Fashion jewellery"
+    },
+    {
+     "re": "puppy|dog shoes|pet sandal",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "foot model",
+     "class": "X:retail display equipment"
+    },
+    {
+     "re": "pedicure|disposable slippers",
+     "class": "N:13120:Foot care and pedicure products"
+    },
+    {
+     "re": "diabetic|orthopedic|orthotic|plantar fasciitis|acupressure|reflexology|toe walking",
+     "class": "N:06133:Therapeutic footwear"
+    },
+    {
+     "re": "insoles for women|for women.*(insole|cushion)|insoles for flats|high heel insoles|(insole|pad|grip|strap|clip)s? .*(high heel|heels|pumps)|heel (adjustment )?strap|shoe straps|shoe clips|metatarsal",
+     "class": "N:03212:Insoles and shoe accessories"
+    },
+    {
+     "re": "insole|insert|toe protector|sandal charm",
+     "class": "N:03211:Insoles and shoe accessories"
+    },
+    {
+     "re": "\\b(boys?'?|girls?|kids|juniors|toddler)\\b",
+     "class": "N:03213:Children's sandals and flip-flops"
+    },
+    {
+     "re": "\\bmen\\b|\\bmen's\\b|arabic|mister duchini|^lbl by shoexpress",
+     "class": "0321102"
+    }
+   ],
+   "note": "Search 'sandal' pulls soap, sandalwood perfume/incense, 'Sand' make-up shades, Santa chocolate etc.; these are coded by what they are. Men's sandals (incl. comfort/sports sandals) are 0321102 per basket codes 032110201/02."
+  },
+  "shoes": {
+   "default": "0321101",
+   "rules": [
+    {
+     "re": "watch band|watch strap|watchbands|replacement strap",
+     "class": "N:13211:Watch straps"
+    },
+    {
+     "re": "smartwatch|fitness tracker",
+     "class": "N:08191:Smartwatches and fitness trackers"
+    },
+    {
+     "re": "\\bwatch(es)?\\b|herrenuhr|armbanduhr|herren-uhr|uhrwerk",
+     "class": "1321102"
+    },
+    {
+     "re": "replacement (sunglass )?lenses|sport replacement sunglass lenses",
+     "class": "N:13291:Eyewear accessories"
+    },
+    {
+     "re": "reading glasses|optical frames",
+     "class": "N:06131:Reading glasses and spectacle frames"
+    },
+    {
+     "re": "sungl|sunglasses",
+     "class": "1329103"
+    },
+    {
+     "re": "ginger shot|ginseng shot|ginger cinnamon shot",
+     "class": "N:01210:Juice shots"
+    },
+    {
+     "re": "shopping bag|shopping cart",
+     "class": "N:05219:Shopping, laundry and shoe bags"
+    },
+    {
+     "re": "shoe cabinet|shoe rack|shoe storage cabinet",
+     "class": "N:05111:Shoe racks and cabinets"
+    },
+    {
+     "re": "shoe polish|shoe cream|shoe shine|shine shoe|shoe brush|shoe deo|shoe sponge|mobil sponge|instant shine",
+     "class": "N:05611:Shoe care products"
+    },
+    {
+     "re": "shoe horn|shoe tree|stretcher|boot jack",
+     "class": "N:13291:Shoe horns and shoe trees"
+    },
+    {
+     "re": "insoles.*(orthotic|plantar)|(orthotic|plantar).*insoles",
+     "class": "N:06133:Orthopaedic supports and daily living aids"
+    },
+    {
+     "re": "diabetic|orthopedic|therapeutic",
+     "class": "N:06133:Therapeutic footwear"
+    },
+    {
+     "re": "insole|inserts|shoe lift|shoe ?laces|shoelace",
+     "class": "N:03211:Insoles and shoe accessories"
+    },
+    {
+     "re": "\\bedt\\b",
+     "class": "1312001"
+    },
+    {
+     "re": "skat|heelys|golf|bowling|baseball|lacrosse|softball|cleat",
+     "class": "N:09221:Game-specific sports footwear"
+    },
+    {
+     "re": "water shoe|aqua sock|sand shoes",
+     "class": "N:03211:Water shoes"
+    },
+    {
+     "re": "\\bboots\\b|rain pvc",
+     "class": "N:03211:Men's boots"
+    },
+    {
+     "re": "garden clogs",
+     "class": "0321102"
+    },
+    {
+     "re": "slippers|house shoes",
+     "class": "N:03211:Men's house slippers"
+    },
+    {
+     "re": "clogs|flip flops",
+     "class": "0321102"
+    },
+    {
+     "re": "boat shoes",
+     "class": "0321101"
+    },
+    {
+     "re": "women",
+     "class": "0321202"
+    },
+    {
+     "re": "sports? shoe|sneaker|athletic|basketball|pickleball|indoor shoe|hiking|training|jordan|moab",
+     "class": "0321103"
+    }
+   ],
+   "note": "Carrefour/Lulu 'shoes' search: many off-topic (watches, sunglasses, shoe racks, shoe care). Game-specific footwear (golf, bowling, baseball, skates) is 09.2.2.1 per COICOP 03.2.1 exclusions."
+  },
+  "sports_shoes": {
+   "default": "0321103",
+   "rules": [
+    {
+     "re": "washing machine bag|shoe storage bags",
+     "class": "N:05219:Shopping, laundry and shoe bags"
+    },
+    {
+     "re": "heat shrinkable|wrap bags",
+     "class": "N:05619:Plastic storage bags"
+    },
+    {
+     "re": "duffle|duffel|gym bag|drawstring backpack|sports handbag",
+     "class": "N:13291:Travel and sports bags"
+    },
+    {
+     "re": "deodorant|anti-perspirant|body spray",
+     "class": "1312005"
+    },
+    {
+     "re": "shampoo",
+     "class": "1312009"
+    },
+    {
+     "re": "gatorade",
+     "class": "N:01290:Sports drinks"
+    },
+    {
+     "re": "energy drink|power horse",
+     "class": "0129001"
+    },
+    {
+     "re": "protein",
+     "class": "N:01199:Protein bars"
+    },
+    {
+     "re": "nesquik",
+     "class": "0118502"
+    },
+    {
+     "re": "ritter sport",
+     "class": "0118501"
+    },
+    {
+     "re": "dog|pet |puppy|squeaker",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "coffee mug",
+     "class": "N:05401:Mugs and cups"
+    },
+    {
+     "re": "smartwatch|fitness tracker",
+     "class": "N:08191:Smartwatches and fitness trackers"
+    },
+    {
+     "re": "carbon fiber insole.*(fracture|turf toe)",
+     "class": "N:06133:Orthopaedic supports and daily living aids"
+    },
+    {
+     "re": "insole|shoe pads|shoe ?laces|shoelace|shoestring|shoe strings",
+     "class": "N:03211:Insoles and shoe accessories"
+    },
+    {
+     "re": "cleaner|refresher|renovator",
+     "class": "N:05611:Shoe care products"
+    },
+    {
+     "re": "football boots|soccer shoes|roller skate",
+     "class": "N:09221:Game-specific sports footwear"
+    },
+    {
+     "re": "water shoes",
+     "class": "N:03213:Children's sandals and flip-flops"
+    },
+    {
+     "re": "clogs|flat slippers",
+     "class": "0321201"
+    },
+    {
+     "re": "ballerina",
+     "class": "0321201"
+    },
+    {
+     "re": "unisex panelled hook",
+     "class": "0321301"
+    },
+    {
+     "re": "^(adidas|nike|puma|asics|under armour|skechers)\\b.*\\b(boys|girls|kids)\\b",
+     "class": "0321302"
+    },
+    {
+     "re": "\\b(boys|girls|kids)\\b",
+     "class": "0321301"
+    },
+    {
+     "re": "\\bwomen",
+     "class": "0321202"
+    }
+   ],
+   "note": "Sports shoes by wearer; kids Kappa/Dash per basket 0321301. Off-topic: gym bags, deodorants, sports drinks, laces/insoles, shoe cleaners."
+  },
+  "socks": {
+   "default": "0313106",
+   "rules": [
+    {
+     "re": "watch band|replacement strap|watch cuff band",
+     "class": "N:13211:Watch straps"
+    },
+    {
+     "re": "\\bwatch\\b|uhrwerk",
+     "class": "1321102"
+    },
+    {
+     "re": "reading glasses|optical frames",
+     "class": "N:06131:Reading glasses and spectacle frames"
+    },
+    {
+     "re": "aviator|sunglass",
+     "class": "1329103"
+    },
+    {
+     "re": "baseball cap",
+     "class": "0313102"
+    },
+    {
+     "re": "drying (clips|rack)",
+     "class": "0540304"
+    },
+    {
+     "re": "alligator clips|boots hangers",
+     "class": "0540304"
+    },
+    {
+     "re": "drawer organizer|storage box|storage basket|hanging organizer|honeycomb drawer",
+     "class": "N:05403:Household storage and organizers"
+    },
+    {
+     "re": "laundry bag|wash bag",
+     "class": "N:05219:Shopping, laundry and shoe bags"
+    },
+    {
+     "re": "travel organizer",
+     "class": "N:13291:Travel and sports bags"
+    },
+    {
+     "re": "lint remover|bobble remover",
+     "class": "N:05329:Other small household appliances"
+    },
+    {
+     "re": "knitting needles",
+     "class": "N:05619:Sewing and knitting supplies"
+    },
+    {
+     "re": "backdrop",
+     "class": "N:09213:Celebration and party decorations"
+    },
+    {
+     "re": "keychain",
+     "class": "N:13291:Key rings and small personal accessories"
+    },
+    {
+     "re": "epsom salt|creme bath",
+     "class": "N:13120:Bath salts and soaks"
+    },
+    {
+     "re": "foot mask|baby foot",
+     "class": "N:13120:Foot care and pedicure products"
+    },
+    {
+     "re": "finch|bird|\\bdogs?\\b|aquarium",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "extension sock",
+     "class": "N:05522:Electrical accessories"
+    },
+    {
+     "re": "sun shades",
+     "class": "N:07213:Car accessories"
+    },
+    {
+     "re": "yoga mat|exercise mat|shin ?guard|sweatband",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "painters spray socks",
+     "class": "N:05521:Garden and DIY tools"
+    },
+    {
+     "re": "gift set",
+     "class": "N:13291:Gift sets"
+    },
+    {
+     "re": "costume|cosplay|referee|zentai|unitard|photo props|photography",
+     "class": "N:09212:Costumes and disguises"
+    },
+    {
+     "re": "pajamas",
+     "class": "0312109"
+    },
+    {
+     "re": "tights",
+     "class": "N:03122:Tights and pantyhose"
+    },
+    {
+     "re": "brace|foot sleeve|ankle support|arch support (sleeve|socks)|plantar fasciitis|heel protector|afo interface|knee brace|dressing stick|arch support sleeve",
+     "class": "N:06133:Orthopaedic supports and daily living aids"
+    },
+    {
+     "re": "insole|shoe lift|shoelace",
+     "class": "N:03211:Insoles and shoe accessories"
+    },
+    {
+     "re": "diving|water socks|neoprene|tauchsocken",
+     "class": "N:09123:Diving and water-sport gear"
+    },
+    {
+     "re": "compression|mmhg|diabetic|neuropathy|flight socks|wellness (care )?socks|non.?binding|calf sleeve",
+     "class": "N:06122:Compression stockings and medical socks"
+    }
+   ],
+   "note": "All plain/sports/kids socks to 0313106 (basket socks class, basket codes 031310604/06). Medical hosiery (compression/diabetic) to 06.1.2.2 per COICOP 03.1.2 exclusion."
+  }
+ },
+ "overrides": {
+  "centrepoint|150740GJPINK": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|150740GJLILAC": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|240772BBJBLACK": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|240772BBJNAVY": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|240772BGJPINK": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|150740BJBLUE": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|150740BJGREEN": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|CS161-240016A-WHITE": "N:03213:Children's sandals and flip-flops",
+  "centrepoint|30195-WNAVY": "0321202",
+  "carrefour|1817646288077": "1329103",
+  "carrefour|3233003162186": "0313106",
+  "max|UP25AS006CWHITEMEDIUM": "0321103",
+  "max|LEA-H-C800WHITEMEDIUM": "0321103",
+  "max|CE24548AWHITELIGHT": "0321202",
+  "max|LAN25AA002ABROWNMEDIUM": "0321202",
+  "max|LAN25AA002ACREAMLIGHT": "0321202",
+  "max|LAN25AA002APINKLIGHT": "0321202",
+  "max|MA26C0348WBLACKDARK": "0321202",
+  "carrefour|08589421913684": "X:retail display equipment",
+  "carrefour|1817646360536": "X:retail display equipment"
+ },
+ "new_types": [
+  {
+   "class": "N:03211:Men's boots",
+   "subclass5": "03211",
+   "name_en": "Men's boots",
+   "name_ar": "أحذية بوت رجالية",
+   "why": "Boots are a distinct footwear type; basket men's items are dress shoes, Arabic sandals and sports shoes only."
+  },
+  {
+   "class": "N:03211:Men's house slippers",
+   "subclass5": "03211",
+   "name_en": "Men's house slippers",
+   "name_ar": "شباشب منزلية رجالية",
+   "why": "Indoor house slippers differ from the basket's men's sandals (na'al) and shoes."
+  },
+  {
+   "class": "N:03212:Women's house slippers",
+   "subclass5": "03212",
+   "name_en": "Women's house slippers",
+   "name_ar": "شباشب منزلية نسائية",
+   "why": "Bedroom slippers/mules are not covered by the two women's footwear classes."
+  },
+  {
+   "class": "N:03213:Children's sandals and flip-flops",
+   "subclass5": "03213",
+   "name_en": "Children's sandals and flip-flops",
+   "name_ar": "صنادل وشباشب أطفال",
+   "why": "Children's basket classes are closed shoes/sneakers only."
+  },
+  {
+   "class": "N:03213:Children's house slippers",
+   "subclass5": "03213",
+   "name_en": "Children's house slippers",
+   "name_ar": "شباشب منزلية للأطفال",
+   "why": "Children's house slippers are not in the basket classes."
+  },
+  {
+   "class": "N:03213:Children's boots and wellies",
+   "subclass5": "03213",
+   "name_en": "Children's boots and wellies",
+   "name_ar": "أحذية بوت وجزمات مطر للأطفال",
+   "why": "Children's boots and wellies are a separate footwear type from the basket's sneakers."
+  },
+  {
+   "class": "N:03211:Water shoes",
+   "subclass5": "03211",
+   "name_en": "Water shoes",
+   "name_ar": "أحذية مائية",
+   "why": "Closed water/aqua shoes for beach and pool; neither sandals nor sports shoes."
+  },
+  {
+   "class": "N:03211:Insoles and shoe accessories",
+   "subclass5": "03211",
+   "name_en": "Insoles and shoe accessories",
+   "name_ar": "نعال داخلية وإكسسوارات أحذية",
+   "why": "Insoles, laces and shoe parts are footwear parts under 03.2.1 (03.2.2.0 exclusion note); no basket class."
+  },
+  {
+   "class": "N:03212:Insoles and shoe accessories",
+   "subclass5": "03212",
+   "name_en": "Insoles and shoe accessories",
+   "name_ar": "نعال داخلية وإكسسوارات أحذية نسائية",
+   "why": "Heel grips, high-heel pads and shoe straps for women's shoes; parts of footwear 03.2.1.2."
+  },
+  {
+   "class": "N:09221:Game-specific sports footwear",
+   "subclass5": "09221",
+   "name_en": "Game-specific sports footwear",
+   "name_ar": "أحذية رياضية خاصة بالألعاب (جولف، بولينج، تزلج، كرة قدم)",
+   "why": "COICOP 03.2.1 excludes game-specific footwear (golf, studs, skates) to 09.2.2.1."
+  },
+  {
+   "class": "N:09221:Sports and fitness equipment",
+   "subclass5": "09221",
+   "name_en": "Sports and fitness equipment",
+   "name_ar": "معدات رياضية ولياقة",
+   "why": "Yoga/exercise mats, shin guards, sweatbands; no basket class."
+  },
+  {
+   "class": "N:06133:Therapeutic footwear",
+   "subclass5": "06133",
+   "name_en": "Therapeutic footwear",
+   "name_ar": "أحذية علاجية (سكري وتقويمية)",
+   "why": "COICOP 03.2.1 excludes therapeutic footwear to 06.1.3.3."
+  },
+  {
+   "class": "N:06133:Orthopaedic supports and daily living aids",
+   "subclass5": "06133",
+   "name_en": "Orthopaedic supports and daily living aids",
+   "name_ar": "دعامات تقويمية ووسائل مساعدة يومية",
+   "why": "Ankle/foot braces, orthotic insoles, dressing aids are 06.1.3.3 assistive products."
+  },
+  {
+   "class": "N:06122:Compression stockings and medical socks",
+   "subclass5": "06122",
+   "name_en": "Compression stockings and medical socks",
+   "name_ar": "جوارب ضاغطة وجوارب طبية",
+   "why": "COICOP 03.1.2 excludes medical hosiery (compression stockings) to 06.1.2.2; diabetic socks grouped here."
+  },
+  {
+   "class": "N:05611:Shoe care products",
+   "subclass5": "05611",
+   "name_en": "Shoe care products",
+   "name_ar": "مستلزمات العناية بالأحذية",
+   "why": "Shoe polish/cream/cleaners are listed in 05.6.1.1; no basket class."
+  },
+  {
+   "class": "N:13291:Shoe horns and shoe trees",
+   "subclass5": "13291",
+   "name_en": "Shoe horns and shoe trees",
+   "name_ar": "لباسات وقوالب أحذية",
+   "why": "Shoe horns, shoe trees, stretchers; personal articles n.e.c."
+  },
+  {
+   "class": "N:03122:Tights and pantyhose",
+   "subclass5": "03122",
+   "name_en": "Tights and pantyhose",
+   "name_ar": "جوارب طويلة (كولون) للبنات والنساء",
+   "why": "Tights are garments for women/girls (03.1.2.2); basket socks class is ankle/crew socks."
+  },
+  {
+   "class": "N:09123:Diving and water-sport gear",
+   "subclass5": "09123",
+   "name_en": "Diving and water-sport gear",
+   "name_ar": "جوارب ومعدات غوص",
+   "why": "Neoprene diving socks are sea-diving equipment 09.1.2.3."
+  },
+  {
+   "class": "N:13211:Watch straps",
+   "subclass5": "13211",
+   "name_en": "Watch straps",
+   "name_ar": "أحزمة ساعات",
+   "why": "Replacement watch straps are not watches; no basket class."
+  },
+  {
+   "class": "N:08191:Smartwatches and fitness trackers",
+   "subclass5": "08191",
+   "name_en": "Smartwatches and fitness trackers",
+   "name_ar": "ساعات ذكية وأجهزة تتبع لياقة",
+   "why": "COICOP puts smartwatches in 08.1.9.1; no basket class."
+  },
+  {
+   "class": "N:06131:Reading glasses and spectacle frames",
+   "subclass5": "06131",
+   "name_en": "Reading glasses and spectacle frames",
+   "name_ar": "نظارات قراءة وإطارات نظارات",
+   "why": "Corrective/reading spectacles are 06.1.3.1."
+  },
+  {
+   "class": "N:13211:Fashion jewellery",
+   "subclass5": "13211",
+   "name_en": "Fashion jewellery",
+   "name_ar": "مجوهرات وإكسسوارات أزياء",
+   "why": "Anklets/foot jewellery (silver or costume); basket only has 21k gold."
+  },
+  {
+   "class": "N:13291:Travel and sports bags",
+   "subclass5": "13291",
+   "name_en": "Travel and sports bags",
+   "name_ar": "حقائب سفر ورياضة",
+   "why": "Gym duffel bags, drawstring backpacks; basket has school bag and handbag only."
+  },
+  {
+   "class": "N:05219:Shopping, laundry and shoe bags",
+   "subclass5": "05219",
+   "name_en": "Shopping, laundry and shoe bags",
+   "name_ar": "أكياس تسوق وغسيل وأكياس أحذية",
+   "why": "Textile shopping/laundry/shoe bags are 05.2.1.9."
+  },
+  {
+   "class": "N:05619:Plastic storage bags",
+   "subclass5": "05619",
+   "name_en": "Plastic storage bags",
+   "name_ar": "أكياس تخزين بلاستيكية",
+   "why": "Plastic storage bags 05.6.1.9."
+  },
+  {
+   "class": "N:05403:Household storage and organizers",
+   "subclass5": "05403",
+   "name_en": "Household storage and organizers",
+   "name_ar": "منظمات وصناديق تخزين منزلية",
+   "why": "Drawer organizers and storage boxes 05.4.0.3."
+  },
+  {
+   "class": "N:05111:Shoe racks and cabinets",
+   "subclass5": "05111",
+   "name_en": "Shoe racks and cabinets",
+   "name_ar": "رفوف وخزائن أحذية",
+   "why": "Shoe racks/cabinets are household furniture 05.1.1.1."
+  },
+  {
+   "class": "N:05619:Sewing and knitting supplies",
+   "subclass5": "05619",
+   "name_en": "Sewing and knitting supplies",
+   "name_ar": "مستلزمات الخياطة والحياكة",
+   "why": "Knitting needles 05.6.1.9."
+  },
+  {
+   "class": "N:05522:Electrical accessories",
+   "subclass5": "05522",
+   "name_en": "Electrical accessories",
+   "name_ar": "ملحقات كهربائية",
+   "why": "Extension sockets 05.5.2.2."
+  },
+  {
+   "class": "N:07213:Car accessories",
+   "subclass5": "07213",
+   "name_en": "Car accessories",
+   "name_ar": "إكسسوارات سيارات",
+   "why": "Car window sun shades 07.2.1.3."
+  },
+  {
+   "class": "N:05521:Garden and DIY tools",
+   "subclass5": "05521",
+   "name_en": "Garden and DIY tools",
+   "name_ar": "أدوات حدائق وأعمال يدوية",
+   "why": "Garden hoses, sprinklers, lawn aerators 05.5.2.1."
+  },
+  {
+   "class": "N:09212:Costumes and disguises",
+   "subclass5": "09212",
+   "name_en": "Costumes and disguises",
+   "name_ar": "أزياء تنكرية",
+   "why": "Costumes/disguises 09.2.1.2."
+  },
+  {
+   "class": "N:09213:Celebration and party decorations",
+   "subclass5": "09213",
+   "name_en": "Celebration and party decorations",
+   "name_ar": "زينة الحفلات والمناسبات",
+   "why": "Christmas backdrops 09.2.1.3."
+  },
+  {
+   "class": "N:05114:Decorative articles",
+   "subclass5": "05114",
+   "name_en": "Decorative articles",
+   "name_ar": "قطع ديكور",
+   "why": "Fridge magnets/ornaments."
+  },
+  {
+   "class": "N:05401:Mugs and cups",
+   "subclass5": "05401",
+   "name_en": "Mugs and cups",
+   "name_ar": "أكواب وفناجين",
+   "why": "Printed coffee mugs 05.4.0.1; basket has a glass dish and melamine plate only."
+  },
+  {
+   "class": "N:09740:Stationery",
+   "subclass5": "09740",
+   "name_en": "Stationery",
+   "name_ar": "أدوات قرطاسية",
+   "why": "Rulers, fountain pens 09.7.4.0."
+  },
+  {
+   "class": "N:09322:Pet accessories",
+   "subclass5": "09322",
+   "name_en": "Pet accessories",
+   "name_ar": "مستلزمات الحيوانات الأليفة",
+   "why": "Dog shoes/socks, pet toys, bird feeders 09.3.2.2; basket has pet food only."
+  },
+  {
+   "class": "N:13291:Key rings and small personal accessories",
+   "subclass5": "13291",
+   "name_en": "Key rings and small personal accessories",
+   "name_ar": "ميداليات مفاتيح وإكسسوارات شخصية صغيرة",
+   "why": "Key rings 13.2.9.1."
+  },
+  {
+   "class": "N:13291:Gift sets",
+   "subclass5": "13291",
+   "name_en": "Gift sets",
+   "name_ar": "أطقم هدايا مشكلة",
+   "why": "Mixed gift set (mug, socks, candle, tea)."
+  },
+  {
+   "class": "N:13120:Nail polish",
+   "subclass5": "13120",
+   "name_en": "Nail polish",
+   "name_ar": "طلاء أظافر",
+   "why": "Nail varnish 13.1.2.0."
+  },
+  {
+   "class": "N:13120:Talcum powder",
+   "subclass5": "13120",
+   "name_en": "Talcum powder",
+   "name_ar": "بودرة تلك",
+   "why": "Talcum powder 13.1.2.0."
+  },
+  {
+   "class": "N:13120:Hair removal products",
+   "subclass5": "13120",
+   "name_en": "Hair removal products",
+   "name_ar": "منتجات إزالة الشعر",
+   "why": "Hair removal creams 13.1.2.0."
+  },
+  {
+   "class": "N:13120:Combs and hairbrushes",
+   "subclass5": "13120",
+   "name_en": "Combs and hairbrushes",
+   "name_ar": "أمشاط وفرش شعر",
+   "why": "Combs 13.1.2.0."
+  },
+  {
+   "class": "N:13120:Foot care and pedicure products",
+   "subclass5": "13120",
+   "name_en": "Foot care and pedicure products",
+   "name_ar": "منتجات العناية بالقدم والباديكير",
+   "why": "Foot peel masks, pedicure sandals/toe separators 13.1.2.0."
+  },
+  {
+   "class": "N:13120:Bath salts and soaks",
+   "subclass5": "13120",
+   "name_en": "Bath salts and soaks",
+   "name_ar": "أملاح ومستحضرات الاستحمام",
+   "why": "Epsom salt soaks, bath creme 13.1.2.0."
+  },
+  {
+   "class": "N:01119:Tortilla chips and taco shells",
+   "subclass5": "01119",
+   "name_en": "Tortilla chips and taco shells",
+   "name_ar": "رقائق التورتيلا وأصداف التاكو",
+   "why": "Corn-based tortilla strips/taco shells; basket chips class is potato."
+  },
+  {
+   "class": "N:01193:Other sauces and dips",
+   "subclass5": "01193",
+   "name_en": "Other sauces and dips",
+   "name_ar": "صلصات وغموسات أخرى",
+   "why": "Salsa/taco/nacho dips; basket has ketchup, hot sauce, soy, mayonnaise only."
+  },
+  {
+   "class": "N:01210:Juice shots",
+   "subclass5": "01210",
+   "name_en": "Juice shots",
+   "name_ar": "جرعات عصير (زنجبيل)",
+   "why": "Small ginger/ginseng juice shots 01.2.1.0."
+  },
+  {
+   "class": "N:01290:Sports drinks",
+   "subclass5": "01290",
+   "name_en": "Sports drinks",
+   "name_ar": "مشروبات رياضية",
+   "why": "Isotonic sports drinks 01.2.9.0, not energy drinks."
+  },
+  {
+   "class": "N:01199:Protein bars",
+   "subclass5": "01199",
+   "name_en": "Protein bars",
+   "name_ar": "ألواح بروتين",
+   "why": "Protein bars; no basket class."
+  }
+ ]
+}

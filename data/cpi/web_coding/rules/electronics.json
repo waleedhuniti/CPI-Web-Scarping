@@ -1,0 +1,4578 @@
+{
+ "categories": {
+  "cameras_camcorders_digital_cameras": {
+   "default": "N:09111:Digital cameras",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "printer",
+     "class": "N:08132:Printers and scanners"
+    },
+    {
+     "re": "instax|polaroid|instant",
+     "class": "N:09111:Instant cameras"
+    }
+   ]
+  },
+  "computing_computing_accessories": {
+   "default": "N:08192:Other ICT accessories",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "\\bmouse ?pad\\b",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "kindle",
+     "class": "N:08191:E-book readers"
+    },
+    {
+     "re": "power adapter|charger",
+     "class": "0819202"
+    },
+    {
+     "re": "smart folio|folio case",
+     "class": "N:08192:Tablet cases and keyboard covers"
+    },
+    {
+     "re": "calculator",
+     "class": "N:08132:Calculators"
+    },
+    {
+     "re": "laptop (bag|backpack|sleeve)",
+     "class": "N:13291:Laptop bags and backpacks"
+    },
+    {
+     "re": "instax .*film",
+     "class": "N:09112:Photographic film"
+    },
+    {
+     "re": "screen protector",
+     "class": "N:08192:Screen protectors"
+    },
+    {
+     "re": "headphones?|headset",
+     "class": "0819201"
+    },
+    {
+     "re": "keyboard|mouse",
+     "class": "N:08132:Keyboards and mice"
+    },
+    {
+     "re": "cooling pad|stand\\b",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "stylus|pencil",
+     "class": "N:08192:Stylus pens"
+    },
+    {
+     "re": "webcam",
+     "class": "N:08132:Webcams"
+    },
+    {
+     "re": "carbon ribbon|printer tape",
+     "class": "N:08132:Printer ink, toner and labels"
+    },
+    {
+     "re": "speakers?",
+     "class": "N:08140:Speakers"
+    },
+    {
+     "re": "cable",
+     "class": "N:08192:Cables and adapters"
+    },
+    {
+     "re": "docking station|adaptor",
+     "class": "N:08192:USB hubs, docks and card readers"
+    }
+   ]
+  },
+  "computing_laptops": {
+   "default": "0813101",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "mac mini",
+     "class": "N:08131:Desktop computers"
+    }
+   ]
+  },
+  "computing_monitors": {
+   "default": "N:08132:Monitors",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "digital signage|interactive (e-board|display)|e-paper",
+     "class": "X:business display (digital signage / interactive board)"
+    }
+   ]
+  },
+  "computing_networking_wireless": {
+   "default": "N:08132:Routers and network equipment",
+   "rules": [
+    {
+     "re": "signage stick",
+     "class": "X:business display (digital signage / interactive board)"
+    },
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "fire tv|tv stick|media player",
+     "class": "N:08140:Streaming media players"
+    },
+    {
+     "re": "hub\\b|docking station|card reader",
+     "class": "N:08192:USB hubs, docks and card readers"
+    },
+    {
+     "re": "charger|charging station",
+     "class": "0819202"
+    },
+    {
+     "re": "\\bups\\b",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "ethernet adapter",
+     "class": "N:08132:Routers and network equipment"
+    },
+    {
+     "re": "hdmi|displayport|kvm|screen sharing|sata|adapter",
+     "class": "N:08192:Cables and adapters"
+    }
+   ]
+  },
+  "computing_printers_ink": {
+   "default": "N:08132:Printers and scanners",
+   "rules": [
+    {
+     "re": "designjet|plotter",
+     "class": "X:business large-format plotter"
+    },
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "toner|ink cartridge",
+     "class": "N:08132:Printer ink, toner and labels"
+    }
+   ]
+  },
+  "computing_storage": {
+   "default": "N:08150:Storage media",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "graphic dock",
+     "class": "N:08192:Computer components"
+    },
+    {
+     "re": "\\bddr\\d",
+     "class": "N:08192:Computer components"
+    },
+    {
+     "re": "internal|nvme ssd",
+     "class": "N:08192:Computer components"
+    },
+    {
+     "re": "card reader",
+     "class": "N:08192:USB hubs, docks and card readers"
+    },
+    {
+     "re": "crypto wallet",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "controller",
+     "class": "N:09211:Game controllers and gaming accessories"
+    },
+    {
+     "re": "enclosure|data blocker",
+     "class": "N:08192:Cables and adapters"
+    }
+   ]
+  },
+  "gaming_games": {
+   "default": "N:09211:Video games",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "controller",
+     "class": "N:09211:Game controllers and gaming accessories"
+    }
+   ]
+  },
+  "gaming_gaming_accessories": {
+   "default": "N:09211:Game controllers and gaming accessories",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "earbuds|headset|headphones",
+     "class": "0819201"
+    },
+    {
+     "re": "keyboard|mouse",
+     "class": "N:08132:Keyboards and mice"
+    },
+    {
+     "re": "docking station",
+     "class": "N:08192:USB hubs, docks and card readers"
+    },
+    {
+     "re": "battery",
+     "class": "0819202"
+    }
+   ]
+  },
+  "gaming_gaming_consoles": {
+   "default": "N:09211:Video game consoles",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "playstation vr2|\\bvr headset",
+     "class": "N:08132:VR headsets"
+    },
+    {
+     "re": "portal remote player",
+     "class": "N:09211:Game controllers and gaming accessories"
+    }
+   ]
+  },
+  "mobiles_tablets_mobile_accessories": {
+   "default": "N:08192:Phone cases and covers",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "airpods|earbuds|earphones|headset|\\benco\\b",
+     "class": "0819201"
+    },
+    {
+     "re": "airtag|tracker",
+     "class": "N:08191:Bluetooth item trackers"
+    },
+    {
+     "re": "teleconverter",
+     "class": "N:09112:Camera accessories"
+    },
+    {
+     "re": "card holder",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "remarkable",
+     "class": "N:08192:Tablet cases and keyboard covers"
+    },
+    {
+     "re": "case (with|&) screen protector",
+     "class": "N:08192:Phone cases and covers"
+    },
+    {
+     "re": "lens protector|screen protector|privacy screen|tempered glass",
+     "class": "N:08192:Screen protectors"
+    },
+    {
+     "re": "\\bcase\\b",
+     "class": "N:08192:Phone cases and covers"
+    },
+    {
+     "re": "power bank|magsafe battery|charging base",
+     "class": "0819202"
+    },
+    {
+     "re": "charger|power adapter|travel adapter|wall charge",
+     "class": "0819202"
+    },
+    {
+     "re": "cable",
+     "class": "N:08192:Cables and adapters"
+    },
+    {
+     "re": "stand\\b|holder",
+     "class": "N:08192:Stands, holders and mounts"
+    }
+   ]
+  },
+  "mobiles_tablets_mobiles": {
+   "default": "0812003",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "iphone|^apple ",
+     "class": "0812001"
+    },
+    {
+     "re": "samsung|galaxy",
+     "class": "0812002"
+    }
+   ]
+  },
+  "mobiles_tablets_tablet_accessories": {
+   "default": "N:08192:Tablet cases and keyboard covers",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "nintendo switch",
+     "class": "N:09211:Game controllers and gaming accessories"
+    },
+    {
+     "re": "laptop & tab bag",
+     "class": "N:13291:Laptop bags and backpacks"
+    },
+    {
+     "re": "mobile stand",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "stylus|pencil|replacement tips",
+     "class": "N:08192:Stylus pens"
+    },
+    {
+     "re": "case|sleeve|folio",
+     "class": "N:08192:Tablet cases and keyboard covers"
+    },
+    {
+     "re": "screen protector|\\bsp\\b",
+     "class": "N:08192:Screen protectors"
+    }
+   ]
+  },
+  "mobiles_tablets_tablets": {
+   "default": "0813102",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "kindle|remarkable",
+     "class": "N:08191:E-book readers"
+    },
+    {
+     "re": "wacom",
+     "class": "N:08132:Keyboards and mice"
+    }
+   ]
+  },
+  "tv_video_audio_audio": {
+   "default": "0819201",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "speaker",
+     "class": "N:08140:Speakers"
+    },
+    {
+     "re": "\\bmic\\b|microphones?",
+     "class": "N:08140:Microphones"
+    }
+   ]
+  },
+  "tv_video_audio_home_cinema_soundbars": {
+   "default": "N:08140:Soundbars and home theatre systems",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    }
+   ]
+  },
+  "tv_video_audio_tvs": {
+   "default": "0814001",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    }
+   ]
+  },
+  "wearables_smartwatches_smartwatches": {
+   "default": "N:08191:Smartwatches and fitness trackers",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    }
+   ]
+  },
+  "camera": {
+   "default": "N:09111:Digital cameras",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "dash ?cam",
+     "class": "N:07213:Dash cameras"
+    },
+    {
+     "re": "security|ip camera|ip cloud camera|wi-?fi camera|smart home|doorbell|indoor camera|pan & tilt|battery camera|stick up cam|tapo|eufycam|solocam",
+     "class": "N:04312:Security cameras"
+    },
+    {
+     "re": "gimbal stabilizer",
+     "class": "N:09112:Camera accessories"
+    },
+    {
+     "re": "action camera|gopro|insta360|osmo action|osmo pocket",
+     "class": "N:09111:Action cameras"
+    },
+    {
+     "re": "instax|instant|polaroid",
+     "class": "N:09111:Instant cameras"
+    }
+   ]
+  },
+  "charger": {
+   "default": "0819202",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "aa and aaa|maxi charger",
+     "class": "0552201"
+    },
+    {
+     "re": "cleaning brush",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "audio and charge adapter",
+     "class": "N:08192:Cables and adapters"
+    },
+    {
+     "re": "charger cable",
+     "class": "N:08192:Cables and adapters"
+    }
+   ]
+  },
+  "earphones": {
+   "default": "0819201",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "ear tips",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "headphone hanger",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "coil cable",
+     "class": "N:08192:Cables and adapters"
+    }
+   ]
+  },
+  "gaming_console": {
+   "default": "N:09211:Video game consoles",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "earbuds?\\b|headset",
+     "class": "0819201"
+    },
+    {
+     "re": "smartphone",
+     "class": "0812003"
+    },
+    {
+     "re": "\\btcl\\b",
+     "class": "0814001"
+    },
+    {
+     "re": "keyboard and mouse",
+     "class": "N:08132:Keyboards and mice"
+    },
+    {
+     "re": "^sony (ps5 )?dualsense|disc drive|portal remote player",
+     "class": "N:09211:Game controllers and gaming accessories"
+    },
+    {
+     "re": "standard edition|day one edition|lost soul aside",
+     "class": "N:09211:Video games"
+    }
+   ]
+  },
+  "headphones": {
+   "default": "0819201",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "headphone jack adapter|aux adapter",
+     "class": "N:08192:Cables and adapters"
+    },
+    {
+     "re": "gaming combo set",
+     "class": "N:08132:Keyboards and mice"
+    }
+   ]
+  },
+  "laptop": {
+   "default": "0813101",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "^(?!.*\\b\\d+\\s?(gb|tb)\\b)(?=.*(back ?pack|\\bbag\\b|briefcase|trolley))",
+     "class": "N:13291:Laptop bags and backpacks"
+    },
+    {
+     "re": "cleaning kit",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "cooling pad",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "power adapter",
+     "class": "0819202"
+    },
+    {
+     "re": "power cable|hdmi cable",
+     "class": "N:08192:Cables and adapters"
+    },
+    {
+     "re": "^(?!.*\\b\\d+\\s?(gb|tb)\\b)(?=.*mouse)",
+     "class": "N:08132:Keyboards and mice"
+    }
+   ]
+  },
+  "mobile_phone": {
+   "default": "N:08120:Feature phones",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "phone stand|phone holder|desktop holder",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "matepad",
+     "class": "0813102"
+    },
+    {
+     "re": "^(?!.*\\b\\d+\\s?(gb|tb)\\b)(?=.*(charger|fast adapter))",
+     "class": "0819202"
+    },
+    {
+     "re": "^(?!.*phone).*power bank",
+     "class": "0819202"
+    },
+    {
+     "re": "phone stand|phone holder|desktop holder",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "sterilization box|selfie light",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "bluetooth speaker",
+     "class": "N:08140:Speakers"
+    },
+    {
+     "re": "back case cover",
+     "class": "N:08192:Phone cases and covers"
+    },
+    {
+     "re": "wired earphone",
+     "class": "0819201"
+    },
+    {
+     "re": "sunmi|mobile terminal",
+     "class": "X:business point-of-sale terminal"
+    },
+    {
+     "re": "landline",
+     "class": "N:08110:Fixed telephones"
+    },
+    {
+     "re": "feature phone|keypad|button|flip phone|java phone",
+     "class": "N:08120:Feature phones"
+    },
+    {
+     "re": "iphone",
+     "class": "0812001"
+    },
+    {
+     "re": "samsung",
+     "class": "0812002"
+    },
+    {
+     "re": "smartphone|smart phone|android|\\b5g\\b|ai phone|gaming phone|redmagic|nothing phone|nubia|ulefone|\\boppo\\b|honor|motorola|xiaomi|redmi|vivo|tecno|huawei",
+     "class": "0812003"
+    }
+   ]
+  },
+  "phone_case": {
+   "default": "N:08192:Phone cases and covers",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "kardia|travel case for hp",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "wall mount",
+     "class": "N:08192:Stands, holders and mounts"
+    },
+    {
+     "re": "galaxy tab",
+     "class": "N:08192:Tablet cases and keyboard covers"
+    },
+    {
+     "re": "phone grip|phone lanyard|crossbody strap|city sling",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "^(?=.*\\b\\d+\\s?(gb|tb)\\b)(?=.*(iphone))",
+     "class": "0812001"
+    },
+    {
+     "re": "^(?=.*\\b\\d+\\s?(gb|tb)\\b)(?=.*(samsung))",
+     "class": "0812002"
+    },
+    {
+     "re": "^(?=.*\\b\\d+\\s?(gb|tb)\\b)(?=.*(smartphone|\\bram\\b))",
+     "class": "0812003"
+    }
+   ]
+  },
+  "power_bank": {
+   "default": "0819202",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "pocket router",
+     "class": "N:08132:Routers and network equipment"
+    }
+   ]
+  },
+  "router": {
+   "default": "N:08132:Routers and network equipment",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    }
+   ]
+  },
+  "screen_protector": {
+   "default": "N:08192:Screen protectors",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "smartwatch",
+     "class": "N:08191:Smartwatches and fitness trackers"
+    },
+    {
+     "re": "cleaning kit",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "insta360",
+     "class": "N:09112:Camera accessories"
+    },
+    {
+     "re": "nintendo switch 2 carry case",
+     "class": "N:09211:Game controllers and gaming accessories"
+    },
+    {
+     "re": "compatible with apple watch",
+     "class": "N:08192:Smartwatch straps and cases"
+    },
+    {
+     "re": "case for ipad|folio case",
+     "class": "N:08192:Tablet cases and keyboard covers"
+    },
+    {
+     "re": "essentials bundle screen and camera lens|camera lens protector for",
+     "class": "N:08192:Screen protectors"
+    },
+    {
+     "re": "\\bcase\\b|bundle|combo|defender pack",
+     "class": "N:08192:Phone cases and covers"
+    }
+   ]
+  },
+  "smart_watch": {
+   "default": "N:08191:Smartwatches and fitness trackers",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "strap replacement|replacement straps?|watch strap,|sport band, \\d",
+     "class": "N:08192:Smartwatch straps and cases"
+    }
+   ]
+  },
+  "speaker": {
+   "default": "N:08140:Speakers",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "^wireless microphone",
+     "class": "N:08140:Microphones"
+    },
+    {
+     "re": "amplifier",
+     "class": "N:08140:Audio amplifiers"
+    },
+    {
+     "re": "grille",
+     "class": "N:08192:Other ICT accessories"
+    },
+    {
+     "re": "soundbar|home cinema",
+     "class": "N:08140:Soundbars and home theatre systems"
+    },
+    {
+     "re": "^(?!.*\\bfm radio\\b).*\\bradio\\b",
+     "class": "N:08140:Radios"
+    },
+    {
+     "re": "karaoke mic\\b|microphone ?with speaker|interactive microphone|karaoke microphone with",
+     "class": "N:08140:Microphones"
+    }
+   ]
+  },
+  "tablet": {
+   "default": "0813102",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    }
+   ]
+  },
+  "television": {
+   "default": "0814001",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "tv stick",
+     "class": "N:08140:Streaming media players"
+    },
+    {
+     "re": "audio cable",
+     "class": "N:08192:Cables and adapters"
+    }
+   ]
+  },
+  "usb_cable": {
+   "default": "N:08192:Cables and adapters",
+   "rules": [
+    {
+     "re": "\\bedt\\b|eau de",
+     "class": "1312001"
+    },
+    {
+     "re": "body spray|\\bdeo\\b",
+     "class": "1312005"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "lipstick|lip powder",
+     "class": "1312016"
+    },
+    {
+     "re": "lip balm",
+     "class": "N:13120:Lip balms"
+    },
+    {
+     "re": "sunscreen|sun screen|sunblock",
+     "class": "N:13120:Sunscreens"
+    },
+    {
+     "re": "face cream",
+     "class": "1312007"
+    },
+    {
+     "re": "almo nature|wet food",
+     "class": "0932201"
+    },
+    {
+     "re": "^lego |\\buno (express|game)|playing cards?|dominoes|first game console playset|racing steering wheel interactive game",
+     "class": "0921201"
+    },
+    {
+     "re": "dart ?board",
+     "class": "0922101"
+    },
+    {
+     "re": "\\bjif\\b",
+     "class": "0561106"
+    },
+    {
+     "re": "dishwasher tablets|dishwashing tablet",
+     "class": "N:05611:Dishwasher detergents"
+    },
+    {
+     "re": "sweetener",
+     "class": "N:01182:Sugar substitutes"
+    },
+    {
+     "re": "electrolyte",
+     "class": "N:01290:Electrolyte drink mixes"
+    },
+    {
+     "re": "vitamin",
+     "class": "N:06111:Vitamins and dietary supplements"
+    },
+    {
+     "re": "panadol|effervescent",
+     "class": "N:06111:Medicines"
+    },
+    {
+     "re": "milk chocolate|raffaello",
+     "class": "0118501"
+    },
+    {
+     "re": "\\bpez\\b",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "ceramic cooker",
+     "class": "0531103"
+    },
+    {
+     "re": "air purifier",
+     "class": "0532901"
+    },
+    {
+     "re": "cafepod|nespresso",
+     "class": "N:01220:Coffee capsules"
+    },
+    {
+     "re": "vileda",
+     "class": "N:05619:Household gloves"
+    },
+    {
+     "re": "baby clothing",
+     "class": "0312301"
+    },
+    {
+     "re": "\\barmbands\\b",
+     "class": "N:09222:Inflatables and beach equipment"
+    },
+    {
+     "re": "gaming chair",
+     "class": "N:05111:Chairs"
+    },
+    {
+     "re": "computer desk|study table",
+     "class": "N:05111:Desks and tables"
+    },
+    {
+     "re": "network adapter",
+     "class": "N:08132:Routers and network equipment"
+    },
+    {
+     "re": "^(?!.*charging cable).*(travel adapter|power kit|charger(?! cable))",
+     "class": "0819202"
+    }
+   ]
+  }
+ },
+ "overrides": {
+  "carrefour|2291696": "0819201",
+  "carrefour|2291699": "0819201",
+  "lulu|2650774": "0819201",
+  "lulu|2650775": "0819201",
+  "carrefour|1817646554225": "N:08140:Speakers",
+  "carrefour|2219371": "0812002",
+  "carrefour|693057614759": "0812003",
+  "sharafdg|1405715": "N:08192:Phone cases and covers",
+  "carrefour|1817646311508": "N:08192:Cables and adapters",
+  "carrefour|0814585023022": "N:09211:Video game consoles",
+  "sharafdg|1402773": "N:08132:Keyboards and mice",
+  "sharafdg|1402774": "N:08132:Keyboards and mice",
+  "lulu|2004076": "N:13291:Laptop bags and backpacks",
+  "carrefour|1817646228729": "1329102"
+ },
+ "new_types": [
+  {
+   "subclass5": "01182",
+   "name_en": "Sugar substitutes",
+   "name_ar": "بدائل السكر (محليات)",
+   "class": "N:01182:Sugar substitutes"
+  },
+  {
+   "subclass5": "01189",
+   "name_en": "Sugar confectionery",
+   "name_ar": "حلويات سكرية",
+   "class": "N:01189:Sugar confectionery"
+  },
+  {
+   "subclass5": "01220",
+   "name_en": "Coffee capsules",
+   "name_ar": "كبسولات القهوة",
+   "class": "N:01220:Coffee capsules"
+  },
+  {
+   "subclass5": "04312",
+   "name_en": "Security cameras",
+   "name_ar": "كاميرات المراقبة المنزلية",
+   "class": "N:04312:Security cameras"
+  },
+  {
+   "subclass5": "05111",
+   "name_en": "Chairs",
+   "name_ar": "كراسي",
+   "class": "N:05111:Chairs"
+  },
+  {
+   "subclass5": "05111",
+   "name_en": "Desks and tables",
+   "name_ar": "مكاتب وطاولات",
+   "class": "N:05111:Desks and tables"
+  },
+  {
+   "subclass5": "05313",
+   "name_en": "Air purifiers",
+   "name_ar": "أجهزة تنقية الهواء",
+   "class": "N:05313:Air purifiers"
+  },
+  {
+   "subclass5": "05611",
+   "name_en": "Dishwasher detergents",
+   "name_ar": "منظفات غسالات الصحون",
+   "class": "N:05611:Dishwasher detergents"
+  },
+  {
+   "subclass5": "05619",
+   "name_en": "Household gloves",
+   "name_ar": "قفازات منزلية",
+   "class": "N:05619:Household gloves"
+  },
+  {
+   "subclass5": "06111",
+   "name_en": "Medicines and vitamins",
+   "name_ar": "أدوية وفيتامينات",
+   "class": "N:06111:Medicines and vitamins"
+  },
+  {
+   "subclass5": "07213",
+   "name_en": "Dash cameras",
+   "name_ar": "كاميرات السيارة (داش كام)",
+   "class": "N:07213:Dash cameras"
+  },
+  {
+   "subclass5": "08110",
+   "name_en": "Fixed telephones",
+   "name_ar": "هواتف أرضية",
+   "class": "N:08110:Fixed telephones"
+  },
+  {
+   "subclass5": "08120",
+   "name_en": "Feature phones",
+   "name_ar": "هواتف محمولة عادية (غير ذكية)",
+   "class": "N:08120:Feature phones"
+  },
+  {
+   "subclass5": "08131",
+   "name_en": "Desktop computers",
+   "name_ar": "أجهزة حاسوب مكتبية",
+   "class": "N:08131:Desktop computers"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Calculators",
+   "name_ar": "آلات حاسبة",
+   "class": "N:08132:Calculators"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Keyboards and mice",
+   "name_ar": "لوحات مفاتيح وفأرات حاسوب",
+   "class": "N:08132:Keyboards and mice"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Monitors",
+   "name_ar": "شاشات حاسوب",
+   "class": "N:08132:Monitors"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Printer ink, toner and labels",
+   "name_ar": "أحبار ومساحيق حبر (تونر) وأشرطة ملصقات للطابعات",
+   "class": "N:08132:Printer ink, toner and labels"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Printers and scanners",
+   "name_ar": "طابعات وماسحات ضوئية",
+   "class": "N:08132:Printers and scanners"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Routers and network equipment",
+   "name_ar": "أجهزة توجيه (راوتر) ومعدات شبكات",
+   "class": "N:08132:Routers and network equipment"
+  },
+  {
+   "subclass5": "08132",
+   "name_en": "Webcams",
+   "name_ar": "كاميرات ويب",
+   "class": "N:08132:Webcams"
+  },
+  {
+   "subclass5": "08140",
+   "name_en": "Audio amplifiers",
+   "name_ar": "مضخمات صوت",
+   "class": "N:08140:Audio amplifiers"
+  },
+  {
+   "subclass5": "08140",
+   "name_en": "Microphones",
+   "name_ar": "ميكروفونات",
+   "class": "N:08140:Microphones"
+  },
+  {
+   "subclass5": "08140",
+   "name_en": "Radios",
+   "name_ar": "أجهزة راديو",
+   "class": "N:08140:Radios"
+  },
+  {
+   "subclass5": "08140",
+   "name_en": "Soundbars and home theatre systems",
+   "name_ar": "مكبرات صوت عمودية (ساوند بار) وأنظمة مسرح منزلي",
+   "class": "N:08140:Soundbars and home theatre systems"
+  },
+  {
+   "subclass5": "08140",
+   "name_en": "Speakers",
+   "name_ar": "سماعات صوت (مكبرات صوت)",
+   "class": "N:08140:Speakers"
+  },
+  {
+   "subclass5": "08140",
+   "name_en": "Streaming media players",
+   "name_ar": "أجهزة بث الوسائط للتلفاز",
+   "class": "N:08140:Streaming media players"
+  },
+  {
+   "subclass5": "08150",
+   "name_en": "Storage media",
+   "name_ar": "وسائط تخزين (ذاكرة فلاش وأقراص خارجية)",
+   "class": "N:08150:Storage media"
+  },
+  {
+   "subclass5": "08191",
+   "name_en": "Bluetooth item trackers",
+   "name_ar": "أجهزة تتبع الأغراض بالبلوتوث",
+   "class": "N:08191:Bluetooth item trackers"
+  },
+  {
+   "subclass5": "08191",
+   "name_en": "E-book readers",
+   "name_ar": "أجهزة قراءة الكتب الإلكترونية",
+   "class": "N:08191:E-book readers"
+  },
+  {
+   "subclass5": "08191",
+   "name_en": "Smartwatches and fitness trackers",
+   "name_ar": "ساعات ذكية وأجهزة تتبع اللياقة",
+   "class": "N:08191:Smartwatches and fitness trackers"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Cables and adapters",
+   "name_ar": "كوابل ومحولات توصيل",
+   "class": "N:08192:Cables and adapters"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Computer components",
+   "name_ar": "مكونات الحاسوب (أقراص داخلية وذاكرة)",
+   "class": "N:08192:Computer components"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Other ICT accessories",
+   "name_ar": "ملحقات أخرى لأجهزة الاتصالات والمعلومات",
+   "class": "N:08192:Other ICT accessories"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Phone cases and covers",
+   "name_ar": "أغطية وحافظات الهواتف",
+   "class": "N:08192:Phone cases and covers"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Screen protectors",
+   "name_ar": "واقيات الشاشة",
+   "class": "N:08192:Screen protectors"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Smartwatch straps and cases",
+   "name_ar": "أحزمة وأغطية الساعات الذكية",
+   "class": "N:08192:Smartwatch straps and cases"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Stands, holders and mounts",
+   "name_ar": "حوامل وقواعد تثبيت للأجهزة",
+   "class": "N:08192:Stands, holders and mounts"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Stylus pens",
+   "name_ar": "أقلام لمس",
+   "class": "N:08192:Stylus pens"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "Tablet cases and keyboard covers",
+   "name_ar": "أغطية الأجهزة اللوحية وأغطية لوحات المفاتيح",
+   "class": "N:08192:Tablet cases and keyboard covers"
+  },
+  {
+   "subclass5": "08192",
+   "name_en": "USB hubs, docks and card readers",
+   "name_ar": "موزعات USB ومحطات توصيل وقارئات بطاقات",
+   "class": "N:08192:USB hubs, docks and card readers"
+  },
+  {
+   "subclass5": "09111",
+   "name_en": "Action cameras",
+   "name_ar": "كاميرات الحركة",
+   "class": "N:09111:Action cameras"
+  },
+  {
+   "subclass5": "09111",
+   "name_en": "Digital cameras",
+   "name_ar": "كاميرات رقمية",
+   "class": "N:09111:Digital cameras"
+  },
+  {
+   "subclass5": "09111",
+   "name_en": "Instant cameras",
+   "name_ar": "كاميرات فورية",
+   "class": "N:09111:Instant cameras"
+  },
+  {
+   "subclass5": "09112",
+   "name_en": "Camera accessories",
+   "name_ar": "ملحقات الكاميرات",
+   "class": "N:09112:Camera accessories"
+  },
+  {
+   "subclass5": "09112",
+   "name_en": "Photographic film",
+   "name_ar": "أفلام التصوير",
+   "class": "N:09112:Photographic film"
+  },
+  {
+   "subclass5": "09211",
+   "name_en": "Game controllers and gaming accessories",
+   "name_ar": "أذرع تحكم وملحقات ألعاب الفيديو",
+   "class": "N:09211:Game controllers and gaming accessories"
+  },
+  {
+   "subclass5": "09211",
+   "name_en": "Video game consoles",
+   "name_ar": "أجهزة ألعاب الفيديو",
+   "class": "N:09211:Video game consoles"
+  },
+  {
+   "subclass5": "09211",
+   "name_en": "Video games",
+   "name_ar": "ألعاب الفيديو",
+   "class": "N:09211:Video games"
+  },
+  {
+   "subclass5": "09222",
+   "name_en": "Inflatables and beach equipment",
+   "name_ar": "مستلزمات السباحة القابلة للنفخ ومعدات الشاطئ",
+   "class": "N:09222:Inflatables and beach equipment"
+  },
+  {
+   "subclass5": "13291",
+   "name_en": "Laptop bags and backpacks",
+   "name_ar": "حقائب الحاسوب المحمول",
+   "class": "N:13291:Laptop bags and backpacks"
+  }
+ ]
+}

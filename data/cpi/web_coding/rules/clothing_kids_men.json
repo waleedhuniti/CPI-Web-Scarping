@@ -1,0 +1,961 @@
+{
+ "categories": {
+  "baby_t_shirts": {
+   "default": "N:03123:Infant tops and T-shirts",
+   "rules": [
+    {
+     "re": "\\bset\\b|three-piece| and (leggings|trousers|joggers|jogger|bloomers|bermuda)",
+     "class": "N:03123:Infant clothing sets"
+    },
+    {
+     "re": "jacket",
+     "class": "N:03123:Infant jackets and cardigans"
+    }
+   ],
+   "note": "Zara Baby T-shirts. Garments for infants -> 03.1.2.3: tops/T-shirts/polos -> new type Infant tops and T-shirts; T-shirt+leggings/trousers sets -> Infant clothing sets; one jacket -> Infant jackets. Zara baby sizes run past 2 years, kept in 03.1.2.3 as the shop sells them as baby wear."
+  },
+  "baby_clothing": {
+   "default": "N:03123:Infant tops and T-shirts",
+   "rules": [
+    {
+     "re": "wash ?cloth",
+     "class": "N:05213:Towels"
+    },
+    {
+     "re": "\\bbriefs?\\b",
+     "class": "N:03123:Infant underwear"
+    },
+    {
+     "re": "^(?!.*(shirt|t-shirt|top) with bodysuit)(?=.*(bodysuit|sleepsuit|romper|coverall))",
+     "class": "0312301"
+    },
+    {
+     "re": "\\bcap\\b|beanie",
+     "class": "0313102"
+    },
+    {
+     "re": "dress|pinafore",
+     "class": "N:03123:Infant dresses"
+    },
+    {
+     "re": "\\bset\\b|\\d-piece|pyjama| with (t-shirt|shirt|bodysuit|joggers|pants|trousers|shorts|leggings|skirt|hoodie)| and (pants|shorts|joggers|leggings|trousers|dungaree|shirt|bloomers|bermuda)|with denim shacket|cardigan with|\\b(top|t-shirt|shirt|sweatshirt|sweater|cardigan|hoodie)\\b.* (with|and) .*\\b(pants|leggings|shorts|joggers|trousers|skirt|dungaree|bloomers)\\b",
+     "class": "N:03123:Infant clothing sets"
+    },
+    {
+     "re": "cardigan|jacket",
+     "class": "N:03123:Infant jackets and cardigans"
+    },
+    {
+     "re": "jeans|leggings|jog pants|shorts|\\bpants\\b|trousers|joggers",
+     "class": "N:03123:Infant trousers and shorts"
+    }
+   ],
+   "note": "Max baby (infant boy/girl lines) and Babyshop baby wear -> 03.1.2.3. Bodysuits, sleepsuits, rompers, coveralls -> basket class 0312301; dresses, sets, bottoms, cardigans/jackets, tops -> new Infant types; baby caps/beanies -> 0313102; briefs -> Infant underwear; baby wash cloth -> Towels. Reviewer: Max MCS 'Baby Terry' tees are men's (0312107) and KGY sweatshirt is girls'; Babyshop toddler departments x32/x36 (same styles titled 'Boys' under kids_clothing) and Z52/Z55 kids basics go to the boys'/girls' classes by overrides, only x31/x35 newborn lines and Max KIB/KIG stay in 03.1.2.3."
+  },
+  "boys_jeans": {
+   "default": "0312113",
+   "rules": [],
+   "note": "Zara boys jeans, denim Bermudas and trousers -> 0312113 (basket varieties 031211301/02/03)."
+  },
+  "girls_jeans": {
+   "default": "0312213",
+   "rules": [],
+   "note": "Zara girls jeans and trousers -> 0312213 (basket 031221303). One belted jean carries belt codes 0313105 and is overridden to 0312213 because the product is jeans."
+  },
+  "boys_t_shirts": {
+   "default": "0312114",
+   "rules": [
+    {
+     "re": "\\bset\\b",
+     "class": "N:03121:Boys' clothing sets"
+    },
+    {
+     "re": "sweatshirt",
+     "class": "N:03121:Boys' jumpers and sweatshirts"
+    }
+   ],
+   "note": "Zara boys T-shirts and polos -> 0312114 (basket 031211402 polo, 031211403 T-shirt); T-shirt+Bermuda sets -> new Boys' clothing sets; sweatshirt -> Boys' jumpers and sweatshirts."
+  },
+  "girls_t_shirts": {
+   "default": "0312214",
+   "rules": [
+    {
+     "re": "\\bset\\b",
+     "class": "0312215"
+    },
+    {
+     "re": "gym top",
+     "class": "0312221"
+    }
+   ],
+   "note": "Zara girls T-shirts, tops, blouses and bodysuit tops -> 0312214 (basket 031221402/03); top+trouser sets -> 0312215; gym tops -> 0312221 (girls sportswear). Two items carry boys' basket codes 03121140x and keep them (basket authoritative)."
+  },
+  "girls_dresses": {
+   "default": "0312218",
+   "rules": [
+    {
+     "re": "jumpsuit|playsuit|dungaree",
+     "class": "N:03122:Girls' jumpsuits and playsuits"
+    }
+   ],
+   "note": "Zara girls dresses -> 0312218 (basket 03122180x); jumpsuits, playsuits and dungarees -> new type Girls' jumpsuits and playsuits."
+  },
+  "men_suits": {
+   "default": "0312104",
+   "rules": [],
+   "note": "Suit blazer -> 0312104 (basket 03121040x)."
+  },
+  "men_jackets": {
+   "default": "N:03121:Men's jackets and coats",
+   "rules": [
+    {
+     "re": "^(?!.*leather).*blazer",
+     "class": "0312104"
+    },
+    {
+     "re": "gilet",
+     "class": "N:03121:Men's waistcoats and gilets"
+    },
+    {
+     "re": "sweatshirt",
+     "class": "N:03121:Men's jumpers and sweatshirts"
+    },
+    {
+     "re": "^(?!.*(padded|shearling|faux fur|leather|suede|quilted|wool))(?=.*(overshirt|\\bshirt\\b))",
+     "class": "0312106"
+    }
+   ],
+   "note": "Zara men's jackets and coats (bomber, denim, leather, padded, technical, parka, trench, anorak) -> new type Men's jackets and coats (basket has only the suit jacket 0312104 and boys' jacket 0312116). Blazers -> 0312104; gilets -> Men's waistcoats and gilets; plain cotton/linen overshirts and zip-up shirts -> 0312106 shirts, while padded/shearling/leather/suede/wool overshirts stay jackets."
+  },
+  "men_jeans": {
+   "default": "0312105",
+   "rules": [
+    {
+     "re": "eau de|parfum|\\bedt\\b",
+     "class": "1312001"
+    }
+   ],
+   "note": "Men's jeans and denim joggers -> 0312105 (basket 031210502). Two belted jeans carry belt codes 0313105 and are overridden to 0312105. One perfume -> 1312001. Reviewer: Max kids lines in the search (KBY/KGY/KIB, TB/816 unisex kids basics) overridden to 0312113 / 0312213 / Infant trousers."
+  },
+  "men_trousers": {
+   "default": "0312105",
+   "rules": [],
+   "note": "Men's trousers (formal, chino, cargo) -> 0312105 (basket 03121050x)."
+  },
+  "men_shirts": {
+   "default": "0312106",
+   "rules": [],
+   "note": "Men's woven shirts (oxford, linen, camp collar, flannel, denim) -> 0312106 (basket 03121060x)."
+  },
+  "men_t_shirt": {
+   "default": "0312107",
+   "rules": [
+    {
+     "re": "antiperspirant|deodorant|roll-on",
+     "class": "1312005"
+    },
+    {
+     "re": "\\bedt\\b|eau de|scent spray|perfume",
+     "class": "1312001"
+    },
+    {
+     "re": "pyjama",
+     "class": "0312109"
+    },
+    {
+     "re": "\\bboys\\b",
+     "class": "0312114"
+    },
+    {
+     "re": "button-down shirt|short sleeve shirt",
+     "class": "0312106"
+    },
+    {
+     "re": "(3 pcs|pack of [23]|3 pack|2 pack)(?!.*(long sleeve|workout|athletic))(?=.*(crew neck|v-neck|u neck|round.?neck))|(crew neck|v-neck|u neck|round.?neck).*(3 pcs|pack of [23])",
+     "class": "0312111"
+    },
+    {
+     "re": "performance|workout|quick dry|gym t|climacool|2.?way stretch|athletic|sports performance",
+     "class": "0312110"
+    }
+   ],
+   "note": "Carrefour/Lulu men's T-shirts and polos -> 0312107. Plain crew/V/U-neck T-shirts sold in 2-3 packs by innerwear brands (Byford, Fruit of the Loom, John Gladstone, Elite Comfort) -> 0312111, the basket class whose varieties include a 3-pack half-sleeve cotton vest (فانلة نصف كم 3 قطع). Performance/workout tees -> 0312110 sportswear; woven shirts -> 0312106; pyjama set -> 0312109; boys' FIFA tees -> 0312114; perfumes 1312001, deodorants 1312005."
+  },
+  "men_t_shirts": {
+   "default": "0312107",
+   "rules": [
+    {
+     "re": "performance|workout|quick dry|gym t|climacool|2.?way stretch|athletic",
+     "class": "0312110"
+    }
+   ],
+   "note": "Max/Splash/Centrepoint men's T-shirts and polos -> 0312107 (basket 03121070x, including Kappa and adidas graphic tees). Performance/2-way-stretch/Climacool tees -> 0312110 (sportswear). One adidas tee carrying sandal codes 0321102 is overridden to 0312107."
+  },
+  "underwear": {
+   "default": "0312111",
+   "rules": [
+    {
+     "re": "period underwear|menstrual",
+     "class": "0312210"
+    },
+    {
+     "re": "incontinence|adult underwear|protective underwear|leakproof",
+     "class": "N:06133:Adult incontinence products"
+    },
+    {
+     "re": "diaper cover|plastic underwear",
+     "class": "N:13291:Reusable diaper covers"
+    },
+    {
+     "re": "swim bra|bathing suit tops",
+     "class": "0312211"
+    },
+    {
+     "re": "girls.*(swim|rash guard|tankini)|(swim|rash guard).*girls",
+     "class": "N:03122:Girls' swimwear"
+    },
+    {
+     "re": "nfl .*women",
+     "class": "0312211"
+    },
+    {
+     "re": "athletic cup|groin protector|protective flex cup|protection underwear|jock strap athletic",
+     "class": "N:09221:Sports and fitness equipment"
+    },
+    {
+     "re": "wrestling singlet",
+     "class": "0312110"
+    },
+    {
+     "re": "costume",
+     "class": "N:09212:Costumes and disguises"
+    },
+    {
+     "re": "keychain",
+     "class": "N:13291:Key rings and small personal accessories"
+    },
+    {
+     "re": "choker|necklace",
+     "class": "N:13211:Fashion jewellery"
+    },
+    {
+     "re": "beads|bracelet|thread|string kit",
+     "class": "N:09212:Arts and crafts supplies"
+    },
+    {
+     "re": "\\bcable\\b",
+     "class": "N:08192:Cables and adapters"
+    },
+    {
+     "re": "first aid",
+     "class": "N:06123:First-aid kits and emergency supplies"
+    },
+    {
+     "re": "shower gel",
+     "class": "1312010"
+    },
+    {
+     "re": "\\bbib\\b",
+     "class": "N:03131:Aprons and bibs"
+    },
+    {
+     "re": "night pant",
+     "class": "0312109"
+    },
+    {
+     "re": "\\bgirls?\\b",
+     "class": "0312220"
+    },
+    {
+     "re": "\\bboys?\\b",
+     "class": "0312118"
+    }
+   ],
+   "note": "Men's briefs, boxers, trunks, vests and innerwear tee packs -> 0312111 (basket 031211109/10). Boys' briefs/boxers/vests/innerwear tees -> 0312118; girls' camisoles, vests, half pants -> 0312220. Off-topic: incontinence pants 06.1.3.3, diaper covers 13.2.9.1, athletic cups/protectors 09.2.2.1, girls' swimwear new type, jewellery beads, keychains, cable, first-aid kit, shower gel, bib, costume."
+  },
+  "jeans": {
+   "default": "1312001",
+   "rules": [
+    {
+     "re": "garment rack|clothe rack",
+     "class": "N:05111:Clothes racks and coat stands"
+    },
+    {
+     "re": "hangers?\\b",
+     "class": "0540304"
+    },
+    {
+     "re": "laundry bag",
+     "class": "N:05219:Shopping, laundry and shoe bags"
+    },
+    {
+     "re": "cat collar",
+     "class": "N:09322:Pet accessories"
+    },
+    {
+     "re": "barbie",
+     "class": "0921201"
+    },
+    {
+     "re": "cushion",
+     "class": "N:05219:Cushions and cushion covers"
+    },
+    {
+     "re": "backpack",
+     "class": "N:13291:Travel and sports bags"
+    },
+    {
+     "re": "\\byarn\\b|extender button",
+     "class": "N:03132:Haberdashery and knitting yarns"
+    },
+    {
+     "re": "sewing machine needles",
+     "class": "N:05619:Sewing and knitting supplies"
+    },
+    {
+     "re": "girls jeans",
+     "class": "0312213"
+    },
+    {
+     "re": "women's.*jeans",
+     "class": "0312206"
+    },
+    {
+     "re": "rice noodles",
+     "class": "0111502"
+    },
+    {
+     "re": "vermicelli",
+     "class": "0111501"
+    },
+    {
+     "re": "pasta|macaroni|spaghetti",
+     "class": "0111502"
+    },
+    {
+     "re": "canola|vegetable oil",
+     "class": "N:01151:Other vegetable oils"
+    },
+    {
+     "re": "flour",
+     "class": "0111201"
+    },
+    {
+     "re": "\\beggs\\b",
+     "class": "0114801"
+    },
+    {
+     "re": "chicken (liver|hearts)",
+     "class": "0112503"
+    },
+    {
+     "re": "chicken wings",
+     "class": "0112401"
+    },
+    {
+     "re": "chicken meat mince",
+     "class": "0112207"
+    },
+    {
+     "re": "chicken",
+     "class": "0112205"
+    },
+    {
+     "re": "\\boats?\\b",
+     "class": "0111108"
+    }
+   ],
+   "note": "Search 'jeans' returns almost no garments: perfumes named Jeans/Jean Paul/Jean Louis -> 1312001 (default), Jenan groceries (pasta, vermicelli, oil, flour, eggs, fresh chicken, oats) to their food classes, hangers, laundry bag, pet collar, doll, cushion, backpack, yarn and sewing needles by what they are. Women's and girls' jeans -> 0312206 / 0312213."
+  },
+  "kids_clothing": {
+   "default": "0312114",
+   "rules": [
+    {
+     "re": "fabric (conditioner|softener)|fabric softener",
+     "class": "0561102"
+    },
+    {
+     "re": "stain remover|anti-static",
+     "class": "N:05611:Stain removers and laundry aids"
+    },
+    {
+     "re": "conditioner spray",
+     "class": "N:13120:Hair conditioners"
+    },
+    {
+     "re": "hair oil",
+     "class": "1312006"
+    },
+    {
+     "re": "toothbrush",
+     "class": "1312008"
+    },
+    {
+     "re": "cake biscuits",
+     "class": "0111305"
+    },
+    {
+     "re": "jellies",
+     "class": "N:01189:Sugar confectionery"
+    },
+    {
+     "re": "nuggets",
+     "class": "0112509"
+    },
+    {
+     "re": "growing up milk|optipro",
+     "class": "0119203"
+    },
+    {
+     "re": "car care|kent microfiber drying towel",
+     "class": "N:07213:Car care and cleaning products"
+    },
+    {
+     "re": "towel",
+     "class": "N:05213:Towels"
+    },
+    {
+     "re": "sponge cloth|microfibre|microfiber|scotch brite",
+     "class": "N:05611:Cleaning cloths and sponges"
+    },
+    {
+     "re": "cloth dryer",
+     "class": "0540304"
+    },
+    {
+     "re": "skater dress",
+     "class": "0312218"
+    },
+    {
+     "re": "fleece zip up jumpsuits",
+     "class": "0312219"
+    },
+    {
+     "re": "handcuffs",
+     "class": "0921201"
+    },
+    {
+     "re": "costume|cosplay|dress.?up|halloween|mask|vampire|fangs|role.?play|pretend play|fancy dress|wings|witch|outfit|astronaut",
+     "class": "N:09212:Costumes and disguises"
+    },
+    {
+     "re": "\\bjersey\\b|dri-fit",
+     "class": "0312119"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(school))",
+     "class": "0312401"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(pyjama|pajama))",
+     "class": "0312219"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(jersey|dri-fit|gym top|^(adidas|puma|nike|kappa)\\b))",
+     "class": "0312221"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(jumpsuit|playsuit|dungaree))",
+     "class": "N:03122:Girls' jumpsuits and playsuits"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(dress|pinafore))",
+     "class": "0312218"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(skirt))",
+     "class": "0312217"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(\\bset\\b(?! of)|\\d-piece| and (bermuda|shorts|trousers|pants|joggers)|with (t-shirt|hoodie) and|with leggings))",
+     "class": "0312215"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(jacket|bomber|\\bcoat\\b|gilet))",
+     "class": "0312216"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(hoodie|sweatshirt|sweater|cardigan|jumper))",
+     "class": "N:03122:Girls' jumpers and sweatshirts"
+    },
+    {
+     "re": "(?=.*(\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|tiered|lettuce hem))(?=.*(jeans|trousers|\\bpants\\b|joggers|leggings|shorts|bermuda|jog pants))",
+     "class": "0312213"
+    },
+    {
+     "re": "\\bgirls?\\b|barbie|hello kitty|minnie|sanrio|supergirl|peplum|lettuce hem",
+     "class": "0312214"
+    },
+    {
+     "re": "jumpsuit|playsuit|dungaree",
+     "class": "N:03122:Girls' jumpsuits and playsuits"
+    },
+    {
+     "re": "dress|pinafore",
+     "class": "0312218"
+    },
+    {
+     "re": "skirt",
+     "class": "0312217"
+    },
+    {
+     "re": "leggings",
+     "class": "0312213"
+    },
+    {
+     "re": "school",
+     "class": "0312401"
+    },
+    {
+     "re": "pyjama|pajama",
+     "class": "0312117"
+    },
+    {
+     "re": "jersey|dri-fit|^(adidas|puma|nike|kappa)\\b|\\b(adidas|puma|nike|kappa) (kids|boys)",
+     "class": "0312119"
+    },
+    {
+     "re": "\\bset\\b(?! of)|\\d-piece| and (bermuda|shorts|trousers|pants|joggers)|with t-shirt and|with hoodie and",
+     "class": "N:03121:Boys' clothing sets"
+    },
+    {
+     "re": "jacket|bomber|\\bcoat\\b|gilet",
+     "class": "0312116"
+    },
+    {
+     "re": "hoodie|sweatshirt|sweater|cardigan|jumper",
+     "class": "N:03121:Boys' jumpers and sweatshirts"
+    },
+    {
+     "re": "jeans|trousers|\\bpants\\b|joggers|leggings|shorts|bermuda|jog pants",
+     "class": "0312113"
+    }
+   ],
+   "note": "Mixed kids search. Off-topic (fabric softeners 0561102, stain removers, kids toiletries, juice, milk powder 0119203, cake, jellies, nuggets, towels, cloths, clothes line) by what they are; dress-up costumes, masks and props -> Costumes and disguises (09.2.1.2). Garments: Max/Babyshop gender read from the product code (Max KB/KG/KI, Babyshop x2/65=boys, x5/x6=girls) and applied through overrides; boys -> 03.1.2.1 classes 0312113/14/16/17/19 + new Boys' sets/sweatshirts, girls -> 03.1.2.2 classes 0312213-21 + new Girls' sweatshirts, Max infant lines (KIB/KIG/BB) -> 03.1.2.3 like baby_clothing. Unisex items without a gender signal go to the boys' classes. Football jerseys and adidas/Puma/Kappa kids tees -> sportswear 0312119; school jackets/T-shirts -> 0312401 (basket 031240108). Reviewer: Babyshop K31/K35 newborn items -> 03.1.2.3 by override."
+  }
+ },
+ "overrides": {
+  "zara|08727700": "0312213",
+  "centrepoint|SEV006A26MULTICOLORMULTISHADE": "0312214",
+  "max|B26MDNMFSTESTBLT360BLUEMEDIUM": "0312105",
+  "max|B26MDNMFSTESTBLT360BLUEDARK": "0312105",
+  "centrepoint|JZ5001": "0312107",
+  "max|C26KGYKCHET341WHITELIGHT": "0312214",
+  "max|C26KGOBCTT33GREENMEDIUM": "0312214",
+  "max|C26KIGFEWDRESS179REDDARK": "N:03123:Infant dresses",
+  "max|C26KIBBCBASICTEE128CREAMLIGHT": "N:03123:Infant tops and T-shirts",
+  "max|C26KGYKBSWT1162YELLOWLIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKBSWT2073YELLOWMEDIUM": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KIGBCTEE199REDDARK": "N:03123:Infant tops and T-shirts",
+  "max|C26KGYKKMUL1535PINKMEDIUM": "0312214",
+  "max|C26KIGBCRIBDRE100PINKLIGHT": "N:03123:Infant dresses",
+  "max|C26KGYKBTT1356GREYDARK": "0312214",
+  "max|C26KGYKBTT160WHITELIGHT": "0312214",
+  "max|C26KGYKBTT981PINKMEDIUM": "0312214",
+  "max|C26KGYKFSWOT2025NAVYDARK": "0312214",
+  "max|C26KIBBCBASICTEE129CREAMDARK": "N:03123:Infant tops and T-shirts",
+  "max|C26KIGFSUTILITY133GREENMEDIUM": "N:03123:Infant dresses",
+  "max|C26KGYKBTT2072CREAMLIGHT": "0312214",
+  "max|C26KGYKFSOUT888PINKLIGHT": "0312216",
+  "max|C26KGYFSSWT1834GREENMEDIUM": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKBTT1017APURPLELIGHT": "0312214",
+  "max|C26KGYKBTT1020WHITELIGHT": "0312214",
+  "max|C26KIGBCTEE209CREAMLIGHT": "N:03123:Infant tops and T-shirts",
+  "max|C26KIGBCTEES145PINKLIGHT": "N:03123:Infant tops and T-shirts",
+  "max|C26KGYKBTT972PINKMEDIUM": "0312214",
+  "max|C26KIGFERIBSET140PINKLIGHT": "N:03123:Infant clothing sets",
+  "max|C26KIGBCJACKET227CREAMLIGHT": "N:03123:Infant tops and T-shirts",
+  "max|C26KIGBCJACKET229CREAMLIGHT": "N:03123:Infant tops and T-shirts",
+  "max|B26KGYBCTGT270PURPLELIGHT": "0312214",
+  "max|C26KGOFSSWT859PINKMEDIUM": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KIBBCBASICTEE124NAVYDARK": "N:03123:Infant tops and T-shirts",
+  "max|C26KIGBCTEES144PINKMEDIUM": "N:03123:Infant tops and T-shirts",
+  "centrepoint|Z55-A9-01-611WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-01-612WHITELIGHT": "0312214",
+  "centrepoint|L66-B14-12-627BEIGELIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "centrepoint|L66-B14-12-625WHITELIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "centrepoint|U55-A9-05-042BLACKDARK": "0312213",
+  "centrepoint|Z55-A9-10-205BLACKDARK": "0312216",
+  "centrepoint|Z55-A9-10-205BLUEDARK": "0312216",
+  "centrepoint|Z55-A9-10-205PINKLIGHT": "0312216",
+  "centrepoint|Z55-A9-01-022WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-01-013WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-01-020WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-01-070WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-03-035WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-03-036WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-01-111WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-12-006BLACKDARK": "0312216",
+  "centrepoint|Z55-A9-12-006BLUELIGHT": "0312216",
+  "centrepoint|Z55-A9-12-006GREYLIGHT": "0312216",
+  "centrepoint|Z55-A9-12-006PINKLIGHT": "0312216",
+  "centrepoint|Z55-A9-10-110PINKLIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "centrepoint|Z55-A9-10-110WHITELIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "centrepoint|Z55-A9-10-100BLUEDARK": "0312216",
+  "centrepoint|Z55-A9-10-100PINKLIGHT": "0312216",
+  "max|C26KIBBCBASICTEE127BLACKDARK": "N:03123:Infant tops and T-shirts",
+  "max|C26KGYKCHET338GREYDARK": "0312214",
+  "max|C26KGYKKTMUL156MULTICOLORLIGHT": "0312214",
+  "max|C26KIBFEPO2SWTTP102REDDARK": "N:03123:Infant tops and T-shirts",
+  "centrepoint|K36-P11-01-049MULTICOLORMULTISHADE": "0312214",
+  "centrepoint|K66-A11-01-234MULTICOLORMULTISHADE": "0312214",
+  "centrepoint|Z55-A9-05-605MULTICOLORMULTISHADE": "0312213",
+  "max|BBTSHIRTNOOSBLACKDARK": "N:03123:Infant tops and T-shirts",
+  "max|C26KGYKFSKT1352BLACKDARK": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKFSKT1352NAVYDARK": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKFSKT1352PINKMEDIUM": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKFSKT1352PURPLELIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKFSKT1352REDDARK": "N:03122:Girls' jumpers and sweatshirts",
+  "max|B26KGYBCTGT250GREENLIGHT": "0312214",
+  "centrepoint|Z55-A9-03-037WHITELIGHT": "0312214",
+  "centrepoint|Z55-A9-03-034WHITELIGHT": "0312214",
+  "max|B26KGYFSTROPICAL115ORANGELIGHT": "0312214",
+  "max|C26KIGBCTEES190PINKMEDIUM": "N:03123:Infant tops and T-shirts",
+  "max|C26KIGBCTEES134WHITELIGHT": "N:03123:Infant tops and T-shirts",
+  "max|C26KGOBCSWT198NAVYDARK": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KIBBCBASICTEE135GREENDARK": "N:03123:Infant tops and T-shirts",
+  "max|C26KIGBCTEE203PINKMEDIUM": "N:03123:Infant tops and T-shirts",
+  "max|C26KIBBCBASICTEE126YELLOWMEDIUM": "N:03123:Infant tops and T-shirts",
+  "max|C26KGOFSHOOD01PINKMEDIUM": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGOFSHOOD01PURPLEDARK": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGOFSSWT112PINKMEDIUM": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKBTT1355WHITELIGHT": "0312214",
+  "max|B26KGYFSCHAR775GREYDARK": "0312214",
+  "max|C26KGYKCHFSOUT561BLUEDARK": "0312216",
+  "max|C26KGYKCHET339PINKMEDIUM": "0312214",
+  "max|B26KGOFSCHTOP2220WHITELIGHT": "0312214",
+  "max|C26KGOFSCHSWT1030GREYLIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKCHSWT422CREAMLIGHT": "N:03122:Girls' jumpers and sweatshirts",
+  "max|C26KGYKBFS179NAVYDARK": "0312213",
+  "max|C26KGYKBTT983GREENDARK": "0312214",
+  "max|C26KGYKBTT983PURPLEDARK": "0312214",
+  "max|C26KGYKBTT1211WHITELIGHT": "0312214",
+  "max|C26KGYKBTT977GREYDARK": "0312214",
+  "max|C26KGYKFSSWT1867NAVYDARK": "N:03122:Girls' jumpers and sweatshirts",
+  "max|B26KGYBCTGT272CREAMLIGHT": "0312214",
+  "max|B26KGYKBTT1026YELLOWLIGHT": "0312214",
+  "max|C26KIBBCZIPTHRU100BLACKDARK": "N:03123:Infant tops and T-shirts",
+  "max|C26KIBBCZIPTHRU100BROWNLIGHT": "N:03123:Infant tops and T-shirts",
+  "max|C26KIGBCHOODIE100PINKMEDIUM": "N:03123:Infant tops and T-shirts",
+  "max|B26MCSFEOZPREGT201BROWNMEDIUM": "0312107",
+  "max|B26MCSFEOZPREGT201BLACKDARK": "0312107",
+  "max|B26MCSFEOZPREGT201BLUEMEDIUM": "0312107",
+  "max|B26MCSFEOZPREGT201GREENDARK": "0312107",
+  "max|B26MCSFEOZPREGT201CREAMLIGHT": "0312107",
+  "max|C26KGYKCHSWT441PINKDARK": "N:03122:Girls' jumpers and sweatshirts",
+  "centrepoint|J36-G13-07-021REDDARK": "0312218",
+  "centrepoint|J36-G15-13-020REDDARK": "0312215",
+  "centrepoint|J36-G15-13-603PINKLIGHT": "0312215",
+  "centrepoint|L32-A15-13-387BLUEMEDIUM": "N:03121:Boys' clothing sets",
+  "centrepoint|L36-A11-01-040WHITELIGHT": "0312214",
+  "centrepoint|L32-A14-12-902BLACKDARK": "N:03121:Boys' jumpers and sweatshirts",
+  "centrepoint|L32-A12-04-644BLUEMEDIUM": "0312113",
+  "centrepoint|L32-A12-04-643BLUELIGHT": "0312113",
+  "centrepoint|L36-A11-01-042BLACKDARK": "0312214",
+  "centrepoint|L36-A13-07-066PURPLELIGHT": "0312218",
+  "centrepoint|L32-A14-12-492MULTICOLORMULTISHADE": "N:03121:Boys' jumpers and sweatshirts",
+  "centrepoint|L32-A11-01-581BLACKDARK": "0312114",
+  "centrepoint|L32-A11-01-584BLUEMEDIUM": "0312114",
+  "centrepoint|L32-A11-01-583GREYLIGHT": "0312114",
+  "centrepoint|L32-A11-01-582WHITELIGHT": "0312114",
+  "centrepoint|K36-B19-04-036BLUELIGHT": "0312213",
+  "centrepoint|L36-W15-13-030REDDARK": "0312221",
+  "centrepoint|L36-G13-07-515PINKLIGHT": "0312218",
+  "centrepoint|Z52-A6-31-001WHITELIGHT": "0312117",
+  "centrepoint|Z55-A6-24-703MULTICOLORMULTISHADE": "0312220",
+  "centrepoint|K35-F13-07-SEA-306WHITEMEDIUM": "N:03123:Infant dresses",
+  "centrepoint|K31-A11-01-515CREAMMEDIUM": "N:03123:Infant tops and T-shirts",
+  "max|C26KBYFS805BLUEMEDIUM": "0312113",
+  "max|C25KBYFSMRRDDTR361BLUEMEDIUM": "0312113",
+  "max|B26KGYFSSUN115BLUELIGHT": "0312213",
+  "max|C26KGYSBDNM555BLUELIGHT": "0312213",
+  "max|B26KIBBCBOTTOM108BLUELIGHT": "N:03123:Infant trousers and shorts",
+  "max|TBNOOSDNMPNT01BLACKDARK": "0312113",
+  "max|TBNOOSDNMPNT01BLUEDARK": "0312113",
+  "max|TBNOOSDNMPNT01BLUEMEDIUM": "0312113",
+  "max|816NOOSBDPCSBLUEDARK": "0312113",
+  "max|816NOOSBDPCSBLUEMEDIUM": "0312113"
+ },
+ "new_types": [
+  {
+   "class": "N:03123:Infant tops and T-shirts",
+   "subclass5": "03123",
+   "name_en": "Infant tops and T-shirts",
+   "name_ar": "بلوزات وتيشيرتات للرضع",
+   "why": "Basket 03.1.2.3 has only bodysuits/sleepsuits (0312301); no infant T-shirt/top class."
+  },
+  {
+   "class": "N:03123:Infant clothing sets",
+   "subclass5": "03123",
+   "name_en": "Infant clothing sets",
+   "name_ar": "أطقم ملابس للرضع",
+   "why": "Multi-piece baby outfits are not bodysuits; no infant set class in the basket."
+  },
+  {
+   "class": "N:03123:Infant dresses",
+   "subclass5": "03123",
+   "name_en": "Infant dresses",
+   "name_ar": "فساتين للرضع",
+   "why": "No infant dress class (girls' dress 0312218 is for children over 2)."
+  },
+  {
+   "class": "N:03123:Infant trousers and shorts",
+   "subclass5": "03123",
+   "name_en": "Infant trousers and shorts",
+   "name_ar": "بناطيل وشورتات للرضع",
+   "why": "No infant bottoms class in the basket."
+  },
+  {
+   "class": "N:03123:Infant jackets and cardigans",
+   "subclass5": "03123",
+   "name_en": "Infant jackets and cardigans",
+   "name_ar": "جاكيتات وكارديغانات للرضع",
+   "why": "No infant outerwear class in the basket."
+  },
+  {
+   "class": "N:03123:Infant underwear",
+   "subclass5": "03123",
+   "name_en": "Infant underwear",
+   "name_ar": "ملابس داخلية للرضع",
+   "why": "No infant underwear class in the basket."
+  },
+  {
+   "class": "N:03121:Boys' jumpers and sweatshirts",
+   "subclass5": "03121",
+   "name_en": "Boys' jumpers and sweatshirts",
+   "name_ar": "كنزات وسويت شيرت وهوديز للأولاد",
+   "why": "Boys' basket has shirts/polos (0312114) and jackets (0312116) but no sweatshirt/hoodie class."
+  },
+  {
+   "class": "N:03121:Boys' clothing sets",
+   "subclass5": "03121",
+   "name_en": "Boys' clothing sets",
+   "name_ar": "أطقم ملابس للأولاد",
+   "why": "Boys' basket has a formal suit (0312115) but no casual T-shirt+shorts set class."
+  },
+  {
+   "class": "N:03121:Men's jackets and coats",
+   "subclass5": "03121",
+   "name_en": "Men's jackets and coats",
+   "name_ar": "جاكيتات ومعاطف رجالية",
+   "why": "Men's basket has only the suit jacket (0312104); no casual jacket/coat class."
+  },
+  {
+   "class": "N:03121:Men's waistcoats and gilets",
+   "subclass5": "03121",
+   "name_en": "Men's waistcoats and gilets",
+   "name_ar": "صديريات وسترات بدون أكمام رجالية",
+   "why": "No men's gilet/waistcoat class in the basket."
+  },
+  {
+   "class": "N:03121:Men's jumpers and sweatshirts",
+   "subclass5": "03121",
+   "name_en": "Men's jumpers and sweatshirts",
+   "name_ar": "كنزات وسويت شيرت رجالية",
+   "why": "No men's sweatshirt/jumper class in the basket."
+  },
+  {
+   "class": "N:03122:Girls' jumpers and sweatshirts",
+   "subclass5": "03122",
+   "name_en": "Girls' jumpers and sweatshirts",
+   "name_ar": "كنزات وسويت شيرت وهوديز للبنات",
+   "why": "Girls' basket has tops (0312214) and jackets (0312216) but no sweatshirt/hoodie class."
+  },
+  {
+   "class": "N:03122:Girls' jumpsuits and playsuits",
+   "subclass5": "03122",
+   "name_en": "Girls' jumpsuits and playsuits",
+   "name_ar": "أوفرولات وجمبسوت للبنات",
+   "why": "Jumpsuits, playsuits and dungarees are neither dresses nor trousers; no basket class."
+  },
+  {
+   "class": "N:03122:Girls' swimwear",
+   "subclass5": "03122",
+   "name_en": "Girls' swimwear",
+   "name_ar": "ملابس سباحة للبنات",
+   "why": "Basket swimwear class 0312211 is women's; no girls' swimwear class."
+  },
+  {
+   "class": "N:06133:Incontinence products",
+   "subclass5": "06133",
+   "name_en": "Incontinence products",
+   "name_ar": "منتجات سلس البول للكبار",
+   "why": "COICOP 06.1.3.3 absorbent incontinence products; no basket class."
+  },
+  {
+   "class": "N:13291:Reusable diaper covers",
+   "subclass5": "13291",
+   "name_en": "Reusable diaper covers",
+   "name_ar": "أغطية حفاضات قابلة لإعادة الاستخدام",
+   "why": "Diapers of any material are 13.2.9.1; diaper covers are not the disposable diapers of 1312012."
+  },
+  {
+   "class": "N:09212:Arts and crafts supplies",
+   "subclass5": "09212",
+   "name_en": "Arts and crafts supplies",
+   "name_ar": "مستلزمات الحرف اليدوية والهوايات",
+   "why": "Bead and bracelet-making kits are hobby articles (09.2.1.2); no basket class."
+  },
+  {
+   "class": "N:05219:Cushions and cushion covers",
+   "subclass5": "05219",
+   "name_en": "Cushions and cushion covers",
+   "name_ar": "وسائد ومساند زينة وأغطيتها",
+   "why": "Decorative cushion; no basket class."
+  },
+  {
+   "class": "N:05111:Clothes racks and coat stands",
+   "subclass5": "05111",
+   "name_en": "Clothes racks and coat stands",
+   "name_ar": "حوامل وعلاقات ملابس أرضية",
+   "why": "COICOP 05.1.1.1 hanger stands and coat stands; no basket class."
+  },
+  {
+   "class": "N:06123:First-aid kits and bandages",
+   "subclass5": "06123",
+   "name_en": "First-aid kits and bandages",
+   "name_ar": "حقائب إسعافات أولية وضمادات",
+   "why": "COICOP 06.1.2.3 first-aid kits; no basket class."
+  },
+  {
+   "class": "N:09212:Costumes and disguises",
+   "subclass5": "09212",
+   "name_en": "Costumes and disguises",
+   "name_ar": "أزياء تنكرية وأقنعة",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:09212:Toys and games",
+   "subclass5": "09212",
+   "name_en": "Toys and games",
+   "name_ar": "ألعاب ودمى",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:05213:Towels",
+   "subclass5": "05213",
+   "name_en": "Towels",
+   "name_ar": "مناشف",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:05611:Stain removers and laundry aids",
+   "subclass5": "05611",
+   "name_en": "Stain removers and laundry aids",
+   "name_ar": "مزيلات البقع ومساعدات الغسيل",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:05611:Cleaning cloths and sponges",
+   "subclass5": "05611",
+   "name_en": "Cleaning cloths and sponges",
+   "name_ar": "فوط وإسفنج التنظيف",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:13120:Hair conditioners",
+   "subclass5": "13120",
+   "name_en": "Hair conditioners",
+   "name_ar": "بلسم الشعر",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:01189:Sugar confectionery",
+   "subclass5": "01189",
+   "name_en": "Sugar confectionery",
+   "name_ar": "حلويات سكرية",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:07213:Car accessories and care products",
+   "subclass5": "07213",
+   "name_en": "Car accessories and care products",
+   "name_ar": "إكسسوارات ومنتجات العناية بالسيارات",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:01151:Other vegetable oils",
+   "subclass5": "01151",
+   "name_en": "Other vegetable oils",
+   "name_ar": "زيوت نباتية أخرى",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:05619:Clothes pegs and hangers",
+   "subclass5": "05619",
+   "name_en": "Clothes pegs and hangers",
+   "name_ar": "مشابك وعلاقات ملابس",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:05219:Shopping, laundry and shoe bags",
+   "subclass5": "05219",
+   "name_en": "Shopping, laundry and shoe bags",
+   "name_ar": "أكياس تسوق وغسيل وأحذية",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:09322:Pet accessories",
+   "subclass5": "09322",
+   "name_en": "Pet accessories",
+   "name_ar": "مستلزمات الحيوانات الأليفة",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:13291:Travel and sports bags",
+   "subclass5": "13291",
+   "name_en": "Travel and sports bags",
+   "name_ar": "حقائب سفر ورياضة",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:03132:Haberdashery and sewing patterns",
+   "subclass5": "03132",
+   "name_en": "Haberdashery and sewing patterns",
+   "name_ar": "مستلزمات الخياطة والباترونات",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:05619:Sewing and knitting supplies",
+   "subclass5": "05619",
+   "name_en": "Sewing and knitting supplies",
+   "name_ar": "أدوات الخياطة والحياكة",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:13291:Key rings and small personal accessories",
+   "subclass5": "13291",
+   "name_en": "Key rings and small personal accessories",
+   "name_ar": "ميداليات مفاتيح وإكسسوارات شخصية صغيرة",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:13211:Fashion jewellery",
+   "subclass5": "13211",
+   "name_en": "Fashion jewellery",
+   "name_ar": "مجوهرات مقلدة وإكسسوارات زينة",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:08192:Cables and adapters",
+   "subclass5": "08192",
+   "name_en": "Cables and adapters",
+   "name_ar": "كابلات ومحولات",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:03131:Aprons and bibs",
+   "subclass5": "03131",
+   "name_en": "Aprons and bibs",
+   "name_ar": "مرايل وصدريات حماية الملابس",
+   "why": "Reused from another batch."
+  },
+  {
+   "class": "N:09221:Sports and fitness equipment",
+   "subclass5": "09221",
+   "name_en": "Sports and fitness equipment",
+   "name_ar": "معدات رياضية ولياقة",
+   "why": "Reused from another batch."
+  }
+ ]
+}

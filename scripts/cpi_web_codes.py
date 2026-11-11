@@ -3,7 +3,7 @@
 Usage:
   python3 -I scripts/cpi_web_codes.py <unified.csv> <out registry.json> [--prev registry.json] [--xlsx codes.xlsx]
       [--rules data/cpi/web_coding/rules] [--basket data/basket/basket.json]
-      [--coicop data/cpi/web_coding/coicop2018_subclasses.tsv]
+      [--coicop data/cpi/web_coding/coicop2018_subclasses.tsv] [--names data/cpi/web_coding/class_names]
 
 <unified.csv> is the output of scripts/cpi_unified.py (one row per date, shop and product).
 
@@ -85,6 +85,16 @@ def main(a):
     classes = {}
     for x in basket:
         classes.setdefault(x["class_code"], {"ar": x["class_name"].split(" - ", 1)[-1], "en": "", "sub": x["class_code"][:5], "web": False})
+    # generic type names for the basket classes (the basket names one product per class, e.g. "Apple iPhone 17 256GB")
+    names_dir = opt("--names", os.path.join(ROOT, "data/cpi/web_coding/class_names"))
+    if os.path.isdir(names_dir):
+        for f in sorted(os.listdir(names_dir)):
+            if f.endswith(".json"):
+                for c7, n in json.load(open(os.path.join(names_dir, f), encoding="utf-8")).items():
+                    if c7 in classes:
+                        classes[c7]["basket_name"] = classes[c7]["ar"]
+                        classes[c7]["ar"] = n.get("ar") or classes[c7]["ar"]
+                        classes[c7]["en"] = n.get("en", "")
     cats, overrides, canon = load_rules(rules_dir)
 
     # products from the unified dataset

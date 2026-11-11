@@ -2,6 +2,7 @@
 
 Usage:
   python3 -I scripts/cpi_unified.py <runs dir> <catalogue history.json> <catalogue rows.json> <out.xlsx> [out.csv]
+      [--codes registry.json]   (adds the CPI web code, class and COICOP 2018 subclass of each product: cpi_web_codes.py)
 
 <runs dir> holds the panel's projects/cpi/runs export: <run id>.json (run doc with log) and <run id>/rows/cNNN.json.
 
@@ -97,7 +98,7 @@ def load_runs(runs_dir):
         yield day, rid, run, rows
 
 
-def main(runs_dir, hist_path, cat_path, out_xlsx, out_csv=None):
+def main(runs_dir, hist_path, cat_path, out_xlsx, out_csv=None, codes_path=None):
     hist = json.load(open(hist_path, encoding="utf-8"))
     cat = json.load(open(cat_path, encoding="utf-8"))
     ci = {c: i for i, c in enumerate(cat["cols"])}
@@ -234,6 +235,20 @@ def main(runs_dir, hist_path, cat_path, out_xlsx, out_csv=None):
     keys = [(r[0], r[2], r[3]) for r in out]
     assert len(keys) == len(set(keys)), "duplicate (date, chain, product) rows"
 
+    if codes_path:                      # CPI codes (scripts/cpi_web_codes.py): web code, class and COICOP 2018 subclass first
+        reg = json.load(open(codes_path, encoding="utf-8"))
+        add = ["web_code", "cpi_class", "class_name_ar", "class_name_en", "coicop_subclass", "coicop_title"]
+        for i, r in enumerate(out):
+            key = f"{r[2]}|{r[3]}"
+            code = reg["p"].get(key, "")
+            c = reg["classes"].get(code[:7], {}) if code else {}
+            s5 = code[:5]
+            vals = [code, code[:7], c.get("ar", ""), c.get("en", ""), f"{s5[:2]}.{s5[2]}.{s5[3]}.{s5[4]}" if code else "",
+                    reg["subclasses"].get(s5, "")] if code else ["", "", "excluded: " + reg["x"][key] if key in reg["x"] else "not coded yet", "", "", ""]
+            out[i] = r[:1] + vals + r[1:]
+        cols = cols[:1] + add + cols[1:]
+        stats["rows with a CPI code"] = sum(1 for r in out if r[1])
+
     if out_csv:
         with open(out_csv, "w", newline="", encoding="utf-8-sig") as f:
             w = csv.writer(f)
@@ -242,7 +257,8 @@ def main(runs_dir, hist_path, cat_path, out_xlsx, out_csv=None):
     write_xlsx(out_xlsx, cols, out, stats, days)
     for k in sorted(stats):
         print(f"{k}: {stats[k]:,}")
-    print(f"rows: {len(out):,} · products: {len({(r[2], r[3]) for r in out}):,} · days: {len({r[0] for r in out})}")
+    ci_, pi_ = cols.index("chain"), cols.index("product_id")
+    print(f"rows: {len(out):,} · products: {len({(r[ci_], r[pi_]) for r in out}):,} · days: {len({r[0] for r in out})}")
 
 
 def write_xlsx(path, cols, out, stats, cat_days):
@@ -251,9 +267,13 @@ def write_xlsx(path, cols, out, stats, cat_days):
     wb = Workbook(write_only=True)
     ws = wb.create_sheet("All prices")
     ws.freeze_panes = "A2"
-    widths = [11, 22, 11, 16, 50, 18, 10, 10, 10, 8, 10, 7, 26, 22, 20, 30, 26, 10, 26, 40]
-    for i, w in enumerate(widths):
-        ws.column_dimensions[chr(65 + i)].width = w
+    from openpyxl.utils import get_column_letter
+    W = {"date": 11, "web_code": 14, "cpi_class": 10, "class_name_ar": 26, "class_name_en": 22, "coicop_subclass": 10, "coicop_title": 26,
+         "store": 22, "chain": 11, "product_id": 16, "title": 50, "brand": 18, "size": 10, "price_aed": 10, "regular_price_aed": 10,
+         "on_offer": 8, "unit_price_aed": 10, "unit": 7, "group": 26, "category": 22, "basket_item_codes": 20, "basket_line_names": 30,
+         "found_by": 26, "sources": 10, "note": 26, "url": 40}
+    for i, c in enumerate(cols):
+        ws.column_dimensions[get_column_letter(i + 1)].width = W.get(c, 12)
     head = Font(bold=True, color="FFFFFF")
     fill = PatternFill("solid", fgColor="1B2A52")
     from openpyxl.cell import WriteOnlyCell
@@ -272,11 +292,12 @@ def write_xlsx(path, cols, out, stats, cat_days):
         s.column_dimensions[c].width = 14
     s.append(["Store", "rows", "products", "basket only", "catalogue only", "both"])
     agg = defaultdict(lambda: [0, set(), 0, 0, 0])
+    si, pi, oi = cols.index("store"), cols.index("product_id"), cols.index("sources")
     for r in out:
-        a = agg[r[1]]
+        a = agg[r[si]]
         a[0] += 1
-        a[1].add(r[3])
-        a[{"basket": 2, "catalogue": 3, "both": 4}[r[cols.index("sources")]]] += 1
+        a[1].add(r[pi])
+        a[{"basket": 2, "catalogue": 3, "both": 4}[r[oi]]] += 1
     for st in sorted(agg):
         a = agg[st]
         s.append([st, a[0], len(a[1]), a[2], a[3], a[4]])
@@ -311,6 +332,12 @@ def write_xlsx(path, cols, out, stats, cat_days):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 5:
+    argv = sys.argv[1:]
+    codes = None
+    if "--codes" in argv:
+        i = argv.index("--codes")
+        codes = argv[i + 1]
+        del argv[i:i + 2]
+    if len(argv) < 4:
         sys.exit(__doc__)
-    main(*sys.argv[1:6])
+    main(*argv[:5], codes_path=codes)

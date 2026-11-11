@@ -699,10 +699,101 @@ function drawRoutines(my) {
   };
 }
 
+// ============================================================ one CPI set: basket runs + catalogue crawl, one row per day, shop and product
+// Same rules as scripts/cpi_unified.py: the product key is the chain plus the shop's product id; carried category rows of a
+// shop that refused its barcode pages are not prices; basket rows that reuse an older catalogue are not observations;
+// catalogue history counts only on crawled days (an incomplete crawl counts only that day's own entries); nothing is filled.
+const CPI_CHAINS = ["carrefour", "lulu", "sharafdg", "zara", "max", "centrepoint"];
+const CHAIN_STORE = { carrefour: "Carrefour", lulu: "Lulu", sharafdg: "Sharaf DG", zara: "Zara", max: "Max", centrepoint: "Centrepoint" };
+const chainOfOutlet = (o) => (/\(Centrepoint\)\s*$/.test(o) ? "centrepoint" : { Carrefour: "carrefour", Lulu: "lulu", "Sharaf DG": "sharafdg", Zara: "zara", Max: "max" }[o.trim()] || o.toLowerCase().replace(/\s+/g, ""));
+const chainOfLog = (n) => { const s = n.toLowerCase().replace(/\s+/g, ""); return CPI_CHAINS.find((k) => s.startsWith(k)) || s; };
+const pidOf = (rid, url) => { if (rid) return String(rid).trim(); const m = /\/p\/([\w-]+)/.exec(url || "") || /-p(\d{6,})\.html/.exec(url || ""); return m ? m[1] : (url || "").trim(); };
+function refusedChains(run) {
+  const out = new Set();
+  for (const l of run?.log || []) { const m = /^(.+?) barcode: (\d+) pages read, (\d+) failed/.exec(l); if (m) { const r = +m[2], f = +m[3], t = r + f; if ((t ? f / t : 1) >= 0.9) out.add(chainOfLog(m[1])); } }
+  return out;
+}
+async function loadCatHistory() {
+  if (S.catHist) return S.catHist;
+  const ptr = await getDoc("projects/cpi/catalogue/latest"); if (!ptr?.history_asset) throw new Error(L("No catalogue history yet", "لا يوجد سجل للكتالوج بعد"));
+  const r = await fetch("/_blob/" + ptr.history_asset); if (!r.ok) throw new Error(L(`Catalogue history: HTTP ${r.status}`, `سجل الكتالوج: HTTP ${r.status}`));
+  S.catHist = await r.json(); return S.catHist;
+}
+async function loadCodes() {
+  if (S.codes !== undefined) return S.codes;
+  const ptr = await getDoc("projects/cpi/coding/current"); if (!ptr?.asset) return (S.codes = null);
+  const r = await fetch("/_blob/" + ptr.asset); S.codes = r.ok ? await r.json() : null; return S.codes;
+}
+const CPI_RANK = { barcode: 0, name_search: 1, category: 2 }, CPI_METHOD = { barcode: "barcode", name_search: "name search", category: "category crawl" };
+const MAX_ALL_ROWS = 200000;
+async function cpiAllRows(from, to, chain, step) {
+  const num = (v) => { const f = parseFloat(v); return f > 0 ? f : null; }, near = (a, b) => Math.abs(a - b) <= 1e-9;
+  const obs = new Map(), lines = new Map();
+  const runs = [...dayRuns(await loadRuns("cpi")).entries()].filter(([d]) => d >= from && d <= to).sort((a, b) => a[0].localeCompare(b[0]));
+  for (let i = 0; i < runs.length; i++) {
+    const [day, run] = runs[i]; step(0.6 * i / Math.max(1, runs.length), L(`Basket run ${day}`, `تشغيل السلة ${day}`));
+    const refused = refusedChains(run);
+    for (const x of await runRows("cpi", run)) {
+      const ch = String(x.retailer || "").toLowerCase(), pid = pidOf(x.retailer_id, x.url), price = num(x.price);
+      if ((x.url || x.retailer_id) && x.item_code) { const k = ch + "|" + pid; let m = lines.get(k); if (!m) lines.set(k, (m = new Set())); m.add(x.item_code); }
+      if (chain && ch !== chain) continue;
+      if (price == null || !["yes", "true", "1"].includes(String(x.accepted).toLowerCase())) continue;
+      const src = x.source; if (src === "catalogue" || !(src in CPI_RANK) || (src === "category" && refused.has(ch))) continue;
+      const key = day + "|" + ch + "|" + pid; let b = obs.get(key);
+      if (!b) obs.set(key, (b = { day, ch, pid, shelf: null, regular: null, rank: 9, unit: null, basis: "", methods: new Set(), title: "", brand: "", size: "", url: "", note: [], sources: "basket", store: "" }));
+      b.methods.add(CPI_METHOD[src]);
+      for (const f of ["title", "brand", "size", "url"]) if (x[f] && !b[f]) b[f] = x[f];
+      let shelf = price;
+      if (src === "category") {          // the category crawl reads a price per kg / piece / bunch
+        const up = num(x.unit_price) || price, basis = x.price_basis || "";
+        if (b.unit == null) { b.unit = up; b.basis = basis; } else if (!near(b.unit, up)) b.note.push(`category crawl also read ${up}/${basis}`);
+        shelf = num(x.unit_price) && !near(price, up) ? price : null;
+      }
+      if (shelf != null) {
+        if (b.shelf == null || CPI_RANK[src] < b.rank) { if (b.shelf != null && !near(b.shelf, shelf)) b.note.push(`another read ${b.shelf}`); b.shelf = shelf; b.regular = num(x.regular_price) || shelf; b.rank = CPI_RANK[src]; }
+        else if (!near(b.shelf, shelf)) b.note.push(`${CPI_METHOD[src]} read ${shelf}`);
+      }
+    }
+    if (obs.size > MAX_ALL_ROWS) throw new Error(L("Too many rows for one workbook: choose fewer days or one shop", "صفوف أكثر من ملف واحد: اختر أياماً أقل أو متجراً واحداً"));
+  }
+  step(0.62, L("Catalogue history…", "سجل الكتالوج…"));
+  const h = await loadCatHistory(), skipped = h.skipped || {}, outletOf = new Map();
+  const want = h.days.map((d, i) => [d, i]).filter(([d]) => d >= from && d <= to);
+  if (want.length) {
+    for (const [k, p] of Object.entries(h.p)) {
+      const bar = k.indexOf("|"), outlet = k.slice(0, bar), raw = k.slice(bar + 1), ch = chainOfOutlet(outlet), pid = pidOf(raw.startsWith("http") ? "" : raw, p.u);
+      outletOf.set(ch + "|" + pid, outlet);
+      if (chain && ch !== chain) continue;
+      const hh = [...p.h].sort((a, b) => a[0] - b[0]), at = new Map(hh.map((e) => [e[0], e]));
+      let j = 0, cur = null;
+      for (const [day, di] of want) {
+        while (j < hh.length && hh[j][0] <= di) cur = hh[j++];
+        const e = (skipped[day] || []).includes(outlet) ? at.get(di) : cur;
+        if (!e || e[1] == null) continue;
+        const price = +e[1], reg = e[2] == null ? price : +e[2], key = day + "|" + ch + "|" + pid, o = obs.get(key);
+        if (o) { if (o.sources === "basket") { o.sources = "both"; o.methods.add("catalogue crawl"); o.store = outlet; if (o.shelf == null) { o.shelf = price; o.regular = reg; } else if (!near(o.shelf, price)) o.note.push(`catalogue read ${price}`); } continue; }
+        obs.set(key, { day, ch, pid, shelf: price, regular: reg, unit: null, basis: "", methods: new Set(["catalogue crawl"]), title: p.t || "", brand: "", size: "", url: p.u || "", note: [], sources: "catalogue", store: outlet });
+        if (obs.size > MAX_ALL_ROWS) throw new Error(L("Too many rows for one workbook: choose fewer days or one shop", "صفوف أكثر من ملف واحد: اختر أياماً أقل أو متجراً واحداً"));
+      }
+    }
+  }
+  step(0.85, L("CPI codes…", "رموز CPI…"));
+  const reg = await loadCodes().catch(() => null), r2 = (v) => (v == null ? null : Math.round(v * 100) / 100);
+  return [...obs.values()].sort((a, b) => a.day.localeCompare(b.day) || a.ch.localeCompare(b.ch) || a.pid.localeCompare(b.pid)).map((o) => {
+    const key = o.ch + "|" + o.pid, code = reg?.p?.[key] || "", c = code ? reg.classes[code.slice(0, 7)] || {} : {}, s = code.slice(0, 5);
+    const cls = code ? L(c.en || c.ar, c.ar || c.en) : reg?.x?.[key] ? L("excluded: ", "مستبعد: ") + reg.x[key] : reg ? L("not coded yet", "لم يُرمَّز بعد") : "";
+    return [o.day, code, code.slice(0, 7), cls, code ? `${s.slice(0, 2)}.${s[2]}.${s[3]}.${s[4]}` : "", code ? reg.subclasses[s] || "" : "", o.store || outletOf.get(key) || CHAIN_STORE[o.ch] || o.ch, o.pid, o.title, o.brand, o.size,
+      r2(o.shelf), r2(o.regular), o.shelf != null && o.regular != null && o.regular > o.shelf + 1e-9 ? L("yes", "نعم") : "", r2(o.unit), o.basis, [...new Set([...(lines.get(key) || []), ...(reg?.b?.[key] || "").split(" ").filter(Boolean)])].sort().join(" "),
+      [...o.methods].sort().join(", "), o.sources, o.note.join("; "), o.url];
+  });
+}
+
 // ============================================================ desk 4: download (choose the data, get one Excel workbook)
 const D = { sets: new Set(["cpi_prices"]), from: null, to: dubaiDay(), outlet: "", busy: false };
 const SETS = [
   ["cpi_prices", "CPI scraped prices", "أسعار CPI المسحوبة", "One row per line, outlet and day, with the price and the product found.", "صف لكل بند ومنفذ ويوم، مع السعر والمنتج.", true],
+  ["cpi_all", "All CPI prices, coded", "كل أسعار CPI مرمّزة", "Basket runs and catalogue crawl as one set: a row per product, shop and day, no duplicates, with the CPI code.", "تشغيلات السلة وزحف الكتالوج مجموعة واحدة: صف لكل منتج ومتجر ويوم، دون تكرار، مع رمز CPI.", true],
+  ["cpi_codes", "CPI product codes", "رموز منتجات CPI", "Every product’s 12-digit code, CPI class and COICOP 2018 subclass.", "رمز كل منتج من 12 خانة وفئة CPI وفئة COICOP 2018 الفرعية.", false],
   ["cpi_manual", "CPI corrections", "تصحيحات CPI", "The prices entered by hand, withdrawn ones marked.", "الأسعار المدخلة يدوياً، والمسحوبة معلَّمة.", true],
   ["te_prices", "TrendX daily closes", "إغلاقات TrendX اليومية", "Every commodity’s close per run day, with the quote date.", "إغلاق كل سلعة لكل يوم تشغيل، مع تاريخ التسعيرة.", true],
   ["cpi_basket", "CPI scrape list", "قائمة سحب CPI", "All basket lines with codes, specs and barcodes.", "كل بنود السلة بالرموز والمواصفات والباركود.", false],
@@ -716,7 +807,7 @@ async function deskDownload(my) {
     <section class="panel"><div class="fields">
         <label class="f"><span>${esc(L("From", "من"))}</span><input type="date" id="d-from" value="${D.from}" max="${dubaiDay()}"></label>
         <label class="f"><span>${esc(L("To", "إلى"))}</span><input type="date" id="d-to" value="${D.to}" max="${dubaiDay()}"></label>
-        <label class="f"><span>${esc(L("Outlet (CPI prices)", "المنفذ (أسعار CPI)"))}</span><select id="d-outlet"><option value="">${esc(L("Carrefour and Lulu", "كارفور ولولو"))}</option><option value="carrefour" ${D.outlet === "carrefour" ? "selected" : ""}>${esc(outletName("carrefour"))}</option><option value="lulu" ${D.outlet === "lulu" ? "selected" : ""}>${esc(outletName("lulu"))}</option></select></label>
+        <label class="f"><span>${esc(L("Shop (CPI prices)", "المتجر (أسعار CPI)"))}</span><select id="d-outlet"><option value="">${esc(L("All shops", "كل المتاجر"))}</option>${CPI_CHAINS.map((c) => `<option value="${c}" ${D.outlet === c ? "selected" : ""}>${esc(outletName(c))}</option>`).join("")}</select></label>
       </div>
       <div class="row" style="margin-top:16px"><button class="btn primary" type="button" id="d-go">${esc(L("Build the Excel file", "أنشئ ملف Excel"))}</button><span class="sub" id="d-note"></span></div>
       <div class="progress" style="margin-top:12px" hidden id="d-prog"><i></i></div></section>`;
@@ -746,6 +837,22 @@ async function buildXlsx(my) {
         for (let i = 0; i < runs.length; i++) { const [d, run] = runs[i]; step((k + i / Math.max(1, runs.length)) / order.length, L(`CPI prices: ${d}`, `أسعار CPI: ${d}`));
           for (const r of await runRows("cpi", run)) if (r.accepted === "yes" && (!D.outlet || r.retailer === D.outlet)) out.push([d, r.item_code, r.name, r.brand, r.basket_qty || r.size, outletName(r.retailer), +r.price, +r.regular_price || +r.price, r.source, r.title, r.url]); }
         sheets.push({ name: "CPI prices", head: ["Day", "Item code", "Line", "Brand", "Size", "Outlet", "Price (AED)", "Regular price (AED)", "Found by", "Product title", "Link"], widths: [12, 12, 30, 16, 10, 16, 12, 12, 12, 40, 40], money: [7, 8], rows: out });
+      } else if (id === "cpi_all") {
+        const at = k;
+        const rows = await cpiAllRows(D.from, D.to, D.outlet, (f, t) => step((at + f) / order.length, t));
+        sheets.push({ name: "All CPI prices", head: ["Day", "Web code", "CPI class", "Class", "COICOP 2018", "COICOP title", "Store", "Product id", "Title", "Brand", "Size", "Price (AED)", "Regular price (AED)", "On offer", "Unit price (AED)", "Unit", "Basket item codes", "Found by", "Sources", "Note", "Link"],
+          widths: [12, 14, 10, 26, 10, 26, 20, 16, 44, 16, 10, 11, 11, 8, 11, 7, 20, 22, 10, 24, 36], money: [12, 13, 15], rows });
+      } else if (id === "cpi_codes") {
+        const reg = await loadCodes(); if (!reg) throw new Error(L("The CPI codes are not published yet", "لم تُنشر رموز CPI بعد"));
+        const h = await loadCatHistory().catch(() => null), titles = new Map();
+        if (h) for (const [k, p] of Object.entries(h.p)) { const bar = k.indexOf("|"), o = k.slice(0, bar), raw = k.slice(bar + 1); titles.set(chainOfOutlet(o) + "|" + pidOf(raw.startsWith("http") ? "" : raw, p.u), [o, p.t]); }
+        const out = Object.entries(reg.p).filter(([key]) => !D.outlet || key.startsWith(D.outlet + "|")).sort((a, b) => a[1].localeCompare(b[1])).map(([key, code]) => {
+          const bar = key.indexOf("|"), c = reg.classes[code.slice(0, 7)] || {}, s = code.slice(0, 5), t = titles.get(key) || [outletName(key.slice(0, bar)), ""];
+          return [code, code.slice(0, 7), L(c.en || c.ar, c.ar || c.en), c.web ? L("web", "ويب") : L("basket", "السلة"), `${s.slice(0, 2)}.${s[2]}.${s[3]}.${s[4]}`, reg.subclasses[s] || "", t[0], key.slice(bar + 1), t[1]]; });
+        sheets.push({ name: "CPI product codes", head: ["Web code", "CPI class", "Class", "Type from", "COICOP 2018", "COICOP title", "Store", "Product id", "Title"], widths: [14, 10, 28, 9, 10, 30, 20, 16, 50], money: [], rows: out });
+        const cls = Object.entries(reg.classes).sort((a, b) => a[0].localeCompare(b[0])), n = new Map(); for (const c of Object.values(reg.p)) n.set(c.slice(0, 7), (n.get(c.slice(0, 7)) || 0) + 1);
+        sheets.push({ name: "CPI classes", head: ["CPI class", "COICOP 2018", "COICOP title", "Type", "Class (Arabic)", "Class (English)", "Type from", "Products"], widths: [10, 10, 30, 6, 28, 28, 9, 9], money: [],
+          rows: cls.map(([c7, c]) => { const s = c7.slice(0, 5); return [c7, `${s.slice(0, 2)}.${s[2]}.${s[3]}.${s[4]}`, reg.subclasses[s] || "", c7.slice(5, 7), c.ar, c.en, c.web ? L("web", "ويب") : L("basket", "السلة"), n.get(c7) || 0]; }) });
       } else if (id === "cpi_manual") {
         const out = []; const ds = []; for (let t = new Date(D.from + "T12:00:00Z"); dubaiDay(t) <= D.to; t = new Date(t.getTime() + 864e5)) ds.push(t.toISOString().slice(0, 10));
         for (const d of ds) { const m = await loadManual(d, true); for (const r of m?.rows || []) out.push([d, r.line_code, (S.basket || []).find((x) => x.item_code === r.line_code)?.name_ar || "", outletName(r.outlet), +r.price, +r.regular_price || +r.price, r.seen_by, r.title, r.url, r.note, r.entered_by, r.entered_at, r.status]); }

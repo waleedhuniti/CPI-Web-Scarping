@@ -1,0 +1,803 @@
+<title>منصة جمع الأسعار</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
+<style>
+/* Layout: a navy control band with four desk keys (correct, scrape list, daily clock, download); one desk below at a time.
+   The colours are the portal's own; type and layout are new. */
+:root {
+  --navy: #1b2a52; --navy-2: #24376a; --primary: #1a75b8; --primary-hover: #15659f; --primary-ink: #155f97;
+  --soft: #e8f2fc; --soft-line: #b9d6f0; --bg: #f5f7fb; --surface: #ffffff; --sunk: #f1f5f9; --line: #e2e8f0; --line-2: #cbd5e1;
+  --fg: #1e293b; --muted: #556275; --faint: #64748b; --on-navy: #ffffff; --on-navy-dim: #b9c7e6;
+  --ok: #1f7a3a; --ok-bg: #ecf8ef; --ok-line: #b7e0c2; --warn: #8a5a00; --warn-bg: #fdf6e3; --warn-line: #ecd59c;
+  --bad: #b42318; --bad-bg: #fdf0ee; --bad-line: #f1c0b8; --amber: #b7791f; --amber-bg: #fdf3e1;
+  --display: "Readex Pro", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --body: "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r: 14px; --r-sm: 9px;
+  --shadow: 0 1px 2px rgb(15 23 42 / .05), 0 8px 24px rgb(27 42 82 / .06);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { background: var(--bg); color: var(--fg); }
+body { font: 15px/1.55 var(--body); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--navy); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+.num, .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* band */
+.band { background: var(--navy); color: var(--on-navy); padding-block: 18px 0; }
+.band .top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.mark { width: 38px; height: 38px; border-radius: 11px; background: var(--primary); display: grid; place-items: center; flex: none; }
+.band h1 { font-size: 20px; font-weight: 600; letter-spacing: .2px; }
+.band .clock { font-family: var(--mono); font-size: 13px; color: var(--on-navy-dim); }
+.spacer { flex: 1 1 auto; }
+.pill-btn { border: 1px solid rgb(255 255 255 / .25); background: transparent; color: var(--on-navy); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-weight: 600; font-size: 13px; }
+.pill-btn:hover { background: rgb(255 255 255 / .08); }
+.conn { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--on-navy-dim); }
+.conn i { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+.conn.ok i { background: #4ade80; } .conn.bad i { background: #f87171; }
+.keys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+.key { display: flex; gap: 12px; align-items: flex-start; text-align: start; padding: 14px 16px 16px; border-radius: 14px 14px 0 0; border: 0; cursor: pointer;
+  background: var(--navy-2); color: var(--on-navy); text-decoration: none; min-width: 0; transition: background .15s; }
+.key:hover { background: #2c4380; }
+.key[aria-current="page"] { background: var(--bg); color: var(--navy); }
+.key svg { flex: none; width: 26px; height: 26px; margin-top: 2px; }
+.key b { display: block; font-family: var(--display); font-size: 16px; font-weight: 600; }
+.key small { display: block; font-size: 12.5px; color: var(--on-navy-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.key[aria-current="page"] small { color: var(--muted); }
+.key span { min-width: 0; }
+@media (max-width: 760px) { .keys { grid-template-columns: repeat(2, minmax(0, 1fr)); } .key { border-radius: 12px; } .key[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--primary); } .band { padding-bottom: 14px; } }
+
+main { padding-block: 26px 60px; }
+.desk-head { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.desk-head h2 { font-size: 26px; font-weight: 700; color: var(--navy); }
+.desk-head p { margin: 4px 0 0; color: var(--muted); max-width: 70ch; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 960px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; box-shadow: var(--shadow); min-width: 0; }
+.panel + .panel { margin-top: 18px; }
+.panel h3 { font-size: 16px; font-weight: 600; color: var(--navy); }
+.ph { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.sub { color: var(--muted); font-size: 13px; }
+.eyebrow { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
+
+/* controls */
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 12px; }
+label.f { display: grid; gap: 5px; min-width: 0; }
+label.f > span { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+input[type=text], input[type=search], input[type=number], input[type=date], input[type=time], input[type=url], select, textarea {
+  width: 100%; min-width: 0; border: 1px solid var(--line-2); border-radius: var(--r-sm); background: var(--surface); padding: 9px 11px; }
+input:focus, select:focus, textarea:focus { border-color: var(--primary); outline: 2px solid var(--soft-line); outline-offset: 0; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: var(--r-sm); border: 1px solid var(--line-2); background: var(--surface);
+  padding: 9px 15px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.btn:hover { border-color: var(--primary); color: var(--primary-ink); }
+.btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+.btn.primary:hover { background: var(--primary-hover); color: #fff; }
+.btn.danger { color: var(--bad); border-color: var(--bad-line); }
+.btn.ghost { border-color: transparent; background: transparent; color: var(--primary-ink); padding-inline: 8px; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.seg { display: inline-flex; background: var(--sunk); border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; flex-wrap: wrap; }
+.seg button { border: 0; background: transparent; border-radius: 999px; padding: 6px 14px; font-weight: 600; cursor: pointer; color: var(--muted); }
+.seg button[aria-pressed=true] { background: var(--surface); color: var(--navy); box-shadow: 0 1px 3px rgb(15 23 42 / .12); }
+.chip { display: inline-flex; align-items: center; gap: 5px; border-radius: 999px; padding: 2px 9px; font-size: 12px; font-weight: 600; border: 1px solid var(--line); background: var(--sunk); color: var(--muted); white-space: nowrap; }
+.chip.ok { background: var(--ok-bg); border-color: var(--ok-line); color: var(--ok); } .chip.warn { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn); }
+.chip.bad { background: var(--bad-bg); border-color: var(--bad-line); color: var(--bad); } .chip.blue { background: var(--soft); border-color: var(--soft-line); color: var(--primary-ink); }
+.notice { border-radius: var(--r-sm); padding: 10px 13px; font-size: 13.5px; background: var(--soft); border: 1px solid var(--soft-line); color: var(--navy); }
+.notice.warn { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn); } .notice.bad { background: var(--bad-bg); border-color: var(--bad-line); color: var(--bad); }
+.empty { text-align: center; padding: 26px 12px; color: var(--muted); }
+.empty b { display: block; color: var(--navy); font-family: var(--display); font-size: 16px; margin-bottom: 4px; }
+.loading { color: var(--muted); padding: 14px 0; font-size: 14px; }
+.loading::before { content: ""; display: inline-block; width: 12px; height: 12px; border: 2px solid var(--soft-line); border-top-color: var(--primary); border-radius: 50%; margin-inline-end: 8px; vertical-align: -1px; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* lists and tables */
+.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-sm); max-width: 100%; }
+.tw.tall { max-height: 520px; overflow-y: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { padding: 9px 11px; text-align: start; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--sunk); font-weight: 600; color: var(--muted); font-size: 12.5px; position: sticky; top: 0; z-index: 1; }
+tr:last-child td { border-bottom: 0; }
+td.n { text-align: end; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+tr.off td { color: var(--faint); text-decoration: line-through; }
+.results { display: grid; gap: 6px; margin-top: 10px; max-height: 360px; overflow-y: auto; }
+.res { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; text-align: start; padding: 9px 11px; border: 1px solid var(--line);
+  border-radius: var(--r-sm); background: var(--surface); cursor: pointer; }
+.res:hover, .res[aria-selected=true] { border-color: var(--primary); background: var(--soft); }
+.res .code { font-family: var(--mono); font-size: 12.5px; color: var(--primary-ink); }
+.res .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.res .nm small { display: block; color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
+
+/* the line card in Correct */
+.ticket { border: 1px dashed var(--soft-line); background: linear-gradient(180deg, var(--soft), var(--surface) 70%); border-radius: var(--r); padding: 16px; display: grid; gap: 12px; }
+.ticket .t-top { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+.ticket .t-code { font-family: var(--mono); font-size: 13px; color: var(--primary-ink); background: var(--surface); border: 1px solid var(--soft-line); border-radius: 7px; padding: 2px 8px; }
+.ticket h4 { margin: 2px 0 0; font-family: var(--display); font-size: 18px; color: var(--navy); }
+.ticket dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; margin: 0; font-size: 13.5px; }
+.ticket dt { color: var(--muted); } .ticket dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.scraped { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm); }
+.scraped .big { font-family: var(--mono); font-size: 22px; font-weight: 600; color: var(--navy); }
+.scraped a { color: var(--primary-ink); font-size: 13px; overflow-wrap: anywhere; }
+
+/* the day ring */
+.clockdesk { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 22px; align-items: start; }
+@media (max-width: 900px) { .clockdesk { grid-template-columns: minmax(0, 1fr); } }
+.ring { width: 100%; max-width: 420px; aspect-ratio: 1; display: block; margin: 0 auto; touch-action: none; }
+.ring text { font-family: var(--mono); fill: var(--faint); font-size: 11px; }
+.ring .hourlab { fill: var(--muted); font-size: 12.5px; font-weight: 600; }
+.ring .marker { cursor: grab; }
+.ring .marker:focus { outline: none; } .ring .marker:focus circle.dot { stroke: var(--fg); stroke-width: 3; }
+.ring .centre-time { font-family: var(--display); fill: var(--navy); font-size: 34px; font-weight: 600; }
+.ring .centre-sub { font-family: var(--body); fill: var(--muted); font-size: 12.5px; }
+.routines { display: grid; gap: 14px; }
+.routine { border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); padding: 16px; box-shadow: var(--shadow); display: grid; gap: 12px; }
+.routine .r-head { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.routine .sw { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.routine h3 { font-size: 16px; color: var(--navy); }
+.routine .r-time { font-family: var(--mono); font-size: 26px; font-weight: 600; color: var(--navy); }
+.routine .r-meta { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 3px 14px; font-size: 13px; }
+.routine .r-meta dt { color: var(--muted); } .routine .r-meta dd { margin: 0; }
+.routine.dirty { border-color: var(--warn-line); box-shadow: 0 0 0 3px var(--warn-bg); }
+.confirm { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 10px 12px; border-radius: var(--r-sm); background: var(--warn-bg); border: 1px solid var(--warn-line); color: var(--warn); font-size: 13.5px; }
+
+/* download */
+.sets { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; }
+.set { position: relative; display: grid; gap: 6px; padding: 14px 14px 14px 46px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); cursor: pointer; }
+[dir=rtl] .set { padding: 14px 46px 14px 14px; }
+.set input { position: absolute; inset-inline-start: 15px; top: 16px; width: 18px; height: 18px; accent-color: var(--primary); }
+.set b { font-family: var(--display); font-weight: 600; color: var(--navy); }
+.set small { color: var(--muted); font-size: 12.5px; }
+.set:has(input:checked) { border-color: var(--primary); background: var(--soft); }
+.set .tag { justify-self: start; }
+.progress { height: 6px; border-radius: 99px; background: var(--sunk); overflow: hidden; }
+.progress i { display: block; height: 100%; width: 0; background: var(--primary); transition: width .2s; }
+
+#toast { position: fixed; inset-inline: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); margin: 0 auto; width: max-content; max-width: calc(100% - 32px);
+  background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: var(--shadow); z-index: 30; font-weight: 600; }
+#toast.bad { background: var(--bad); }
+.sr-only { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+
+<header class="band">
+  <div class="wrap">
+    <div class="top">
+      <span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5" fill="#fff"/></svg></span>
+      <h1 id="brand">Price Collection Platform</h1>
+      <span class="clock" id="clock"></span>
+      <span class="spacer"></span>
+      <span class="conn" id="conn"><i></i><span>Connecting…</span></span>
+      <button class="pill-btn" type="button" id="lang">العربية</button>
+    </div>
+    <nav class="keys" id="keys" aria-label="Desks"></nav>
+  </div>
+</header>
+<main class="wrap" id="desk" tabindex="-1"><div class="loading">Loading…</div></main>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+"use strict";
+// ============================================================ basics
+let LANG = "en";
+const L = (en, ar) => (LANG === "ar" ? ar : en);
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmtN = (n, d) => (n == null || n === "" || !isFinite(n) ? "—" : Number(n).toLocaleString("en", d == null ? {} : { minimumFractionDigits: d, maximumFractionDigits: d }));
+const pad = (n) => String(n).padStart(2, "0");
+const dubaiDay = (d = new Date()) => new Date(d).toLocaleDateString("en-CA", { timeZone: "Asia/Dubai" });
+const dubaiHM = (d = new Date()) => { const p = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Dubai", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date(d)); return { h: +p.find((x) => x.type === "hour").value, m: +p.find((x) => x.type === "minute").value }; };
+const fmtDay = (d) => { try { return new Date(d + "T12:00:00Z").toLocaleDateString(LANG === "ar" ? "ar-u-nu-latn" : "en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }); } catch (e) { return d; } };
+const fmtWhen = (iso) => { if (!iso) return "—"; try { return new Date(iso).toLocaleString(LANG === "ar" ? "ar-u-nu-latn" : "en-GB", { timeZone: "Asia/Dubai", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); } catch (e) { return iso; } };
+const chip = (t, tone = "") => `<span class="chip ${tone}">${esc(t)}</span>`;
+const loading = (t) => `<div class="loading" role="status">${esc(t)}</div>`;
+const empty = (title, text) => `<div class="empty"><b>${esc(title)}</b>${text ? esc(text) : ""}</div>`;
+function toast(msg, bad) { const t = $("#toast"); t.textContent = msg; t.className = bad ? "bad" : ""; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), bad ? 8000 : 3200); }
+const ISIC_TE = /*ISIC_MAP*/{};
+const CCR = "Claude Code Remote";
+const CATALOGUE_TRIGGER = "trig_01BKPxvQYZr2sCFEWDEJ9LGk";
+const OUTLETS = [["carrefour", "Carrefour", "كارفور"], ["lulu", "Lulu Hypermarket", "لولو هايبرماركت"], ["unioncoop", "Union Coop", "تعاونية الاتحاد"], ["spinneys", "Spinneys", "سبينيس"],
+  ["sharafdg", "Sharaf DG", "شرف دي جي"], ["max", "Max", "ماكس"], ["centrepoint", "Centrepoint", "سنتربوينت"], ["zara", "Zara", "زارا"]];
+const outletName = (c) => { const o = OUTLETS.find((x) => x[0] === c); return o ? L(o[1], o[2]) : c; };
+const TE_CATS = [["Energy", "الطاقة"], ["Metals", "المعادن"], ["Agricultural", "الزراعة"], ["Livestock", "الماشية"], ["Industrial", "الصناعة"], ["Electricity", "الكهرباء"], ["Index", "المؤشرات"]];
+const teCat = (c) => { const x = TE_CATS.find((y) => y[0] === c); return x ? L(x[0], x[1]) : c; };
+
+// ============================================================ storage and tools
+let db = null, mcp = null, dl = null, viewer = "";
+const S = { projects: {}, basket: null, basketDocs: null, te: null, sppi: null, runs: {}, rows: new Map(), manual: new Map(), triggers: {} };
+const plain = (snap) => { const d = snap?.data?.(); return d && typeof d === "object" ? d : {}; };
+async function getDoc(path) { const s = await db.doc(path).get(); return s.exists ? plain(s) : null; }
+function dbErr(e) { return e?.code === "quota_exceeded" ? L("The database is full: delete old runs first", "قاعدة البيانات ممتلئة: احذف تشغيلات قديمة أولاً") : (e?.message || String(e)); }
+async function loadProjects() { const snap = await db.collection("projects").get(); for (const d of snap.docs) S.projects[d.id] = plain(d); }
+async function loadBasket(fresh) {
+  if (S.basket && !fresh) return S.basket;
+  const snap = await db.collection("projects/cpi/basket").get();
+  S.basketDocs = [...snap.docs].sort((a, b) => a.id.localeCompare(b.id)).map((d) => ({ id: d.id, ...plain(d) }));
+  S.basket = S.basketDocs.flatMap((d) => d.items || []);
+  return S.basket;
+}
+async function loadTe(fresh) {
+  if (S.te && !fresh) return S.te;
+  const snap = await db.collection("projects/te/basket").get();
+  const docs = [...snap.docs].sort((a, b) => a.id.localeCompare(b.id)).map((d) => ({ id: d.id, ...plain(d) }));
+  S.te = { docs, items: docs.flatMap((d) => d.items || []) }; return S.te;
+}
+async function loadSppi(fresh) { if (S.sppi && !fresh) return S.sppi; S.sppi = (await getDoc("projects/sppi/meta/current")) || null; return S.sppi; }
+const isAuto = (r) => /-auto$/.test(r.id);
+const runDay = (r) => r.run_date || dubaiDay(r.startedAt);
+async function loadRuns(pid, fresh) {
+  if (S.runs[pid] && !fresh) return S.runs[pid];
+  const snap = await db.collection(`projects/${pid}/runs`).orderBy("startedAt", "desc").limit(90).get();
+  S.runs[pid] = snap.docs.map((d) => ({ id: d.id, ...plain(d) })); return S.runs[pid];
+}
+// one finished automatic run per day (the latest of the day)
+function dayRuns(list) {
+  const by = new Map();
+  for (const r of list) { if (!isAuto(r) || r.status === "running") continue; const d = runDay(r), c = by.get(d); if (!c || String(r.startedAt) > String(c.startedAt)) by.set(d, r); }
+  return by;
+}
+async function runRows(pid, run) {
+  const key = pid + "/" + run.id; if (S.rows.has(key)) return S.rows.get(key);
+  const base = `projects/${pid}/runs/${run.id}/rows`; let docs = [];
+  if (Number.isInteger(run.chunks) && run.chunks > 0) {
+    docs = await Promise.all(Array.from({ length: run.chunks }, (_, i) => db.doc(`${base}/c${pad3(i)}`).get()));
+    docs = docs.filter((s) => s.exists);
+  }
+  if (!docs.length) docs = (await db.collection(base).get()).docs;
+  const rows = docs.flatMap((d) => plain(d).rows || []); S.rows.set(key, rows); return rows;
+}
+const pad3 = (i) => String(i).padStart(3, "0");
+async function loadManual(day, fresh) { if (S.manual.has(day) && !fresh) return S.manual.get(day); const d = await getDoc(`projects/cpi/manual/${day}`); S.manual.set(day, d); return d; }
+async function ccr(tool, input) { return (await mcp.callTool(CCR, tool, input, { cache: false })).payload; }
+function toolErr(e) {
+  return { needs_reauth: L("Reconnect Claude Code Remote in claude.ai settings", "أعد ربط Claude Code Remote من إعدادات claude.ai"), server_not_connected: L("The Claude Code Remote connector is not available for this account", "موصل Claude Code Remote غير متاح لهذا الحساب"),
+    not_in_manifest: L("This page may not manage schedules; reopen it and allow the connector", "لم يُسمح للصفحة بإدارة الجدولة؛ أعد فتحها واسمح بالموصل") }[e?.code] || e?.message || String(e);
+}
+// chunked lists (projects/<pid>/basket/cNNN {items}): only the chunk that changes is written, the others stay as they are
+async function appendItem(coll, docs, item) {
+  const last = docs[docs.length - 1];
+  if (last && JSON.stringify([...(last.items || []), item]).length < 60000) await db.doc(`${coll}/${last.id}`).set({ ...stripId(last), items: [...(last.items || []), item] });
+  else { const id = "c" + pad3(docs.length ? Math.max(...docs.map((d) => +d.id.slice(1) || 0)) + 1 : 0); await db.doc(`${coll}/${id}`).set({ items: [item], i: +id.slice(1) }); }
+}
+async function rewriteChunk(coll, doc, items) { await db.doc(`${coll}/${doc.id}`).set({ ...stripId(doc), items }); }
+const stripId = (d) => { const { id, ...rest } = d; return rest; };
+
+// ============================================================ shell
+const DESKS = [
+  ["correct", "M4 20h4L18.5 9.5a2.8 2.8 0 0 0-4-4L4 16v4Z|m13.5 6.5 4 4", "Correct prices", "تصحيح الأسعار"],
+  ["scrape", "M8 6h13|M8 12h13|M8 18h13|M3 6h.01|M3 12h.01|M3 18h.01", "Scrape list", "قائمة السحب"],
+  ["clock", "M12 7v5l3 2|M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z", "Daily clock", "ساعة التشغيل"],
+  ["download", "M12 3v12|m7 10 5 5 5-5|M4 21h16", "Download", "التنزيل"],
+];
+const svgPath = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d.split("|").map((p) => `<path d="${p}"/>`).join("")}</svg>`;
+const keyStatus = {};
+function drawKeys() {
+  const cur = curDesk();
+  $("#keys").innerHTML = DESKS.map(([id, ic, en, ar]) => `<a class="key" href="#${id}" ${id === cur ? 'aria-current="page"' : ""}>${svgPath(ic)}<span><b>${esc(L(en, ar))}</b><small id="ks-${id}">${esc(keyStatus[id] || "")}</small></span></a>`).join("");
+}
+function setKey(id, t) { keyStatus[id] = t; const el = $("#ks-" + id); if (el) el.textContent = t; }
+const curDesk = () => { const h = location.hash.slice(1); return DESKS.some((d) => d[0] === h) ? h : "correct"; };
+let seq = 0;
+function route() {
+  drawKeys(); const id = curDesk(), my = ++seq;
+  const fn = { correct: deskCorrect, scrape: deskScrape, clock: deskClock, download: deskDownload }[id];
+  try { fn(my); } catch (e) { $("#desk").innerHTML = `<div class="notice bad">${esc(e?.message || e)}</div>`; }
+}
+const alive = (my) => my === seq;
+function applyLang() {
+  document.documentElement.lang = LANG; document.documentElement.dir = LANG === "ar" ? "rtl" : "ltr";
+  $("#brand").textContent = L("Price Collection Platform", "منصة جمع الأسعار");
+  $("#lang").textContent = LANG === "ar" ? "English" : "العربية";
+  $("#keys").setAttribute("aria-label", L("Desks", "المكاتب"));
+}
+function tick() { const now = new Date(); $("#clock").textContent = `${fmtDay(dubaiDay(now))} · ${L("Dubai", "دبي")} ${pad(dubaiHM(now).h)}:${pad(dubaiHM(now).m)}`; }
+function setConn(state, en, ar) { const c = $("#conn"); c.className = "conn " + state; $("span", c).textContent = L(en, ar); }
+
+// ============================================================ desk 1: correct prices (CPI manual layer)
+const C = { day: dubaiDay(), outlet: "carrefour", q: "", line: null, edit: null };
+async function deskCorrect(my) {
+  $("#desk").innerHTML = `
+    <div class="desk-head"><div><h2>${esc(L("Correct a price", "تصحيح سعر"))}</h2><p>${esc(L("Pick the day and the outlet, find the basket line, and enter the price you saw. Your price sits on top of the scraped one for that day and outlet; the scraped row is never changed, and you can withdraw a correction at any time.", "اختر اليوم والمنفذ، ابحث عن بند السلة، وأدخل السعر الذي رأيته. سعرك يُعتمد فوق السعر المسحوب لذلك اليوم والمنفذ؛ الصف المسحوب لا يتغير، ويمكنك سحب التصحيح متى شئت."))}</p></div></div>
+    <div class="grid2">
+      <div>
+        <section class="panel">
+          <div class="fields">
+            <label class="f"><span>${esc(L("Day", "اليوم"))}</span><input type="date" id="c-day" max="${dubaiDay()}" value="${C.day}"></label>
+            <label class="f"><span>${esc(L("Outlet", "المنفذ"))}</span><select id="c-outlet">${OUTLETS.map(([c]) => `<option value="${c}" ${c === C.outlet ? "selected" : ""}>${esc(outletName(c))}</option>`).join("")}</select></label>
+          </div>
+          <label class="f" style="margin-top:12px"><span>${esc(L("Find a basket line: code, name, brand or barcode", "ابحث عن بند: الرمز أو الاسم أو الماركة أو الباركود"))}</span><input type="search" id="c-q" value="${esc(C.q)}" placeholder="${esc(L("e.g. 011110101, basmati, تلدا, 8901144311002", "مثال: 011110101، بسمتي، تلدا، 8901144311002"))}" autocomplete="off"></label>
+          <div class="results" id="c-results" role="listbox" aria-label="${esc(L("Basket lines", "بنود السلة"))}"></div>
+        </section>
+        <section class="panel" id="c-ticket">${empty(L("No line selected", "لم يُختر بند"), L("Search above, or pick one from the list of lines without a price.", "ابحث أعلاه، أو اختر من قائمة البنود بلا سعر."))}</section>
+      </div>
+      <div>
+        <section class="panel"><div class="ph"><h3 id="c-log-h"></h3><span class="spacer"></span><span id="c-log-chip"></span></div><div id="c-log">${loading(L("Reading corrections…", "تُقرأ التصحيحات…"))}</div></section>
+        <section class="panel"><div class="ph"><h3>${esc(L("Lines without a price", "بنود بلا سعر"))}</h3><span class="spacer"></span><span id="c-todo-chip"></span></div><div id="c-todo">${loading(L("Reading the day’s run…", "يُقرأ تشغيل اليوم…"))}</div></section>
+      </div>
+    </div>`;
+  $("#c-day").onchange = (e) => { C.day = e.target.value || dubaiDay(); C.edit = null; drawLog(my); drawTodo(my); if (C.line) drawTicket(my); };
+  $("#c-outlet").onchange = (e) => { C.outlet = e.target.value; C.edit = null; drawLog(my); drawTodo(my); if (C.line) drawTicket(my); };
+  let b; try { b = await loadBasket(); } catch (e) { $("#c-results").innerHTML = `<div class="notice bad">${esc(L("The basket could not be read: ", "تعذّرت قراءة السلة: ") + dbErr(e))}</div>`; return; }
+  if (!alive(my)) return;
+  const search = () => {
+    C.q = $("#c-q").value.trim(); const q = C.q.toLowerCase();
+    if (!q) { $("#c-results").innerHTML = ""; return; }
+    const hits = b.filter((x) => [x.item_code, x.name_ar, x.brand_ar, x.barcode_raw, x.gtin, x.class_name].some((v) => String(v || "").toLowerCase().includes(q))).slice(0, 30);
+    $("#c-results").innerHTML = hits.length ? hits.map((x) => `<button type="button" class="res" role="option" data-code="${esc(x.item_code)}" aria-selected="${C.line?.item_code === x.item_code}"><span class="code">${esc(x.item_code)}</span><span class="nm" dir="auto">${esc(x.name_ar)}<small dir="auto">${esc([x.brand_ar, x.qty_raw, x.barcode_raw].filter(Boolean).join(" · "))}</small></span>${chip(x.match_mode || "", "blue")}</button>`).join("")
+      : `<p class="sub">${esc(L("No basket line matches.", "لا بند يطابق البحث."))}</p>`;
+  };
+  $("#c-q").oninput = search; search();
+  $("#c-results").onclick = (e) => { const r = e.target.closest("[data-code]"); if (r) pickLine(r.dataset.code, my); };
+  drawLog(my); drawTodo(my); if (C.line) drawTicket(my);
+}
+function pickLine(code, my) { C.line = S.basket.find((x) => x.item_code === code) || null; C.edit = null; $$("#c-results .res").forEach((r) => r.setAttribute("aria-selected", String(r.dataset.code === code))); drawTicket(my); $("#c-ticket").scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+async function dayRun(day) { const runs = await loadRuns("cpi"); return dayRuns(runs).get(day) || null; }
+async function drawTicket(my) {
+  const x = C.line, box = $("#c-ticket"); if (!x || !box) return;
+  const man = await loadManual(C.day).catch(() => null); if (!alive(my)) return;
+  const ex = C.edit || (man?.rows || []).find((r) => r.line_code === x.item_code && r.outlet === C.outlet && r.status !== "withdrawn");
+  box.innerHTML = `<div class="ticket">
+      <div class="t-top"><span class="t-code">${esc(x.item_code)}</span><div style="min-width:0"><div class="eyebrow">${esc(x.class_name || "")}</div><h4 dir="auto">${esc(x.name_ar)}</h4></div></div>
+      <dl><dt>${esc(L("Brand", "الماركة"))}</dt><dd dir="auto">${esc(x.brand_ar || "—")}</dd><dt>${esc(L("Size", "الحجم"))}</dt><dd dir="auto">${esc(x.qty_raw || "—")}</dd>
+        <dt>${esc(L("Barcode", "الباركود"))}</dt><dd class="mono">${esc(x.barcode_raw || x.gtin || "—")}</dd><dt>${esc(L("Origin", "المنشأ"))}</dt><dd dir="auto">${esc(x.origin_raw || "—")}</dd></dl>
+      <div id="c-scraped">${loading(L("Looking for the scraped price…", "يُبحث عن السعر المسحوب…"))}</div>
+    </div>
+    <form id="c-form" style="margin-top:14px;display:grid;gap:12px" novalidate>
+      <div class="ph" style="margin:0"><h3>${esc(ex ? L("Edit the correction", "تعديل التصحيح") : L("Your price", "سعرك"))}</h3><span class="sub">${esc(`${outletName(C.outlet)} · ${fmtDay(C.day)}`)}</span></div>
+      <div class="fields">
+        <label class="f"><span>${esc(L("Price (AED)", "السعر (درهم)"))} *</span><input type="number" id="c-price" step="0.01" min="0" inputmode="decimal" required value="${esc(ex?.price ?? "")}"></label>
+        <label class="f"><span>${esc(L("Regular price, if on offer", "السعر العادي إن كان عرضاً"))}</span><input type="number" id="c-reg" step="0.01" min="0" inputmode="decimal" value="${esc(ex && ex.regular_price !== ex.price ? ex.regular_price : "")}"></label>
+        <label class="f"><span>${esc(L("Seen on", "مصدر السعر"))}</span><select id="c-seen">${[["store", "In the store", "في المتجر"], ["website", "On the website", "في الموقع"], ["app", "In the app", "في التطبيق"], ["phone", "By phone", "بالهاتف"]].map(([v, en, ar]) => `<option value="${v}" ${ex?.seen_by === v ? "selected" : ""}>${esc(L(en, ar))}</option>`).join("")}</select></label>
+      </div>
+      <div class="fields">
+        <label class="f"><span>${esc(L("Product title as shown", "اسم المنتج كما ظهر"))}</span><input type="text" id="c-title" dir="auto" value="${esc(ex?.title || "")}"></label>
+        <label class="f"><span>${esc(L("Link", "الرابط"))}</span><input type="url" id="c-url" dir="ltr" value="${esc(ex?.url || "")}"></label>
+      </div>
+      <label class="f"><span>${esc(L("Note", "ملاحظة"))}</span><input type="text" id="c-note" dir="auto" value="${esc(ex?.note || "")}"></label>
+      <div class="row"><button class="btn primary" type="submit" id="c-save">${esc(ex ? L("Save the change", "احفظ التعديل") : L("Save the correction", "احفظ التصحيح"))}</button>${ex ? `<span class="sub">${esc(L("Saving replaces the earlier price for this line, outlet and day.", "الحفظ يستبدل السعر السابق لهذا البند والمنفذ واليوم."))}</span>` : ""}</div>
+    </form>`;
+  $("#c-form").onsubmit = async (e) => {
+    e.preventDefault();
+    const pr = +$("#c-price").value, rg = $("#c-reg").value;
+    if (!(pr > 0)) { toast(L("Enter the price you saw (more than 0)", "أدخل السعر الذي رأيته (أكبر من 0)"), true); $("#c-price").focus(); return; }
+    const row = { line_code: x.item_code, outlet: C.outlet, price: pr, regular_price: rg ? +rg : pr, unit: x.qty_raw || "", title: $("#c-title").value.trim(), url: $("#c-url").value.trim(), note: $("#c-note").value.trim(),
+      seen_by: $("#c-seen").value, entered_by: viewer || "manual", entered_at: new Date().toISOString(), source: "manual", currency: "AED", status: "ok" };
+    $("#c-save").disabled = true;
+    try {
+      await writeManual(C.day, (rows) => { const i = rows.findIndex((r) => r.line_code === row.line_code && r.outlet === row.outlet && r.status !== "withdrawn"); if (i >= 0) rows[i] = { ...rows[i], ...row }; else rows.push(row); });
+      toast(L(`Saved: ${x.item_code} at ${outletName(C.outlet)}, AED ${fmtN(pr, 2)}`, `حُفظ: ${x.item_code} في ${outletName(C.outlet)}، ${fmtN(pr, 2)} درهم`)); C.edit = null;
+      drawLog(my); drawTodo(my); drawTicket(my);
+    } catch (err) { toast(L("Not saved: ", "لم يُحفظ: ") + dbErr(err), true); $("#c-save").disabled = false; }
+  };
+  try {
+    const run = await dayRun(C.day); if (!alive(my)) return;
+    const el = $("#c-scraped"); if (!el) return;
+    if (!run) { el.innerHTML = `<div class="scraped"><span class="sub">${esc(L("No scraping run was saved for this day.", "لا تشغيل سحب محفوظاً لهذا اليوم."))}</span></div>`; return; }
+    const rows = await runRows("cpi", run); if (!alive(my)) return;
+    const hit = rows.filter((r) => r.item_code === x.item_code && r.retailer === C.outlet);
+    const ok = hit.find((r) => r.accepted === "yes");
+    el.innerHTML = ok ? `<div class="scraped"><span class="sub">${esc(L("Scraped", "المسحوب"))}</span><span class="big">${fmtN(ok.price, 2)}</span><span class="sub">AED${ok.regular_price && ok.regular_price !== ok.price ? ` · ${esc(L("regular", "العادي"))} ${fmtN(ok.regular_price, 2)}` : ""}</span>${ok.url ? `<a href="${esc(ok.url)}" target="_blank" rel="noopener" dir="auto">${esc(ok.title || ok.url)}</a>` : ""}</div>`
+      : `<div class="scraped"><span class="sub">${esc(L("Scraped", "المسحوب"))}</span>${chip(hit.length ? L(`no accepted price (${hit[0].status || hit[0].detail || "not matched"})`, `لا سعر مقبول (${hit[0].status || hit[0].detail || "غير مطابق"})`) : L("no row for this outlet", "لا صف لهذا المنفذ"), "warn")}</div>`;
+  } catch (e) { const el = $("#c-scraped"); if (el) el.innerHTML = `<div class="notice warn">${esc(L("The scraped price could not be read: ", "تعذّرت قراءة السعر المسحوب: ") + dbErr(e))}</div>`; }
+}
+async function writeManual(day, mutate) {
+  const path = `projects/cpi/manual/${day}`, now = await getDoc(path);       // read fresh: a failed read throws and nothing is written
+  const doc = now || { rows: [] }, rows = [...(doc.rows || [])]; mutate(rows);
+  const next = { ...doc, rows, version: (doc.version || 0) + 1 }; await db.doc(path).set(next); S.manual.set(day, next); return next;
+}
+async function drawLog(my) {
+  const box = $("#c-log"); if (!box) return;
+  $("#c-log-h").textContent = L(`Corrections on ${fmtDay(C.day)}`, `تصحيحات ${fmtDay(C.day)}`);
+  let doc; try { doc = await loadManual(C.day, true); } catch (e) { box.innerHTML = `<div class="notice bad">${esc(dbErr(e))}</div>`; return; }
+  if (!alive(my) || !$("#c-log")) return;
+  const rows = (doc?.rows || []).map((r, i) => ({ r, i })).sort((a, b) => String(b.r.entered_at).localeCompare(String(a.r.entered_at)));
+  const live = rows.filter((x) => x.r.status !== "withdrawn");
+  $("#c-log-chip").innerHTML = chip(L(`${live.length} active`, `${live.length} فعّال`), live.length ? "blue" : "");
+  setKey("correct", L(`${live.length} corrections on ${C.day}`, `${live.length} تصحيحات في ${C.day}`));
+  if (!rows.length) { box.innerHTML = empty(L("No corrections on this day", "لا تصحيحات في هذا اليوم"), L("Prices you enter appear here, newest first.", "الأسعار التي تدخلها تظهر هنا، الأحدث أولاً.")); return; }
+  const byCode = new Map((S.basket || []).map((x) => [x.item_code, x]));
+  box.innerHTML = `<div class="tw tall"><table><thead><tr><th>${esc(L("Line", "البند"))}</th><th>${esc(L("Outlet", "المنفذ"))}</th><th class="n">${esc(L("AED", "درهم"))}</th><th>${esc(L("By", "بواسطة"))}</th><th></th></tr></thead><tbody>
+    ${rows.map(({ r, i }) => `<tr class="${r.status === "withdrawn" ? "off" : ""}"><td><span class="mono">${esc(r.line_code)}</span><br><span dir="auto" class="sub">${esc(byCode.get(r.line_code)?.name_ar || r.title || "")}</span></td><td>${esc(outletName(r.outlet))}</td><td class="n">${fmtN(r.price, 2)}${r.regular_price && r.regular_price !== r.price ? `<br><span class="sub">${fmtN(r.regular_price, 2)}</span>` : ""}</td><td class="sub">${esc(r.entered_by || "")}<br>${esc(fmtWhen(r.entered_at))}</td>
+      <td>${r.status === "withdrawn" ? chip(L("withdrawn", "مسحوب")) : `<div class="row" style="gap:4px"><button class="btn ghost" type="button" data-edit="${i}">${esc(L("Edit", "تعديل"))}</button><button class="btn ghost" type="button" data-wd="${i}" style="color:var(--bad)">${esc(L("Withdraw", "سحب"))}</button></div><div data-cf="${i}"></div>`}</td></tr>`).join("")}</tbody></table></div>`;
+  box.onclick = async (e) => {
+    const ed = e.target.closest("[data-edit]"), wd = e.target.closest("[data-wd]"), yes = e.target.closest("[data-yes]"), no = e.target.closest("[data-no]");
+    if (ed) { const r = doc.rows[+ed.dataset.edit]; C.outlet = r.outlet; $("#c-outlet").value = r.outlet; C.line = S.basket.find((x) => x.item_code === r.line_code) || { item_code: r.line_code, name_ar: r.title }; C.edit = r; drawTicket(my); $("#c-ticket").scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+    if (wd) { const i = wd.dataset.wd; $(`[data-cf="${i}"]`, box).innerHTML = `<div class="confirm" style="margin-top:6px">${esc(L("Withdraw this price?", "سحب هذا السعر؟"))}<button class="btn danger" type="button" data-yes="${i}">${esc(L("Withdraw", "سحب"))}</button><button class="btn" type="button" data-no="${i}">${esc(L("Keep", "إبقاء"))}</button></div>`; }
+    if (no) $(`[data-cf="${no.dataset.no}"]`, box).innerHTML = "";
+    if (yes) { const r = doc.rows[+yes.dataset.yes];
+      try { await writeManual(C.day, (rows) => { const k = rows.findIndex((x) => x.line_code === r.line_code && x.outlet === r.outlet && x.entered_at === r.entered_at); if (k >= 0) rows[k] = { ...rows[k], status: "withdrawn", withdrawn_at: new Date().toISOString() }; }); toast(L("Price withdrawn; the scraped price counts again", "سُحب السعر؛ يُعتمد السعر المسحوب مجدداً")); drawLog(my); drawTodo(my); }
+      catch (err) { toast(dbErr(err), true); } }
+  };
+}
+async function drawTodo(my) {
+  const box = $("#c-todo"); if (!box) return; box.innerHTML = loading(L("Reading the day’s run…", "يُقرأ تشغيل اليوم…")); $("#c-todo-chip").innerHTML = "";
+  if (!["carrefour", "lulu"].includes(C.outlet)) { box.innerHTML = empty(L("Not scraped every day", "لا يُسحب يومياً"), L("Only Carrefour and Lulu are scraped daily, so other outlets have no list of missing lines.", "يُسحب كارفور ولولو فقط يومياً، فلا قائمة بنود ناقصة لباقي المنافذ.")); return; }
+  try {
+    const [run, b, man] = await Promise.all([dayRun(C.day), loadBasket(), loadManual(C.day)]);
+    if (!alive(my) || !$("#c-todo")) return;
+    if (!run) { box.innerHTML = empty(L("No run on this day", "لا تشغيل في هذا اليوم"), L("Pick another day, or enter prices you saw.", "اختر يوماً آخر، أو أدخل الأسعار التي رأيتها.")); return; }
+    const rows = await runRows("cpi", run); if (!alive(my) || !$("#c-todo")) return;
+    const got = new Set(rows.filter((r) => r.retailer === C.outlet && r.accepted === "yes").map((r) => r.item_code));
+    const done = new Set((man?.rows || []).filter((r) => r.outlet === C.outlet && r.status !== "withdrawn").map((r) => r.line_code));
+    const miss = b.filter((x) => x.kind !== "service" && !got.has(x.item_code) && !done.has(x.item_code));
+    $("#c-todo-chip").innerHTML = chip(L(`${fmtN(miss.length)} of ${fmtN(b.length)}`, `${fmtN(miss.length)} من ${fmtN(b.length)}`), miss.length ? "warn" : "ok");
+    box.innerHTML = miss.length ? `<p class="sub" style="margin:0 0 8px">${esc(L(`Goods lines with no accepted price at ${outletName(C.outlet)} in the ${run.id} run and no correction yet.`, `بنود سلع بلا سعر مقبول في ${outletName(C.outlet)} في تشغيل ${run.id} وبلا تصحيح بعد.`))}</p>
+      <div class="results" style="max-height:420px">${miss.slice(0, 200).map((x) => `<button type="button" class="res" data-code="${esc(x.item_code)}"><span class="code">${esc(x.item_code)}</span><span class="nm" dir="auto">${esc(x.name_ar)}<small dir="auto">${esc([x.brand_ar, x.qty_raw].filter(Boolean).join(" · "))}</small></span><span class="chip">${esc(L("Correct", "صحّح"))}</span></button>`).join("")}</div>${miss.length > 200 ? `<p class="sub">${esc(L(`First 200 of ${miss.length}; search above for the rest.`, `أول 200 من ${miss.length}؛ ابحث أعلاه عن الباقي.`))}</p>` : ""}`
+      : empty(L("Every goods line has a price", "كل بنود السلع لها سعر"), "");
+    box.onclick = (e) => { const r = e.target.closest("[data-code]"); if (r) pickLine(r.dataset.code, my); };
+  } catch (e) { box.innerHTML = `<div class="notice bad">${esc(dbErr(e))}</div>`; }
+}
+
+// ============================================================ desk 2: scrape list (CPI basket, TrendX commodities, SPPI items)
+const SC = { tab: "cpi", q: "", add: false };
+function deskScrape(my) {
+  $("#desk").innerHTML = `
+    <div class="desk-head"><div><h2>${esc(L("Scrape list", "قائمة السحب"))}</h2><p>${esc(L("What the daily routines collect. A line you add here is picked up by the next run; nothing else changes.", "ما تجمعه المهام اليومية. البند الذي تضيفه هنا يُسحب في التشغيل التالي، ولا يتغير شيء آخر."))}</p></div><span class="spacer"></span>
+      <div class="seg" id="sc-tabs" role="group" aria-label="${esc(L("List", "القائمة"))}">${[["cpi", "CPI basket", "سلة CPI"], ["te", "TrendX commodities", "سلع TrendX"], ["sppi", "SPPI items", "بنود SPPI"]].map(([v, en, ar]) => `<button type="button" data-v="${v}" aria-pressed="${SC.tab === v}">${esc(L(en, ar))}</button>`).join("")}</div></div>
+    <section class="panel" id="sc-add-panel" ${SC.add ? "" : "hidden"}></section>
+    <section class="panel"><div class="ph"><h3 id="sc-h"></h3><span id="sc-count"></span><span class="spacer"></span><button class="btn primary" type="button" id="sc-add">${esc(L("Add an item", "أضف بنداً"))}</button></div>
+      <input type="search" id="sc-q" value="${esc(SC.q)}" placeholder="${esc(L("Search the list", "ابحث في القائمة"))}" aria-label="${esc(L("Search the list", "ابحث في القائمة"))}">
+      <div id="sc-list" style="margin-top:12px">${loading(L("Reading the list…", "تُقرأ القائمة…"))}</div></section>`;
+  $("#sc-tabs").onclick = (e) => { const b = e.target.closest("[data-v]"); if (!b) return; SC.tab = b.dataset.v; SC.add = false; SC.q = ""; deskScrape(++seq); };
+  $("#sc-add").onclick = () => { SC.add = !SC.add; $("#sc-add-panel").hidden = !SC.add; if (SC.add) drawAdd(my); };
+  $("#sc-q").oninput = (e) => { SC.q = e.target.value; drawList(my); };
+  drawList(my); if (SC.add) drawAdd(my);
+}
+async function drawList(my) {
+  const box = $("#sc-list"); if (!box) return; const q = SC.q.trim().toLowerCase(); const has = (...v) => !q || v.some((x) => String(x ?? "").toLowerCase().includes(q));
+  try {
+    if (SC.tab === "cpi") {
+      const b = await loadBasket(); if (!alive(my)) return;
+      $("#sc-h").textContent = L("CPI basket lines", "بنود سلة CPI"); $("#sc-count").innerHTML = chip(fmtN(b.length), "blue");
+      const rows = b.filter((x) => has(x.item_code, x.name_ar, x.brand_ar, x.barcode_raw, x.class_name)); const show = rows.slice(0, 300);
+      box.innerHTML = `<div class="tw tall"><table><thead><tr><th>${esc(L("Code", "الرمز"))}</th><th>${esc(L("Line", "البند"))}</th><th>${esc(L("Brand · size", "الماركة · الحجم"))}</th><th>${esc(L("Barcode", "الباركود"))}</th><th>${esc(L("Found by", "طريقة الإيجاد"))}</th><th></th></tr></thead><tbody>
+        ${show.map((x) => `<tr><td class="mono">${esc(x.item_code)}</td><td dir="auto">${esc(x.name_ar)}<br><span class="sub">${esc(x.class_name || "")}</span></td><td dir="auto">${esc([x.brand_ar, x.qty_raw].filter(Boolean).join(" · ") || "—")}</td><td class="mono">${esc(x.barcode_raw || "—")}</td><td>${chip(x.match_mode || "—", "blue")}${x.added_via === "portal" ? " " + chip(L("added here", "أُضيف هنا"), "ok") : ""}</td><td>${x.added_via === "portal" ? `<button class="btn ghost" type="button" data-rm="${esc(x.item_code)}" style="color:var(--bad)">${esc(L("Remove", "إزالة"))}</button>` : ""}</td></tr>`).join("")}</tbody></table></div>
+        ${rows.length > show.length ? `<p class="sub">${esc(L(`Showing ${show.length} of ${rows.length}; search to narrow.`, `يُعرض ${show.length} من ${rows.length}؛ ابحث للتضييق.`))}</p>` : ""}`;
+      box.onclick = async (e) => { const rm = e.target.closest("[data-rm]"); if (!rm) return;
+        try { await loadBasket(true); const doc = S.basketDocs.find((d) => (d.items || []).some((x) => x.item_code === rm.dataset.rm && x.added_via === "portal")); if (!doc) return toast(L("This line is no longer on the list", "هذا البند لم يعد في القائمة"), true);
+          await rewriteChunk("projects/cpi/basket", doc, doc.items.filter((x) => !(x.item_code === rm.dataset.rm && x.added_via === "portal"))); await loadBasket(true); await db.doc("projects/cpi").update({ itemCount: S.basket.length }); toast(L(`Removed ${rm.dataset.rm}`, `أُزيل ${rm.dataset.rm}`)); drawList(my); }
+        catch (err) { toast(dbErr(err), true); } };
+    } else if (SC.tab === "te") {
+      const t = await loadTe(); if (!alive(my)) return;
+      $("#sc-h").textContent = L("TrendX commodities", "سلع TrendX"); $("#sc-count").innerHTML = chip(L(`${t.items.filter((x) => x.enabled !== false).length} on · ${t.items.length}`, `${t.items.filter((x) => x.enabled !== false).length} مفعّلة · ${t.items.length}`), "blue");
+      const rows = t.items.map((x, i) => ({ x, i })).filter(({ x }) => has(x.commodity, x.category, x.unit, x.item_code, ISIC_TE[x.commodity]?.[0]));
+      box.innerHTML = `<div class="tw tall"><table><thead><tr><th>${esc(L("Code", "الرمز"))}</th><th>${esc(L("Commodity", "السلعة"))}</th><th>${esc(L("Category", "الفئة"))}</th><th>${esc(L("Unit", "الوحدة"))}</th><th>ISIC</th><th>${esc(L("Collect", "يُجمع"))}</th></tr></thead><tbody>
+        ${rows.map(({ x, i }) => { const isic = ISIC_TE[x.commodity]; return `<tr class="${x.enabled === false ? "off" : ""}"><td class="mono">${esc(x.item_code || isic?.[0] || "—")}</td><td>${esc(x.commodity)}</td><td>${esc(teCat(x.category))}</td><td class="mono">${esc(x.unit || "")}</td><td class="mono" title="${esc(isic ? L(isic[2], isic[3]) : "")}">${esc(x.isic_class || isic?.[1] || "—")}</td><td><label class="row" style="gap:6px"><input type="checkbox" data-te="${i}" ${x.enabled === false ? "" : "checked"}> <span class="sub">${esc(x.enabled === false ? L("off", "متوقف") : L("on", "مفعّل"))}</span></label></td></tr>`; }).join("")}</tbody></table></div>`;
+      box.onchange = async (e) => { const cb = e.target.closest("[data-te]"); if (!cb) return; cb.disabled = true;
+        try { const name = t.items[+cb.dataset.te]?.commodity; await loadTe(true); const doc = S.te.docs.find((d) => (d.items || []).some((x) => x.commodity === name)); const it = doc?.items.find((x) => x.commodity === name);
+          if (!it) throw new Error(L("This commodity is no longer on the list", "هذه السلعة لم تعد في القائمة")); it.enabled = cb.checked; await rewriteChunk("projects/te/basket", doc, doc.items); await loadTe(true); toast(cb.checked ? L(`${it.commodity}: collected again`, `${it.commodity}: يُجمع مجدداً`) : L(`${it.commodity}: no longer kept`, `${it.commodity}: لم يعد يُحفظ`)); drawList(my); }
+        catch (err) { toast(dbErr(err), true); cb.disabled = false; } };
+    } else {
+      const m = await loadSppi(); if (!alive(my)) return;
+      $("#sc-h").textContent = L("SPPI items", "بنود SPPI");
+      if (!m) { $("#sc-count").innerHTML = ""; box.innerHTML = empty(L("No SPPI basket yet", "لا سلة SPPI بعد"), ""); return; }
+      const items = m.items || []; $("#sc-count").innerHTML = chip(fmtN(items.length), "blue");
+      const rows = items.filter((x) => has(x.code, x.name_en, x.name_ar, x.city, x.country, x.kind));
+      box.innerHTML = `<div class="tw tall"><table><thead><tr><th>${esc(L("Code", "الرمز"))}</th><th>${esc(L("Item", "البند"))}</th><th>${esc(L("Kind", "النوع"))}</th><th>${esc(L("City · country", "المدينة · الدولة"))}</th><th>${esc(L("Details", "تفاصيل"))}</th><th>${esc(L("Status", "الحالة"))}</th></tr></thead><tbody>
+        ${rows.map((x) => `<tr class="${x.status === "active" ? "" : "off"}"><td class="mono">${esc(x.code)}</td><td dir="auto">${esc(L(x.name_en || x.name_ar, x.name_ar || x.name_en))}</td><td>${chip(x.kind === "route" ? L(x.market === "foreign" ? "route · foreign" : "route · domestic", x.market === "foreign" ? "مسار · خارجي" : "مسار · داخلي") : L("hotel", "فندق"), x.kind === "route" ? "blue" : "")}</td><td>${esc([x.city, x.country].filter(Boolean).join(" · "))}</td><td class="sub">${esc(x.kind === "hotel" ? [x.stars ? x.stars + "★" : "", x.board_rule].filter(Boolean).join(" · ") : "")}</td><td>${chip(x.status, x.status === "active" ? "ok" : "")}</td></tr>`).join("")}</tbody></table></div>`;
+    }
+  } catch (e) { box.innerHTML = `<div class="notice bad">${esc(L("The list could not be read: ", "تعذّرت قراءة القائمة: ") + dbErr(e))}</div>`; }
+}
+// quantity from free text: "1 كغ", "500 g", "1.5 L", "6 x 200 ml"
+function parseQty(t) {
+  const s = String(t || "").replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/٫/g, ".").toLowerCase();
+  const U = [[/^(kg|كغ|كجم|كيلو)$/, "g", 1000], [/^(g|gm|gr|غ|غم|جم|غرام)$/, "g", 1], [/^(l|lt|ltr|litre|liter|لتر|ل)$/, "ml", 1000], [/^(ml|مل)$/, "ml", 1], [/^(pc|pcs|piece|حبة|حبه|قطعة)$/, "pc", 1]];
+  const unit = (u) => U.find(([re]) => re.test(u));
+  let m = s.match(/(\d+(?:\.\d+)?)\s*[x×*]\s*(\d+(?:\.\d+)?)\s*([a-z؀-ۿ]+)/); if (m && unit(m[3])) { const u = unit(m[3]); return { qty_total: +m[1] * +m[2] * u[2], qty_unit: u[1] }; }
+  m = s.match(/(\d+(?:\.\d+)?)\s*([a-z؀-ۿ]+)/); if (m && unit(m[2])) { const u = unit(m[2]); return { qty_total: +m[1] * u[2], qty_unit: u[1] }; }
+  return { qty_total: null, qty_unit: "" };
+}
+async function drawAdd(my) {
+  const box = $("#sc-add-panel"); if (!box) return;
+  if (SC.tab === "cpi") {
+    const b = await loadBasket(); if (!alive(my)) return;
+    const classes = [...new Map(b.map((x) => [x.class_code, x])).values()].sort((a, b2) => a.class_code.localeCompare(b2.class_code));
+    box.innerHTML = `<div class="ph"><h3>${esc(L("New CPI basket line", "بند جديد في سلة CPI"))}</h3><span class="spacer"></span><span class="sub">${esc(L("Its code is the class code plus the next free number in that class.", "رمزه = رمز الفئة + الرقم التالي المتاح في الفئة."))}</span></div>
+      <form id="a-form" style="display:grid;gap:12px" novalidate>
+        <label class="f"><span>${esc(L("Class", "الفئة"))} *</span><select id="a-class" required><option value="">${esc(L("Choose the class", "اختر الفئة"))}</option>${classes.map((x) => `<option value="${esc(x.class_code)}">${esc(x.class_name)}</option>`).join("")}</select></label>
+        <div class="fields">
+          <label class="f"><span>${esc(L("Name (Arabic)", "الاسم بالعربية"))} *</span><input type="text" id="a-name" dir="rtl" required></label>
+          <label class="f"><span>${esc(L("Brand", "الماركة"))}</span><input type="text" id="a-brand" dir="auto"></label>
+          <label class="f"><span>${esc(L("Size", "الحجم"))}</span><input type="text" id="a-size" dir="auto" placeholder="${esc(L("e.g. 1 كغ, 500 g, 1.5 L", "مثال: 1 كغ، 500 غ، 1.5 لتر"))}"></label>
+        </div>
+        <div class="fields">
+          <label class="f"><span>${esc(L("Barcode (if known)", "الباركود (إن وُجد)"))}</span><input type="text" id="a-barcode" inputmode="numeric" dir="ltr"></label>
+          <label class="f"><span>${esc(L("Origin", "المنشأ"))}</span><input type="text" id="a-origin" dir="auto"></label>
+          <label class="f"><span>${esc(L("How the routine finds it", "كيف تجده المهمة"))}</span><select id="a-mode"><option value="barcode">${esc(L("By barcode", "بالباركود"))}</option><option value="name">${esc(L("By name search", "بالبحث بالاسم"))}</option><option value="spec">${esc(L("By spec (every matching product)", "بالمواصفات (كل منتج مطابق)"))}</option><option value="service">${esc(L("Service (manual)", "خدمة (يدوي)"))}</option></select></label>
+        </div>
+        <div class="row"><span class="sub">${esc(L("Code", "الرمز"))}:</span><span class="chip blue mono" id="a-code">—</span><span class="spacer"></span><button class="btn" type="button" id="a-cancel">${esc(L("Cancel", "إلغاء"))}</button><button class="btn primary" type="submit">${esc(L("Add to the basket", "أضف إلى السلة"))}</button></div>
+      </form>`;
+    const nextCode = (cls) => { const used = b.filter((x) => x.class_code === cls).map((x) => +String(x.item_code).slice(cls.length) || 0); return cls + pad(Math.max(0, ...used) + 1); };
+    const upd = () => { const c = $("#a-class").value; $("#a-code").textContent = c ? nextCode(c) : "—"; if ($("#a-barcode").value.trim()) $("#a-mode").value = "barcode"; else if ($("#a-mode").value === "barcode") $("#a-mode").value = "name"; };
+    $("#a-class").onchange = upd; $("#a-barcode").oninput = upd; upd();
+    $("#a-cancel").onclick = () => { SC.add = false; box.hidden = true; };
+    $("#a-form").onsubmit = async (e) => {
+      e.preventDefault();
+      const cls = $("#a-class").value, name = $("#a-name").value.trim(), bc = $("#a-barcode").value.replace(/\D/g, "");
+      if (!cls || !name) return toast(L("Choose the class and write the name", "اختر الفئة واكتب الاسم"), true);
+      if (bc && (bc.length < 8 || bc.length > 14)) return toast(L("A barcode has 8 to 14 digits", "الباركود من 8 إلى 14 رقماً"), true);
+      try {
+        const fresh = await loadBasket(true);
+        if (bc && fresh.some((x) => String(x.barcode_raw || "").replace(/\D/g, "") === bc)) return toast(L("This barcode is already in the basket", "هذا الباركود موجود في السلة"), true);
+        const ref = fresh.find((x) => x.class_code === cls), used = fresh.filter((x) => x.class_code === cls).map((x) => +String(x.item_code).slice(cls.length) || 0);
+        const code = cls + pad(Math.max(0, ...used) + 1), size = $("#a-size").value.trim();
+        const item = { item_code: code, class_code: cls, class_name: ref.class_name, group_code: ref.group_code, group_name: ref.group_name, division_code: ref.division_code, division_name: ref.division_name, cpi_group: ref.cpi_group,
+          name_ar: name, brand_ar: $("#a-brand").value.trim(), barcode_raw: bc, origin_raw: $("#a-origin").value.trim(), qty_raw: size, ...parseQty(size), kind: $("#a-mode").value === "service" ? "service" : "goods",
+          match_mode: $("#a-mode").value, added_via: "portal", added_at: new Date().toISOString(), added_by: viewer || "" };
+        await appendItem("projects/cpi/basket", S.basketDocs, item); await db.doc("projects/cpi").update({ itemCount: fresh.length + 1 });
+        await loadBasket(true); toast(L(`Added ${code}: collected from the next run`, `أُضيف ${code}: يُسحب من التشغيل القادم`)); SC.q = code; $("#sc-q").value = code; drawList(my); drawAdd(my);
+      } catch (err) { toast(L("Not added: ", "لم يُضف: ") + dbErr(err), true); }
+    };
+  } else if (SC.tab === "te") {
+    const classes = [...new Map(Object.values(ISIC_TE).map((v) => [v[1], v])).values()].sort((a, b2) => a[1].localeCompare(b2[1]));
+    box.innerHTML = `<div class="ph"><h3>${esc(L("New TrendX commodity", "سلعة TrendX جديدة"))}</h3><span class="spacer"></span><span class="sub">${esc(L("Write the name exactly as it appears on the Trading Economics commodities table.", "اكتب الاسم كما يظهر تماماً في جدول سلع Trading Economics."))}</span></div>
+      <form id="a-form" style="display:grid;gap:12px" novalidate><div class="fields">
+        <label class="f"><span>${esc(L("Commodity name", "اسم السلعة"))} *</span><input type="text" id="a-name" dir="ltr" required placeholder="Cocoa"></label>
+        <label class="f"><span>${esc(L("Category", "الفئة"))}</span><select id="a-cat">${TE_CATS.map(([v]) => `<option value="${v}">${esc(teCat(v))}</option>`).join("")}</select></label>
+        <label class="f"><span>${esc(L("Unit", "الوحدة"))}</span><input type="text" id="a-unit" dir="ltr" placeholder="USD/T"></label>
+        <label class="f"><span>${esc(L("ISIC Rev.4 class", "فئة ISIC Rev.4"))}</span><select id="a-isic"><option value="">—</option>${classes.map((v) => `<option value="${esc(v[1])}">${esc(v[1] + " · " + L(v[2], v[3]))}</option>`).join("")}</select></label>
+      </div><div class="row"><span class="sub">${esc(L("Code", "الرمز"))}:</span><span class="chip blue mono" id="a-code">—</span><span class="spacer"></span><button class="btn" type="button" id="a-cancel">${esc(L("Cancel", "إلغاء"))}</button><button class="btn primary" type="submit">${esc(L("Add to TrendX", "أضف إلى TrendX"))}</button></div></form>`;
+    const t = await loadTe(); if (!alive(my)) return;
+    const codes = () => [...Object.values(ISIC_TE).map((v) => v[0]), ...t.items.map((x) => x.item_code).filter(Boolean)];
+    const nextCode = (cls) => cls ? cls + pad(Math.max(0, ...codes().filter((c) => c.startsWith(cls)).map((c) => +c.slice(4))) + 1) : "—";
+    $("#a-isic").onchange = () => ($("#a-code").textContent = nextCode($("#a-isic").value));
+    $("#a-cancel").onclick = () => { SC.add = false; box.hidden = true; };
+    $("#a-form").onsubmit = async (e) => {
+      e.preventDefault(); const name = $("#a-name").value.trim(); if (!name) return toast(L("Write the commodity name", "اكتب اسم السلعة"), true);
+      try { await loadTe(true);
+        if (S.te.items.some((x) => x.commodity.toLowerCase() === name.toLowerCase())) return toast(L("This commodity is already on the list", "هذه السلعة موجودة في القائمة"), true);
+        const cls = $("#a-isic").value, item = { category: $("#a-cat").value, commodity: name, enabled: true, unit: $("#a-unit").value.trim(), added_via: "portal", added_at: new Date().toISOString() };
+        if (cls) { item.isic_class = cls; item.item_code = nextCode(cls); }
+        await appendItem("projects/te/basket", S.te.docs, item); await loadTe(true); await db.doc("projects/te").update({ itemCount: S.te.items.length });
+        toast(L(`Added ${name}: kept from the next capture`, `أُضيفت ${name}: تُحفظ من الالتقاط القادم`)); SC.q = name; $("#sc-q").value = name; drawList(my); drawAdd(my);
+      } catch (err) { toast(L("Not added: ", "لم يُضف: ") + dbErr(err), true); }
+    };
+  } else {
+    box.innerHTML = `<div class="ph"><h3>${esc(L("New SPPI item", "بند SPPI جديد"))}</h3></div>
+      <form id="a-form" style="display:grid;gap:12px" novalidate>
+        <div class="seg" id="a-kind" role="group"><button type="button" data-v="route" aria-pressed="true">${esc(L("Air route", "مسار جوي"))}</button><button type="button" data-v="hotel" aria-pressed="false">${esc(L("Hotel", "فندق"))}</button></div>
+        <div class="fields">
+          <label class="f"><span>${esc(L("City", "المدينة"))} *</span><input type="text" id="a-city" required></label>
+          <label class="f"><span>${esc(L("Country", "الدولة"))} *</span><input type="text" id="a-country" required></label>
+          <label class="f" data-route><span>${esc(L("Airport code (IATA)", "رمز المطار (IATA)"))} *</span><input type="text" id="a-iata" maxlength="3" dir="ltr" style="text-transform:uppercase"></label>
+          <label class="f" data-route><span>${esc(L("Market", "السوق"))}</span><select id="a-market"><option value="domestic">${esc(L("Domestic (from Dubai)", "داخلي (من دبي)"))}</option><option value="foreign">${esc(L("Foreign", "خارجي"))}</option></select></label>
+          <label class="f" data-hotel hidden><span>${esc(L("Hotel name", "اسم الفندق"))} *</span><input type="text" id="a-hotel"></label>
+          <label class="f" data-hotel hidden><span>${esc(L("Stars", "النجوم"))}</span><select id="a-stars"><option value="">—</option><option>3</option><option>4</option><option>5</option></select></label>
+          <label class="f" data-hotel hidden><span>${esc(L("Board", "الإقامة"))}</span><select id="a-board"><option>Bed & Breakfast</option><option>cheapest (no B&B)</option></select></label>
+          <label class="f"><span>${esc(L("Name in Arabic", "الاسم بالعربية"))}</span><input type="text" id="a-ar" dir="rtl"></label>
+        </div>
+        <div class="row"><span class="sub">${esc(L("Code", "الرمز"))}:</span><span class="chip blue mono" id="a-code">—</span><span class="spacer"></span><button class="btn" type="button" id="a-cancel">${esc(L("Cancel", "إلغاء"))}</button><button class="btn primary" type="submit">${esc(L("Add to SPPI", "أضف إلى SPPI"))}</button></div>
+      </form>`;
+    const m = await loadSppi(); if (!alive(my)) return;
+    let kind = "route";
+    const code = () => kind === "route" ? `${$("#a-market").value === "foreign" ? "TF" : "TD"}-${$("#a-iata").value.trim().toUpperCase() || "???"}` : `H${pad(Math.max(0, ...(m?.items || []).filter((x) => /^H\d+$/.test(x.code)).map((x) => +x.code.slice(1))) + 1)}`;
+    const upd = () => ($("#a-code").textContent = code());
+    $("#a-kind").onclick = (e) => { const b2 = e.target.closest("[data-v]"); if (!b2) return; kind = b2.dataset.v; $$("#a-kind button").forEach((x) => x.setAttribute("aria-pressed", String(x === b2))); $$("[data-route]", box).forEach((x) => (x.hidden = kind !== "route")); $$("[data-hotel]", box).forEach((x) => (x.hidden = kind !== "hotel")); upd(); };
+    for (const id of ["a-iata", "a-market"]) $("#" + id).addEventListener("input", upd);
+    $("#a-market").onchange = upd; upd();
+    $("#a-cancel").onclick = () => { SC.add = false; box.hidden = true; };
+    $("#a-form").onsubmit = async (e) => {
+      e.preventDefault(); const city = $("#a-city").value.trim(), country = $("#a-country").value.trim();
+      if (!city || !country) return toast(L("Write the city and the country", "اكتب المدينة والدولة"), true);
+      if (kind === "route" && !/^[A-Za-z]{3}$/.test($("#a-iata").value.trim())) return toast(L("The airport code has 3 letters", "رمز المطار من 3 أحرف"), true);
+      if (kind === "hotel" && !$("#a-hotel").value.trim()) return toast(L("Write the hotel name", "اكتب اسم الفندق"), true);
+      try {
+        const fresh = await loadSppi(true); if (!fresh) return toast(L("No SPPI basket to add to", "لا سلة SPPI للإضافة إليها"), true);
+        const c = code(); if ((fresh.items || []).some((x) => x.code === c)) return toast(L(`${c} is already on the list`, `${c} موجود في القائمة`), true);
+        const sort = Math.max(0, ...(fresh.items || []).map((x) => +x.sort || 0)) + 1;
+        const item = kind === "route"
+          ? { code: c, kind: "route", market: $("#a-market").value, city, country, name_en: `${country} - ${city}`, name_ar: $("#a-ar").value.trim(), source_label: `${country} - ${city}`, stars: null, board_rule: null, status: "active", sort, collection: { frequency: "monthly", lead_days: null, note: "added in the portal" }, added_via: "portal", added_at: new Date().toISOString() }
+          : { code: c, kind: "hotel", market: null, city, country, name_en: $("#a-hotel").value.trim(), name_ar: $("#a-ar").value.trim(), source_label: $("#a-hotel").value.trim(), stars: $("#a-stars").value ? +$("#a-stars").value : null, board_rule: $("#a-board").value, status: "active", sort, collection: { frequency: "monthly", lead_days: null, note: "added in the portal" }, added_via: "portal", added_at: new Date().toISOString() };
+        await db.doc("projects/sppi/meta/current").set({ ...fresh, items: [...(fresh.items || []), item] }); await loadSppi(true);
+        toast(L(`Added ${c}`, `أُضيف ${c}`)); SC.q = c; $("#sc-q").value = c; drawList(my); drawAdd(my);
+      } catch (err) { toast(L("Not added: ", "لم يُضف: ") + dbErr(err), true); }
+    };
+  }
+}
+
+// ============================================================ desk 3: daily clock (the routines, on a 24-hour ring)
+const ROUTINES = () => [
+  { key: "cpi", tid: S.projects.cpi?.schedule?.trigger_id, en: "CPI daily prices", ar: "أسعار CPI اليومية", what: ["Carrefour and Lulu, the whole basket", "كارفور ولولو، السلة كاملة"], color: "#1a75b8" },
+  { key: "cat", tid: CATALOGUE_TRIGGER, en: "Shop catalogue crawl", ar: "زحف كتالوج المتاجر", what: ["every product of the shops’ categories", "كل منتجات أقسام المتاجر"], color: "#1b2a52" },
+  { key: "te", tid: S.projects.te?.schedule?.trigger_id, en: "TrendX daily close", ar: "إغلاق TrendX اليومي", what: ["Trading Economics commodities table", "جدول سلع Trading Economics"], color: "#b7791f" },
+].filter((r) => r.tid);
+const K = { pending: {} };
+function parseCron(c) { const m = String(c || "").match(/^(?:CRON_TZ=(\S+)\s+)?(\d{1,2})\s+(\d{1,2})\s+(\S+)\s+(\S+)\s+(\S+)$/); return m ? { tz: m[1] || "UTC", min: +m[2], hour: +m[3], dom: m[4], mon: m[5], dow: m[6] } : null; }
+function cronDubai(c) { if (!c) return null; if (c.tz === "Asia/Dubai") return { h: c.hour, m: c.min }; if (c.tz === "UTC") return { h: (c.hour + 4) % 24, m: c.min }; return null; }
+async function getTrigger(tid, fresh) { if (S.triggers[tid] && !fresh) return S.triggers[tid]; const r = await ccr("get_trigger", { trigger_id: tid }); const t = r?.trigger || r?.data || r; S.triggers[tid] = t; return t; }
+async function deskClock(my) {
+  const rs = ROUTINES();
+  $("#desk").innerHTML = `<div class="desk-head"><div><h2>${esc(L("Daily clock", "ساعة التشغيل"))}</h2><p>${esc(L("When each daily task runs, in Dubai time. Drag a dot around the ring or type a time, then save it; pause a task with its switch, or run it now.", "متى تعمل كل مهمة يومية بتوقيت دبي. اسحب النقطة حول الحلقة أو اكتب الوقت ثم احفظ؛ أوقف المهمة بمفتاحها أو شغّلها الآن."))}</p></div></div>
+    <div class="clockdesk"><section class="panel"><div id="k-ring"></div></section><div class="routines" id="k-list">${loading(L("Reading the schedules…", "تُقرأ الجداول…"))}</div></div>`;
+  if (!mcp) { $("#k-list").innerHTML = `<div class="notice warn">${esc(L("Schedules can be read and changed only when this page is opened in claude.ai with the Claude Code Remote connector allowed.", "قراءة الجداول وتغييرها تحتاج فتح الصفحة في claude.ai مع السماح بموصل Claude Code Remote."))}</div>`; drawRing([]); return; }
+  const got = await Promise.all(rs.map(async (r) => { try { const t = await getTrigger(r.tid, true); const c = parseCron(t.cron_expression); return { ...r, t, c, dub: cronDubai(c) }; } catch (e) { return { ...r, err: toolErr(e) }; } }));
+  if (!alive(my)) return;
+  K.list = got; drawRing(got); drawRoutines(my);
+  const next = got.filter((r) => r.t?.enabled && r.t?.next_run_at).sort((a, b) => String(a.t.next_run_at).localeCompare(String(b.t.next_run_at)))[0];
+  if (next) setKey("clock", L(`Next: ${next.en} ${fmtWhen(next.t.next_run_at)}`, `التالي: ${next.ar} ${fmtWhen(next.t.next_run_at)}`));
+}
+const timeOf = (r) => K.pending[r.key] || r.dub;
+function drawRing(list) {
+  const W = 400, cx = 200, cy = 200, R = 150, ang = (h, m) => ((h + m / 60) / 24) * 2 * Math.PI - Math.PI / 2, pt = (a, r) => [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  const now = dubaiHM(), an = ang(now.h, now.m), [nx, ny] = pt(an, R - 18), [hx, hy] = pt(an, 66);
+  const ticks = Array.from({ length: 96 }, (_, i) => { const a = (i / 96) * 2 * Math.PI - Math.PI / 2, long = i % 4 === 0, [x1, y1] = pt(a, R - (long ? 12 : 6)), [x2, y2] = pt(a, R); return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="var(--line-2)" stroke-width="${long ? 1.6 : 1}"/>`; }).join("");
+  const labs = Array.from({ length: 8 }, (_, i) => { const h = i * 3, [x, y] = pt(ang(h, 0), R + 22); return `<text class="hourlab" x="${x.toFixed(1)}" y="${(y + 4).toFixed(1)}" text-anchor="middle">${pad(h)}</text>`; }).join("");
+  // night shading: 18:00 to 06:00
+  const arc = (h1, h2, r) => { const [x1, y1] = pt(ang(h1, 0), r), [x2, y2] = pt(ang(h2, 0), r); return `M${x1.toFixed(1)} ${y1.toFixed(1)} A${r} ${r} 0 1 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`; };
+  // dots on the ring; a task within 25 minutes of the one before it sits on an inner lane so both stay visible
+  const placed = list.filter((r) => timeOf(r)).map((r) => ({ r, mins: timeOf(r).h * 60 + timeOf(r).m })).sort((a, b) => a.mins - b.mins);
+  placed.forEach((p, i) => { p.lane = i && Math.abs(p.mins - placed[i - 1].mins) < 25 && !placed[i - 1].lane ? 1 : 0; });
+  const marks = placed.map(({ r, lane }) => { const t = timeOf(r), a = ang(t.h, t.m), rr = R - lane * 30, [x, y] = pt(a, rr), [x0, y0] = pt(a, 70);
+    return `<g class="marker" tabindex="0" role="slider" aria-label="${esc(L(r.en, r.ar))}" aria-valuemin="0" aria-valuemax="1435" aria-valuenow="${t.h * 60 + t.m}" aria-valuetext="${pad(t.h)}:${pad(t.m)}" data-key="${r.key}">
+      <line x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${r.color}" stroke-width="1.5" stroke-dasharray="3 4" opacity=".5"/>
+      <circle class="dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="12" fill="${r.color}" stroke="#fff" stroke-width="3"/></g>`; }).join("");
+  const next = list.filter((r) => timeOf(r) && r.t?.enabled !== false).map((r) => { const t = timeOf(r); let d = t.h * 60 + t.m - (now.h * 60 + now.m); if (d <= 0) d += 1440; return { r, d }; }).sort((a, b) => a.d - b.d)[0];
+  $("#k-ring").innerHTML = `<svg class="ring" id="ring" viewBox="0 0 ${W} ${W}" role="img" aria-label="${esc(L("Daily schedule ring, Dubai time", "حلقة الجدول اليومي بتوقيت دبي"))}">
+      <circle cx="${cx}" cy="${cy}" r="${R}" fill="var(--surface)" stroke="var(--line)" stroke-width="18" opacity=".9"/>
+      <path d="${arc(18, 6, R)}" fill="none" stroke="var(--soft)" stroke-width="18"/>
+      ${ticks}${labs}
+      <circle cx="${cx}" cy="${cy}" r="62" fill="var(--bg)"/>
+      <line x1="${hx.toFixed(1)}" y1="${hy.toFixed(1)}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="var(--bad)" stroke-width="2" stroke-linecap="round"/><circle cx="${nx.toFixed(1)}" cy="${ny.toFixed(1)}" r="3.5" fill="var(--bad)"/>
+      ${marks}
+      <text class="centre-time" x="${cx}" y="${cy - 2}" text-anchor="middle">${pad(now.h)}:${pad(now.m)}</text>
+      <text class="centre-sub" x="${cx}" y="${cy + 20}" text-anchor="middle">${esc(L("now, Dubai", "الآن، دبي"))}</text>
+    </svg>
+    ${next ? `<p class="sub" style="text-align:center;margin:6px 0 10px"><b style="color:var(--navy)">${esc(L(`Next: ${next.r.en}`, `التالي: ${next.r.ar}`))}</b> ${esc(L(`in ${Math.floor(next.d / 60)} h ${next.d % 60} min`, `بعد ${Math.floor(next.d / 60)} س ${next.d % 60} د`))}</p>` : ""}
+    <div class="row" style="justify-content:center;margin-top:8px">${list.map((r) => { const t = timeOf(r); return `<span class="row" style="gap:6px"><i class="sw" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${r.color}"></i><span class="sub">${esc(L(r.en, r.ar))}</span>${t ? `<b class="mono" style="color:${r.color}">${pad(t.h)}:${pad(t.m)}</b>` : ""}</span>`; }).join("")}<span class="row" style="gap:6px"><i style="display:inline-block;width:14px;height:6px;border-radius:3px;background:var(--soft)"></i><span class="sub">${esc(L("18:00–06:00", "18:00–06:00"))}</span></span></div>`;
+  const svg = $("#ring"); let drag = null;
+  const toTime = (ev) => { const p = svg.createSVGPoint(); p.x = ev.clientX; p.y = ev.clientY; const q = p.matrixTransform(svg.getScreenCTM().inverse()); let a = Math.atan2(q.y - cy, q.x - cx) + Math.PI / 2; if (a < 0) a += 2 * Math.PI; let mins = Math.round((a / (2 * Math.PI)) * 1440 / 5) * 5 % 1440; return { h: Math.floor(mins / 60), m: mins % 60 }; };
+  svg.onpointerdown = (ev) => { const g = ev.target.closest(".marker"); if (!g) return; drag = g.dataset.key; svg.setPointerCapture(ev.pointerId); ev.preventDefault(); };
+  svg.onpointermove = (ev) => { if (!drag) return; setPending(drag, toTime(ev)); };
+  svg.onpointerup = () => { if (drag) { const k = drag; drag = null; $(`.marker[data-key="${k}"]`)?.focus(); } };
+  svg.onkeydown = (ev) => { const g = ev.target.closest(".marker"); if (!g) return; const r = K.list.find((x) => x.key === g.dataset.key), t = timeOf(r); const step = ev.shiftKey ? 60 : 5;
+    const d = { ArrowRight: step, ArrowUp: step, ArrowLeft: -step, ArrowDown: -step }[ev.key]; if (d == null) return; ev.preventDefault(); const mins = ((t.h * 60 + t.m + d) % 1440 + 1440) % 1440; setPending(r.key, { h: Math.floor(mins / 60), m: mins % 60 }); $(`.marker[data-key="${r.key}"]`)?.focus(); };
+}
+function setPending(key, t) { const r = K.list.find((x) => x.key === key); if (!r) return; if (r.dub && r.dub.h === t.h && r.dub.m === t.m) delete K.pending[key]; else K.pending[key] = t; drawRing(K.list); const inp = $(`#k-time-${key}`); if (inp) inp.value = `${pad(t.h)}:${pad(t.m)}`; markDirty(key); }
+function markDirty(key) { const card = $(`#k-card-${key}`); if (card) { card.classList.toggle("dirty", !!K.pending[key]); $(`#k-dirty-${key}`).hidden = !K.pending[key]; } }
+function drawRoutines(my) {
+  const box = $("#k-list"); if (!box) return;
+  box.innerHTML = K.list.map((r) => {
+    if (r.err) return `<article class="routine"><div class="r-head"><i class="sw" style="background:${r.color}"></i><h3>${esc(L(r.en, r.ar))}</h3></div><div class="notice bad">${esc(r.err)}</div></article>`;
+    const t = timeOf(r) || { h: 0, m: 0 }, lr = r.t.last_run;
+    const lrTxt = lr ? `${fmtWhen(lr.fired_at)} · ${/SUCCEEDED/.test(lr.status) ? L("succeeded", "نجح") : /FAILED/.test(lr.status) ? L("failed", "فشل") : String(lr.status || "").toLowerCase()}` : "—";
+    return `<article class="routine ${K.pending[r.key] ? "dirty" : ""}" id="k-card-${r.key}">
+      <div class="r-head"><i class="sw" style="background:${r.color}"></i><div style="min-width:0"><h3>${esc(L(r.en, r.ar))}</h3><div class="sub">${esc(L(r.what[0], r.what[1]))}</div></div><span class="spacer"></span>${chip(r.t.enabled ? L("Running daily", "يعمل يومياً") : L("Paused", "متوقف"), r.t.enabled ? "ok" : "warn")}</div>
+      <div class="row" style="align-items:end;gap:14px">
+        <label class="f" style="width:150px"><span>${esc(L("Time, Dubai", "الوقت، دبي"))}</span><input type="time" id="k-time-${r.key}" value="${pad(t.h)}:${pad(t.m)}" dir="ltr"></label>
+        <label class="row" style="gap:7px;padding-bottom:9px"><input type="checkbox" id="k-on-${r.key}" ${r.t.enabled ? "checked" : ""}> ${esc(L("Run every day", "يعمل كل يوم"))}</label>
+        <span class="spacer"></span>
+        <span class="chip warn" id="k-dirty-${r.key}" ${K.pending[r.key] ? "" : "hidden"}>${esc(L("not saved", "غير محفوظ"))}</span>
+        <button class="btn primary" type="button" data-save="${r.key}">${esc(L("Save", "احفظ"))}</button>
+        <button class="btn" type="button" data-fire="${r.key}">${esc(L("Run now", "شغّل الآن"))}</button>
+      </div>
+      <dl class="r-meta"><dt>${esc(L("Next run", "التشغيل القادم"))}</dt><dd>${esc(r.t.enabled ? fmtWhen(r.t.next_run_at) : L("paused", "متوقف"))}</dd><dt>${esc(L("Last run", "آخر تشغيل"))}</dt><dd>${esc(lrTxt)}</dd></dl>
+      <div id="k-cf-${r.key}"></div></article>`;
+  }).join("");
+  for (const r of K.list.filter((x) => !x.err)) {
+    $(`#k-time-${r.key}`).onchange = (e) => { const [h, m] = (e.target.value || "").split(":").map(Number); if (!isNaN(h) && !isNaN(m)) setPending(r.key, { h, m }); };
+    $(`#k-on-${r.key}`).onchange = () => { $(`#k-card-${r.key}`).classList.add("dirty"); $(`#k-dirty-${r.key}`).hidden = false; };
+  }
+  box.onclick = async (e) => {
+    const sv = e.target.closest("[data-save]"), fi = e.target.closest("[data-fire]"), yes = e.target.closest("[data-yes]"), no = e.target.closest("[data-no]");
+    if (sv) { const r = K.list.find((x) => x.key === sv.dataset.save), t = timeOf(r), c = r.c || { tz: "Asia/Dubai", dom: "*", mon: "*", dow: "*" };
+      const H = c.tz === "UTC" ? (t.h + 20) % 24 : t.h;   // a UTC routine keeps its zone: Dubai time minus 4 h
+      const cron = `${c.tz === "UTC" ? "" : `CRON_TZ=${c.tz} `}${t.m} ${H} ${c.dom || "*"} ${c.mon || "*"} ${c.dow || "*"}`;
+      sv.disabled = true;
+      try { await ccr("update_trigger", { trigger_id: r.tid, cron_expression: cron, enabled: $(`#k-on-${r.key}`).checked }); delete K.pending[r.key]; toast(L(`Saved: ${L(r.en, r.ar)} at ${pad(t.h)}:${pad(t.m)} Dubai`, `حُفظ: ${r.ar} الساعة ${pad(t.h)}:${pad(t.m)} بتوقيت دبي`)); deskClock(++seq); }
+      catch (err) { toast(toolErr(err), true); sv.disabled = false; } }
+    if (fi) { const k = fi.dataset.fire; $(`#k-cf-${k}`).innerHTML = `<div class="confirm">${esc(L("Run this task now? It runs in the background and saves its result when it ends.", "تشغيل المهمة الآن؟ تعمل في الخلفية وتحفظ نتيجتها عند الانتهاء."))}<button class="btn primary" type="button" data-yes="${k}">${esc(L("Run now", "شغّل الآن"))}</button><button class="btn" type="button" data-no="${k}">${esc(L("Cancel", "إلغاء"))}</button></div>`; }
+    if (no) $(`#k-cf-${no.dataset.no}`).innerHTML = "";
+    if (yes) { const r = K.list.find((x) => x.key === yes.dataset.yes); $(`#k-cf-${r.key}`).innerHTML = "";
+      try { await ccr("fire_trigger", { trigger_id: r.tid }); toast(L("Started in the background", "بدأ التشغيل في الخلفية")); } catch (err) { toast(toolErr(err), true); } }
+  };
+}
+
+// ============================================================ desk 4: download (choose the data, get one Excel workbook)
+const D = { sets: new Set(["cpi_prices"]), from: null, to: dubaiDay(), outlet: "", busy: false };
+const SETS = [
+  ["cpi_prices", "CPI scraped prices", "أسعار CPI المسحوبة", "One row per line, outlet and day, with the price and the product found.", "صف لكل بند ومنفذ ويوم، مع السعر والمنتج.", true],
+  ["cpi_manual", "CPI corrections", "تصحيحات CPI", "The prices entered by hand, withdrawn ones marked.", "الأسعار المدخلة يدوياً، والمسحوبة معلَّمة.", true],
+  ["te_prices", "TrendX daily closes", "إغلاقات TrendX اليومية", "Every commodity’s close per run day, with the quote date.", "إغلاق كل سلعة لكل يوم تشغيل، مع تاريخ التسعيرة.", true],
+  ["cpi_basket", "CPI scrape list", "قائمة سحب CPI", "All basket lines with codes, specs and barcodes.", "كل بنود السلة بالرموز والمواصفات والباركود.", false],
+  ["te_list", "TrendX commodity list", "قائمة سلع TrendX", "Commodities, units, ISIC codes and whether they are kept.", "السلع والوحدات ورموز ISIC وحالة الحفظ.", false],
+  ["sppi_items", "SPPI items", "بنود SPPI", "Routes and hotels with their codes.", "المسارات والفنادق برموزها.", false],
+];
+async function deskDownload(my) {
+  if (!D.from) { const d = new Date(Date.now() - 6 * 864e5); D.from = dubaiDay(d); }
+  $("#desk").innerHTML = `<div class="desk-head"><div><h2>${esc(L("Download", "التنزيل"))}</h2><p>${esc(L("Tick the data you want, set the days, and get one Excel workbook with a sheet for each.", "اختر البيانات التي تريدها وحدد الأيام، واحصل على ملف Excel واحد فيه ورقة لكل منها."))}</p></div></div>
+    <section class="panel"><div class="sets" id="d-sets">${SETS.map(([id, en, ar, den, dar, dated]) => `<label class="set"><input type="checkbox" value="${id}" ${D.sets.has(id) ? "checked" : ""}><b>${esc(L(en, ar))}</b><small>${esc(L(den, dar))}</small>${chip(dated ? L("uses the days", "حسب الأيام") : L("current list", "القائمة الحالية"), dated ? "blue" : "")}</label>`).join("")}</div></section>
+    <section class="panel"><div class="fields">
+        <label class="f"><span>${esc(L("From", "من"))}</span><input type="date" id="d-from" value="${D.from}" max="${dubaiDay()}"></label>
+        <label class="f"><span>${esc(L("To", "إلى"))}</span><input type="date" id="d-to" value="${D.to}" max="${dubaiDay()}"></label>
+        <label class="f"><span>${esc(L("Outlet (CPI prices)", "المنفذ (أسعار CPI)"))}</span><select id="d-outlet"><option value="">${esc(L("Carrefour and Lulu", "كارفور ولولو"))}</option><option value="carrefour" ${D.outlet === "carrefour" ? "selected" : ""}>${esc(outletName("carrefour"))}</option><option value="lulu" ${D.outlet === "lulu" ? "selected" : ""}>${esc(outletName("lulu"))}</option></select></label>
+      </div>
+      <div class="row" style="margin-top:16px"><button class="btn primary" type="button" id="d-go">${esc(L("Build the Excel file", "أنشئ ملف Excel"))}</button><span class="sub" id="d-note"></span></div>
+      <div class="progress" style="margin-top:12px" hidden id="d-prog"><i></i></div></section>`;
+  const note = () => { const days = Math.round((new Date(D.to) - new Date(D.from)) / 864e5) + 1; $("#d-note").textContent = days > 0 ? L(`${days} days · ${D.sets.size} sheets`, `${days} يوماً · ${D.sets.size} أوراق`) : L("The start day is after the end day", "يوم البداية بعد يوم النهاية"); };
+  $("#d-sets").onchange = (e) => { const cb = e.target.closest("input"); if (!cb) return; cb.checked ? D.sets.add(cb.value) : D.sets.delete(cb.value); note(); };
+  $("#d-from").onchange = (e) => { D.from = e.target.value; note(); }; $("#d-to").onchange = (e) => { D.to = e.target.value; note(); }; $("#d-outlet").onchange = (e) => (D.outlet = e.target.value);
+  note(); setKey("download", L(`${D.sets.size} data sets ticked`, `${D.sets.size} مجموعات مختارة`));
+  $("#d-go").onclick = () => buildXlsx(my);
+}
+let excelLib = null;
+const loadExcel = () => (excelLib ??= new Promise((ok, fail) => { const s = document.createElement("script"); s.src = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"; s.onload = () => ok(window.ExcelJS); s.onerror = () => { excelLib = null; fail(new Error(L("The Excel library could not load", "تعذّر تحميل مكتبة Excel"))); }; document.head.appendChild(s); }));
+async function buildXlsx(my) {
+  if (D.busy) return; if (!D.sets.size) return toast(L("Tick at least one data set", "اختر مجموعة واحدة على الأقل"), true);
+  if (D.from > D.to) return toast(L("The start day is after the end day", "يوم البداية بعد يوم النهاية"), true);
+  if (!dl) return toast(L("Downloads are not available in this view", "التنزيل غير متاح في هذا العرض"), true);
+  const days = Math.round((new Date(D.to) - new Date(D.from)) / 864e5) + 1; if (days > 62) return toast(L("Choose at most 62 days", "اختر 62 يوماً على الأكثر"), true);
+  D.busy = true; const go = $("#d-go"), prog = $("#d-prog"); go.disabled = true; prog.hidden = false; const bar = $("i", prog);
+  const step = (f, t) => { bar.style.width = Math.round(f * 100) + "%"; $("#d-note").textContent = t; };
+  try {
+    const sheets = [], inRange = (d) => d >= D.from && d <= D.to;
+    const order = SETS.map((s) => s[0]).filter((id) => D.sets.has(id)); let k = 0;
+    for (const id of order) {
+      step(k / order.length, L(`Reading ${SETS.find((s) => s[0] === id)[1]}…`, `تُقرأ ${SETS.find((s) => s[0] === id)[2]}…`));
+      if (id === "cpi_prices") {
+        const runs = [...dayRuns(await loadRuns("cpi")).entries()].filter(([d]) => inRange(d)).sort((a, b) => a[0].localeCompare(b[0]));
+        const out = [];
+        for (let i = 0; i < runs.length; i++) { const [d, run] = runs[i]; step((k + i / Math.max(1, runs.length)) / order.length, L(`CPI prices: ${d}`, `أسعار CPI: ${d}`));
+          for (const r of await runRows("cpi", run)) if (r.accepted === "yes" && (!D.outlet || r.retailer === D.outlet)) out.push([d, r.item_code, r.name, r.brand, r.basket_qty || r.size, outletName(r.retailer), +r.price, +r.regular_price || +r.price, r.source, r.title, r.url]); }
+        sheets.push({ name: "CPI prices", head: ["Day", "Item code", "Line", "Brand", "Size", "Outlet", "Price (AED)", "Regular price (AED)", "Found by", "Product title", "Link"], widths: [12, 12, 30, 16, 10, 16, 12, 12, 12, 40, 40], money: [7, 8], rows: out });
+      } else if (id === "cpi_manual") {
+        const out = []; const ds = []; for (let t = new Date(D.from + "T12:00:00Z"); dubaiDay(t) <= D.to; t = new Date(t.getTime() + 864e5)) ds.push(t.toISOString().slice(0, 10));
+        for (const d of ds) { const m = await loadManual(d, true); for (const r of m?.rows || []) out.push([d, r.line_code, (S.basket || []).find((x) => x.item_code === r.line_code)?.name_ar || "", outletName(r.outlet), +r.price, +r.regular_price || +r.price, r.seen_by, r.title, r.url, r.note, r.entered_by, r.entered_at, r.status]); }
+        if (!S.basket) await loadBasket().catch(() => null);
+        sheets.push({ name: "CPI corrections", head: ["Day", "Item code", "Line", "Outlet", "Price (AED)", "Regular price (AED)", "Seen on", "Product title", "Link", "Note", "Entered by", "Entered at", "Status"], widths: [12, 12, 30, 16, 12, 12, 10, 30, 30, 24, 14, 20, 10], money: [5, 6], rows: out });
+      } else if (id === "te_prices") {
+        const runs = [...dayRuns(await loadRuns("te")).entries()].filter(([d]) => inRange(d)).sort((a, b) => a[0].localeCompare(b[0])); const out = [];
+        for (const [d, run] of runs) for (const r of await runRows("te", run)) out.push([d, ISIC_TE[r.commodity]?.[0] || "", r.commodity, r.category, r.unit, r.price === "" || r.price == null ? null : +r.price, r.price_date || d]);
+        sheets.push({ name: "TrendX closes", head: ["Run day", "Item code", "Commodity", "Category", "Unit", "Close", "Quote date"], widths: [12, 10, 22, 14, 16, 12, 12], money: [6], rows: out });
+      } else if (id === "cpi_basket") {
+        const b = await loadBasket(); sheets.push({ name: "CPI scrape list", head: ["Item code", "Class", "Line", "Brand", "Size", "Barcode", "Origin", "Found by", "Kind"], widths: [12, 30, 30, 16, 12, 16, 14, 10, 10], money: [], rows: b.map((x) => [x.item_code, x.class_name, x.name_ar, x.brand_ar, x.qty_raw, x.barcode_raw, x.origin_raw, x.match_mode, x.kind]) });
+      } else if (id === "te_list") {
+        const t = await loadTe(); sheets.push({ name: "TrendX list", head: ["Item code", "Commodity", "Category", "Unit", "ISIC class", "ISIC class name", "Kept"], widths: [10, 22, 14, 16, 10, 40, 8], money: [], rows: t.items.map((x) => { const i = ISIC_TE[x.commodity]; return [x.item_code || i?.[0] || "", x.commodity, x.category, x.unit, x.isic_class || i?.[1] || "", i ? i[2] : "", x.enabled === false ? "No" : "Yes"]; }) });
+      } else if (id === "sppi_items") {
+        const m = await loadSppi(); sheets.push({ name: "SPPI items", head: ["Code", "Kind", "Market", "Name", "Name (Arabic)", "City", "Country", "Stars", "Board", "Status"], widths: [10, 8, 10, 34, 24, 14, 14, 6, 18, 8], money: [], rows: (m?.items || []).map((x) => [x.code, x.kind, x.market, x.name_en, x.name_ar, x.city, x.country, x.stars, x.board_rule, x.status]) });
+      }
+      k++; if (!alive(my)) return;
+    }
+    step(0.95, L("Writing the workbook…", "يُكتب الملف…"));
+    const ExcelJS = await loadExcel(), wb = new ExcelJS.Workbook();
+    for (const s of sheets) {
+      const ws = wb.addWorksheet(s.name, { views: [{ state: "frozen", ySplit: 1 }] });
+      ws.addRow(s.head); s.rows.forEach((r) => ws.addRow(r.map((v) => (v === "" || v === undefined ? null : v))));
+      const h = ws.getRow(1); h.height = 24; h.eachCell((c) => { c.font = { bold: true, color: { argb: "FFFFFFFF" } }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF1B2A52" } }; c.alignment = { vertical: "middle" }; });
+      s.widths.forEach((w, i) => (ws.getColumn(i + 1).width = w)); s.money.forEach((i) => (ws.getColumn(i).numFmt = "#,##0.00"));
+      if (s.rows.length) ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: 1, column: s.head.length } };
+      if (!s.rows.length) ws.addRow([L("No data for these days", "لا بيانات لهذه الأيام")]);
+    }
+    const buf = await wb.xlsx.writeBuffer(), name = `Price data ${D.from}_${D.to}.xlsx`;
+    step(1, L(`${sheets.map((s) => `${s.name}: ${fmtN(s.rows.length)} rows`).join(" · ")}`, `${sheets.map((s) => `${s.name}: ${fmtN(s.rows.length)} صفاً`).join(" · ")}`));
+    try { await dl.save({ filename: name, data: new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }) }); toast(L(`Saved ${name}`, `حُفظ ${name}`)); }
+    catch (e) { if (e?.code !== "cancelled" && e?.code !== "declined") toast(e?.message || L("The download did not finish", "لم يكتمل التنزيل"), true); }
+  } catch (e) { toast(dbErr(e), true); $("#d-note").textContent = ""; }
+  finally { D.busy = false; go.disabled = false; setTimeout(() => (prog.hidden = true), 1200); }
+}
+
+// ============================================================ boot
+let connText = ["Connecting…", "جارٍ الاتصال…"];
+(async function boot() {
+  try { LANG = localStorage.getItem("lang") === "ar" ? "ar" : "en"; } catch (e) {}
+  applyLang(); tick(); setInterval(tick, 30000); drawKeys();
+  $("#lang").onclick = () => { LANG = LANG === "ar" ? "en" : "ar"; try { localStorage.setItem("lang", LANG); } catch (e) {} applyLang(); setConn($("#conn").classList.contains("ok") ? "ok" : $("#conn").classList.contains("bad") ? "bad" : "", ...connText); route(); };
+  window.addEventListener("hashchange", route);
+  const Cl = window.claude;
+  if (!Cl?.use) { connText = ["Open in claude.ai", "افتح في claude.ai"]; setConn("bad", ...connText); $("#desk").innerHTML = `<div class="notice bad">${esc(L("This page works inside claude.ai, where the price data are stored.", "تعمل هذه الصفحة داخل claude.ai حيث تُحفظ بيانات الأسعار."))}</div>`; return; }
+  [db, mcp, dl] = await Promise.all([Cl.use("db"), Cl.use("mcp").catch(() => null), Cl.use("downloads").catch(() => null)]);
+  if (!db) { connText = ["Storage unavailable", "التخزين غير متاح"]; setConn("bad", ...connText); $("#desk").innerHTML = `<div class="notice bad">${esc(L("The data cannot be read in this view. Open the page from claude.ai while signed in.", "لا يمكن قراءة البيانات في هذا العرض. افتح الصفحة من claude.ai وأنت مسجّل الدخول."))}</div>`; return; }
+  connText = mcp ? ["Connected", "متصل"] : ["Connected · schedules off", "متصل · الجداول غير متاحة"]; setConn(mcp ? "ok" : "", ...connText);
+  Cl.use("user").then(async (u) => { try { const me = await u?.me?.(); viewer = me?.name || ""; } catch (e) {} }).catch(() => {});
+  try { await loadProjects(); } catch (e) { $("#desk").innerHTML = `<div class="notice bad">${esc(L("Could not read the projects: ", "تعذّرت قراءة المشاريع: ") + dbErr(e))}</div>`; return; }
+  const p = S.projects; setKey("scrape", L(`${fmtN(p.cpi?.itemCount)} CPI · ${fmtN(p.te?.itemCount)} TrendX lines`, `${fmtN(p.cpi?.itemCount)} CPI · ${fmtN(p.te?.itemCount)} TrendX`));
+  setKey("clock", L("CPI, catalogue and TrendX", "CPI والكتالوج وTrendX")); setKey("download", L("Excel, choose the data", "Excel، اختر البيانات")); setKey("correct", L("Manual prices on top of the scrape", "أسعار يدوية فوق السحب"));
+  route();
+})();
+</script>

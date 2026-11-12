@@ -1,0 +1,526 @@
+{
+ "0115106": {
+  "en": "Coconut oil",
+  "ar": "زيت جوز الهند"
+ },
+ "0115201": {
+  "en": "Butter",
+  "ar": "زبدة حيوانية"
+ },
+ "0115202": {
+  "en": "Ghee (butter ghee)",
+  "ar": "سمن حيواني"
+ },
+ "0115301": {
+  "en": "Margarine and vegetable fat spreads",
+  "ar": "زبدة نباتية (مارجرين)"
+ },
+ "0115302": {
+  "en": "Vegetable ghee",
+  "ar": "سمن نباتي"
+ },
+ "0116101": {
+  "en": "Fresh dates",
+  "ar": "بلح ورطب طازج"
+ },
+ "0116102": {
+  "en": "Bananas",
+  "ar": "موز"
+ },
+ "0116103": {
+  "en": "Mangoes",
+  "ar": "مانجو"
+ },
+ "0116104": {
+  "en": "Guavas",
+  "ar": "جوافة"
+ },
+ "0116105": {
+  "en": "Fresh figs",
+  "ar": "تين طازج"
+ },
+ "0116106": {
+  "en": "Pineapples",
+  "ar": "أناناس طازج"
+ },
+ "0116107": {
+  "en": "Papayas",
+  "ar": "بابايا"
+ },
+ "0116108": {
+  "en": "Coconuts (whole fruit)",
+  "ar": "ثمار جوز الهند"
+ },
+ "0116109": {
+  "en": "Avocados",
+  "ar": "أفوكادو"
+ },
+ "0116201": {
+  "en": "Oranges",
+  "ar": "برتقال"
+ },
+ "0116202": {
+  "en": "Lemons and limes",
+  "ar": "ليمون"
+ },
+ "0116203": {
+  "en": "Grapefruits and pomelos",
+  "ar": "جريب فروت وبوميلو"
+ },
+ "0116204": {
+  "en": "Mandarins and tangerines",
+  "ar": "يوسفي (سنترة)"
+ },
+ "0116301": {
+  "en": "Apples",
+  "ar": "تفاح"
+ },
+ "0116302": {
+  "en": "Apricots",
+  "ar": "مشمش"
+ },
+ "0116303": {
+  "en": "Peaches and nectarines",
+  "ar": "خوخ (دراق) ونكتارين"
+ },
+ "0116304": {
+  "en": "Plums",
+  "ar": "برقوق"
+ },
+ "0116305": {
+  "en": "Cherries",
+  "ar": "كرز"
+ },
+ "0116306": {
+  "en": "Pears",
+  "ar": "كمثرى (إجاص)"
+ },
+ "0116401": {
+  "en": "Strawberries",
+  "ar": "فراولة"
+ },
+ "0116501": {
+  "en": "Grapes",
+  "ar": "عنب"
+ },
+ "0116502": {
+  "en": "Watermelons",
+  "ar": "بطيخ (جح)"
+ },
+ "0116503": {
+  "en": "Melons",
+  "ar": "شمام"
+ },
+ "0116504": {
+  "en": "Kiwi fruits",
+  "ar": "كيوي"
+ },
+ "0116505": {
+  "en": "Pomegranates",
+  "ar": "رمان"
+ },
+ "0116701": {
+  "en": "Dried dates",
+  "ar": "تمر"
+ },
+ "0116702": {
+  "en": "Raisins",
+  "ar": "زبيب"
+ },
+ "0116703": {
+  "en": "Dried figs",
+  "ar": "تين مجفف"
+ },
+ "0116801": {
+  "en": "Almonds",
+  "ar": "لوز"
+ },
+ "0116802": {
+  "en": "Pistachios",
+  "ar": "فستق حلبي"
+ },
+ "0116803": {
+  "en": "Cashew nuts",
+  "ar": "كاجو"
+ },
+ "0116804": {
+  "en": "Walnuts",
+  "ar": "جوز"
+ },
+ "0116805": {
+  "en": "Peanuts",
+  "ar": "فول سوداني"
+ },
+ "0116806": {
+  "en": "Edible seeds (sunflower, melon, pumpkin)",
+  "ar": "لب (حب) بأنواعه"
+ },
+ "0116807": {
+  "en": "Pine nuts",
+  "ar": "صنوبر"
+ },
+ "0116808": {
+  "en": "Mixed nuts",
+  "ar": "مكسرات مشكلة"
+ },
+ "0116901": {
+  "en": "Canned fruits",
+  "ar": "فواكه معلبة"
+ },
+ "0117101": {
+  "en": "Spinach",
+  "ar": "سبانخ"
+ },
+ "0117102": {
+  "en": "Cabbages",
+  "ar": "ملفوف"
+ },
+ "0117103": {
+  "en": "Cauliflowers",
+  "ar": "قرنبيط (زهرة)"
+ },
+ "0117104": {
+  "en": "Rocket (arugula)",
+  "ar": "جرجير"
+ },
+ "0117105": {
+  "en": "Lettuce and salad leaves",
+  "ar": "خس وأوراق سلطة"
+ },
+ "0117106": {
+  "en": "Fresh mint",
+  "ar": "نعناع طازج"
+ },
+ "0117201": {
+  "en": "Tomatoes",
+  "ar": "طماطم"
+ },
+ "0117202": {
+  "en": "Cucumbers",
+  "ar": "خيار"
+ },
+ "0117203": {
+  "en": "Zucchini (courgettes)",
+  "ar": "كوسا"
+ },
+ "0117204": {
+  "en": "Eggplants (aubergines)",
+  "ar": "باذنجان"
+ },
+ "0117205": {
+  "en": "Pumpkins and gourds",
+  "ar": "قرع (يقطين) بأنواعه"
+ },
+ "0117206": {
+  "en": "Hot chilli peppers",
+  "ar": "فلفل حار"
+ },
+ "0117207": {
+  "en": "Sweet peppers (capsicums)",
+  "ar": "فلفل حلو (بارد)"
+ },
+ "0117208": {
+  "en": "Okra",
+  "ar": "بامية"
+ },
+ "0117301": {
+  "en": "Fresh green beans",
+  "ar": "فاصولياء خضراء طازجة"
+ },
+ "0117302": {
+  "en": "Fresh green peas",
+  "ar": "بازلاء خضراء طازجة"
+ },
+ "0117401": {
+  "en": "Onions",
+  "ar": "بصل"
+ },
+ "0117402": {
+  "en": "Beetroot",
+  "ar": "شمندر (بنجر)"
+ },
+ "0117403": {
+  "en": "Carrots",
+  "ar": "جزر"
+ },
+ "0117405": {
+  "en": "Fresh ginger",
+  "ar": "زنجبيل طازج"
+ },
+ "0117406": {
+  "en": "Radishes",
+  "ar": "فجل"
+ },
+ "0117407": {
+  "en": "Garlic",
+  "ar": "ثوم"
+ },
+ "0117501": {
+  "en": "Potatoes",
+  "ar": "بطاطا"
+ },
+ "0117502": {
+  "en": "Sweet potatoes",
+  "ar": "بطاطا حلوة"
+ },
+ "0117601": {
+  "en": "Lentils and split pulses (dal)",
+  "ar": "عدس وبقول مجروشة (دال)"
+ },
+ "0117602": {
+  "en": "Dried chickpeas",
+  "ar": "حمص جاف"
+ },
+ "0117603": {
+  "en": "Dried cowpeas (black-eyed beans)",
+  "ar": "لوبيا جافة"
+ },
+ "0117604": {
+  "en": "Dried beans",
+  "ar": "فاصوليا جافة"
+ },
+ "0117801": {
+  "en": "Frozen green peas",
+  "ar": "بازلاء خضراء مجمدة"
+ },
+ "0117802": {
+  "en": "Frozen green beans",
+  "ar": "فاصوليا خضراء مجمدة"
+ },
+ "0117803": {
+  "en": "Other frozen vegetables",
+  "ar": "خضروات مجمدة أخرى ومشكلة"
+ },
+ "0117804": {
+  "en": "Frozen sweet corn",
+  "ar": "ذرة حلوة مجمدة"
+ },
+ "0117901": {
+  "en": "Tomato paste",
+  "ar": "معجون (صلصة) طماطم"
+ },
+ "0117902": {
+  "en": "Canned fava beans (foul)",
+  "ar": "فول مدمس معلب"
+ },
+ "0117903": {
+  "en": "Canned mushrooms",
+  "ar": "فطر معلب"
+ },
+ "0117904": {
+  "en": "Other canned vegetables and pulses",
+  "ar": "خضروات وبقوليات معلبة أخرى"
+ },
+ "0117905": {
+  "en": "Frozen French fries",
+  "ar": "بطاطس مقلية مجمدة"
+ },
+ "0117906": {
+  "en": "Potato chips (crisps)",
+  "ar": "رقائق البطاطس (شيبس)"
+ },
+ "0117907": {
+  "en": "Olives",
+  "ar": "زيتون"
+ },
+ "0117908": {
+  "en": "Vegetable pickles",
+  "ar": "مخللات خضروات"
+ },
+ "0118101": {
+  "en": "Sugar (cane and beet)",
+  "ar": "سكر بأنواعه"
+ },
+ "0118201": {
+  "en": "Date syrup and date spreads",
+  "ar": "دبس التمر ومعجون التمر"
+ },
+ "0118301": {
+  "en": "Honey",
+  "ar": "عسل"
+ },
+ "0118302": {
+  "en": "Jams",
+  "ar": "مربى"
+ },
+ "0118401": {
+  "en": "Tahini halva",
+  "ar": "حلاوة طحينية"
+ },
+ "0118501": {
+  "en": "Chocolate",
+  "ar": "شوكولاتة"
+ },
+ "0118502": {
+  "en": "Cocoa powder",
+  "ar": "مسحوق الكاكاو"
+ },
+ "0118601": {
+  "en": "Ice cream",
+  "ar": "آيس كريم"
+ },
+ "0119101": {
+  "en": "Instant noodles",
+  "ar": "نودلز سريعة التحضير"
+ },
+ "0119102": {
+  "en": "Instant soups",
+  "ar": "شوربة سريعة التحضير"
+ },
+ "0119201": {
+  "en": "Baby food (cereals, rusks and meals)",
+  "ar": "أغذية الأطفال (حبوب وبسكويت ووجبات)"
+ },
+ "0119203": {
+  "en": "Infant and growing-up formula",
+  "ar": "حليب مجفف للأطفال"
+ },
+ "0119301": {
+  "en": "Salt",
+  "ar": "ملح الطعام"
+ },
+ "0119302": {
+  "en": "Vinegar",
+  "ar": "خل"
+ },
+ "0119303": {
+  "en": "Ketchup",
+  "ar": "كاتشب"
+ },
+ "0119304": {
+  "en": "Mayonnaise",
+  "ar": "مايونيز"
+ },
+ "0119305": {
+  "en": "Hot sauces",
+  "ar": "صلصة حارة (شطة)"
+ },
+ "0119306": {
+  "en": "Soy sauce",
+  "ar": "صلصة الصويا"
+ },
+ "0119401": {
+  "en": "Black pepper",
+  "ar": "فلفل أسود"
+ },
+ "0119402": {
+  "en": "Chilli powder and paprika",
+  "ar": "فلفل أحمر وبابريكا"
+ },
+ "0119403": {
+  "en": "Cumin",
+  "ar": "كمون"
+ },
+ "0119404": {
+  "en": "Turmeric",
+  "ar": "كركم"
+ },
+ "0119405": {
+  "en": "Cardamom",
+  "ar": "هيل"
+ },
+ "0119406": {
+  "en": "Saffron",
+  "ar": "زعفران"
+ },
+ "0119407": {
+  "en": "Ground ginger",
+  "ar": "زنجبيل مطحون"
+ },
+ "0119408": {
+  "en": "Cinnamon",
+  "ar": "قرفة"
+ },
+ "0119409": {
+  "en": "Curry powder",
+  "ar": "مسحوق الكاري"
+ },
+ "0119410": {
+  "en": "Mixed spices and spice blends",
+  "ar": "بهارات مشكلة"
+ },
+ "0119411": {
+  "en": "Fresh coriander",
+  "ar": "كزبرة طازجة"
+ },
+ "0119412": {
+  "en": "Fresh parsley",
+  "ar": "بقدونس طازج"
+ },
+ "0119901": {
+  "en": "Salad dressings and ready seasonings",
+  "ar": "صلصات السلطة والتوابل الجاهزة"
+ },
+ "0119902": {
+  "en": "Stock cubes",
+  "ar": "مكعبات مرق"
+ },
+ "0119903": {
+  "en": "Yeast",
+  "ar": "خميرة"
+ },
+ "0119904": {
+  "en": "Baking powder and raising agents",
+  "ar": "بيكنج بودر ومواد رفع"
+ },
+ "0119905": {
+  "en": "Creme caramel mixes",
+  "ar": "خلطات كريم كراميل"
+ },
+ "0119906": {
+  "en": "Whipped topping mixes",
+  "ar": "مسحوق كريمة الخفق"
+ },
+ "0121001": {
+  "en": "Fruit and vegetable juices",
+  "ar": "عصائر الفواكه والخضروات"
+ },
+ "0121002": {
+  "en": "Fruit drinks",
+  "ar": "مشروبات الفواكه"
+ },
+ "0121003": {
+  "en": "Powdered drink mixes",
+  "ar": "مساحيق العصير"
+ },
+ "0122001": {
+  "en": "Ground coffee",
+  "ar": "بن مطحون"
+ },
+ "0122002": {
+  "en": "Instant coffee",
+  "ar": "قهوة سريعة التحضير"
+ },
+ "0123001": {
+  "en": "Loose black tea",
+  "ar": "شاي أسود سائب"
+ },
+ "0123002": {
+  "en": "Tea bags",
+  "ar": "أكياس شاي"
+ },
+ "0123003": {
+  "en": "Herbal teas and infusions",
+  "ar": "شاي الأعشاب"
+ },
+ "0125001": {
+  "en": "Bottled drinking water",
+  "ar": "مياه الشرب المعبأة"
+ },
+ "0125002": {
+  "en": "Sparkling water",
+  "ar": "مياه غازية (فوارة)"
+ },
+ "0126001": {
+  "en": "Carbonated soft drinks",
+  "ar": "مشروبات غازية"
+ },
+ "0129001": {
+  "en": "Energy drinks",
+  "ar": "مشروبات الطاقة"
+ },
+ "0129002": {
+  "en": "Fruit cordials and squashes",
+  "ar": "شراب الفواكه المركز"
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "overrides": {
+  "carrefour|1537478": "N:01111:Other non-basmati rice",
+  "carrefour|1783541": "N:01111:Other non-basmati rice",
+  "carrefour|1537479": "N:01111:Other non-basmati rice",
+  "carrefour|1209551": "N:01111:Other non-basmati rice",
+  "carrefour|1131702": "N:01111:Other non-basmati rice",
+  "carrefour|1350732": "N:01111:Other non-basmati rice",
+  "lulu|18076-ea": "0111310",
+  "lulu|44960": "0111310",
+  "lulu|2344068": "N:01115:Asian noodles",
+  "carrefour|1092982": "N:01115:Asian noodles",
+  "carrefour|1092980": "N:01115:Asian noodles",
+  "carrefour|871035": "N:01115:Asian noodles",
+  "carrefour|875163": "N:01115:Asian noodles",
+  "lulu|937488": "N:01115:Asian noodles",
+  "carrefour|2286088": "N:01115:Asian noodles",
+  "carrefour|1044394": "N:01115:Couscous",
+  "lulu|969821": "N:01179:Other vegetable preparations",
+  "lulu|969820": "N:01179:Other vegetable preparations",
+  "lulu|969799": "N:01179:Other vegetable preparations",
+  "lulu|2661527": "0112205",
+  "lulu|2644828": "N:01124:Offal, bones and fat",
+  "lulu|2661668": "N:01124:Offal, bones and fat",
+  "carrefour|1011986": "0112505",
+  "carrefour|2292722": "N:01131:Other fresh fish",
+  "lulu|1599378": "N:01137:Fish roe, caviar and fish offal",
+  "carrefour|2134814": "N:01151:Other vegetable oils"
+ }
+}

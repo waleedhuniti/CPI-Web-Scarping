@@ -1,0 +1,26 @@
+[
+ {
+  "class_value": "N:05611:Toilet cleaners",
+  "name_ar": "منظفات المراحيض"
+ },
+ {
+  "class_value": "N:05611:Glass cleaners",
+  "name_ar": "منظفات الزجاج والنوافذ"
+ },
+ {
+  "class_value": "N:05619:Rodent traps and baits",
+  "name_ar": "مصائد وطعوم القوارض (فئران وجرذان)"
+ },
+ {
+  "class_value": "N:08192:Car chargers",
+  "name_ar": "شواحن سيارة للهواتف والأجهزة"
+ },
+ {
+  "class_value": "N:08192:Wireless chargers",
+  "name_ar": "شواحن لاسلكية"
+ },
+ {
+  "class_value": "N:05522:Portable power stations",
+  "name_ar": "محطات طاقة متنقلة"
+ }
+]

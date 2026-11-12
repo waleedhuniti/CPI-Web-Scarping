@@ -90,8 +90,7 @@ async def one(ctx, v):
 async def main():
     async with async_playwright() as p:
         b = await p.chromium.launch(headless=True, executable_path="/opt/pw-browsers/chromium-1243/chrome-linux64/chrome")
-        ctx = await b.new_context(locale="en-US", viewport={"width": 1300, "height": 1000},
-                                  user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+        ctx = await b.new_context(locale="en-US", viewport={"width": 1300, "height": 1000})
         for k in sorted(res, key=int):
             v = res[k]
             if not v.get('total') or (k in done and done[k].get('shown_total')): continue

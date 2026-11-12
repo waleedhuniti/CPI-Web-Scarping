@@ -1,0 +1,64 @@
+[
+ {
+  "row": 14,
+  "city": "Bangkok",
+  "term": "Holiday Inn Bangkok Silom",
+  "keys": [
+   "holiday inn",
+   "silom"
+  ],
+  "sheet_name": "holiday inn silom bangkok",
+  "estab": "320684"
+ },
+ {
+  "row": 15,
+  "city": "Bangkok",
+  "term": "DoubleTree by Hilton Bangkok Ploenchit",
+  "keys": [
+   "doubletree",
+   "ploenchit"
+  ],
+  "sheet_name": "DoubleTree by Hilton Bangkok Ploenchit",
+  "estab": "320581"
+ },
+ {
+  "row": 16,
+  "city": "Bangkok",
+  "term": "Icon",
+  "keys": [
+   "icon"
+  ],
+  "sheet_name": "ICON BANGKOK",
+  "exclude": []
+ },
+ {
+  "row": 17,
+  "city": "Kuala Lumpur",
+  "term": "Traders Hotel Kuala Lumpur",
+  "keys": [
+   "traders"
+  ],
+  "sheet_name": "Traders Hotel",
+  "estab": "321298"
+ },
+ {
+  "row": 18,
+  "city": "Kuala Lumpur",
+  "term": "Dorsett Kuala Lumpur",
+  "keys": [
+   "dorsett"
+  ],
+  "sheet_name": "Dorsett Kuala Lumpur",
+  "estab": "218579"
+ },
+ {
+  "row": 19,
+  "city": "Kuala Lumpur",
+  "term": "The Royale Chulan Kuala Lumpur",
+  "keys": [
+   "chulan"
+  ],
+  "sheet_name": "The Royale Chulan Kuala Lumpur",
+  "estab": "1670773"
+ }
+]

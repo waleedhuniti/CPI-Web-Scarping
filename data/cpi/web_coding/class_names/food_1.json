@@ -1,0 +1,306 @@
+{
+ "0111101": {
+  "en": "Indian basmati rice",
+  "ar": "أرز بسمتي هندي"
+ },
+ "0111102": {
+  "en": "Pakistani basmati rice",
+  "ar": "أرز بسمتي باكستاني"
+ },
+ "0111104": {
+  "en": "Egyptian and Calrose short-grain white rice",
+  "ar": "أرز مصري قصير الحبة (كالروز)"
+ },
+ "0111105": {
+  "en": "Harees wheat",
+  "ar": "حب الهريس (قمح مقشور)"
+ },
+ "0111106": {
+  "en": "Breadcrumbs and rusks",
+  "ar": "بقسماط وشابورة"
+ },
+ "0111107": {
+  "en": "Semolina",
+  "ar": "سميد"
+ },
+ "0111108": {
+  "en": "Oats",
+  "ar": "شوفان"
+ },
+ "0111109": {
+  "en": "Bulgur",
+  "ar": "برغل"
+ },
+ "0111201": {
+  "en": "Wheat flour",
+  "ar": "دقيق القمح (طحين)"
+ },
+ "0111202": {
+  "en": "Corn flour (cornstarch)",
+  "ar": "دقيق الذرة (نشا)"
+ },
+ "0111301": {
+  "en": "Tannour bread and paratha",
+  "ar": "خبز تنور وبراتا"
+ },
+ "0111302": {
+  "en": "Arabic flatbread",
+  "ar": "خبز عربي (لبناني)"
+ },
+ "0111303": {
+  "en": "Western-style loaf bread (sliced, baguette, sourdough)",
+  "ar": "خبز إفرنجي (توست، فرنسي، عجين مخمر)"
+ },
+ "0111304": {
+  "en": "Bread rolls (samoon)",
+  "ar": "خبز صمون ولفائف الخبز"
+ },
+ "0111305": {
+  "en": "Cakes",
+  "ar": "كيك بأنواعه"
+ },
+ "0111306": {
+  "en": "Sweet biscuits and cookies",
+  "ar": "بسكويت وكوكيز"
+ },
+ "0111307": {
+  "en": "Ka'ak and bread sticks",
+  "ar": "كعك وأعواد الخبز"
+ },
+ "0111308": {
+  "en": "Baklava",
+  "ar": "بقلاوة"
+ },
+ "0111310": {
+  "en": "Pastries and savoury pies (croissants, fatayer, sambousek)",
+  "ar": "معجنات وفطائر (كرواسون، فطائر، سمبوسك)"
+ },
+ "0111401": {
+  "en": "Breakfast cereals",
+  "ar": "حبوب الإفطار (كورن فليكس)"
+ },
+ "0111501": {
+  "en": "Vermicelli",
+  "ar": "شعيرية (بلاليط)"
+ },
+ "0111502": {
+  "en": "Pasta",
+  "ar": "معكرونة بأنواعها"
+ },
+ "0111901": {
+  "en": "Puff pastry dough",
+  "ar": "عجينة بف باستري"
+ },
+ "0111902": {
+  "en": "Kunafa and filo dough",
+  "ar": "عجينة كنافة ورقائق البقلاوة"
+ },
+ "0111903": {
+  "en": "Samosa sheets and samosas",
+  "ar": "عجينة ورقائق سمبوسة"
+ },
+ "0111904": {
+  "en": "Custard powder",
+  "ar": "بودرة الكاسترد"
+ },
+ "0111905": {
+  "en": "Popcorn",
+  "ar": "ذرة جافة (فشار)"
+ },
+ "0112201": {
+  "en": "Fresh lamb and mutton",
+  "ar": "لحم غنم وماعز طازج أو مبرد"
+ },
+ "0112203": {
+  "en": "Fresh beef and veal",
+  "ar": "لحم بقري وعجل طازج أو مبرد"
+ },
+ "0112204": {
+  "en": "Frozen beef and buffalo meat",
+  "ar": "لحم بقري وجاموس مجمد"
+ },
+ "0112205": {
+  "en": "Fresh chicken",
+  "ar": "دجاج طازج"
+ },
+ "0112206": {
+  "en": "Frozen chicken",
+  "ar": "دجاج مجمد"
+ },
+ "0112207": {
+  "en": "Fresh minced beef and lamb",
+  "ar": "لحم مفروم طازج (بقر وغنم)"
+ },
+ "0112208": {
+  "en": "Frozen minced beef and lamb",
+  "ar": "لحم مفروم مجمد (بقر وغنم)"
+ },
+ "0112301": {
+  "en": "Mortadella and luncheon meat",
+  "ar": "مرتديلا ولانشون"
+ },
+ "0112401": {
+  "en": "Chicken wings",
+  "ar": "أجنحة دجاج"
+ },
+ "0112501": {
+  "en": "Lamb and beef liver",
+  "ar": "كبدة غنم وبقر"
+ },
+ "0112503": {
+  "en": "Chicken liver and gizzards",
+  "ar": "كبدة وقوانص دجاج"
+ },
+ "0112505": {
+  "en": "Sausages and franks",
+  "ar": "نقانق"
+ },
+ "0112506": {
+  "en": "Burger patties",
+  "ar": "همبرجر بأنواعه"
+ },
+ "0112507": {
+  "en": "Canned meat (corned beef)",
+  "ar": "لحوم معلبة"
+ },
+ "0112509": {
+  "en": "Frozen processed chicken (nuggets, breaded, kebab)",
+  "ar": "دواجن مصنعة مجمدة (ناجتس، فيليه مغطى، كباب)"
+ },
+ "0113101": {
+  "en": "Fresh kingfish",
+  "ar": "كنعد طازج"
+ },
+ "0113102": {
+  "en": "Fresh hamour (grouper)",
+  "ar": "هامور طازج"
+ },
+ "0113103": {
+  "en": "Fresh sheri (emperor fish)",
+  "ar": "شعري طازج"
+ },
+ "0113104": {
+  "en": "Fresh safi (rabbitfish)",
+  "ar": "صافي طازج"
+ },
+ "0113105": {
+  "en": "Fresh sultan ibrahim (red mullet)",
+  "ar": "سلطان ابراهيم طازج"
+ },
+ "0113106": {
+  "en": "Fresh trevally (jesh)",
+  "ar": "جش طازج"
+ },
+ "0113107": {
+  "en": "Fresh sea bream",
+  "ar": "سبريم طازج"
+ },
+ "0113108": {
+  "en": "Fresh salmon",
+  "ar": "سلمون طازج"
+ },
+ "0113109": {
+  "en": "Fresh tilapia",
+  "ar": "بلطي طازج"
+ },
+ "0113110": {
+  "en": "Frozen fish and squid",
+  "ar": "أسماك وحبار مجمدة"
+ },
+ "0113201": {
+  "en": "Canned fish (tuna, sardines)",
+  "ar": "أسماك معلبة (تونة، سردين)"
+ },
+ "0113401": {
+  "en": "Fresh shrimp",
+  "ar": "روبيان طازج"
+ },
+ "0113402": {
+  "en": "Fresh lobster",
+  "ar": "أم الروبيان (كركند) طازج"
+ },
+ "0113403": {
+  "en": "Fresh crabs",
+  "ar": "قباقب (سرطان البحر) طازجة"
+ },
+ "0113404": {
+  "en": "Fresh squid and cuttlefish",
+  "ar": "حبار طازج"
+ },
+ "0113405": {
+  "en": "Frozen shrimp",
+  "ar": "روبيان مجمد"
+ },
+ "0114101": {
+  "en": "Fresh milk",
+  "ar": "حليب طازج"
+ },
+ "0114102": {
+  "en": "Long-life (UHT) milk",
+  "ar": "حليب طويل الأجل"
+ },
+ "0114301": {
+  "en": "Evaporated milk",
+  "ar": "حليب مبخر"
+ },
+ "0114302": {
+  "en": "Milk powder",
+  "ar": "حليب مجفف"
+ },
+ "0114303": {
+  "en": "Canned cream",
+  "ar": "قشطة معلبة"
+ },
+ "0114501": {
+  "en": "Cream cheese and processed cheese spreads",
+  "ar": "جبنة كريم وجبن قابل للدهن"
+ },
+ "0114502": {
+  "en": "Cheddar cheese spread (jar)",
+  "ar": "جبنة شيدر قابلة للدهن (برطمان)"
+ },
+ "0114503": {
+  "en": "Natural cheese (white, halloumi, akkawi, mozzarella and similar)",
+  "ar": "جبن طبيعي (أبيض، حلومي، عكاوي، موزاريلا ونحوها)"
+ },
+ "0114504": {
+  "en": "Processed cheese portions and slices",
+  "ar": "جبن مطبوخ (مثلثات، مربعات، شرائح)"
+ },
+ "0114601": {
+  "en": "Plain yoghurt",
+  "ar": "روب (زبادي سادة)"
+ },
+ "0114602": {
+  "en": "Laban and drinking yoghurt",
+  "ar": "لبن (شراب اللبن) وزبادي للشرب"
+ },
+ "0114603": {
+  "en": "Labneh",
+  "ar": "لبنة"
+ },
+ "0114604": {
+  "en": "Fruit and flavoured yoghurt",
+  "ar": "زبادي بالفواكه ومنكه"
+ },
+ "0114702": {
+  "en": "Flavoured milk drinks",
+  "ar": "مشروبات الحليب المنكهة"
+ },
+ "0114801": {
+  "en": "Hen eggs",
+  "ar": "بيض دجاج"
+ },
+ "0115101": {
+  "en": "Olive oil",
+  "ar": "زيت الزيتون"
+ },
+ "0115102": {
+  "en": "Corn oil",
+  "ar": "زيت الذرة"
+ },
+ "0115104": {
+  "en": "Sunflower oil",
+  "ar": "زيت دوار الشمس"
+ }
+}

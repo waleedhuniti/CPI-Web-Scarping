@@ -1,0 +1,9 @@
+[
+ {"class_value": "N:05329:Electric irons", "name_ar": "مكاوي كهربائية (جافة وبخار ومولدات بخار)"},
+ {"class_value": "N:05329:Garment steamers", "name_ar": "أجهزة كي بالبخار للملابس (ستيمر)"},
+ {"class_value": "N:05313:Air purifiers", "name_ar": "أجهزة تنقية الهواء"},
+ {"class_value": "N:05321:Toasters", "name_ar": "محمصات خبز كهربائية"},
+ {"class_value": "N:05522:Batteries and battery chargers", "name_ar": "بطاريات وشواحن بطاريات"},
+ {"class_value": "N:05403:Stovetop kettles and teapots", "name_ar": "غلايات وأباريق شاي غير كهربائية"},
+ {"class_value": "N:05403:Clothes hangers and garment clips", "name_ar": "شماعات ملابس ومشابك تعليق"}
+]

@@ -288,5 +288,14 @@
   "flight": "EK0801 10:10 / EK0804 17:30",
   "flight_delta": 0,
   "total": 5776.8
+ },
+ "35": {
+  "row": 35,
+  "city": "Makkah",
+  "sheet_name": "Fairmont Makkah Clock Royal Tower (Umrah)",
+  "destination": "Makkah, Saudi Arabia (531)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
  }
 }

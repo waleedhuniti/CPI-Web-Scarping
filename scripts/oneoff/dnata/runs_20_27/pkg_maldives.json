@@ -1,21 +1,4 @@
 {
- "20": {
-  "row": 20,
-  "city": "Maldives",
-  "sheet_name": "Sun Siyam Olhuveli Maldives",
-  "destination": "Maldives, None (65)",
-  "seen_names": [],
-  "board_rule": "cheapest (no B&B)",
-  "hotel_found": "Siyam World Maldives",
-  "estab_id": "9504709",
-  "stars": 5,
-  "board": "24 hours Premium All Inclusive",
-  "package_default": 14392.57,
-  "default_flight": "Flydubai / Flydubai / Flydubai",
-  "flight": "EK0658 04:15 / EK0661 18:20",
-  "flight_delta": 1696.8,
-  "total": 16089.37
- },
  "21": {
   "row": 21,
   "city": "Maldives",

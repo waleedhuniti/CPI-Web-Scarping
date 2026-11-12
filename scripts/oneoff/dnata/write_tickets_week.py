@@ -62,7 +62,7 @@ FZ = {"delhi": "DEL", "riyadh": "RUH", "karachi": "KHI", "colombo": "CMB", "ista
 fz = json.load(open(os.path.join(RD, "fz_res.json"))) if os.path.exists(os.path.join(RD, "fz_res.json")) else {}
 for key, r0 in rows_of(dom, FZ, 4).items():
     res = fz.get(FZ[key]); res = res if res and (res.get("out") or res.get("back")) else None
-    note = fill(dom, r0, res, "لا توجد رحلات فلاي دبي على هذا الخط")
+    note = fill(dom, r0, res, "لا توجد رحلات فلاي دبي على هذا الخط" if fz else "موقع فلاي دبي يرفض طلب قائمة الرحلات من المتصفح الآلي؛ لم يُسحب، يُجمع يدوياً")
     if note: dom.cell(r0, 10).value = note; dom.cell(r0, 10).fill = yellow
     flights(det, "فلاي دبي", dom.cell(r0, 1).value, res)
 EK = {"delhi": "DEL", "london": "LHR", "riyadh": "RUH", "karachi": "KHI", "new york": "JFK", "colombo": "CMB", "bangkok": "BKK",
@@ -108,7 +108,7 @@ for c in det[1]: c.font = Font(bold=True)
 for col, w in zip("ABCDEFG", (16, 22, 9, 12, 10, 9, 18)): det.column_dimensions[col].width = w
 m = wb.create_sheet("المنهجية"); m.sheet_view.rightToLeft = True
 for line in [f"تاريخ السحب {dt.date.today().isoformat()}. بحث ذهاب وعودة من دبي: ذهاب {day(OUT_D)}، عودة {day(BACK_D)} 2026، بالغ واحد، الدرجة السياحية، رحلات مباشرة للشركة نفسها، بالدرهم.",
-             "المصدر: موقع كل شركة مباشرة (flydubai.com، saudia.com، egyptair.com، rj.com، britishairways.com) بمتصفح عادي بهويته الحقيقية، دون أدوات تخفٍّ. الإماراتية والباكستانية وطيران الهند والتركية يدوية.",
+             "المصدر: موقع كل شركة مباشرة (saudia.com، egyptair.com، rj.com، britishairways.com) بمتصفح عادي بهويته الحقيقية، دون أدوات تخفٍّ ودون الالتفاف على أي رفض. فلاي دبي والإماراتية والباكستانية وطيران الهند والتركية يدوية.",
              "لكل رحلة يؤخذ أرخص سعر سياحي لها. أقل سعر = أرخص رحلة في اليوم، أعلى سعر = أغلى رحلة؛ إذا تساويا يُترك أعلى سعر فارغاً، ويحسب مجموع أعلى سعر من أقل سعر لذلك الاتجاه.",
              "إذا لم توجد رحلة يوم الذهاب أو العودة يؤخذ اليوم الذي بعده (مظلل بالأصفر مع ملاحظة).",
              "الإماراتية: بحث باتجاه واحد لكل رحلة (دبي إلى المدينة يوم الذهاب، والمدينة إلى دبي يوم العودة)، أرخص سعر سياحي لكل رحلة مباشرة وغير مباشرة كما تظهر.",

@@ -98,12 +98,13 @@
  {
   "row": 20,
   "city": "Maldives",
-  "term": "Siyam",
+  "term": "Sun Siyam Olhuveli",
   "keys": [
-   "siyam"
+   "olhuveli"
   ],
   "sheet_name": "Sun Siyam Olhuveli Maldives",
-  "exclude": []
+  "exclude": [],
+  "estab": "1490933"
  },
  {
   "row": 21,

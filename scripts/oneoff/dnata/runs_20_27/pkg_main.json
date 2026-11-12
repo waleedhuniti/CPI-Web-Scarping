@@ -73,5 +73,51 @@
   "flight": "EK0067 14:30 / EK0066 14:05",
   "flight_delta": 1297.5,
   "total": 9252.7
+ },
+ "10": {
+  "row": 10,
+  "city": "Munich",
+  "sheet_name": "hilton munich park",
+  "destination": "Munich, Germany (462)",
+  "seen_names": [
+   "Hampton By Hilton Munich Airport South",
+   "Hampton By Hilton Munich City North",
+   "Hampton By Hilton Munich City West",
+   "Hilton Munich City Hotel",
+   "Hilton Munich Airport",
+   "Hampton By Hilton Munich Airport South",
+   "Hampton By Hilton Munich City North",
+   "Hampton By Hilton Munich City West",
+   "Hilton Munich Airport",
+   "Hilton Munich City Hotel"
+  ],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "11": {
+  "row": 11,
+  "city": "Munich",
+  "sheet_name": "holidaY INN MUNICH CITY",
+  "destination": "Munich, Germany (462)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "hotel_found": "Holiday Inn Munich City Centre ",
+  "estab_id": "113055",
+  "stars": 4,
+  "board": "Room Only",
+  "package_default": 4968.6,
+  "default_flight": "Pegasus Airlines / Pegasus Airlines / Pegasus Airlines / Pegasus Airlines",
+  "flight": "EK0051 15:50 / EK0052 21:25",
+  "flight_delta": 1008.4,
+  "total": 5977.0
+ },
+ "12": {
+  "row": 12,
+  "city": "Munich",
+  "sheet_name": "Pullman Munich",
+  "destination": "Munich, Germany (462)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
  }
 }

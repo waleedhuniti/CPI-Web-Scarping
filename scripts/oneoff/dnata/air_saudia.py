@@ -4,7 +4,7 @@ lowest = cheapest flight, highest = dearest flight. Inbound prices come after se
 outbound fare, as a user would. If a leg has no non-stop flight on its day, the next day is searched (noted).
 usage: xvfb-run -a python3 air_saudia.py OUT_YYYY-MM-DD BACK_YYYY-MM-DD res.json [AP=RUH]"""
 import asyncio, json, re, sys, os, datetime as dt
-from patchright.async_api import async_playwright
+from playwright.async_api import async_playwright  # plain Playwright: no stealth fork (CLAUDE.md)
 EXE = "/opt/pw-browsers/chromium-1243/chrome-linux64/chrome"
 OUT_D, BACK_D, RES = sys.argv[1:4]; AP = sys.argv[4] if len(sys.argv) > 4 else "RUH"
 CITY = {"RUH": "Riyadh"}

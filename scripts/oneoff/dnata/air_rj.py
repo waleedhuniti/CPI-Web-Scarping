@@ -5,7 +5,7 @@ If a leg has no flight on its day, the next day is searched (noted as shifted_da
 usage: xvfb-run -a python3 air_rj.py 2026-11-01 2026-11-06 air_rj_res.json AMM"""
 import asyncio, json, sys, datetime as dt
 from collections import defaultdict
-from patchright.async_api import async_playwright
+from playwright.async_api import async_playwright  # plain Playwright: no stealth fork (CLAUDE.md)
 EXE = "/opt/pw-browsers/chromium-1243/chrome-linux64/chrome"
 OUT_D, BACK_D, RES, DEST = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 def lbl(d): return d.strftime("%B ") + str(d.day) + d.strftime(", %Y")      # flatpickr aria-label

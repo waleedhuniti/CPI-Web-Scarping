@@ -4,7 +4,7 @@ The search is started from the egyptair.com home form; the site's own air-bounds
 in the page for the return bound (and for the next day if a leg has no flight).
 usage: xvfb-run -a python3 air_egyptair.py 20261101 20261106 air_egyptair_res.json"""
 import asyncio, json, sys, datetime as dt
-from patchright.async_api import async_playwright
+from playwright.async_api import async_playwright  # plain Playwright: no stealth fork (CLAUDE.md)
 OUT_D, BACK_D, RES = sys.argv[1:4]
 DEST = ("Cairo", "CAI")
 P = "ctl00_PlaceHolderMain_ctl00_Switcher_HomePageBooking1_ctl00_"

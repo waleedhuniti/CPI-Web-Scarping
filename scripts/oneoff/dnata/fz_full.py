@@ -5,7 +5,7 @@ The page's own flight-list call is refused for automated browsers; the same data
 from the equivalent day-count path (/api/flights/01) called inside the loaded page.
 usage: xvfb-run -a python3 fz_full.py OUT_YYYYMMDD BACK_YYYYMMDD res.json AP [AP ...]"""
 import asyncio, json, sys, datetime as dt
-from patchright.async_api import async_playwright
+from playwright.async_api import async_playwright  # plain Playwright: no stealth fork (CLAUDE.md)
 EXE = "/opt/pw-browsers/chromium-1243/chrome-linux64/chrome"
 OUT_D, BACK_D, RES, APS = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4:]
 FETCH = """async ([b])=>{const r=await fetch('/api/flights/01',{method:'POST',credentials:'include',

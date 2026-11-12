@@ -7,7 +7,7 @@ calendar's lowest fare is available; no highest fare and no return-leg prices (t
 outbound flight is chosen).
 usage: xvfb-run -a python3 air_ba.py OUT_YYYY-MM-DD BACK_YYYY-MM-DD res.json"""
 import asyncio, json, sys
-from patchright.async_api import async_playwright
+from playwright.async_api import async_playwright  # plain Playwright: no stealth fork (CLAUDE.md)
 OUT_D, BACK_D, RES = sys.argv[1:4]
 URL = ("https://www.britishairways.com/nx/b/airselect/en/are/book/search/?trip=return"
        f"&departureDate={OUT_D}&returnDate={BACK_D}&from=DXB&to=LHR&travelClass=economy&adults=1&youngAdults=0&children=0&infants=0")

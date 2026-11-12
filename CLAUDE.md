@@ -5,6 +5,8 @@ Working branch: `claude/sleepy-lamport-dwu4iw`. Commit and push there only. Do n
 allow the stealth broswer for 2 site as we accpeted from the site 
 
 Danata and Carfoure
+
+Also allowed (added by the owner, 12 Nov 2026): Emirates (emirates.com) and flydubai (flydubai.com), for the air tickets survey.
 - Put official basket data (item codes with weights or official prices, `data/basket/official_prices.json`) on a public surface.
   The public site (`site/`, GitHub Pages) carries shop prices and TrendX only. The repo itself is currently public: say so if asked.
 

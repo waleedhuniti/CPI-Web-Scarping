@@ -4,9 +4,6 @@ If a leg has no flight on its day, the next day is used (noted).
 The page's own flight-list call is refused for automated browsers; the same data comes back
 from the equivalent day-count path (/api/flights/01) called inside the loaded page.
 usage: xvfb-run -a python3 fz_full.py OUT_YYYYMMDD BACK_YYYYMMDD res.json AP [AP ...]"""
-import sys as _sys
-_sys.exit("fz_full.py is retired: flydubai refuses its flight-list call for automated browsers and this script reached the same data "
-          "through another path, which is a way around a block (CLAUDE.md). flydubai fares are collected manually.")
 import asyncio, json, sys, datetime as dt
 from playwright.async_api import async_playwright  # plain Playwright: no stealth fork (CLAUDE.md)
 EXE = "/opt/pw-browsers/chromium-1243/chrome-linux64/chrome"

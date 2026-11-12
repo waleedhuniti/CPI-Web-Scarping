@@ -1,0 +1,121 @@
+{
+ "LHR_out": {
+  "key": "LHR_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=LHR&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 24,
+  "airlines": {
+   "Emirates": {
+    "min": 2588.13,
+    "max": 3930.88,
+    "n": 24,
+    "min_flight": "EK0003 14:30",
+    "max_flight": "EK0003 14:30"
+   }
+  }
+ },
+ "LHR_back": {
+  "key": "LHR_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=LHR&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 13,
+  "airlines": {
+   "Emirates": {
+    "min": 2875.13,
+    "max": 4494.63,
+    "n": 12,
+    "min_flight": "EK0006 22:00",
+    "max_flight": "EK0006 22:00"
+   },
+   "British Airways": {
+    "min": 3239.6,
+    "max": 3239.6,
+    "n": 1,
+    "min_flight": "BA0105 20:00",
+    "max_flight": "BA0105 20:00"
+   }
+  }
+ },
+ "ISB_out": {
+  "key": "ISB_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=ISB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 13,
+  "airlines": {
+   "Pakistan International": {
+    "min": 650,
+    "max": 650,
+    "n": 1,
+    "min_flight": "PK0212 11:00",
+    "max_flight": "PK0212 11:00"
+   },
+   "Emirates": {
+    "min": 691.88,
+    "max": 1768.13,
+    "n": 12,
+    "min_flight": "EK0614 21:30",
+    "max_flight": "EK0614 21:30"
+   }
+  }
+ },
+ "ISB_back": {
+  "key": "ISB_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=ISB&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 7,
+  "airlines": {
+   "Pakistan International": {
+    "min": 1045.2,
+    "max": 1045.2,
+    "n": 1,
+    "min_flight": "PK0233 02:45",
+    "max_flight": "PK0233 02:45"
+   },
+   "Emirates": {
+    "min": 1450.38,
+    "max": 2598.38,
+    "n": 6,
+    "min_flight": "EK0613 09:00",
+    "max_flight": "EK0613 09:00"
+   }
+  }
+ },
+ "CAI_out": {
+  "key": "CAI_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=CAI&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 39,
+  "airlines": {
+   "Egyptair": {
+    "min": 899.5999999999999,
+    "max": 1315.6,
+    "n": 8,
+    "min_flight": "MS0902 10:40",
+    "max_flight": "MS0906 20:00"
+   },
+   "Emirates": {
+    "min": 1245.38,
+    "max": 2260.13,
+    "n": 31,
+    "min_flight": "EK0929 04:10",
+    "max_flight": "EK0929 04:10"
+   }
+  }
+ },
+ "CAI_back": {
+  "key": "CAI_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=CAI&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 38,
+  "airlines": {
+   "Egyptair": {
+    "min": 754,
+    "max": 1170,
+    "n": 8,
+    "min_flight": "MS0901 04:05",
+    "max_flight": "MS0912 09:35"
+   },
+   "Emirates": {
+    "min": 1112.13,
+    "max": 2844.38,
+    "n": 30,
+    "min_flight": "EK0928 12:30",
+    "max_flight": "EK0928 12:30"
+   }
+  }
+ }
+}

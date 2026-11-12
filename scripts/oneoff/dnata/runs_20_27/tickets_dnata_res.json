@@ -1,0 +1,238 @@
+{
+ "DEL_out": {
+  "key": "DEL_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=DEL&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 10,
+  "airlines": {
+   "Air India": {
+    "min": 1045.2,
+    "max": 1357.2,
+    "n": 8,
+    "min_flight": "AI0918 13:45",
+    "max_flight": "AI0996 23:55"
+   },
+   "Emirates": {
+    "min": 2629.13,
+    "max": 2659.88,
+    "n": 2,
+    "min_flight": "EK0514 15:10",
+    "max_flight": "EK0514 15:10"
+   }
+  }
+ },
+ "DEL_back": {
+  "key": "DEL_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=DEL&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 16,
+  "airlines": {
+   "Air India": {
+    "min": 920.4,
+    "max": 1003.6,
+    "n": 8,
+    "min_flight": "AI0995 19:20",
+    "max_flight": "AI0915 16:10"
+   },
+   "Emirates": {
+    "min": 2219.13,
+    "max": 2793.13,
+    "n": 8,
+    "min_flight": "EK0513 04:10",
+    "max_flight": "EK0517 16:15"
+   }
+  }
+ },
+ "RUH_out": {
+  "key": "RUH_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=RUH&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 2,
+  "airlines": {
+   "Flydubai": {
+    "min": 3625.6,
+    "max": 3625.6,
+    "n": 2,
+    "min_flight": "FZ0847 07:50",
+    "max_flight": "FZ0847 07:50"
+   }
+  }
+ },
+ "RUH_back": {
+  "key": "RUH_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=RUH&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 2,
+  "airlines": {
+   "Flydubai": {
+    "min": 3759.5,
+    "max": 3759.5,
+    "n": 2,
+    "min_flight": "FZ0848 09:55",
+    "max_flight": "FZ0848 09:55"
+   }
+  }
+ },
+ "KHI_out": {
+  "key": "KHI_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=KHI&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 21,
+  "airlines": {
+   "Emirates": {
+    "min": 517.63,
+    "max": 1665.63,
+    "n": 18,
+    "min_flight": "EK0600 07:30",
+    "max_flight": "EK0600 07:30"
+   },
+   "Flydubai": {
+    "min": 545.9000000000001,
+    "max": 885.8,
+    "n": 3,
+    "min_flight": "FZ0335 12:25",
+    "max_flight": "FZ0329 20:30"
+   }
+  }
+ },
+ "KHI_back": {
+  "key": "KHI_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=KHI&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 27,
+  "airlines": {
+   "Emirates": {
+    "min": 948.13,
+    "max": 4371.63,
+    "n": 24,
+    "min_flight": "EK0609 19:35",
+    "max_flight": "EK2107 00:30"
+   },
+   "Flydubai": {
+    "min": 1009.4,
+    "max": 1009.4,
+    "n": 3,
+    "min_flight": "FZ0330 00:30",
+    "max_flight": "FZ0330 00:30"
+   }
+  }
+ },
+ "CMB_out": {
+  "key": "CMB_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=CMB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 17,
+  "airlines": {
+   "Flydubai": {
+    "min": 875.5,
+    "max": 875.5,
+    "n": 3,
+    "min_flight": "FZ0579 02:15",
+    "max_flight": "FZ0579 02:15"
+   },
+   "SriLankan Airlines": {
+    "min": 1107.6,
+    "max": 1138.8,
+    "n": 2,
+    "min_flight": "UL0226 23:10",
+    "max_flight": "UL0226 23:10"
+   },
+   "Emirates": {
+    "min": 1183.88,
+    "max": 2198.63,
+    "n": 12,
+    "min_flight": "EK0654 10:05",
+    "max_flight": "EK0654 10:05"
+   }
+  }
+ },
+ "CMB_back": {
+  "key": "CMB_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=CMB&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 16,
+  "airlines": {
+   "SriLankan Airlines": {
+    "min": 941.2,
+    "max": 941.2,
+    "n": 1,
+    "min_flight": "UL0225 18:40",
+    "max_flight": "UL0225 18:40"
+   },
+   "Flydubai": {
+    "min": 1112.4,
+    "max": 1112.4,
+    "n": 3,
+    "min_flight": "FZ0570 01:45",
+    "max_flight": "FZ0570 01:45"
+   },
+   "Emirates": {
+    "min": 1235.13,
+    "max": 2075.63,
+    "n": 12,
+    "min_flight": "EK0649 02:40",
+    "max_flight": "EK0649 02:40"
+   }
+  }
+ },
+ "IST_out": {
+  "key": "IST_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=IST&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 30,
+  "airlines": {
+   "Flydubai": {
+    "min": 1668.6,
+    "max": 1668.6,
+    "n": 2,
+    "min_flight": "FZ0727 13:20",
+    "max_flight": "FZ0727 13:20"
+   },
+   "Emirates": {
+    "min": 2034.63,
+    "max": 3172.38,
+    "n": 20,
+    "min_flight": "EK0123 10:00",
+    "max_flight": "EK0123 10:00"
+   },
+   "Turkish Airlines": {
+    "min": 2334.8,
+    "max": 3198,
+    "n": 8,
+    "min_flight": "TK0763 08:35",
+    "max_flight": "TK0765 15:05"
+   }
+  }
+ },
+ "IST_back": {
+  "key": "IST_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=IST&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 26,
+  "airlines": {
+   "Flydubai": {
+    "min": 1194.8,
+    "max": 1194.8,
+    "n": 2,
+    "min_flight": "FZ0756 01:55",
+    "max_flight": "FZ0756 01:55"
+   },
+   "Emirates": {
+    "min": 2362.63,
+    "max": 3643.88,
+    "n": 20,
+    "min_flight": "EK0122 20:05",
+    "max_flight": "EK0122 20:05"
+   },
+   "Turkish Airlines": {
+    "min": 2501.2,
+    "max": 2511.6,
+    "n": 4,
+    "min_flight": "TK0758 21:45",
+    "max_flight": "TK0762 01:30"
+   }
+  }
+ },
+ "HBE_out": {
+  "key": "HBE_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=HBE&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ },
+ "HBE_back": {
+  "key": "HBE_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=HBE&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 0,
+  "airlines": {}
+ }
+}

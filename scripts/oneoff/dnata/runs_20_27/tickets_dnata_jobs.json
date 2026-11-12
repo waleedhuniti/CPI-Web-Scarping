@@ -1,0 +1,100 @@
+[
+ {
+  "key": "DEL_out",
+  "city": "Delhi",
+  "frm": "DXB",
+  "to": "DEL",
+  "out": "2026-11-20"
+ },
+ {
+  "key": "DEL_back",
+  "city": "Delhi",
+  "frm": "DEL",
+  "to": "DXB",
+  "out": "2026-11-27"
+ },
+ {
+  "key": "RUH_out",
+  "city": "Riyadh",
+  "frm": "DXB",
+  "to": "RUH",
+  "out": "2026-11-20"
+ },
+ {
+  "key": "RUH_back",
+  "city": "Riyadh",
+  "frm": "RUH",
+  "to": "DXB",
+  "out": "2026-11-27"
+ },
+ {
+  "key": "KHI_out",
+  "city": "Karachi",
+  "frm": "DXB",
+  "to": "KHI",
+  "out": "2026-11-20"
+ },
+ {
+  "key": "KHI_back",
+  "city": "Karachi",
+  "frm": "KHI",
+  "to": "DXB",
+  "out": "2026-11-27"
+ },
+ {
+  "key": "CMB_out",
+  "city": "Colombo",
+  "frm": "DXB",
+  "to": "CMB",
+  "out": "2026-11-20"
+ },
+ {
+  "key": "CMB_back",
+  "city": "Colombo",
+  "frm": "CMB",
+  "to": "DXB",
+  "out": "2026-11-27"
+ },
+ {
+  "key": "IST_out",
+  "city": "Istanbul",
+  "frm": "DXB",
+  "to": "IST",
+  "out": "2026-11-20"
+ },
+ {
+  "key": "IST_back",
+  "city": "Istanbul",
+  "frm": "IST",
+  "to": "DXB",
+  "out": "2026-11-27"
+ },
+ {
+  "key": "HBE_out",
+  "city": "Alexandria",
+  "frm": "DXB",
+  "to": "HBE",
+  "out": "2026-11-20"
+ },
+ {
+  "key": "HBE_back",
+  "city": "Alexandria",
+  "frm": "HBE",
+  "to": "DXB",
+  "out": "2026-11-27"
+ },
+ {
+  "key": "AMM_out",
+  "city": "Amman",
+  "frm": "DXB",
+  "to": "AMM",
+  "out": "2026-11-20"
+ },
+ {
+  "key": "AMM_back",
+  "city": "Amman",
+  "frm": "AMM",
+  "to": "DXB",
+  "out": "2026-11-27"
+ }
+]

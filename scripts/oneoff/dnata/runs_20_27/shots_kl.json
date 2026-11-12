@@ -1,0 +1,21 @@
+{
+ "17": {
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+ },
+ "18": {
+  "shown_total": 4825.0,
+  "flight_delta_shown": 905.0,
+  "screenshot": "runs_20_27/shots/18_Dorsett_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/218579?sort=PRICE_LOWEST_FIRST&tripId=3657fcd2-dbc7-4379-8c82-6104c9c8ad31&checkIn=2026-11-20&checkOut=2026-11-25&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 5,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 21 Nov 2026 - Wed 25 Nov 2026 (4 nights)  To Fri 20 Nov 2026 - Wed 25 Nov 2026 (5 nights)  Proceed Cancel"
+ },
+ "19": {
+  "shown_total": 5549.0,
+  "flight_delta_shown": 905.0,
+  "screenshot": "runs_20_27/shots/19_The_Royale_Chulan_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1670773?sort=PRICE_LOWEST_FIRST&tripId=8a8564fd-6ebb-45c5-8f89-5d304c635cc3&checkIn=2026-11-20&checkOut=2026-11-25&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 5,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 21 Nov 2026 - Wed 25 Nov 2026 (4 nights)  To Fri 20 Nov 2026 - Wed 25 Nov 2026 (5 nights)  Proceed Cancel"
+ }
+}

@@ -81,5 +81,25 @@
   "seen_names": [],
   "board_rule": "cheapest (no B&B)",
   "note": "hotel not found on dnata for these dates"
+ },
+ "31": {
+  "row": 31,
+  "city": "Los Angeles",
+  "sheet_name": "Luxe City Center",
+  "destination": "Los Angeles, California, USA (28179)",
+  "seen_names": [
+   "Luxe Sunset Boulevard Hotel"
+  ],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "35": {
+  "row": 35,
+  "city": "Makkah",
+  "sheet_name": "Fairmont Makkah Clock Royal Tower (Umrah)",
+  "destination": "Makkah, Saudi Arabia (531)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
  }
 }

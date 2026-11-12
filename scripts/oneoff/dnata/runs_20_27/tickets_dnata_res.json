@@ -234,5 +234,61 @@
   "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=HBE&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
   "total_direct": 0,
   "airlines": {}
+ },
+ "AMM_out": {
+  "key": "AMM_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-20&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=AMM&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 19,
+  "airlines": {
+   "Royal Jordanian Airlines": {
+    "min": 650,
+    "max": 1482,
+    "n": 5,
+    "min_flight": "RJ0613 06:45",
+    "max_flight": "RJ0611 13:45"
+   },
+   "Flydubai": {
+    "min": 669.5,
+    "max": 669.5,
+    "n": 2,
+    "min_flight": "FZ0143 19:30",
+    "max_flight": "FZ0143 19:30"
+   },
+   "Emirates": {
+    "min": 937.88,
+    "max": 1819.38,
+    "n": 12,
+    "min_flight": "EK0903 14:30",
+    "max_flight": "EK0903 14:30"
+   }
+  }
+ },
+ "AMM_back": {
+  "key": "AMM_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-27&tripType=FLIGHT&depAirports=AMM&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 17,
+  "airlines": {
+   "Flydubai": {
+    "min": 813.7,
+    "max": 813.7,
+    "n": 2,
+    "min_flight": "FZ0148 10:55",
+    "max_flight": "FZ0148 10:55"
+   },
+   "Emirates": {
+    "min": 1071.13,
+    "max": 2260.13,
+    "n": 12,
+    "min_flight": "EK0904 18:45",
+    "max_flight": "EK0904 18:45"
+   },
+   "Royal Jordanian Airlines": {
+    "min": 1419.6,
+    "max": 1419.6,
+    "n": 3,
+    "min_flight": "RJ0612 00:30",
+    "max_flight": "RJ0612 00:30"
+   }
+  }
  }
 }

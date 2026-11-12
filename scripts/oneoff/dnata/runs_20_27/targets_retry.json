@@ -1,0 +1,104 @@
+[
+ {
+  "row": 5,
+  "city": "Istanbul",
+  "term": "Dosso Dossi Hotels & SPA Golden Horn",
+  "keys": [
+   "dosso"
+  ],
+  "sheet_name": "Dosso Dossi Hotels Golden Horn",
+  "estab": "2844222"
+ },
+ {
+  "row": 6,
+  "city": "Istanbul",
+  "term": "Titanic City Taksim",
+  "keys": [
+   "titanic"
+  ],
+  "sheet_name": "Titanic City Hotel",
+  "exclude": [],
+  "estab": "740947"
+ },
+ {
+  "row": 8,
+  "city": "London",
+  "term": "Riverbank",
+  "keys": [
+   "riverbank"
+  ],
+  "sheet_name": "Park Plaza Riverbank London",
+  "exclude": []
+ },
+ {
+  "row": 10,
+  "city": "Munich",
+  "term": "Hilton Munich",
+  "keys": [
+   "hilton",
+   "park"
+  ],
+  "sheet_name": "hilton munich park",
+  "exclude": []
+ },
+ {
+  "row": 12,
+  "city": "Munich",
+  "term": "Pullman",
+  "keys": [
+   "pullman"
+  ],
+  "sheet_name": "Pullman Munich",
+  "exclude": []
+ },
+ {
+  "row": 22,
+  "city": "Maldives",
+  "term": "Summer Island Maldives",
+  "keys": [
+   "summer island"
+  ],
+  "sheet_name": "Summer Island Maldives",
+  "estab": "1507017"
+ },
+ {
+  "row": 24,
+  "city": "Amman",
+  "term": "Corp Amman Hotel",
+  "keys": [
+   "corp"
+  ],
+  "sheet_name": "Corp Executive Hotel",
+  "estab": "3778112"
+ },
+ {
+  "row": 27,
+  "city": "Cairo",
+  "term": "Borg",
+  "keys": [
+   "borg"
+  ],
+  "sheet_name": "Novotel Cairo El Borg",
+  "exclude": []
+ },
+ {
+  "row": 31,
+  "city": "Los Angeles",
+  "term": "Luxe",
+  "keys": [
+   "luxe city"
+  ],
+  "sheet_name": "Luxe City Center",
+  "exclude": []
+ },
+ {
+  "row": 35,
+  "city": "Makkah",
+  "term": "Fairmont",
+  "keys": [
+   "fairmont"
+  ],
+  "sheet_name": "Fairmont Makkah Clock Royal Tower (Umrah)",
+  "exclude": []
+ }
+]

@@ -1,0 +1,85 @@
+{
+ "5": {
+  "row": 5,
+  "city": "Istanbul",
+  "sheet_name": "Dosso Dossi Hotels Golden Horn",
+  "destination": "Istanbul, Turkey (384)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "6": {
+  "row": 6,
+  "city": "Istanbul",
+  "sheet_name": "Titanic City Hotel",
+  "destination": "Istanbul, Turkey (384)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "8": {
+  "row": 8,
+  "city": "London",
+  "sheet_name": "Park Plaza Riverbank London",
+  "destination": "London, United Kingdom (25943)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "10": {
+  "row": 10,
+  "city": "Munich",
+  "sheet_name": "hilton munich park",
+  "destination": "Munich, Germany (462)",
+  "seen_names": [
+   "Hampton By Hilton Munich Airport South",
+   "Hampton By Hilton Munich City North",
+   "Hampton By Hilton Munich City West",
+   "Hilton Munich City Hotel",
+   "Hilton Munich Airport",
+   "Hampton By Hilton Munich Airport South",
+   "Hampton By Hilton Munich City North",
+   "Hampton By Hilton Munich City West",
+   "Hilton Munich Airport",
+   "Hilton Munich City Hotel"
+  ],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "12": {
+  "row": 12,
+  "city": "Munich",
+  "sheet_name": "Pullman Munich",
+  "destination": "Munich, Germany (462)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "22": {
+  "row": 22,
+  "city": "Maldives",
+  "sheet_name": "Summer Island Maldives",
+  "destination": "Maldives, None (65)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "24": {
+  "row": 24,
+  "city": "Amman",
+  "sheet_name": "Corp Executive Hotel",
+  "destination": "Amman, Jordan (311)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "27": {
+  "row": 27,
+  "city": "Cairo",
+  "sheet_name": "Novotel Cairo El Borg",
+  "destination": "Cairo, Egypt (199)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ }
+}

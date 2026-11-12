@@ -1,0 +1,27 @@
+{
+ "14": {
+  "shown_total": 4980.0,
+  "flight_delta_shown": 1078.0,
+  "screenshot": "runs_20_27/shots/14_Holiday_Inn_Bangkok_Silom.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/320684?sort=PRICE_LOWEST_FIRST&tripId=07804bf8-25f0-4179-a1e5-dfb37f218751&checkIn=2026-11-20&checkOut=2026-11-25&destIds=364&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "15": {
+  "shown_total": 5372.0,
+  "flight_delta_shown": 1078.0,
+  "screenshot": "runs_20_27/shots/15_DoubleTree_by_Hilton_Bangkok_Ploenchit.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/320581?sort=PRICE_LOWEST_FIRST&tripId=95e146d8-924a-4196-a158-bff1d086058a&checkIn=2026-11-20&checkOut=2026-11-25&destIds=364&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 4,
+  "notice": null
+ },
+ "17": {
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+ },
+ "18": {
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+ },
+ "19": {
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+ }
+}

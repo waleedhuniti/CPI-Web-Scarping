@@ -70,7 +70,7 @@ EK = {"delhi": "DEL", "london": "LHR", "riyadh": "RUH", "karachi": "KHI", "new y
 ek = json.load(open(os.path.join(RD, "ek_res.json"), encoding="utf-8")) if os.path.exists(os.path.join(RD, "ek_res.json")) else None
 for key, r0 in rows_of(dom, EK, 4).items():
     if ek is None:
-        why = "موقع الإماراتية يرفض البحث من المتصفح الآلي؛ يبقى يدوياً"
+        why = "الإماراتية: لم تُسحب آلياً هذا الأسبوع (موقعها يرفض الخوادم السحابية)؛ تُجمع يدوياً"
         res = None
     else:
         res = ek.get(EK[key]) or {}
@@ -85,11 +85,11 @@ for key, r0 in rows_of(dom, EK, 4).items():
 FOREIGN = {
     "delhi": ("طيران الهند", "air_airindia_res.json", "DEL", "موقع طيران الهند يحجب المتصفح الآلي؛ يبقى يدوياً"),
     "london": ("الخطوط البريطانية", "air_ba_res.json", "LHR", "قائمة رحلات البريطانية محجوبة للمتصفح الآلي؛ يظهر أقل سعر للذهاب فقط من شريط التواريخ"),
-    "riyadh": ("الخطوط السعودية", "air_saudia_res.json", "RUH", "لم يكتمل السحب"),
-    "isb": ("الخطوط الباكستانية", "air_pia_res.json", "ISB", "لم يكتمل السحب"),
+    "riyadh": ("الخطوط السعودية", "air_saudia_res.json", "RUH", "زر البحث في موقع السعودية لم يستجب في هذا السحب؛ لم يُسحب"),
+    "isb": ("الخطوط الباكستانية", "air_pia_res.json", "ISB", "موقع الخطوط الباكستانية يتطلب تجاوز تحقق Cloudflare، وهذا غير مسموح لنا؛ يبقى يدوياً"),
     "istanbul": ("الخطوط التركية", "air_turkish_res.json", "IST", "موقع الخطوط التركية يطلب تحقق بشري؛ يبقى يدوياً"),
-    "cairo": ("مصر للطيران", "air_egyptair_res.json", "CAI", "موقع مصر للطيران أظهر تحقق Cloudflare قبل نموذج البحث في هذا السحب؛ لم يُسحب"),
-    "amman": ("الملكية الأردنية", "air_rj_res.json", "AMM", "لم يكتمل السحب"),
+    "cairo": ("مصر للطيران", "air_egyptair_res.json", "CAI", "بحث موقع مصر للطيران لم يُرجع رحلات في هذا السحب؛ لم يُسحب"),
+    "amman": ("الملكية الأردنية", "air_rj_res.json", "AMM", "زر البحث في موقع الملكية الأردنية لم يستجب في هذا السحب؛ لم يُسحب"),
 }
 src = wb["الطيران الاجنبى"]
 fo = wb.copy_worksheet(src); fo.title = f"أجنبي {dt.date.fromisoformat(OUT_D).day}-{dt.date.fromisoformat(BACK_D).day} نوفمبر"; fo.sheet_view.rightToLeft = src.sheet_view.rightToLeft
@@ -108,7 +108,7 @@ for c in det[1]: c.font = Font(bold=True)
 for col, w in zip("ABCDEFG", (16, 22, 9, 12, 10, 9, 18)): det.column_dimensions[col].width = w
 m = wb.create_sheet("المنهجية"); m.sheet_view.rightToLeft = True
 for line in [f"تاريخ السحب {dt.date.today().isoformat()}. بحث ذهاب وعودة من دبي: ذهاب {day(OUT_D)}، عودة {day(BACK_D)} 2026، بالغ واحد، الدرجة السياحية، رحلات مباشرة للشركة نفسها، بالدرهم.",
-             "المصدر: موقع كل شركة مباشرة (flydubai.com، emirates.com، saudia.com، egyptair.com، rj.com، book-pia.crane.aero، britishairways.com).",
+             "المصدر: موقع كل شركة مباشرة (flydubai.com، saudia.com، egyptair.com، rj.com، britishairways.com) بمتصفح عادي بهويته الحقيقية، دون أدوات تخفٍّ. الإماراتية والباكستانية وطيران الهند والتركية يدوية.",
              "لكل رحلة يؤخذ أرخص سعر سياحي لها. أقل سعر = أرخص رحلة في اليوم، أعلى سعر = أغلى رحلة؛ إذا تساويا يُترك أعلى سعر فارغاً، ويحسب مجموع أعلى سعر من أقل سعر لذلك الاتجاه.",
              "إذا لم توجد رحلة يوم الذهاب أو العودة يؤخذ اليوم الذي بعده (مظلل بالأصفر مع ملاحظة).",
              "الإماراتية: بحث باتجاه واحد لكل رحلة (دبي إلى المدينة يوم الذهاب، والمدينة إلى دبي يوم العودة)، أرخص سعر سياحي لكل رحلة مباشرة وغير مباشرة كما تظهر.",

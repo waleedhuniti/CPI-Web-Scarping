@@ -1,0 +1,77 @@
+{
+ "4": {
+  "row": 4,
+  "city": "Istanbul",
+  "sheet_name": "Radisson hotel president beyazit",
+  "destination": "Istanbul, Turkey (384)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Radisson Blu Hotel, Istanbul Sisli",
+  "estab_id": "3692611",
+  "stars": 5,
+  "board": "Bed And Breakfast",
+  "package_default": 4124.3,
+  "default_flight": "Flydubai / Flydubai",
+  "flight": "EK0117 17:45 / EK0118 23:40",
+  "flight_delta": 838.3,
+  "total": 4962.6
+ },
+ "5": {
+  "row": 5,
+  "city": "Istanbul",
+  "sheet_name": "Dosso Dossi Hotels Golden Horn",
+  "destination": "Istanbul, Turkey (384)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "6": {
+  "row": 6,
+  "city": "Istanbul",
+  "sheet_name": "Titanic City Hotel",
+  "destination": "Istanbul, Turkey (384)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "7": {
+  "row": 7,
+  "city": "London",
+  "sheet_name": "Doubletree by hilton london (Tower of London)",
+  "destination": "London, United Kingdom (25943)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "DoubleTree by Hilton London - Tower of London",
+  "estab_id": "2237703",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 7149.2,
+  "default_flight": "Pegasus Airlines / Pegasus Airlines / Pegasus Airlines / Pegasus Airlines",
+  "flight": "EK0067 14:30 / EK0066 14:05",
+  "flight_delta": 1297.5,
+  "total": 8446.7
+ },
+ "8": {
+  "row": 8,
+  "city": "London",
+  "sheet_name": "Park Plaza Riverbank London",
+  "destination": "London, United Kingdom (25943)",
+  "seen_names": [],
+  "board_rule": "cheapest (no B&B)",
+  "note": "hotel not found on dnata for these dates"
+ },
+ "9": {
+  "row": 9,
+  "city": "London",
+  "sheet_name": "Hilton London metropole",
+  "destination": "London, United Kingdom (25943)",
+  "board_rule": "Bed & Breakfast",
+  "hotel_found": "Hilton London Metropole",
+  "estab_id": "123600",
+  "stars": 4,
+  "board": "Bed And Breakfast",
+  "package_default": 7955.2,
+  "default_flight": "Pegasus Airlines / Pegasus Airlines / Pegasus Airlines / Pegasus Airlines",
+  "flight": "EK0067 14:30 / EK0066 14:05",
+  "flight_delta": 1297.5,
+  "total": 9252.7
+ }
+}

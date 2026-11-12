@@ -1,0 +1,16 @@
+[
+ {
+  "key": "DEL_out",
+  "city": "Delhi",
+  "frm": "DXB",
+  "to": "DEL",
+  "out": "2026-11-21"
+ },
+ {
+  "key": "DEL_back",
+  "city": "Delhi",
+  "frm": "DEL",
+  "to": "DXB",
+  "out": "2026-11-28"
+ }
+]

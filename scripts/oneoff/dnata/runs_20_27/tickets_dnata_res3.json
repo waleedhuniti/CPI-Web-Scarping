@@ -1,0 +1,51 @@
+{
+ "DEL_out": {
+  "key": "DEL_out",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-21&tripType=FLIGHT&depAirports=DXB&adults=1&arrivalAirport=DEL&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 9,
+  "airlines": {
+   "Air India": {
+    "min": 1201.2,
+    "max": 1367.6,
+    "n": 8,
+    "min_flight": "AI0930 11:45",
+    "max_flight": "AI0918 13:45"
+   },
+   "Flydubai": {
+    "min": 3934.6,
+    "max": 3934.6,
+    "n": 1,
+    "min_flight": "FZ0441 05:05",
+    "max_flight": "FZ0441 05:05"
+   }
+  }
+ },
+ "DEL_back": {
+  "key": "DEL_back",
+  "url": "https://www.dnatatravel.com/flights?checkIn=2026-11-28&tripType=FLIGHT&depAirports=DEL&adults=1&arrivalAirport=DXB&cabin=1&dateSearchType=CHOOSE_DATE&flightFilters.stop=0&fsort=PRICE_LOWEST_FIRST&flightJourneyType=ONEWAY",
+  "total_direct": 17,
+  "airlines": {
+   "Air India": {
+    "min": 1014,
+    "max": 1222,
+    "n": 8,
+    "min_flight": "AI0929 07:40",
+    "max_flight": "AI0995 19:20"
+   },
+   "Flydubai": {
+    "min": 1781.9,
+    "max": 1781.9,
+    "n": 1,
+    "min_flight": "FZ0442 10:55",
+    "max_flight": "FZ0442 10:55"
+   },
+   "Emirates": {
+    "min": 2772.63,
+    "max": 2793.13,
+    "n": 8,
+    "min_flight": "EK0513 04:10",
+    "max_flight": "EK0513 04:10"
+   }
+  }
+ }
+}

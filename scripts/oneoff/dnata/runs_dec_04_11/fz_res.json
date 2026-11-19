@@ -72,5 +72,60 @@
     }
    ]
   }
+ },
+ "KHI": {
+  "airport": "KHI",
+  "out": {
+   "date": "2026-12-04",
+   "shifted_days": 0,
+   "lowest": 450.0,
+   "highest": 450.0,
+   "flights": [
+    {
+     "flight": "FZ 333",
+     "dep": "2026-12-04T06:00:00",
+     "from": 450.0,
+     "route": "DXB-KHI"
+    },
+    {
+     "flight": "FZ 335",
+     "dep": "2026-12-04T12:25:00",
+     "from": 450.0,
+     "route": "DXB-KHI"
+    },
+    {
+     "flight": "FZ 329",
+     "dep": "2026-12-04T20:30:00",
+     "from": 450.0,
+     "route": "DXB-KHI"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-12-11",
+   "shifted_days": 0,
+   "lowest": 560.0,
+   "highest": 560.0,
+   "flights": [
+    {
+     "flight": "FZ 336",
+     "dep": "2026-12-11T16:25:00",
+     "from": 560.0,
+     "route": "KHI-DXB"
+    },
+    {
+     "flight": "FZ 330",
+     "dep": "2026-12-11T00:30:00",
+     "from": 560.0,
+     "route": "KHI-DXB"
+    },
+    {
+     "flight": "FZ 334",
+     "dep": "2026-12-11T10:00:00",
+     "from": 560.0,
+     "route": "KHI-DXB"
+    }
+   ]
+  }
  }
 }

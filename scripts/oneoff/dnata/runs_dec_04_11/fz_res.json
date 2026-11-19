@@ -1,0 +1,76 @@
+{
+ "DEL": {
+  "airport": "DEL",
+  "out": {
+   "date": "2026-12-05",
+   "shifted_days": 1,
+   "lowest": 1726.0,
+   "highest": 1726.0,
+   "flights": [
+    {
+     "flight": "FZ 441",
+     "dep": "2026-12-05T04:55:00",
+     "from": 1726.0,
+     "route": "DXB-DEL"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-12-12",
+   "shifted_days": 1,
+   "lowest": 1046.0,
+   "highest": 1046.0,
+   "flights": [
+    {
+     "flight": "FZ 442",
+     "dep": "2026-12-12T10:55:00",
+     "from": 1046.0,
+     "route": "DEL-DXB"
+    }
+   ]
+  }
+ },
+ "RUH": {
+  "airport": "RUH",
+  "out": {
+   "date": "2026-12-04",
+   "shifted_days": 0,
+   "lowest": 1149.0,
+   "highest": 1149.0,
+   "flights": [
+    {
+     "flight": "FZ 855",
+     "dep": "2026-12-04T19:20:00",
+     "from": 1149.0,
+     "route": "DXB-RUH"
+    },
+    {
+     "flight": "FZ 847",
+     "dep": "2026-12-04T07:50:00",
+     "from": 1149.0,
+     "route": "DXB-RUH"
+    }
+   ]
+  },
+  "back": {
+   "date": "2026-12-11",
+   "shifted_days": 0,
+   "lowest": 1211.0,
+   "highest": 1211.0,
+   "flights": [
+    {
+     "flight": "FZ 848",
+     "dep": "2026-12-11T09:55:00",
+     "from": 1211.0,
+     "route": "RUH-DXB"
+    },
+    {
+     "flight": "FZ 856",
+     "dep": "2026-12-11T21:25:00",
+     "from": 1211.0,
+     "route": "RUH-DXB"
+    }
+   ]
+  }
+ }
+}

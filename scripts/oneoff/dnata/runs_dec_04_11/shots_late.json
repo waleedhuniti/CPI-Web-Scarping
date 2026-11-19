@@ -1,0 +1,32 @@
+{
+ "14": {
+  "shown_total": 5256.0,
+  "flight_delta_shown": 1766.0,
+  "screenshot": "runs_dec_04_11/shots/14_Holiday_Inn_Bangkok_Silom.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/320684?sort=PRICE_LOWEST_FIRST&tripId=ea5a6d9a-b53c-43fc-b51a-72aee7d20baf&checkIn=2026-12-04&checkOut=2026-12-09&destIds=364&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 5,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 05 Dec 2026 - Wed 09 Dec 2026 (4 nights)  To Fri 04 Dec 2026 - Wed 09 Dec 2026 (5 nights)  Proceed Cancel"
+ },
+ "15": {
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+ },
+ "17": {
+  "shown_total": 6772.0,
+  "flight_delta_shown": 2109.0,
+  "screenshot": "runs_dec_04_11/shots/17_Traders_Hotel_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/321298?sort=PRICE_LOWEST_FIRST&tripId=da428be5-0c14-4677-b6fd-ce88ce96f5b8&checkIn=2026-12-04&checkOut=2026-12-09&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 5,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 05 Dec 2026 - Wed 09 Dec 2026 (4 nights)  To Fri 04 Dec 2026 - Wed 09 Dec 2026 (5 nights)  Proceed Cancel"
+ },
+ "18": {
+  "error": "TimeoutError: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Your selected flights\").first\n"
+ },
+ "19": {
+  "shown_total": 5743.0,
+  "flight_delta_shown": 2109.0,
+  "screenshot": "runs_dec_04_11/shots/19_The_Royale_Chulan_Kuala_Lumpur.png",
+  "page_url": "https://www.dnatatravel.com/holidays/hotels/1670773?sort=PRICE_LOWEST_FIRST&tripId=d467675a-baa3-44ee-b6c7-eb33a504d225&checkIn=2026-12-04&checkOut=2026-12-09&destIds=485&tripType=HOLIDAY&rooms.0.adults=1&depAirports=DXB&adults=1&cabin=1&dateSearchType=CHOOSE_DATE&priceDisplayMode=2&flightFilters.stop=0&flightFilters.airline=Emirates",
+  "nights_shown": 5,
+  "notice": "Important Notice  Choosing this flight will increase the number of nights booked for this hotel:  From Sat 05 Dec 2026 - Wed 09 Dec 2026 (4 nights)  To Fri 04 Dec 2026 - Wed 09 Dec 2026 (5 nights)  Proceed Cancel"
+ }
+}

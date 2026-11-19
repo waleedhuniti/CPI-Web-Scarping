@@ -118,5 +118,5 @@ def tickets():
     print("tickets ->", T_OUT, wb.sheetnames)
 
 
-packages()
-tickets()
+if P_WEEK != "-": packages()
+if T_WEEK != "-": tickets()
